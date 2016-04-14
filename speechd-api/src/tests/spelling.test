@@ -1,0 +1,39 @@
+
+@ Hello, this is a spelling test
+
+@ Set parameters and test if Speech Dispatcher works
+!SET SELF CLIENT_NAME unknown_user:test-spelling:main
+!SET SELF PRIORITY MESSAGE
+
+!SPEAK
+I'm ok.
+. 
+
+@ Try to say something with spelling on:
+!SET SELF SPELLING ON
+
+!SPEAK
+   The most beautiful experience we can have is the mysterious. It is the fundamental emotion which
+   stands at the cradle of true art and true science.
+         --  Albert Einstein (1879-1955) U. S. physicist, born in Germany
+.
+
+
+$30
+
+@ Turn spelling off
+!SET SELF SPELLING OFF
+
+!SPEAK
+  One thing that makes the adventure of working in our field particularly rewarding, especially in
+  attempting to improve the theory, is that... a chief criterion for the selection of a correct
+  hypothesis... seems to be the criterion of beauty, simplicity, or elegance.
+    --  Murray Gell-Mann (1929- ) U. S. Physicist (Nobel Prize, 1969)
+.
+
+$30
+
+@  Ok, bye...
+!QUIT
+
+

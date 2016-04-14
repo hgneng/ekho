@@ -1,0 +1,57 @@
+
+CMU ARCTIC SLT
+
+This directory contains a recording of the phonetically balanced US
+English CMU ARCTIC database by SLT, a female US English speaker.
+
+See http://www.festvox.org/cmu_arctic/ for details on the 
+database coverage and other recordings of this dataset
+
+The format follows the Festvox (http://www.festvox.org) directory
+structure.
+
+The directory structure is 
+ bin/
+     basic scripts for building prompts, labelling feature files etc.s
+ cep/
+     Ceptrum files dynamically created in phone autolabellingl
+ dic/
+     Final diphone dictionary final (used at run-time)
+ etc/
+     prompt file, and some labelling templates 
+ festival/
+     Not used in diphone bases
+ festvox/
+     scheme voice definition files (used at run-time)
+ group/
+     extracted diphones into signle group file for distribution
+ lab/
+     autolabelled phone labels
+ lar/
+     recorded EGG signal files (not used in this example)
+ lpc/
+     LPC parameters plus residuals, (used at run-time for nongrouped version)
+ mcep/
+     MFCC (Mel Frequency Cepstrum Coefficients) not used in diphone databases
+ pm/
+     Pitchmark files as extract from waveforms (or EGG signal)
+ pm_lab/
+     derived pitchmark labeled files from pm/ enabling emulabel (and others
+     display programs) to show the pitchmarks and waveform files.
+ prompt-cep/
+     cepstrum files for
+ prompt-lab/
+     label files for synthesized prompts 
+ prompt-wav/
+     waveforms of synthesized prompts
+ prompt-utts/
+     utterances of synthesized prompts
+ wav/
+     recorded spoken nonsense words (in Microsoft riff (wav) format).
+     If you are using Xwaves you should convert these to NIST format
+
+
+
+
+
+

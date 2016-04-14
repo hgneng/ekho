@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Version=1.0
+Name=Speech Dispatcher
+Comment=Interface to Text to Speech services
+TryExec=speech-dispatcher
+Exec=speech-dispatcher
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Phase=Initialization

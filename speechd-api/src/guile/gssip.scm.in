@@ -1,0 +1,88 @@
+;;; SSIP interface
+
+;; Copyright (C) 2004 Brailcom, o.p.s.
+
+;; Author: Milan Zamazal <pdm@brailcom.org>
+
+;; COPYRIGHT NOTICE
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+;; or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+;; for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program; if not, write to the Free Software
+;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
+
+
+(load-extension "%%path%%/gssip" "init_gssip")
+
+
+(define (ssip-open host port user client component)
+  (%ssip-open user client component))
+
+(define (ssip-close connection)
+  (%ssip-close connection))
+
+(define (ssip-say-text connection text priority)
+  (%ssip-say-text connection text priority))
+
+(define (ssip-say-character connection character priority)
+  (%ssip-say-character connection character priority))
+
+(define (ssip-say-key connection key priority)
+  (%ssip-say-key connection key priority))
+
+(define (ssip-say-icon connection sound priority)
+  (%ssip-say-icon connection sound priority))
+
+(define (ssip-stop connection id)
+  (%ssip-stop connection id))
+
+(define (ssip-cancel connection id)
+  (%ssip-cancel connection id))
+
+(define (ssip-pause connection id)
+  (%ssip-pause connection id))
+
+(define (ssip-resume connection id)
+  (%ssip-resume connection id))
+
+(define (ssip-set-language connection language)
+  (%ssip-set-language connection language))
+
+(define (ssip-set-output-module connection output-module)
+  (%ssip-set-output-module connection output-module))
+
+(define (ssip-set-rate connection rate)
+  (%ssip-set-rate connection rate))
+
+(define (ssip-set-pitch connection pitch)
+  (%ssip-set-pitch connection pitch))
+
+(define (ssip-set-volume connection volume)
+  (%ssip-set-volume connection volume))
+
+(define (ssip-set-voice connection voice)
+  (%ssip-set-voice connection voice))
+
+(define (ssip-set-punctuation-mode connection mode)
+  (%ssip-set-punctuation-mode connection mode))
+
+(define (ssip-set-spelling-mode connection mode)
+  (%ssip-set-spelling-mode connection mode))
+
+(define (ssip-block connection priority function)
+  (%ssip-say-text connection "" priority)
+  (%ssip-raw-command connection "BLOCK BEGIN")
+  (catch #t (function) (lambda (key . args)))
+  (%ssip-raw-command connection "BLOCK END"))
+
+
+(provide 'gssip)

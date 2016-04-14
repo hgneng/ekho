@@ -1,0 +1,92 @@
+
+Speech Dispatcher 0.7.1
+=======================
+
+The Brailcom organization is happy to announce the availability of
+Speech Dispatcher 0.7.1 developed as a part of the Free(b)Soft
+project. This is a minor release, it contains mostly bugfixes.  Please
+read `NOTES' bellow.
+
+* What is Speech Dispatcher?
+
+  Speech Dispatcher is a device independent layer for speech
+  synthesis, developed with the goal of making the usage of speech
+  synthesis easier for application programmers. It takes care of most
+  of the tasks necessary to solve in speech enabled applications. What
+  is a very high level GUI library to graphics, Speech Dispatcher is
+  to speech synthesis.
+
+  Key Speech Dispatcher features are:
+
+  - Message priority model that allows multiple simultaneous
+    connections to Speech Dispatcher from one or more clients
+    and tries to provide the user with the most important messages.
+
+  - Different output modules that talk to different synthesizers so
+    that the programmer doesn't need to care which particular
+    synthesizer is being used. Currently Festival, Flite, Epos, Espeak
+    and (non-free) Dectalk software, IBM TTS and others are supported.
+    Festival is an advanced Free Software synthesizer supporting
+    various languages. Espeak is a very fast multi-lingual
+    synthesizer.
+
+  - Simple interface for programs written in C, C++ provided through a
+    shared library. Python, Common Lisp and Guile interface. An Elisp
+    and Java libraries are developed as sperate projects speechd-el
+    and speechd-java. Possibly an interface to any other language can
+    be developed.
+
+* What is new in 0.7.1?
+
+ * Easy configuration of the client communication method using a single
+   environment variable SPEECHD_ADDRESS.
+
+ * Advanced autospawn -- server is autostarted only when its communication
+   channel matches the communication channels requested by the client.
+   Local server is not started  when client attempts to connect to a remote
+   server.
+
+ * Both libspeechd and python library now report a detailed error information
+   in case of connection failure (why has connect failed, why was it not
+   possible to autostart the server, what has the server reported etc.)
+   Clients can directly show this information to the user and the user
+   doesn't have to search them in logfiles.
+
+ * Improvements in memmory usage
+
+ * Cleanup of priorities of messages in logging output
+
+ * Various bugfixes, cleanups and fine-tunnings
+
+Apart from the ones mentioned, we are thankful to the many
+developers who have contributed to this release.
+
+NOTES: 
+
+ * There are changes in the configuration file, it is recommended
+   to replace your configuration with the new version
+
+ * Common Lisp, Guile and Java libraries do not support the socket
+   communication method in this release
+
+* Where to get it?
+
+  You can get the distribution tarball of the released version from
+  http://www.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.7.1.tar.gz
+
+  We recommend you to fetch the sound icons for use with Speech Dispatcher.
+  They are available at
+  http://www.freebsoft.org/pub/projects/sound-icons/sound-icons-0.1.tar.gz
+
+  Corresponding Debian, Gentoo and Ubuntu packages will soon be available at
+  your distribution mirrors.
+
+  The home page of the project is http://www.freebsoft.org/speechd
+
+* How to report bugs?
+
+  Please report bugs at <speechd-@bugs@lists.freebsoft.org>. For other
+  contact please use <speechd@lists.freebsoft.org>
+  
+
+Happy synthesizing!

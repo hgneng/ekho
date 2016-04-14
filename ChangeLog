@@ -1,0 +1,20 @@
+6.3: support [[pin1 yin1]] style
+6.2: use kal male voice as default English voice of Mandarin because it's more clear. Other female voices are in huge size.
+6.0: Voice data is re-format into one file.
+5.7: Much noise is removed. word context is added as an extended feature.
+5.6: Festival and estools lib will be detected automatically. Festival static libraries are no longer a must.
+5.3: speeched API is practically usable. Run `install.pl`
+5.2: Naturalness of voice is greatly improved.
+5.1: Female (cmu_us_slt_arctic_hts) English voice is added
+5.0: Tibetan is supported
+4.11: speech-dispatcher API implemented
+4.10: Add feature to handle numbers
+4.8: Hakka language is added
+4.7: Festival is disable by default
+4.2: sonic is used as the default library for changing speed instead of SoundTouch. SoundTouch can be enable with `configure --enable-soundtouch`
+4.0: Dictionary module is rewritten. Much faster. Android is supported
+3.0: Server Mode is supported
+2.6: Ubuntu(deb), Fedora(RPM), FreeBSD are supported
+2.0: Rewritten in C++. SAPI5 supported
+0.91: A stable Windows Gtk version with Cantonese, Mandarin and Korean
+0.75: Korean is supported

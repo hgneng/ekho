@@ -1,0 +1,58 @@
+@ Test stop and pause functions in Speech Dispatcher.
+
+@ Note that not all synthesizers (output modules) support effective
+@ stop and pause.  If they do not, they should at least not crash
+@ or mangle the speech.
+
+!SET SELF NOTIFICATION ALL ON
+
+@ We'll begin by queueing a paragraph, waiting 2 seconds, stopping,
+@ and then queueing another message.  The paragraph contains several
+@ sentences.  If stop is working well, the speech should stop instantly,
+@ even if in the middle of a sentence.  The second message should
+@ not be prevented from being heard.
+
+$4
+!SPEAK
+When in the Course of human events it becomes necessary for one people
+to dissolve the political bands which have connected them with another
+and to assume among the powers of the earth, the separate and equal station
+to which the Laws of Nature and of Nature's God entitle them, a decent
+respect to the opinions of mankind requires that they should declare the
+causes which impel them to the separation.
+            -- United States Declaration of Independence
+. 
++BEGIN
+$2
+!STOP SELF
+$3
+!SPEAK
+The previous stop should not prevent this sentence from being heard.
+.
+$3
+
+@ Now we'll queue another request, pause it two seconds later, wait
+@ 8 seconds, and resume.  If working well, the pause should occur on
+@ a sentence boundary. It is acceptable if it pauses immediately,
+@ like a stop, but when resumed, it should repeat the last partial
+@ sentence.
+$2
+
+!SPEAK
+Jack and Jill went up the hill to fetch a pail of water.
+Jack fell down and broke his crown, and Jill came tumbling after.
+This sentence should not be heard until resumed.
+.
++701 BEGIN
+!PAUSE SELF
++704 PAUSED
+@ Speaking should now be paused.  Resuming in 4 seconds.
+$4
+!RESUME SELF
++705 RESUMED
+
++702 END
+
+!QUIT
+
+@ Tests completed.

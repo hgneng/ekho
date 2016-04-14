@@ -1,0 +1,39 @@
+These wav files show how Sonic performs at increasing speech rates.
+
+talking.wav
+This is my father talking, using a decent microphone and 44KHz sample rate.
+
+talking_2x.wav
+This is his voice sped up by 2X using Sonic.
+
+espeak_s450.wav
+Sonic also performs well at increasing the speed of synthesized speech.
+espeak_s450.wav was generated using 'espeak -s450 -f test1.txt -w
+espeak_s450.wav'.  This is the highest speed currently supported by espeak,
+though Sonic can speed up espeak to much faster rates.
+
+espeak_sonic.wav
+This was generated with 'espeak -f test1.txt -w out.wav;
+sonic 2.6 out.wav espeak_sonic.wav'.  Sonic sped it up 2.6X, which is about the
+same speed as espeak at -s450.  I personally feel that the sonic sped up sample
+sounds better than espeak at -s450.
+
+voxin_s110.wav
+This was generated with 'say -s110 -f test1.txt -w voxin_s110.wav'.  It's about
+3.1X faster than voxin's default rate.
+
+voxin_sonic_3.1x.wav
+This was generated with 'say -f test1.txt -w out.wav; sonic 3.1 out.wav
+voxin_sonic_3.1x.wav'.  It sounds almost identical to voxin_s110.wav, as far as I can
+tell, though one blind listener says he prefers the sound of voxin when sped up
+using sonic.
+
+voxin_s130.wav
+This was generated with 'say -s130 -f test1.txt -w voxin_s130.wav'.  It's about
+4.4X faster than voxin's default rate.
+
+voxin_sonic_4.4x.wav
+This was generated with 'say -f test1.txt -w out.wav; sonic 4.4 out.wav
+voxin_sonic_4.4x.wav'.  It sounds almost identical to voxin_s110.wav, as far as I can
+tell, though one blind listener says he prefers the sound of voxin when sped up
+using sonic.

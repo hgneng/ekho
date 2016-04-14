@@ -1,0 +1,12 @@
+ applications      protocol                    output modules 
+            interface      Speech Dispatcher core           synthesizers
+                          .-----------------------.
+|Emacspeak|    :s l:  < > |  Speech Dispatcher    | :m  :  |Apollo|
+               :h i:  <S> |    - configuration    | :o  :  |Festival|
+|Speakup|      :a b:  <S> | - synchronization     | :d A:  |Flite|
+               :r r:  <I> |        - sound icons  | :u P:     .
+|User center|  :e a:  <P> |  - history            | :l I:     .
+      .        :d r:  < > |   - punctuation, ...  | :e  :     .
+      .        :  y:  < > | [||| priority queues] | :   :     .
+      .        :   :  < > |                       | :   :     .
+                          `-----------------------'

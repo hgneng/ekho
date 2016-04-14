@@ -1,0 +1,52 @@
+@   This script is used to test VOICE functionality
+@   in Speech Dispatcher.
+
+$ 3
+!SET SELF VOICE MALE1
+!SPEAK
+This is the male 1 voice.
+.
+
+$ 3
+!SET SELF VOICE MALE2
+!SPEAK
+This is the male 2 voice.
+.
+
+$ 3
+!SET SELF VOICE MALE3
+!SPEAK
+This is the male 3 voice.
+.
+
+$ 3
+!SET SELF VOICE FEMALE1
+!SPEAK
+This is the female 1 voice.
+.
+
+$ 3
+!SET SELF VOICE FEMALE2
+!SPEAK
+This is the female 2 voice.
+.
+
+$ 3
+!SET SELF VOICE FEMALE3
+!SPEAK
+This is the female 3 voice.
+.
+
+$ 3
+!SET SELF VOICE CHILD_MALE
+!SPEAK
+This is the child male voice.
+.
+
+$ 3
+!SET SELF VOICE CHILD_FEMALE
+!SPEAK
+This is the child female voice.
+.
+
+!QUIT

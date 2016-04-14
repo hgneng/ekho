@@ -1,0 +1,182 @@
+\input texinfo   @c -*-texinfo-*-
+@c %**start of header
+@setfilename spd-say.info
+@settitle Say client to Speech Dispatcher
+@finalout
+@c @setchapternewpage odd
+@c %**end of header
+
+@set VERSION 0.4
+
+@dircategory Sound
+
+@direntry
+* Say for Speech Dispatcher: (spd-say).       Say.
+@end direntry
+
+@titlepage
+@title Say for Speech Dispatcher: (spd-say)
+@author Hynek Hanke <@email{hanke@@freebsoft.org}>
+
+@page
+@vskip 0pt plus 1filll
+
+This manual documents Say for Speech Dispatcher, version @value{VERSION}.
+
+Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+@end quotation
+
+@end titlepage
+
+@ifnottex
+@node Top,  , (dir), (dir)
+
+This manual documents Say for Speech Dispatcher, version @value{VERSION}.
+
+Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU Free Documentation License, Version 1.2 or any later version
+published by the Free Software Foundation; with no Invariant Sections, no
+Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included
+in the section entitled "GNU Free Documentation License".
+@end quotation
+@end ifnottex
+
+@ifhtml
+@heading Say for Speech Dispatcher
+@end ifhtml
+
+@chapter General
+
+@code{spd-say} is a very simple client for Speech Dispatcher that takes some text from the
+command line and some simple parameters and passes them to Speech Dispatcher
+for synthesis. The resulting synthesized speech is then played on your speakers.
+It can also be used for stopping and cancelling speech on Speech Dispatcher.
+
+Usage: @code{spd-say [options] ["some text"]}
+
+
+@table @code
+@item -r or --rate
+Set the rate of the speech (between -100 and +100, default see below).
+@item -p or --pitch
+Set the pitch of the speech (between -100 and +100, default see below).
+@item -i or --volume
+Set the volume (intensity) of the speech (between -100 and +100, default see below).
+@item -o or --output-module
+Set the output module.  Default see below.
+@item -l or --language
+Set the language. The parameter is an iso language code, like @code{en} or @code{cs}.
+Default see below.
+@item -t or --voice-type
+Set the prefered voice type (male1, male2, male3, female1, female2,
+female3, child_male, child_female).
+@item -m or --punctuation-mode
+Set the punctuation mode (none, some, all).  Default see below.
+@item -s or --spelling
+Spell the message.
+@item -x or --ssml
+Set SSML mode on (default: off).  The text contains SSML markup.
+@item -e or --pipe-mode
+Set pipe mode on (default: off).  Reads text from stdin, writes to stdout, and also
+sends to Speech Dispatcher.
+@item -w or --wait
+Wait till the end of speaking the message. In this mode, spd-say returns only after
+the message is fully spoken on the speakers or after it gets discarded.
+@item -S or --stop
+Stop the previous message in Speech Dispatcher (regardless of the client who sent
+it and it's priority) before saying the specified message. If no message is specified,
+it just performs the stop function.
+@item -C or --cancel
+Similar to @code{-S}, but it stops (cancels) all the messages in all the queues in
+Speech Dispatcher. Use this for total stop of speech.
+@item -v or --version
+Print version and copyright info.
+@item -h or --help
+Print a short help message.
+@end table
+
+Defaults for rate, pitch, and volume are determined by @code{DefaultRate},
+@code{DefaultPitch}, and @code{DefaultVolume} settings in the @code{speechd.conf} file.
+Factory defaults are 0, 0, and 100 respectively.
+
+The default language code is determined by the @code{DefaultLanguage} setting in
+the @code{speechd.conf} file.  Factory default is @code{en} (English).
+
+The default output module is determined by the @code{LanguageDefaultModule}
+setting in the @code{speechd.conf} file.  Factory default is @code{flite}.
+
+The default punctuation mode is determined by the @code{DefaultPunctuationMode}
+setting in the @code{speechd.conf} file.  Factory default is @code{none}.
+
+@chapter Pipe Mode
+
+In pipe mode (option @code{--pipe-mode} or @code{-e}), spd-say reads text from stdin, writes to stdout,
+and also sends the text to Speech Dispatcher.  Example:
+
+@example
+ $ cat README | spd-say -e
+@end example
+
+If a line begins with the characters
+@emph{!-!}, the line is sent to Speech Dispatcher as a SSIP command.  Example:
+
+@example
+ $ spd-say --pipe-mode
+ The quality of mercy is not strained.
+ !-!SET SELF VOICE FEMALE1
+ It droppeth as the gentle rain from heaven
+ Upon the place beneath: it is twice blest;
+ !-!SET SELF RATE 50
+ It blesseth him that gives and him that takes.
+ ^D
+@end example
+
+Note that each line of input is individually sent to Speech Dispatcher, therefore
+in the example above, the word @emph{heaven} is taken as the end of a sentence.
+It should be possible to use other text filtering utilities, such as @code{tr}
+or @code{fmt} to compensate.  For example, the following command would clean
+up most cases:
+
+@example
+ $ cat INSTALL | fmt -u -w 1500 | spd-say -e
+@end example
+
+If the text itself contains @emph{!-!}, just make sure it is not at the start
+of the line to prevent it from being interpreted as a SSIP command.  The following
+sed command will do the job:
+
+@example
+ $ cat myfile | sed -e 's/^!-!/ !-!/g' - | spd-say -e
+@end example
+
+The input is sent to Speech Dispatcher as fast as it will accept and queue it.
+To wait for each line to be spoken, use the @code{--wait} or @code{-w} option.  Example:
+
+@example
+ $ spd-say --pipe-mode -w
+ This line is spoken and processing waits for speaking to finish
+ before this line is sent to Speech Dispatcher.
+ ^D
+@end example
+
+You can abort a long speech narative with the @code{--cancel} or @code{-C} option.
+
+@example
+ $ spd-say -C
+@end example
+
+@bye
+
+@c speechd.texi ends here
+

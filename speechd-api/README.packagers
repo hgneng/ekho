@@ -1,0 +1,33 @@
+Notes for packagers of Speech Dispatcher.
+
+1) The 0.7.1 release has a clean make distcheck. You might find
+you do not need some of your additional patches from now.
+
+2) The way of installing the python bindings was changed from Setup
+Tools to Auto Tools in the 0.7.1 release as a part of the distcheck
+cleanup. This should not require any special action from you,
+but please check that the Python bindings are installed correctly
+in your package.
+
+3) The communication mechanism of Speech Dispatcher and the way of
+starting it has been severely reworked in the 0.7.x series. Some
+./configure variables as PIDPATH are no longer relevant. It is highly
+recommended to start Speech Dispatcher per-user in his user session
+and avoid starting it as a system service via /etc/init.d/. Please
+check the updated documentation, especially the part Technical
+Specification.
+
+4) It would be convenient if you could check where MBROLA
+voices are installed in your distribution (if your distribution
+provides a package for them) and modify the GenericExecuteString
+in config/modules/espeak-mbrola-generic.conf file accordingly.
+
+The original is:
+   /usr/share/mbrola/$VOICE/$VOICE
+where $VOICE is e.g. "en1".
+
+For example in Ubuntu, the correct path however is
+   /usr/share/mbrola/voices/$VOICE
+and it's likely to differe slightly in other
+distributions as well.
+

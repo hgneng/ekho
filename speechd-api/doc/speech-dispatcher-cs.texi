@@ -1,0 +1,889 @@
+\input texinfo   @c -*-texinfo-*-
+@c %**start of header
+@documentencoding ISO-8859-2
+@documentlanguage cs
+@setfilename speech-dispatcher-cs.info
+@settitle Speech Dispatcher
+@finalout
+@c @setchapternewpage odd
+@c %**end of header
+
+@syncodeindex pg cp
+@syncodeindex fn cp
+@syncodeindex vr cp
+
+@include version-2.texi
+
+@dircategory Sound
+@dircategory Development
+
+@direntry
+* Speech Dispatcher cs: (speechd-cs).     Speech Dispatcher (in Czech).
+@end direntry
+
+@titlepage
+@title Speech Dispatcher
+@subtitle Zvládnutí Babylonu TTS'
+@subtitle pro Speech Dispatcher @value{VERSION}
+@author Tom@'a@v{s} Cerha <@email{cerha@@brailcom.org}>
+@author Hynek Hanke <@email{hanke@@volny.cz}>
+@author Milan Zamazal <@email{pdm@@brailcom.org}>
+
+@page
+@vskip 0pt plus 1filll
+
+Tento manuál se vzathuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
+v¹ak pouze o u¾ivatelskou èást dokumentace a upozoròujeme, ¾e tento pøeklad ji¾
+není aktuální! Poskytujeme jej s tím, ¾e mo¾ná bude u¾iteèný a to zejména v
+sekcích, které popisují obecné koncepty a my¹lenky projektu, a to tìm, kteøí si
+nemohou pøeèíst anglickou dokumentaci.  Nikdo by nicménì nemìl spoléhat na
+technické detaily zde uvedené, proto¾e mnoho vìcí je ji¾ dnes jinak.
+
+Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
+
+@quotation
+Dáváme povolení kopírovat, distribuovat a/nebo modifikovate tento dokument pod
+podmínkami GNU Free Documentation License, Verze 1.2 nebo jakékoliv novìj¹í
+verze vydané Free Software Foundation, bez jakýchkoliv Invariant Sections
+(nemìnných sekcí), bez Front-Cover Texts (texty na pøední stranì obálky) a bez
+Back-Cover Texts (texty na zadní stranì obálky).  Kopie této licence je
+pøilo¾ena v sekci nazvané ,,GNU Free Documentation License''.
+@end quotation
+
+@end titlepage
+
+@ifnottex
+@node Top, Úvod, (dir), (dir)
+
+Tento manuál se vzathuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
+v¹ak pouze o u¾ivatelskou èást dokumentace a upozoròujeme, ¾e tento pøeklad ji¾
+není aktuální!  Poskytujeme jej s tím, ¾e mo¾ná bude u¾iteèný a to zejména v
+sekcích, které popisují obecné koncepty a my¹lenky projektu, a to tìm, kteøí si
+nemohou pøeèíst anglickou dokumentaci.  Nikdo by nicménì nemìl spoléhat na
+technické detaily zde uvedené, proto¾e mnoho vìcí je ji¾ dnes jinak.
+
+Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
+
+@quotation
+Dáváme povolení kopírovat, distribuovat a/nebo modifikovate tento dokument pod
+podmínkami GNU Free Documentation License, Verze 1.2 nebo jakékoliv novìj¹í
+verze vydané Free Software Foundation; bez jakýchkoliv Invariant Sections
+(nemìnných sekcí), bez Front-Cover Texts (texty na pøední stranì obálky) a bez
+Back-Cover Texts (texty na zadní stranì obálky).  Kopie této licence je
+pøilo¾ena v sekci nazvané ,,GNU Free Documentation License''.
+@end quotation
+@end ifnottex
+
+@ifhtml
+@heading Menu
+@end ifhtml
+
+@menu
+* Úvod::                        Co to je Speech Dispatcher
+* U¾ivatelská dokumentace::     Pou¾ívání, konfigurace
+
+* GNU General Public License::  Podmínky kopírování Speech Dispatcher
+* GNU Free Documentation License::  Podmínky kopírování tohoto manuálu
+
+* Index of Concepts::           
+@end menu
+
+@node Úvod, U¾ivatelská dokumentace, Top, Top
+@chapter Úvod
+
+@menu
+* Motivace::                    Proè Speech Dispatcher?
+* Základní design::             Jak to pracuje?
+* Pøehled základních rysù::     Co v¹echno umí?
+* Souèasný stav::               Jaký je souèasný stav?
+@end menu
+
+@node Motivace, Základní design, Úvod, Úvod
+@section Motivace
+@cindex Hlavní my¹lenky, Motivace
+@cindex Filosofie
+
+Projekt Speech Dispatcher se sna¾í poskytnout na zaøízení nezávislou vrstvu pro
+øeèovou syntézu.  Mìl by poskytovat jednoduché rozhraní pro klientské aplikace
+(aplikace, které chtìjí mluvit), stejnì jako pro ovladaèe konkrétních zaøízení
+(rùzné øeèové syntetizéry).
+
+Vysoce kvalitní øeèová syntéza je tu ji¾ dlouho a nyní je pou¾itelná i pro
+bì¾né u¾ivatele na jejich domácích poèítaèích.  Obèas to pøichází jako nutnost,
+obèas je to jen dobrá vlastnost, aby nìkteré programy poskytovaly øeèový
+výstup.  Pro syntézu hlasu je tu ¹iroké pole vyu¾ití od výukového software a¾
+po specializované systémy, jako jsou napøíklad nemocnice èi laboratoøe.  Pro
+zrakovì posti¾ené u¾ivatele je to jedna ze dvou základních cest, jak získat
+výstup z poèítaèe (tou druhou je Braillský øádek).
+
+Existují rùzné øeèové syntetizéry s rùznými schopnostmi.  Nìkteré z nich jsou
+hardwarové, nìkteré softwarové.  Nìkteré jsou svobodným software a jsou volnì
+dostupné na internetu.  Programátoøi to mají opravdu tì¾ké, kdy¾ chtìjí své
+programy rozmluvit, proto¾e potøebují nejprve najít nìjaký vhodný syntetizér
+(dlouhé hodiny experimentování a tak dále) a potom jej potøebují nìjak
+zprovoznit s jejich programem.  Èasto musí psát pro tyto programy èi hardwarová
+zaøízení vlastní ovladaèe a dìlají to znovu a znovu.  Snadno si lze pøedstavit,
+¾e se to celé zhroutí kdy¾ nevinný u¾ivatel spustí dva programy najednou. Kdyby
+pøesto nastartovaly oba, budou køièet jeden pøes druhého.
+
+Tím je pro programátory velmi obtí¾né implementovat do svých programù podporu
+øeèové syntézy (pro nevidomé u¾ivatele, nebo prostì pro lep¹í u¾ivatelské
+rozhraní) a je to jeden z dùvodù, proè poøád je¹tì plnì nevyu¾íváme toho, co
+øeèová syntéza nabízí.
+
+V ideálním svìtì by programátoøi mohli pro øeèovou syntézu pou¾ívat podobné
+pøíkazy, jako to dìlají pro textový výstup na obrazovku (printf, puts, ...).  V
+ideálním svìtì by existovalo nìjaké speech_printf(), které by se staralo o to,
+aby byla zpráva pøemluvena ve správný èas bez pøeru¹ování ostatních.
+Programátor by se tak nemusel starat o to, jak je pøesnì komunikace s øeèovým
+syntetizérem implementována.  V ideálním svìtì by byl v ka¾dé GNU/Linuxové
+distribuci nìjaký øeèový syntetizér a nìjaké rozhraní starající se o aplikace,
+které chtìjí mluvit, dovolující u¾ivatelùm nastavit si parametry øeèi a
+poskytující nìjaké jednoduché rozhraní (jako speech_printf()) pomocí nìjaké
+sdílené knihovny pro programátory.  Bude to jì¹tì dlouhá cesta ne¾ se nám
+podaøí dosáhnout tohoto stavu vìcí, ale se Speech Dispatcherem dìláme první
+krùèky...
+
+@node Základní design, Pøehled základních rysù, Motivace, Úvod
+@section Základní design
+@cindex Design
+
+V komunikaci mezi v¹emi rùznými aplikacemi a syntetizéry je obrovský nepoøádek.
+Proto jsme chtìli, aby byl Speech Dispatcher vrstva oddìlující aplikace a
+syntetizéry tak, aby se aplikace nemusely starat o syntetizéry a syntetizéry se
+nemusely starat o interakci s aplikacemi.
+
+Rozhodli jsme se implementovat Speech Dispatcher jako server, který pøijímá od
+aplikací pøíkazy pøes protokol nazvaný @code{SSIP}, zpracovává je a, pokud je
+to nutné, zavolá pøíslu¹nou funkci daného výstupního modulu, který pak
+komunikuje s nìkterým z rùzných syntetizátorù.
+
+Ka¾dý klient (aplikace, která chce mluvit) otevøe socketové spojení na Speech
+Dispatcher a volá funkce jako say(), stop(), pause() poskytované knihovnou
+implementující tento protokol.  Tato sdílená knihovna je stále na stranì
+klienta a posílá Speech Dispatcheru SSIP pøíkazy pøes otevøený socket.  Kdy¾
+pøíkazy dorazí do Dispatchera, ten je zpracuje, pøeète text, který by mìl být
+pøeøíkán a vlo¾í jej do fronty podle jeho priority.  Potom se rozhodne kdy, s
+jakými parametry (nastavovanými klientským programem i u¾ivatelem) a na jakém
+syntetizéru zprávu nechá pøemluvit.  Tyto po¾adavky na mluvení jsou pak
+zpracovávány výstupními moduly (pluginy) pro rùzné hardwarové a softwarové
+syntetizéry a pøeøíkány nahlas.
+
+@image{figures/architecture,155mm,,Architektura Speech Dispatchera}
+
+Detailní popis programování klientù i serveru je k dispozici v anglickém
+manuálu.
+
+@node Pøehled základních rysù, Souèasný stav, Základní design, Úvod
+@section Pøehled základních rysù
+
+Speech Dispatcher z pohledu u¾ivatele:
+
+@itemize @bullet
+@item snadná konfigurace rùzných mluvících aplikací, centrální správa
+@item mo¾nost volnì rozhodovat, jaká aplikace bude mluvit s jakým syntetizérem
+@item ménì èasu vìnovaného konfiguraci a ladìní rùzných aplikací vyu¾ívajících syntézu
+@item historie zpráv pro zrakovì posti¾ené u¾ivatele
+@end itemize
+
+Speech Dispatcher z pohledu programátora aplikace:
+
+@itemize @bullet
+@item snadná cesta, jak aplikaci rozmluvit
+@item jednotné rozhraní k rùzným syntetizérùm
+@item synchronizace zpráv na vy¹¹í úrovni (kategorizace pomocí priorit)
+@item mo¾nost nemuset se starat o konfiguraci parametrù hlasu
+@end itemize
+
+@node Souèasný stav,  , Pøehled základních rysù, Úvod
+@section Souèasný stav
+@cindex Syntetizéry
+@cindex Ostatní programy
+
+TODO:
+
+@node U¾ivatelská dokumentace, GNU General Public License, Úvod, Top
+@chapter U¾ivatelská dokumentace
+
+@menu
+* Základní funkce::             Detailnìj¹í popis v¹ech základních funkcí
+* Spou¹tìní::                   Volby pøíkazové øádky
+* Konfigurace::                 Jak zkonfigurovat Speech Dispatcher
+@end menu
+
+@node Základní funkce, Spou¹tìní, U¾ivatelská dokumentace, U¾ivatelská dokumentace
+@section Základní funkce
+
+V této sekci je detailnìj¹í popis základních funkcí Speech Dispatcheru.
+
+@menu
+* Model priorit zpráv::         Zpracování souèasnì pøíchozích zpráv  
+* Historie zpráv::              Ukládání zpráv pro pozdìj¹í nahlédnutí
+* Více výstupních modulù::      Interakce s rùznými syntetizéry  
+* Autentifikace u¾ivatelù::     Autentifikace pro pøístup k historii  
+@end menu
+
+@node Model priorit zpráv, Historie zpráv, Základní funkce, Základní funkce
+@subsection Model priorit zpráv
+@cindex priority
+
+Speech Dispatcher nemù¾e syntetizovat v¹echny zprávy, které do nìj pøichází z
+prostého dùvodu, ¾e zprávy pøicházejí obyèejnì rychleji, ne¾ je syntetický hlas
+doká¾e èíst.  Na obrazovce monitoru je v porovnání s jednokanálovým øeèovým
+výstupem relativnì hodnì místa.  Z toho dùvodu pou¾íváme systém nìkolika
+priorit zamìøených na rùzné typy zpráv.
+
+My¹lenka je taková, ¾e úlohou programátora klientské aplikace bude pouze urèit
+pro ka¾dou zprávu urèitou prioritu odpovídající typu dané zprávy.  Ve¹kerá
+synchronizace a pøepínání mezi tìmito zprávami (které mohou pocházet od rùzných
+klientù) potom bude zaji¹tìno aplikováním urèitých pravidel ve Speech
+Dispatcheru.
+
+@menu
+* Typy priorit::                
+* Diagram priorit::             
+* Pøíklady vyu¾ití priorit::    
+@end menu
+
+@node Typy priorit, Diagram priorit, Model priorit zpráv, Model priorit zpráv
+@subsubsection Priority Categories
+                  
+Speech Dispatcher poskytuje systém pìti priorit.  Ka¾dá zpráva obsahuje buï
+explicitní informaci o prioritì, nebo jí je pøiøazena výchozí priorita.
+
+Prosím podívejte se také na pøilo¾ený diagram (dole).
+
+@subsubheading Priorita @code{important}
+@cindex Priorita important
+
+Tato zpráva bude pøeøíkána okam¾itì, jak dorazí do serveru.  Není nikdy
+pøeru¹ena.  Kdy¾ server obdr¾í souèasnì nìkolik rùzných zpráv této priority, ty
+jsou ulo¾eny a pøeøíkány v poøadí, ve kterém pøi¹ly.
+
+Kdy¾ pøijde nová zpráva priority @code{important} a zrovna se øíká nìjaká jiná
+zpráva, tato jiná zpráva je zahozena.  Dal¹í zprávy ni¾¹ích priorit jsou buï
+pozdr¾eny (priorita @code{message} a @code{text}) ne¾ ji¾ neèekají na pøeøíkání
+¾ádné zprávy priority @code{important}, nebo jsou zahozeny (priority
+@code{notification} a @code{progress}).
+
+Tyto zprávy by mìly být tak krátké, jak je to jen mo¾né, a mìly by být
+pou¾ívány pouze zøídka, proto¾e blokují výstup v¹ech ostatních zpráv.
+
+@subsubheading Priorita @code{message}
+@cindex Priorita message
+
+Tato zpráva bude pøeøíkána, pokud ji¾ ve frontì neèeká ¾ádná jiná zpráva
+priority @code{important} nebo @code{message}.  V opaèném pøípadì je tato
+zpráva pozdr¾ena dokud nebudou v¹echny pøeøíkány.  To znamená, ¾e priorita
+@code{message} nezastavuje sama sebe.  Kdy¾ ve frontì èekají zprávy priorit
+@code{notification} nebo @code{progress} nebo @code{text} kdy¾ pøijde zpráva
+priority @code{message}, jsou zahozeny.
+
+@subsubheading Priorita @code{text}
+@cindex Priorita text
+
+Tato zpráva bude pøeøíkána, kdy¾ ve frontì neèeká ¾ádná zpráva priority
+@code{important} nebo @code{message}.  Pokud èeká, tato nová zpráva je
+pozdr¾ena dokud nebudou pøedchozí zprávy pøeøíkány.
+
+Priorita text pøerqu¹uje sama sebe.  To znamená, ¾e kdy¾ pøijde nìkolik zpráv
+priority text, ty nejsou pøeøíkány v poøadí, ve kterém pøi¹ly, ale bude vyøèena
+pouze poslední z nich a ostatní jsou pøeru¹eny a zahozeny.
+
+Pokud jsou ve frontì zprávy priorit @code{notification} nebo @code{progress}
+nebo se právì pøeøíkávají, jsou zahozeny.
+
+@subsubheading Priorita @code{notification}
+@cindex Priorita notification
+
+Toto je zpráva nízké priority.  Pokud ve frontì èekají zprávy priorit
+@code{important}, @code{messages}, @code{text} nebo @code{progress} nebo jsou
+právì pøeøíkávány, tato nová zpráva priority @code{notification} je zru¹ena.
+
+Tato priorita pøeru¹uje sama sebe, tak¾e kdy¾ pøijde najednou více zpráv s
+prioritou @code{notification}, pøeøíká se pouze poslední z nich.
+
+@subsubheading Priority @code{progress}
+
+Toto je speciální priorita pro zprávy, které pøicházejí krátce po sobì a nesou
+informaci o nìjaké probíhající èinnosti (napø.@ @code{Dokonèeno 45%}).
+
+Kdyby nové zprávy pøeru¹ovaly ostatní (viz. priorita Notification), u¾ivatel by
+nemusel sly¹et ani jednu zprávu do konce.
+
+Tato priorita se chová stejnì jako @code{notification} s výjimkou dvou vìcí.
+
+@itemize
+@item
+Zprávy této priority nepøeru¹ují jedna druhou.  Místo toho, pokud je zrovna
+pøeøíkávána jiná zpráva této priority, novì pøíchozí zpráva je zahozena.
+@item
+Speech Dispatcher se sna¾í detekovat poslední zprávu v sérii pøíchozích zpráv a
+zaruèit její pøeøíkání (pro u¾ivatele je dùle¾ité sly¹et zprávu @code{Completed
+100%}, aby vìdìl, ¾e proces ji¾ skonèil).  V¾dy, kdy¾ ve frontì ji¾ neèeká
+¾ádná nová zpráva této priority a poslední pøíchozí zpráva je¹tì nebyla
+pøeøíkána, je její pøeøíkání vynuceno s prioritou @code{message}.
+@end itemize
+
+@node Diagram priorit, Pøíklady vyu¾ití priorit, Typy priorit, Model priorit zpráv
+@subsubsection Diagram priorit
+
+@image{figures/priorities,,,Speech Dispatcher architecture}
+@c TODO: Generate a pdf version. (Why? -- Hynek Hanke)
+
+@node Pøíklady vyu¾ití priorit,  , Diagram priorit, Model priorit zpráv
+@subsubsection Pøíklady vyu¾ití priorit
+
+Pøíklady pou¾ití priority @code{important} jsou:
+ 
+@itemize
+@item chybové hlá¹ky
+@item velmi dùle¾ité zprávy
+@item ...
+@end itemize
+
+Pøíklady pou¾ití priority @code{message} jsou:
+
+@itemize
+@item bì¾né zprávy programu
+@item varování
+@item ...
+@end itemize
+
+Pøíklady pou¾ití priority @code{text} jsou:
+
+@itemize
+@item text, na kterém u¾ivatel pracuje
+@item pøedèítaný text
+@item polo¾ky menu
+@item ...
+@end itemize
+
+Pøíklady pou¾ití priority @code{notification} jsou:
+
+@itemize
+@item ménì dùle¾ité informace
+@item písmenka pøi vkládání
+@item run-time nápovìda
+@item ...
+@end itemize
+
+Pøíklady pou¾ití priority @code{progress} jsou:
+
+@itemize
+@item ``dokonèeno 15%'', ``dokonèeno 16%'', ``dokonèeno 17%''
+@item ``Naèítám zvuky'', ``Naèítám grafiku'', ``Naèítám ai'', ...
+@end itemize
+
+@node Historie zpráv, Více výstupních modulù, Model priorit zpráv, Základní funkce
+@subsection Historie zpráv
+@cindex history
+
+Pro nevidomé a zrakovì posti¾ené je dobrou vlastností, pokud mají mo¾nost
+nìjakým jednoduchým klientem procházet historii vyslovených zpráv.
+
+Nìkteré ménì dùle¾ité zprávy jsou pøijmuty Speech Dispatcherem bez toho, aby
+byly pøeøíkány, proto¾e jsou potlaèeny dùle¾itìj¹ími informacemi.  To je
+nedìlitelná vlastnost ka¾dého øeèového rozhraní, proto¾e není mo¾né podat v
+øeèovém výstupu tolik informací, kolik se jich vejde na obrazovku.  To je jeden
+z hlavních dùvodù, proè je výhodné udr¾ovat historii pøijatých zpráv, aby se
+mohl u¾ivatel podívat, zda mu neu¹lo nìco dùle¾itého.
+
+@menu
+* Pøístupová práva::            Pøístupová práva k historii zpráv
+@end menu
+
+@node Pøístupová práva,  , Historie zpráv, Historie zpráv
+@subsubsection Access Rights
+@cindex access rights
+
+Aby bylo ochránìno soukromí u¾ivatelù, Speech Dispatcher omezuje pøístup k
+historii na urèitou podmno¾inu pøijatých zpráv.  Platí následující pravidla:
+
+@itemize @bullet
+@item
+V¹echny zprávy pøijaté od urèitého klientského spojení jsou tomuto spojení
+pøístupny i v historii.
+
+@item
+V¹echny zprávy odeslané urèitým u¾ivatelem jsou tomuto u¾ivateli pøístupny i v
+historii.
+
+@item
+@cindex @code{speechd} u¾ivatel
+@cindex @code{speechd} skupina
+V¹echny zprávy zaslané u¾ivatelem @code{speechd} jsou pøístupny v¹em u¾ivatelùm
+na daném systému, pod kterým bì¾í Speech Dispatcher ve skupinì @code{speechd}.
+
+@item
+®ádné dal¹í zprávy nejsou pøístupné.
+@end itemize
+
+Dvì zprávy jsou pova¾ovány za identické jestli¾e jejich spojení pocházejí z
+toho samého poèítaèe, u¾ivatelská jména jsou stejná a jejich identita mù¾e být
+ovìøena, jak je popsáno v @ref{Autentifikace u¾ivatelù}.  Pokud nemù¾e být
+u¾ivatelova identita ovìøena, tento u¾ivatel je pova¾ován za jiného ne¾ v¹ichni
+pøipojení nebo døíve pøipojení u¾ivatelé.
+
+@node Více výstupních modulù, Autentifikace u¾ivatelù, Historie zpráv, Základní funkce
+@subsection Více výstupních modulù
+@cindex výstupní modul
+@cindex syntetizátory
+
+Speech Dispatcher podporuje soubì¾né pou¾ívání více výstupních modulù.  Pokud
+tyto moduly poskytují dobrou synchronizaci, lze je pøi ètení zpráv kombinovat.
+Pokud napø. modul1 mluví anglicky a èesky, zatímco modul2 mluví pouze nìmecky,
+tak pokud pøijde nìjaká zpráva v nìmèinì, pou¾ije se modul2, zatímco pro
+ostatní jazyky se pou¾ije modul1.  Na druhé stranì jazyk není jediným kritériem
+pro takové rozhodnutí.  Pøesná pravidla pro výbìr výstupího modulu mohou být
+ovlivnìna v konfiguraèním souboru @file{speechd.conf}.
+
+@node Autentifikace u¾ivatelù,  , Více výstupních modulù, Základní funkce
+@subsection Autentifikace u¾ivatelù
+@cindex Identification Protocol
+@cindex identd
+@cindex RFC 1413
+
+NOTE: Na implementaci této vlastnosti se pracuje, ale souèasná verze ji
+nepodporuje.
+
+Speech Dispatcher neposkytuje ¾ádný explicitní autentifikaèní mechanismus.  K
+ovìøení identity u¾ivatlù pou¾íváme Identification Protocol definovaný v RFC
+1413.
+
+@cindex mapování u¾ivatlù
+V konfiguraci je mo¾né specifikovat mapování u¾ivatelù. To umo¾òuje jednat s
+urèitými u¾ivateli jako s jedním a pøidìlit jim stejná práva (napø. procházet
+jejich @ref{Historie zpráv}).
+
+@node Spou¹tìní, Konfigurace, Základní funkce, U¾ivatelská dokumentace
+@section Invoking
+
+@subsection Potøebná privilegia
+
+Speech Dispatcher mù¾e být obecnì spou¹tìn pod obyèejným u¾ivatelem.  Sna¾ili
+jsme se jej zabezpeèit, jak jen to bylo mo¾né, ale nejsme odborníky na
+poèítaèovou bezpeènost a kód mù¾e obsahovat nebezpeèné chyby.  Nedoporuèujeme
+jej spou¹tìt jako root nebo pod jiným vysoce privilegovaným u¾ivatelem.
+
+Jediná omezení jsou tyto:
+
+@itemize
+@item
+Speech Dispatcher vytváøí PID file standardnì ve
+@file{/var/run/speech-dispatcher.pid}, tak¾e @file{/var/run/} musí být danému
+u¾ivateli pøístupné k zápisu.  To mù¾e být zmìnìno nastavením volby
+@code{pidpath} pøi volání skriptu @code{./configure} pøi kompilaci.
+@item
+Kdy¾ je zapnuto logování, výchozí cesta, kam Speech Dispatcher zapisuje svùj
+log, je @file{/var/log/speech-dispatcher.log}.  To ale mù¾e být kdykoliv
+pøenastaveno v hlavním konfiguraèním souboru.
+@end itemize
+
+@subsection Volby pøíkazové øádky
+
+Speech Dispatcher mù¾e být spu¹tìn s tìmito volbami:
+
+@code{speech-dispatcher [-@{d|s@}] [-l @{1|2|3|4|5@}] [-p=port] | [-v] | [-h]}
+
+@table @code
+@item -d or --run-daemon
+Spustí program jako démona (bì¾í v pozadí, odpojí se od terminálu, atd.)  Toto
+je výchozí chování.
+
+@item -s or --run-single
+Spustí program jako bì¾nou aplikaci bì¾ící na popøedí.
+
+@item -l level or --log-level=level
+Vybere po¾adovaný logovací úroveò. Logovací úroveò je èíslo mezi 0 a 5 (0
+znamená neloguj nic, 5 znamená zapisuj témìø v¹e vèetnì zpracovávaného textu.)
+Standardní je 3. @xref{Úrovnì logování}.
+
+Logovací úroveò 5 by nemìla být pou¾ívána k jiným úèelùm, ne¾ pro hledání chyb
+a to pouze krátkodobì.  Logy, které produkuje mohou narùst do obrovské
+velikosti a obsahují text ètený u¾ivateli nezávisle na rùzných pøístupových
+právech, jak platí pro historii.  Spou¹tìt server s touto úrovní logování tedy
+mù¾e snadno vést k naru¹ení soukromí.
+
+@item -p or --port
+Zadá port, na kterém by mìl server èekat na klienty.  Výchozí je 6560.
+
+@item -v or --version
+Vypí¹e informace o verzi Speech Dispatchera.  Také oznámí základní informace o
+copyrightu.
+
+@item -h or --help
+Vypí¹e nápovìdu o volbách pøíkazové øádky, upozornìní o copyrightu
+a emailovou adresu pro zasílání oznámení o chybách.
+@end table
+
+
+@node Konfigurace,  , Spou¹tìní, U¾ivatelská dokumentace
+@section konfigurace
+@cindex konfigurace
+
+Speech Dispatcher mù¾e být konfigurován na nìkolika rùzných úrovních.  Jedna z
+nich je nastavování globálních parametrù pøes serverový konfiguraèní soubor.
+Je zde i podpora pro konfiguraci specifickou pro urèité klienty.
+
+Nìkteré aplikace mají vlastní mechanismus nastavování voleb souvisejících s
+øeèovou syntézou.  Pro detaily o tìchto nastaveních se prosím podívejte do
+dokumentace daného programu.
+
+Následující kapitoly se zabývají pouze konfigurací na stranì serveru pøes
+konfiguraèní soubor.
+
+@menu
+* Syntaxe konfiguraèního souboru::  
+* Volby v konfiguraci::         
+* Nastavení výstupních modulù::  
+* Úrovnì logování::             
+@end menu
+
+@node Syntaxe konfiguraèního souboru, Volby v konfiguraci, Konfigurace, Konfigurace
+@subsection Syntaxe konfiguraèního souboru
+
+Pro naèítání configurace zalo¾ené na textových souborech pou¾íváme knihovnu
+DotConf, tak¾e bude syntaxe nejspí¹ mnoha u¾ivatelùm povìdomá.
+
+Ka¾dá z øetìzcových konstant, pokud není uvedeno jinak, by mìla být zakódována
+v UTF-8.  Jména voleb nepou¾ívají jiné znaky ne¾ standardní ASCII sadu omezenou
+na znaky (@code{a}, @code{b}, ...), pomlèky (@code{-}) a podtr¾ítka @code{_}.
+
+Komentáøe a doèasnì neaktivní volby zaèínají znakem @code{#}.  Pokud chcete
+takovu volbu zapnout, staèí smazat znak komentáøe a nastavit volbu na
+po¾adovanou hodnotu.
+@example
+# toto je komentar
+# InactiveOption "tato volba je zatim vypla komentarem"
+@end example
+
+Øetìzce jsou uzavøeny v uvozovkách.
+@example
+LogFile  "/var/log/speech-dispatcher.log"
+@end example
+
+Èísla jsou zapsána bez uvozovek.
+@example
+Port 6560
+@end example
+
+Pøepínaèe pou¾ívají On (zapnuto) a Off (vypnuto).
+@example
+Debug Off
+@end example
+
+@node Volby v konfiguraci, Nastavení výstupních modulù, Syntaxe konfiguraèního souboru, Konfigurace
+@subsection Configuration options
+
+V¹echny dostupné volby jsou zdokumentovány pøímo v konfiguraèním souboru a jsou
+k nim uvedeny i pøíklady. Vìt¹ina voleb je nastavena na výchozí hodnotu a
+zakomentována.  Pokud je chcete zmìnit, postaèí modifikovat jejich hodnotu a
+smazat symbol komentáøe @code{#}.
+
+@node Nastavení výstupních modulù, Úrovnì logování, Volby v konfiguraci, Konfigurace
+@subsection Output Modules Configuration
+
+Ka¾dý u¾ivatel by si mìl zapnout ve své konfiguraci alespoò jeden výstupní
+modul, pokud chce, aby Speech Dispatcher produkoval nìjaký zvukový výstup.
+Kdy¾ není naèten ¾ádný výstupní modul, Speech Dispatcher sice nastartuje, bude
+komunikovat s klienty a logovat zprávy do historie, ale nebude produkovat ¾ádný
+zvuk.
+
+Ka¾dý výstupní modul je tøeba do Speech Dispatchera natáhnout jednou øádkou
+``AddModule'' v @file{etc/speechd.conf}.  Navíc, ka¾dý výstupní modul má
+pøiøazen vlastní konfiguraèní soubor.
+
+@menu
+* Natahování modulù ve speechd.conf::  
+* Konfiguraèní soubory výstupních modulù::  
+* Konfigurace generického výstupního modulu::  
+@end menu
+
+@node Natahování modulù ve speechd.conf, Konfiguraèní soubory výstupních modulù, Nastavení výstupních modulù, Nastavení výstupních modulù
+@subsubsection Natahování modulù ve speechd.conf
+
+@anchor{AddModule} Ka¾dý modul, který by se mìl spustit pøi startu Speech
+Dispatchera, musí být nata¾en pøíkazem @code{AddModule} v konfiguraci.
+V¹imnìte si, ¾e lze natáhnout jeden binární modul vícekrát s rùznými
+konfiguraèními soubory a pod jinými jmény.  To je u¾iteèné hlavnì pro
+natahování generických výstupních modulù.  @xref{Konfigurace generického
+výstupního modulu}.
+
+@example
+AddModule "@var{module_name}" "@var{module_binary}" "@var{module_config}"
+@end example
+
+@var{module_name} je jméno daného výstupního modulu.
+
+@var{module_binary} je jméno binárního spustitelného souboru tohoto výstupního
+modulu.  To mù¾e být buï cesta absolutní nebo relativní k
+@file{bin/speechd-modules/}.
+
+@var{module_config} je soubor s konfigurací pro tento konkrétní výstupní modul.
+Cesta mù¾e být absolutní i relativní k @file{etc/speech-dispatcher/modules/}.
+Tento parametr je volitelný (není tøeba jej uvádìt).
+
+@node Konfiguraèní soubory výstupních modulù, Konfigurace generického výstupního modulu, Natahování modulù ve speechd.conf, Nastavení výstupních modulù
+@subsubsection Konfiguraèní soubory výstupních modulù
+
+Ka¾dý výstupní modul je odli¹ný a proto má odli¹né volby v konfiguraci.  Prosím
+prostudujte si komentáøe v daném konfiguraèním souboru.  Zde je popsáno pouze
+nìkolik voleb, které jsou pro nìkteré výstupní moduly spoleèné.
+
+@table @code
+@item AddVoice "@var{language}" "@var{symbolicname}" "@var{name}"
+@anchor{AddVoice}
+
+Ka¾dý výstupní modul poskytuje nìjaké hlasy a nìkdy dokonce podporuje rùzné
+jazyky.  Z toho dùvodu byl zaveden spoleèný mechanismus, kterým mù¾ou být tyto
+hlasy definovány v konfiguraci.  ®ádný modul ov¹em není povinen tuto volbu
+pou¾ívat.  Nìkteré syntetizátory, napø. Festival, podporují symbolická jména
+SSIP pøímo, tak¾e konfigurace konkrétních hlasù se provádí v syntetizátoru
+samotném.
+
+Ka¾dému definovanému hlasu odpovídá pøesnì jedna øádka @code{AddVoice}.
+
+@var{language} je ISO kód jazyka tohoto hlasu (en, cs, de, ...)
+
+@var{symbolicname} je symbolické jméno, pod kterým chcete, aby byl tento hlas
+dostupný.  @xref{Standardní hlasy}, pro seznam symbolických jmen, která mù¾ete
+pou¾ít.
+
+@var{name} je jméno specifické pro daný výstupní modul.  Prosím podívejte se na
+komentáøe v pøíslu¹ném konfiguraèním souboru v sekci AddModule pro detailnìj¹í
+informace.
+
+Napø. definice, kterou v souèastnosti pou¾íváme pro Epos (generic) vypadá
+takto:
+
+@example
+        AddVoice        "cs"  "male1"   "kadlec"
+        AddVoice        "sk"  "male1"   "bob"
+@end example
+
+@item ModuleDelimiters "@var{delimiters}", ModuleMaxChunkLength @var{length}
+
+Èasto se výstupní modul nesna¾í vysyntetizovat celý pøíchozí text najednou, ale
+místo toho jej nejprve rozøe¾e na men¹í kousky (vìty, èásti vìt) a ty potom
+postupnì odesílá na syntézu.  Tento pøístup, vyu¾ívaný nìkterými výstupními
+moduly, je mnohem rychlej¹í, ale na druhé stranì zase limituje schopnost
+syntetizéru poskytnout dobrou intonaci.
+
+Z toho dùvodu máte obyèejnì mo¾nost zkonfigurovat si na jakých znacích
+(@var{delimiters}) by se mìl text rozdìlit na men¹í èásti (pokud jsou
+následovány nìjakým whitespace znakem).  Druhá volba (@var{length}) udává, po
+kolika znacích by se mìl text násilnì rozdìlit, pokud nebyl nalezen ¾ádný
+delimiter.
+
+Pokud tato dvì pravidla zpøísníte, dostanete lep¹í rychlost, ale vzdáte se
+urèité èásti kvality intonace.  Tak¾e napøíklad pro pomalej¹í poèítaèe
+doporuèujeme do @var{delimiters} vlo¾it i èárku (,), aby byl text rozdìlen i na
+èástech vìty, zatímco na rychlej¹ích poèítaèích je lep¹í tam èárku nedávat,
+tak¾e do syntetizéru v¾dy dorazí celá souvìtí.
+
+To samé platí o @code{MaxChunkLength}. Pro rychlej¹í poèítaèe
+je lep¹í nastavit vìt¹í hodnotu.
+
+Napøíklad výchozí hodnoty ve výstupním modulu pro Festival jsou:
+
+@example
+    FestivalMaxChunkLength  300
+    FestivalDelimiters  ".?!;,:"
+@end example
+
+Výstupní modul se mù¾e také rozhodnout dìlit vìty na delimiters pouze pokud ty
+jsou následovány mezerou.  Tak¾e napøíklad ``file123.tmp'' by rozdìleno nebylo,
+ale vìta ``The horse raced around the fence, that was lately painted green,
+fell.''  by rozdìlena byla (to je mimochodem velmi zajímavá vìta).
+@end table
+
+@node Konfigurace generického výstupního modulu,  , Konfiguraèní soubory výstupních modulù, Nastavení výstupních modulù
+@subsubsection Konfigurace generického výstupního modulu
+
+Generický výstupní modul u¾ivatelùm dovoluje jednodu¹e si napsat vlastní
+jednoduchý výstupní modul pro syntetizéry, které mají rozhraní ve formì
+jednoduchého øádkového klienta, pouze modifikací konfiguraèního souboru.  Tímto
+zpùsobem nemusí psát ¾ádný specifický kód v C a u¾ivatelé si mohou pøidávat
+podporu pro výstupní zaøízení i kdy¾ neumí programovat.  @xref{AddModule}.
+
+Klíèová èást ka¾dého generického výstupního modulu je definice øetìzce, který
+se má spou¹tìt.
+
+@defvr {Konfigurace generického modulu} GenericExecuteSynth "@var{execution_string}"
+
+@code{execution_string} je pøíkaz, který by mìl být zavolán v shellu, kdy¾ je
+potøeba nìco øíct.  Ve skuteènosti to mù¾e být více jak jeden pøíkaz, dohromady
+zøetìzené operátorem @code{&&}.  Kdy¾ bude výstupní modul chtít pøeøíkávání
+zprávy zastavit, za¹le tìmto procesùm signál KILL, tak¾e je dùle¾ité, aby
+pou¾ité pøíkazy po obdr¾ení KILL okam¾itì pøestaly mluvit. (Na vìt¹inì
+GNU/Linuxových systémù má tuto vlastnost utilita @code{play})
+
+V @code{execution_string} mù¾ete vyu¾ít tìchto promìnných, které budou
+nahrazeny poøadovanými hodnotami, ne¾ bude pøíkaz vykonán.
+
+@itemize
+@item @code{$DATA}
+Text, který by mìl být pøeøíkán.  Znaky øetìzce, které by nìjak interferovali
+se zpracováním v bashi budou automaticky nahrazeny odpovídajícími escape
+sekvencemi.  Asi bude ale nutné uvést kolem této promìnné uvozovky
+(napø. takto: @code{\"$DATA\"}).
+@item @code{$LANG}
+Identifikaèní øetìzec jazyka (ten je definován pomocí GenericLanguage).
+@item @code{$VOICE}
+Identifikaèní øetìzec hlasu (ten je definován pomocí AddVoice).
+@item @code{$PITCH}
+Po¾adovaná vý¹ka hlasu (desetinné èíslo definované v GenericPitchAdd a v
+GenericPitchMultiply)
+@item @code{$RATE}
+Po¾adovaná rychlost hlasu (desetinné èíslo definované v GenericRateAdd a v
+GenericRateMultiply)
+@end itemize
+
+Tady je pøíklad z @file{etc/speech-dispatcher/modules/epos-generic.conf}
+@example
+GenericExecuteSynth \
+"epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+\"$DATA\" | sed -e s+unknown.*$++ >/tmp/epos-said.wav && play /tmp/epos-said.wav >/dev/null"
+@end example
+@end defvr
+
+@defvr {Konfigurace generického modulu} AddVoice "@var{language}" "@var{symbolicname}" "@var{name}"
+@xref{AddVoice}.
+@end defvr
+
+@defvr {Konfigurace generického modulu} GenericLanguage "iso-code" "string-subst"
+
+Definuje, jaký øetìzec @code{string-subst} by mìl být nahrazen za @code{$LANG}
+pro daný @code{iso-code} ISO kód jazyka.
+
+Opìt pøíklad z Epos generic:
+@example
+GenericLanguage "en" "english"
+GenericLanguage "cs" "czech"
+GenericLanguage "sk" "slovak"
+@end example
+@end defvr
+
+@defvr {Konfigurace generického modulu} GenericRateAdd @var{num}
+@end defvr
+@defvr {Konfigurace generického modulu} GenericRateMultiply @var{num}
+@end defvr
+@defvr {Konfigurace generického modulu} GenericPitchAdd @var{num}
+@end defvr
+@defvr {Konfigurace generického modulu} GenericPitchMultiply @var{num}
+Tyto parametry nastavují konverzi pro výpoèet rychlosti a vý¹ky.
+(@code{$RATE} a @code{$PITCH}). 
+
+Výsledná rychlost (nebo vý¹ka) je dána následujícím vzorcem:
+@example
+   (speechd_rate * GenericRateMultiply) + GenericRateAdd
+@end example
+kde speechd_rate je hodnota mezi -100 (nejni¾¹í) a +100 (nejvy¹¹í).  Je tøeba
+definovat nìjakou rozumnou konverzi pro daný syntetizér.
+
+(Hodnoty v GenericNìcoMultiply jsou vynásobeny stem, proto¾e stávající verze
+DotConfu nepodporuje desetinná èísla.  Mù¾ete tedy psát 0.85 jako 85 atd.)
+@end defvr
+
+@node Úrovnì logování,  , Nastavení výstupních modulù, Konfigurace
+@subsection Úrovnì logování
+
+Ve Speech Dispatcheru je 6 rùzných úrovní logování.  0 znamená ¾ádné logování,
+zatímco 5 znamená vypisovat témìø v¹echny dostupné informace.
+
+@itemize @bullet
+
+@item Úroveò 0
+@itemize @bullet
+@item ®ádné informace
+@end itemize
+
+@item Úroveò 1
+@itemize @bullet
+@item Informace o startu a vypínání.
+@end itemize
+
+@item Úroveò 2
+@itemize @bullet
+@item Informace o chybách, které nastaly.
+@item Alokace a uvolòování zdrojù pøi startu a pøi exitu.
+@end itemize
+
+@item Úroveò 3
+@itemize @bullet
+@item Informace o pøijímání/odepírání/zavírání klientských spojení.
+@item Informace o neplatných SSIP pøíkazech od klientù.
+@end itemize
+
+@item Úroveò 4
+@itemize @bullet
+@item Je vypisován ka¾dý pøijatý pøíkaz
+@item Informace o zpracovávání vstupu
+@item Informace o ukládání zpráv do front
+@item Informace o fungování historie, zvukových ikon, atd.
+facilities.
+@item Informace o práci vlákna speak()
+@end itemize
+
+@item Úroveò 5
+(Ta slou¾í pouze pro ladící úèely a mù¾e vypisovat opravdu *mnoho*
+dat. Pou¾ívejte opatrnì.)
+@itemize @bullet
+@item V¹echna obdr¾ená data jsou vypisována (zprávy od klientù)
+@item Ladící informace.
+@end itemize
+@end itemize
+
+@appendix Standardní hlasy
+@anchor{Standardní hlasy}
+
+@table @code
+@item MALE1
+@item MALE2
+@item MALE3
+@item FEMALE1
+@item FEMALE2
+@item FEMALE3
+@item CHILD_MALE
+@item CHILD_FEMALE
+@end table
+
+Skuteèná dostupnost tìchto hlasù není zaruèena, ale pøíkaz @code{SET SELF
+VOICE} musí akceptovat jakýkoliv z nich.  Pokud není daný hlas dostupný, je
+mapován na jiný hlas výstupním modulem.
+
+@node GNU General Public License, GNU Free Documentation License, U¾ivatelská dokumentace, Top
+@appendix GNU General Public License
+@center Version 2, June 1991
+@cindex GPL, GNU General Public License
+
+@include gpl.texi
+
+
+@node GNU Free Documentation License, Index of Concepts, GNU General Public License, Top
+@appendix GNU Free Documentation License
+@center Version 1.2, November 2002
+@cindex FDL, GNU Free Documentation License
+
+@include fdl.texi
+
+@node Index of Concepts,  , GNU Free Documentation License, Top
+@unnumbered Index of Concepts
+
+@cindex tail recursion
+@printindex cp
+
+@bye
+
+@c  LocalWords:  texinfo setfilename speechd settitle finalout syncodeindex pg
+@c  LocalWords:  setchapternewpage cp fn vr texi dircategory direntry titlepage
+@c  LocalWords:  Cerha Hynek Hanke vskip pt filll insertcopying ifnottex dir fd
+@c  LocalWords:  API SSIP cindex printf ISA pindex Flite Odmluva FreeTTS TTS CR
+@c  LocalWords:  src struct gchar gint const OutputModule intl FDSetElement len
+@c  LocalWords:  fdset init flite deffn TFDSetElement var int enum EVoiceType
+@c  LocalWords:  sayf ifinfo verbatiminclude ref UTF ccc ddd pxref LF cs conf
+@c  LocalWords:  su AddModule DefaultModule xref identd printindex Dectalk GTK
+
+@c speechd.texi ends here
+@c  LocalWords:  emph soundcard precission archieved succes

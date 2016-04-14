@@ -1,0 +1,51 @@
+
+Available tests:
+================
+
+* long_message:
+        Tests the ability of Speech Dispatcher to handle long messages
+        and special characters (the seccond message is a source code).
+        (it uses libspeechd.c)
+
+* multiple_messages:
+        Tests how fast can Speech Dispatcher handles messages coming
+        in short intervals for all 3 priorities. It also tests
+        how the priorities influence each other.
+        (it uses libspeechd.c)
+
+* run_test (and *.test files)
+        Invoking: run_test {testfile} [fast] [> logfile]
+
+        A simple program that reads the given script-file (*.test)
+        and executes the SSIP commands inside it. It also outputs
+        the comments from the file on the screen and waits where
+        requested. If an aditional parameter "fast" is specified, that
+        means execute everything without the specified delays.
+
+		You may find it convenient to redirect the output to some
+		logfile.
+
+        The script files have the following simple syntax:
+                * Every command begins in the first column and "lasts" till
+                        the end of the line is reached.
+                * @ introduces a comentary on the given line
+                * ! denotes an SSIP command that follows without any spaces
+                * $ run_test will wait for the specified time (in seconds)
+                * ^ run_test will wait for the specified time (in microseconds)
+                * ~ sets the indentation (in spaces from left border), it can
+                        be used multiple times in different places
+                * + wait for response string. Note, you cannot use this to wait
+                        for synchronous replies to commands.  Generally,
+                        you will use this to wait for notification events
+                        (SET SELF NOTIFICATION ALL ON).  It will wait for
+                        any reply containing the string that follows "+".
+                * ? waits until the user presses a key
+                * * clear screen
+                * Blank lines in the script produce blank lines in the output.
+
+        In the output, SSIP communication is shifted to the right with
+        respect to the comments. The commands and data the script sends
+        to Speech Dispatcher begin with ">> ", the responses from Speech Dispatcher
+        are introduced by "< ".
+
+        See basic.test or general.test for an example.

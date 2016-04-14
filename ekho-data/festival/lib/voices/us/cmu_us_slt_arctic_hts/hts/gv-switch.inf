@@ -1,0 +1,5 @@
+QS gv-switch { "*-pau+*","*-h#+*","*-brth+*" }
+{*}[2]
+{
+   0 gv-switch "gv-switch_2" "gv-switch_1"
+}

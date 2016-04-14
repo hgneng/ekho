@@ -1,0 +1,22 @@
+Ekho is a text-to-speech engine. It is part of eGuideDog project, which develops free software for the blind.
+
+Currently, it can speak Cantonese, Mandarin, Hakka, Tibetan, Ngangien and English (through Festival). Korean is in trial.
+
+Author: Cameron Wong (hgneng at gmail.com), http://www.eguidedog.net
+
+Special thanks to Silas S. Brown (http://people.pwf.cam.ac.uk/ssb22/) for his great contribution to Mandarin and Korean support of Ekho!
+
+Many thanks to Yali Cheng for contributing a Mandarin voice, Liao Weicheng for contributing Hakka voice, Hae-Sung Jeon (http://people.pwf.cam.ac.uk/hsj24/) for contributing a Korean voice, Trinley Pedron and Tennom YK for contributing Tibetan voice and Zhao Qianshan for contributing Ngangien voice!
+
+For LICENSE information of Ekho, please refer to the file COPYING.
+
+===== How to run (for Linux) =====
+$ ekho "Chinese UTF-8 text" # The default language is Mandarin
+$ ekho -v Mandarin "speak in Mandarin"
+$ ekho -v Cantonese "speak in Cantonese"
+$ ekho -t ogg -o output.ogg "123" # -o means output to file, -t specifies the type (wav or ogg)
+
+To read how to install the software, please refer file INSTALL.
+
+===== Known issues =====
+Festival is not thread safe. Ekho run in multi-threads. setVoice can only be called once if Festival is enabled.

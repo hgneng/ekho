@@ -1,0 +1,40 @@
+===== INSTALL (for Linux) =====
+You need to have following libraries first:
+* libsndfile1-dev (http://www.mega-nerd.com/libsndfile/)
+* libpulse-dev
+* libncurses5-dev (required by --enable-festival)
+* libestools2.1-dev (optionally required by --enable-festival)
+* festival-dev  (optionally required by --enable-festival)
+* libvorbis-dev (optional)
+* libmp3lame-dev (optional)
+* libdotconf-dev (required by --enable-speechd)
+* texinfo
+
+On Ubuntu Linux, we can use `apt-cache search <pkg_keywork>` to find a package's full name and install it with `sudo apt-get install <pkg_name>`.
+On Fedora Linux, we can use `yum search <pkg_keyword>` to find a package's full name and install it with `sudo yum install <pkg_name>`.
+On SuSE Linux, we can use `zypper search <pkg_keyword>` and `zypper install <pkg_name>`.
+
+$ ./configure
+$ make
+$ sudo make install
+
+Some configure options:
+--enable-festival      If you want to speak English through Festival.
+--enable-speechd       If you want to make the speech-dispatcher API and work with screen reader like Orca. (You also need to do some extra setup. If you don't know how to setup, just run ./install.pl)
+--with-mp3lame=yes     Enable MP3 export function. This option is conflict to --enable-speechd.
+
+To install and setup the speech-dispatcher, please run one of following commands (only one, it will overwrite previous setting):
+$ ./install.pl Mandarin
+$ ./install.pl Cantonese
+$ ./install.pl Tibetan
+
+===== INSTALL (for Debian 64bit) =====
+$ make CXXFLAGS="-D_x86_64"
+
+===== INSTALL (for Mac) =====
+$ sudo port install libsndfile
+$ ./configure LDFLAGS=-L/opt/local/lib --without-pulseaudio
+$ make CXXFLAGS="-I/opt/local/include -D_x86_64" LDFLAGS=-L/opt/local/lib
+
+===== ISSUES =====
+There are some static third party software libraries in ekho/lib32/ and ekho/lib64/. There is a symbol link ekho/lib/ linking to one of them. Please change it according to your system. The libs may not meet platform other than Ubuntu. So you may need to find the right one and replace them.

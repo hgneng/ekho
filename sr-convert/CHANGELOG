@@ -1,0 +1,32 @@
+
+0.8:
+
+  initial release
+
+0.81 special:
+
+  updated dsp.cpp to compile with more modern iostream headers
+  (GCC 3.4.1)
+
+  added support for 6896 Hz sampling rate (make-tables.scm)
+
+  added support for 8-bit and 16-bit builds (sr-convert.cpp, makefile)
+
+  factored out print_program_name
+
+  added GPL header to make-tables.scm
+
+  updated version to 0.81 special
+
+0.82 special:
+
+  added error-correction dithering (dsp.cpp, dsp.h)
+
+  updated version to 0.82 special
+
+0.83:
+
+  bug fixed in stereo error-correction dithering: each channel now has
+  its own error accumulation
+
+  updated version to 0.83

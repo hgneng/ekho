@@ -1,0 +1,112 @@
+@ This is a test for the priority progress
+
+$ 1
+
+!SET SELF OUTPUT_MODULE flite
+
+!SET SELF PRIORITY MESSAGE
+
+!SOUND_ICON start
+
+!SET SELF PRIORITY PROGRESS
+
+
+!SPEAK
+1
+.
+
+!SPEAK
+2
+.
+!SPEAK
+3
+.
+!SPEAK
+4
+.
+!SPEAK
+5
+.
+!SPEAK
+6
+.
+!SPEAK
+7
+.
+!SPEAK
+8
+.
+!SPEAK
+9
+.
+!SPEAK
+10
+.
+!SPEAK
+11
+.
+!SPEAK
+12
+.
+!SPEAK
+13
+.
+!SPEAK
+15
+.
+!SPEAK
+16
+.
+!SPEAK
+17
+.
+!SPEAK
+18
+.
+!SPEAK
+19
+.
+!SPEAK
+20
+.
+!SPEAK
+21
+.
+!SPEAK
+22
+.
+!SPEAK
+23
+.
+!SPEAK
+24
+.
+!SPEAK
+25
+.
+!SPEAK
+26
+.
+!SPEAK
+27
+.
+!SPEAK
+28
+.
+
+!BLOCK BEGIN
+!SPEAK
+"block part one"
+.
+!SOUND_ICON prompt
+!SPEAK
+"block part two"
+.
+!BLOCK END
+
+!SET SELF PRIORITY MESSAGE
+!SPEAK
+This is the end of test.
+.
+
+$ 15

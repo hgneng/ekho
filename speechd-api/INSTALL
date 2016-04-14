@@ -1,0 +1,241 @@
+
+The requirements:
+=================
+
+You will need these components to compile Speech Dispatcher:  
+ - glib 2.0  (http://www.gtk.org)
+ - libdotconf 1.0 (http://www.azzit.de/dotconf/)
+ - pthreads
+ - gcc and GNU make (http://www.gnu.org)
+ - festival-freebsoft-utils 0.3+ (optional)
+	(http://www.freebsoft.org/festival-freebsoft-utils)
+
+Only if you are building from Git, you also need these:
+ - automake 1.7+, autoconf, pkg-config and libtool
+
+We recommend to also install these packages:
+ - PulseAudio (http://www.pulseaudio.org)
+ - Festival (http://www.cstr.ed.ac.uk/projects/festival/)
+ - Espeak (http://espeak.sourceforge.net/)
+
+These packages are known to work with Speech Dispatcher:
+ Software synthesizers:
+ - Festival (http://www.cstr.ed.ac.uk/projects/festival/) -- an extensible
+     speech synthesis engine with support for various languages (English,
+     Spanish, Italian, Finnish, Czech, Russian, Hindi, some African languages
+     and others)
+ - Espeak (http://espeak.sourceforge.net/) -- a light and fast multi-lingual
+     synthesizer with very good support for various Speech Dispatcher
+     features.
+ - Flite, Cicero, IBM TTS, Dectalk Software, Ivona
+ - Pulse Audio (http://www.pulseaudio.org/)
+
+ User applications:
+ - Orca (http://www.gnome.org/projects/orca/) -- AT-SPI screen reader (Gnome)
+ - speechd-el (http://www.freebsoft.org/) -- Emacs speech interface
+ - Linux Screen Reader (LSR (http://live.gnome.org/LSR)
+ - gnome-speech/Gnopernicus (http://www.gnome.org/)
+ - BrlTTY (http://mielke.cc/brltty/)
+ - ...
+
+Building Speech Dispatcher:
+===========================
+
+(for instructions about how to build from Git or Git snapshot see bellow)
+
+If you want to use Speech Dispatcher with Festival (recommended), you
+also need to install festival-freebsoft-utils version 0.3 or higher!
+
+If you want to use Speech Dispatcher with Ivona, you need to install
+libdumbtts
+
+To compile the whole project, including Speech Dispatcher server, all modules
+and clients, simply extract the distribution archive and change to 
+speech-dispatcher-<version> directory and run "make all" command as follows:
+
+ $ tar -xzvf speech-dispatcher-0.7.1.tar.gz
+ $ cd speech-dispatcher-0.7.1
+
+
+Notes about ALSA, Pulse, OSS and NAS support
+============================================
+
+Speech Dispatcher's default audio output system is the Pulse Audio
+with an automatic fallback on ALSA if Pulse is not available.
+It's also possible possible to use libao output and to build
+Speech Dispatcher with Network Audio System and/or OSS support
+and then switch between these two audio systems in the configuration
+files (speechd.conf).
+
+Notes about Espeak support
+==========================
+
+You need to install Espeak libraries to be able to use the native
+output module. Some distributions like debian provide
+those libraries in a different package (libespeak1 and libespeak-dev).
+
+Notes about Flite support
+=========================
+
+You don't need to do anything special to compile Speech Dispatcher
+with Flite support, Flite will be detected automatically when running
+./configure. However, make sure that you have correctly installed
+flite libraries and examine the output of ./configure carefully.
+
+You should have configured flite with
+    ./configure --enable-shared
+to be able to use the flite plug-in. If you aren't sure if you have done this,
+check for example for libflite_cmu_us_kal.so in your library directory.
+(It's also possible to use Speech Dispatcher with Flite static libraries,
+but it is generally not a good way unless you know what you are doing.)
+
+Notes about IBM TTS support
+===========================
+
+In order to build the propriatary (non-free software) ibmtts output
+module, you will need one of two things:
+
+  1.  An install of the proprietary commercial IBM TTS synthesizer (for Linux),
+or
+
+  2.  The sdk for IBM TTS, which contains the headers and a "stub library" for
+      linking against. This SDK is Free Software and freely available, however
+      it doesn't contain the synthesizer. It will enable you to build the
+      module, but this module will give you no sound until you install the
+      synthesizer itself.
+
+The sdk can be obtained here:
+
+      http://ibmtts-sdk.sourceforge.net/
+
+      It isn't obvious on that website, but you download the sdk using cvs:
+
+      cvs -d:pserver:anonymous@ibmtts-sdk.cvs.sourceforge.net:/cvsroot/ibmtts-sdk login 
+
+      cvs -d:pserver:anonymous@ibmtts-sdk.cvs.sourceforge.net:/cvsroot/ibmtts-sdk co sdk
+
+      The sdk is licensed using a BSD-style license.
+
+You will also need libsndfile in order to enable sound icon emulation with the
+ibmtts output module.  (As of Apr 2006, the Debian packages you need are
+libsndfile1 and libsndfile1-dev.)
+
+Continue building Speech Dispatcher
+===================================
+
+On some systems, before running make, you have to set the environment variable
+SED to your binary of the sed application. This is usually done as:
+
+$ export SED=sed
+
+$ ./configure
+$ make all
+
+If everything worked ok, you can install all the parts to the default
+path by running (as root):
+
+ $ make install
+
+If it doesn't work, please see "Building from CVS" if this is your case. If
+not, you can ask us on users@lists.freebsoft.org or report possible bugs on
+speechd@bugs.freebsoft.org .
+
+Building from Git
+=================
+
+If you are building directly from Git or from some Git tarball snapshot, you
+must first create the ./configure file. Please make sure you have all the
+necessary tools listed in the requirements at the beginning of this README
+in their appropriate versions. Automake and autoconf are especially version
+sensitive.
+
+Then please do:
+
+ $ cd speech-dispatcher # where speech-dispatcher is your Git clone
+ $ ./build.sh
+
+Now the configure file should be created and you can proceed like with
+an ordinary instalation.
+
+Installing Festival Speech Dispatcher interface:
+================================================
+
+You need to install the new version of festival-freebsoft-utils (0.3
+or higher).
+
+Please make sure that Festival server_access_list configuration
+variable and your /etc/hosts.conf are set properly. server_access_list
+must contain the symbolic name of your machine and this name must be
+defined in /etc/hosts.conf and point to your IP address. You can test
+if this is set correctly by trying to connect to the port Festival
+server is running on via an ordinary telnet. If you are not rejected,
+it probably works.
+
+Example of the server_access_list configuration line
+in festival.scm:
+(set! server_access_list '("127.0.0.1" "localhost" "chopin"))
+
+Testing
+=======
+
+You can try to execute Speech Dispatcher by
+ $ speech-dispatcher
+
+If Speech Dispatcher is running, you can test if it's working by:
+ (on some other console)
+ $ cd speech-dispatcher-0.7.1/src/tests
+ $ ./run_test basic.test
+(You can also try other tests, if you like.)
+
+Also try
+ $ speech-dispatcher --help
+to see how you can run it as a standalone program and possibly see
+what's wrong.
+
+Troubleshooting
+===============
+
+If you think something is missing, try additionally:
+
+ $ mkdir PREFIX/etc/speech-dispatcher
+ $ cp -r config PREFIX/etc/speech-dispatcher
+ $ mkdir PREFIX/include
+ $ cp clients/libspeechd.h PREFIX/include/
+
+where PREFIX is your installation path prefix (defaulting to /usr/local).
+
+Building in more detail:
+========================
+
+The hierarchy of Makefiles is used to build each of the parts. The top
+level Makefile allows you to compile some extra parts of the project.
+These are:
+
+    - doc ........ build documentation in all supported formats
+                   (see doc/README for more information)
+    - src/server ..... build speachd server - this is the same as
+                   cd src/server; make all
+    - src/modules .... build all speachd modules - this is the same as
+                   cd src/modules; make all
+    - src/clients .... build all clients - this is the same as
+                   cd src/clients; make all
+    - clean ...... remove all files except the sources (does not
+                   clean documentation)
+    - all ........ build server, modules and clients
+
+If you are building directly from CVS or from some CVS tarball snapshot, you
+must first create the ./configure file. Please make sure you have all the
+necessary tools listed in the requirements at the beginning of this README
+in their appropriate versions. Automake and autoconf are especially version
+sensitive.
+
+Then please do:
+
+ $ cd speech-dispatcher-0.7.1
+ $ ./build.sh
+
+Now the configure file should be created and you can proceed like with
+an ordinary instalation.
+
+
+    

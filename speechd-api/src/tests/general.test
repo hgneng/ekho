@@ -1,0 +1,268 @@
+
+~5
+*
+
+@   Welcome,                              LSM 2003
+@       this is a tour through SSIP!
+
+@ SSIP stands for Speech Synthesis Internet Protocol,
+@ It's the actual interface to Speech Dispatcher.
+
+?
+*
+
+@               Introductory examples  I
+
+@ Let's try our first commands.
+?
+
+!SET SELF CLIENT_NAME unknown:run_test:main
+!SET SELF OUTPUT_MODULE flite
+
+!SPEAK
+Hello all, welcome at Libre Software Meeting 2003!
+.
+
+?
+*
+
+@               Introductory examples  II
+
+@ Now something more complicated.
+@ We will switch our output module to Festival.
+
+!SET SELF OUTPUT_MODULE festival
+?
+
+@ Set the voice rate a little bit lower.
+
+!SET SELF RATE -20
+?
+
+!SPEAK
+I have often regretted my speech, never my silence.
+                -- Publilius Syrus
+.
+
+?
+*
+
+@               S  S  I  P   ---   Basic ideas
+@
+@     *  Communication   `client library' <--> `Speech Dispatcher'
+@    
+@     *  Synchronous TCP/IP protocol
+@              (remote hosts)
+@
+@     *  Strict separation between client and the actual synthesis
+@              (abstract voice names, output module selection, ...)
+@
+@     *  Priorities
+@
+@     *  All configuration is done by user in Speech Dispatcher
+@
+@     *  Multiple connections per client
+
+?
+*
+
+@               S  S  I  P   ---   Command families
+@
+@     *  Speech synthesis / sound output
+@               (SPEAK, CHAR, KEY, SOUND_ICON)
+@
+@     *  Speech output control
+@               (STOP, CANCEL, PAUSE, RESUME)
+@
+@     *  Parameter setting
+@               (RATE, PITCH, TABLES, VOICE, ...)
+@
+@     *  Information retrieval
+@               (not necessary)
+@
+@     *  History of messages
+@               (very important for visually impaired)
+
+?
+*
+
+@               More examples -- Languages and output modules
+
+@  Again the English voice (english is default).
+
+!SPEAK
+I call our world Flatland, not because we call it so,
+but to make its nature clearer to you, my happy readers,
+who are privileged to live in Space.
+
+Imagine a vast sheet of paper on which straight Lines,
+Triangles, Squares, Pentagons, Hexagons, and other figures,
+instead of remaining fixed in their places, move freely about,
+on or in the surface, but without the power of rising above
+or sinking below it, very much like shadows--only hard
+with luminous edges--and you will then have a pretty correct
+notion of my country and countrymen.  Alas, a few years ago,
+I should have said "my universe:"  but now my mind has been
+opened to higher views of things.
+
+(an excerpt from ``Flatland, The romance of many dimensions
+                         by Edwin Abbot'')
+.
+
+?
+
+@ Now we can try to set some exotic language ;)
+?
+
+!SET SELF LANGUAGE cs
+
+!SPEAK
+Ahoj lidi, jak se máte? Já se mám skvěle! Víte, já sem strašně
+ukecanej, ale nikdo si se mnou nechce povídat.
+.
+
+@ Or another exotic language
+?
+
+!SET SELF LANGUAGE es
+
+!SPEAK
+Hola, como estais? Alguien habla espanol aqui?
+Es que es una lengua muy bonita!
+.
+
+!SET SELF LANGUAGE en
+
+?
+*
+
+@               Text processing -- Examples
+
+@ When reading books, it's best to just listen to the text,
+@ but when a visually impaired person wants to edit some
+@ text, it is handy if there is some recognition of
+@ the present punctuation characters, capital letters, etc.
+?
+
+@ This will pronounce all punctuation characters and
+@ additionally produce a sound before each capital letter.
+?
+
+!SET SELF PUNCTUATION all
+!SET SELF CAP_LET_RECOGN icon
+
+!SPEAK
+As  I  talked to these digital explorers, ranging from those who tamed
+multimillion-dollar machines in the 1950s  to  contemporary  young wizards
+who  mastered  computers  in  their  suburban  bedrooms,  I found  a common
+element,  a  common philosophy which seemed tied to the elegantly flowing logic
+of the computer itself. It was a philosophy of sharing, openness, decentralization,
+and  getting your hands on machines at any cost -- to improve the machines, and to
+improve the world. This Hacker Ethic is their gift to us: something with value even
+to those of us with no interest at all in computers.
+        (Hackers, Heroes of the computer revolution, Stevan Levy)
+.
+?
+
+!SET SELF PUNCTUATION none
+!SET SELF CAP_LET_RECOGN none
+
+@ Note that we have used an icon to signal capital letters.
+?
+
+*
+
+@               Sound icons   ---   Basic concepts
+
+@       *  Symbolic names
+@
+@       *  Sound or text for synthesis
+@
+@       *  Application specific sound icons
+@
+@       *  Different sound tables
+
+?
+*
+
+@               Sound icons   ---   Examples
+
+@ We will try some sound icons to see how they work.
+?
+
+!SOUND_ICON warning
+?
+
+!SOUND_ICON endofline
+?
+
+@ Sound icons can be used in user-machine dialog systems
+@       (in telephony systems, etc.)
+
+?
+*
+
+@               Priorities   ---   Examples I
+
+@ We will send two messages with different priorities at once.
+?
+
+!SET SELF PRIORITY NOTIFICATION 
+!SPEAK
+You can move around this page with cursor keys.
+.
+
+!SET SELF PRIORITY MESSAGE
+!SPEAK
+Accept cookie [Y/N/A]?
+.
+
+?
+*
+
+@               Priorities   ---   Examples II
+
+@ Or take for example this situation, where the user requested
+@ his application to read some text but then changed his mind.
+
+!SET SELF PRIORITY TEXT
+
+!SPEAK
+Ludwig van Beethoven (1770-1827) is widely considered to be one
+of the pre-eminent classical music figures of the Western world.
+This German musical genius created numerous works that are firmly
+entrenched in the repertoire. Except for a weakness in composing
+vocal and operatic music (to which he himself admitted,
+notwithstanding a few vocal works like the opera "Fidelio" and the
+song "Adelaide,"), Beethoven had complete mastery of the artform.
+.
+
+!SPEAK
+He left his stamp in 9 symphonies, 5 piano concertos, 10 violin
+sonatas, 32 piano sonatas, numerous string quartets and dozens of
+other key works.
+.
+
+?
+*
+
+@               Q U E S T I O N S ?
+
+@ Discussed topics:
+
+@       *  General SSIP ideas
+@
+@       *  Configuration is independent of client applications
+@
+@       *  Message processing
+@
+@       *  Sound icons
+@
+@       *  Priorities      
+
+
+@ Further topics:
+@
+@       *  Synchronous vs. asynchronous protocol (or both?)         
+@       *  ?
+@       *  Whatever

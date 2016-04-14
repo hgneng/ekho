@@ -1,0 +1,50 @@
+ekho (6.0-1ubuntu14.04) trusty; urgency=low
+
+  * improve datetime reading
+  * re-format Chinese voice files into one single file for each voice.
+
+ -- Cameron Wong <hgneng@gmail.com>  Thu, 15 May 2014 10:56:42 +0800
+
+ekho (5.7.2-1ubuntu12.04) precise; urgency=low
+
+  * replease through ppa
+
+ -- Cameron Wong <hgneng@gmail.com>  Tue, 22 Oct 2013 22:56:42 +0800
+
+ekho (4.5-1ubuntu10.04) precise; urgency=low
+
+  * Fix some command line functions. Add function of reading from stdin.
+
+ -- Cameron Wong <hgneng@gmail.com>  Thu, 07 Apr 2011 22:56:42 +0800
+ 
+ekho (4.1-1ubuntu10.04) precise; urgency=low
+
+  * Fix some serious bugs about dictionary in 4.0
+
+ -- Cameron Wong <hgneng@gmail.com>  Tue, 04 Jan 2011 23:29:26 +0800
+
+ekho (4.0-1ubuntu10.10) precise; urgency=low
+
+  * Use GSM voice file
+  * Remove ogg library dependancy
+  * New dictionary format, much faster
+
+ -- Cameron Wong <hgneng@gmail.com>  Sun, 31 Oct 2010 14:29:26 +0800
+
+ekho (2.6.1-1ubuntu10.04) precise; urgency=low
+
+  * Fix some bugs and release for ubuntu 10.04 32bit
+
+ -- Cameron Wong <hgneng@gmail.com>  Mon, 24 May 2010 14:29:26 +0800
+
+ekho (2.4-1ubuntu1) precise; urgency=low
+
+  * Switch audio library from portaudio to pulseaudio
+
+ -- Cameron Wong <hgneng@gmail.com>  Fri, 19 Feb 2010 14:29:26 +0800
+
+ekho (2.2-0ubuntu1) precise; urgency=low
+
+  * Initial release
+
+ -- Cameron Wong <hgneng@gmail.com>  Sun, 17 Jan 2010 17:24:42 +0800

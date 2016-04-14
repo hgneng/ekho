@@ -1,0 +1,11 @@
+QS Num-Words_in_Utterance<=4 { "*+1-*","*+2-*","*+3-*","*+4-*" }
+QS Num-Words_in_Utterance<=7 { "*+1-*","*+2-*","*+3-*","*+4-*","*+5-*","*+6-*","*+7-*" }
+QS Num-Phrases_in_Utterance==2 { "*-2" }
+
+{*}[2]
+{
+   0 Num-Words_in_Utterance<=7                           "gv_lf0_1"          -1      
+  -1 Num-Words_in_Utterance<=4                           "gv_lf0_2"          -2      
+  -2 Num-Phrases_in_Utterance==2                         "gv_lf0_4"       "gv_lf0_3" 
+}
+

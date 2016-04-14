@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+#  Converts cmulexicon to Festival format
+#
+#  usage:  cmu2ft cmudict.0.1 cmu_lex.scm
+
+#sed 's/er0/er0 r/' | sed 's/er1/er1 r/' | sed 's/er2/er2 r/' |
+
+echo >$2
+echo ";; CMUDICT-0.4 Converted to Festival lexicon format" >>$2
+cat $1 | tr "[A-Z]" "[a-z]" | sed 's/ah0/ax/g' | 
+tr 2 1 | 
+awk '{if ($1 == "##")
+	 printf(";; %s\n",$0);
+      else if ($1 ~ /^[a-z][a-z]*$/)
+      { printf("(")
+        printf("\"%s\" nil (%s",$1,$2)
+        for (i=3; i <= NF; i++)
+          printf " %s",$i
+        printf "))\n"
+      }} ' >> $2

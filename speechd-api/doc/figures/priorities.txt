@@ -1,0 +1,16 @@
+                       ___________
+                      | IMPORTANT |
+                      `-----------'
+                           .
+                          / \
+                        / |p| \ 
+       . . . . . . .      |r|     . . . . . . . . .
+       .   message ---->  |i| <---- text          .
+       .           .      |o|     .               .
+       .  progress ---->  |r| <---- notification  .
+       .           .      |i|     .               .
+       .           .      |t|     .               .
+       . . . . . . .      |y|     . . . . . . . . .
+     doesn't interrupt          interrupts itself
+       itself
+                    

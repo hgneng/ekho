@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE singing SYSTEM "Singing.v0_1.dtd" [    -->
+
+<!ENTITY % baseelements "PITCH |
+                         DURATION
+						 ">
+
+<!ELEMENT SINGING (#PCDATA| %baseelements; )*>
+<!ATTLIST SINGING BPM CDATA "120"
+                MARK CDATA #IMPLIED>
+
+<!ELEMENT PITCH ( #PCDATA | %baseelements; )*>
+<!ATTLIST PITCH FREQ CDATA "X"
+                NOTE CDATA "X"
+                MARK CDATA #IMPLIED>
+
+<!ELEMENT DURATION  ( #PCDATA | %baseelements; )*>
+<!ATTLIST DURATION SECONDS CDATA "X"
+                   BEATS CDATA "X"
+                   MARK CDATA #IMPLIED>
+
+<!ELEMENT REST  ( #PCDATA | %baseelements; )*>
+<!ATTLIST REST SECONDS CDATA "X"
+               BEATS CDATA "X"
+               MARK CDATA #IMPLIED>
+
+<!-- Character entities for latin 1 -->
+
+<!ENTITY % ISOlat1 PUBLIC
+  "-//SINGING//ENTITIES Added Latin 1 for SINGING//EN"
+  "sable-latin.ent" >
+%ISOlat1;
+
+
+

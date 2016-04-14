@@ -1,0 +1,108 @@
+@ Hi, this is a test for SSML support in Speech Dispatcher.
+
+@ Note that not all synthesizers (output modules) support SSML.
+@ If they do not, they should still speak but should not speak any
+@ of the SSML tags.
+
+!SET SELF NOTIFICATION END ON
+
+@ We'll begin with a simple message.
+$4
+!SET SELF SSML_MODE ON
+!SPEAK
+<speak>
+S S M L or Speech Synthesis Markup Language is an XML
+language that provides authors of synthesizable content a standard way
+to control aspects of speech such as pronunciation, volume, pitch, rate,
+etc. across different synthesis-capable platforms.
+</speak>
+. 
++702 END
+
+@ If you heard the full message, Speech Dispatcher
+@ works correctly.
+$2
+
+@ Now we will try changing the volume in mid-sentence.
+$2
+!SPEAK
+<speak>
+This sentence starts out normally, <prosody volume="loud">
+but then speaks loudly,</prosody><prosody volume="soft">
+and ends very softly.</prosody>
+</speak>
+.
++702 END
+
+@Let's try increasing the speaking rate in mid-sentence.
+$2
+!SPEAK
+<speak>
+Political language - <prosody rate="fast">
+and with variations this is true of all political parties,
+from Conservatives to Anarchists</prosody> - is designed to make lies sound truthful
+and murder respectable, and to give an appearance of solidity to pure wind. 
+        -- George Orwell (1903 - 1950), 1946
+</speak>
+.
++702 END
+$2
+
+@ This time, slower in mid-sentence.
+$2
+!SPEAK
+<speak>
+The secret of staying young is to live honestly,
+<prosody rate="slow">eat slowly,</prosody> and lie about your age.
+        -- Lucille Ball (1911 - 1989)
+</speak>
+.
++702 END
+$2
+
+@ How about changing gender in mid-sentence?
+@ Since most synthesizers do not support changing voices in the middle
+@ of synthesis, this may not work.
+$4
+!SPEAK
+<speak>
+Nobody will ever win the Battle of the Sexes.
+<voice gender="female">There's just too much fraternizing with the enemy.</voice>
+        -- Henry Kissinger (1923 -)
+</speak>
+.
++702 END
+$2
+
+@ Let's see if a change in speaker's age to 8 years old can be accomplished.
+$2
+!SPEAK
+<speak>
+<voice age="8">Human beings are the only creatures that allow their children
+to come back home.</voice>
+        -- Bill Cosby (1937 - )
+</speak>
+.
++702 END
+$2
+
+@ SSML permits sound files to be embedded in speech.
+@ If this works, you should hear a man say "Yo" (as in hello).
+
+$2
+!SPEAK
+<speak>He was heard to say
+<audio src="yo.wav"/>
+</speak>
+.
++702 END
+$2
+
+!QUIT
+
+@ If the tests did what was expected, your installation of Speech Dispatcher
+@ probably works fine. If not, there can be different causes, see
+@ the documentation -- Troubleshooting. (Note that some synthesizers
+@ don't support SSML. If everything else worked correctly, this is not a
+@ fatal problem.).
+

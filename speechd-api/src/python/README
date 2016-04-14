@@ -1,0 +1,10 @@
+This is a Python interface to SSIP.
+
+Full range of SSIP commands is implemented including callback handling.  See
+the section "Python API" in Speech Dispatcher documentation for more
+information.
+
+If you have any questions, suggestions, etc., feel free to contact us at the
+mailing list <speechd@lists.freebsoft.org>.
+
+-- Tomas Cerha <cerha@freebsoft.org>

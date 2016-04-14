@@ -1,0 +1,12 @@
+This is a Guile interface to SSIP.
+
+It is in an experimental state now and is expected to be significantly
+reworked before first official release.
+
+To compile it, run `make'.  libspeechd and guile libraries and headers files
+must be installed to get compiled the C part of the interface.
+
+If you have any questions, suggestions, etc., feel free to contact us at the
+mailing list <speechd@lists.freebsoft.org>.
+
+-- Milan Zamazal <pdm@freebsoft.org>

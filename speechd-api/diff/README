@@ -1,0 +1,45 @@
+commit src/python/speechd_config/config.py
+bug fix?? in src/modules/module_utils.h
+commit src/modules/Makefile.am
+$ git pull
+a lot diff ...
+
+##### Download and install Dotconf-1.3 for building speechd #####
+latest speechd needs a dotconf-1.3 which only exists on git:
+https://github.com/williamh/dotconf/tags
+$ autoreconf
+$ automake
+$ ./configure && make && make install
+
+##### setup speechd ENV #####
+Download speech-0.7.1 (same to Ubuntu 12.04) from http://devel.freebsoft.org/speechd
+$ sudo apt-get install libdotconf-dev libglib2.0-dev
+$ ./configure && make
+git clone speechd
+git checkout 0.7.1 (tag)
+$ autoreconf
+$ autoconf
+$ automake
+$ ./configure && make
+sd_ekho will be generated
+
+##### patch files #####
+replace file from diff/
+* speechd/config/modules/ekho.conf
+* speechd/src/modules/ekho.cc
+* speechd/src/modules/Makefile.am
+* speechd/src/python/speech_config/config.py
+
+##### configure speech-dispatcher #####
+install ekho
+build speechd-api (./configure --libdir=/usr)
+add ekho option to /usr/share/pyshared/speechd_config/config.py
+add ekho module to /etc/speech-dispatcher/speechd.conf and ~/.speech-dispatcher/conf/speechd.conf
+cp src/modules/.lib/sd_ekho (not src/modules/sd_ekho !!!) to /usr/lib/speech-dispatcher-modules/sd_ekho
+cp config/modules/ekho.conf /etc/speech-dispatcher/modules/
+cp config/modules/ekho.conf ~/.speech-dispatcher/conf/modules/
+troubleshooting with http://cvs.freebsoft.org/doc/speechd/speech-dispatcher.html#SEC18
+spd-conf
+spd-say "hello"
+
+

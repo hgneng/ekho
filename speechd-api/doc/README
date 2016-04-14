@@ -1,0 +1,16 @@
+All project documentation is written using Texinfo.
+(You can get the latest texinfo.tex from
+ftp://ftp.gnu.org/gnu/texinfo.tex (and all GNU mirrors))
+
+The Makefile in this directory allows you to build the documentation from
+Texinfo sources in one of these formats: info, HTML, DVI and PDF.
+
+To build one of supported formats, run "make <format>", Where <format> is
+supplyed by name of the format in lowercase.
+	
+For example:
+	make info
+
+The make process REQUIRES:
+	* Texinfo
+	* Tex (for generating PDF and DVI)

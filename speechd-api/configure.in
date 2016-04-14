@@ -1,0 +1,371 @@
+
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT([speech-dispatcher], [0.7.1], [speechd@lists.freebsoft.org])
+
+AC_LANG(C)
+
+dnl progs
+AC_PROG_CC
+
+AC_PROG_CXX
+
+dnl info
+AM_INIT_AUTOMAKE([foreign])
+
+AM_CONFIG_HEADER(config.h)
+
+# Command-line arguments.
+AC_ARG_ENABLE([python],
+	[AS_HELP_STRING([--disable-python], [do not install python bindings])],
+	[],
+	[enable_python=check])
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(limits.h sys/ioctl.h sys/time.h unistd.h)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_HEADER_TIME
+
+# Python support
+# Python 2.4 or greater should be acceptable.
+AS_IF([test $enable_python != "no"],
+	[AM_PATH_PYTHON([2.4],
+		[enable_python=yes],
+		[AS_IF([test $enable_python = "yes"],
+		[AC_MSG_FAILURE([python is not available])])])])
+AM_CONDITIONAL([HAVE_PYTHON], [test "$enable_python" = 'yes'])
+
+dnl Checks for library functions.
+AC_PROG_GCC_TRADITIONAL
+AC_CHECK_FUNCS(select socket)
+
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+AC_PROG_LIBTOOL
+
+# by Marcelo Magallon <mmagallo@efis.ucr.ac.cr>
+# Turn around -rpath problem with libtool
+# This define should be improbable enough to not conflict with anything
+case ${host} in
+  *-pc-linux-gnu)
+    AC_MSG_RESULT([Fixing libtool for -rpath problems.])
+    sed < libtool > libtool-2 \
+    's/^hardcode_libdir_flag_spec.*$/hardcode_libdir_flag_spec=" -D__LIBTOOL_IS_A_FOOL__ "/'
+    mv libtool-2 libtool
+    chmod 755 libtool
+  ;;
+esac
+
+dnl Checks for libraries.
+AC_CHECK_LIB(m,
+        sqrt, echo "",
+        echo "*** Required math library missing! See INSTALL .";exit 1)
+AC_CHECK_LIB(dl,
+        main, echo "",
+        echo "*** Required dl library missing! See INSTALL .";exit 1)
+AC_CHECK_LIB(dotconf,
+        main, echo "",
+        echo "*** Required DotConf library missing! See INSTALL .";exit 1)
+AC_CHECK_LIB(glib-2.0,
+        g_list_append, echo "",
+        echo "*** Required Glib-2.0 library missing! See INSTALL .";exit 1)
+AC_CHECK_LIB(pthread,
+        pthread_create, echo "",
+        echo "*** Required pthread library missing! See INSTALL .";exit 1)
+
+dnl Check for libsndfile.
+PKG_CHECK_MODULES(SNDFILE, sndfile >= 1.0.2, ac_cv_sndfile=1, ac_cv_sndfile=0)
+
+AC_DEFINE_UNQUOTED([HAVE_SNDFILE],${ac_cv_sndfile},
+        [Set to 1 if you have libsndfile.])
+
+AC_SUBST(SNDFILE_CFLAGS)
+AC_SUBST(SNDFILE_LIBS)
+
+dnl Check for Flite (currently required)
+AC_CHECK_LIB(flite,
+        flite_init, echo "",
+        echo "",
+	-lm)
+
+AC_CHECK_LIB(flite_cmulex,
+        cmu_lex_init, echo "",
+        echo "",
+	-lflite -lm)
+
+AC_CHECK_LIB(flite_usenglish,
+        usenglish_init, echo "",
+        echo "",
+	-lflite -lm)
+
+flite_basic="-lflite_cmulex -lflite_usenglish -lflite -lm";
+
+AC_CHECK_LIB(flite_cmu_us_kal16,
+	register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal16";echo "16-bit Kal Flite voice found. Flite support enabled.",
+	AC_CHECK_LIB(flite_cmu_us_kal16,
+		register_cmu_us_kal16,
+		flite_ok="true";
+		flite_kal="-lflite_cmu_us_kal16";
+		echo "16-bit Kal Flite voice found. Flite support enabled.";
+		AC_DEFINE([HAVE_REGISTER_CMU_US_KAL16], 1,
+			[Use cmu_register_us_kal16 to register the 16-bit voice.]),
+		AC_CHECK_LIB(flite_cmu_us_kal,	
+			register_cmu_us_kal, flite_ok="true";flite_kal="-lflite_cmu_us_kal";
+			echo "8-bit Kal Flite voice found. Flite support enabled.",
+			flite_ok="false"; echo "Flite libraries missing. Compiling without Flite support!",
+			$flite_basic),
+		$flite_basic),
+	$flite_basic)
+
+AC_SUBST(flite_basic)
+AC_SUBST(flite_kal)
+
+AC_ARG_WITH(flite, AS_HELP_STRING(--with-flite, Compile with Festival Lite (Flite) support),
+		 if test $withval = "no"; then
+		    echo "Forced compilation without Flite support.";
+		    flite_ok="false";
+		 else
+		    if test $flite_ok = "false"; then
+		       echo "Flite support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(flite_support, test $flite_ok = "true")
+
+dnl Check for IBM TTS
+AC_CHECK_LIB(ibmeci,
+        eciStop,
+        ibmtts_ok="true";ibmtts_include="-I/opt/IBM/ibmtts/inc/"; echo "Compiling with IBM TTS support.",
+        ibmtts_ok="false";ibmtts_include=""; echo "*** IBM TTS ECI library missing. Compiling without IBM TTS support! See INSTALL.";,
+	-libmeci)
+
+AC_ARG_WITH(ibmtts, AS_HELP_STRING(--with-ibmtts, Compile with IBM TTS support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without IBMTTS support."; 
+		    ibmtts_ok="false";
+		 else 
+		    if test $ibmtts_ok = "false"; then
+		       echo "IBM TTS support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(ibmtts_support, test $ibmtts_ok = "true")
+
+AC_SUBST(ibmtts_include)
+
+# Additional library check added by Willie Walker to account
+# for how the SunStudio CC compiler works.
+#
+dnl check for espeak support
+if test "$GCC" = yes; then
+    EXTRA_ESPEAK_LIBS="-lpthread -lm"
+else
+    EXTRA_ESPEAK_LIBS="-lpthread -lm -lCstd -lCrun"
+fi
+AC_SUBST(EXTRA_ESPEAK_LIBS)
+
+AC_CHECK_LIB(espeak,
+espeak_Synth,
+		espeak_ok="true"; echo "Compiling with espeak support.",
+		espeak_ok="false"; echo "Espeak not found.",
+		$EXTRA_ESPEAK_LIBS)
+
+AC_ARG_WITH(espeak, AS_HELP_STRING(--with-espeak, Compile with espeak support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without espeak support."; 
+		    espeak_ok="false";
+		 else 
+		    if test $espeak_ok = "false"; then
+		       echo "Espeak support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(espeak_support, test $espeak_ok = "true")
+
+dnl check for dumbtts support
+AC_CHECK_LIB(dumbtts,
+	dumbtts_TTSInit,
+	ivona_ok="true"; echo "Compiling with Ivona support.";,
+	ivona_ok="false"; echo "Dumbtts library not found. Not installing Ivona.";,
+	-ldumbtts)
+
+AC_ARG_WITH(ivona, AS_HELP_STRING(--with-ivona, Compile with ivona support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without ivona support."; 
+		    ivona_ok="false";
+		 else 
+		    if test $ivona_ok = "false"; then
+		       echo "Ivona support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+	
+AM_CONDITIONAL(ivona_support, test $ivona_ok = "true")
+
+AC_CHECK_LIB(audio,
+        AuOpenServer,
+	nas_aud="true";echo "Compiling with NAS support.";,
+        nas_aud="false";echo "*** NAS Audio library missing. Compiling without NAS support! See INSTALL.";,
+	-L/usr/X11R6/lib -lXau)
+
+AC_ARG_WITH(nas, AS_HELP_STRING(--with-nas, Compile with Network Audio System (NAS) support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without NAS support.";
+		    nas_aud="false";
+		 else 
+		    if test $nas_aud = "false"; then
+		       echo "NAS support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(nas_support, test $nas_aud = "true")
+
+AC_CHECK_HEADER(sys/soundcard.h, oss_aud="true";echo "Compiling with OSS support", oss_aud="false";echo "*** OSS missing. Compiling without OSS support! See INSTALL.")
+AC_ARG_WITH(oss, AS_HELP_STRING(--with-oss, Compile with OSS support),
+                if test $withval = "no"; then
+                    echo "Forced compilation without OSS support."
+                    oss_aud="false"
+                else
+                    if test $oss_aud = "false"; then
+                        echo "OSS support is not available. Sorry."
+                        exit 1
+                    fi
+                fi
+                echo "")
+AM_CONDITIONAL(oss_support, test $oss_aud = "true")
+
+AC_CHECK_LIB(ao,
+        ao_play,
+	libao_aud="true";echo "Compiling with libao support.";,
+        libao_aud="false";echo "*** libao library missing. Compiling without libao support! See INSTALL.";)
+
+AC_ARG_WITH(libao, AS_HELP_STRING(--with-libao, Compile with libao support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without libao support.";
+		    libao_aud="false";
+		 else 
+		    if test $libao_aud = "false"; then
+		       echo "libao support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(libao_support, test $libao_aud = "true")
+
+
+AC_CHECK_LIB(asound,
+        snd_pcm_open,
+	alsa_aud="true";echo "Compiling with ALSA support.";,
+        alsa_aud="false";echo "*** ALSA C API library missing. Compiling without ALSA support! See INSTALL.";)
+
+AC_ARG_WITH(alsa, AS_HELP_STRING(--with-alsa, Compile with ALSA support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without ALSA support.";
+		    alsa_aud="false";
+		 else 
+		    if test $alsa_aud = "false"; then
+		       echo "ALSA support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(alsa_support, test $alsa_aud = "true")
+
+AC_CHECK_LIB(pulse,
+        pa_threaded_mainloop_new,
+	pulse_aud="true";echo "Compiling with PulseAudio support.";,
+        pulse_aud="false";echo "*** PulseAudio library missing. Compiling without PulseAudio support! See INSTALL.";,
+	-lpulse)
+
+
+
+AC_ARG_WITH(pulse, AS_HELP_STRING(--with-pulse, Compile with PulseAudio support),
+		 if test $withval = "no"; then 
+		    echo "Forced compilation without PulseAudio support.";
+		    pulse_aud="false";
+		 else 
+		    if test $pulse_aud = "false"; then
+		       echo "PulseAudio support is not available. Sorry."; exit 1;
+		    fi
+                 fi
+ 		 echo "")
+
+AM_CONDITIONAL(pulse_support, test $pulse_aud = "true")
+
+glib_include=`pkg-config --cflags glib-2.0`
+AC_SUBST(glib_include)
+glib_libs=`pkg-config --libs glib-2.0`
+AC_SUBST(glib_libs)
+gthread_libs=`pkg-config --libs gthread-2.0`
+AC_SUBST(gthread_libs)
+
+AC_SUBST(datadir)
+
+spdconfdir='${sysconfdir}/speech-dispatcher'
+AC_SUBST(spdconfdir)
+moduleconfdir='${spdconfdir}/modules' 
+AC_SUBST(moduleconfdir)
+clientconfdir='${spdconfdir}/clients'
+AC_SUBST(clientconfdir)
+
+spdconforigdir='${datadir}/speech-dispatcher/conf'
+AC_SUBST(spdconforigdir)
+moduleconforigdir='${spdconforigdir}/modules'
+AC_SUBST(moduleconforigdir)
+clientconforigdir='${spdconforigdir}/clients'
+AC_SUBST(clientconforigdir)
+spddesktopconforigdir='${spdconforigdir}/desktop'
+AC_SUBST(spddesktopconforigdir)
+
+snddatadir='${datadir}/sounds/speech-dispatcher'
+AC_SUBST(snddatadir)
+modulebindir='${libdir}/speech-dispatcher-modules'
+AC_SUBST(modulebindir)
+spdlibdir='${libdir}/speech-dispatcher' 
+AC_SUBST(spdlibdir)
+spdlib2dir='${libdir}/speech-dispatcher' 
+AC_SUBST(spdlib2dir)
+
+LIB_SDAUDIO_CURRENT=2 # Current main version (increment on every API change -- incompatible AND extensions)
+LIB_SDAUDIO_REVISION=4 # Current minor version (increment on every implementation change)
+LIB_SDAUDIO_AGE=0 # Number of backward compatible main versions (LIB_SDAUDIO_CURRENT incrementations since last incompatible)
+AC_SUBST(LIB_SDAUDIO_CURRENT)
+AC_SUBST(LIB_SDAUDIO_REVISION)
+AC_SUBST(LIB_SDAUDIO_AGE)
+
+LIB_SPD_CURRENT=5 # Current main version (increment on every API change -- incompatible AND extensions)
+LIB_SPD_REVISION=0 # Current minor version (increment on every implementation change)
+LIB_SPD_AGE=3 # Number of backward compatible main versions (LIB_SPD_CURRENT incrementations since last incompatible)
+AC_SUBST(LIB_SPD_CURRENT)
+AC_SUBST(LIB_SPD_REVISION)
+AC_SUBST(LIB_SPD_AGE)
+
+# Extra libraries for sockets added by Willie Walker
+# based upon how SunStudio libraries work.  Also
+# conditionally set other compiler/linker flags.
+#
+if test "$GCC" = yes; then
+    EXTRA_SOCKET_LIBS=""
+    ERROR_CFLAGS="-Wall"
+    RPATH="-rpath"
+    RDYNAMIC="-rdynamic"
+else
+    EXTRA_SOCKET_LIBS="-lsocket -lnsl"
+    ERROR_CFLAGS="-errwarn=%all -errtags=yes -erroff=E_STATEMENT_NOT_REACHED"
+    RPATH="-R"
+    RDYNAMIC=""
+fi
+AC_SUBST(EXTRA_SOCKET_LIBS)
+AC_SUBST(ERROR_CFLAGS)
+AC_SUBST(RPATH)
+AC_SUBST(RDYNAMIC)
+
+AC_OUTPUT([Makefile src/Makefile src/server/Makefile src/modules/Makefile src/c/Makefile src/c/api/Makefile src/c/clients/Makefile src/c/clients/say/Makefile src/c/clients/spdsend/Makefile src/tests/Makefile src/audio/Makefile config/Makefile config/modules/Makefile config/clients/Makefile doc/Makefile src/python/Makefile src/python/speechd/Makefile src/python/speechd_config/Makefile])
+

@@ -1,0 +1,222 @@
+
+Version 0.7.1
+ * Easy configuration of the client communication method using a
+   single environment variable SPEECHD_ADDRESS.
+ * Advanced autospawn -- server is autostarted only when its
+   communication channel matches the communication channels requested
+   by the client.  Local server is not started when client attempts to
+   connect to a remote server.
+ * Both libspeechd and python library now report a detailed error
+   information in case of connection failure (why has connect failed,
+   why was it not possible to autostart the server, what has the
+   server reported etc.)  Clients can directly show this information
+   to the user and the user doesn't have to search them in logfiles.
+ * Improvements in memmory usage
+ * Cleanup of priorities of messages in logging output
+ * Various bugfixes, cleanups and fine-tunnings
+
+Version 0.7
+ * Speech Dispatcher uses UNIX style sockets as default means of communication,
+   thus avoiding the necessity to choose a numeric port and greatly easying
+   session integration
+ * Autospawn -- server is started automatically when a client requests it
+   It can be forbidden in the appropriate server configuration file
+   (thanks to Luke Yelavich)
+ * Pulse Audio output reworked and fixed (thanks to Bill Cox and Rui Batista)
+ * Dispatcher runs as user service (not system service) by default
+   and doesn't require the previous presence of ~/.speech-dispatcher
+   directory
+ * All logging is now managed centrally, not by separate options
+   (thanks to Luke Yelavich)
+ * Graceful audio fallback (e.g. if pulse is not working, use Alsa...)
+   (thanks to Luke Yelavich)
+ * Audio output to different soundsystems through the
+   libao library (thanks to Marco Skambraks)
+ * Various bugfixes and fine-tunnings
+ * Updated documentation
+
+Version 0.6.7
+ * Central settings for prefered audio output method
+ * Dummy output module gives a pre-recorded message whenever
+   no other output module works   
+ * Possibility to switch on verbose logging over SSIP
+   for easy debugging and bug-reporting from client applications
+ * 'spd-conf' configuration, diagnostics and troubleshooting tool
+ * Volume settings in Pulse Audio
+ * Pulseaudio output now keeps connection to daemon open.
+ * Punctuation mechanism in IBM TTS is now configurable
+ * New generic output modules for Espeak with Mbrola
+   and for Cepstral Swift.
+ * Bugfixes
+
+Version 0.6.6
+ * Bugfixes (ALSA audio output, libspeechd connection
+    failure handling and others)
+
+Version 0.6.5
+ * Pulse Audio output module (thanks to Gilles Casse)
+ * Speech Dispatcher is now adapted for easy setup and using
+   under ordinary system user accounts
+ * Bugfixes
+
+Version 0.6.4
+ * Native output module for eSpeak (thanks to Lukas Loehrer)
+ * Support for punctuation settings in the Generic output module
+	(thanks to Steve Holmes)
+ * Default audio output for all modules switched to ALSA
+ * Support for listing output modules and voices supported by
+   a synthesizer
+ * Bug fixes (SMP related bugs, bugs in libspeechd and others)
+
+Version 0.6.2
+ * Bug fixes.
+ * Generic output module for eSpeak includes definitions for all
+   known languages.
+ * Python interface now supports callbacks.
+
+Version 0.6.1
+ * Bug fixes
+ * Generic output module support for the eSpeak synthesizer (free, GPL)
+ * Output module for Cicero (french TTS, GPL but requires mbrola)
+ * Output module for IBM TTS (non-free)
+ * Revision and stabilization of the Python interface
+
+Version 0.6
+ * ALSA and experimental NAS sound output supported (apart from OSS)
+ * SSIP implementation now supports events notification and index marking
+ * Improved documentation
+ * spd-say client functionality expanded (stopping, client name setting)
+ * Better performance
+
+Version 0.5
+ * SSIP now supports SSML (Speech Synthesis Markup Language) messages.
+ * Communication with Festival is highly improved.
+ * Improved DTK Software Synthesis support.
+ * Python interface library
+ * Bugfixes
+
+Version 0.4
+ * Volume settings in the Generic output module.
+ * The 16-bit voice for Flite is installed if available.
+ * spd-say now accepts the most important speech parameters.
+ * libspeechd now uses TCP_NODELAY to make the communication faster.
+ * Bugfixes. 
+
+Version 0.3
+ * Volume setting commands in SSIP.
+ * Package and binary renamed to speech-dispatcher.
+ * Generic output module configuration file for DTK Software Synthesis.
+   Thanks to Jacob Schmude.
+ * Document with definition of SSIP is now separated.
+ * Debugging.
+
+Version 0.2
+ * Improved documentation (definition of the SSIP
+   protocol is now a separated document)
+ * Caching of characters, keys and sound icons in the
+   Festival output modules brings much quicker responses
+   for these types of events.
+ * If some output module fails to load completely (e.g. because
+   it's unable to connect to the synthesizer), error is reported
+   to Speech Dispatcher and written into the log file. (Sadly,
+   this doesn't work with kernels that don't support real threading).
+ * Necessary recoding in Festival output module is now retrieved
+   from Festival itself.
+
+Version 0.1
+ * First official release
+ * Improved documentation
+ * We have abandoned the idea to do some text processing in Speech Dispatcher,
+   it's all handled in the output modules
+ * New scheme scripts so that Festival supports some of the SSIP commands.
+ * Improvements in the C-library
+ * Documentation in Czech.
+ * Debugging, testing.
+
+Version 0.0.10
+ * Output modules are now external programs communicating through stdin/stdout
+ * Output modules can be reloaded at run time sending SIGUSR1 to speechd
+ * Multiple generic modules loaded at once supported
+ * Filtering in output layer of Speech Dispatcher is now optional
+   and can be handled later in output_modules or in the TTSs they use
+ * Client specific configuration
+ * Bug-fixes
+
+Version 0.0.9
+  * Generic output module (+definition for the Epos synthesiser)
+  * Better autoconf configuration
+  * Restructured documentation
+  * Block support in SSIP
+  * Daemon implementation
+  * Better configuration
+  * Capital letters recognition
+  * Experimental support for ogg sound icons.
+  * Bug-fixes
+
+Version 0.0.8
+  * Output modules reworked (now using a common mechanism)
+  * New priority system (now using 5 priorities)
+  * Improved documentation
+  * Improved C API
+  * Tables for czech language
+  * run_test and new tests, sayfortune.sh (src/tests/)
+  * Many bugs fixed
+  * Renamed to Speech Dispatcher
+
+Version 0.0.7
+  * Support for sound-mapped icons (cstsnd output module)
+  * Debian package support
+  * Apollo output module
+  * Experimental Python API
+  * Tests in src/tests/
+  * Improved PAUSE mechanism
+
+Version 0.0.6
+  * Speech Dispatcher now works in 2 threads for better performance
+  * New output module for Flite (using Flite C API)
+  * Added debug mode
+  * Spelling, punctuation, CHAR and KEY commands
+  * Heavily improved documentation of SSIP (thx Milan Zamazal)
+  * Chages in SSIP
+  * Emacspeak server
+  * Python API
+
+Version 0.0.5
+  * Renamed back to Speech Dispatcher
+  * Speech Dispatcher Center -- history and configuration client (first version)
+	* command line / menu logic
+	* browsing through clients
+	* browsing through client's history
+  	* stop/pause/resume functions
+	* speech support
+	* command line completion
+  * Lower CPU usage
+  * Sound icons support
+
+Version 0.0.4
+  * Automake and autoconf support
+  * Robod now uses GLib2 instead of GDSL
+  * More polished source
+  * Improved configuration of server
+  * More functions in the API.
+
+Version 0.0.3
+  * API for communication with Robod. 
+  * New output module for flite.
+  * History commands implemented.
+  * Shared library API in Robodlib.so.
+
+Version 0.0.2
+
+  * API for output modules designed
+  * sample output module implementation written
+  * server configuration based on DotConf implemented
+  * analysis of input protocol requirements documented
+
+Version 0.0.1
+        
+  * Project started ...
+  * Design documentation written (using DocBook XML)
+  * pre API designed
+  * simple server core and client example written
+  * CVS repository and other project stuff set up

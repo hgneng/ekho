@@ -1,0 +1,402 @@
+<html>
+<!-- 118 characters wide -------------------------------------------------------------------------------------------->
+<head><title>sr-convert sample rate conversion utility</title></head>
+<body text="black" bgcolor="#E0E0E0" link="#0000FF" vlink="#0000FF" alink="#FF0000">
+
+<h1 align="center"><code>sr-convert</code> sample rate conversion utility</h1>
+
+<p align="center">Version 0.81 special &mdash; February 12, 2005</p>
+
+<h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#qsg" name="toc-qsg">Quick Start Guide</a></li>
+  <ul>
+  <li><a href="#wii" name="toc-wii">What It Is</a></li>
+  <li><a href="#lic" name="toc-lic">Licensing</a></li>
+  <li><a href="#sysr" name="toc-sysr">System Requirements</a></li>
+  <li><a href="#inst" name="toc-inst">Installation</a></li>
+  <li><a href="#use" name="toc-use">Use</a></li>
+  <li><a href="#qual" name="toc-qual">Trading Quality for Space and Time</a></li>
+  </ul>
+<li><a href="#ssr" name="toc-ssr">Supported Sampling Rates</a></li>
+  <ul>
+  <li><a href="#comm" name="toc-comm">Common Rates</a></li>
+  <li><a href="#bsr" name="toc-bsr">Bandwidth-sharing Rates</a></li>
+  <li><a href="#tpr" name="toc-tpr">Television Production Rates</a></li>
+  <li><a href="#othr" name="toc-othr">Other Rates</a></li>
+  </ul>
+<li><a href="#build" name="toc-build">Building the Program</a></li>
+  <ul>
+  <li><a href="#linux" name="toc-linux">Building under Linux</a></li>
+  <li><a href="#nonsse" name="toc-nonsse">Building on CPUs without SSE</a></li>
+  <li><a href="#build-other" name="toc-build-other">Building on Other Configurations</a></li>
+  </ul>
+<li><a href="#future" name="toc-future">Future Plans</a></li>
+<li><a href="#thankyou" name="toc-thankyou">Thank You</a></li>
+</ul>
+
+<h2><a name="qsg" href="#toc-qsg">Quick Start Guide</a></h2>
+
+<p><a name="wii" href="#toc-wii">What It Is</a>. <code>sr-convert</code> is a command-line utility which converts
+<code>.WAV</code> files from one sampling rate to another. It is designed to have high fidelity while also offering
+reasonable performance.</p>
+
+<p><code>sr-convert</code> supports both upsampling (converting to a higher sampling rate) and downsampling
+(converting to a lower sampling rate). When upsampling, <code>sr-convert</code> carefully preserves all the
+frequencies present in the original file while eliminating noise in higher frequencies. Low-frequency files upsampled
+with <code>sr-convert</code> usually sound better than the originals, because <code>sr-convert</code> eliminates
+<i>all</i> high-frequency noise, and most PC hardware is not designed to do that during playback. (In effect, the file
+sounds better because you&rsquo;re using <code>sr-convert</code>&rsquo;s digital filter instead of using the filters
+built into your sound card and/or device drivers.)</p>
+
+<p>When downsampling, <code>sr-convert</code> preserves all the frequences that can be present in the output file
+while <i>eliminating</i> frequencies that cannot be represented correctly. Therefore, the kind of noise known as
+<i>aliasing</i> (produced when a high-frequency sound is sampled at a rate too low to represent it) is virtually
+eliminated.</p>
+
+<p>Upsampling and downsampling are both done using linear convolution and an all-pass filter. This method is vastly
+superior to duplicating and dropping samples, and is also superior to linear or polynomial interpolation. One side
+effect of this approach is that a fraction of a second of silence is added to each end of the file.</p>
+
+<p><a name="lic" href="#toc-lic">Licensing</a>. This program is licensed under the terms of the <a
+href="http://www.fsf.org/licenses/gpl.txt">GNU General Public License</a>.</p>
+
+<p><a name="sysr" href="#toc-sysr">System Requirements</a>. The precompiled MinGW binary should run on any 32-bit
+Windows machine. This includes Windows 95, Windows 98, Windows ME, Windows NT 3.51, Windows NT 4, Windows 2000, and
+Windows XP. As of this writing, it has been tested only under Windows 2000. However, the programmer notes that
+<code>sr-convert</code> does not make any use of the Windows API, beyond what use the C++ standard library makes of
+it, and therefore it is reasonable to assume that <code>sr-convert</code> will work on other Windows platforms without
+difficulty.</p>
+
+<p><code>sr-convert</code> will take advantage of the Streaming SIMD Extensions if your processor has them, but they
+are not required.</p>
+
+<p><code>sr-convert</code> uses the CPU the whole time it is running. If this adversely affects system performance
+then you might wish to use &ldquo;<code>start /low</code>&rdquo; to run it in its own window at a low priority.</p>
+
+<p>Memory requirements vary according to the sampling rates being converted, but shouldn&rsquo;t ever exceed 32
+megabytes. This program does not load entire WAV files into memory.</p>
+
+<p><a name="inst" href="#toc-inst">Installation</a>. The <code>sr-convert.exe</code> executable stands alone; to
+install it, simply move it to somewhere on your PATH, or else alter your PATH to include the directory where it
+is. You can also execute it from the command line if it is in the current directory or if you specify the full path to
+the <code>.EXE</code>&rsquo;s location.</p>
+
+<p><code>sr-convert</code> does not maintain a configuration file and does not use the Windows registry. Deleting it
+is as simple as deleting the <code>.EXE</code>.</p>
+
+<p><a name="use" href="#toc-use">Use</a>. To use the program, write a command-line like this:</p>
+
+<blockquote><code>sr-convert </code><font color="#C00000"><i>infile</i></font><code> </code><font color="#C00000"><!--
+--><i>inrate</i></font><code> </code><font color="#C00000"><i>outfile</i></font><code> </code><!--
+--><font color="#C00000"><i>outrate</i></font></blockquote>
+
+<p><font color="#C00000"><i>infile</i></font> should be the name of the input file, including the extension, such as
+<code>file1.wav</code>. In this version, the input file <i>must</i> be PCM with 8-bit samples or 16-bit samples. These
+are the most commonly occurring sample formats for WAV files. The WAV file format supports a wide variety of
+additional sample formats which this program does not yet support (such as 12-bit samples, 24-bit samples,
+floating-point samples, mu-law, A-law, etc.) and some which it never will support (for example, it is possible to put
+a WAV file header on an MP3, but this program would have to include an MP3 decoder in order to convert such an input
+file).</p>
+
+<p><font color="#C00000"><i>inrate</i></font> should be the sampling rate of the input file, or a single hyphen
+(&ldquo;<code>-</code>&rdquo;) if you want <code>sr-convert</code> to get the rate from the file itself. The single
+hyphen is most often used. Note that regardless of whether the rate comes from the file or from the command line, it
+<i>must</i> be one of the <a href="#ssr">supported sampling rates</a>. Any rate you specify will override the rate
+specified in the file.</p>
+
+<p><font color="#C00000"><i>outfile</i></font> should be the name of the output file, including the extension if you
+want one. If the output file already exists, it will be overwritten. The output file should not be the same as the
+input file, or the program will overwrite its own input and crash. For maximum quality, <code>sr-convert</code> always
+produces a 16-bit PCM output file.</p>
+
+<p><font color="#C00000"><i>outrate</i></font> is the sampling rate you would like the output file to have. It can be
+any of the <a href="#ssr">supported sampling rates</a>.</p>
+
+<p><code>sr-convert</code> prints a lot of &ldquo;debugging information&rdquo; as it prepares to run; this is normal
+and can be ignored. Then it prints dots and occasionally exclamation marks as it runs. An exclamation mark indicates
+that clipping occurred when encoding the output into PCM; this is most common when clipping occurs in the input
+file. If the output sampling rate is very low, then <code>sr-convert</code> will print dots very slowly.</p>
+
+<p>Every three million bytes, <code>sr-convert</code> updates the <code>.WAV</code> file header. Some programs such as
+Sound Recorder can load the partial <code>.WAV</code> file based on this header, even as the sample-rate converter
+continues to run. Other programs such as WinAMP won&rsquo;t play the file until it is finished.</p>
+
+<p><a name="qual" href="#toc-qual">Trading Quality for Space and Time</a>. <code>sr-convert</code> uses a digital
+filter in order to convert from one sampling rate to another. The <i>impulse response</i> of this filter is the way it
+responds over time to a single 1-value sample surrounded by 0-value samples (an <i>impulse</i>). As the impulse
+response gets longer, the quality improves, but <code>sr-convert</code> has to do more arithmetic and the impulse
+response takes up more space in memory.</p>
+
+<p>The impulse response is a mathematical function, and it doesn&rsquo;t have a sampling rate until it is sampled
+prior to the conversion. Its size is more easily measured by counting the points where it crosses zero; these points
+are called <i>nulls.</i> The length of the impulse response defaults to 500 nulls, and this produces exceptional
+quality. A different value, which must be a positive integer, can be given to <code>sr-convert</code> as follows:</p>
+
+<blockquote><code>sr-convert </code><font color="#C00000"><i>infile</i></font><code> </code><font color="#C00000"><!--
+--><i>inrate</i></font><code> </code><font color="#C00000"><i>outfile</i></font><code> </code><!--
+--><font color="#C00000"><i>outrate</i></font><code> </code><font color="#C00000"><i>nulls</i></font></blockquote>
+
+<p>Smaller values of <font color="#C00000"><i>nulls</i></font> produce more speed at the expense of quality, and
+larger values produce more quality at the expense of speed. However, there is a limit to how fast
+<code>sr-convert</code> can go, because it doesn&rsquo;t spend <i>all</i> its time traversing the impulse response. On
+the other hand, very <i>long</i> impulse responses might stop offering additional quality after a point, instead
+leading only to an increased accumulation of floating-point round-off error. (This shouldn&rsquo;t happen for a while,
+though.)</p>
+
+<p>The number of nulls also determines the amount of silence added to the ends of the output file.</p>
+
+<h2><a name="ssr" href="#toc-ssr">Supported Sampling Rates</a></h2>
+
+<p><code>sr-convert</code> supports a wide variety of sampling rates (68 at last counting) right out of the box, and
+more can be added if you have a Scheme interpreter and you&rsquo;re willing to recompile the source code. You can
+convert from any sampling rate directly to any other. (<code>sr-convert</code> will automatically create multi-stage
+conversions if necessary. It is better to let <code>sr-convert</code> do it itself, since it uses floating-point
+samples between stages.)</p>
+
+<p>You can get a list of all supported sampling rates by typing <code>sr-convert</code> with no arguments.</p>
+
+<p>Sampling rates are divided into several groups.</p>
+
+<p><a name="comm" href="#toc-comm">Common Rates</a>. These are rates that appear in typical applications.</p>
+
+<ul>
+
+<li><p><b>44100.</b> This is the rate of Compact Disc digital audio.</p></li>
+
+<li><p><b>22050 and 11025.</b> These rates, which are one-half and one-quarter of the CD rates, were introduced by
+Microsoft as part of the Multimedia PC requirements. The sound effects in Windows 3.1 were at 11025, as well as those
+in Doom.</p></li>
+
+<li><p><b>48000.</b> This rate is used by professional recording studio equipment, on DVDs, and in some audio
+codecs.</p></li>
+
+<li><p><b>24000 and 12000.</b> These correspond to 48000 in the same way that 22050 and 11025 correspond to
+44100.</p></li>
+
+<li><p><b>32000.</b> This rate is the lowest rate supported by MP3 high-quality encoding. Way back when the author had
+a 60 MHz Pentium and a motherboard which supported only one of the two DMA channels the sound card wanted, he noted
+that a 32 kHz MP3 would play more smoothly and consume less CPU than a 44.1kHz MP3.</p></li>
+
+<li><p><b>16000.</b> This rate, along with 22050 and 24000, is supported by lower-quality MP2 encoding.</p></li>
+
+<li><p><b>8000 and 7350.</b> 8000 is the sampling rate of telephone signals, and 7350 corresponds to 44100 the same
+way that 8000 corresponds to 48000.</p></li>
+
+<li><p><b>6000 and 5512+1/2.</b> These are half of the 12000 and 11025 rates; they occur rarely, because of their poor
+sound quality.  <code>sr-convert</code> uses the integer 5512 to represent 5512+1/2.</p></li>
+
+<li><p><b>64000, 128000, 88200, 176400, 96000, 192000.</b> These are two and four times the regular sampling rates of
+32000, 44100, and 48000, and are supported by some high-quality codecs and by DVD audio.</p></li>
+
+</ul>
+
+<p><a name="bsr" href="#toc-bsr">Bandwidth-sharing Rates</a>. Sometimes it might be useful to have two signals occupy
+the same space as a single larger signal. For example, if you have bandwidth enough for a 48000-hz signal, then you
+might wish to split it into an 8000-hz signal and a 40000-hz signal. In order to do this, 40000 has to be supported as
+a rate.</p>
+
+<p>So far there are few applications of bandwidth-sharing, but they were added because they were easy to support. The
+mathematics behind sample-rate conversion favors ratios, and the ratios between these rates are simple.</p>
+
+<p>These rates can also be used to reduce file sizes without reducing quality very much. For example, using 36750
+instead of 44100 is unlikely to create an audibly noticeable deterioration in quality, but it can save several
+megabytes of disk space.</p>
+
+<ul>
+
+<li><p><b>14700, 29400, 33075, and 36750.</b> These come up along with 7350, 11025, and 22050 when splitting the
+bandwidth of a 44100 signal. 14700 is a third, 29400 is two-thirds, 33075 is three quarters, and 36750 is
+five-sixths.</p></li>
+
+<li><p><b>51450, 55125, 58800, 66150, 73500, 77175.</b> These come up when splitting an 88200 signal. They correspond
+to 1+1/6, 1+1/4, 1+1/3, 1+1/2, 1+2/3, 1+3/4 of 44100.</p></li>
+
+<li><p><b>102900, 110250, 117600, 132300, 147000, 154350, 161700.</b> These may come up when splitting a 176400
+signal. They correspond to 2+1/3, 2+1/2, 2+2/3, 3, 3+1/3, 3+1/2, and 3+2/3 of 44100.</p></li>
+
+<li><p><b>36000, 40000.</b> These come up along with 8000, 12000, 16000, 24000, and 32000 when splitting
+48000.</p></li>
+
+<li><p><b>56000, 60000, 72000, 80000, 84000, 88000.</b> These come up along with 64000 when splitting 96000.</p></li>
+
+<li><p><b>112000, 120000, 144000, 160000, 168000, 176000.</b> These come up along with 128000 when splitting
+192000.</p></li>
+
+</ul>
+
+<p><a name="tpr" href="#toc-tpr">Television Production Rates</a>. It is often convenient to pretend that NTSC
+television (used in the U.S.) has a 60 Hz vertical refresh rate and a 30 Hz frame rate, but FCC regulations specify
+that the <i>actual</i> rates are 59.94 and 29.97 Hz (for color television). These are 999/1000 of the more convenient
+rates.</p>
+
+<p>As a result, sometimes video has to be speeded up or slowed down slightly to convert between 30 Hz and 29.97 Hz,
+and this also affects the audio soundtrack. A 44100 Hz soundtrack on a 29.97 Hz movie might be increased to
+44144+16/111 to go with 30 Hz. A 44100 soundtrack on a 30 Hz movie might be decreased to 44055+9/10 to go with 29.97
+Hz.</p>
+
+<p>The difference is so slight that the soundtrack doesn&rsquo;t <i>sound</i> like it has been speeded up or slowed
+down, but synchronization can be totally destroyed by this effect; by the end of a two-hour movie the difference works
+out to 7.2 seconds.</p>
+
+<p>Sometimes it becomes necessary to get rid of the oddball sampling rate of a speeded-up or slowed-down file while
+<i>preserving</i> the synchronization effects that were introduced by the speedup or slowdown. Sometimes, also, it is
+necessary to convert a file to the oddball rate <i>without</i> introducing synchronization artifacts. That is what
+<code>sr-convert</code> can do. (By specifying a different sampling rate for the input file, you can also get it to
+introduce these synchronization effects).</p>
+
+<p>(You can also squeeze an additional 4.8 seconds of audio onto an 80-minute CD this way, but it doesn&rsquo;t really
+seem worth an hour of processing to get those 4.8 seconds. On the other hand, if your source material needs to be
+converted anyway, and if you need the 4.8 seconds, it might be worth it.)</p>
+
+<p>(This does nothing about the amount of blank space added to the beginning and end of the output file by the
+convolution process, either. However, it is possible to edit that out, and a future version may be able to prevent it
+from being generated.)</p>
+
+<p>It&rsquo;s important to note that WAV files can represent only integer sampling rates. Therefore,
+<code>sr-convert</code> uses the nearest integer (preferring the even integer in the event of a tie) to represent a
+rate &mdash; and when reading these rates, it interprets them as the fractional rate. That&rsquo;s why 5512+1/2 is
+written as 5512 on the command-line and in the WAV file, and that&rsquo;s also why 44055+9/10 is written as
+44056. In the reverse direction, <code>sr-convert</code> always interprets 44056 as 44055+9/10.</p>
+
+<ul>
+
+<li><p><b>31968, 63936, 127872, 44055+9/10, 88111+4/5, 176223+3/5, 47952, 95904, 191808.</b> These are 999/1000 of the
+common sampling rates 32000, 64000, 128000, 44100, 88200, 176400, 48000, 96000, and 192000.</p>
+
+<li><p><b>32032+32/999, 64064+64/999, 128128+128/999, 44144+16/111, 88288+32/111, 176576+64/111, 48048+16/333,
+96096+32/333, 192192+64/333.</b> These are 1000/999 of the same common sampling rates.</p>
+
+</ul>
+
+<p><a name="othr" href="#toc-othr">Other Rates</a>. In order to make <code>sr-convert</code> support other rates, you
+must alter <code>make-tables.scm</code> (particularly near the line that begins &ldquo;<code>(define
+rates</code>&rdquo;) and rebuild the program. However, only rational sampling rates can be supported, and the ratios
+between sampling rates must be simple enough that excessive memory is not consumed by the impulse response.</p>
+
+<p><code>sr-convert</code> samples the impulse response at the least common multiple of the two sampling rates being
+used. Thus, if the sampling rates are 44100 and 48000, then the impulse response is sampled at 7.056 MHz. The nulls
+are spaced depending on the lower of the two sampling rates, so in this case they are 160 samples apart, and an
+impulse response spanning 500 nulls is 80,001 samples long. A similar method is used for any pair of input sampling
+rates. Thus, if you pick two large primes for sampling rates, the impulse response is likely to be so horrendously
+long that it can&rsquo;t be addressed by a 32-bit machine, much less stored in memory.</p>
+
+<p><code>make-tables.scm</code> has code to detect such abnormally long sampling rates, and try to break them up. This
+is why for some pairs of sampling rates, a two-stage or three-stage conversion is used. These conversions require
+intermediate sampling rates which are also supported. If you find yourself encountering abnormally long impulse
+responses, then try to factor both of the offending sampling rates and produce an &ldquo;intermediate&rdquo; rate or
+two. Then let <code>make-tables.scm</code> construct a two-stage or three-stage converter.</p>
+
+<p>For example, if you are converting from 65536 to 59049, the intermediate sampling rate is over 3.8
+gigahertz. However, you can take advantage of the fact that 65536 = pow(2,16) and 59049 = pow(3,10), and you can
+create intermediate sampling rates that consist of multiples of 2 and 3, such as 62208, which is
+pow(2,8)*pow(3,5). However, if you have to convert from 99929 to 123419, then you are out of luck, because both
+numbers are prime.</p>
+
+<p>When modifying <code>make-tables.scm</code>, bear in mind that it has a strict indentation style of two spaces for
+every open parenthesis (and no tabs). This style is easily checked by automated tools and helps debug missing or extra
+parentheses, which is a common problem in Scheme programs.</p>
+
+<h2><a name="build" href="#toc-build">Building the Program</a></h2>
+
+<p>In order to build <code>sr-convert</code> from source, you need the <a href="http://www.mingw.org/">MinGW</a>
+compiler for Win32 and a Scheme interpreter such as <a href="http://www.iro.umontreal.ca/~gambit/">Gambit
+Scheme</a>. You&rsquo;re going to have to modify the <code>Makefile</code> to point to the correct location of the
+Scheme interpreter. (If it&rsquo;s on your <code>PATH</code>, as mine should have been, then you can specify just
+<code>gsi</code> without a full path.) The Scheme program uses only R4RS Scheme, so it should be easy to find Scheme
+implementations capable of running it. If you need to use another Scheme implementation besides Gambit, the Scheme
+code should run with little or no modification, but it has not yet been tested.</p>
+
+<p>The Scheme interpreter is used to construct a <code>skips.out</code> file from the <code>make-tables.scm</code>
+file. If you don&rsquo;t have a Scheme interpreter, you can&rsquo;t build a new <code>skips.out</code> file, but you
+can build the program using the included <code>skips.out</code> file. If <code>make-tables.scm</code> is never
+modified, then the Makefile will never try to build <code>skips.out</code> and the Scheme interpreter specified in the
+Makefile will never be used.</p>
+
+<p><a name="linux" href="#toc-linux">Building under Linux</a>. Building under Linux is substantially the same as
+building under MinGW. There is a version of Gambit Scheme for Linux which works the same way as the Windows version,
+and <code>g++</code> under Linux works the same way as it does in MinGW. The only difference is that in Linux, if you
+don&rsquo;t modify the Makefile, you will have to type the <code>.exe</code> extension in order to run the produced
+binary. You can either create a soft link, or rename the program, or modify the Makefile.</p>
+
+<p><a name="nonsse" href="#toc-nonsse">Building on CPUs without SSE</a>. If your processor does not have SSE
+instructions, but is otherwise x86 compatible, then the question comes down to whether your <b>binutils</b>,
+specifically <b>as</b>, supports SSE instructions. If they do, then the program will require no modification. Even
+though the assembler will produce SSE instructions that your particular CPU doesn&rsquo;t have, the program, when it
+runs, will detect that SSE is not available, and will use the floating-point unit.</p>
+
+<p><a name="build-other" href="#toc-build-other">Building on Other Configurations</a>. If you have a non-x86
+processor, then you can try removing the SSE code entirely, but this requires a knowledge of C++. C++ versions of the
+SSE functions already exist, and the program uses them on x86 platforms where SSE is not available. Deleting the SSE
+routines and all references to them will produce an ordinary C++ program which can be compiled with your local
+compiler.</p>
+
+<h2><a name="future" href="#toc-future">Future Plans</a></h2>
+
+<p>This program accomplishes the purpose that was originally intended for it, however, it can be extended in a number
+of ways.</p>
+
+<ul>
+
+<li>More types of WAV files can be supported. There is a <a
+href="http://www.microsoft.com/hwdev/tech/audio/multichaud.asp">new specification</a> for WAV files that support
+multichannel audio and higher resolution samples; implementing this would be good.</li>
+
+<li>There should be an option to get rid of the &ldquo;moment of silence&rdquo; added to the ends of the file by the
+impulse response. This &ldquo;moment of silence&rdquo; is mathematically necessary, and it is conceivable that for a
+given file it would not be entirely silent; it prevents any &ldquo;pop&rdquo; from being introduced in the output
+file, and if there was one in the input file, the added samples allow the &ldquo;pop&rdquo; to be filtered along with
+the rest of the file. However, for some files it is necessary that the audio be synchronized with video or other
+audio, and the introduction of leading samples throws everything off.</li>
+
+<li>Better command-line argument parsing will be helpful.</li>
+
+<li>An overview of the existing source code should be written, which will help new programmers find their way
+around.</li>
+
+<li>More platforms should be supported, and in such a way that the program doesn&rsquo;t have to be modified. It is
+already a nuisance to modify the Makefile so that the <code>.exe</code> extension isn&rsquo;t put on the executable in
+Linux.</li>
+
+<li>The program currently prints a lot of &ldquo;noise&rdquo; as it runs, things such as the values of pointers, and
+lots of dots. It might be better if it simply gave a percent-done indication, since the size of the output can be
+computed exactly. Code to print debugging information can be retained, but it should be printed only in a debugging
+mode.</li>
+
+<li>The existing C++ code could stand to be refactored for clarity in a few places, particularly in the
+<code>main</code> function itself.</li>
+
+<li>It is theoretically possible to generalize the handling of multi-stage conversions to support any number of
+stages. This might make the code cleaner even if the actual number of stages never increases.</li>
+
+<li>There needs to be a way for the Scheme program to create a table entry that indicates that a certain pair of
+sampling rates is not possible to convert. Right now, if <code>make-tables.scm</code> finds that conversion is
+possible with an absurdly large impulse response, it goes ahead and puts that in the table, which causes the C++
+program to attempt to allocate huge amounts of memory.</li>
+
+</ul>
+
+<p>Currently, this version of the program <i>does</i> produce audible aliasing when it is used with very low sampling
+rates. The cause of this is the nature of the digital filter. An <i>ideal</i> filter, which passes all frequencies
+from 0 to X Hz and blocks frequencies above X Hz, is mathematically possible, but requires an infinitely long impulse
+response. This program takes a mathematically perfect but infinite function and multiplies it by a <i>window</i> that
+makes it finite in time and tapers the ends; this, however, slightly weakens the filter, so that it takes one or two
+Hz to cut off as the frequency increases toward X and past it, instead of cutting off instantly when the frequency
+reaches X. When X is half the sampling rate and a frequency above X leaks through, this leads to aliasing. But when
+the sampling rate is very high, there is very little energy in that frequency, and the frequency is very high anyway,
+so no aliasing is heard. With lower sampling rates, though, this is not true.</p>
+
+<p>The solution to this is to lower the cutoff frequency slightly, say by about 0.5 percent, for low sampling
+rates. If you pass a very low frequency sweep through <i>that</i> filter, then the frequency will get gradually cut
+off <i>before</i> aliasing occurs. Implementation of this will have to wait for a future version, though.</p>
+
+<h2><a name="thankyou" href="#toc-thankyou">Thank You</a></h2>
+
+<p>The author of this program would like to thank you for testing it. If you would like to suggest any features or
+report any bugs, please send e-mail to
+<a href="mailto:edkiser@users.sourceforge.net">edkiser@users.sourceforge.net</a>. The author would also like to
+know which of the above enhancements and bugfixes you consider most important.</p>
+
+</body>
+</html>

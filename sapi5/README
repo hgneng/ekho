@@ -1,0 +1,10 @@
+There are English and Spanish voices in Festival. Keep only one when building the package!!
+
+=====
+Remember to copy all dependency dlls (i.e. libsndfile-1.dll) to Debug_x86, or it will fail to "regsrv32".
+
+Refer to http://being.wikispaces.com/SAPI+5.1+bugs+on+VS2005 to fix SAPI5 bugs on VS2005.
+
+Change e-guidedog path in project file and mkvoice.cpp
+
+Copy wordlist.txt to debug

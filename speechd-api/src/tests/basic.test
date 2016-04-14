@@ -1,0 +1,94 @@
+@ Hi, this is a basic Speech Dispatcher test.
+
+@ I've successfully connected to the server
+@ and now I'm going to try to set my client name
+@ and priority for the messages.
+$4
+!SET SELF CLIENT_NAME unknown_user:test-basic:main
+$4
+!SET SELF PRIORITY MESSAGE
+$4
+
+@ Hope it was ok. Now I can try to say something:
+$8
+!SPEAK
+Hello world, this is Speech Dispatcher speaking.
+. 
+$2
+@ If you heard the full message, Speech Dispatcher
+@ works correctly.
+$8
+
+
+@ Now we will try some settings.
+$2
+@ This message should be said very quickly...
+$4
+!SET SELF RATE +80
+!SPEAK
+You have to run as fast as you can just to stay where you are.
+If you want to get anywhere, you'll have to run much faster.
+        -- Lewis Carroll
+.
+$8
+
+
+@ ...and this very slowly.
+$4
+!SET SELF RATE -80
+!SPEAK
+There is more to life than increasing its speed.
+        -- Mahatma Gandhi
+.
+$8
+
+
+@ We will keep the rate at this level and try to make the voice
+@ whisper by increasing its pitch.
+$4
+!SET SELF PITCH 90
+!SPEAK
+Do not believe in miracles -- rely on them.
+.
+$8
+
+@ This time, we will return to normal speed, but decrease the pitch.
+@ Some distortion is probably unavoidable.
+$4
+!SET SELF RATE 0
+!SET SELF PITCH -90
+!SPEAK
+I detest that man who hides one thing in the depths of his heart, and speaks for another.
+        -- Homer (800 BC - 700 BC)
+.
+$8
+
+@ Let's return to normal but try speaking loudly.
+@ Since most synthesizers already speak near maximum volume, you may not
+@ hear any difference.
+$4
+!SET SELF PITCH 0
+!SET SELF VOLUME 90
+!SPEAK
+Actions lie louder than words.
+        -- Carolyn Wells
+.
+$8
+
+@ And finally, very softly.
+$4
+!SET SELF VOLUME -90
+!SPEAK
+What you do speaks so loud that I cannot hear what you say.
+        -- Ralph Waldo Emerson (1803 - 1882)
+.
+$8
+
+!QUIT
+
+@ If the tests did what was expected, your installation of Speech Dispatcher
+@ probably works fine. If not, there can be different causes, see
+@ the documentation -- Troubleshooting. (Note that some synthesizers
+@ don't have to support setting of the voice parameters. If everything
+@ else worked correctly, this is not a fatal problem.).
+

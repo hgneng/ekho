@@ -1,0 +1,38 @@
+Procesure to build a deb package:
+cd build
+../configure
+make dist-xz
+tar xJvf ekho-x.y-tar.xz
+cd ekho-x.y
+dh_make --email hgneng@gmail.com -f ../ekho-x.y.tar.xz --multi -c gpl2
+cp ~/e-guidedog/eGuideDog_TTS/debian/control debian/
+cp ~/e-guidedog/eGuideDog_TTS/debian/copyright debian/
+# Edit version in changelog
+cp ~/e-guidedog/eGuideDog_TTS/debian/changelog debian/
+rm debian/README.Debian 
+rm debian/emacsen-*.ex
+rm debian/init.d.ex 
+rm debian/manpage.1.ex 
+rm debian/manpage.sgml.ex 
+rm debian/postinst.ex 
+rm debian/preinst.ex 
+rm debian/postrm.ex 
+rm debian/prerm.ex 
+dpkg-buildpackage -rfakeroot -k2C3E5CD6 # no need to dput bin package
+dpkg-buildpackage -rfakeroot -k2C3E5CD6 -S
+dput ../*.changes
+
+lintian *.dsc *.deb
+
+===== PPA =====
+1. remove cp command for speech-api to remove speech-api complete in case that some doc files installed conflicting to speechd package (restore it after built)
+3. register GPG key: https://launchpad.net/+help-registry/openpgp-keys.html
+4. GPG Reference: https://help.ubuntu.com/community/GnuPrivacyGuardHowto
+5. confirm key 2C3E5CD6 (or other ID) exists
+5.1 if not, `gpg --import Cameron\ Wong.asc`
+5.2 export GPGKEY=D8FC66D2
+6. dput ppa:hgneng/ekho *.changes
+
+7. sudo add-apt-repository ppa:hgneng/ekho
+8. sudo apt-get update
+9. sudo apt-get -y install ekho

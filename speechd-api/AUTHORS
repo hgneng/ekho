@@ -1,0 +1,51 @@
+
+AUTHORS
+=======
+
+Jan Buchal <buchal at brailcom point org>
+
+Tomas Cerha <cerha at brailcom point org>
+
+Hynek Hanke <hanke at brailcom point org>
+
+Milan Zamazal <pdm at brailcom point org>
+
+Christopher Brannon <cmbrannon79 at gmail point com>
+
+Luke Yelavich <themuso at themuseo point com>
+
+Andrei Kholodnyi <andrei point kholodnyi at gmail point com>
+
+THANKS
+======
+
+Thanks to Jacob Schmude for contributing the generic output module
+configuration file for DecTalk software synthesis.
+
+Thanks to Gary Cramblittfor working on the output module for ALSA,
+contributing the IBM TTS output module and providing valuable
+consultations.
+
+Thanks to Olivier Bert for contributing the Cicero output module.
+
+Thanks to Lukas Loehrer for contributing the eSpeak output module.
+
+Thanks to Steve Holmes for his work on the generic output module.
+
+Thanks to Gilles Casse for contributing the PulseAudio output module.
+
+Thanks to Bill Cox and Rui Batista for the rework of the Pulse Audio
+output modules.
+
+Thanks to Marco Skambraks for the libao audio output module.
+
+Thanks to William Hubbs for various improvements, bugfixes and his
+work on the internationalization of Speech Dispatcher.
+
+Thanks to Trevor Saunders for various improvements and bugfixes.
+
+Thanks to Halim Sahin for for fixes in the audio subsystem.
+
+Thanks to Samuel Thibault for various bugfixes.
+
+...and to many others who have contributed.

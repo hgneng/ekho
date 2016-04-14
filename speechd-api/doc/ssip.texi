@@ -1,0 +1,1931 @@
+\input texinfo   @c -*-texinfo-*-
+@c %**start of header
+@setfilename ssip.info
+@settitle Speech Synthesis Interface Protocol
+@finalout
+@c @setchapternewpage odd
+@c %**end of header
+
+@syncodeindex pg cp
+@syncodeindex fn cp
+@syncodeindex vr cp
+
+@dircategory Sound
+@dircategory Development
+
+@direntry
+* SSIP: (ssip).       Speech Synthesis Interface Protocol.
+@end direntry
+
+@titlepage
+@title Speech Synthesis Interface Protocol
+@author Tom@'a@v{s} Cerha <@email{cerha@@freebsoft.org}>
+@author Hynek Hanke <@email{hanke@@freebsoft.org}>
+@author Milan Zamazal <@email{zamazal@@freebsoft.org}>
+@author @url{http://www.freebsoft.org}
+@page
+@vskip 0pt plus 1filll
+
+This manual documents Speech Synthesis Interface Protocol, version 0.2.
+
+Copyright @copyright{} 2001-2007 Brailcom, o.p.s., http://www.brailcom.cz .
+
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts and no Back-Cover Texts.
+A copy of the license is included in the section entitled ``GNU Free
+Documentation License.''
+@end quotation
+
+You can also (at your option) distribute this manual under the GNU
+General Public License:
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+A copy of the license is included in the section entitled ``GNU
+General Public License''
+@end quotation
+
+@end titlepage
+
+@ifnottex
+@node Top, Introduction, (dir), (dir)
+
+This manual documents Speech Synthesis Interface Protocol, version 0.2.
+
+Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s., http://www.brailcom.cz .
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts and no Back-Cover Texts.
+A copy of the license is included in the section entitled ``GNU Free
+Documentation License.''
+@end quotation
+
+You can also (at your option) distribute this manual under the GNU
+General Public License:
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+A copy of the license is included in the section entitled ``GNU
+General Public License''
+@end quotation
+
+Please contact us on @url{http://www.freebsoft.org}
+
+@end ifnottex
+
+@ifhtml
+@heading Menu
+@end ifhtml
+
+@contents
+
+@menu
+* Introduction::                
+* Basic Terminology::           
+* General Rules::               
+* SSIP Commands::               
+* Return Codes::                
+* Appendices::                  
+* GNU Free Documentation License::  
+* GNU General Public Licence::  
+@end menu
+
+@node Introduction, Basic Terminology, Top, Top
+@chapter Introduction
+
+@menu
+* Purpose::                     
+* Protocol Philosophy::         
+* Higher Level API::            
+@end menu
+
+@node Purpose, Protocol Philosophy, Introduction, Introduction
+@section Purpose
+
+Speech Synthesis Interface Protocol is a device independent layer for
+speech synthesis, developed with the goal of making the usage of
+speech synthesis easier for application programmers. It takes care of
+most of the output-related tasks necessary to solve in speech enabled
+applications. What is a very high level GUI library to graphics,
+Speech Synthesis Interface Protocol is to speech synthesis.
+
+Up to now, the applications that wanted to implement speech output had
+to handle all the device dependent aspects of communication with
+different speech synthesizers themselves. Speech Synthesis Interface
+Protocol (SSIP) aims to provide a totally independent abstract set of
+commands by which different applications can talk to some central
+Speech Server installed on the system that than talks to the
+synthesizers themselves. This way, user applications don't have
+to care about the particular synthesizers available on the system
+and the synthesizers don't have to care about the installed user
+applications.
+
+SSIP is not only a device independent language for speech synthesis
+related requests, but also a mechanism to coordinate the interaction
+and conflicts between different clients' needs in a central place in
+the system. Through the priority system, the central Speech Server
+that implements SSIP can decide which messages are considered the most
+important at any particular time and say them, while possibly
+supressing others.
+
+@node Protocol Philosophy, Higher Level API, Purpose, Introduction
+@section Protocol Philosophy
+
+Speech Synthesis Interface Protocol defines a reasonable subset of the
+different capabilities provided by the different synthesizers.  It
+supports some basic events (message, key, character, ...) as well as
+changing the basic voice parameters (language, voice, rate, pitch,
+...) or the more advanced ones (punctuation mode, spelling mode, ...).
+
+None of the commands or parameters of SSIP depends on the characteristics
+of the particular devices that are being used. For example when
+the client application wants to change the language for the next
+message, it only calls the appropriate SSIP command and it leaves the
+Speech Server to decide which synthesizer to use.
+
+SSIP was designed to allow multiple simultaneous connections to
+the server. A connection is identified by an identification string
+provided by the client application and an id number. Each connection
+with all its parameters is considered a closed space independent of
+the others, so that different clients can maintain different settings
+in their connections and then the Speech Server should take care of setting
+the right parameters on the synthesizer according to the origin of each
+request. One client can even establish several connections to maintain
+different contexts.
+
+SSIP also solves the issue when more than one client want's to speak
+at one time or when more messages come than it's possible to say.
+Each message has an assigned priority and according to this priority,
+when multiple messages come to the server, they is directly said,
+postponed or suppressed.
+
+It is important to understand the difference between SSIP and
+higher level protocols like SABLE, VoiceXML or SSML. Speech
+Synthesis Interface Protocol is not a markup language in which one
+would write a document. SSIP is rather the underlaying tool that the
+application would use to let you read and browse the documents encoded
+in either ordinary formats (like plain text, HTML, PDF) or the
+voice-enabled formats (SABLE, VoiceXML, SSML). These higher level
+protocols describe only how the document should be said, while SSIP is
+the means to acually do it on your system. In this manner, one of the
+supported formats of the messages you can send through SSIP is SSML.
+
+@node Higher Level API,  , Protocol Philosophy, Introduction
+@section Higher Level API
+
+SSIP is the basic interface protocol that is being used in the
+communication of a client with the central Speech Server on a
+system. However, in many cases it may more convenient for application
+programmers not to use SSIP directly (having to care about open
+socket connections etc.) but rather use an interface wrapper written
+in the specific programming language they use. There is no obstacle in
+SSIP for this option, and in fact, this approach is highly
+encouraged.
+
+This way, application programmers should finally be able to use such
+simple functions as speech_open(), speech_printf() and
+speech_set_rate() in their programs.
+
+We believe this can make writing new speech enabled applications
+a lot easier and allow programmers to make more of them.
+
+@node Basic Terminology, General Rules, Introduction, Top
+@chapter Basic Terminology
+
+@itemize
+
+@cindex SSIP
+@cindex Speech Synthesis Interface Protocol
+@item @emph{Speech Synthesis Interface Protocol} or @emph{SSIP} is the
+device-independent protocol described in this document through which
+client application can send their requests for speech synthesis to the
+Speech Server.
+
+@cindex Speech Server
+@item @emph{Speech Server}
+is the server application that implements Speech Synthesis Interface
+Protocol, as described in this document, and provides an interface
+for client applications.
+
+@cindex client
+@cindex client application
+@item @emph{Client} or @emph{client application}
+is every application that connects to Speech Server and talks to
+it through the Speech Synthesis Interface Protocol. In other words,
+this is the application that ``wants to speak''.
+
+@cindex message
+@item @emph{Message}
+is a chunk of text that a client sends to Speech Server to request
+saying something or play some sound.
+
+@item @emph{To cancel a message}
+means to stop saying it and/or remove it from the queue of messages
+waiting to be said. However, it is not removed from the history, where
+it was stored after being received by Speech Server.
+
+@end itemize
+
+
+@node General Rules, SSIP Commands, Basic Terminology, Top
+@chapter General Rules
+
+SSIP communicates with the clients through a defined set of text
+commands, in the usual manner for common Internet protocols.  The
+characters sent through the Speech Synthesis Interface Protocol are
+encoded using the UTF-8 encoding.
+
+Each SSIP command, unless specified otherwise, consists of exactly one
+line.  The line is sent in the following format:
+
+@example
+@var{command} @var{arg} ...
+@end example
+
+where @var{command} is a case insensitive command name and @var{arg}s
+are its arguments separated by spaces.  The command arguments which
+come from a defined set of values are case insensitive as well.  The
+number of arguments is dependent on the particular command and there
+can be commands having no arguments.
+
+All lines of SSIP input and output must be ended with a pair of
+carriage return and line feed characters, in that order.
+
+When you connect to Speech Server, you should at least set your client
+name, through the @code{SET SELF CLIENT_NAME} command (@pxref{Parameter Setting
+Commands}).  This is important to get a proper identification of your client
+--- to allow managing it from the control center application and to identify it
+in a message history browser.  You might want to set other connection
+parameters as well. Look for more details in @ref{Parameter Setting Commands}.
+
+An SSIP connection is preferably closed by issuing the @code{QUIT}
+command, see @ref{Other Commands}.
+
+SSIP is a synchronous protocol --- you send commands and only after a
+complete response from SSIP arrives back are you allowed to send the
+next command.  Usually, the SSIP connection remains open
+during the whole run of the particular client application.  If you
+close the connection and open it again, you must set all the
+previously set parameters again, SSIP doesn't store session
+parameters between connections.
+
+The protocol allows you to perform commands influencing other currently
+connected or previously connected clients.  This allows you to write a
+control application managing or browsing all the messages received by
+the current Speech Server process.  The mechanism is completely
+relaxed, there are no restrictions on managing some aspects of
+sound output for other users, however, there is a mechanism
+to prevent one user from seeing history messages of another
+user.
+
+Some of the commands (@ref{Speech Output Control Commands}
+and @ref{Parameter Setting Commands})
+take an argument in the form:
+@example
+        @{ @var{id} | all | self @}
+@end example 
+
+where the value can be the @code{id} of the connection the command should
+be performed on (a positive number), the string @code{all} to
+act on all clients of this server or @code{self} to act on the connection
+itself. Unless you are writing a special client for managing
+Speech Server or unless you have specific needs, you
+should only use the @code{self} value for this argument.
+
+Not all parameter setting commands may receive all kinds of the first
+parameter defined above, for instance, some of them may receive only
+@code{self}.
+
+SSIP replies have the following format:
+
+@example
+@var{ccc}-line 1
+@var{ccc}-line 2
+...
+@var{ccc}-line @var{n}-1
+@var{ddd} line @var{n}
+@end example
+
+where @var{n} is a positive integer, and @var{ccc} and @var{ddd} are
+three-digit long numeric codes identifying the result of the command.
+The last line determines the overall result of the command. The result
+code is followed by an English message describing the result of the
+action in a human readable form.
+
+@node SSIP Commands, Return Codes, General Rules, Top
+@chapter SSIP Commands
+
+Commands recognized by SSIP can be divided into several groups: Speech
+synthesis and sound output commands, speech control commands,
+parameter setting commands, commands retrieving information about
+current client and server settings, commands handling the message
+history, and other commands.  Each of these command groups is
+described in one of the following sections.
+
+In the command descriptions, the command is written together with its
+arguments.  Optional arguments are enclosed by square brackets
+(@code{[} and @code{]}), alternatives are separated by the vertical
+rule (@code{|}) and are grouped within braces (@code{@{} and
+@code{@}}) or square brackets for mandatory or optional arguments
+respectively. Literal argument values are typeset in lowercase letters
+(they are case insensitive), and variable arguments are typeset
+@var{like this}.  Ellipsis denoted by three dots (@code{...}) means
+repetition (zero or more times) of all the arguments within the
+current brackets.
+
+@menu
+* Speech Synthesis and Sound Output Commands::  
+* Speech Output Control Commands::  
+* Message Priority Commands::   
+* Blocks of Messages Commands::  
+* Parameter Setting Commands::  
+* Information Retrieval Commands::  
+* Message Events Notification and Index Marking::  
+* History Handling Commands::   
+* Other Commands::              
+@end menu
+
+@node Speech Synthesis and Sound Output Commands, Speech Output Control Commands, SSIP Commands, SSIP Commands
+@section Speech Synthesis and Sound Output
+
+These commands invoke actual output to particular output device.  The
+particular way how the message is handled depends on current speech
+parameter settings and user configuration.
+
+@table @code
+@item SPEAK
+@anchor{SPEAK}
+Start receiving a text message and synthesize it.  After sending a
+reply to the command, Speech Server waits for the text of the
+message.  The text can spread over any number of lines and is
+finished by an end of line marker followed by the line containing the
+single character @code{.} (dot).  Thus the complete character sequence
+closing the input text is @code{CR LF . CR LF}.  If any line within
+the sent text starts with a dot, an extra dot is prepended before it.
+
+During reception of the text message, Speech Server doesn't send
+responses for the lines sent.  The response line is sent only
+immediately after the @code{SPEAK} command and after receiving the
+closing dot line.
+
+The content of the message can be either a plain text or a SSML
+(Speech Synthesis Markup Language) text. See @code{SET SELF
+SSML_MODE}.  There is no guarantee that the SSML markup will be
+respected, so the application shouldn't rely on them. The external
+parameters can still be set by the parameter setting commands. SSML is
+intended only for additional markup inside the message. In SSML mode,
+each message must begin with @code{<speak>} and end with
+@code{</speak>}.
+
+Speech Server can start speech synthesis as soon as a sufficient
+amount of the text arrives; it generally needn't (but may) wait until
+the end of data marker is received.
+
+There is no explicit upper limit on the size of the text, but the
+server administrator may set one in the configuration or the limit can
+be enforced by available system resources.  If the limit is exceeded,
+the whole text is accepted, but the excess is ignored and an
+error response code is returned after processing the final dot line.
+
+The reply takes the form
+
+@example
+225-msg_id
+225 OK MESSAGE QUEUED
+@end example
+
+where @var{msg_id} is a unique id assigned to this message in Speech
+Server. This is useful for the @ref{History Handling Commands}
+commands as well as for @ref{Message Events Notification and Index Marking}.
+
+The @code{SPEAK} command might be used for example in this way:
+
+@example
+SPEAK
+230 OK RECEIVING DATA
+hi
+.
+225-21
+225 OK MESSAGE QUEUED
+@end example
+
+@item CHAR @var{char}
+Speak letter @var{char}.  @var{char} can be any character
+representable by the UTF-8 encoding. The only exception is the
+character space (@code{ }); that can't be sent directly. In this case,
+a string @code{space} must be sent instead.
+
+@example
+CHAR e
+CHAR \
+CHAR space
+CHAR &
+@end example
+
+This command is intended to be used for speaking single letters,
+e.g. when reading a character under cursor or when spelling words.
+
+@item KEY @var{key-name}
+@anchor{SSIP KEY}
+Speak key identified by @var{key-name}.  The command is intended to be
+used for speaking keys pressed by the user.
+
+@var{key-name} is a case sensitive symbolic key name.  It is composed
+of a key name, optionally prepended with one or more prefixes, each
+containing an auxiliary key name and the underscore character.
+
+Key name may contain any character excluding control characters (for example,
+the characters in the range 0 to 31 in the ASCII table, characters in the
+range 128 to 159 in the Latin-* tables and other ``invisible''
+characters), spaces, underscores, and double quotes.
+
+The recognized key names are:
+
+@itemize
+@item
+Any single UTF-8 character, excluding the exceptions defined above.
+
+@item
+Any of the symbolic key names defined in @ref{Key Names}.
+@end itemize
+
+Examples of valid key names:
+
+@example
+a
+A
+shift_a
+shift_A
+@'{u}
+$
+enter
+shift_kp-enter
+control_alt_delete
+control
+@end example
+
+@item SOUND_ICON @var{icon-name}
+@anchor{SSIP SOUND_ICON}
+Send a sound identified by @var{icon-name} to the audio output.
+@var{icon-name} is a symbolic name of the given sound from the
+standard set listed in @ref{Standard Sound Icons}, or another name
+from the particular Speech Server sound icon configuration.
+@end table
+
+@node Speech Output Control Commands, Message Priority Commands, Speech Synthesis and Sound Output Commands, SSIP Commands
+@section Controlling Speech Output
+
+These commands can stop or resume speech or audio output.  They all
+affect only the synthesis process and output to a sound device, they
+do not affect the message history.
+
+@table @code
+@item STOP @{ @var{id} | all | self @}
+Immediately stop outputting the current message (whatever it is ---
+text, letter, key, or sound icon) from the identified client, if any
+is being output.  If the command argument is @code{self}, the last message
+from the current client connection is stopped.  If it is @code{all},
+stop currently output message or messages from all the clients.
+Otherwise, argument @var{id} must be given as a positive integer and
+the currently processed message from the client connection identified
+by @var{id} is stopped; if there is none such, do nothing.
+
+@item CANCEL @{ @var{id} | all | self @}
+This command is the same as @code{STOP}, with the exception that it
+stops as yet unspoken output messages as well.  All currently queued messages
+are stored into the message history without being sent to the audio
+output device.
+
+@item PAUSE @{ @var{id} | all | self @}
+Stop audio output immediately, but do not discard anything.  All the
+currently speaking and currently or later queued messages are postponed
+and saved for later processing, until a corresponding @code{RESUME}
+command is received.
+
+The meaning of the command arguments is the same as in the @code{STOP}
+command.
+
+@item RESUME @{ @var{id} | all | self @}
+Cancel the effect of the previously issued @code{PAUSE} command.
+Note that messages of the priority ``progress'' and ``notification'' received during
+the pause are not output (but they remain stored in the message history).
+
+It is an error to send the @code{RESUME} command when the output
+corresponding to the given argument is not paused by a previous
+invocation of the @code{PAUSE} command.  Such an error is signaled by
+a @code{4XX} return code.
+
+The meaning of the command arguments is the same as in the @code{STOP}
+command.
+@end table
+
+@node Message Priority Commands, Blocks of Messages Commands, Speech Output Control Commands, SSIP Commands
+@section Priority Setting Commands
+@cindex priorities
+
+A speech synthesizer can't synthesize everything that comes to it,
+for the simple reason that messages are often coming faster
+than a synthetic voice can say them. On the screen of a
+monitor, there is relatively a lot of space compared to
+one-channel speech synthesis output. For this reason, SSIP
+implements a system of several priorities targeted at different
+types of messages.
+
+The idea is that the task of the programmer of a client application
+is only to assign a meaningful priority to each message and all the
+synchronization and switching between the messages (that can be
+coming from different clients) is automatically handled by applying certain
+rules based on the priorities.
+
+@menu
+* Priority Categories::         What are the available priorities.
+* Priority Diagram::            Schematic diagram of used priority model.
+* Priority Setting Commands::   
+* Examples of Using Priorities::  A few examples of using the priorities.
+@end menu
+
+@node Priority Categories, Priority Diagram, Message Priority Commands, Message Priority Commands
+@subsection Priority Categories
+                     
+Speech Synthesis Interface Protocol provides a system of five priorities.  Every
+message will either contain explicit priority information, or the
+default value will be used.
+
+Please see also the diagram below.
+
+@heading Priority @code{important}
+@cindex Priority important
+
+This message will be said immediately as it comes to server.
+It is never interrupted. When several concurrent messages of
+this priority are received by server, they are queued and said
+in the order they came.
+
+When a new message of level @code{important} comes while a message of
+another priority is being spoken, the other message is canceled
+and the message with priority @code{important} is said instead. Other messages
+of lower priorities are postponed (priority @code{message} and
+@code{text}) until there are no messages of priority important
+waiting or canceled (priority @code{notification} and @code{progress}.
+
+These messages should be as short as possible and should rarely be
+used, because they block the output of all other messages.
+
+@heading Priority @code{message}
+@cindex Priority message
+
+This message will be said when there is no message of priority
+@code{important} or @code{message} waiting in the queue. If there are,
+this message is postponed until those messages are spoken. This
+means that the priority @code{message} doesn't interrupt itself. If
+there are messages of priority @code{notification}, @code{progress} or
+@code{text} waiting in the queue or being spoken when a message of
+priority @code{message} comes, they are canceled.
+
+@heading Priority @code{text}
+@cindex Priority text
+
+This message will be said when there is no message of priority
+@code{important} or @code{message} waiting in the queue. If there are,
+this message is postponed until the previous messages are spoken.
+
+The priority text interrupts itself. This means that if several messages
+of this priority are received, they are not said in the order they
+were received, but only the latest of them is said; others are
+canceled.
+
+If there are messages of priority @code{notification} and
+@code{progress} waiting in the queue or being spoken when a message
+of priority @code{text} comes, they are canceled.
+
+@heading Priority @code{notification}
+
+This is a low priority message. If there are messages with priorities
+@code{important}, @code{message}, @code{text} or @code{progress}
+waiting in the queues or being spoken, this @code{notification}
+message is canceled.
+
+This priority interrupts itself, so if more messages with priority
+@code{notification} come at the same time, only the last of them is
+spoken.
+
+@heading Priority @code{progress}
+
+This is a special priority for messages that are coming
+shortly one after each other and they carry the information
+about some work in progress (e.g.@ @code{Completed 45%}).
+
+If new messages interrupted each other (see priority
+Notification), the user might not receive any complete
+message.
+
+This priority behaves the same as ``notification'' except
+for two things:
+
+@itemize
+@item
+The messages of this priority don't interrupt each other,
+instead, a newly arriving message is canceled if another message is
+being spoken.
+@item
+Speech Server tries to detect the last message of a series of messages
+(for instance, it's important for the user to hear the final
+@code{Completed 100%} message to know the work has completed).  Speech
+Server waits until there are no more messages of this priority waiting
+in queues and if the last of them wasn't spoken yet, it speaks it with
+the priority @code{message}.
+@end itemize
+
+This way, even if Speech Server is busy speaking messages of other
+priorities, we are still sure that the important messages at the
+end of the @code{progress} sequences will be said.
+
+@node Priority Diagram, Priority Setting Commands, Priority Categories, Message Priority Commands
+@subsection Priority Diagram
+
+@image{figures/priorities,,,Speech Synthesis Interface Protocol Priorities}
+
+@node Priority Setting Commands, Examples of Using Priorities, Priority Diagram, Message Priority Commands
+@subsection Priority Setting Commands
+
+When a priority is set for a given connection, all the newly arriving
+messages will be said with this priority until it is changed for a new
+value.
+
+@itemize
+
+@item SET self PRIORITY @var{p}
+
+This command sets message priority to @var{p}.  @var{p} must be one of
+the values @code{important}, @code{text}, @code{message},
+@code{notification}, @code{progress}.  @xref{Priority Categories}.
+
+Only @code{self} is allowed as the `target' argument.
+
+@end itemize
+
+@node Examples of Using Priorities,  , Priority Setting Commands, Message Priority Commands
+@subsection Examples of Using Priorities
+
+Example uses for priority @code{important} are:
+ 
+@itemize
+@item error messages
+@item very important messages
+@item ...
+@end itemize
+
+Example uses for priority @code{message} are:
+
+@itemize
+@item regular program messages
+@item warnings
+@item ...
+@end itemize
+
+Example uses for priority @code{text} are:
+
+@itemize
+@item text the user is working on
+@item menu items
+@item ...
+@end itemize
+
+Example uses for priority @code{notification} are:
+
+@itemize
+@item less important status information
+@item letters when typing input
+@item run-time help
+@item ...
+@end itemize
+
+Example uses for level @code{progress} are:
+
+@itemize
+@item ``completed 15%'', ``completed 16%'', ``completed 17%''
+@item ``Loading sounds'', ``Loading graphics'', ``Loading ai'', ...
+@end itemize
+
+
+@node Blocks of Messages Commands, Parameter Setting Commands, Message Priority Commands, SSIP Commands
+@section Blocks of Messages Commands
+
+Block commands allow the client to concatenate several messages to form one
+block that behaves as one message in the priority system and history. After
+opening the block, client can send a specified subset of the commands and
+the messages introduced by @code{SPEAK} will be processed immediately, however
+there will be no priority interaction before closing the block.
+The @ref{Speech Output Control Commands} also handle the whole block as one
+message.
+
+Take for example this message from an email client:
+
+@example
+> Hi, how are you?
+I'm fine. Thank you.
+@end example
+
+The character `>' clearly marks who said which part. So it'd be nice to say
+the two lines with different voices, however, it'd be desirable to treat it all
+as one message with priority TEXT and have it put together in history,
+because in fact, it logically @emph{is} one message.
+
+@table @code
+@item BLOCK BEGIN
+Opens a block of messages. There will be no priority interaction between
+the messages inside the block, the whole block will be treated as one message
+of the priority that was specified by previous @code{SET} command.
+
+It can only be called outside of a block; nesting is not allowed.
+
+@itemize
+The allowed commands inside a block are:
+        @item @code{SPEAK}
+        @item @code{SOUND_ICON}
+        @item @code{CHAR}
+        @item @code{KEY}
+        @item @code{SET SELF RATE}
+        @item @code{SET SELF PITCH}
+        @item @code{SET SELF VOLUME}
+        @item @code{SET SELF VOICE}
+        @item @code{SET SELF LANGUAGE}
+        @item @code{QUIT}
+        @item @code{BLOCK END}
+@end itemize
+
+@item BLOCK END
+Closes a block of messages, see @code{BLOCK BEGIN}.
+
+It can be only called inside a block opened by @code{BLOCK BEGIN};
+nesting is not allowed.
+@end table
+
+A more complete example of SSIP communication using BLOCKs.
+
+@example
+[...]
+SET SELF PRIORITY TEXT
+202 OK PRIORITY SET
+
+BLOCK BEGIN
+260 OK INSIDE BLOCK
+
+SET SELF VOICE MALE1
+209 OK VOICE SET
+
+SPEAK
+230 OK RECEIVING DATA
+The word
+225 OK MESSAGE QUEUED
+
+SET SELF VOICE MALE2
+209 OK VOICE SET
+SPEAK
+230 OK RECEIVING DATA
+`Free'
+225 OK MESSAGE QUEUED
+
+SET SELF VOICE MALE1
+209 OK VOICE SET
+SPEAK
+230 OK RECEIVING DATA
+in Free Software refers to freedom, not price.
+225 OK MESSAGE QUEUED
+
+BLOCK END
+261 OK OUTSIDE BLOCK
+@end example
+
+@node Parameter Setting Commands, Information Retrieval Commands, Blocks of Messages Commands, SSIP Commands
+@section Parameter Setting
+
+The @code{SET} command sets various control parameters of the
+synthesized speech or server configuration. The parameter is always
+denoted by the second command argument.
+
+All the settings take effect on the connections specified in the first
+argument (@pxref{General Rules}) and until the parameter setting is
+changed by another invocation of the appropriate @code{SET} command or
+until the connection is closed.
+
+The voice property and TTS-processing settings can sometimes be
+without any real effect if the end synthesizer doesn't provide the
+required functionality.  This is not considered an error in the
+implementation of SSIP.
+
+@table @code
+@item SET self CLIENT_NAME @var{user}:@var{client}:@var{component}
+Set client's name.  Client name consists of the user name, client
+(application) identification, and the identification of the component
+of the client (application).  Each of the parts of the client name may
+contain only alphanumeric characters, dashes (@code{-}) and underscores
+(@code{_}).
+
+For example, for a client called @code{lynx} that creates an SSIP
+connection for its command processing, the name could be set in the
+following way:
+
+@example
+SET CLIENT_NAME joe:lynx:cmd_processing
+@end example
+
+The client name is used in the server configuration settings, client
+listings and message history handling.  All its three parts can be
+arbitrary, but it's important to define and follow rules for each
+application supporting Speech Synthesis Interface Protocol, so that
+a Speech Server user can configure all the aspects of the speech
+output easily.
+
+Usually, this command should be sent as the very first command when a
+new connection SSIP connection is established.  The command may be
+sent only once within a single connection. Attempts to change the
+client's name once it's already set are answered with an error code.
+
+Only @code{self} is allowed as the `target' argument.
+
+@item SET @{all | self | @var{id} @} OUTPUT_MODULE  @var{module}
+Set the output module to  @var{module}. This overrides the
+selection based on language. Only values returned by the
+@code{LIST OUTPUT_MODULES} command are permitted.
+@xref{list-output-modules}.
+
+@example
+SET self OUTPUT_MODULE espeak
+216 OK OUTPUT MODULE SET
+@end example
+
+
+@item SET @{ all | self | @var{id} @} LANGUAGE @var{language-code}
+Set recommended language for this client according to @var{language-code}.
+@var{language-code} is the code of the language according to RFC 1766.
+
+For example, to set the preferred language to Czech, you send the
+following command:
+
+@example
+SET SELF LANGUAGE cs
+@end example
+
+Please note, that switching a language may require switching a voice,
+so this command may actually override a previous call to @code{SET VOICE} or
+@code{SET SYNTHESIS_VOICE}.
+
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultLanguage} setting in the
+@code{speechd.conf} file.  The factory default is @code{en} (English).
+
+@item SET @{self@} SSML_MODE  @var{mode}
+Set the mode of the text received in the message body sent by the
+@code{SPEAK} command. This can be either a plain text, if @code{mode}
+is set to @code{off} or a SSML marked text, if @code{mode} is set to @code{on}.
+
+There is no guarantee that the SSML markup will be respected, so
+the application shouldn't rely on them. The external parameters
+can still be set by the parameter setting commands. SSML is intended
+only for additional markup inside the message. In SSML mode, each
+message must begin with @code{<speak>} and end with @code{</speak>}.
+
+For example a simple `hello world' looks like this:
+
+@example
+SET SELF SSML_MODE on
+SPEAK
+<speak>
+Hello world!
+</speak>
+.
+@end example
+
+@item SET @{ all | self | @var{id} @} PUNCTUATION @{ all | some | none @}
+Set punctuation mode to the given value.  @code{all} means speak all
+punctuation characters, @code{none} means speak no punctuation characters,
+@code{some} means speak only punctuation characters set in the synthesizer's
+configuration.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultPunctuationMode} setting in the
+@code{speechd.conf} file.  The factory default is @code{none}.
+
+@item SET @{ all | self | @var{id} @} SPELLING @{ on | off @}
+Switch spelling on or off.  If spelling is set to on, all the
+incoming messages will be said letter-by-letter, instead of
+speaking them as whole words.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultSpelling} setting in the
+@code{speechd.conf} file.  The factory default is @code{off}.
+
+@item SET @{ all | self | @var{id} @} CAP_LET_RECOGN @{ none | spell | icon @}
+Set capital letters recognition mode. @code{none} switches this
+feature off. @code{spell} causes capital letters to be spelled
+in the speech using the table set as @code{CAP_LET_RECOGN_TABLE}.
+With parameter @code{icon}, each capital letter will be preceeded
+by a sound icon (either sound or textual) specified by the user
+in his configuration.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultCapLetRecognition} setting in the
+@code{speechd.conf} file.  The factory default is @code{none}.
+
+@item SET @{ all | self | @var{id} @} VOICE @var{name}
+Set the voice identified by @var{name}.  @var{name} must be one of the voice
+identifiers returned by the command @code{LIST VOICES} (@pxref{Information
+Retrieval Commands}).
+
+There is a standard set of voice identifiers defined in @ref{Standard
+Voices}.
+
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultVoiceType} setting in the
+@code{speechd.conf} file.  The factory default is @code{MALE1}.
+
+@item SET @{ all | self | @var{id} @} SYNTHESIS_VOICE @var{name}
+Set the voice identified by @var{name}.  @var{name} is a voice name
+recognized by the current synthesizer. It must be one of the names
+returned by the command @code{LIST SYNTHESIS_VOICES} run for the
+appropriate synthesizer. (@pxref{Information Retrieval Commands}).
+
+Please note, that switching to a particular voice may require
+switching a language, so this command may actually override a previous
+call to @code{SET LANGUAGE}.
+
+@item SET @{ all | self | @var{id} @} RATE @var{n}
+Set the rate of speech.  @var{n} is an integer value within the range
+from -100 to 100, lower values meaning slower
+speech and higher values meaning faster speech.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultRate} setting in the
+@code{speechd.conf} file.  The factory default is 0.
+
+@item SET @{ all | self | @var{id} @} PITCH @var{n}
+Set the pitch of speech.  @var{n} is an integer value within the range
+from -100 to 100, lower values meaning lower
+pitch and higher values meaning higher pitch.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultPitch} setting in the
+@code{speechd.conf} file.  The factory default is 0.
+
+@item SET @{ all | self | @var{id} @} VOLUME @var{n}
+Set the volume of speech.  @var{n} is an integer value within the range
+from -100 to 100. lower values meaning lower
+volume and higher values meaning higher volume.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultVolume} setting in the
+@code{speechd.conf} file.  The factory default is 100.
+
+@item SET @{ all | self | @var{id} @} PAUSE_CONTEXT @var{n}
+Set the number of (more or less) sentences that should be repeated
+after a previously paused text is resumed. If there isn't enough text
+before the pause spot, the entire message is repeated. @var{n}
+is a positive integer value specifying the number of sentences to
+repeat.
+The default for the Speech Dispatcher implementation of SSIP
+is determined by the @code{DefaultPauseContext} setting in the
+@code{speechd.conf} file.  The factory default is 0.
+
+@item SET @{ all | self | @var{id} @} HISTORY @{ on | off @}
+Enable (@code{on}) or disable (@code{off}) storing of received
+messages into history.
+
+This command is intended for use by message history browsers and
+usually should not be used by other kinds of clients.
+@end table
+
+@node Information Retrieval Commands, Message Events Notification and Index Marking, Parameter Setting Commands, SSIP Commands
+@section Retrieving Information
+
+The @code{LIST} command serves for retrieving information that can be
+presented to the user for selection of the values to the @code{SET}
+command.  The information listed is selected according to the first
+argument of the @code{LIST} command.
+
+@table @code
+@anchor{list-output-modules}
+@item LIST OUTPUT_MOUDLES
+Lists the available output modules putting each module identification
+name one on a single line.
+
+Example:
+@example
+LIST OUTPUT_MODULES
+250-festival
+250-espeak
+250 OK MODULE LIST SENT
+@end example
+
+
+@item LIST VOICES
+Lists the available symbolic voice names putting each voice name on a single
+line. These are symbolic names that are mapped to the real voices used in the
+synthesizer either automatically or via synthesizer or output module
+configuration.
+
+Example:
+@example
+LIST VOICES
+249-MALE1
+249-MALE2
+249-MALE3
+249-FEMALE1
+249-FEMALE2
+249-FEMALE3
+249-CHILD_MALE
+249-CHILD_FEMALE
+249 OK VOICE LIST SENT
+@end example
+
+@item LIST SYNTHESIS_VOICES
+
+Lists the available voices for the current synthesizer in use. These
+names differ from those obtained by @code{LIST VOICES} in that they
+are names of the real voices used inside the synthesizer.
+
+This feature should only be used to allow the user to choose the voice.
+All automatic switching of voices (unless user-configurable) should be
+done using the symbolic voice names which can be configured in the synthesizer.
+
+Each voice name is listed on a separate line together with its language
+code and dialect identification string separated by spaces. The dialect
+identification strings do not have well-defined meaning yet. If no dialect
+is specified by the synthesizer, the value @code{none} is used.
+
+Example:
+@example
+LIST SYNTHESIS_VOICES
+249-afrikaans af none
+249-welsh-test cy none
+249-german de none
+249-greek_test el none
+249-en-rhotic en r
+249-lancashire en uk-north
+249 OK VOICE LIST SENT
+@end example
+
+@end table
+
+@node Message Events Notification and Index Marking, History Handling Commands, Information Retrieval Commands, SSIP Commands
+@section Message Events Notification and Index Marking
+
+@menu
+* Why Events Notification::     
+* Types of Events::             
+* Events Notifications in SSIP::  
+* Switching Notifications On and Off::  
+@end menu
+
+@node Why Events Notification, Types of Events, Message Events Notification and Index Marking, Message Events Notification and Index Marking
+@subsection Why Events Notification
+
+Applications can send messages to a Speech Server through the SSIP
+@code{SPEAK} command. However, this commands only puts the received
+message into a queue in Speech Server and returns immediately. The
+message then will or will not be said at some particular time
+according to it's priority. Through Message Events Notification, the
+application is able to discover certain kind of events, including when
+the message started to be played on the speakers, when it terminated
+playing, when it was paused and resumed, or when it was
+interrupted/discarded. It is also possible to get notification when a
+certain place in the given text was reached while playing the
+synthesized text on the speakers -- this capability, however, might or
+might not be supported by the end synthesizer and so client
+applications should not rely on it.
+
+@node Types of Events, Events Notifications in SSIP, Why Events Notification, Message Events Notification and Index Marking
+@subsection Types of Events
+
+SSIP recognizes several types of events. Each event is reported
+together with the unique identification of the message and client it
+is associated with. This is an overview of available events. For
+detailed SSIP syntax, please look below.
+
+@table @code
+@item BEGIN
+
+This event means that the synthesizer just started to speak the
+message and the user is able to hear the speech on his speakers.
+
+Please note that not every message stored for speaking by the
+@code{SPEAK} command will issue this event. It can issue the
+@code{CANCEL} event instead.
+
+@item END
+
+This event means that the synthesizer just terminated speaking the
+message (by reaching it's end) and the user is no longer able to hear
+the speech on his speakers.
+
+Again, note that not every message that has already reported the
+@code{BEGIN} event will necessarily get to the @code{END} event.
+It might instead issue the @code{CANCEL} or @code{PAUSE} events.
+
+@item CANCEL
+
+The @code{CANCEL} event is reported when the message was canceled
+(either after @code{BEGIN} during speaking or even before, when waiting
+in the queues) and will not be spoken anymore.
+
+@item PAUSE
+
+The event @code{PAUSE} means that the message that was being spoken
+was paused and no longer produces any sound on the speakers, but
+was not discarded and it the rest of the message might be spoken again after the
+@code{RESUME} command is sent.  @xref{Speech Output Control
+Commands}. This will be reported by the @code{RESUME} event.
+
+@code{PAUSE} is always preceded by the event @code{BEGIN}, and can
+be followed by either the event @code{RESUME} or @code{CANCEL}.
+
+@item RESUME
+
+The event @code{RESUME} means that a message that was paused
+while being spoken, just started to continue and again produces
+sound in the speakers.
+
+@code{RESUME} is allways preceeded by the event @code{PAUSE}, and can
+be followed by either the event @code{END} or @code{CANCEL}.
+
+
+@item INDEX_MARK
+
+This event means that some previously specified place in the text
+(so-called index mark) was reached when speaking the synthesized
+message in the speakers. It is allways accompanied by an additional
+parameter that indicates which place it is -- the name of the index
+mark.
+
+@end table
+
+Example (not in SSIP syntax):
+
+This SSML message
+@example
+        <speak>Hello, <mark name="mark1"/> how does it work?</speak>
+@end example
+would issue the following sequence of events if it is not discarded or paused:
+
+@example
+        BEGIN
+        INDEX_MARK "mark1"
+        END
+@end example
+
+
+or this one if it gets paused after the first index mark and then later resumed.
+
+@example
+        BEGIN
+        INDEX_MARK "mark1"
+        PAUSE
+        RESUME
+        END
+@end example
+
+@node Events Notifications in SSIP, Switching Notifications On and Off, Types of Events, Message Events Notification and Index Marking
+@subsection Events Notification in SSIP
+
+Event notifications, if requested, are reported asynchronously in
+SSIP. This means that they are not sent as replies to any particular
+requests but can arrive anytime. However, notifications can't arrive
+in the time between when a SSIP command is sent by the client and its
+reply is sent back by the server.
+
+Each notification consist of a multi-line SSIP reply as defined in
+@ref{General Rules}, and includes at least two parameters:
+@code{msg_id} and @code{client_id}. @code{msg_id} is the
+identification number of the message the event is related to,
+@ref{SPEAK} while @code{client_id} is the identification number of the
+client who sent the message. Some events may have additional
+parameters.
+
+@table @code
+@item INDEX_MARK
+
+@example
+700-msg_id
+700-client_id
+700-index_mark
+700 END
+@end example
+
+The event @code{INDEX_MARK} carries a special parameter
+@code{index_mark} which is a string of characters identifying the
+index mark, as specified by the client application (e.g. by the
+SSML tag <mark/>.
+
+@item BEGIN
+
+@example
+701-msg_id
+701-client_id
+701 BEGIN
+@end example
+@item END
+
+@example
+702-msg_id
+702-client_id
+702 END
+@end example
+
+@item CANCEL
+
+@example
+703-msg_id
+703-client_id
+703 CANCELED
+@end example
+
+@item PAUSE
+
+@example
+704-msg_id
+704-client_id
+704 PAUSED
+@end example
+
+@item RESUME
+
+@example
+705-msg_id
+705-client_id
+705 RESUMED
+@end example
+@end table
+
+
+@node Switching Notifications On and Off,  , Events Notifications in SSIP, Message Events Notification and Index Marking
+@subsection Switching Notifications On and Off
+
+The client application might or might not want to receive the
+notifications about events, or it might want to receive some but not
+others. SSIP allows clients to specify which notifications are to be
+used.
+
+The following commands for setting notifications on and off affect all
+the text messages (sent by the @code{SPEAK} SSIP command) based on
+when the appropriate @code{SPEAK} command was called. So if for
+example, you set all notifications on, send a message and then set all
+notifications off, you will receive all the available notifications
+for that message even though it might start speaking after the
+notifications are already turned off.
+
+@table @code
+@item SET SELF NOTIFICATION ALL @{ on | off @}
+
+Set all available event notifications to either ``on'' or ``off'' for
+for the messages that follow. @xref{Types of Events}.
+
+@item SET SELF NOTIFICATION BEGIN @{ on | off @}
+@item SET SELF NOTIFICATION END @{ on | off @}
+
+Set the event notifications for @code{BEGIN} or @code{END} to either
+``on'' or ``off'' for the messages that follow. @xref{Types of Events}.
+
+@item SET SELF NOTIFICATION CANCEL @{ on | off @}
+
+Set the event notifications for @code{CANCEL} to @code{mode} where
+@code{mode} is either ``on'' or ``off'' for switching the
+notifications on or off for the messages that follow. @xref{Types of
+Events}.
+
+@item SET SELF NOTIFICATION PAUSE @{ on | off @}
+@item SET SELF NOTIFICATION RESUME @{ on | off @}
+
+Set the event notifications for @code{PAUSE} or @code{RESUME} to
+@code{mode} where @code{mode} is either ``on'' or ``off'' for
+switching the notifications on or off for the messages that
+follow. @xref{Types of Events}.
+
+@item SET SELF NOTIFICATION INDEX_MARKS @{ on | off @}
+
+Set the event notifications for @code{INDEX_MARK} to either ``on'' or
+``off'' for switching the notifications on or off for the messages
+that follow. @xref{Types of Events}.
+
+@item SET self CLIENT_NAME @var{user}:@var{client}:@var{component}
+Set client's name.  Client name consists of the user name, client
+(application) identification, and the identification of the component
+of the client (application).  Each of the parts of the client name may
+contain only alphanumeric characters, dashes (@code{-}) and underscores
+(@code{_}).
+
+For example, for a client called @code{lynx} that creates an SSIP
+connection for its command processing, the name could be set in the
+following way:
+
+@example
+SET CLIENT_NAME joe:lynx:cmd_processing
+@end example
+
+The client name is used in the server configuration settings, client
+listings and message history handling.  All its three parts can be
+arbitrary, but it's important to define and follow rules for each
+application supporting Speech Synthesis Interface Protocol, so that
+a Speech Server user can configure all the aspects of the speech
+output easily.
+
+Usually, this command should be sent as the very first command when a
+new connection SSIP connection is established.  The command may be
+sent only once within a single connection. Attempts to change the
+client's name once it's already set are answered with an error code.
+
+Only @code{self} is allowed as the `target' argument.
+
+@item SET all DEBUG  @{ON|OFF@}
+If set to @code{ON}, Speech Dispatcher will write all its debugging
+information (including output modules) with maximal verbosity into a
+debug directory which is reported by the server to the client in reply
+to this command. When subsequently set to @code{OFF}, Speech
+Dispatcher will stop writing out debugging information into this path
+and close all the appropriate logging files.
+
+The intended use for this functionality is on-line debugging from
+client application. If the user wants to report a problem, the client
+application will ask him for a place to generate the logs, to repeat
+the situation that he considers to be a bug, and then perhaps it will
+automatically pack the logs and offer to send them to the developers
+of Speech Dispatcher or another appropriate place where the contained
+information can be processed.
+
+Warning: This option results in a lot of data being written into the
+output logs and so should not be left on for an unnecessarily long
+time.
+
+@example
+SET all DEBUG ON
+262-/home/hanke/.speech-dispatcher/log/debug
+262 OK DEBUGGING SET
+@end example
+
+@end table
+
+@node History Handling Commands, Other Commands, Message Events Notification and Index Marking, SSIP Commands
+@section History Handling
+
+@menu
+* Purpose of Message History::  
+* Message History in SSIP::     
+@end menu
+
+@node Purpose of Message History, Message History in SSIP, History Handling Commands, History Handling Commands
+@subsection Purpose of Message History
+
+It seems a good feature for the blind and visually impaired to
+provide the possibility to browse, through some simple client, the
+history of received and previously said messages.
+
+Some messages are even received by Speech Server without being said,
+because there will always be more space for information on the screen
+than speech output can possibly provide.
+
+For this reason, SSIP defines a set of commands that allow client
+applications to browse through the history of previously received
+messages saved on the server. The idea is that @emph{each} message
+received by the server should be accessible through the history and
+the user can search for it later by time, keywords or using other
+methods.
+
+On the other hand, this may cause security issues as several
+clients may connect to Speech Server and they might originate
+from different users. For this reason, only those messages
+that come from the same user should be accessible by default
+(if not overridden in server configuration).
+
+@node Message History in SSIP,  , Purpose of Message History, History Handling Commands
+@subsection Message History in SSIP
+
+History is handled by the @code{HISTORY} command.  It can take many
+forms, described below, that allow browsing, retrieving and repeating
+stored messages.  In each invocation of the @code{HISTORY} command
+there is no difference between processing spoken or not spoken
+messages, all the received messages are processed.
+
+The implementation of these history commands is still under
+way. If you want to use them, please contact us to see the
+current status.
+
+There is a @dfn{history cursor} pointing to some message in the
+history.  You can move it across history messages and retrieve the
+message the cursor is pointing to, using the @code{HISTORY CURSOR} set
+of command arguments described below.
+
+@table @code
+@item HISTORY GET CLIENT_LIST
+List known client names, their identifiers and status.  Each connection is
+listed on a separate line in the following format:
+
+@example
+@var{id} @var{name} @var{status}
+@end example
+
+where @var{id} is a client id that can be used in other history
+handling requests or in the speech output control commands
+(@pxref{Speech Output Control Commands}), @var{name} is the client
+name as set through the @code{SET SELF CLIENT_NAME} command, and
+@var{status} is @code{1} for connected clients and @code{0} for
+disconnected clients.  @var{id}s are unique within a single run of
+Speech Server.
+
+Sample SSIP reply:
+
+@example
+240-0 joe:speechd_client:main 0
+240-1 joe:speechd_client:status 0
+240-2 unknown:unknown:unknown 1
+240 OK CLIENTS LIST SENT
+@end example
+
+@item HISTORY GET CLIENT_ID
+Return id of the client itself.
+
+The id is listed on a separate line in the following format:
+
+@example
+@var{id}
+@end example
+
+Example:
+@example
+200-123
+200 OK CLIENT ID SENT
+@end example
+
+@item HISTORY GET CLIENT_MESSAGES @{ @var{id} | all | self @} @var{start} @var{number}
+List identifiers of messages sent by the client identified by
+@var{id}.  If the special identifier @code{all} is used, identifiers
+of messages sent by all clients are listed; if the special identifier
+@code{self} is used, identifiers of messages sent by this client are
+listed.
+
+@var{number} of messages is listed, starting from the message numbered
+@var{start}.  Both @var{number} and @var{start} must be positive
+integers.  The first message is numbered 1, the second 2, etc.  If the
+given range exceeds the range of available messages, no error is
+signaled and the given range is restricted to the available range of
+messages.
+
+Messages are sorted by the criterion used in the last client's
+invocation of the @code{HISTORY SORT} command.  If no @code{HISTORY
+SET} has been invoked yet, the messages are sorted from the oldest to
+the newest, according to their time of arrival at Speech Server.
+
+Each message id is listed, together with other information, on a
+separate line, in the following format:
+
+@example
+@var{id} @var{client-id} @var{client-name} "@var{time}" @var{priority} "@var{intro}"
+@end example
+
+@var{client-id} is a numeric identifier of the client which sent the
+message, @var{client-name} is its name as set by the @code{SET SELF
+CLIENT_NAME} command (@pxref{Parameter Setting Commands}).
+@var{time} is the time of arrival of the message, in the fixed length
+@code{YYYY-MM-DD HH:MM:SS} format.  @var{priority} is the priority of
+the message, one of the values accepted by the @code{SET SELF PRIORITY}
+command (@pxref{Parameter Setting Commands}).
+
+@var{intro} is the introductory part of the message of a certain
+maximum length, see the @code{HISTORY SET SHORT_MESSAGE_LENGTH}
+command.  @var{intro} does not contain any double quotes nor the line
+feed character.
+
+All the message identifiers in the history, regardless of clients that
+issued them, are unique within a single run of Speech Server and
+remain unchanged.
+
+@item HISTORY GET LAST
+List the id of the last message sent by the client.
+
+The id is listed on a separate line of the following format:
+
+@example
+@var{id}
+@end example
+
+If the client hasn't sent any message yet, return an error code.
+
+@item HISTORY GET MESSAGE @var{id}
+Return the text of the history message identified by @var{id}.  If
+@var{id} doesn't refer to any message, return an error code instead.
+The text is sent as a multi-line message, with no escaping or special
+transformation.
+
+An example SSIP response to the command:
+
+@example
+200-Hello, world!
+200-How are you?
+200 OK MESSAGE SENT
+@end example
+
+@item HISTORY CURSOR GET
+Get the id of the message the history cursor is pointing to.
+
+The id is listed on a separate line.  Sample SSIP reply to
+this command:
+
+@example
+243-42
+243 OK CURSOR POSITION RETURNED
+@end example
+
+@item HISTORY CURSOR SET @{ @var{id} | all | self @} @{ first | last | pos @var{n} @}
+Set the history cursor to the given position.  The meaning of the
+first argument after @code{SET} is the same as in the @code{HISTORY
+GET CLIENT_MESSAGES} command.  The argument @code{first} asks to set
+the cursor on the first position and the argument @code{last} asks to
+set the cursor on the last position of the history of the given
+client.  If the argument @code{pos} is used, the position is set to
+@var{n}, where @var{n} is a positive integer.  It is an error if
+@var{id} doesn't identify any client or if @var{n} doesn't point to
+any existing position in the history.
+
+As for the order and numbering of the messages in the history, the
+same rules apply as in @code{HISTORY GET CLIENT_MESSAGES}. See above.
+
+@item HISTORY CURSOR @{ forward | backward @}
+Move the cursor one position @code{forward}, resp. @code{backward},
+within the messages of the client specified in the last @code{HISTORY
+CURSOR SET} command.  If there is no next, resp. previous, message,
+don't move the cursor and return an error code.
+
+@item HISTORY SAY @var{id}
+Speak the message from history identified by @var{id}.  If @var{id}
+doesn't refer to any message, return an error code instead.
+
+The message is spoken as it would be sent by its originating command
+(@code{SPEAK} or @code{SOUND_ICON}), but the @emph{current} settings
+(priority, etc.) apply.
+
+@item HISTORY SORT @{ asc | desc @} @{ time | user | client_name | priority | message_type @}
+Sort the messages in history according to the given criteria.  If the
+second command argument is @code{asc}, sort in ascending order, if
+it is @code{desc}, sort in descending order.  The third command
+argument specifies the message property to order by:
+
+@table @code
+@item time
+Time of arrival of the message.
+
+@item user
+User name.
+
+@item client_name
+Client name, excluding user name.
+
+@item priority
+Priority.
+
+@item message_type
+Type of the message (text, sound icon, character, key), in the order
+specified in the Speech Server configuration or by the @code{HISTORY
+SET MESSAGE_TYPE_ORDERING} command.
+@end table
+
+The sorting is stable --- order of all the messages that are equal in
+the given ordering remains the same.
+
+The sorting is specific to the given client connection, other
+connections are unaffected by invocation of this command.
+
+@item HISTORY SET SHORT_MESSAGE_LENGTH @var{length}
+Set the maximum length of short versions of history messages to
+@var{length} characters.  @var{length} must be a non-negative integer.
+
+Short (truncated) versions of history messages are used e.g. in the
+answer to the @code{HISTORY GET CLIENT_MESSAGES} format.
+
+@item HISTORY SET MESSAGE_TYPE_ORDERING "@var{ordering}"
+Set the ordering of the message types, from the minimum to the
+maximum.  @var{ordering} is a sequence of the following symbols,
+separated by spaces: @code{text}, @code{sound_icon}, @code{char},
+@code{key}.  The symbols are case insensitive and each of them must be
+present in @var{ordering} exactly once.
+
+The specified ordering can be used by the @code{HISTORY SORT} command.
+
+@item HISTORY SEARCH @{ @var{id} | all | self @} "@var{condition}"
+Return the list of history messages satisfying @var{condition}.  The
+command allows searching messages by given words.  The output format
+is the same as the @code{HISTORY GET CLIENT_MESSAGES} command.
+
+The meaning of the first argument after @code{SEARCH} is the same as
+the @code{HISTORY GET CLIENT_MESSAGES} command.
+
+@var{condition} is constructed according to the following grammar
+rules:
+
+@table @code
+@item @var{condition} :: @var{word}
+Matches messages containing @var{word}.
+
+@item @var{condition} :: ( ! @var{condition} )
+Negation of the given condition.
+
+@item @var{condition} :: ( @var{condition} [ & @var{condition} ... ] )
+Logical AND --- all the conditions must be satisfied.
+
+@item @var{condition} :: ( @var{condition} [ | @var{condition} ... ] )
+Logical OR --- at least one of the conditions must be satisfied.
+@end table
+
+Spaces within the condition are insignificant and ignored.
+
+The following rules apply to @var{word}s:
+
+@itemize @minus
+@item
+@var{word} is a sequence of adjacent alphanumeric characters.
+
+@item
+If @var{word} contains any upper-case letter, the search for the word
+is case sensitive, otherwise it's case insensitive.
+
+@item
+@var{word} must match whole word, not only its substring.
+
+@item
+@var{word} can contain the wild card characters @code{?}, substituting
+any single alphanumeric character, and @code{*}, substituting any
+number (incl. zero) of alphanumeric characters.
+@end itemize
+
+Returned messages are sorted by the following rules:
+
+@enumerate
+@item
+The primary sorting is defined by the number of the satisfied
+subconditions on the top level of the given condition, from the
+highest (best matching messages first) to the lowest.  This takes
+effect only if the given condition is the OR rule.
+
+@item
+The criterion used in the last client's invocation of the
+@code{HISTORY SORT} command.  If no @code{HISTORY SORT} has been
+invoked yet, the messages are sorted from the oldest to the newest,
+according to their time of arrival.
+@end enumerate
+@end table
+
+@node Other Commands,  , History Handling Commands, SSIP Commands
+@section Other Commands
+
+@table @code
+@item QUIT
+Close the connection.
+
+@item HELP
+Print a short list of all SSIP commands, as a multi-line message.
+@end table
+
+@node Return Codes, Appendices, SSIP Commands, Top
+@chapter Return Codes
+
+Each line of the SSIP output starts with a three-digit numeric code of
+the form @var{NXX} where @var{N} determines the result group and
+@var{xx} denotes the finer classification of the result.
+
+SSIP defines the following result groups:
+
+@table @var
+@item 1xx
+Informative response --- general information about the protocol, help
+messages.
+
+@item 2xx
+Operation was completely successful.
+
+@item 3xx
+Server error, problem on the server side.
+
+@item 4xx
+Client error, invalid arguments or parameters received.
+
+@item 5xx
+Client error, invalid command syntax, unparseable input.
+
+@item 7xx
+Index marks. See @xref{Events Notifications in SSIP}.
+@end table
+
+Result groups @var{1xx} and @var{2xx} correspond to successful
+actions, other groups to unsuccessful actions.  Only the groups
+defined here may be returned in an SSIP connection.
+
+Currently, for return codes in the range @code{100}--@code{599}, only the meaning of
+the first digit of the result code is defined.  The last two digits are
+insignificant and can be of any value.  Clients shouldn't rely on the
+unspecified digits in any way.
+
+However, the return codes in the range @code{700}--@code{800},
+reserved for events notification, are well defined in the appropriate
+section of SSIP documentation and client applications can rely on
+them.
+
+In the future, these return codes should be fixed so that clients can
+rely on them.
+
+@menu
+* Sample SSIP Dialog::          
+@end menu
+
+@node Sample SSIP Dialog,  , Return Codes, Return Codes
+@section Example of an SSIP Dialog
+
+The following example illustrates a sample dialog with SSIP.  The
+client connects to a Speech Server, sets all the common parameters,
+sends two text messages, displays the list of clients, instructs
+Speech Server to repeat the second message, and closes the connection.
+Lines starting with a numeric code are response lines of the server,
+other lines are the lines sent by the client.
+
+@example
+SET SELF CLIENT_NAME joe:vi:default
+208 OK CLIENT NAME SET
+SET SELF PRIORITY MESSAGE
+202 OK PRIORITY SET
+SPEAK
+230 OK RECEIVING DATA
+Hello, I'm am SSIP communication example!
+How are you?
+.
+225 OK MESSAGE QUEUED
+SPEAK
+230 OK RECEIVING DATA
+Still there?
+.
+225 OK MESSAGE QUEUED
+HISTORY GET CLIENT_LIST
+240-1 jim:Emacs:default 0
+240-2 jim:Emacs:default 0
+240-3 unknown:unknown:unknown 0
+240-4 jim:Emacs:default 1
+240-5 joe:vi:default 1
+240 OK CLIENTS LIST SENT
+HISTORY GET LAST
+242-39 joe:vi:default
+242 OK LAST MSG SENT
+HISTORY SAY 39
+225 OK MESSAGE QUEUED
+QUIT
+231 HAPPY HACKING
+@end example
+
+
+@node Appendices, GNU Free Documentation License, Return Codes, Top
+@appendix Appendices
+
+@menu
+* Key Names::                   List of the symbolic key names.
+* Standard Sound Icons::        List of the standard sound icon names.
+* Standard Voices::             
+@end menu
+
+@node Key Names, Standard Sound Icons, Appendices, Appendices
+@appendixsec Key Names
+
+This appendix defines all the recognized symbolic key names.  The
+names are case sensitive.
+
+@subheading Special Key Names
+
+@table @code
+@item space
+@item underscore
+@item double-quote
+@end table
+
+@subheading Auxiliary Keys
+
+@table @code
+@item alt
+@item control
+@item hyper
+@item meta
+@item shift
+@item super
+@end table
+
+@subheading Control Character Keys
+
+@table @code
+@item backspace
+@item break
+@item delete
+@item down
+@item end
+@item enter
+@item escape
+@item f1
+@item f2
+@item f3
+@item f4
+@item f5
+@item f6
+@item f7
+@item f8
+@item f9
+@item f10
+@item f11
+@item f12
+@item f13
+@item f14
+@item f15
+@item f16
+@item f17
+@item f18
+@item f19
+@item f20
+@item f21
+@item f22
+@item f23
+@item f24
+@item home
+@item insert
+@item kp-*
+@item kp-+
+@item kp--
+@item kp-.
+@item kp-/
+@item kp-0
+@item kp-1
+@item kp-2
+@item kp-3
+@item kp-4
+@item kp-5
+@item kp-6
+@item kp-7
+@item kp-8
+@item kp-9
+@item kp-enter
+@item left
+@item menu
+@item next
+@item num-lock
+@item pause
+@item print
+@item prior
+@item return
+@item right
+@item scroll-lock
+@item space
+@item tab
+@item up
+@item window
+@end table
+
+@node Standard Sound Icons, Standard Voices, Key Names, Appendices
+@appendixsec Standard Sound Icons
+
+There are none currently.
+
+@node Standard Voices,  , Standard Sound Icons, Appendices
+@appendixsec Standard Voices
+
+The following voice names are always present in the output of the
+@code{LIST VOICES} command (@pxref{Information Retrieval Commands}):
+
+@table @code
+@item MALE1
+@item MALE2
+@item MALE3
+@item FEMALE1
+@item FEMALE2
+@item FEMALE3
+@item CHILD_MALE
+@item CHILD_FEMALE
+@end table
+
+The actual presence of any of these voices is not guaranteed.  But the
+command @code{SET VOICE} (@pxref{Parameter Setting Commands}) must
+accept any of them.  If the given voice is not available, it is mapped
+to another voice by the output module.
+
+@node GNU Free Documentation License, GNU General Public Licence, Appendices, Top
+@appendix GNU Free Documentation License
+@center Version 1.2, November 2002
+@cindex FDL, GNU Free Documentation License
+
+@include fdl.texi
+
+@node GNU General Public Licence,  , GNU Free Documentation License, Top
+@appendix GNU General Public License
+@center Version 2, June 1991
+@cindex GNU General Public License
+
+@include gpl.texi
+
+@bye

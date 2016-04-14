@@ -1,0 +1,6 @@
+A list of known bugs:
+
+* Some output modules doen't support sound icons and spelling
+as there is not any support for that in those modules.
+
+* Espeak generic module doesn't support punctuation.

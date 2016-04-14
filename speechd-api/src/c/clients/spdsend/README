@@ -1,0 +1,26 @@
+This is a simple command line client to Speech Dispatcher.  It may be useful in
+programs, which don't want to use direct socket communication with Speech
+Dispatcher for some reason.
+
+To compile the program, just run `make'.  To install it, run `make install'.
+
+The following operations are supported:
+
+$ spdsend --open HOST PORT
+
+  Open new connection to Speech Dispatcher running at HOST:PORT and print the
+  connection identifier on the standard output.
+
+$ spdsend --close CONNECTION
+
+  Close the given Speech Dispatcher CONNECTION.
+
+$ spdsend --send CONNECTION
+
+  Read an SSIP command from standard input, forward it to Speech Dispatcher
+  CONNECTION and print the answer on the standard output.
+
+You can send your bug reports, patches, suggestions, etc. to the mailing list
+speechd@lists.freebsoft.org.
+
+-- Milan Zamazal <pdm@freebsoft.org>

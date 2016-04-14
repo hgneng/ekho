@@ -1,0 +1,32 @@
+1. record sound for articles
+2.1 run `split_wav.pl` to split article wav to syllable wavs.
+2.2 run `gen_sound_db.pl` to generate syllable wav files to jyutping_db/ or pinyin_db/
+3. run `gen_record_list.pl` to generate the list of rest syllables that haven't been recorded.
+4.1 run `split_wav.pl` to split article wav to syllable wavs.
+4.2 run `gen_record_list_sound_db.pl`. Similar to `gen_sound_db.pl` but specific to list file of `gen_record_list.pl`.
+
+~/sound/jyutping_phon_list_102$ perl /home/hgneng/e-guidedog/eGuideDog_TTS/gen_record_list_sound_db.pl jyutping . ../jyutping_db ../jyutping-wong1 jyutping_phon_list_101.txt.utf8
+
+4.3 Use `rename_to_jyutping.pl` to help manually cutting.
+
+5. run `gen_sound.pl` to select wav file from jyutping_db/ or pinyin_db/ and do a normalization and store to jyutping/ or pinyin/
+~/e-guidedog/eGuideDog_TTS$ perl gen_sound.pl jyutping
+
+For non-database sound, we can use `remove_silence.pl` and `change_tempo.pl` instead.
+5.1 ~/sound $ perl /home/hgneng/e-guidedog/eGuideDog_TTS/remove_silence.pl jyutping jyutping-wong2-ori jyutping-wong-44100-v4_tmp
+
+5.2 ~/sound $ perl /home/hgneng/e-guidedog/eGuideDog_TTS/change_tempo2.pl jyutping /home/hgneng/sound/jyutping-wong-44100-v4 jyutping-wong-44100-v5 
+
+6. run `compress.pl` to compress voice data
+perl /home/hgneng/e-guidedog/eGuideDog_TTS/compress.pl jyutping-wong-44100-v4 jyutping-wong-16000-v4 16000
+
+7. For Cantonese, run `select_phon.pl` to get wave files which is used.
+perl /home/hgneng/e-guidedog/eGuideDog_TTS/select_phon.pl jyutping-wong-16000-v6tmp jyutping-wong-16000-v6
+
+To update the dictionary:
+1. run `update_all_dict.pl` to generate zh_char, zh_word, zhy_char and zhy_word.
+3. run `gen_gperf_symbol_pcm.pl` to generate the dictionary has table files (zh_symbol_pcm, zh_symbol_pcm.cpp, zh_symbol_pcm.h, zhy_symbol_pcm, zhy_symbol_pcm.cpp, zhy_symbol_pcm.h)
+
+To clean db:
+clean_jyutping_db.pl
+rm *.size *.volume

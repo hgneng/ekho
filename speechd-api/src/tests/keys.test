@@ -1,0 +1,879 @@
+@ This test speaks every defined keyboard key name and special character in the latin-1
+@ character set using the KEY SSIP command.  Useful for output module debugging.
+
+@ The pronounced names for characters are in English.
+
+@ IMPORTANT: Because of non-English characters in this file be sure to edit it with
+@ UTF-8 editor!
+
+!SPEAK
+Special Key Names:
+.
+!KEY space
+!KEY underscore
+!KEY double-quote
+
+!SPEAK
+Auxiliary Keys:
+.
+!KEY alt
+!KEY control
+!KEY hyper
+!KEY meta
+!KEY shift
+!KEY super
+
+!SPEAK
+Control Character Keys:
+.
+!KEY backspace
+!KEY break
+!KEY delete
+!KEY down
+!KEY end
+!KEY enter
+!KEY escape
+!KEY f1
+!KEY f2
+!KEY f3
+!KEY f4
+!KEY f5
+!KEY f6
+!KEY f7
+!KEY f8
+!KEY f9
+!KEY f10
+!KEY f11
+!KEY f12
+!KEY f13
+!KEY f14
+!KEY f15
+!KEY f16
+!KEY f17
+!KEY f18
+!KEY f19
+!KEY f20
+!KEY f21
+!KEY f22
+!KEY f23
+!KEY f24
+!KEY home
+!KEY insert
+!KEY kp-*
+!KEY kp-+
+!KEY kp--
+!KEY kp-.
+!KEY kp-/
+!KEY kp-0
+!KEY kp-1
+!KEY kp-2
+!KEY kp-3
+!KEY kp-4
+!KEY kp-5
+!KEY kp-6
+!KEY kp-7
+!KEY kp-8
+!KEY kp-9
+!KEY kp-enter
+!KEY left
+!KEY menu
+!KEY next
+!KEY num-lock
+!KEY pause
+!KEY print
+!KEY prior
+!KEY return
+!KEY right
+!KEY scroll-lock
+!KEY space
+!KEY tab
+!KEY up
+!KEY window
+
+!SPEAK
+Special characters:
+.
+
+@ U+0021
+!SPEAK
+Exclamation mark:
+.
+!KEY !
+
+@ U+0022
+!SPEAK
+Note that Double quote (") is not a valid key. Use "double-quote" instead.
+.
+@ !KEY "
+@ U+0023
+!SPEAK
+Pound, Hash, or Sharp:
+.
+!KEY #
+
+@ U+0024
+!SPEAK
+Dollar:
+.
+!KEY $
+
+@ U+0025
+!SPEAK
+Percent:
+.
+!KEY %
+
+@ U+0026
+!SPEAK
+Ampersand:
+.
+!KEY &
+
+@ U+0027
+!SPEAK
+Single quote, right quote, or apostrophe:
+.
+!KEY '
+
+@ U+0028
+!SPEAK
+Left parenthesis:
+.
+!KEY (
+
+@ U+0029
+!SPEAK
+Right parenthesis:
+.
+!KEY )
+
+@ U+002A
+!SPEAK
+Asterisk:
+.
+!KEY *
+
+@ U+002B
+!SPEAK
+Plus:
+.
+!KEY +
+
+@ U+002C
+!SPEAK
+Comma:
+.
+!KEY ,
+
+@ U+002D
+!SPEAK
+Hyphen:
+.
+!KEY -
+
+@ U+002E
+!SPEAK
+Period or dot:
+.
+!KEY .
+
+@ U+002F
+!SPEAK
+Slash:
+.
+!KEY /
+
+@ U+003A
+!SPEAK
+Colon:
+.
+!KEY :
+
+@ U+003B
+!SPEAK
+Semicolon:
+.
+!KEY ;
+
+@ U+003C
+!SPEAK
+Less than:
+.
+!KEY <
+
+@ U+003D
+!SPEAK
+Equals:
+.
+!KEY =
+
+@ U+003E
+!SPEAK
+Greater than:
+.
+!KEY >
+
+@ U+003F
+!SPEAK
+Question mark:
+.
+!KEY ?
+
+@ U+0040
+!SPEAK
+At:
+.
+!KEY @
+
+@ U+005B
+!SPEAK
+Left bracket:
+.
+!KEY [
+
+@ U+005C
+!SPEAK
+Backslash:
+.
+!KEY \
+
+@ U+005D
+!SPEAK
+Right bracket:
+.
+!KEY ]
+
+@ U+005E
+!SPEAK
+Caret.
+.
+!KEY ^
+
+@ U+005F
+!SPEAK
+Note that underscore (_) is not a valid key.  Use "underscore" instead.
+.
+@ !KEY _
+
+@ U+0060
+!SPEAK
+Backquote, Left quote,  or backtick:
+.
+!KEY `
+
+@ U+007B
+!SPEAK
+Left brace:
+.
+!KEY {
+
+@ U+007C
+!SPEAK
+Vertical bar or pipe:
+.
+!KEY |
+
+@ U+007D
+!SPEAK
+Right brace:
+.
+!KEY }
+
+@ U+007E
+!SPEAK
+Tilde:
+.
+!KEY ~
+
+@ U+00A1
+!SPEAK
+Inverted exclamation mark.
+.
+!KEY ¡
+
+@ U+00A2
+!SPEAK
+Cents:
+.
+!KEY ¢
+
+@ U+00A3
+!SPEAK
+British Pounds:
+.
+!KEY £
+
+@ U+00A4
+!SPEAK
+currency.
+.
+!KEY ¤
+
+@ U+00A5
+!SPEAK
+yen.
+.
+!KEY ¥
+
+@ U+00A6
+!SPEAK
+Vertical bar or pipe:
+.
+!KEY ¦
+
+@ U+00A7
+!SPEAK
+Section sign.
+.
+!KEY §
+
+@ U+00A8
+!SPEAK
+Copyright:
+.
+!KEY ©
+
+@ U+00A9
+!SPEAK
+umlaut or dierasis.
+.
+!KEY ¨
+
+@ U+00AA
+!SPEAK
+Superscript a:
+.
+!KEY ª
+
+@ U+00AB
+!SPEAK
+German left quote:
+.
+!KEY «
+
+@ U+00AC
+!SPEAK
+Optional hyphen:
+.
+!KEY ¬
+
+@ U+00AD
+!SPEAK
+Dash:
+.
+!KEY ­
+
+@ U+00AE
+!SPEAK
+Trademark:
+.
+!KEY ®
+
+@ U+00AF
+!SPEAK
+Macron:
+.
+!KEY ¯
+
+@ U+00B0
+!SPEAK
+Superscript 0, null, or degrees:
+.
+!KEY º
+
+@ U+00B1
+!SPEAK
+Plus or minus:
+.
+!KEY ±
+
+@ U+00B2
+!SPEAK
+Superscript 2 or squared:
+.
+!KEY ²
+
+@ U+00B3
+!SPEAK
+Superscript 3 or cubed:
+.
+!KEY ³
+
+@ U+00B4
+!SPEAK
+Acute accent:
+.
+!KEY ´
+
+@ U+00B5
+!SPEAK
+Mu or micro:
+.
+!KEY µ
+
+@ U+00B6
+!SPEAK
+pilcrow or paragraph:
+.
+!KEY ¶
+
+@ U+00B7
+!SPEAK
+Dot:
+.
+!KEY ·
+
+@ U+00B8
+!SPEAK
+Cedilla:
+.
+!KEY ¸
+
+@ U+00B9
+!SPEAK
+Superscript 1:
+.
+!KEY ¹
+
+@ U+00BA
+!SPEAK
+Superscript 0 or degrees:
+.
+!KEY º
+
+@ U+00BB
+!SPEAK
+German right quote:
+.
+!KEY »
+
+@ U+00BC
+!SPEAK
+One fourth or quarter:
+.
+!KEY ¼
+
+@ U+00BD
+!SPEAK
+One half:
+.
+!KEY ½
+
+@ U+00BE
+!SPEAK
+Three fourths or 3 quarters:
+.
+!KEY ¾
+
+@ U+00BF
+!SPEAK
+inverted question mark:
+.
+!KEY ¿
+
+@ U+00D7
+!SPEAK
+Times.
+.
+!KEY ×
+
+@ U+00F7
+!SPEAK
+Divide, divided by, or division.
+.
+!KEY ÷
+
+
+!SPEAK
+Non-English letters:
+.
+
+@ U+00C0
+!SPEAK
+Capital A grav:
+.
+!KEY À
+
+@ U+00C1
+!SPEAK
+Capital A acute:
+.
+!KEY Á
+
+@ U+00C2
+!SPEAK
+Capital A circumflex:
+.
+!KEY Â
+
+@ U+00C3
+!SPEAK
+Capital A tilde:
+.
+!KEY Ã
+
+@ U+00C4
+!SPEAK
+Capital A umlaut:
+.
+!KEY Ä
+
+@ U+00C5
+!SPEAK
+Capital A dot:
+.
+!KEY Å
+
+@ U+00C6
+!SPEAK
+Capital ay e:
+.
+!KEY Æ
+
+@ U+00C7
+!SPEAK
+Capital C cedilla:
+.
+!KEY Ç
+
+@ U+00C8
+!SPEAK
+Capital E grav:
+.
+!KEY È
+
+@ U+00C9
+!SPEAK
+Capital E acute:
+.
+!KEY É
+
+@ U+00CA
+!SPEAK
+Capital E circumflex:
+.
+!KEY Ê
+
+@ U+00CB
+!SPEAK
+Capital E umlaut:
+.
+!KEY Ë
+
+@ U+00CC
+!SPEAK
+Capital I grav:
+.
+!KEY Ì
+
+@ U+00CD
+!SPEAK
+Capital I acute:
+.
+!KEY Í
+
+@ U+00CE
+!SPEAK
+Capital I circumflex:
+.
+!KEY Î
+
+@ U+00CF
+!SPEAK
+Capital I umlaut:
+.
+!KEY Ï
+
+@ U+00D0
+!SPEAK
+Capital eth:
+.
+!KEY Ð
+
+@ U+00D1
+!SPEAK
+Capital N tilde or enni:
+.
+!KEY Ñ
+
+@ U+00D2
+!SPEAK
+Capital O grav:
+.
+!KEY Ò
+
+@ U+00D3
+!SPEAK
+Capital O acute:
+.
+!KEY Ó
+
+@ U+00D4
+!SPEAK
+Capital O circumflex:
+.
+!KEY Ô
+
+@ U+00D5
+!SPEAK
+Capital O tilde:
+.
+!KEY Õ
+
+@ U+00D6
+!SPEAK
+Capital O umlaut:
+.
+!KEY Ö
+
+@ U+00D8
+!SPEAK
+Capital Phi or Capital Oh:
+.
+!KEY Ø
+
+@ U+00D9
+!SPEAK
+Capital U grav:
+.
+!KEY Ù
+
+@ U+00DA
+!SPEAK
+Capital U acute:
+.
+!KEY Ú
+
+@ U+00DB
+!SPEAK
+Capital U circumflex:
+.
+!KEY Û
+
+@ U+00DC
+!SPEAK
+Capital U umlaut:
+.
+!KEY Ü
+
+@ U+00DD
+!SPEAK
+Capital Y acute:
+.
+!KEY Ý
+
+@ U+00DE
+!SPEAK
+thorn:
+.
+!KEY Þ
+
+@ U+00DF
+!SPEAK
+eztset:
+.
+!KEY ß
+
+@ U+00E0
+!SPEAK
+ay grav:
+.
+!KEY à
+
+@ U+00E1
+!SPEAK
+ay acute:
+.
+!KEY á
+
+@ U+00E2
+!SPEAK
+ay circumflex:
+.
+!KEY â
+
+@ U+00E3
+!SPEAK
+ay tilde:
+.
+!KEY ã
+
+@ U+00E4
+!SPEAK
+ay umlaut:
+.
+!KEY ä
+
+@ U+00E5
+!SPEAK
+ay dot:
+.
+!KEY å
+
+@ U+00E6
+!SPEAK
+ay e:
+.
+!KEY æ
+
+@ U+00E7
+!SPEAK
+c cedilla:
+.
+!KEY ç
+
+@ U+00E8
+!SPEAK
+e grav:
+.
+!KEY è
+
+@ U+00E9
+!SPEAK
+e acute:
+.
+!KEY é
+
+@ U+00EA
+!SPEAK
+e circumflex:
+.
+!KEY ê
+
+@ U+00EB
+!SPEAK
+e umlaut:
+.
+!KEY ë
+
+@ U+00EC
+!SPEAK
+i grav:
+.
+!KEY ì
+
+@ U+00ED
+!SPEAK
+i acute:
+.
+!KEY í
+
+@ U+00EE
+!SPEAK
+i circumflex:
+.
+!KEY î
+
+@ U+00EF
+!SPEAK
+i umlaut:
+.
+!KEY ï
+
+@ U+00F0
+!SPEAK
+eth:
+.
+!KEY ð
+
+@ U+00F1
+!SPEAK
+n tilde:
+.
+!KEY ñ
+
+@ U+00F2
+!SPEAK
+o grav:
+.
+!KEY ò
+
+@ U+00F3
+!SPEAK
+o acute:
+.
+!KEY ó
+
+@ U+00F4
+!SPEAK
+o circumflex:
+.
+!KEY ô
+
+@ U+00F5
+!SPEAK
+o tilde:
+.
+!KEY õ
+
+@ U+00F6
+!SPEAK
+o umlaut:
+.
+!KEY ö
+
+@ U+00F8
+!SPEAK
+Phi or oh:
+.
+!KEY ø
+
+@ U+00F9
+!SPEAK
+u grav:
+.
+!KEY ù
+
+@ U+00FA
+!SPEAK
+u acute:
+.
+!KEY ú
+
+@ U+00FB
+!SPEAK
+u circumflex:
+.
+!KEY û
+
+@ U+00FC
+!SPEAK
+u umlaut:
+.
+!KEY ü
+
+@ U+00FD
+!SPEAK
+y acute:
+.
+!KEY ý
+
+@ U+00FE
+!SPEAK
+Capital thorn:
+.
+!KEY þ
+
+@ U+00FF
+!SPEAK
+y umlaut or yummel:
+.
+!KEY ÿ
+
+
+!SPEAK
+Examples of valid key names:
+.
+
+!KEY a
+!KEY A
+!KEY shift_a
+!KEY shift_A
+!KEY ú
+!KEY $
+!KEY enter
+!KEY shift_kp-enter
+!KEY control_alt_delete
+!KEY control
+
+!QUIT

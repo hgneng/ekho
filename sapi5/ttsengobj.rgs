@@ -1,0 +1,25 @@
+HKCR
+{
+	TtsEng.SampleTTSEngine.1 = s 'SampleTTSEngine Class'
+	{
+		CLSID = s '{BD4AC8AD-7365-47b3-9FDB-923E70C5E40D}'
+	}
+	TtsEng.SampleTTSEngine = s 'SampleTTSEngine Class'
+	{
+		CLSID = s '{BD4AC8AD-7365-47b3-9FDB-923E70C5E40D}'
+		CurVer = s 'TtsEng.SampleTTSEngine.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BD4AC8AD-7365-47b3-9FDB-923E70C5E40D} = s 'SampleTTSEngine Class'
+		{
+			ProgID = s 'TtsEng.SampleTTSEngine.1'
+			VersionIndependentProgID = s 'TtsEng.SampleTTSEngine'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{7192AA2F-F759-43E9-91E7-226371EF6B2F}'
+		}
+	}
+}

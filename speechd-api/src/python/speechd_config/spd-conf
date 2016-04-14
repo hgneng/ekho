@@ -1,0 +1,10 @@
+#!/usr/bin/python
+
+# Helper script to be put in /usr/bin/ or a similar location
+# calling the appropriate python tool
+
+import speechd_config
+
+if __name__=='__main__':
+    import sys
+    sys.exit(speechd_config.main())

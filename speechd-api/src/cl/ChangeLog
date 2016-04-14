@@ -1,0 +1,8 @@
+2004-01-20  Milan Zamazal  <pdm@brailcom.org>
+
+	* sysdep.lisp (open-network-stream): Socket creation for SBCL
+	fixed.
+
+	* ssip.lisp: Exportable symbolic parameter values converted to
+	keywords.
+

@@ -1,0 +1,38 @@
+@   This script is used to test SOUND ICON functionality
+@   in Speech Dispatcher.
+
+@   Note that these tests assume you have the free(b)soft
+@   sound-icons package installed (apt-get install sound-icons).
+
+@   We will send a sentence, a sound icon, and another sentence.
+@   You should hear them in that order.
+
+$ 5
+
+!SPEAK
+When the system is ready for your input, you will hear the following sound.
+.
+!SOUND_ICON prompt
+!SPEAK
+You may then enter your response.
+.
+
+$8
+
+@ Some more sound icons.
+$2
+
+!SOUND_ICON start
+$3
+!SOUND_ICON message
+
+$4
+@ Sound icon names are case sensitive, therefore it is normal
+@ to hear the name of the icon for the next test.  If you do hear the icon,
+@ that is OK too.
+$4
+
+!SOUND_ICON PROMPT
+$2
+
+!QUIT

@@ -1,0 +1,8 @@
+SIOD =  siod.scm web.scm cstr.scm fringe.scm
+
+.copy_from_est: $(SIOD)
+
+$(SIOD) :
+	@echo 'Copy $@ from EST/lib/siod'
+	-del $@
+	copy $(EST)\lib\siod\$@ $@

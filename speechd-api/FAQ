@@ -1,0 +1,56 @@
+Frequently Asked Questions
+
+Q: How do I configure Speech Dispatcher in user-mode?
+
+A: Run
+        spd-conf
+   and answer some basic questions
+
+Q: During the instalation, when running `make' and `make install',
+   I get some strange message from libtool and the process crashes:
+    ../../libtool: s%^.*/%%: is not a file or directory
+    ../../libtool: -e: command not found
+    ../../libtool: -e: command not found
+    (repeating several times)
+
+A: Libtool uses `sed' as it's tool to modify text, but the new versions rely on
+   the environment variable SED to contain the name of the command to call.
+   This variable must be set when building programs using these versions of
+   libtool.  You can run make like that (if you have `sed' in your PATH):
+
+    $ SED=sed make
+    $ su root
+    $ SED=sed make install
+
+   or
+   
+    $ export SED=sed
+    $ make
+    $ su root
+    $ make install
+
+
+Q: Flite has only a very crappy voice!
+
+A: Flite is only a simple light software synthesizer and it's voices are not of
+   a very high quality.  Festival can do much better and it also supports
+   various languages.  But if you are compiling Flite and Speech Dispatcher
+   yourselves, there are still chances that you can improve the Flite voice
+   considerably by using the 16-bit KAL voice instead of the (in the
+   distribution tarball default) 8-bit voice.  To be able to use the 16-bit
+   voice, you have to compile Flite with a special flag, please consult it's
+   documentation or ./configure --help.  Then you should recompile Speech
+   Dispatcher (no flag is necessary, it will be automatically installed with
+   the better voice).
+
+   If you are using Debian or any other package based distribution, the 16-bit
+   voice should be installed by default and there is no need for you to care
+   about it.
+
+Q: Festival doesn't speak. What can I do?
+
+A: Are you sure you have installed festival-freebsoft-utils 0.3 or higher as
+   described in the file INSTALL?
+
+A: Are you sure you are not running into the famous 'server_access_list'
+   problem?  Please see the file INSTALL.
