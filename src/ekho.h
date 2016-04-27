@@ -68,7 +68,11 @@ namespace ekho {
     EKHO_PUNC_ALL
   };
 
+  class EkhoImpl;
+
   class Ekho {
+    private:
+      EkhoImpl* m_pImpl;
     public:
       const static int BUFFER_SIZE = 8192;
       const static int PENDING_PCM_FRAMES = 4096;
@@ -86,12 +90,12 @@ namespace ekho {
         Dict::mDebug = flag;
       };
 
-      Ekho(void);
+      Ekho();
       Ekho(string voice);
 
       /* Destructor.
       */
-      ~Ekho(void);
+      ~Ekho();
 
       /* Set voice 
        * voice is the name of voice, which is a directory name under
