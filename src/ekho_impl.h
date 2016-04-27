@@ -19,8 +19,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,              *
  * MA  02110-1301, USA.                                                    *
  **************************************************************************/
-#ifndef EKHO_H
-#define EKHO_H
+#ifndef EKHO_IMPL_H
+#define EKHO_IMPL_H
 
 #include <queue>
 #include <semaphore.h>
@@ -68,7 +68,7 @@ namespace ekho {
     EKHO_PUNC_ALL
   };
 
-  class Ekho {
+  class EkhoImpl {
     public:
       const static int BUFFER_SIZE = 8192;
       const static int PENDING_PCM_FRAMES = 4096;
@@ -86,12 +86,12 @@ namespace ekho {
         Dict::mDebug = flag;
       };
 
-      Ekho(void);
-      Ekho(string voice);
+      EkhoImpl(void);
+      EkhoImpl(string voice);
 
       /* Destructor.
       */
-      ~Ekho(void);
+      ~EkhoImpl(void);
 
       /* Set voice 
        * voice is the name of voice, which is a directory name under
