@@ -29,6 +29,7 @@
 #include "config.h"
 #include "ekho_dict.h"
 #include "sonic.h"
+#include "ekho_typedef.h"
 
 #ifdef HAVE_PULSEAUDIO
 #include <pulse/simple.h>
@@ -48,25 +49,6 @@
 using namespace std;
 
 namespace ekho {
-
-  typedef struct {
-    string text;
-    void (*pCallback)(void*);
-    void* pCallbackArgs;
-  } SpeechOrder;
-
-  enum Command {
-    SPEAK,
-    SAVEMP3,
-    SAVEOGG,
-    GETPHONSYMBOLS
-  };
-
-  enum EkhoPuncType {
-    EKHO_PUNC_NONE = 1,
-    EKHO_PUNC_SOME,
-    EKHO_PUNC_ALL
-  };
 
   class EkhoImpl;
 
@@ -111,20 +93,15 @@ namespace ekho {
        * text should be in UTF-8 format
        * it will launch a new thread and return immediately
        */
-      int speak(string text,
-          void (*pCallback)(void*) = NULL,
-          void* pCallbackArgs = NULL);
+      int speak(string text, void (*pCallback)(void*) = NULL, void* pCallbackArgs = NULL);
 
       /* Clear speech queue before speak text
        * text should be in UTF-8 format
        * it will launch a new thread and return immediately
        */
-      int stopAndSpeak(string text,
-          void (*pCallback)(void*) = NULL,
-          void* pCallbackArgs = NULL);
+      int stopAndSpeak(string text, void (*pCallback)(void*) = NULL, void* pCallbackArgs = NULL);
 
-      typedef int (SynthCallback)(short *pcm, int frames, void *arg,
-          bool in_word_context = false, bool forbid_overlap = false);
+      typedef int (SynthCallback)(short *pcm, int frames, void *arg, bool in_word_context = false, bool forbid_overlap = false);
       /* Synth speech
        * callback will be called time from time when buffer is ready
        */
@@ -216,28 +193,25 @@ namespace ekho {
        *            voice_cmu_us_slt_arctic_hts (female voice) or
        *            other Festival voice name if installed
        */
-      void setEnglishVoice(const char *voice) { mEnglishVoice = voice; }
+      void setEnglishVoice(const char *voice);
       const char* getEnglishVoice(void);
 
-      void setPcmCache(bool b) { mPcmCache = b; }
+      void setPcmCache(bool b);
 
       /**
        * Check whether is speaking
        */
-      inline bool isSpeaking(void) { return !mSpeechQueue.empty(); }
+      bool isSpeaking();
 
       string genTempFilename(void);
 
       sonicStream mSonicStream;
 
       static void* speechDaemon(void *args);
-      static int speakPcm(short *pcm, int frames, void* arg,
-          bool in_word_context = false, bool forbid_overlap = false);
-      static int writePcm(short *pcm, int frames, void* arg,
-          bool in_word_context = false, bool forbid_overlap = false);
-      void finishWritePcm(void);
-      int writeToSonicStream(short *pcm, int frames,
-          bool in_word_context = false, bool forbid_overlap = false);
+      static int speakPcm(short *pcm, int frames, void* arg, bool in_word_context = false, bool forbid_overlap = false);
+      static int writePcm(short *pcm, int frames, void* arg, bool in_word_context = false, bool forbid_overlap = false);
+      void finishWritePcm();
+      int writeToSonicStream(short *pcm, int frames, bool in_word_context = false, bool forbid_overlap = false);
       /*
          static int changeSamplerate(const short *source_data,
          long source_len, // len in 8 bits
@@ -249,52 +223,10 @@ namespace ekho {
       /* get PCM, internal use only */
       const char* getPcmFromFestival(string text, int& size);
 
-      void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
+      void setPunctuationMode(EkhoPuncType mode);
 
     private:
-      int init(void);
-      int initPcm(void);
-      int initSound(void);
-      int initStream(void);
-      int initFestival(void);
-      void closeStream(void);
-      int outputSpeech(string text);
-
       static bool mDebug;
-      bool mPcmCache;
-      int tempoDelta; // -50 .. 100 (%)
-      int pitchDelta; // -100 .. 100 (%)
-      int volumeDelta; // -100 .. 100 (%)
-      int rateDelta; // -50 .. 100 (%)
-      const char *mEnglishVoice; // voice_kal_diphone (default) or voice_cmu_us_slt_arctic_hts
-
-      bool isRecording;
-      bool isPaused;
-      bool isStopped;
-      bool isEnded;
-      bool isSoundInited;
-      string player; // "ogg123", "mplayer" or "play"
-      SNDFILE *mSndFile;
-      queue<SpeechOrder> mSpeechQueue;
-      pthread_mutex_t mSpeechQueueMutex;
-      pthread_cond_t mSpeechQueueCond;
-
-      short mPendingPcm[PENDING_PCM_FRAMES * 2];
-      int mPendingFrames;
-
-      bool isSpeechThreadInited;
-      pthread_t speechThread;
-#ifdef HAVE_PULSEAUDIO
-      pa_simple *stream;
-#endif
-
-      const char* mAlphabetPcmCache[26];
-      int mAlphabetPcmSize[26];
-
-      EkhoPuncType mPuncMode;
-
-      void filterSpaces(string& text);
-      void translatePunctuations(string& text);
   };
 }
 #endif
