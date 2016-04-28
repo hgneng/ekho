@@ -10,7 +10,7 @@ noinst_LIBRARIES = libekho.a
 noinst_HEADERS = src/stdafx.h 
 include_HEADERS = src/ekho.h src/ekho_dict.h src/character.h src/phonetic_symbol.h src/zhy_symbol_map.h src/zh_symbol_map.h
 
-libekho_a_SOURCES = src/libekho.cpp src/ekho_dict.cpp src/number.cpp sr-convert/dsp.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp sonic/sonic.c
+libekho_a_SOURCES = src/libekho.cpp src/libekho_impl.cpp src/ekho_dict.cpp src/number.cpp sr-convert/dsp.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp sonic/sonic.c
 libekho_a_CXXFLAGS = -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -I$(srcdir)/sr-convert -DOUTPUT16BIT -D_$(host_cpu) -pthread @CFLAG_FRISO@
 LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ -lsndfile @LIB_FRISO@
 
