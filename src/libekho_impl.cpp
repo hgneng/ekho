@@ -32,6 +32,7 @@
 #include <errno.h>
 #include <signal.h>
 #include "config.h"
+#include "ekho_impl.h"
 #include "ekho.h"
 #include "ekho_dict.h"
 #include "sr-convert.cpp"
@@ -2003,3 +2004,4 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
 
   return 0;
 }
+
