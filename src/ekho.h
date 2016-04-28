@@ -59,18 +59,8 @@ namespace ekho {
       const static int BUFFER_SIZE = 8192;
       const static int PENDING_PCM_FRAMES = 4096;
       const static int MAX_CLIENTS = 100; 
-      Dict mDict;
-      int mPort;
-      bool mStripSsml;
-      bool mSpeakIsolatedPunctuation;
-#ifdef ANDROID
-      cst_voice *mFliteVoice;
-#endif
 
-      static void debug(bool flag = true) {
-        mDebug = flag;
-        Dict::mDebug = flag;
-      };
+      static void debug(bool flag = true);
 
       Ekho();
       Ekho(string voice);
@@ -143,15 +133,11 @@ namespace ekho {
       /**
        * Set whether strip SSML tags in text
        */
-      inline void setStripSsml(bool b = true) { mStripSsml = b; }
-      inline bool getStripSsml(void) { return mStripSsml; }
+      void setStripSsml(bool b = true);
+      bool getStripSsml();
 
-      inline void setSpeakIsolatedPunctuation(bool b = true) {
-        mSpeakIsolatedPunctuation = b;
-      }
-      inline bool getSpeakIsolatedPunctuation() {
-        return mSpeakIsolatedPunctuation;
-      }
+      void setSpeakIsolatedPunctuation(bool b = true);
+      bool getSpeakIsolatedPunctuation();
 
       /* Set tempo delta
        * Parameter:

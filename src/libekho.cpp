@@ -70,6 +70,10 @@ using namespace std;
 
 bool Ekho::mDebug = false;
 
+void Ekho::debug(bool flag) {
+    EkhoImpl::debug(flag);
+}
+
 Ekho::Ekho() {
     this->m_pImpl = new EkhoImpl();
 }
@@ -180,6 +184,22 @@ int Ekho::resume() {
 
 int Ekho::stop() {
     return this->m_pImpl->stop();
+}
+
+void Ekho::setStripSsml(bool b) {
+    this->m_pImpl->setStripSsml(b);
+}
+
+bool Ekho::getStripSsml() {
+    return this->m_pImpl->getStripSsml();
+}
+
+void Ekho::setSpeakIsolatedPunctuation(bool b) {
+    this->m_pImpl->setSpeakIsolatedPunctuation(b);
+}
+
+bool Ekho::getSpeakIsolatedPunctuation() {
+    return this->m_pImpl->getSpeakIsolatedPunctuation();
 }
 
 void Ekho::setSpeed(int tempo_delta) {
