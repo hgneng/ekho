@@ -32,6 +32,8 @@
 #include <errno.h>
 #include <signal.h>
 #include "config.h"
+#include "ekho_typedef.h"
+#include "ekho_impl.h"
 #include "ekho.h"
 #include "ekho_dict.h"
 #include "sr-convert.cpp"
@@ -72,10 +74,6 @@ Ekho::Ekho() {
     this->m_pImpl = new EkhoImpl();
 }
 
-int Ekho::init() {
-    return this->m_pImpl->init();
-}
-
 Ekho::Ekho(string voice) {
     this->m_pImpl = new EkhoImpl(voice);
 }
@@ -84,23 +82,7 @@ Ekho::~Ekho(void) {
     delete this->m_pImpl;
 }
 
-int Ekho::initSound() {
-    return this->m_pImpl->initSound();
-}
-
-int Ekho::initStream() {
-    return this->m_pImpl->initStream();
-}
-
-void Ekho::closeStream() {
-    return this->m_pImpl->closeStream();
-}
-
 static bool gsIsFestivalInited = false;
-
-int Ekho::initFestival(void) {
-    return this->m_pImpl->initFestival();
-}
 
 int Ekho::saveWav(string text, string filename) {
     return this->m_pImpl->saveWav(text, filename);
@@ -108,6 +90,18 @@ int Ekho::saveWav(string text, string filename) {
 
 int Ekho::saveOgg(string text, string filename) {
     return this->m_pImpl->saveOgg(text, filename);
+}
+
+void Ekho::setEnglishVoice(const char *voice) {
+    this->m_pImpl->setEnglishVoice(voice);
+}
+
+void Ekho::setPcmCache(bool b) {
+    this->m_pImpl->setPcmCache(b);
+}
+
+bool Ekho::isSpeaking() {
+    return this->m_pImpl->isSpeaking();
 }
 
 // generate temp filename
@@ -123,7 +117,7 @@ int Ekho::saveMp3(string text, string filename) {
 #endif
 
 int Ekho::speakPcm(short *pcm, int frames, void *arg, bool in_word_context, bool forbid_overlap) {
-    return this->m_pImpl->speakPcm(pcm, frames, arg, in_word_context, forbid_overlap);
+    return EkhoImpl::speakPcm(pcm, frames, arg, in_word_context, forbid_overlap);
 }
 
 int Ekho::writeToSonicStream(short *pcm, int frames, bool in_word_context, bool forbid_overlap) {
@@ -135,18 +129,11 @@ void Ekho::finishWritePcm() {
 }
 
 int Ekho::writePcm(short *pcm, int frames, void *arg, bool in_word_context, bool forbid_overlap) {
-    return this->m_pImpl->writePcm(pcm, frames, arg, in_word_context, forbid_overlap);
+    return EkhoImpl::writePcm(pcm, frames, arg, in_word_context, forbid_overlap);
 }
 
 void* Ekho::speechDaemon(void *args) {
-    return this->m_pImpl->speechDaemon(args);
-}
-
-/**
- * Only strip one level SSML like <speak>...</speak>
- */
-static string stripSsml(string text) {
-    return EkhoImpl::stripSsml(text);
+    return EkhoImpl::speechDaemon(args);
 }
 
 // @TODO: remove this deprecared method
@@ -212,7 +199,7 @@ int Ekho::getPitch() {
 }
 
 void Ekho::setVolume(int volume_delta) {
-    return this->m_pImpl->setVolume();
+    this->m_pImpl->setVolume(volume_delta);
 }
 
 int Ekho::getVolume() {
@@ -236,15 +223,11 @@ int Ekho::request(string ip, int port, Command cmd, string text, string outfile)
     return this->m_pImpl->request(ip, port, cmd, text, outfile);
 }
 
-void Ekho::filterSpaces(string& text) {
-    this->m_pImpl->filterSpaces(text);
-}
-
-void Ekho::translatePunctuations(string& text) {
-    this->m_pImpl->translatePunctuations(text);
-}
-
 int Ekho::synth2(string text, SynthCallback *callback, void *userdata) {
     return this->m_pImpl->synth2(text, callback, userdata);
+}
+
+void Ekho::setPunctuationMode(EkhoPuncType mode) {
+    this->m_pImpl->setPunctuationMode(mode);
 }
 
