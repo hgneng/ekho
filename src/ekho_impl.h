@@ -27,6 +27,7 @@
 #include <pthread.h>
 #include <sndfile.h>
 #include "config.h"
+#include "ekho_typedef.h"
 #include "ekho_dict.h"
 #include "sonic.h"
 
@@ -54,19 +55,6 @@ namespace ekho {
     void (*pCallback)(void*);
     void* pCallbackArgs;
   } SpeechOrder;
-
-  enum Command {
-    SPEAK,
-    SAVEMP3,
-    SAVEOGG,
-    GETPHONSYMBOLS
-  };
-
-  enum EkhoPuncType {
-    EKHO_PUNC_NONE = 1,
-    EKHO_PUNC_SOME,
-    EKHO_PUNC_ALL
-  };
 
   class EkhoImpl {
     public:
