@@ -67,8 +67,6 @@ using namespace std;
 #include <lame/lame.h>
 #endif
 
-bool Ekho::mDebug = false;
-
 void Ekho::debug(bool flag) {
     EkhoImpl::debug(flag);
 }

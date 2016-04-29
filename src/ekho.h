@@ -210,9 +210,6 @@ namespace ekho {
       const char* getPcmFromFestival(string text, int& size);
 
       void setPunctuationMode(EkhoPuncType mode);
-
-    private:
-      static bool mDebug;
   };
 }
 
