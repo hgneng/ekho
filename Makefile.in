@@ -119,9 +119,10 @@ libekho_a_AR = $(AR) $(ARFLAGS)
 libekho_a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am_libekho_a_OBJECTS = src/libekho_a-libekho.$(OBJEXT) \
+	src/libekho_a-libekho_impl.$(OBJEXT) \
 	src/libekho_a-ekho_dict.$(OBJEXT) \
 	src/libekho_a-number.$(OBJEXT) \
-	sr-convert/libekho_a-dsp.$(OBJEXT) \
+	common/sr-convert/libekho_a-dsp.$(OBJEXT) \
 	src/libekho_a-zhy_symbol_map.$(OBJEXT) \
 	src/libekho_a-zh_symbol_map.$(OBJEXT) \
 	src/libekho_a-symbol_array.$(OBJEXT) sonic/sonic.$(OBJEXT)
@@ -276,8 +277,7 @@ CSCOPE = cscope
 AM_RECURSIVE_TARGETS = cscope
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in AUTHORS \
 	COPYING ChangeLog INSTALL NEWS README ar-lib compile \
-	config.guess config.sub depcomp install-sh ltmain.sh missing \
-	py-compile
+	config.guess config.sub depcomp install-sh ltmain.sh missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -348,6 +348,7 @@ LIB_PULSEAUDIO = @LIB_PULSEAUDIO@
 LIPO = @LIPO@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
+LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
@@ -433,16 +434,16 @@ SPEECH_TOOLS_H = @SPEECH_TOOLS_HEADER@
 noinst_LIBRARIES = libekho.a $(am__append_1)
 noinst_HEADERS = src/stdafx.h 
 include_HEADERS = src/ekho.h src/ekho_dict.h src/character.h src/phonetic_symbol.h src/zhy_symbol_map.h src/zh_symbol_map.h
-libekho_a_SOURCES = src/libekho.cpp src/ekho_dict.cpp src/number.cpp sr-convert/dsp.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp sonic/sonic.c
-libekho_a_CXXFLAGS = -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -I$(srcdir)/sr-convert -DOUTPUT16BIT -D_$(host_cpu) -pthread @CFLAG_FRISO@
+libekho_a_SOURCES = src/libekho.cpp src/libekho_impl.cpp src/ekho_dict.cpp src/number.cpp common/sr-convert/dsp.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp sonic/sonic.c
+libekho_a_CXXFLAGS = -I$(srcdir)/common/utfcpp/source -I$(srcdir)/sonic @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -I$(srcdir)/common/sr-convert -DOUTPUT16BIT -D_$(host_cpu) -pthread @CFLAG_FRISO@
 LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ -lsndfile @LIB_FRISO@
 @ENABLE_FRISO_TRUE@libfriso_a_SOURCES = friso-src/friso_array.c friso-src/friso.c friso-src/friso_hash.c friso-src/friso_lexicon.c friso-src/friso_link.c friso-src/friso_string.c friso-src/friso_GBK.c friso-src/friso_UTF8.c friso-src/friso_ctype.c
 @ENABLE_FRISO_TRUE@libfriso_a_CFLAGS = @CFLAG_FRISO@
 ekho_SOURCES = src/ekho.cpp
 ekho_LDADD = libekho.a $(LIBEKHO_LIB) @LIB_GTK2@
-ekho_CXXFLAGS = @CFLAG_GTK2@ -I$(srcdir)/include -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic -pthread @CFLAG_FRISO@
+ekho_CXXFLAGS = @CFLAG_GTK2@ -I$(srcdir)/include -I$(srcdir)/common/utfcpp/source -I$(srcdir)/sonic -pthread @CFLAG_FRISO@
 test_ekho_SOURCES = src/test_ekho.cpp
-test_ekho_CXXFLAGS = -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_FRISO@
+test_ekho_CXXFLAGS = -I$(srcdir)/common/utfcpp/source -I$(srcdir)/sonic @CFLAG_FRISO@
 test_ekho_LDADD = libekho.a $(LIBEKHO_LIB)
 DATA_DIR = $(srcdir)/ekho-data
 DATA_FILES = $(DATA_DIR)/zhy_list $(DATA_DIR)/zh_list $(DATA_DIR)/zh_listx $(DATA_DIR)/zhy.dict $(DATA_DIR)/zh.dict $(DATA_DIR)/ka_list $(DATA_DIR)/bo_list $(DATA_DIR)/ko_list $(DATA_DIR)/ngangien_list $(DATA_DIR)/pinyin.index $(DATA_DIR)/pinyin.voice $(DATA_DIR)/jyutping.index $(DATA_DIR)/jyutping.voice
@@ -513,18 +514,21 @@ src/$(DEPDIR)/$(am__dirstamp):
 	@: > src/$(DEPDIR)/$(am__dirstamp)
 src/libekho_a-libekho.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/libekho_a-libekho_impl.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/libekho_a-ekho_dict.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libekho_a-number.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
-sr-convert/$(am__dirstamp):
-	@$(MKDIR_P) sr-convert
-	@: > sr-convert/$(am__dirstamp)
-sr-convert/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) sr-convert/$(DEPDIR)
-	@: > sr-convert/$(DEPDIR)/$(am__dirstamp)
-sr-convert/libekho_a-dsp.$(OBJEXT): sr-convert/$(am__dirstamp) \
-	sr-convert/$(DEPDIR)/$(am__dirstamp)
+common/sr-convert/$(am__dirstamp):
+	@$(MKDIR_P) common/sr-convert
+	@: > common/sr-convert/$(am__dirstamp)
+common/sr-convert/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) common/sr-convert/$(DEPDIR)
+	@: > common/sr-convert/$(DEPDIR)/$(am__dirstamp)
+common/sr-convert/libekho_a-dsp.$(OBJEXT):  \
+	common/sr-convert/$(am__dirstamp) \
+	common/sr-convert/$(DEPDIR)/$(am__dirstamp)
 src/libekho_a-zhy_symbol_map.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libekho_a-zh_symbol_map.$(OBJEXT): src/$(am__dirstamp) \
@@ -637,14 +641,15 @@ test_ekho$(EXEEXT): $(test_ekho_OBJECTS) $(test_ekho_DEPENDENCIES) $(EXTRA_test_
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
+	-rm -f common/sr-convert/*.$(OBJEXT)
 	-rm -f friso-src/*.$(OBJEXT)
 	-rm -f sonic/*.$(OBJEXT)
-	-rm -f sr-convert/*.$(OBJEXT)
 	-rm -f src/*.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@common/sr-convert/$(DEPDIR)/libekho_a-dsp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@friso-src/$(DEPDIR)/libfriso_a-friso.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@friso-src/$(DEPDIR)/libfriso_a-friso_GBK.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@friso-src/$(DEPDIR)/libfriso_a-friso_UTF8.Po@am__quote@
@@ -655,10 +660,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@friso-src/$(DEPDIR)/libfriso_a-friso_link.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@friso-src/$(DEPDIR)/libfriso_a-friso_string.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@sonic/$(DEPDIR)/sonic.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@sr-convert/$(DEPDIR)/libekho_a-dsp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ekho-ekho.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libekho_a-ekho_dict.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libekho_a-libekho.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libekho_a-libekho_impl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libekho_a-number.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libekho_a-symbol_array.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libekho_a-zh_symbol_map.Po@am__quote@
@@ -853,6 +858,20 @@ src/libekho_a-libekho.obj: src/libekho.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -c -o src/libekho_a-libekho.obj `if test -f 'src/libekho.cpp'; then $(CYGPATH_W) 'src/libekho.cpp'; else $(CYGPATH_W) '$(srcdir)/src/libekho.cpp'; fi`
 
+src/libekho_a-libekho_impl.o: src/libekho_impl.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -MT src/libekho_a-libekho_impl.o -MD -MP -MF src/$(DEPDIR)/libekho_a-libekho_impl.Tpo -c -o src/libekho_a-libekho_impl.o `test -f 'src/libekho_impl.cpp' || echo '$(srcdir)/'`src/libekho_impl.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libekho_a-libekho_impl.Tpo src/$(DEPDIR)/libekho_a-libekho_impl.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/libekho_impl.cpp' object='src/libekho_a-libekho_impl.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -c -o src/libekho_a-libekho_impl.o `test -f 'src/libekho_impl.cpp' || echo '$(srcdir)/'`src/libekho_impl.cpp
+
+src/libekho_a-libekho_impl.obj: src/libekho_impl.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -MT src/libekho_a-libekho_impl.obj -MD -MP -MF src/$(DEPDIR)/libekho_a-libekho_impl.Tpo -c -o src/libekho_a-libekho_impl.obj `if test -f 'src/libekho_impl.cpp'; then $(CYGPATH_W) 'src/libekho_impl.cpp'; else $(CYGPATH_W) '$(srcdir)/src/libekho_impl.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libekho_a-libekho_impl.Tpo src/$(DEPDIR)/libekho_a-libekho_impl.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/libekho_impl.cpp' object='src/libekho_a-libekho_impl.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -c -o src/libekho_a-libekho_impl.obj `if test -f 'src/libekho_impl.cpp'; then $(CYGPATH_W) 'src/libekho_impl.cpp'; else $(CYGPATH_W) '$(srcdir)/src/libekho_impl.cpp'; fi`
+
 src/libekho_a-ekho_dict.o: src/ekho_dict.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -MT src/libekho_a-ekho_dict.o -MD -MP -MF src/$(DEPDIR)/libekho_a-ekho_dict.Tpo -c -o src/libekho_a-ekho_dict.o `test -f 'src/ekho_dict.cpp' || echo '$(srcdir)/'`src/ekho_dict.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libekho_a-ekho_dict.Tpo src/$(DEPDIR)/libekho_a-ekho_dict.Po
@@ -881,19 +900,19 @@ src/libekho_a-number.obj: src/number.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -c -o src/libekho_a-number.obj `if test -f 'src/number.cpp'; then $(CYGPATH_W) 'src/number.cpp'; else $(CYGPATH_W) '$(srcdir)/src/number.cpp'; fi`
 
-sr-convert/libekho_a-dsp.o: sr-convert/dsp.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -MT sr-convert/libekho_a-dsp.o -MD -MP -MF sr-convert/$(DEPDIR)/libekho_a-dsp.Tpo -c -o sr-convert/libekho_a-dsp.o `test -f 'sr-convert/dsp.cpp' || echo '$(srcdir)/'`sr-convert/dsp.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) sr-convert/$(DEPDIR)/libekho_a-dsp.Tpo sr-convert/$(DEPDIR)/libekho_a-dsp.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='sr-convert/dsp.cpp' object='sr-convert/libekho_a-dsp.o' libtool=no @AMDEPBACKSLASH@
+common/sr-convert/libekho_a-dsp.o: common/sr-convert/dsp.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -MT common/sr-convert/libekho_a-dsp.o -MD -MP -MF common/sr-convert/$(DEPDIR)/libekho_a-dsp.Tpo -c -o common/sr-convert/libekho_a-dsp.o `test -f 'common/sr-convert/dsp.cpp' || echo '$(srcdir)/'`common/sr-convert/dsp.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) common/sr-convert/$(DEPDIR)/libekho_a-dsp.Tpo common/sr-convert/$(DEPDIR)/libekho_a-dsp.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='common/sr-convert/dsp.cpp' object='common/sr-convert/libekho_a-dsp.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -c -o sr-convert/libekho_a-dsp.o `test -f 'sr-convert/dsp.cpp' || echo '$(srcdir)/'`sr-convert/dsp.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -c -o common/sr-convert/libekho_a-dsp.o `test -f 'common/sr-convert/dsp.cpp' || echo '$(srcdir)/'`common/sr-convert/dsp.cpp
 
-sr-convert/libekho_a-dsp.obj: sr-convert/dsp.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -MT sr-convert/libekho_a-dsp.obj -MD -MP -MF sr-convert/$(DEPDIR)/libekho_a-dsp.Tpo -c -o sr-convert/libekho_a-dsp.obj `if test -f 'sr-convert/dsp.cpp'; then $(CYGPATH_W) 'sr-convert/dsp.cpp'; else $(CYGPATH_W) '$(srcdir)/sr-convert/dsp.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) sr-convert/$(DEPDIR)/libekho_a-dsp.Tpo sr-convert/$(DEPDIR)/libekho_a-dsp.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='sr-convert/dsp.cpp' object='sr-convert/libekho_a-dsp.obj' libtool=no @AMDEPBACKSLASH@
+common/sr-convert/libekho_a-dsp.obj: common/sr-convert/dsp.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -MT common/sr-convert/libekho_a-dsp.obj -MD -MP -MF common/sr-convert/$(DEPDIR)/libekho_a-dsp.Tpo -c -o common/sr-convert/libekho_a-dsp.obj `if test -f 'common/sr-convert/dsp.cpp'; then $(CYGPATH_W) 'common/sr-convert/dsp.cpp'; else $(CYGPATH_W) '$(srcdir)/common/sr-convert/dsp.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) common/sr-convert/$(DEPDIR)/libekho_a-dsp.Tpo common/sr-convert/$(DEPDIR)/libekho_a-dsp.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='common/sr-convert/dsp.cpp' object='common/sr-convert/libekho_a-dsp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -c -o sr-convert/libekho_a-dsp.obj `if test -f 'sr-convert/dsp.cpp'; then $(CYGPATH_W) 'sr-convert/dsp.cpp'; else $(CYGPATH_W) '$(srcdir)/sr-convert/dsp.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -c -o common/sr-convert/libekho_a-dsp.obj `if test -f 'common/sr-convert/dsp.cpp'; then $(CYGPATH_W) 'common/sr-convert/dsp.cpp'; else $(CYGPATH_W) '$(srcdir)/common/sr-convert/dsp.cpp'; fi`
 
 src/libekho_a-zhy_symbol_map.o: src/zhy_symbol_map.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libekho_a_CXXFLAGS) $(CXXFLAGS) -MT src/libekho_a-zhy_symbol_map.o -MD -MP -MF src/$(DEPDIR)/libekho_a-zhy_symbol_map.Tpo -c -o src/libekho_a-zhy_symbol_map.o `test -f 'src/zhy_symbol_map.cpp' || echo '$(srcdir)/'`src/zhy_symbol_map.cpp
@@ -1255,12 +1274,12 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-rm -f common/sr-convert/$(DEPDIR)/$(am__dirstamp)
+	-rm -f common/sr-convert/$(am__dirstamp)
 	-rm -f friso-src/$(DEPDIR)/$(am__dirstamp)
 	-rm -f friso-src/$(am__dirstamp)
 	-rm -f sonic/$(DEPDIR)/$(am__dirstamp)
 	-rm -f sonic/$(am__dirstamp)
-	-rm -f sr-convert/$(DEPDIR)/$(am__dirstamp)
-	-rm -f sr-convert/$(am__dirstamp)
 	-rm -f src/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/$(am__dirstamp)
 
@@ -1274,7 +1293,7 @@ clean-am: clean-binPROGRAMS clean-generic clean-libtool \
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-	-rm -rf friso-src/$(DEPDIR) sonic/$(DEPDIR) sr-convert/$(DEPDIR) src/$(DEPDIR)
+	-rm -rf common/sr-convert/$(DEPDIR) friso-src/$(DEPDIR) sonic/$(DEPDIR) src/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-hdr distclean-libtool distclean-tags
@@ -1323,7 +1342,7 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-	-rm -rf friso-src/$(DEPDIR) sonic/$(DEPDIR) sr-convert/$(DEPDIR) src/$(DEPDIR)
+	-rm -rf common/sr-convert/$(DEPDIR) friso-src/$(DEPDIR) sonic/$(DEPDIR) src/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
@@ -1387,8 +1406,8 @@ dist-hook:
 	cp -r $(srcdir)/ekho-data/festival $(distdir)/ekho-data/
 	if [ -e $(srcdir)/ekho-data/spanish ]; then mv $(srcdir)/ekho-data/spanish $(srcdir)/ekho-data/festival/lib/voices/; fi
 	cp -r $(srcdir)/include $(distdir)/
-	cp -r $(srcdir)/utfcpp $(distdir)/
-	cp -r $(srcdir)/sr-convert $(distdir)/
+	cp -r $(srcdir)/common/utfcpp $(distdir)/
+	cp -r $(srcdir)/common/sr-convert $(distdir)/
 	cp -r $(srcdir)/sonic $(distdir)/
 	cp -r $(srcdir)/lib64 $(distdir)/
 	cp -r $(srcdir)/lib32 $(distdir)/
