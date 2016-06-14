@@ -14,6 +14,7 @@ case $i in
 esac
 done
 
+sudo date
 if [ $DEBUG -eq 1 ]
 then
 sudo rm -rf ~/ekho-logs
