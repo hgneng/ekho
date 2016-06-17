@@ -554,7 +554,9 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
     }
 
     if (! (di->character.phonSymbol)) {
-/* don't output \unknownchar any more
+#ifdef WIN32
+      // backward compatable to version before 6.0 which call sync instead of sync2
+      // output \unknownchar
       di->character.code = cItor->code; // needed?
       string s = di->character.getUtf8();
       const char *c = s.c_str();
@@ -564,8 +566,9 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
       // @TODO: memory leak, but don't care
       PhoneticSymbol *unknownSymbol = new PhoneticSymbol(sym);
       di->character.phonSymbol = unknownSymbol;
-*/
+#else
       di->character.phonSymbol = PhoneticSymbol::getUnknownPhoneticSymbol();
+#endif
     }
 
     // check word list

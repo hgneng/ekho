@@ -846,26 +846,6 @@ BOOL CTTSEngObj::AddNextSentItem( CItemList& ItemList )
     return fIsEOS;
 } /* CTTSEngObj::AddNextSentItem */
 
-string CTTSEngObj::genTempFilename() {
-#ifdef WIN32
-    string tmpfile(m_dict->mDataPath);
-	tmpfile += "\\tmp\\ekho_";
-#else
-    string tmpfile("/tmp/ekho_");
-#endif
-    char port_str[10];
-    sprintf(port_str, "%d", 2046);
-    tmpfile += port_str;
-    /* this is a bit slow, use a fixed filename instead
-    int fd = mkstemp(tmpfile);
-    close(fd);
-    string filename = tmpfile;
-
-    return filename;
-    */
-    return tmpfile;
-}
-
 // It's caller's responsibility to delete the returned pointer
 const char* CTTSEngObj::getPcmFromFestival(string text, int& size) { 
 #ifdef ENABLE_FESTIVAL
@@ -891,56 +871,18 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
 
   EST_Wave wave;
   festival_text_to_wave(text.c_str(), wave);
-  string wavfile = genTempFilename() + ".riff";
-  wave.save(wavfile.c_str(), "riff");
 
-  // change sample rate
   if (m_dict->mSfinfo.samplerate != current_samplerate) {
-    string outfile = wavfile + ".sr";
-    sr_convert(wavfile.c_str(), current_samplerate,
-         outfile.c_str(), m_dict->mSfinfo.samplerate);
-    wavfile = outfile;
+    wave.resample(m_dict->mSfinfo.samplerate);
   }
 
-  SF_INFO sfinfo;
-  char *pPcm = NULL;
-  memset(&sfinfo, 0, sizeof(sfinfo));
-  SNDFILE *sndfile = sf_open(wavfile.c_str(), SFM_READ, &sfinfo);
-  if (!sndfile) {
-    cerr << "Fail to open file " << wavfile << " at " << __LINE__ << endl;
-    size = 0;
-    return NULL;
-  } else if (sfinfo.frames == 0) {
-    size = 0;
-    return NULL;
-  } else {
-    m_dict->mSfinfo.channels = 1; // this->sfinfo.channels is corrupted
-    size_t samples = 0;
-
-    /* sfinfo.channels has not been taken into account .... */
-    switch (sfinfo.format & SF_FORMAT_SUBMASK) {
-      case SF_FORMAT_PCM_16:
-        size = (size_t) sfinfo.frames * 2;
-        pPcm = new char[size];
-        samples = (size_t) sf_readf_short(sndfile, (short*)pPcm, sfinfo.frames);
-        break;
-      case SF_FORMAT_PCM_S8:
-      case SF_FORMAT_PCM_U8:
-        size = (size_t) sfinfo.frames;
-        pPcm = new char[size];
-        samples = (size_t) sf_read_raw(sndfile, pPcm, sfinfo.frames);
-        break;
-      default:
-        cerr << "Unkonwn soundfile format: " << sfinfo.format << endl;
-    }
-
-    if (samples != (size_t)sfinfo.frames) {
-      cerr << "Fail to read " << wavfile << ": " << samples << " frames out of " << sfinfo.frames << " have been read." << endl;
-    }
-
-    sf_close(sndfile);
-    return pPcm;
-  }
+  EST_TVector<short> tvector;
+  wave.channel(tvector, 0);
+  size = tvector.p_num_columns * 2;
+  char *pPcm = new char[size];
+  short *shortPcm = (short*)pPcm;
+  tvector.get_values(shortPcm, 1, 0, tvector.p_num_columns);
+  return pPcm;
 #else
   return NULL;
 #endif

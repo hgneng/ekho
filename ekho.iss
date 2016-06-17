@@ -4,7 +4,7 @@
 
 [Setup]
 AppName=Ekho
-AppVerName=Ekho 6.0
+AppVerName=Ekho 6.5
 AppPublisher=Cameron Wong
 AppPublisherURL=http://www.eguidedog.net
 AppSupportURL=http://www.eguidedog.net
@@ -15,7 +15,7 @@ LicenseFile=COPYING
 ;InfoBeforeFile=install.txt
 InfoAfterFile=README
 OutputDir=./
-OutputBaseFilename=ekho-6.0
+OutputBaseFilename=ekho-6.5
 ;SetupIconFile=C:\lab\e-guidedog\eGuideDog_TTS\eguidedog.ico
 Compression=lzma
 SolidCompression=yes
@@ -32,7 +32,7 @@ Name: "chinesetrad"; MessagesFile: "compiler:Languages\ChineseTrad.isl"
 [Files]
 Source: "sapi5\TTSApp\Debug\ttsapp.exe"; DestDir: "{app}";
 Source: "sapi5\Debug_x86\ekho_sapi5.dll"; DestDir: "{app}"; Flags: regserver promptifolder replacesameversion
-Source: "dll\libsndfile-1.dll"; DestDir: "{app}";
+Source: "sapi5\dll\libsndfile-1.dll"; DestDir: "{app}";
 Source: "README"; DestDir: "{app}";
 Source: "COPYING"; DestDir: "{app}";
 
@@ -66,7 +66,7 @@ Source: "ekho-data\COPYING-ngangien-qianshan"; DestDir: "{app}\ekho-data\";
 Source: "ekho-data\ngangien_list"; DestDir: "{app}\ekho-data\";
 Source: "ekho-data\ngangien\*"; DestDir: "{app}\ekho-data\ngangien\";
 
-Source: "ekho-data\tmp"; DestDir: "{app}\ekho-data\tmp"; Flags: createallsubdirs recursesubdirs;
+;Source: "ekho-data\tmp"; DestDir: "{app}\ekho-data\tmp"; Flags: createallsubdirs recursesubdirs;
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]

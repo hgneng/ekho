@@ -19,4 +19,4 @@ $ ekho -t ogg -o output.ogg "123" # -o means output to file, -t specifies the ty
 To read how to install the software, please refer file INSTALL.
 
 ===== Known issues =====
-Festival is not thread safe. Ekho run in multi-threads. setVoice can only be called once if Festival is enabled.
+Festival is not thread safe. Ekho run in multi-threads. setVoice can only be called once if Festival is not enabled.

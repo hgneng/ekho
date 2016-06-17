@@ -155,8 +155,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;D:\e-guidedog\eGuideDog_TTS\sr-convert&quot;;&quot;D:\e-guidedog\eGuideDog_TTS\include\speech_tools&quot;;&quot;D:\e-guidedog\eGuideDog_TTS\include\festival&quot;;&quot;D:\e-guidedog\eGuideDog_TTS\sonic&quot;;&quot;D:\e-guidedog\eGuideDog_TTS\sapi5&quot;;&quot;D:\e-guidedog\eGuideDog_TTS\src&quot;;&quot;D:\e-guidedog\eGuideDog_TTS\utfcpp\source&quot;;&quot;C:\Program Files\Mega-Nerd\libsndfile\include&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Include&quot;"
-				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_USRDLL;SYSTEM_IS_WIN32;NO_SSE"
+				AdditionalIncludeDirectories="&quot;D:\ekho\common\sr-convert&quot;;D:\ekho\sapi5\include\festival;D:\ekho\sapi5\include\speech_tools;D:\ekho\sonic;D:\ekho\sapi5;D:\ekho\src;D:\ekho\common\utfcpp\source;&quot;C:\Program Files\Mega-Nerd\libsndfile\include&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Include&quot;"
+				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_USRDLL;SYSTEM_IS_WIN32;NO_SSE;_WIN32_WINNT"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -188,7 +188,7 @@
 				OutputFile=".\Debug_x86/ekho_sapi5.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="&quot;D:\e-guidedog\eGuideDog_TTS\lib32.win\debug&quot;;C:\Boost\lib;&quot;C:\Program Files\Mega-Nerd\libsndfile&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Lib\i386&quot;"
+				AdditionalLibraryDirectories="D:\ekho\sapi5\lib32\debug;C:\Boost\lib;&quot;C:\Program Files\Mega-Nerd\libsndfile&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Lib\i386&quot;"
 				IgnoreDefaultLibraryNames="libcmt.lib"
 				ModuleDefinitionFile=".\TtsEng.def"
 				GenerateDebugInformation="true"
@@ -224,7 +224,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="regsvr32 D:\e-guidedog\eGuideDog_TTS\sapi5\Debug_x86\ekho_sapi5.dll"
+				CommandLine="regsvr32 D:\ekho\sapi5\Debug_x86\ekho_sapi5.dll"
 			/>
 		</Configuration>
 	</Configurations>
@@ -236,7 +236,7 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath="..\sr-convert\dsp.cpp"
+				RelativePath="..\common\sr-convert\dsp.cpp"
 				>
 			</File>
 			<File
@@ -407,7 +407,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sr-convert\dsp.h"
+				RelativePath="..\common\sr-convert\dsp.h"
 				>
 			</File>
 			<File
