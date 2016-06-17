@@ -852,6 +852,7 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
   // set voice
   static const char *current_voice = "voice_kal_diphone";
   static int current_samplerate = 16000;
+  /* voice_cmu_us_slt_arctic_hts is too slow
   if (strcmp(current_voice, mEnglishVoice) != 0) {
     current_voice = mEnglishVoice;
     char cmd[256];
@@ -867,7 +868,7 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
       current_samplerate = 16000;
     else if (strcmp(current_voice, "voice_cmu_us_slt_arctic_hts") == 0)
       current_samplerate = 32000;
-  }
+  }*/
 
   EST_Wave wave;
   festival_text_to_wave(text.c_str(), wave);
