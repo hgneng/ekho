@@ -35,9 +35,10 @@ $ ./install.pl Tibetan
 $ make CXXFLAGS="-D_x86_64"
 
 ===== INSTALL (for Mac) =====
-$ sudo port install libsndfile
-$ ./configure LDFLAGS=-L/opt/local/lib --without-pulseaudio
-$ make CXXFLAGS="-I/opt/local/include -D_x86_64" LDFLAGS=-L/opt/local/lib
+$ brew pulseaudio
+$ brew install gcc5
+$ ./configure --without-pulseaudio CC=gcc-5 CXX=g++-5
+$ make CXXFLAGS="-D_x86_64"
 
 ===== ISSUES =====
 There are some static third party software libraries in ekho/lib32/ and ekho/lib64/. There is a symbol link ekho/lib/ linking to one of them. Please change it according to your system. The libs may not meet platform other than Ubuntu. So you may need to find the right one and replace them.
