@@ -91,7 +91,8 @@ namespace ekho {
        */
       int stopAndSpeak(string text, void (*pCallback)(void*) = NULL, void* pCallbackArgs = NULL);
 
-      typedef int (SynthCallback)(short *pcm, int frames, void *arg, bool in_word_context = false, bool forbid_overlap = false);
+      typedef int (SynthCallback)(short *pcm, int frames, void *arg,
+          bool in_word_context/* = false*/, bool forbid_overlap/* = false*/);
       /* Synth speech
        * callback will be called time from time when buffer is ready
        */
