@@ -5,4 +5,3 @@ This repository is forked from <a href='https://sourceforge.net/p/e-guidedog/cod
 
 Voice files are not included. We can get them from <a href='https://sourceforge.net/projects/e-guidedog/files/Ekho%20Voice%20Data/0.2/'>Ekho Voice Data's download page.</a>
 
-We are going to make big code restrucion.

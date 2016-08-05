@@ -40,10 +40,10 @@ EXTRA_DIST = $(COPTRIGHT_FILES) # this line seems no longer work. don't know why
 install-data-hook:
 	mkdir -p $(DESTDIR)$(datadir)/ekho-data
 if DIST_VOICE_DATA
-	cp -rLf $(DATA_SUB_DIRS) $(DESTDIR)$(datadir)/ekho-data/
+	cp -RLf $(DATA_SUB_DIRS) $(DESTDIR)$(datadir)/ekho-data/
 endif
 	install $(DATA_FILES) $(DESTDIR)$(datadir)/ekho-data/
-	cp -rf $(DATA_DIR)/festival $(DESTDIR)$(datadir)/ekho-data/
+	cp -Rf $(DATA_DIR)/festival $(DESTDIR)$(datadir)/ekho-data/
 
 uninstall-hook:
 	rm -rf $(DESTDIR)$(datadir)/ekho-data
@@ -51,22 +51,22 @@ uninstall-hook:
 dist-hook:
 	mkdir -p $(distdir)/ekho-data
 if DIST_VOICE_DATA
-	cp -rL $(DATA_SUB_DIRS) $(distdir)/ekho-data/
+	cp -RL $(DATA_SUB_DIRS) $(distdir)/ekho-data/
 endif
 	cp $(srcdir)/collect_ekho_logs.sh $(distdir)/
 	cp $(DATA_FILES) $(distdir)/ekho-data/
 	cp $(COPYRIGHT_FILES) $(distdir)/ekho-data/
 	if [ -e $(srcdir)/ekho-data/festival/lib/voices/spanish ]; then mv $(srcdir)/ekho-data/festival/lib/voices/spanish $(srcdir)/ekho-data/; fi
-	cp -r $(srcdir)/ekho-data/festival $(distdir)/ekho-data/
+	cp -R $(srcdir)/ekho-data/festival $(distdir)/ekho-data/
 	if [ -e $(srcdir)/ekho-data/spanish ]; then mv $(srcdir)/ekho-data/spanish $(srcdir)/ekho-data/festival/lib/voices/; fi
-	cp -r $(srcdir)/include $(distdir)/
-	cp -r $(srcdir)/common/utfcpp $(distdir)/
-	cp -r $(srcdir)/common/sr-convert $(distdir)/
-	cp -r $(srcdir)/sonic $(distdir)/
-	cp -r $(srcdir)/lib64 $(distdir)/
-	cp -r $(srcdir)/lib32 $(distdir)/
+	cp -R $(srcdir)/include $(distdir)/
+	cp -R $(srcdir)/common/utfcpp $(distdir)/
+	cp -R $(srcdir)/common/sr-convert $(distdir)/
+	cp -R $(srcdir)/sonic $(distdir)/
+	cp -R $(srcdir)/lib64 $(distdir)/
+	cp -R $(srcdir)/lib32 $(distdir)/
 	ln -s $(distdir)/lib32 $(distdir)/lib
-	cp -r $(srcdir)/speechd-api $(distdir)/
+	cp -R $(srcdir)/speechd-api $(distdir)/
 	cp $(srcdir)/install.pl $(distdir)/
 	cp $(srcdir)/deploy.sh $(distdir)/
 	find $(distdir) -name ".svn" | xargs rm -rf
