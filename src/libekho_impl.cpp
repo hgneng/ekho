@@ -753,9 +753,9 @@ int EkhoImpl::synth(string text, SynthCallback *callback, void *userdata) {
     // output pcm data
     if (pPcm) {
       if (userdata)
-        callback((short*)pPcm, size / 2, userdata, false, true);
+        callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
       else	
-        callback((short*)pPcm, size / 2, this, false, true);
+        callback((short*)pPcm, size / 2, this, OVERLAP_QUIET_PART);
     }
 #endif
     return 0;

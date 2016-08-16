@@ -538,7 +538,11 @@ list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
     } else {
       ret.push_back(OVERLAP_QUIET_PART);
     }
+
+    cItor++;
   }
+
+  return ret;
 }
 
 list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
