@@ -35,7 +35,7 @@ $ ./install.pl Tibetan
 $ make CXXFLAGS="-D_x86_64"
 
 ===== INSTALL (for Mac) =====
-$ brew pulseaudio
+$ brew install pulseaudio
 $ brew install gcc5
 $ ./configure --without-pulseaudio CC=gcc-5 CXX=g++-5
 $ make CXXFLAGS="-D_x86_64"

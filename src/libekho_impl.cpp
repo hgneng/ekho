@@ -366,184 +366,6 @@ string EkhoImpl::genTempFilename() {
     return tmpfile;
 }
 
-#if 0 // no longer used
-#ifdef HAVE_OGG
-// This function should no longer use.
-// Instead, we use libsndfile to write OGG files.
-int EkhoImpl::saveOgg(string text, string filename) {
-
-    string tmp_wav = genTempFilename() + ".wav";
-
-    // save to wav first
-    this->saveWav(text, tmp_wav);
-
-    if (EkhoImpl::mDebug) {
-        cerr << "Writting OGG file " << filename << endl;
-    }
-
-    ogg_stream_state os; /* take physical pages, weld into a logical
-                            stream of packets */
-    ogg_page         og; /* one Ogg bitstream page.  Vorbis packets are inside */
-    ogg_packet       op; /* one raw packet of data for decode */
-    vorbis_info      vi; /* struct that stores all the static vorbis bitstream settings */
-    vorbis_comment   vc; /* struct that stores all the user comments */
-    vorbis_dsp_state vd; /* central working state for the packet->PCM decoder */
-    vorbis_block     vb; /* local working space for packet->PCM decode */
-    int i;
-    int eos = 0;
-
-#ifdef ENABLE_WIN32
-    /* We need to set stdin/stdout to binary mode. */
-    /* if we were reading/writing a file, it would also need to in
-       binary mode, eg, fopen("file.wav","wb"); */
-    /* Beware the evil ifdef. We avoid these where we can, but this one we 
-       cannot. Don't add any more, you'll probably go to hell if you do. */
-    _setmode( _fileno( stdin ), _O_BINARY );
-    _setmode( _fileno( stdout ), _O_BINARY );  
-#endif  
-
-    /* open input file */
-    SF_INFO sfinfo;
-    memset(&sfinfo, 0, sizeof(sfinfo));
-    SNDFILE *wav_file = sf_open(tmp_wav.c_str(), SFM_READ, &sfinfo);
-    if (!wav_file) {
-        cerr << "Fail to open file " << tmp_wav << ": " << sf_strerror(NULL)
-            << " at " << __LINE__ << endl;
-        return -1;
-    }
-
-    /* open output file */
-    FILE *ogg_file = fopen(filename.c_str(), "wb");
-
-    vorbis_info_init(&vi);
-    /*********************************************************************
-     * Encoding using a VBR quality mode.  The usable range is -.1
-     * (lowest quality, smallest file) to 1. (highest quality, largest file).
-     */
-    int ret = vorbis_encode_init_vbr(&vi, 1, mDict.mSfinfo.samplerate, 0.1);
-    if (ret) {
-        cerr << "vorbis_encode_init_vbr fail" << endl;
-        return -1;
-    }
-
-    /* add a comment */
-    vorbis_comment_init(&vc);
-    vorbis_comment_add_tag(&vc, (char*)"ENCODER", (char*)"Ekho");
-
-    /* set up the analysis state and auxiliary encoding storage */
-    vorbis_analysis_init(&vd,&vi);
-    vorbis_block_init(&vd,&vb);
-
-    /* set up our packet->stream encoder */
-    /* pick a random serial number; that way we can more likely build
-       chained streams just by concatenation */
-    srand(time(NULL));
-    ogg_stream_init(&os,rand());
-    /* Vorbis streams begin with three headers; the initial header (with
-       most of the codec setup parameters) which is mandated by the Ogg
-       bitstream spec.  The second header holds any comment fields.  The
-       third header holds the bitstream codebook.  We merely need to
-       make the headers, then pass them to libvorbis one at a time;
-       libvorbis handles the additional Ogg bitstream constraints */
-
-    ogg_packet header;
-    ogg_packet header_comm;
-    ogg_packet header_code;
-
-    vorbis_analysis_headerout(&vd, &vc, &header, &header_comm, &header_code);
-    ogg_stream_packetin(&os, &header); // automatically placed in its own page
-    ogg_stream_packetin(&os, &header_comm);
-    ogg_stream_packetin(&os, &header_code);
-
-    /* This ensures the actual
-     * audio data will start on a new page, as per spec
-     */
-    while (!eos) {
-        int result = ogg_stream_flush(&os, &og);
-        if (result == 0) break;
-        fwrite(og.header, 1, og.header_len, ogg_file);
-        fwrite(og.body, 1, og.body_len, ogg_file);
-    }
-
-    short *wav_buf = new short[BUFFER_SIZE];
-
-    while (!eos) {
-        int samples = sf_readf_short(wav_file, (short*)wav_buf, BUFFER_SIZE);
-
-        if (samples == 0){
-            /* end of file.  this can be done implicitly in the mainline,
-               but it's easier to see here in non-clever fashion.
-               Tell the library we're at end of stream so that it can handle
-               the last frame and mark end of stream in the output properly */
-            vorbis_analysis_wrote(&vd,0);
-
-        } else {
-            /* data to encode */
-
-            /* expose the buffer to submit data */
-            float **buffer = vorbis_analysis_buffer(&vd, samples + samples);
-
-            /* uninterleave samples */
-            for (i = 0; i < samples; i++) {
-                buffer[0][i] = wav_buf[i] / 32768.f;
-            }
-
-            /* tell the library how much we actually submitted */
-            vorbis_analysis_wrote(&vd, i);
-        }
-
-        /* vorbis does some data preanalysis, then divvies up blocks for
-           more involved (potentially parallel) processing.  Get a single
-           block for encoding now */
-        while (vorbis_analysis_blockout(&vd, &vb) == 1) {
-
-            /* analysis, assume we want to use bitrate management */
-            vorbis_analysis(&vb,NULL);
-            vorbis_bitrate_addblock(&vb);
-
-            while (vorbis_bitrate_flushpacket(&vd,&op)){
-
-                /* weld the packet into the bitstream */
-                ogg_stream_packetin(&os, &op);
-
-                /* write out pages (if any) */
-                while (!eos) {
-                    int result = ogg_stream_pageout(&os,&og);
-                    if (result == 0) break;
-                    fwrite(og.header, 1, og.header_len, ogg_file);
-                    fwrite(og.body, 1, og.body_len, ogg_file);
-
-                    /* this could be set above, but for illustrative purposes, I do
-                       it here (to show that vorbis does know where the stream ends) */
-                    if (ogg_page_eos(&og)) eos = 1;
-                }
-            }
-        }
-    }
-
-    delete(wav_buf);
-
-    /* clean up and exit.  vorbis_info_clear() must be called last */
-    ogg_stream_clear(&os);
-    vorbis_block_clear(&vb);
-    vorbis_dsp_clear(&vd);
-    vorbis_comment_clear(&vc);
-    vorbis_info_clear(&vi);
-
-    fclose(ogg_file);
-    sf_close(wav_file);
-
-    //remove(tmp_wav.c_str());
-
-    if (EkhoImpl::mDebug) {
-        cerr << "Finish writting " << filename << endl;
-    }
-
-    return 0;
-}
-#endif
-#endif
-
 #ifdef HAVE_MP3LAME
 int EkhoImpl::saveMp3(string text, string filename) {
     int     pcmswapbytes;
@@ -708,110 +530,119 @@ int EkhoImpl::saveMp3(string text, string filename) {
 }
 #endif
 
-int EkhoImpl::speakPcm(short *pcm, int frames, void *arg,
-    bool in_word_context, bool forbid_overlap) {
-  short buffer[1024];
+int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type, bool tofile) {
+  short buffer[BUFFER_SIZE];
   int error;
 
   if (!pcm)
     return -1;
   EkhoImpl *pEkho = (EkhoImpl*)arg;
-  
-#ifdef HAVE_PULSEAUDIO
-  if (!pEkho->mSonicStream)
-    return 0;
-  //frames = sonicWriteShortToStream(pEkho->mSonicStream, pcm, frames);
-  frames = pEkho->writeToSonicStream(pcm, frames, in_word_context, forbid_overlap);
-  if (!frames)
-    sonicFlushStream(pEkho->mSonicStream);
-
-  do {
-    frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, 1024);
-    if (frames > 0 && !pEkho->isStopped) {
-      int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
-      if (ret < 0)
-        cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
-    }
-  } while (frames > 0 && pEkho->mSonicStream);
-#endif
-
-  return 0;
-}
-
-int EkhoImpl::writeToSonicStream(short *pcm, int frames,
-    bool in_word_context, bool forbid_overlap) {
-  if (!mSonicStream)
-    return 0;
-
-  float percent = 0; //0.1;
-  if (forbid_overlap) {
-    percent = 0;
-  } else if (in_word_context) {
-    //percent = 0.1;
-  }
-
-  if (mPendingFrames > 0) {
-    // make a liner joining. fade out + fade in
-    // Reference: splice.c of sox
-    for (int i = 1; i < mPendingFrames && i <= frames; i++) {
-      double p = i / mPendingFrames;
-      mPendingPcm[i] = mPendingPcm[i] * (1 - p) + pcm[i] * p;
-    }
-  }
-
-  if (mPendingFrames > frames) {
-    frames = sonicWriteShortToStream(mSonicStream, mPendingPcm, mPendingFrames);
-    mPendingFrames = 0;
-  } else {
-    int ori_frames = frames;
-    frames = sonicWriteShortToStream(mSonicStream, mPendingPcm, mPendingFrames);
-    int new_pending_frames = (ori_frames - mPendingFrames) * percent;
-    if (new_pending_frames > PENDING_PCM_FRAMES)
-      new_pending_frames = PENDING_PCM_FRAMES;
-
-    frames += sonicWriteShortToStream(mSonicStream, pcm + mPendingFrames,
-        ori_frames - mPendingFrames - new_pending_frames);
-    mPendingFrames = new_pending_frames;
-    memcpy(mPendingPcm, &pcm[ori_frames - mPendingFrames - 1], mPendingFrames * 2);
-  }
-
-  return frames;
-}
-
-void EkhoImpl::finishWritePcm(void) {
-  writePcm(0, 0, this);
-}
-
-int EkhoImpl::writePcm(short *pcm, int frames, void *arg,
-    bool in_word_context, bool forbid_overlap) {
-  short buffer[BUFFER_SIZE];
-
-  if (!pcm)
-    return -1;
-  EkhoImpl *pEkho = (EkhoImpl*)arg;
   if (!pEkho->mSonicStream)
     return -1;
 
   //frames = sonicWriteShortToStream(pEkho->mSonicStream, pcm, frames);
-  frames = pEkho->writeToSonicStream(pcm, frames, in_word_context);
+  frames = pEkho->writeToSonicStream(pcm, frames, type);
 
   if (!frames)
     sonicFlushStream(pEkho->mSonicStream);
 
   do {
     frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
-    if (frames > 0) {
-      int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
-      if (frames != writtenFrames) {
-        cerr << "Fail to write WAV file " 
-          << writtenFrames << " out of " << frames 
-          << " written" << endl;
-        return -1;
+    if (frames > 0 && !pEkho->isStopped) {
+      if (tofile) {
+        int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
+        if (frames != writtenFrames) {
+          cerr << "Fail to write WAV file " 
+            << writtenFrames << " out of " << frames 
+            << " written" << endl;
+          return -1;
+        }
+      } else {
+#ifdef HAVE_PULSEAUDIO
+        int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
+        if (ret < 0)
+          cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
+#endif
       }
     }
   } while (frames > 0);
 
   return 0;
+}
+
+int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
+  if (!mSonicStream)
+    return 0;
+
+  const int quiet_level = 3276; // 音量低于10%的部分重叠
+
+  int flushframes = 0; // mPendingFrames里应该输出的frames
+  int cpframe = 0; // 下一段音频里，0到cpframe - 1是已经被合并到mPendingFrames里的，
+                   // 剩下的直接复制到mPendingFrames尾部
+  int startframe = 0;
+  int endframe = mPendingFrames - 1;
+  int i = 0;
+
+  switch (type) {
+    case OVERLAP_NONE:
+      flushframes = mPendingFrames;
+      break;
+
+    case OVERLAP_QUIET_PART:
+      // find quiet frames
+      while (endframe >= 0 && abs(mPendingPcm[endframe]) < quiet_level) {
+        endframe--;
+      }
+
+      while (startframe < frames && abs(pcm[startframe]) < quiet_level) {
+        startframe++;
+      }
+
+      for (i = max(0, endframe - startframe); i < mPendingFrames && i < frames; i++) {
+        mPendingPcm[i] += pcm[cpframe];
+        cpframe++;
+      }
+      flushframes = i + 1;
+      break;
+
+    case OVERLAP_HALF_PART:
+      // find quiet frames of first char
+      while (endframe >= 0 && abs(mPendingPcm[endframe]) < quiet_level) {
+        endframe--;
+      }
+
+      // find half but not too lound part of second char
+      while (startframe < frames / 2 && abs(pcm[startframe]) < 32767 - quiet_level) {
+        startframe++;
+      }
+
+      for (i = max(0, endframe - startframe); i < mPendingFrames && i < frames; i++) {
+        mPendingPcm[i] = mPendingPcm[i] + pcm[i];
+        cpframe++;
+      }
+      flushframes = i + 1;
+
+      // make a liner joining. fade out + fade in
+      // Reference: splice.c of sox
+      /*
+      for (int i = 1; i < mPendingFrames && i <= frames; i++) {
+        double p = i / mPendingFrames;
+        mPendingPcm[i] = mPendingPcm[i] * (1 - p) + pcm[i] * p;
+      }*/
+      break;
+  }
+
+  sonicWriteShortToStream(mSonicStream, mPendingPcm, flushframes);
+  mPendingFrames -= flushframes;
+  if (mPendingFrames > 0)
+    memcpy(mPendingPcm, mPendingPcm + flushframes, mPendingFrames);
+  memcpy(mPendingPcm + mPendingFrames, pcm + cpframe, frames - cpframe);
+
+  return flushframes;
+}
+
+void EkhoImpl::finishWritePcm(void) {
+  writePcm(0, 0, this, OVERLAP_QUIET_PART);
 }
 
 void* EkhoImpl::speechDaemon(void *args) {
@@ -849,7 +680,7 @@ void* EkhoImpl::speechDaemon(void *args) {
         pEkho->synth2(order.text, speakPcm);
 
         // FIXME: following statement seems not flush rest PCM
-        pEkho->speakPcm(0, 0, pEkho, false);
+        pEkho->speakPcm(0, 0, pEkho, OVERLAP_QUIET_PART);
 
         int error;
 #ifdef HAVE_PULSEAUDIO
@@ -1124,9 +955,9 @@ int EkhoImpl::synth(string text, SynthCallback *callback, void *userdata) {
         bool forbid_overlap = false;
 
         if (userdata)
-          callback((short*)pPcm, size / 2, userdata, in_word_context[wi], forbid_overlap);
+          callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
         else	
-          callback((short*)pPcm, size / 2, this, in_word_context[wi], forbid_overlap);
+          callback((short*)pPcm, size / 2, this, OVERLAP_QUIET_PART);
       }
 
       if (has_unknown_char) {
@@ -1149,9 +980,9 @@ int EkhoImpl::synth(string text, SynthCallback *callback, void *userdata) {
 
   // send a signal to abort for Android
   if (userdata)
-    callback(0, 0, userdata, false, false);
+    callback(0, 0, userdata, OVERLAP_QUIET_PART);
   else
-    callback(0, 0, this, false, false);
+    callback(0, 0, this, OVERLAP_QUIET_PART);
 
   free(in_word_context);
 
@@ -1861,7 +1692,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
     pPcm = this->getPcmFromFestival(text, size);
     // output pcm data
     if (pPcm && size > 0) {
-      callback((short*)pPcm, size / 2, userdata, false, true);
+      callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
     }
 #endif
     return 0;
@@ -1908,7 +1739,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
         phon_symbol = word->symbols.begin();
         pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
         if (pPcm && size > 0)
-          callback((short*)pPcm, size / 2, userdata, false, false);
+          callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
         break;
 
       case ENGLISH_TEXT: 
@@ -1921,7 +1752,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
           else
             pPcm = this->mDict.getQuaterPause()->getPcm(size);
           pause = 0;
-          callback((short*)pPcm, size / 2, userdata, false, false);
+          callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
         } else {
           char c;
           if ((word->text.length() == 1) && (c = tolower(*word->text.c_str()) &&
@@ -1931,11 +1762,11 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
 
             pPcm = mAlphabetPcmCache[c - 'a'];
             size = mAlphabetPcmSize[c - 'a'];
-            callback((short*)pPcm, size / 2, userdata, false, false);
+            callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
           } else {
             pPcm = this->getPcmFromFestival(word->text, size);
             if (pPcm && size > 0) {
-              callback((short*)pPcm, size / 2, userdata, false, false);
+              callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
               if (pPcm)
                 delete[] pPcm;
             }
@@ -1954,12 +1785,12 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
           else
             pPcm = this->mDict.getQuaterPause()->getPcm(size);
           pause = 0;
-          callback((short*)pPcm, size / 2, userdata, false, false);
+          callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
         } else {
           if (word->bytes) {
             PhoneticSymbol word_symbol("", word->offset, word->bytes);
             pPcm = word_symbol.getPcm(mDict.mVoiceFile, size);
-            callback((short*)pPcm, size / 2, userdata, false, false);
+            callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
           } else {
             // speak the word one by one
             for (list<PhoneticSymbol*>::iterator symbol = word->symbols.begin();
@@ -1971,12 +1802,12 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
               if (lang == MANDARIN || lang == CANTONESE) {
                 pPcm = (*symbol)->getPcm(mDict.mVoiceFile, size);
                 if (pPcm && size > 0)
-                  callback((short*)pPcm, size / 2, userdata, false, false);
+                  callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
               } else {
                 string path = mDict.mDataPath + "/" + mDict.getVoice();
                 pPcm = (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                 if (pPcm && size > 0)
-                  callback((short*)pPcm, size / 2, userdata, false, false);
+                  callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
               }
 
               // speak Mandarin for Chinese
@@ -1984,7 +1815,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
                 string path = mDict.mDataPath + "/pinyin";
                 pPcm = (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                 if (pPcm && size > 0)
-                  callback((short*)pPcm, size / 2, userdata, false, false);
+                  callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
               }
 
               if (!mPcmCache)
@@ -1998,9 +1829,9 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
 
   // send a signal to abort for Android
   if (userdata)
-    callback(0, 0, userdata, false, false);
+    callback(0, 0, userdata, OVERLAP_QUIET_PART);
   else
-    callback(0, 0, this, false, false);
+    callback(0, 0, this, OVERLAP_QUIET_PART);
 
   return 0;
 }

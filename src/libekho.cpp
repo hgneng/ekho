@@ -117,20 +117,20 @@ int Ekho::saveMp3(string text, string filename) {
 }
 #endif
 
-int Ekho::speakPcm(short *pcm, int frames, void *arg, bool in_word_context, bool forbid_overlap) {
-    return EkhoImpl::speakPcm(pcm, frames, arg, in_word_context, forbid_overlap);
+int Ekho::speakPcm(short *pcm, int frames, void *arg, OverlapType type) {
+    return EkhoImpl::speakPcm(pcm, frames, arg, type);
 }
 
-int Ekho::writeToSonicStream(short *pcm, int frames, bool in_word_context, bool forbid_overlap) {
-    return this->m_pImpl->writeToSonicStream(pcm, frames, in_word_context, forbid_overlap);
+int Ekho::writeToSonicStream(short *pcm, int frames, OverlapType type) {
+    return this->m_pImpl->writeToSonicStream(pcm, frames, type);
 }
 
 void Ekho::finishWritePcm() {
     this->m_pImpl->finishWritePcm();
 }
 
-int Ekho::writePcm(short *pcm, int frames, void *arg, bool in_word_context, bool forbid_overlap) {
-    return EkhoImpl::writePcm(pcm, frames, arg, in_word_context, forbid_overlap);
+int Ekho::writePcm(short *pcm, int frames, void *arg, OverlapType type) {
+    return EkhoImpl::writePcm(pcm, frames, arg, type);
 }
 
 void* Ekho::speechDaemon(void *args) {

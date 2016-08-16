@@ -59,18 +59,27 @@ typedef enum {
   PHONETIC = 6,
 } TextType;
 
+typedef enum {
+  OVERLAP_NONE = 1,
+  OVERLAP_QUIET_PART = 2, // should be default
+  OVERLAP_HALF_PART = 3,
+} OverlapType;
+
 struct Word {
   TextType type;
   string text;
   list<PhoneticSymbol*> symbols; // void for English
+  list<OverlapType> overlapTypes;
   unsigned int offset;
   unsigned short bytes;
 
-  Word(string txt, TextType t): type(t), text(txt), symbols(0), offset(0), bytes(0) {};
-  Word(string txt, TextType t, list<PhoneticSymbol*> sym): type(t), text(txt),
+  Word(string txt, TextType t): type(t), text(txt), symbols(0), offset(0), bytes(0), overlapTypes(0) {};
+  Word(string txt, TextType t, list<PhoneticSymbol*> sym): type(t), text(txt), overlapTypes(0),
+      symbols(sym), offset(0), bytes(0) {};
+  Word(string txt, TextType t, list<PhoneticSymbol*> sym, list<OverlapType>): type(t), text(txt),
       symbols(sym), offset(0), bytes(0) {};
   Word(string txt, TextType t, list<PhoneticSymbol*> sym, unsigned int off, unsigned short b):
-      type(t), text(txt), symbols(sym), offset(off), bytes(b) {};
+      type(t), text(txt), symbols(sym), offset(off), bytes(b), overlapTypes(0) {};
 };
 
 struct DictItem {
@@ -139,11 +148,18 @@ class Dict {
       return lookup(charList);
     }
 
+    inline list<OverlapType> lookupOverlap(string &text) {
+      list<Character> charList = Character::split(text);
+      return lookupOverlap(charList);      
+    }
+
     list<PhoneticSymbol*> lookup(list<Character> &charList, bool firstWord = false);
     inline list<PhoneticSymbol*> lookup(const char *text) {
       string str(text);
       return lookup(str);
     }
+
+    list<OverlapType> lookupOverlap(list<Character> &charList);
 
     list<Word> lookupWord(const char *text);
     inline list<Word> lookupWord(string &text) {

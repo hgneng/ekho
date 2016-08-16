@@ -91,8 +91,7 @@ namespace ekho {
        */
       int stopAndSpeak(string text, void (*pCallback)(void*) = NULL, void* pCallbackArgs = NULL);
 
-      typedef int (SynthCallback)(short *pcm, int frames, void *arg,
-          bool in_word_context/* = false*/, bool forbid_overlap/* = false*/);
+      typedef int (SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
       /* Synth speech
        * callback will be called time from time when buffer is ready
        */
@@ -195,10 +194,10 @@ namespace ekho {
       sonicStream mSonicStream;
 
       static void* speechDaemon(void *args);
-      static int speakPcm(short *pcm, int frames, void* arg, bool in_word_context = false, bool forbid_overlap = false);
-      static int writePcm(short *pcm, int frames, void* arg, bool in_word_context = false, bool forbid_overlap = false);
+      static int speakPcm(short *pcm, int frames, void* arg, OverlapType type);
+      static int writePcm(short *pcm, int frames, void* arg, OverlapType type);
       void finishWritePcm();
-      int writeToSonicStream(short *pcm, int frames, bool in_word_context = false, bool forbid_overlap = false);
+      int writeToSonicStream(short *pcm, int frames, OverlapType type);
       /*
          static int changeSamplerate(const short *source_data,
          long source_len, // len in 8 bits

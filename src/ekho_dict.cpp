@@ -521,6 +521,26 @@ PhoneticSymbol* Dict::lookup(Character &c) {
   }
 }
 
+list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
+  list<OverlapType> ret;
+  list<Character>::iterator cItor = charList.begin();
+  list<Character>::iterator end = charList.end();
+  while (cItor != end) {
+    string s = cItor->getUtf8();
+    if ( // 助词、量词等
+        s == "的" || s == "得" || s == "着" || s == "所" || s == "了" || s == "过" || s == "吗" || s == "呢" || s == "吧" || s == "啊" || s == "呀" ||
+        s == "么" || s == "与" || s == "且" || s == "之" || s == "为" || s == "兮" || s == "其" ||
+        s == "到" || s == "云" || s == "阿" || s == "却" || s == "个" || s == "以" || s == "们" || s == "似" ||
+        s == "夫" || s == "只" || s == "向" || s == "呗" || s == "呃" || s == "呵" ||
+        s == "哇" || s == "咦" || s == "哟" || s == "哉" || s == "哩" || s == "啵" || s == "唻" || s == "啰" || s == "嘛" ||
+        s == "子" || s == "焉" || s == "然" || s == "是" || s == "罢" || s == "而") {
+      ret.push_back(OVERLAP_HALF_PART);
+    } else {
+      ret.push_back(OVERLAP_QUIET_PART);
+    }
+  }
+}
+
 list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
   list<PhoneticSymbol*> phonList;
   list<Character>::iterator cItor = charList.begin();
@@ -797,7 +817,7 @@ list<Word> Dict::lookupWord(const char *text) {
               }
 
               if (!last_chinese_word.empty()) {
-                wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word)));
+                wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
                 last_chinese_word.clear();
               }
 
@@ -865,7 +885,7 @@ list<Word> Dict::lookupWord(const char *text) {
 
         // submit pending Chinese word
         if (!last_chinese_word.empty()) {
-          wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word)));
+          wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
           last_chinese_word.clear();
         }
 
@@ -878,7 +898,7 @@ list<Word> Dict::lookupWord(const char *text) {
           // it's alphabat
           lastword += itor->getUtf8();
           if (!last_chinese_word.empty()) {
-            wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word)));
+            wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
             last_chinese_word.clear();
           }
         } else {
@@ -900,7 +920,7 @@ list<Word> Dict::lookupWord(const char *text) {
     }
 
     if (!last_chinese_word.empty()) {
-      wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word)));
+      wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
     }
 #ifdef ENABLE_FRISO
   }
