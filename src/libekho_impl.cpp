@@ -534,8 +534,6 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type, bool
   short buffer[BUFFER_SIZE];
   int error;
 
-  if (!pcm)
-    return -1;
   EkhoImpl *pEkho = (EkhoImpl*)arg;
   if (!pEkho->mSonicStream)
     return -1;
@@ -574,7 +572,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   if (!mSonicStream)
     return 0;
 
-  const int quiet_level = 3276; // 音量低于10%的部分重叠
+  const int quiet_level = 0; // 音量低于5%的部分重叠
 
   int flushframes = 0; // mPendingFrames里应该输出的frames
   int cpframe = 0; // 下一段音频里，0到cpframe - 1是已经被合并到mPendingFrames里的，
@@ -598,11 +596,16 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
         startframe++;
       }
 
-      for (i = max(0, endframe - startframe); i < mPendingFrames && i < frames; i++) {
+      for (i = max(endframe, mPendingFrames - startframe); i < mPendingFrames && i < frames; i++) {
         mPendingPcm[i] += pcm[cpframe];
         cpframe++;
       }
-      flushframes = i + 1;
+      flushframes = i;
+
+      if (frames == cpframe) {
+        flushframes = mPendingFrames;
+        endframe = mPendingFrames - 1;
+      }
       break;
 
     case OVERLAP_HALF_PART:
@@ -616,12 +619,16 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
         startframe++;
       }
 
-      for (i = max(0, endframe - startframe); i < mPendingFrames && i < frames; i++) {
-        mPendingPcm[i] = mPendingPcm[i] + pcm[i];
+      for (i = max(endframe, mPendingFrames - startframe); i < mPendingFrames && i < frames; i++) {
+        mPendingPcm[i] += pcm[i];
         cpframe++;
       }
-      flushframes = i + 1;
+      flushframes = i;
 
+      if (frames == cpframe) {
+        flushframes = mPendingFrames;
+        endframe = mPendingFrames - 1;
+      }
       // make a liner joining. fade out + fade in
       // Reference: splice.c of sox
       /*
@@ -637,6 +644,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   if (mPendingFrames > 0)
     memcpy(mPendingPcm, mPendingPcm + flushframes, mPendingFrames);
   memcpy(mPendingPcm + mPendingFrames, pcm + cpframe, frames - cpframe);
+  mPendingFrames += frames - cpframe;
 
   return flushframes;
 }
