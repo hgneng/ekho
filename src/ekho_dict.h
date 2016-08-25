@@ -76,8 +76,8 @@ struct Word {
   Word(string txt, TextType t): type(t), text(txt), symbols(0), offset(0), bytes(0), overlapTypes(0) {};
   Word(string txt, TextType t, list<PhoneticSymbol*> sym): type(t), text(txt), overlapTypes(0),
       symbols(sym), offset(0), bytes(0) {};
-  Word(string txt, TextType t, list<PhoneticSymbol*> sym, list<OverlapType>): type(t), text(txt),
-      symbols(sym), offset(0), bytes(0) {};
+  Word(string txt, TextType t, list<PhoneticSymbol*> sym, list<OverlapType> types): type(t), text(txt),
+      symbols(sym), offset(0), bytes(0), overlapTypes(types) {};
   Word(string txt, TextType t, list<PhoneticSymbol*> sym, unsigned int off, unsigned short b):
       type(t), text(txt), symbols(sym), offset(off), bytes(b), overlapTypes(0) {};
 };

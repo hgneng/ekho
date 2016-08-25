@@ -533,37 +533,39 @@ int EkhoImpl::saveMp3(string text, string filename) {
 int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type, bool tofile) {
   short buffer[BUFFER_SIZE];
   int error;
+  static int pending_frames = 0;
 
   EkhoImpl *pEkho = (EkhoImpl*)arg;
   if (!pEkho->mSonicStream)
     return -1;
 
-  //frames = sonicWriteShortToStream(pEkho->mSonicStream, pcm, frames);
-  frames = pEkho->writeToSonicStream(pcm, frames, type);
+  int have_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
-  if (!frames)
-    sonicFlushStream(pEkho->mSonicStream);
-
-  do {
-    frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
-    if (frames > 0 && !pEkho->isStopped) {
-      if (tofile) {
-        int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
-        if (frames != writtenFrames) {
-          cerr << "Fail to write WAV file " 
-            << writtenFrames << " out of " << frames 
-            << " written" << endl;
-          return -1;
-        }
-      } else {
+  if (pending_frames > 65536 || !have_frames) {
+    do {
+      frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
+      if (frames > 0 && !pEkho->isStopped) {
+        if (tofile) {
+          int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
+          if (frames != writtenFrames) {
+            cerr << "Fail to write WAV file " 
+              << writtenFrames << " out of " << frames 
+              << " written" << endl;
+            return -1;
+          }
+        } else {
 #ifdef HAVE_PULSEAUDIO
-        int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
-        if (ret < 0)
-          cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
+          int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
+          if (ret < 0)
+            cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
 #endif
+        }
       }
-    }
-  } while (frames > 0);
+    } while (frames > 0 && (pending_frames > 65536 || !have_frames));
+
+    if (!have_frames)
+      sonicFlushStream(pEkho->mSonicStream);
+  }
 
   return 0;
 }
@@ -572,7 +574,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   if (!mSonicStream)
     return 0;
 
-  const int quiet_level = 0; // 音量低于5%的部分重叠
+  const int quiet_level = 1638; // 音量低于5%的部分重叠
 
   int flushframes = 0; // mPendingFrames里应该输出的frames
   int cpframe = 0; // 下一段音频里，0到cpframe - 1是已经被合并到mPendingFrames里的，
@@ -588,7 +590,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
 
     case OVERLAP_QUIET_PART:
       // find quiet frames
-      while (endframe >= 0 && abs(mPendingPcm[endframe]) < quiet_level) {
+      while (endframe > 0 && abs(mPendingPcm[endframe]) < quiet_level) {
         endframe--;
       }
 
@@ -596,39 +598,30 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
         startframe++;
       }
 
-      for (i = max(endframe, mPendingFrames - startframe); i < mPendingFrames && i < frames; i++) {
+      for (i = max(0, min(endframe, mPendingFrames - startframe)); i < mPendingFrames && cpframe < frames; i++) {
+        mPendingPcm[i] += pcm[cpframe];
+        cpframe++;
+      }
+      flushframes = i;
+      break;
+
+    case OVERLAP_HALF_PART:
+      // find quiet frames of first char
+      while (endframe > 0 && abs(mPendingPcm[endframe]) < 32767) {
+        endframe--;
+      }
+
+      // find half but not too lound part of second char
+      while (startframe < frames * 0.5 && abs(pcm[startframe]) < 32767) {
+        startframe++;
+      }
+
+      for (i = max(endframe, mPendingFrames - startframe); i < mPendingFrames && cpframe < frames; i++) {
         mPendingPcm[i] += pcm[cpframe];
         cpframe++;
       }
       flushframes = i;
 
-      if (frames == cpframe) {
-        flushframes = mPendingFrames;
-        endframe = mPendingFrames - 1;
-      }
-      break;
-
-    case OVERLAP_HALF_PART:
-      // find quiet frames of first char
-      while (endframe >= 0 && abs(mPendingPcm[endframe]) < quiet_level) {
-        endframe--;
-      }
-
-      // find half but not too lound part of second char
-      while (startframe < frames / 2 && abs(pcm[startframe]) < 32767 - quiet_level) {
-        startframe++;
-      }
-
-      for (i = max(endframe, mPendingFrames - startframe); i < mPendingFrames && i < frames; i++) {
-        mPendingPcm[i] += pcm[i];
-        cpframe++;
-      }
-      flushframes = i;
-
-      if (frames == cpframe) {
-        flushframes = mPendingFrames;
-        endframe = mPendingFrames - 1;
-      }
       // make a liner joining. fade out + fade in
       // Reference: splice.c of sox
       /*
@@ -642,8 +635,8 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   sonicWriteShortToStream(mSonicStream, mPendingPcm, flushframes);
   mPendingFrames -= flushframes;
   if (mPendingFrames > 0)
-    memcpy(mPendingPcm, mPendingPcm + flushframes, mPendingFrames);
-  memcpy(mPendingPcm + mPendingFrames, pcm + cpframe, frames - cpframe);
+    memcpy(mPendingPcm, mPendingPcm + flushframes, mPendingFrames * 2);
+  memcpy(mPendingPcm + mPendingFrames, pcm + cpframe, (frames - cpframe) * 2);
   mPendingFrames += frames - cpframe;
 
   return flushframes;
@@ -1801,6 +1794,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
             callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
           } else {
             // speak the word one by one
+            list<OverlapType>::iterator type = word->overlapTypes.begin();
             for (list<PhoneticSymbol*>::iterator symbol = word->symbols.begin();
                 symbol != word->symbols.end(); symbol++) {
 #ifdef DEBUG_ANDROID
@@ -1810,12 +1804,12 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
               if (lang == MANDARIN || lang == CANTONESE) {
                 pPcm = (*symbol)->getPcm(mDict.mVoiceFile, size);
                 if (pPcm && size > 0)
-                  callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+                  callback((short*)pPcm, size / 2, userdata, *type);
               } else {
                 string path = mDict.mDataPath + "/" + mDict.getVoice();
                 pPcm = (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                 if (pPcm && size > 0)
-                  callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+                  callback((short*)pPcm, size / 2, userdata, *type);
               }
 
               // speak Mandarin for Chinese
@@ -1823,11 +1817,13 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
                 string path = mDict.mDataPath + "/pinyin";
                 pPcm = (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                 if (pPcm && size > 0)
-                  callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+                  callback((short*)pPcm, size / 2, userdata, *type);
               }
 
               if (!mPcmCache)
                 (*symbol)->setPcm(0, 0);
+
+              type++;
             }
           }
         }
