@@ -1,0 +1,364 @@
+﻿// This file in UTF8 encoded
+
+// letters
+
+_cap	m'aJ^us   // should be "mayúscula" after the letter?
+_??	s'imbOlo
+_#32	Esp'aTjo
+
+
+// accent names
+_lig	liQaD'ura
+_acu	aQ'uDo
+_ac2	d'Oble||aQ'uDo	
+_brv	br'eBe
+_ced	TeD'iJ^a
+_cir	Tirkumfl'exo
+_dia	dj'Eresis
+_dac	d'Oble||aQ'uDo	
+_dot	p'unto  // ??
+_grv	gr'aBe
+_hac	kar'On
+_mcn	makr'On
+_ogo	kol'ita
+_rng	an'iJ^o
+_stk	b'aRR2a	 // ??
+_tld	t'ilde
+
+
+// names of symbols
+ª	a
+º	o 
+°	grados
+_.	punto
+_,	koma
+_;	p,untoik'oma
+_:	d,Osp'untOs
+_!	TERR2'araDmiraTj'On
+_?	TERR2'arintERR2,oQaTj'On
+_¡	aBr'iraDmiraTj'On
+_¿	aBr'irintERR2,oQaTj'On
+_<	men'Orke
+_>	maJ^'Orke
+_'	apOstr'ofo
+_"	kom'iJ^as
+_+	s'iQnOdesum'ar
+_-	gJ^On
+__	suBraJ^'aDo
+_/	baRR2a
+_\	b'aRR2aimbErt'iDa
+_`	aT'EntOgr'aBe
+_(	,aBrepar'Entesis
+_)	Tj,ERR2apar'Entesis
+_[	,aBrekOrtS'ete
+_]	Tj,ERR2akOrtS'ete
+_{	,aBreJ^'aBe
+_}	Tj,ERR2aJ^'aBe
+_«	kom'iJ^as||iTkJ^'ErDas
+_»	kom'iJ^as||dEr'EtSas
+
+=	iQw'al $max3
++	m'as  $max3
+#	almOaD'iJ^a  $max3
+*	astEr'isko  $max3
+.	punto  $max3
+
+^	Tirkumfl'exo
+€	eUro
+%	pOrTj'Ento  $max3
+&	ampErs'ant
+@	aRR2'oBa
+/	baRR2a
+©	kopiRR2'aIt
+£	liBras
+¶	p'aRR2afo
+§	sEkTj'On
+
+
+// numbers
+_0	T'ero
+_1	'uno
+_2	d'Os
+_3	tr'es
+_4	kw'atro
+_5	T'inko
+_6	s'eIs
+_7	sj'ete
+_8	'OtSo
+_9	nw'eBe
+_1X	dj'ET
+_11	'OnTe
+_12	d'oTe
+_13	tr'eTe
+_14	kat'OrTe
+_15	k'inTe
+_20	b'eInte
+_2X	beInt
+_3X	tr'eInta
+_4X	kwar'Enta
+_5X	Tinkw'Enta
+_6X	sEs'Enta
+_7X	sEt'Enta
+_8X	OtS'Enta
+_9X	nOB'Enta
+// _0C	Tj'EntOs
+_1C0	Tj'en         // exactly one hundred
+_1C	Tj'ento
+_2C	dosTj'entos
+_3C	tresTj'entos
+_4C	kwatroTj'entos
+_5C	kinj'EntOs
+_6C	seIsTj'entos
+_7C	s,eteTj'EntOs
+_8C	otSoTj'entos
+_9C	n,OBeTj'EntOs
+_0M1	m'il
+_0M2	miJ^'ones
+_1M2	'unmiJ^'On
+_0M4	_biJ^'onEs
+_1M4	'unbiJ^'On
+?2 _0M2	mij:'ones
+?2 _1M2	'unmij:'On
+?2 _0M4	_bij:'onEs
+?2 _1M4	'unbij:'On
+_0and	i
+_dpt	koma
+//_roman	Rom'ano
+
+// ordinal numbers
+_#º	o
+_#ª	a
+_ord	o
+ºc	gr'ados||T'e
+ºf	gr'ados||'Efe
+ºk	gr'ados||k'a
+
+_1o	prim'Er
+_2o	seQ'und
+_3o	tErT'Er
+_4o	kw'art
+_5o	kint
+_6o	s'Ekst
+_7o	s'Etim
+_8o	Okt'aB
+_9o	noB'en
+_10o	D'ETim
+_11o	und'ETim
+_12o	DwoD'ETim
+_13o	DeTimotErT'Er
+_14o	DeTimokw'art
+_15o	DeTimok'int
+_16o	DeTimos'Ekst
+_17o	DeTimos'Eptim
+_18o	DeTimOkt'aB
+_19o	DeTimonoB'en
+_2Xo	Bix'Esim
+_3Xo	trix'Esim	
+_4Xo	kwaDrax'Esim
+_5Xo	kinkwax'Esim
+_6Xo	seQsax'Esim
+_7Xo	sEptwax'Esim
+_8Xo	Oktox'Esim
+_9Xo	nonax'Esim
+_0Co	TEnt'Esim
+_1Co	TEnt'Esim
+_0M1o	mil'Esim
+
+
+vi	bi	// not a Roman number
+
+// unstressed words
+// articles
+el           $u+
+los          $u+
+la           $u+
+las          $u+
+lo           $u+
+
+
+
+
+
+
+
+// pronouns
+
+me      $u+ $only // reflexive pronouns
+te      $u+
+le        $u+
+les         $u+
+se	$u+
+nos     $u+
+os      $u+
+
+
+// possessives
+mi $u+
+mis	$u+
+tu      $u+
+tus     $u+
+su	$u+
+sus	$u+
+nuestro   $u+
+nuestros  $u+
+nuestra   $u+
+nuestras  $u+
+vuestro   $u+
+vuestros  $u+
+vuestra   $u+
+vuestras  $u+
+// prepositions
+a            $u+     // at
+al           $u+
+de           $u+           // of,from
+del          $u+
+en           $u+
+con          $u+     // with
+sin       $u+
+por          $u+     // for,through,along,via
+tras          $u+
+ante	$u+	$only
+para         $u+     // for,in order,by
+entre        $u+ 
+sobre	$u+
+bajo	$u+	$only
+desde        $u+       // from,since
+hasta         $u+
+hacia         $u+
+
+
+e         $u+       $only
+y            %i     // and
+o            $u+     // or
+u	$u+
+
+
+aunque       $u+     // although
+pero       $u+
+porque       $u+       // because
+
+
+que          $u+    // that
+cuando       $u+
+cuanto	$u+
+donde       $u+
+como        $u+
+quien	$u+
+quienes	$u+
+mientras         $u+
+si       $u+
+
+
+
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+b	be
+c	Te
+d	de
+f	Efe
+g	xe
+h	atSe
+j	xOta
+k	ka
+l	Ele
+m	Eme
+n	Ene
+ñ	En^e
+p	pe
+q	ku
+r	Ere
+s	Ese
+t	te
+v	uBe
+w	uBe||d'OBle
+x	Ekis
+z	TEta
+
+_a	a
+_e	e
+_o	o
+_y	igri'eQa
+ch	tSe
+ll	'El^e
+á	'a||aTEntw'aDa
+é	'e||aTEntw'aDa
+í	'i||aTEntw'aDa
+_ó	'o||aTEntw'aDa
+ú	'u||aTEntw'aDa
+ü	'u||kon||dj'ErEsis
+
+
+
+// Abbreviations
+dña	doña		$text
+DNI			$abbrev
+dpto	departamento	$text
+dr	doctor		$text $capital $dot
+dra	doctora		$text $capital $dot
+(ee.uu)  Est'aDos||un'iDos
+Excmo	excelentísimo	$text $dot
+Excma	excelentísima	$text $dot
+Ilmo	ilustrísimo	$text $dot
+Ilma	ilustrísima	$text $dot
+izq	izquierda	$text $dot
+izqda	izquierda 	$text $dot
+izqdo	izquierdo	$text $dot
+kg	kilogramo	$text $dot
+Mª	maría		$text $capital $dot
+Pte	presidente	$text $capital $dot
+Sr	señor		$text $capital $dot
+Sra	señora		$text $capital $dot
+Sras	señoras		$text $capital $dot
+Sres	señores		$text $capital $dot
+Srta	señorita	$text $capital $dot
+Ud	usted		$text $capital $dot
+Uds	ustedes		$text $capital $dot
+//	(/ h)   pOr||'Ora
+
+
+// pronunciation exceptions
+
+linux        $1
+méxico       m'Exiko
+vietnam $2
+spanish      sp'aniS
+english ínglish      $text
+firefox	f'aIrfoks
+microsoft	m'aIkrosoft
+software	s'oftwer
+hardware h'ardwer
+skype	sk'aIp
+messenger m'esendZer
+live l'aIB
+facebook f'eIsbuk
+twitter	tw'iter
+twit	tw'it
+mozilla	moT'ila
+espeak	'isp'ik
+(e speak) 'isp'ik
+eloquence	'elokwens
+speech	sp'itS
+platform	pl'atfom
+voice	bois   $text
+windows	w'indows
+android	'androId
+apple	'ap@l
+(i phone)	'aIfon
+iphone	'aIfon
+(i pod)	'aIpod
+ipod	'aIpod
+jaws	dZ'os
+window	w'indow
+eyes	'aIs
+free	fr'i
+google	g'ug@l
+chrome	kr'owm
+office	'ofis
+service	s'erBis
+power	p'awer
+thunderbird	t'anderbird
+jazz	dZ'as

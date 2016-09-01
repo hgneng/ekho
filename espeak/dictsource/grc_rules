@@ -1,0 +1,461 @@
+// Spelling to Phoneme rules for: Ancient Greek
+
+// Preliminary character substitution:
+//   Convert tonos, oxia and perispomeni to varia
+//   Remove psili (soft breathing)
+//   Convert dasia accent to a separate prefix character ("ɦ") NOTE: using U+0266 because it's above eSpeak's Latin character limit of 0x250.
+//   Remove iota subscripts
+//   Replace Latin characters by same-shape Greek characters
+
+.replace
+′	'
+a	α  // Latin->Greek
+o	ο
+v	ν
+A	Α
+B	Β
+E	Ε
+Z	Ζ
+H	Η
+I	Ι
+K	Κ
+M	Μ
+N	Ν
+O	Ο
+P	Ρ
+T	Τ
+Y	Υ
+X	Χ
+
+// replace Latin characters by Greek equivalents
+th	θ
+ph	φ
+kh	χ
+ps	ψ
+b	β
+g	γ
+d	δ
+e	ε
+z	ζ
+q	η // (long e; not standard transliteration but may be easier to type than η)
+i	ι
+k	κ
+l	λ
+m	μ
+n	ν
+x	ξ
+p	π
+r	ρ
+s	σ
+t	τ
+u	υ
+y	υ
+w	ω // (long o; not standard transliteration but may be easier to type
+
+
+// alpha
+ά	ὰ    // tonos
+ά	ὰ    // oxia
+ᾴ	ᾲ
+ᾶ	ὰ
+ᾷ	ᾲ
+
+ἀ	α
+ἁ	ɦα
+ἂ	ὰ
+ἃ	ɦὰ
+ἄ	ὰ
+ἅ	ɦὰ
+ἆ	ὰ
+ἇ	ɦὰ
+
+ᾀ	ᾳ
+ᾁ	ɦᾳ
+ᾂ	ᾲ
+ᾃ	ɦᾲ
+ᾄ	ᾲ
+ᾅ	ɦᾲ
+ᾆ	ᾲ
+ᾇ	ɦᾲ
+
+// epsilon
+έ	ὲ
+έ	ὲ
+ἐ	ε
+ἑ	ɦε
+ἒ	ὲ
+ἓ	ɦὲ
+ἔ	ὲ
+ἕ	ɦὲ
+
+// eta
+ή	ὴ
+ή	ὴ
+ῄ	ῂ
+ῆ	ὴ
+ῇ	ῂ
+
+ἠ	η
+ἡ	ɦη
+ἢ	ὴ
+ἣ	ɦὴ
+ἤ	ὴ
+ἥ	ɦὴ
+ἦ	ὴ
+ἧ	ɦὴ
+
+ᾐ	ῃ
+ᾑ	ɦῃ
+ᾒ	ῂ
+ᾓ	ɦῂ
+ᾔ	ῂ
+ᾕ	ɦῂ
+ᾖ	ῂ
+ᾗ	ɦῂ
+
+//iota
+ί	ὶ
+ί	ὶ
+ῖ	ὶ
+
+ἰ	ι
+ἱ	ɦι
+ἲ	ὶ
+ἳ	ɦὶ
+ἴ	ὶ
+ἵ	ɦὶ
+ἶ	ὶ
+ἷ	ɦὶ
+
+ΐ	ῒ
+ῗ	ῒ
+
+// omicron
+ό	ὸ
+ό	ὸ
+ὀ	ο
+ὁ	ɦο
+ὂ	ὸ
+ὃ	ɦὸ
+ὄ	ὸ
+ὅ	ɦὸ
+
+// upsilon
+ύ	ὺ
+ύ	ὺ
+ῦ	ὺ
+
+ὐ	υ
+ὑ	ɦυ
+ὒ	ὺ
+ὓ	ɦὺ
+ὔ	ὺ
+ὕ	ɦὺ
+ὖ	ὺ
+ὗ	ɦὺ
+
+ΰ	ῢ
+ῧ	ῢ
+
+// omega
+ώ	ὼ
+ώ	ὼ
+ῴ	ῲ
+ῶ	ὼ
+ῷ	ῲ
+
+ὠ	ω
+ὡ	ɦω
+ὢ	ὼ
+ὣ	ɦὼ
+ὤ	ὼ
+ὥ	ɦὼ
+ὦ	ὼ
+ὧ	ɦὼ
+
+ᾠ	ῳ
+ᾡ	ɦῳ
+ᾢ	ῲ
+ᾣ	ɦῲ
+ᾤ	ῲ
+ᾥ	ɦῲ
+ᾦ	ῲ
+ᾧ	ɦῲ
+
+// rho
+ῤ	ρ
+ῥ	ɦρ
+
+
+.group α
+	α        a
+	αι       aI
+	αὶ      'aI
+	αυ       aU
+	αὺ      'aU
+	αɦι      haI
+	αɦὶ     'haI
+	αɦυ      haU
+	αɦὺ     'haU
+
+.group β
+	β        b
+
+
+.group γ
+	γ        g
+	γγ       Ng
+
+.group δ
+	δ        d
+
+
+.group ε
+	ε        e
+	ει       e:
+	εὶ      'e:
+	ευ       eU
+	εὺ      'eU
+	εɦι      he:
+	εɦὶ     'he:
+	εɦυ      heU
+	εɦὺ     'heU
+
+.group ζ
+	ζ        z
+
+
+.group η
+	η        E:
+	ηι       EI:
+	ηὶ      'EI:
+	ηυ       EU:
+	ηὺ      'EU:
+	ηɦι      hEI:
+	ηɦὶ     'hEI:
+	ηɦυ      hEU:
+	ηɦὺ     'hEU:
+
+.group θ
+	θ        T
+
+
+.group ι
+	ι        i
+
+
+.group ϊ
+	ϊ        i
+
+
+.group κ
+	κ        k
+
+
+.group λ
+	λ        l
+
+
+.group μ
+	μ        m
+
+
+.group ν
+	ν        n
+
+
+.group ξ
+	ξ        ks
+
+
+.group ο
+	ο        o
+	οι       oI
+	οὶ      'oI
+	ου       u:
+	οὺ      'u:
+	οɦι      hoI
+	οɦὶ     'hoI
+	οɦυ      hu:
+	οɦὺ     'hu:
+
+.group π
+	π        p
+
+
+.group ρ
+	ρ        R
+
+
+.group ς
+	ς        s
+
+
+.group σ
+	σ        s
+
+
+.group τ
+	τ        t
+
+
+.group υ
+	υ        y
+	υι       yI
+	υὶ      'yI
+	υɦι      hyI
+	υɦὶ     'hyI
+
+.group ϋ
+	ϋ        y
+	ϋι       yI
+	ϋὶ      'yI
+	ϋɦι      hyI
+	ϋɦὶ     'hyI
+
+.group φ
+	φ        f
+
+
+.group χ
+	χ        x
+
+
+.group ψ
+	ψ        ps
+
+
+.group ω
+	ω        O:
+	ωι       OI:
+	ωὶ      'OI:
+	ωυ       OU:
+	ωὺ      'OU:
+	ωɦι      hOI:
+	ωɦὶ     'hOI:
+	ωɦυ      hOU:
+	ωɦὺ     'hOU:
+
+
+
+.group ɦ   // dasia (rough breathing)
+	ɦ        h
+
+
+// Latin letters to equivalent Greek sounds (plus 'q = η' 'w = ω'
+.group a
+	a	a
+	ai	aI
+	au	aU
+
+.group b
+	b	b
+
+.group d
+	d	d
+
+.group e
+	e	e
+	ei	e:
+	eu	eU
+
+.group f
+	f	f
+
+.group g
+	g	g
+	gg	Ng
+
+.group h
+	h	h
+
+.group i
+	i	i
+
+.group ï
+	ï	i
+
+.group j
+	j	j
+
+.group k
+	k	k
+	kh	x
+
+.group l
+	l	l
+
+.group m
+	m	m
+
+.group n
+	n	n
+
+.group o
+	o	o
+	oi	oI
+	ou	u:
+
+.group p
+	p	p
+	ph	f
+
+.group q
+	q	E:
+	qi	EI:
+	qu	EU:
+
+.group r
+	r	R
+
+.group s
+	s	s
+
+.group t
+	t	t
+	th	T
+
+.group u
+	u	y
+	ui	yI
+
+.group v
+	v	v
+
+.group w
+	w	O:
+	wi	OI
+	wu	OU
+
+.group x
+	x	x
+
+.group y
+	y	y
+	yi	yI
+
+.group z
+	z	z
+
+
+.group
+	ὰ       'a
+	ᾳ        aI:
+	ᾲ       'aI:
+	ὲ       'e
+	ὴ       'E:
+	ῃ        EI:
+	ῂ       'EI:
+	ὶ       'i
+	ῒ       'i
+	ὸ       'o
+	ὺ       'y
+	ῢ       'y
+	ὼ       'O:
+	ῳ        OI:
+	ῲ       'OI:
+
+	ΐ	'i	// diaresis + tonos
+
+
+	'	=	// apostrophe used as tonos, stress on previous syllable
