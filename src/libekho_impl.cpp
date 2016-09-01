@@ -585,7 +585,10 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
 
   switch (type) {
     case OVERLAP_NONE:
+      memcpy(mPendingPcm + mPendingFrames, pcm, frames * 2);
+      mPendingFrames += frames;
       flushframes = mPendingFrames;
+      cpframe = frames;
       break;
 
     case OVERLAP_QUIET_PART:
@@ -1740,7 +1743,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
         phon_symbol = word->symbols.begin();
         pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
         if (pPcm && size > 0)
-          callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+          callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
         break;
 
       case ENGLISH_TEXT: 
@@ -1753,7 +1756,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
           else
             pPcm = this->mDict.getQuaterPause()->getPcm(size);
           pause = 0;
-          callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+          callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
         } else {
           char c;
           if ((word->text.length() == 1) && (c = tolower(*word->text.c_str()) &&
@@ -1763,11 +1766,11 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
 
             pPcm = mAlphabetPcmCache[c - 'a'];
             size = mAlphabetPcmSize[c - 'a'];
-            callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+            callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
           } else {
             pPcm = this->getPcmFromFestival(word->text, size);
             if (pPcm && size > 0) {
-              callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+              callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
               if (pPcm)
                 delete[] pPcm;
             }
@@ -1786,7 +1789,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
           else
             pPcm = this->mDict.getQuaterPause()->getPcm(size);
           pause = 0;
-          callback((short*)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+          callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
         } else {
           if (word->bytes) {
             PhoneticSymbol word_symbol("", word->offset, word->bytes);

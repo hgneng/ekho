@@ -59,7 +59,7 @@ namespace ekho {
   class EkhoImpl {
     public:
       const static int BUFFER_SIZE = 8192;
-      const static int PENDING_PCM_FRAMES = 4096;
+      const static int PENDING_PCM_FRAMES = 8192;
       const static int MAX_CLIENTS = 100; 
       Dict mDict;
       int mPort;
