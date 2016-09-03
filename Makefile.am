@@ -72,7 +72,7 @@ clean-hook:
 	cd $(srcdir)/speechd-api && make clean
 
 all-local:
-	cd $(srcdir)/speechd-api && ./configure --libdir=/usr && make
+	cd $(srcdir)/speechd-api && ./build.sh && ./configure --libdir=/usr && make
 
 install: install-am
 	cp $(srcdir)/speechd-api/src/modules/.libs/sd_ekho /usr/lib/speech-dispatcher-modules/

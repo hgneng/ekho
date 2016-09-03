@@ -276,7 +276,8 @@ CSCOPE = cscope
 AM_RECURSIVE_TARGETS = cscope
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in AUTHORS \
 	COPYING ChangeLog INSTALL NEWS README ar-lib compile \
-	config.guess config.sub depcomp install-sh ltmain.sh missing
+	config.guess config.sub depcomp install-sh ltmain.sh missing \
+	py-compile
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -1389,7 +1390,7 @@ dist-hook:
 @ENABLE_SPEECHD_TRUE@	cd $(srcdir)/speechd-api && make clean
 
 @ENABLE_SPEECHD_TRUE@all-local:
-@ENABLE_SPEECHD_TRUE@	cd $(srcdir)/speechd-api && ./configure --libdir=/usr && make
+@ENABLE_SPEECHD_TRUE@	cd $(srcdir)/speechd-api && ./build.sh && ./configure --libdir=/usr && make
 
 @ENABLE_SPEECHD_TRUE@install: install-am
 @ENABLE_SPEECHD_TRUE@	cp $(srcdir)/speechd-api/src/modules/.libs/sd_ekho /usr/lib/speech-dispatcher-modules/
