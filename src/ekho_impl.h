@@ -30,6 +30,7 @@
 #include "ekho_typedef.h"
 #include "ekho_dict.h"
 #include "sonic.h"
+#include "espeak/speak_lib.h"
 
 #ifdef HAVE_PULSEAUDIO
 #include <pulse/simple.h>
@@ -56,6 +57,8 @@ namespace ekho {
     void* pCallbackArgs;
   } SpeechOrder;
 
+  typedef int (SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
+
   class EkhoImpl {
     public:
       const static int BUFFER_SIZE = 8192;
@@ -65,6 +68,7 @@ namespace ekho {
       int mPort;
       bool mStripSsml;
       bool mSpeakIsolatedPunctuation;
+      bool mIsMale;
 #ifdef ANDROID
       cst_voice *mFliteVoice;
 #endif
@@ -107,7 +111,6 @@ namespace ekho {
           void (*pCallback)(void*) = NULL,
           void* pCallbackArgs = NULL);
 
-      typedef int (SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
       /* Synth speech
        * callback will be called time from time when buffer is ready
        */
@@ -233,6 +236,15 @@ namespace ekho {
 
       /* get PCM, internal use only */
       const char* getPcmFromFestival(string text, int& size);
+      void synthWithEspeak(string text);
+      inline const char* getEnglishPcm(string text, int& size) {
+#ifdef ENABLE_FESTIVAL
+        return getPcmFromFestival(text, size);
+#else
+        synthWithEspeak(text);
+        return 0;
+#endif
+      }
 
       void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
 
@@ -241,7 +253,7 @@ namespace ekho {
       int initPcm(void);
       int initSound(void);
       int initStream(void);
-      int initFestival(void);
+      int initEnglish(void);
       void closeStream(void);
       int outputSpeech(string text);
 

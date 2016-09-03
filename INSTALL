@@ -5,6 +5,7 @@ You need to have following libraries first:
 * libsonic-dev
 * libsndfile1-dev (http://www.mega-nerd.com/libsndfile/)
 * libpulse-dev
+* libespeak-dev
 * libncurses5-dev (required by --enable-festival)
 * libestools-dev (optionally required by --enable-festival)
 * festival-dev  (optionally required by --enable-festival)

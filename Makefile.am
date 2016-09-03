@@ -8,11 +8,11 @@ host_cpu=`uname -p`
 
 noinst_LIBRARIES = libekho.a
 noinst_HEADERS = src/stdafx.h 
-include_HEADERS = src/ekho.h src/ekho_dict.h src/character.h src/phonetic_symbol.h src/zhy_symbol_map.h src/zh_symbol_map.h
+include_HEADERS = src/ekho.h src/ekho_dict.h src/character.h src/phonetic_symbol.h src/zhy_symbol_map.h src/zh_symbol_map.h src/ekho_typedef.h src/ekho_impl.h utfcpp/source/utf8.h
 
-libekho_a_SOURCES = src/libekho.cpp src/libekho_impl.cpp src/ekho_dict.cpp src/number.cpp common/sr-convert/dsp.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp sonic/sonic.c
-libekho_a_CXXFLAGS = -I$(srcdir)/common/utfcpp/source -I$(srcdir)/sonic @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -I$(srcdir)/common/sr-convert -DOUTPUT16BIT -D_$(host_cpu) -pthread @CFLAG_FRISO@
-LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ -lsndfile @LIB_FRISO@
+libekho_a_SOURCES = src/libekho.cpp src/libekho_impl.cpp src/ekho_dict.cpp src/number.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp sonic/sonic.c
+libekho_a_CXXFLAGS = -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -pthread @CFLAG_FRISO@ -std=c++11
+LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ -lsndfile -lespeak @LIB_FRISO@
 
 if ENABLE_FRISO
 noinst_LIBRARIES += libfriso.a
@@ -24,10 +24,10 @@ bin_PROGRAMS = test_ekho ekho
 
 ekho_SOURCES = src/ekho.cpp
 ekho_LDADD = libekho.a $(LIBEKHO_LIB) @LIB_GTK2@
-ekho_CXXFLAGS = @CFLAG_GTK2@ -I$(srcdir)/include -I$(srcdir)/common/utfcpp/source -I$(srcdir)/sonic -pthread @CFLAG_FRISO@
+ekho_CXXFLAGS = @CFLAG_GTK2@ -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic -pthread @CFLAG_FRISO@ -std=c++11
 	
 test_ekho_SOURCES = src/test_ekho.cpp
-test_ekho_CXXFLAGS = -I$(srcdir)/common/utfcpp/source -I$(srcdir)/sonic @CFLAG_FRISO@
+test_ekho_CXXFLAGS = -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_FRISO@ -std=c++11
 test_ekho_LDADD = libekho.a $(LIBEKHO_LIB)
 
 DATA_DIR = $(srcdir)/ekho-data
@@ -59,13 +59,8 @@ endif
 	if [ -e $(srcdir)/ekho-data/festival/lib/voices/spanish ]; then mv $(srcdir)/ekho-data/festival/lib/voices/spanish $(srcdir)/ekho-data/; fi
 	cp -R $(srcdir)/ekho-data/festival $(distdir)/ekho-data/
 	if [ -e $(srcdir)/ekho-data/spanish ]; then mv $(srcdir)/ekho-data/spanish $(srcdir)/ekho-data/festival/lib/voices/; fi
-	cp -R $(srcdir)/include $(distdir)/
-	cp -R $(srcdir)/common/utfcpp $(distdir)/
-	cp -R $(srcdir)/common/sr-convert $(distdir)/
+	cp -R $(srcdir)/utfcpp $(distdir)/
 	cp -R $(srcdir)/sonic $(distdir)/
-	cp -R $(srcdir)/lib64 $(distdir)/
-	cp -R $(srcdir)/lib32 $(distdir)/
-	ln -s $(distdir)/lib32 $(distdir)/lib
 	cp -R $(srcdir)/speechd-api $(distdir)/
 	cp $(srcdir)/install.pl $(distdir)/
 	cp $(srcdir)/deploy.sh $(distdir)/

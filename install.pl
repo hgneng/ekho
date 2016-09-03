@@ -22,15 +22,17 @@ sub kill_speechd() {
 
 sub build_common() {
   system('sudo apt-get -y install libsndfile1-dev');
+  system('sudo apt-get -y install libespeak-dev');
   system('sudo apt-get -y install libpulse-dev');
   system('sudo apt-get -y install libncurses5-dev');
   system('sudo apt-get -y install build-essential');
   system('sudo apt-get -y install autoconf automake');
   system('sudo apt-get -y install libdotconf-dev');
   system('sudo apt-get -y install libmp3lame-dev');
-  system('sudo apt-get -y install festival-dev');
+#  system('sudo apt-get -y install festival-dev');
   system('sudo apt-get -y install libestools2.1-dev');
-  system('./configure --enable-festival --enable-speechd');
+#  system('./configure --enable-festival --enable-speechd');
+  system('./configure --enable-speechd');
   system('make clean && make');
 }
 

@@ -55,11 +55,6 @@
 #include <sys/wait.h>
 #endif
 
-#ifdef ENABLE_FESTIVAL
-#include "festival/festival.h"
-#define ENABLE_ENGLISH
-#endif
-
 using namespace ekho;
 using namespace std;
 
@@ -144,11 +139,6 @@ int Ekho::synth(string text, SynthCallback *callback, void *userdata) {
 
 int Ekho::play(string file) {
     return this->m_pImpl->play(file);
-}
-
-// It's caller's responsibility to delete the returned pointer
-const char* Ekho::getPcmFromFestival(string text, int& size) { 
-    return this->m_pImpl->getPcmFromFestival(text, size);
 }
 
 int Ekho::setVoice(string voice) {

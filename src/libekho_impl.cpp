@@ -35,7 +35,6 @@
 #include "ekho_impl.h"
 #include "ekho.h"
 #include "ekho_dict.h"
-#include "sr-convert.cpp"
 #include "sonic.h"
 #include "utf8.h"
 
@@ -55,9 +54,10 @@
 #include <sys/wait.h>
 #endif
 
+#define ENABLE_ENGLISH
+#include "espeak/speak_lib.h"
 #ifdef ENABLE_FESTIVAL
 #include "festival/festival.h"
-#define ENABLE_ENGLISH
 #endif
 
 using namespace ekho;
@@ -68,12 +68,14 @@ using namespace std;
 #endif
 
 bool EkhoImpl::mDebug = false;
+SynthCallback *gSynthCallback = 0;
 
 EkhoImpl::EkhoImpl() {
     this->init();
 }
 
 int EkhoImpl::init(void) {
+  mIsMale = false;
   mPendingFrames = 0;
   mStripSsml = true;
   mSpeakIsolatedPunctuation = true;
@@ -243,8 +245,13 @@ void EkhoImpl::closeStream(void) {
 #endif
 }
 
+static EkhoImpl *gEkho = NULL;
+static int espeakSynthCallback(short *wav, int numsamples, espeak_EVENT *events) {
+  return gSynthCallback(wav, numsamples, gEkho, OVERLAP_NONE);
+}
+
 static bool gsIsFestivalInited = false;
-int EkhoImpl::initFestival(void) {
+int EkhoImpl::initEnglish(void) {
 #ifdef ENABLE_FESTIVAL
   if (! gsIsFestivalInited) {
     int heap_size = 2100000; // scheme heap size
@@ -269,12 +276,21 @@ int EkhoImpl::initFestival(void) {
   } else {
     festival_tidy_up();
   }
+#else
+  // espeak
+  int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
+  //cout << "samplerate: " << samplerate << endl;
+  gEkho = this;
+  espeak_SetSynthCallback(espeakSynthCallback);
+  if (!mIsMale) {
+    espeak_SetVoiceByName("en+f4");
+  }
 #endif
   return 0;
 }
 
 int EkhoImpl::saveWav(string text, string filename) {
-    initFestival();
+    initEnglish();
     if (EkhoImpl::mDebug) {
         cerr << "Writting WAV file " << filename << " ..." << endl;
     }
@@ -309,7 +325,7 @@ int EkhoImpl::saveWav(string text, string filename) {
 }
 
 int EkhoImpl::saveOgg(string text, string filename) {
-    initFestival();
+    initEnglish();
     if (EkhoImpl::mDebug) {
         cerr << "Writting OGG file " << filename << " ..." << endl;
     }
@@ -652,7 +668,7 @@ void EkhoImpl::finishWritePcm(void) {
 void* EkhoImpl::speechDaemon(void *args) {
     EkhoImpl* pEkho = (EkhoImpl*)args;
 
-    pEkho->initFestival();
+    pEkho->initEnglish();
 
     while (1) {
         pthread_mutex_lock(&pEkho->mSpeechQueueMutex);
@@ -1089,30 +1105,31 @@ int EkhoImpl::setVoice(string voice) {
 
   if (voice.compare("Cantonese") == 0 || voice.compare("yue") == 0) {
     voice = "jyutping";
-    setEnglishVoice("voice_kal_diphone");
+    mIsMale = true;
   } else if (voice.compare("Mandarin") == 0 ||
       voice.compare("zh") == 0 || voice.compare("cmn") == 0) {
     voice = "pinyin";
-    setEnglishVoice("voice_kal_diphone");
+    mIsMale = false;
     //setEnglishVoice("voice_cmu_us_slt_arctic_hts");
   } else if (voice.compare("Korean") == 0 ||
       voice.compare("ko") == 0) {
     voice = "hangul";
-    setEnglishVoice("voice_kal_diphone");
+    mIsMale = false;
     //setEnglishVoice("voice_cmu_us_slt_arctic_hts");
   } else if (voice.compare("Hakka") == 0) {
     voice = "hakka";
-    setEnglishVoice("voice_kal_diphone");
+    mIsMale = true;
   } else if (voice.compare("Tibetan") == 0 ||
       voice.compare("bo") == 0) {
     voice = "tibetan";
-    setEnglishVoice("voice_kal_diphone");
+    mIsMale = false;
     //setEnglishVoice("voice_cmu_us_slt_arctic_hts");
   } else if (voice.compare("Ngangien") == 0) {
     voice = "ngangien";
-    setEnglishVoice("voice_kal_diphone");
+    mIsMale = true;
   } else if (voice.compare("en") == 0) {
     voice = "English";
+    mIsMale = true;
   }
   
   if (voice.find("jyutping") == 0) {
@@ -1137,7 +1154,7 @@ int EkhoImpl::setVoice(string voice) {
   
   if (mDict.setVoice(voice.c_str()) != 0)
     return -2;
-  
+
   this->initStream();
   
   return 0;
@@ -1673,7 +1690,15 @@ void EkhoImpl::translatePunctuations(string& text) {
   }
 }
 
+void EkhoImpl::synthWithEspeak(string text) {
+  gSynthCallback(0, 0, gEkho, OVERLAP_NONE); // flush pending pcm
+  sonicSetRate(gEkho->mSonicStream, 22050.0 / 16000);
+  espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0, espeakCHARS_UTF8, 0, 0);
+  sonicSetRate(gEkho->mSonicStream, 1);
+}
+
 int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
+  gSynthCallback = callback;
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::synth2(%s, %p, %p) voiceFileType=%s lang=%d", text.c_str(), callback,
       userdata, mDict.mVoiceFileType, mDict.getLanguage());
@@ -1693,7 +1718,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
       cerr << "speaking '" << text
         << "' with Festival" << endl;
     }
-    pPcm = this->getPcmFromFestival(text, size);
+    pPcm = this->getEnglishPcm(text, size);
     // output pcm data
     if (pPcm && size > 0) {
       callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
@@ -1762,13 +1787,13 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
           if ((word->text.length() == 1) && (c = tolower(*word->text.c_str()) &&
               c >= 'a' && c <= 'z')) {
             if (!mAlphabetPcmCache[c - 'a'])
-              mAlphabetPcmCache[c - 'a'] = getPcmFromFestival(word->text, mAlphabetPcmSize[c - 'a']);
+              mAlphabetPcmCache[c - 'a'] = getEnglishPcm(word->text, mAlphabetPcmSize[c - 'a']);
 
             pPcm = mAlphabetPcmCache[c - 'a'];
             size = mAlphabetPcmSize[c - 'a'];
             callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
           } else {
-            pPcm = this->getPcmFromFestival(word->text, size);
+            pPcm = this->getEnglishPcm(word->text, size);
             if (pPcm && size > 0) {
               callback((short*)pPcm, size / 2, userdata, OVERLAP_NONE);
               if (pPcm)

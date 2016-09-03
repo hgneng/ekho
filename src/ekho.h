@@ -206,9 +206,6 @@ namespace ekho {
          int target_rate);
          */
 
-      /* get PCM, internal use only */
-      const char* getPcmFromFestival(string text, int& size);
-
       void setPunctuationMode(EkhoPuncType mode);
   };
 }
