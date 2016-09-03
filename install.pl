@@ -26,7 +26,7 @@ sub build_common() {
   system('sudo apt-get -y install libpulse-dev');
   system('sudo apt-get -y install libncurses5-dev');
   system('sudo apt-get -y install build-essential');
-  system('sudo apt-get -y install autoconf automake');
+  system('sudo apt-get -y install autoconf automake libtool');
   system('sudo apt-get -y install libdotconf-dev');
   system('sudo apt-get -y install libmp3lame-dev');
 #  system('sudo apt-get -y install festival-dev');
