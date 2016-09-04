@@ -3,9 +3,9 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
  /usr/include/glib-2.0/glib/gtypes.h \
  /usr/lib/i386-linux-gnu/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include/stddef.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
@@ -14,7 +14,7 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/posix1_lim.h \
  /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/i386-linux-gnu/bits/posix2_lim.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/float.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include/float.h \
  /usr/include/glib-2.0/glib/gversionmacros.h /usr/include/time.h \
  /usr/include/i386-linux-gnu/bits/time.h \
  /usr/include/i386-linux-gnu/bits/types.h \
@@ -23,8 +23,8 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
  /usr/include/glib-2.0/glib/gasyncqueue.h \
  /usr/include/glib-2.0/glib/gthread.h \
  /usr/include/glib-2.0/glib/gatomic.h /usr/include/glib-2.0/glib/gerror.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h \
- /usr/include/glib-2.0/glib/gquark.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h \
+ /usr/include/glib-2.0/glib/gquark.h /usr/include/glib-2.0/glib/gutils.h \
  /usr/include/glib-2.0/glib/gbacktrace.h /usr/include/signal.h \
  /usr/include/i386-linux-gnu/bits/sigset.h \
  /usr/include/i386-linux-gnu/bits/signum.h \
@@ -58,7 +58,6 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
  /usr/include/glib-2.0/glib/gmain.h /usr/include/glib-2.0/glib/gpoll.h \
  /usr/include/glib-2.0/glib/gslist.h /usr/include/glib-2.0/glib/gstring.h \
  /usr/include/glib-2.0/glib/gunicode.h \
- /usr/include/glib-2.0/glib/gutils.h \
  /usr/include/glib-2.0/glib/gkeyfile.h \
  /usr/include/glib-2.0/glib/gmappedfile.h \
  /usr/include/glib-2.0/glib/gmarkup.h \
@@ -99,6 +98,7 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/sys/sysmacros.h /usr/include/pthread.h \
  /usr/include/sched.h /usr/include/i386-linux-gnu/bits/sched.h \
  /usr/include/i386-linux-gnu/bits/setjmp.h \
+ /usr/include/glib-2.0/glib/glib-autocleanups.h \
  /usr/include/glib-2.0/gmodule.h /usr/include/glib-2.0/glib/gstdio.h \
  /usr/include/glib-2.0/glib/gprintf.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
@@ -123,9 +123,8 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/string.h \
  /usr/include/i386-linux-gnu/bits/string2.h /usr/include/stdlib.h \
  /usr/include/i386-linux-gnu/bits/string3.h speechd.h \
- /usr/include/netinet/in.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
- /usr/include/i386-linux-gnu/bits/wchar.h \
+ /usr/include/netinet/in.h /usr/lib/gcc/i686-linux-gnu/5/include/stdint.h \
+ /usr/include/stdint.h /usr/include/i386-linux-gnu/bits/wchar.h \
  /usr/include/i386-linux-gnu/bits/in.h \
  /usr/include/i386-linux-gnu/sys/time.h \
  /usr/include/i386-linux-gnu/sys/ioctl.h \
@@ -173,11 +172,11 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
 
 /usr/include/glib-2.0/glib/gmacros.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+/usr/lib/gcc/i686-linux-gnu/5/include-fixed/limits.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+/usr/lib/gcc/i686-linux-gnu/5/include-fixed/syslimits.h:
 
 /usr/include/limits.h:
 
@@ -199,7 +198,7 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
 
 /usr/include/i386-linux-gnu/bits/posix2_lim.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/float.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/float.h:
 
 /usr/include/glib-2.0/glib/gversionmacros.h:
 
@@ -223,9 +222,11 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
 
 /usr/include/glib-2.0/glib/gerror.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h:
 
 /usr/include/glib-2.0/glib/gquark.h:
+
+/usr/include/glib-2.0/glib/gutils.h:
 
 /usr/include/glib-2.0/glib/gbacktrace.h:
 
@@ -310,8 +311,6 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
 /usr/include/glib-2.0/glib/gstring.h:
 
 /usr/include/glib-2.0/glib/gunicode.h:
-
-/usr/include/glib-2.0/glib/gutils.h:
 
 /usr/include/glib-2.0/glib/gkeyfile.h:
 
@@ -405,6 +404,8 @@ speechd.o: speechd.c /usr/include/stdc-predef.h \
 
 /usr/include/i386-linux-gnu/bits/setjmp.h:
 
+/usr/include/glib-2.0/glib/glib-autocleanups.h:
+
 /usr/include/glib-2.0/gmodule.h:
 
 /usr/include/glib-2.0/glib/gstdio.h:
@@ -469,7 +470,7 @@ speechd.h:
 
 /usr/include/netinet/in.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/stdint.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stdint.h:
 
 /usr/include/stdint.h:
 

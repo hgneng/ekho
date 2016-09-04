@@ -873,27 +873,25 @@ list<Word> Dict::lookupWord(const char *text) {
       }
 
       if (code < 65536 && mDictItemArray[code].character.phonSymbol && strstr(mDictItemArray[code].character.phonSymbol->symbol, "pause") > 0) {
-        // it's a symbol, not including space
-        if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "fullpause") == 0)
-          type = FULL_PAUSE;
-        else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "halfpause") == 0)
-          type = HALF_PAUSE;
-        else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "quaterpause") == 0)
-          type = QUATER_PAUSE;
+        if (lastword.empty()) {
+          // it's a symbol, not including space
+          if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "fullpause") == 0)
+            type = FULL_PAUSE;
+          else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "halfpause") == 0)
+            type = HALF_PAUSE;
+          else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "quaterpause") == 0)
+            type = QUATER_PAUSE;
 
-        // submit pending English word
-        if (!lastword.empty()) {
-          wordlist.push_back(Word(lastword, ENGLISH_TEXT));
-          lastword.clear();
+          // submit pending Chinese word
+          if (!last_chinese_word.empty()) {
+            wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
+            last_chinese_word.clear();
+          }
+
+          wordlist.push_back(Word(itor->getUtf8(), type));
+        } else {
+          lastword += itor->getUtf8();
         }
-
-        // submit pending Chinese word
-        if (!last_chinese_word.empty()) {
-          wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
-          last_chinese_word.clear();
-        }
-
-        wordlist.push_back(Word(itor->getUtf8(), type));
       } else if (itor->code < 65536 && !mDictItemArray[itor->code].character.phonSymbol) {
         // it's not a Chinese character
         if ((itor->code >= 'A' && itor->code <= 'Z') ||

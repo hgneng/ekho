@@ -1861,9 +1861,9 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
 
   // send a signal to abort for Android
   if (userdata)
-    callback(0, 0, userdata, OVERLAP_QUIET_PART);
+    callback(0, 0, userdata, OVERLAP_NONE);
   else
-    callback(0, 0, this, OVERLAP_QUIET_PART);
+    callback(0, 0, this, OVERLAP_NONE);
 
   return 0;
 }

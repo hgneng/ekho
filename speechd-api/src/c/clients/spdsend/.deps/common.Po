@@ -1,6 +1,6 @@
 common.o: common.c /usr/include/stdc-predef.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
@@ -14,7 +14,7 @@ common.o: common.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/sys/types.h \
  /usr/include/i386-linux-gnu/bits/types.h \
  /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/time.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h /usr/include/endian.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include/stddef.h /usr/include/endian.h \
  /usr/include/i386-linux-gnu/bits/endian.h \
  /usr/include/i386-linux-gnu/bits/byteswap.h \
  /usr/include/i386-linux-gnu/bits/byteswap-16.h \
@@ -41,9 +41,9 @@ common.o: common.c /usr/include/stdc-predef.h \
 
 /usr/include/stdc-predef.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+/usr/lib/gcc/i686-linux-gnu/5/include-fixed/limits.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+/usr/lib/gcc/i686-linux-gnu/5/include-fixed/syslimits.h:
 
 /usr/include/limits.h:
 
@@ -77,7 +77,7 @@ common.o: common.c /usr/include/stdc-predef.h \
 
 /usr/include/time.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h:
 
 /usr/include/endian.h:
 

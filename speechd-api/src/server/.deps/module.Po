@@ -11,7 +11,7 @@ module.o: module.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/siginfo.h \
  /usr/include/i386-linux-gnu/bits/sigaction.h \
  /usr/include/i386-linux-gnu/bits/sigcontext.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include/stddef.h \
  /usr/include/i386-linux-gnu/bits/sigstack.h \
  /usr/include/i386-linux-gnu/sys/ucontext.h \
  /usr/include/i386-linux-gnu/bits/pthreadtypes.h \
@@ -24,14 +24,13 @@ module.o: module.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/sys/stat.h \
  /usr/include/i386-linux-gnu/bits/stat.h /usr/include/stdio.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h \
  /usr/include/i386-linux-gnu/bits/stdio_lim.h \
  /usr/include/i386-linux-gnu/bits/sys_errlist.h \
  /usr/include/i386-linux-gnu/bits/stdio.h \
  /usr/include/i386-linux-gnu/bits/stdio2.h speechd.h \
- /usr/include/netinet/in.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
- /usr/include/i386-linux-gnu/bits/wchar.h \
+ /usr/include/netinet/in.h /usr/lib/gcc/i686-linux-gnu/5/include/stdint.h \
+ /usr/include/stdint.h /usr/include/i386-linux-gnu/bits/wchar.h \
  /usr/include/i386-linux-gnu/sys/socket.h \
  /usr/include/i386-linux-gnu/sys/uio.h \
  /usr/include/i386-linux-gnu/sys/types.h \
@@ -75,8 +74,8 @@ module.o: module.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/string.h \
  /usr/include/i386-linux-gnu/bits/string2.h \
  /usr/include/i386-linux-gnu/bits/string3.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
  /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/i386-linux-gnu/bits/posix2_lim.h \
@@ -88,13 +87,13 @@ module.o: module.c /usr/include/stdc-predef.h \
  /usr/include/glib-2.0/glib/galloca.h /usr/include/glib-2.0/glib/gtypes.h \
  /usr/lib/i386-linux-gnu/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/float.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include/float.h \
  /usr/include/glib-2.0/glib/gversionmacros.h \
  /usr/include/glib-2.0/glib/garray.h \
  /usr/include/glib-2.0/glib/gasyncqueue.h \
  /usr/include/glib-2.0/glib/gthread.h \
  /usr/include/glib-2.0/glib/gatomic.h /usr/include/glib-2.0/glib/gerror.h \
- /usr/include/glib-2.0/glib/gquark.h \
+ /usr/include/glib-2.0/glib/gquark.h /usr/include/glib-2.0/glib/gutils.h \
  /usr/include/glib-2.0/glib/gbacktrace.h \
  /usr/include/glib-2.0/glib/gbase64.h \
  /usr/include/glib-2.0/glib/gbitlock.h \
@@ -119,7 +118,6 @@ module.o: module.c /usr/include/stdc-predef.h \
  /usr/include/glib-2.0/glib/gmain.h /usr/include/glib-2.0/glib/gpoll.h \
  /usr/include/glib-2.0/glib/gslist.h /usr/include/glib-2.0/glib/gstring.h \
  /usr/include/glib-2.0/glib/gunicode.h \
- /usr/include/glib-2.0/glib/gutils.h \
  /usr/include/glib-2.0/glib/gkeyfile.h \
  /usr/include/glib-2.0/glib/gmappedfile.h \
  /usr/include/glib-2.0/glib/gmarkup.h \
@@ -149,7 +147,8 @@ module.o: module.c /usr/include/stdc-predef.h \
  /usr/include/glib-2.0/glib/deprecated/gcompletion.h \
  /usr/include/glib-2.0/glib/deprecated/gmain.h \
  /usr/include/glib-2.0/glib/deprecated/grel.h \
- /usr/include/glib-2.0/glib/deprecated/gthread.h /usr/include/semaphore.h \
+ /usr/include/glib-2.0/glib/deprecated/gthread.h \
+ /usr/include/glib-2.0/glib/glib-autocleanups.h /usr/include/semaphore.h \
  /usr/include/i386-linux-gnu/bits/semaphore.h \
  /usr/include/i386-linux-gnu/sys/ipc.h \
  /usr/include/i386-linux-gnu/bits/ipctypes.h \
@@ -191,7 +190,7 @@ module.o: module.c /usr/include/stdc-predef.h \
 
 /usr/include/i386-linux-gnu/bits/sigcontext.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h:
 
 /usr/include/i386-linux-gnu/bits/sigstack.h:
 
@@ -225,7 +224,7 @@ module.o: module.c /usr/include/stdc-predef.h \
 
 /usr/include/wchar.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h:
 
 /usr/include/i386-linux-gnu/bits/stdio_lim.h:
 
@@ -239,7 +238,7 @@ speechd.h:
 
 /usr/include/netinet/in.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/stdint.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stdint.h:
 
 /usr/include/stdint.h:
 
@@ -353,9 +352,9 @@ speechd.h:
 
 /usr/include/i386-linux-gnu/bits/string3.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/limits.h:
+/usr/lib/gcc/i686-linux-gnu/5/include-fixed/limits.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed/syslimits.h:
+/usr/lib/gcc/i686-linux-gnu/5/include-fixed/syslimits.h:
 
 /usr/include/limits.h:
 
@@ -391,7 +390,7 @@ speechd.h:
 
 /usr/include/glib-2.0/glib/gmacros.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.8/include/float.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/float.h:
 
 /usr/include/glib-2.0/glib/gversionmacros.h:
 
@@ -406,6 +405,8 @@ speechd.h:
 /usr/include/glib-2.0/glib/gerror.h:
 
 /usr/include/glib-2.0/glib/gquark.h:
+
+/usr/include/glib-2.0/glib/gutils.h:
 
 /usr/include/glib-2.0/glib/gbacktrace.h:
 
@@ -470,8 +471,6 @@ speechd.h:
 /usr/include/glib-2.0/glib/gstring.h:
 
 /usr/include/glib-2.0/glib/gunicode.h:
-
-/usr/include/glib-2.0/glib/gutils.h:
 
 /usr/include/glib-2.0/glib/gkeyfile.h:
 
@@ -538,6 +537,8 @@ speechd.h:
 /usr/include/glib-2.0/glib/deprecated/grel.h:
 
 /usr/include/glib-2.0/glib/deprecated/gthread.h:
+
+/usr/include/glib-2.0/glib/glib-autocleanups.h:
 
 /usr/include/semaphore.h:
 
