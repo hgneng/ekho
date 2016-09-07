@@ -42,8 +42,8 @@ AC_CHECK_FUNCS([memset setlocale strstr])
 
 AC_SUBST([FESTIVAL_HEADER])
 AC_SUBST([SPEECH_TOOLS_HEADER])
-FESTIVAL_HEADER="`find ${srcdir}/include/festival -name "*.h" -print0 -printf ' '`"
-SPEECH_TOOLS_HEADER="`find ${srcdir}/include/speech_tools -name "*.h" -print0 -printf ' '`"
+FESTIVAL_HEADER="" #"`find ${srcdir}/include/festival -name "*.h" -print0 -printf ' '`"
+SPEECH_TOOLS_HEADER="" #"`find ${srcdir}/include/speech_tools -name "*.h" -print0 -printf ' '`"
 
 # don't use GTK any more
 LIB_GTK2=""

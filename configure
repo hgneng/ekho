@@ -17576,8 +17576,8 @@ done
 
 
 
-FESTIVAL_HEADER="`find ${srcdir}/include/festival -name "*.h" -print0 -printf ' '`"
-SPEECH_TOOLS_HEADER="`find ${srcdir}/include/speech_tools -name "*.h" -print0 -printf ' '`"
+FESTIVAL_HEADER="" #"`find ${srcdir}/include/festival -name "*.h" -print0 -printf ' '`"
+SPEECH_TOOLS_HEADER="" #"`find ${srcdir}/include/speech_tools -name "*.h" -print0 -printf ' '`"
 
 # don't use GTK any more
 LIB_GTK2=""

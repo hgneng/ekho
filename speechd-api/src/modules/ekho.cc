@@ -417,8 +417,8 @@ ekho_set_volume(signed int volume)
 static void
 ekho_set_pitch(signed int pitch)
 {
-  // TODO: do a pitch value conversion
-  //gpEkho->setPitch(pitch);
+  assert(pitch >= -100 && pitch <= +100);
+  gpEkho->setPitch(pitch);
 }
 
 static void
