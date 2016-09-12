@@ -284,6 +284,8 @@ int EkhoImpl::initEnglish(void) {
   espeak_SetSynthCallback(espeakSynthCallback);
   if (!mIsMale) {
     espeak_SetVoiceByName("en+f4");
+  } else {
+    espeak_SetVoiceByName("en");
   }
 #endif
   return 0;
