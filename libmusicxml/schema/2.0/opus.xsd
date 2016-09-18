@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<!--<xs:schema targetNamespace="http://www.musicxml.org/xsd/MusicXML"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	xmlns="http://www.musicxml.org/xsd/MusicXML">-->
+
+	<xs:annotation>
+		<xs:documentation>MusicXML™ W3C XML Opus schema
+
+Version 2.0 Strict Beta 1 - 6 June 2008
+
+Copyright © 2004-2008 Recordare LLC.
+http://www.recordare.com/
+
+This MusicXML™ work is being provided by the copyright holder under the MusicXML Document Type Definition Public License Version 2.0, available from:
+
+	http://www.recordare.com/dtds/license.html
+
+This W3C XML Schema is a stricter version of the MusicXML 2.0 language than the DTD definition. Validation is tightened by moving MusicXML definitions from comments into schema data types and definitions. Character entities and other entity usages that are not supported in W3C XML Schema have also been removed. However, the features of W3C XML Schema make it easier to define variations of the MusicXML format, either via extension or restriction.
+
+An opus collects MusicXML scores together into a larger entity. The individual scores could be movements in a symphony, scenes or acts in an opera, or songs in an album. The opus definition allows arbitrary nesting either via an opus (included in the document) or an opus-link (linked like scores). Future versions of the MusicXML format may expand this schema to include reference data and other metadata related to musical scores.</xs:documentation>
+	</xs:annotation>
+
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.musicxml.org/xsd/xml.xsd"/>
+	<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.musicxml.org/xsd/xlink.xsd"/>
+
+	<!-- Simple types -->
+
+	<xs:simpleType name="yes-no">
+		<xs:annotation>
+			<xs:documentation>The yes-no type is used for boolean-like attributes. We cannot use W3C XML Schema booleans due to their restrictions on expression of boolean values.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="yes"/>
+			<xs:enumeration value="no"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Attribute groups -->
+
+	<xs:attributeGroup name="document-attributes">
+		<xs:annotation>
+			<xs:documentation>The document-attributes attribute group is used to specify the attributes for an entire MusicXML document. Currently this is used for the version attribute.
+
+The version attribute was added in Version 2.0 for opus documents. It provides an easier  way to get version information than through the MusicXML public ID. The default value is 1.0 to make it possible for programs that handle later versions to distinguish earlier version files reliably. Programs that write MusicXML 2.0 opus files should set this attribute.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="version" type="xs:token" default="1.0"/>
+	</xs:attributeGroup>
+	
+	<xs:attributeGroup name="link-attributes">
+		<xs:annotation>
+			<xs:documentation>The link-attributes group includes all the simple XLink attributes supported in the MusicXML format.</xs:documentation>
+		</xs:annotation>
+		<!--<xs:attribute ref="xmnls:xlink" fixed="http://www.w3.org/1999/xlink"/>-->
+		<xs:attribute ref="xlink:href" use="required"/>
+		<xs:attribute ref="xlink:type" fixed="simple"/>
+		<xs:attribute ref="xlink:role"/>
+		<xs:attribute ref="xlink:title"/>
+		<xs:attribute ref="xlink:show" default="replace"/>
+		<xs:attribute ref="xlink:actuate" default="onRequest"/>
+	</xs:attributeGroup>
+	
+	<!-- Complex types -->
+
+	<xs:complexType name="opus">
+		<xs:annotation>
+			<xs:documentation>The opus type is used for the root element of a MusicXML opus. Each opus is made up of a series of score, opus-link, and/or nested opus elements. The document-attributes attribute group includes the version attribute. Future versions may include more metadata elements. In this version, we just include the title of the opus.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="title" type="xs:string" minOccurs="0"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="opus" type="opus"/>
+				<xs:element name="opus-link" type="opus-link"/>
+				<xs:element name="score" type="score"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attributeGroup ref="document-attributes"/>
+	</xs:complexType>
+
+	<xs:complexType name="opus-link">
+		<xs:annotation>
+			<xs:documentation>An opus-link provides a link to another opus document, allowing for multiple levels of opus collections via linking as well as nesting.</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="link-attributes"/>
+	</xs:complexType>
+
+	<xs:complexType name="score">
+		<xs:annotation>
+			<xs:documentation>The score elements provide the links to the individual movements. The new-page attribute, added in Version 2.0, is used to indicate if the first page of the score is different than the last page of the previous score. If new-page is "yes", then a different page is used; if "no", then the same page is used. The default value is implementation-dependent.</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="link-attributes"/>
+		<xs:attribute name="new-page" type="yes-no"/>
+	</xs:complexType>
+
+	<!-- Global element that is the root for MusicXML opus files -->
+
+	<xs:element name="opus" type="opus" block="extension substitution" final="#all">
+		<xs:annotation>
+			<xs:documentation>The opus element with an opus type is the root element for a MusicXML opus.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

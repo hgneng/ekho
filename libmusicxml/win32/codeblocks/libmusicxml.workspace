@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="libmusicxml2\libmusicxml2.cbp" />
+		<Project filename="xml2guido\xml2guido.cbp" />
+		<Project filename="randomMusic\randomMusic.cbp" />
+		<Project filename="transpose\transpose.cbp" active="1" />
+	</Workspace>
+</CodeBlocks_workspace_file>

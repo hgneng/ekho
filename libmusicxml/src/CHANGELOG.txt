@@ -1,0 +1,114 @@
+MusicXML Library
+
+Version 3.00
+- update to MusicXML version 3
+
+----------------------------------------------------------------------------------------------------
+Version 2.10
+- new xmlfactory interface
+- correct a bug in xml parser (element content = '=')
+
+Version 2.00
+- new version supporting MusicXML version 2, completely redesigned,
+  NOT compatible with the previous versions
+
+----------------------------------------------------------------------------------------------------
+Version 1.10
+- correct a bug in musicxml to guido export: \empty generated for empty measures (multiple voices)
+- correct a bug in transposevisitor: repeated keys were generating diatonic shifts
+- lexer change to correctly handle " and ' as quotes
+
+Version 1.09
+- correct bug in wavy-line parsing  
+
+Version 1.08 
+- bug in offsets management (<direction> elements) corrected
+- XML2Guido visitor modified to generate positions (default)
+  controled via generatePositions (bool state)
+
+Version 1.07 
+- Bug in TUnrolledVisitor fixed (no section to add when "repeat" on the first bar)
+- crescendo and dimunuendo tags exported to guido
+- \clef \key \meter \repeatBegin tags order enforced by the XML2Guido visitor
+
+Version 1.061
+- parser memory leak correction
+
+Version 1.06
+- parser modified to accept PI (processing instructions)
+
+Version 1.05
+- bug in musicxml to guido conversion corrected (introduced by v1.04): crash 
+  with single measure scores.
+
+Version 1.04
+- bug in musicxml to guido conversion corrected: occured when the last last 
+  duration of a voice (or part) was equal to the first duration of the next 
+  voice, provided that this duration was not the guido default 1/4 duration. In 
+  this case first next voice duration was incorrectly set to the default 1/4 
+  duration.
+
+Version 1.03
+- transposing diatonic interval forced when null in transpose element and |steps| > 1
+
+Version 1.02
+- new TTransposeVisitor for dynamic score transposition
+- add a getDuration method in TMidiContextVisitor
+- correct TUnrolledVisitor in GetEndingNum and GetRepeatTimes 
+- modification of musicxml to guido conversion: 
+	incomplete measures are not any more filled with "empty"
+	barlines generation corrected (inhibited before a repeat begin)
+
+Version 1.01
+- correct TUnrolledVisitor for repeat end ending bar detection (IsRepeat and IsEnding methods)
+
+Version 1.00
+- expat parser replaced by custom yacc and lex parser
+- missing 1.0 elements support
+- implement fine element in TUnrolledVisitor
+- crash bug corrected in TMusicXMLVisitor::visite ( SScoreTimewise& elt )
+- correct Lyric and print element export, add elision management
+- correct parser for elements with type attribute
+
+Version 0.96
+- Add an empty constructor in TMidiContextVisitor: when there is no "tpq" value, the value in 
+the XML file will be used.  
+- MusicXML elements implementation: grouping, features 
+- Parsing of rehearsal, pedal, damp, damp-all, eyeglasses, other-direction, print, glissando,
+slide, arpeggiate, non-arpeggiate, other-articulation, lyric.
+- sound element supports version 1 attributes 
+- MusicXML version changed to 1.0 in MusicXML header
+
+Version 0.94
+- Guido export: support of daCapo, dalSegno, fine, etc...
+- bug corrected in TUnrolledVisitor when a repeat sign occurs at the last measure
+- bug corrected in TUnrolledVisitor when computing sections for mapping
+- trill-start, trill-step and two-notes-turn supported via conversion objects TrillStart and TrillStep
+- MusicXML elements implementation (to be completed): staff-details, measure-style, rehearsal, pedal, 
+  damp, damp-all, eyeglasses, other-direction, print, glissando, slide, technical,arpeggiate, 
+  non-arpeggiate, other-notation, other-articulation, lyric, figured-bass
+
+Version 0.93
+- visitors are not any more smartable
+- TRolledVisitor and TUnrolledVisitor exported (for Windows Visual C++)
+- TMidiContextVisitor added
+- constructor and destructors moved from inline to library - this is intended
+  to catch the runtime library problem on windows.
+- correct the TMeasure::getNumber method that was incorrectly resturning -1 when "implicit" attribute was set to yes.
+Since measure number is required, TMeasure::getNumber now returns the measure number in any case.
+
+Version 0.92
+- TRational class: new set(long, long) method.
+- breath mark correction: was exported in MusicXML as breath_mark instead breath-mark.
+- breathMark guido tag generated (but not handled in guido engine)
+- MusicXML header corrected to reflect the supported version 0.8
+
+Version 0.91
+- In TPitch class, correct MIDIPitch method : the returned pitch was one octave below the correct value.
+- bimap objects provide a size() method
+- TSlurs and TTie objects now accept visitors: only the base class TTieSlur was previously implementing accept.
+- getDuration method for partwise measures <TPWMeasure> accept a voice selector.
+- serial2note class is included in the library
+
+Version 0.90
+- Initial public release

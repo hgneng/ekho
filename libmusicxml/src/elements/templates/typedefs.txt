@@ -1,0 +1,13 @@
+
+#ifndef __typedefs__
+#define __typedefs__
+
+#include "elements.h"
+#include "types.h"
+
+namespace MusicXML2 
+{
+
+typedef SMARTP<musicxml<kComment> >					S_comment;
+typedef SMARTP<musicxml<kProcessingInstruction> >	S_processing_instruction;
+

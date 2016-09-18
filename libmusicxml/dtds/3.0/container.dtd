@@ -1,0 +1,95 @@
+<!--
+	MusicXML™ Container DTD
+
+	Version 3.0
+	
+	Copyright © 2004-2011 MakeMusic, Inc.
+	http://www.makemusic.com/
+	
+	This MusicXML™ work is being provided by the copyright
+	holder under the MusicXML Public License Version 3.0,
+	available from:
+	
+		http://www.musicxml.org/dtds/license.html
+-->
+
+<!--
+	Starting with Version 2.0, the MusicXML format includes a
+	standard zip compressed version. These zip files can contain
+	multiple MusicXML files as well as other media files for
+	images and sound. The container DTD describes the contents
+	of the META-INF/container.xml file. The container describes
+	the starting point for the MusicXML version of the file, as
+	well as alternate renditions such as PDF and audio versions
+	of the musical score.
+
+	The MusicXML zip file format is compatible with the zip format
+	used by the java.util.zip package and Java JAR files. It is 
+	based on the Info-ZIP format described at:
+
+	ftp://ftp.uu.net/pub/archiving/zip/doc/appnote-970311-iz.zip
+
+	The JAR file format is specified at:
+
+	http://download.oracle.com/javase/6/docs/technotes/guides/jar/jar.html
+
+	Note that, compatible with JAR files, file names should be
+	encoded in UTF-8 format. 
+
+	Files with the zip container are compressed the DEFLATE 
+	algorithm. The DEFLATE Compressed Data Format (RFC 1951)
+	is specified at:
+
+	http://www.ietf.org/rfc/rfc1951.txt
+
+	The recommended file suffix for compressed MusicXML files
+	is .mxl. The recommended media type for a compressed
+	MusicXML file is:
+
+		application/vnd.recordare.musicxml
+
+	The recommended media type for an uncompressed MusicXML
+	file is:
+
+		application/vnd.recordare.musicxml+xml
+
+	Suggested use:
+	
+	<!DOCTYPE container PUBLIC
+		"-//Recordare//DTD MusicXML 3.0 Container//EN"
+		"http://www.musicxml.org/dtds/container.dtd">
+-->
+
+<!-- Elements -->
+
+<!--
+	Container is the document element.
+-->
+<!ELEMENT container (rootfiles)>
+
+<!--
+	Rootfiles include the starting points for the different
+	representations of a MusicXML score. The MusicXML root
+	must be described in the first rootfile element. Additional
+	rootfile elements can describe alternate versions such as
+	PDF and audio files.
+-->
+<!ELEMENT rootfiles (rootfile+)>
+
+<!--
+	The rootfile element describes each top-level file in
+	the MusicXML container. The full-path attribute provides
+	the path relative to the root folder of the zip file. The
+	media-type identifies the type of different top-level
+	root files. It is an error to have a non-MusicXML
+	media-type value in the first rootfile in a rootfiles
+	element. If no media-type value is present, a MusicXML
+	file is assumed. A MusicXML file used as a rootfile may
+	have score-partwise, score-timewise, or opus as its
+	document element.
+-->
+<!ELEMENT rootfile EMPTY>
+<!ATTLIST rootfile
+    full-path CDATA #REQUIRED
+    media-type CDATA #IMPLIED
+>

@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+
+LIB=libmusicxml2
+BINLIB=libmusicxml2.framework/libmusicxml2
+
+while [ $1 ]
+do
+	TARGET=$1
+
+	CURR=$(otool -L $TARGET | grep $LIB | grep compatibility | cut -d ' ' -f 1 | sed 's/^[ 	]*//')
+	NEW=/Library/Frameworks/$BINLIB
+
+	install_name_tool -id $NEW $TARGET
+	install_name_tool -change $CURR $NEW $TARGET
+	shift
+done
+
+exit 0

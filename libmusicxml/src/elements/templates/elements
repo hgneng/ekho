@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+
+function kname() {
+	echo k_$1 | tr '-' '_'
+}
+
+case $3 in
+	'constants')
+		cat $2/license.txt $2/elements.txt
+		for a in $(cat $1 | cut -d'	' -f1 | sort -u )
+		do
+			echo "	$(kname $a),"
+		done
+		cat << ! 
+	kEndElement
+};
+
+}
+#endif
+
+!
+		;;
+
+	'map')
+		cat $2/license.txt $2/factory.txt
+		for a in $(cat $1 | cut -d'	' -f1 | sort -u)
+		do
+			echo "	fMap[\"$a\"] 	= new newElementFunctor<$(kname $a)>;"
+		done
+		echo
+		for a in $(cat $1 | cut -d'	' -f1 | sort -u)
+		do
+			echo "	fType2Name[$(kname $a)] 	= \"$a\";"
+		done
+		echo '}'
+		echo '}'
+		;;
+
+	'typemap')
+		cat $2/license.txt $2/typeMap.txt
+		for a in $(cat $1 | cut -d'	' -f1 | sort -u)
+		do
+			echo "   fMap[$(kname $a)] 	= \"$a\";"
+		done
+		echo "}"
+		echo "}"
+		;;
+
+
+	'types')
+		cat $2/license.txt $2/typedefs.txt
+		for a in $(cat $1 | cut -d'	' -f1 | sort -u)
+		do
+			echo "typedef SMARTP<musicxml<$(kname $a)> >		S_$(echo $a | tr '-' '_');"
+		done
+		echo '}'
+		echo '#endif'
+		;;
+
+	*)
+		echo "usage: elements eltsfile templatedir [constants | map | types]"
+		exit 1
+		;;
+esac	
+
+exit 0
+

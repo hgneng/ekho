@@ -1,0 +1,220 @@
+<!--
+	Standard MIDI File DTD: MIDI XML
+
+	Version 3.0
+	
+	Copyright © 2004-2011 MakeMusic, Inc.
+	http://www.makemusic.com/
+	
+	This MusicXML™ work is being provided by the copyright
+	holder under the MusicXML Public License Version 3.0,
+	available from:
+	
+		http://www.musicxml.org/dtds/license.html
+-->
+
+<!--
+	MIDI XML is an XML representation of standard MIDI files for
+	MIDI 1.0. Unlike standard MIDI files, it can have timestamps
+	present as either absolute or delta values. This makes it
+	convenient as an intermediate format to convert from the
+	MusicXML format and other formats where note on and note off
+	are not represented as discrete events. To convert to
+	Standard MIDI Files, delta values must be used.
+	
+	Suggested use:
+	
+	<!DOCTYPE MIDIFile PUBLIC
+		"-//Recordare//DTD MusicXML 3.0 MIDI//EN"
+		"http://www.musicxml.org/dtds/midixml.dtd">
+	
+-->
+
+<!--
+	For Standard MIDI Files, channels are required; events
+	are not rechannelized.
+--> 
+<!ENTITY % ChannelRequired "#REQUIRED">
+
+<!-- Component DTD modules -->
+
+<!--
+	The MMA MIDI DTD contains the definitions of all MIDI
+	events. Its regular address is:
+	
+	http://www.midi.org/dtds/MIDIEvents10.dtd
+	
+	For convenience, we include a local copy with our
+	definition, and reference that here.
+-->
+<!ENTITY % midi PUBLIC
+	"-//MIDI Manufacturers Association//DTD MIDIEvents 1.0//EN"
+	"MIDIEvents10.dtd">
+%midi;
+
+<!--
+	Timestamps are either delta or absolute. They must all be
+	one or the other throughout the MIDI XML file. Timestamps
+	are numeric values measured in MIDI ticks.
+-->
+<!ENTITY % Timestamp "(Delta | Absolute)">
+<!ELEMENT Delta (#PCDATA)>
+<!ELEMENT Absolute (#PCDATA)>
+
+<!--
+	Standard MIDI File events include MIDI Channel messages,
+	meta-events, and system exclusive events. Each track is
+	a series of events. The MetaEvent and SysExEvent elements
+	are defined below. The MIDIChannelMessage and MIDIMessage
+	events are defined in the MMA's MIDI DTD (RP-038).
+-->
+<!ENTITY % MetaEvent 
+	"(SequenceNumber | TextEvent | CopyrightNotice |
+	 TrackName | InstrumentName | Lyric | Marker |
+	 CuePoint | ProgramName | DeviceName | Port |
+	 MIDIChannelPrefix | EndOfTrack | SetTempo |
+	 SMPTEOffset | TimeSignature | KeySignature |
+	 SequencerSpecific | OtherMetaEvent)">
+	 
+<!ENTITY % SysExEvent
+	"(SystemExclusive | EndOfExclusive)">
+
+<!ENTITY % SmfEvent
+	"(%MIDIChannelMessage; | %MetaEvent; | %SysExEvent;)">
+
+<!ELEMENT Event (%Timestamp;, %SmfEvent;)>
+
+<!--
+	MIDI meta events. If empty, the value for the event is
+	contained in an attribute, following the pattern of the
+	MMA's MIDI DTD. Textual meta events have their values as
+	text within the element.
+-->
+<!ELEMENT SequenceNumber EMPTY>
+<!ATTLIST SequenceNumber
+	Value NMTOKEN #REQUIRED>
+<!ELEMENT TextEvent (#PCDATA)>
+<!ELEMENT CopyrightNotice (#PCDATA)>
+<!ELEMENT TrackName (#PCDATA)>
+<!ELEMENT InstrumentName (#PCDATA)>
+<!ELEMENT Lyric (#PCDATA)>
+<!ELEMENT Marker (#PCDATA)>
+<!ELEMENT CuePoint (#PCDATA)>
+<!ELEMENT MIDIChannelPrefix EMPTY>
+<!ATTLIST MIDIChannelPrefix
+	Value NMTOKEN #REQUIRED>
+<!ELEMENT EndOfTrack EMPTY>
+<!ELEMENT SetTempo EMPTY>
+<!ATTLIST SetTempo
+	Value NMTOKEN #REQUIRED>
+<!ELEMENT SMPTEOffset EMPTY>
+<!ATTLIST SMPTEOffset
+	TimeCodeType    NMTOKEN  #REQUIRED
+	Hour            NMTOKEN  #REQUIRED
+	Minute          NMTOKEN  #REQUIRED
+	Second          NMTOKEN  #REQUIRED
+	Frame           NMTOKEN  #REQUIRED
+	FractionalFrame NMTOKEN  #REQUIRED>
+<!ELEMENT TimeSignature EMPTY>
+<!ATTLIST TimeSignature
+	Numerator       NMTOKEN  #REQUIRED
+	LogDenominator  NMTOKEN  #REQUIRED
+	MIDIClocksPerMetronomeClick  NMTOKEN  #REQUIRED
+	ThirtySecondsPer24Clocks     NMTOKEN  #REQUIRED>
+<!ELEMENT KeySignature EMPTY>
+<!ATTLIST KeySignature
+	Fifths          NMTOKEN  #REQUIRED
+	Mode            NMTOKEN  #REQUIRED>
+<!ELEMENT SequencerSpecific (#PCDATA)>
+
+<!--
+	The ProgramName and DeviceName meta-events are described
+	in RP-019 from the MMA. They allow a Standard MIDI file to
+	address multiple devices, enabling more than 16 channels of
+	MIDI playback.
+-->
+<!ELEMENT ProgramName (#PCDATA)>
+<!ELEMENT DeviceName (#PCDATA)>
+
+
+<!--
+	The XMFPatchTypePrefix meta-event is described in
+	RP-032 from the MMA. It allows specification of using
+	General MIDI 1, General MIDI 2, or DLS to interpret
+	subsequent program change and bank select messages
+	in the same track.
+-->
+<!ELEMENT XMFPatchTypePrefix EMPTY>
+<!ATTLIST XMFPatchTypePrefix
+	Value NMTOKEN #REQUIRED>
+
+<!--
+	The meta-event hex 21 has been used, though unofficially,
+	for a MIDI port or cable number. RP-019 deprecates this in
+	favor of the DeviceName meta-event, but some programs
+	still use this.
+-->
+<!ELEMENT Port EMPTY>
+<!ATTLIST Port
+	Value NMTOKEN #REQUIRED>
+
+<!--
+	An unrecognized meta-event has an attribute for its event
+	type number. The data for the event is represented in hex
+	within the element, as is done for system exclusives.
+-->
+<!ELEMENT OtherMetaEvent (#PCDATA)>
+<!ATTLIST OtherMetaEvent
+	Number NMTOKEN #REQUIRED>
+
+<!--
+	MIDI system exclusive and end of exclusive events have
+	their data represented as a series of 2-digit hex elements
+	separated by spaces, as in the MMA MIDI DTD.
+-->
+<!ELEMENT SystemExclusive (#PCDATA)>
+<!ELEMENT EndOfExclusive (#PCDATA)>
+
+<!-- MIDI is the root element -->
+<!ELEMENT MIDIFile (Format, TrackCount,
+	(TicksPerBeat | (FrameRate, TicksPerFrame)),
+	TimestampType, Track+)>
+
+<!--
+	Format indicates MIDI format 0, 1, or 2. So far only types
+	0 and 1 are explicitly supported by the MIDI XML format.
+-->
+<!ELEMENT Format (#PCDATA)>
+
+<!--
+	TrackCount indicate the number of tracks in a file: 1 for
+	type 0, usually more for types 1 and 2. The TrackCount
+	matches the number of Track elements in the MIDI XML file.
+-->
+<!ELEMENT TrackCount (#PCDATA)>
+
+<!--
+	How many ticks in a beat (MIDI quarter note).
+-->
+<!ELEMENT TicksPerBeat (#PCDATA)>
+
+<!--
+	Frame rate and ticks per frame are used with SMPTE
+	time codes.
+-->
+<!ELEMENT FrameRate (#PCDATA)>
+<!ELEMENT TicksPerFrame (#PCDATA)>
+
+<!--
+	TimestampType should be Delta or Absolute. Indicates the
+	element name to look for in the initial timestamp in each
+	MIDI event.
+-->
+<!ELEMENT TimestampType (#PCDATA)>
+
+<!--
+	Tracks contain the musical data and are made up of a series
+	of events. The track number attribute is required.
+-->
+<!ELEMENT Track (Event*)>
+<!ATTLIST Track Number NMTOKEN #REQUIRED>

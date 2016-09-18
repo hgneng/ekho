@@ -1,0 +1,55 @@
+
+#ifdef WIN32
+# pragma warning (disable : 4786)
+#endif
+
+#include <iostream>
+#include "elements.h"
+#include "factory.h"
+#include "types.h"
+
+using namespace std; 
+
+namespace MusicXML2 
+{
+
+
+template<int elt>
+class newElementFunctor : public functor<Sxmlelement> {
+	public:
+		Sxmlelement operator ()() {  return musicxml<elt>::new_musicxml(); }
+};
+
+
+Sxmlelement factory::create(const string& eltname) const
+{ 
+	map<std::string, functor<Sxmlelement>*>::const_iterator i = fMap.find( eltname );
+	if (i != fMap.end()) {
+		functor<Sxmlelement>* f= i->second;
+		if (f) {
+			Sxmlelement elt = (*f)();
+			elt->setName(eltname);
+			return elt;
+		}
+	}
+	cerr << "Sxmlelement factory::create called with unknown element \"" << eltname << "\"" << endl;
+	return 0;
+}
+
+Sxmlelement factory::create(int type) const
+{ 
+	map<int, const char*>::const_iterator i = fType2Name.find( type );
+	if (i != fType2Name.end()) {
+		return create (i->second);
+	}
+	cerr << "Sxmlelement factory::create called with unknown type \"" << type << "\"" << endl;
+	return 0;
+}
+
+
+factory::factory() 
+{
+	fMap["comment"] 	= new newElementFunctor<kComment>;
+	fMap["pi"] 	= new newElementFunctor<kProcessingInstruction>;
+	fType2Name[kComment] 				= "comment";
+	fType2Name[kProcessingInstruction] 	= "pi";

@@ -1,0 +1,11 @@
+
+#ifndef __elements__
+#define __elements__
+
+namespace MusicXML2 
+{
+
+enum {	
+	kNoElement,
+	kComment,
+	kProcessingInstruction,

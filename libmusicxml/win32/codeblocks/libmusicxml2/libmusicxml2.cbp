@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="libmusicxml2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="..\libmusicxml2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DBUILD_DLL" />
+					<Add option="-DLIBMUSICXML_EXPORTS" />
+				</Compiler>
+				<Linker>
+					<Add library="user32" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="..\libmusicxml2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DBUILD_DLL" />
+					<Add option="-DLIBMUSICXML_EXPORTS" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="user32" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-DGCC" />
+			<Add directory="..\..\..\src\elements" />
+			<Add directory="..\..\..\src\files" />
+			<Add directory="..\..\..\src\guido" />
+			<Add directory="..\..\..\src\lib" />
+			<Add directory="..\..\..\src\operations" />
+			<Add directory="..\..\..\src\parser" />
+			<Add directory="..\..\..\src\visitors" />
+		</Compiler>
+		<Unit filename="..\..\..\src\elements\elements.h" />
+		<Unit filename="..\..\..\src\elements\exports.h" />
+		<Unit filename="..\..\..\src\elements\factory.cpp" />
+		<Unit filename="..\..\..\src\elements\factory.h" />
+		<Unit filename="..\..\..\src\elements\typedefs.h" />
+		<Unit filename="..\..\..\src\elements\types.h" />
+		<Unit filename="..\..\..\src\elements\unrolled_xml_tree_browser.cpp" />
+		<Unit filename="..\..\..\src\elements\unrolled_xml_tree_browser.h" />
+		<Unit filename="..\..\..\src\elements\versions.cpp" />
+		<Unit filename="..\..\..\src\elements\versions.h" />
+		<Unit filename="..\..\..\src\elements\xml.cpp" />
+		<Unit filename="..\..\..\src\elements\xml.h" />
+		<Unit filename="..\..\..\src\elements\xml_tree_browser.cpp" />
+		<Unit filename="..\..\..\src\elements\xml_tree_browser.h" />
+		<Unit filename="..\..\..\src\files\xmlfile.cpp" />
+		<Unit filename="..\..\..\src\files\xmlfile.h" />
+		<Unit filename="..\..\..\src\files\xmlreader.cpp" />
+		<Unit filename="..\..\..\src\files\xmlreader.h" />
+		<Unit filename="..\..\..\src\guido\guido.cpp" />
+		<Unit filename="..\..\..\src\guido\guido.h" />
+		<Unit filename="..\..\..\src\guido\xml2guidovisitor.cpp" />
+		<Unit filename="..\..\..\src\guido\xml2guidovisitor.h" />
+		<Unit filename="..\..\..\src\guido\xmlpart2guido.cpp" />
+		<Unit filename="..\..\..\src\guido\xmlpart2guido.h" />
+		<Unit filename="..\..\..\src\lib\bimap.h" />
+		<Unit filename="..\..\..\src\lib\browser.h" />
+		<Unit filename="..\..\..\src\lib\conversions.cpp" />
+		<Unit filename="..\..\..\src\lib\conversions.h" />
+		<Unit filename="..\..\..\src\lib\ctree.h" />
+		<Unit filename="..\..\..\src\lib\functor.h" />
+		<Unit filename="..\..\..\src\lib\rational.cpp" />
+		<Unit filename="..\..\..\src\lib\rational.h" />
+		<Unit filename="..\..\..\src\lib\singleton.h" />
+		<Unit filename="..\..\..\src\lib\smartlist.h" />
+		<Unit filename="..\..\..\src\lib\smartpointer.h" />
+		<Unit filename="..\..\..\src\lib\tree_browser.h" />
+		<Unit filename="..\..\..\src\operations\transposition.cpp" />
+		<Unit filename="..\..\..\src\operations\transposition.h" />
+		<Unit filename="..\..\..\src\parser\reader.h" />
+		<Unit filename="..\..\..\src\parser\xmllex.cpp" />
+		<Unit filename="..\..\..\src\parser\xmlparse.cpp" />
+		<Unit filename="..\..\..\src\parser\xmlparse.hpp" />
+		<Unit filename="..\..\..\src\visitors\basevisitor.h" />
+		<Unit filename="..\..\..\src\visitors\clefvisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\clefvisitor.h" />
+		<Unit filename="..\..\..\src\visitors\clonevisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\clonevisitor.h" />
+		<Unit filename="..\..\..\src\visitors\keysignvisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\keysignvisitor.h" />
+		<Unit filename="..\..\..\src\visitors\keyvisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\keyvisitor.h" />
+		<Unit filename="..\..\..\src\visitors\metronomevisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\metronomevisitor.h" />
+		<Unit filename="..\..\..\src\visitors\midicontextvisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\midicontextvisitor.h" />
+		<Unit filename="..\..\..\src\visitors\notevisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\notevisitor.h" />
+		<Unit filename="..\..\..\src\visitors\partsummary.cpp" />
+		<Unit filename="..\..\..\src\visitors\partsummary.h" />
+		<Unit filename="..\..\..\src\visitors\timesignvisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\timesignvisitor.h" />
+		<Unit filename="..\..\..\src\visitors\transposevisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\transposevisitor.h" />
+		<Unit filename="..\..\..\src\visitors\unrolled_clonevisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\unrolled_clonevisitor.h" />
+		<Unit filename="..\..\..\src\visitors\visitable.h" />
+		<Unit filename="..\..\..\src\visitors\visitor.h" />
+		<Unit filename="..\..\..\src\visitors\xmlvisitor.cpp" />
+		<Unit filename="..\..\..\src\visitors\xmlvisitor.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
