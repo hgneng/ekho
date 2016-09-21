@@ -2,7 +2,6 @@
 ar-lib
 compile
 libtool
-Makefile
 config.log
 config.status
 config.h
