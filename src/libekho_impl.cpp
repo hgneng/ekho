@@ -551,17 +551,17 @@ int EkhoImpl::saveMp3(string text, string filename) {
 int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type, bool tofile) {
   short buffer[BUFFER_SIZE];
   int error;
-  static int pending_frames = 0;
 
   EkhoImpl *pEkho = (EkhoImpl*)arg;
   if (!pEkho->mSonicStream)
     return -1;
 
-  int have_frames = pEkho->writeToSonicStream(pcm, frames, type);
+  int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
-  if (pending_frames > 65536 || !have_frames) {
+  if (!flush_frames) {
     do {
       frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
+
       if (frames > 0 && !pEkho->isStopped) {
         if (tofile) {
           int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
@@ -579,10 +579,9 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type, bool
 #endif
         }
       }
-    } while (frames > 0 && (pending_frames > 65536 || !have_frames));
+    } while (frames > 0);
 
-    if (!have_frames)
-      sonicFlushStream(pEkho->mSonicStream);
+    sonicFlushStream(pEkho->mSonicStream); // TODO: needed?
   }
 
   return 0;
@@ -1809,7 +1808,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
       case NON_ENGLISH:
         if (pause > 0) {
           word--; // turn back pointer
-          if (pause > 1)
+          if (pause >= 1)
             pPcm = this->mDict.getFullPause()->getPcm(size);
           else if (pause >= 0.5)
             pPcm = this->mDict.getHalfPause()->getPcm(size);
