@@ -687,10 +687,10 @@ Syntax: ekho [option] [text]\n\
         Set delta pitch. Value range from -100 to 100 (percent)\n\
 -a, --volume=VOLUME_DELTA\n\
         Set delta volume. Value range from -100 to 100 (percent)\n\
--r, --rate=RATE\n\
-        Set delta rate (this scales pitch and speed at the same time). Value range from -50 to 100 (percent)\n\
 -s, --speed=SPEED\n\
         Set delta speed. Value range from -50 to 300 (percent)\n\
+--english-speed=SPEED\n\
+	Set English delta speed. Value range from -50 to 150 (percent)\n\
 --server\n\
         Start Ekho TTS server.\n\
 --request=TEXT\n\
@@ -703,6 +703,10 @@ Syntax: ekho [option] [text]\n\
         Display this help message.\n\n\
 Please report bugs to Cameron Wong (hgneng at gmail.com)\n",
 PACKAGE_VERSION);
+
+//-r, --rate=RATE\n\
+//        Set delta rate (this scales pitch and speed at the same time). Value range from -50 to 100 (percent)\n\
+
 }
 
 static int read_textfile(const char *filename, char **text) {
@@ -765,6 +769,7 @@ int main(int argc, char *argv[]) {
     {"volume", 1, NULL, 'a'},
     {"rate", 1, NULL, 'r'},
     {"speed", 1, NULL, 's'},
+    {"english-speed", 1, NULL, 'i'},
     {"port", 1, NULL, '1'},
     {"server", 0, NULL, 'e'},
     {"request", 1, NULL, 'q'},
@@ -795,13 +800,14 @@ int main(int argc, char *argv[]) {
   int volume_delta = 0;
   int rate_delta = 0;
   int tempo_delta = 0;
+  int english_speed_delta = 0;
   extern char *optarg;
   extern int optind, optopt;
   bool is_listing_symbols = false;
   bool is_listing_word = false;
   int server_port = 2046;
 
-  while ((opt = getopt_long(argc, argv, ":hgv:n:f:o:t:p:r:a:s:eq:lwd1:", opts, &optidx)) != -1 ) {
+  while ((opt = getopt_long(argc, argv, ":i:hgv:n:f:o:t:p:r:a:s:eq:lwd1:", opts, &optidx)) != -1 ) {
     switch (opt) {
       case 'd':
         isDebugging = true;
@@ -849,6 +855,8 @@ int main(int argc, char *argv[]) {
       case 's':
         tempo_delta = atoi(optarg);
         break;
+      case 'i':
+        english_speed_delta = atoi(optarg);
       case 'a':
         volume_delta = atoi(optarg);
         break;
@@ -953,6 +961,7 @@ int main(int argc, char *argv[]) {
     Ekho::debug(isDebugging);
     ekho_g = new Ekho();
     ekho_g->setSpeed(tempo_delta);
+    ekho_g->setEnglishSpeed(english_speed_delta);
     ekho_g->setPitch(pitch_delta);
     ekho_g->setVolume(volume_delta);
     
@@ -981,6 +990,7 @@ int main(int argc, char *argv[]) {
     ekho_g = new Ekho(language);
     ekho_g->setPitch(pitch_delta);
     ekho_g->setSpeed(tempo_delta);
+    ekho_g->setEnglishSpeed(english_speed_delta);
     ekho_g->setVolume(volume_delta);
     ekho_g->setRate(rate_delta);
 

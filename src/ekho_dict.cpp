@@ -19,22 +19,22 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,              *
  * MA  02110-1301, USA.                                                    *
  **************************************************************************/
-#include "stdafx.h"
-#include <iostream>
-#include <fstream>
+#include "ekho_dict.h"
+#include <dirent.h>
 #include <stdlib.h>
 #include <sys/stat.h>
-#include <dirent.h>
-#include "ekho_dict.h"
-#include "phonetic_symbol.h"
+#include <fstream>
+#include <iostream>
 #include "character.h"
-#include "zhy_symbol_map.h"
+#include "phonetic_symbol.h"
+#include "stdafx.h"
 #include "zh_symbol_map.h"
+#include "zhy_symbol_map.h"
 
 #ifdef _WIN32_WINNT
 #include <io.h>
 #include <process.h>
-#define F_OK    0
+#define F_OK 0
 #else
 #include <unistd.h>
 #endif
@@ -60,9 +60,7 @@ static bool isDir(const char *path) {
 
 bool Dict::mDebug = false;
 
-Dict::Dict(void) {
-  init();
-}
+Dict::Dict(void) { init(); }
 
 Dict::Dict(Language lang) {
   init();
@@ -95,12 +93,12 @@ void Dict::init(void) {
   memset(mKaSymbolLetter, 0, sizeof(mKaSymbolLetter));
   mKaSymbolIndex = 0;
 
-	mDataPath = getDefaultDataPath();
+  mDataPath = getDefaultDataPath();
 
 #ifdef ENABLE_FRISO
   string friso_dict_path = mDataPath + "/friso-dict/";
   realpath(friso_dict_path.c_str(), g_friso_lex_dir);
-  
+
   // append / to end
   int len = strlen(g_friso_lex_dir);
   g_friso_lex_dir[len] = '/';
@@ -109,7 +107,8 @@ void Dict::init(void) {
   friso_dict_path += "friso.ini";
   mFriso = friso_new();
   mFrisoConfig = friso_new_config();
-  if (friso_init_from_ifile(mFriso, mFrisoConfig, (char*)friso_dict_path.c_str()) != 1)
+  if (friso_init_from_ifile(mFriso, mFrisoConfig,
+                            (char *)friso_dict_path.c_str()) != 1)
     cerr << "fail to initialize friso and config." << endl;
 
   mFrisoTask = friso_new_task();
@@ -120,8 +119,7 @@ Dict::~Dict(void) {
   delete mFullPause;
   delete mHalfPause;
   delete mQuaterPause;
-  if (mVoiceFile)
-    fclose(mVoiceFile);
+  if (mVoiceFile) fclose(mVoiceFile);
   mVoiceFile = 0;
 
   // TODO: detete mKaSymbolLetter
@@ -176,8 +174,7 @@ int Dict::loadMandarin(void) {
     string zhList(mDataPath);
     zhList += "/zh_list";
     if (this->loadEspeakDict(zhList) != 0) {
-      cerr << "Fail to load espeak dictionary: "
-        << zhList << endl;
+      cerr << "Fail to load espeak dictionary: " << zhList << endl;
       return -1;
     }
 
@@ -185,9 +182,14 @@ int Dict::loadMandarin(void) {
     zhList = mDataPath;
     zhList += "/zh_listx";
     if (this->loadEspeakDict(zhList) != 0) {
-      cerr << "Fail to load espeak dictionary: "
-        << zhList << endl;
+      cerr << "Fail to load espeak dictionary: " << zhList << endl;
       return -1;
+    }
+
+    // load zh_patch
+    zhList = mDataPath + "/zh_patch";
+    if (this->loadEspeakDict(zhList) != 0) {
+      cerr << "Fail to load zh_patch: " << zhList << endl;
     }
 
     // save to zh.dict
@@ -205,11 +207,10 @@ int Dict::loadMandarin(void) {
  *  -2  - fail to load voice
  */
 int Dict::setLanguage(Language lang) {
-  if (lang == mLanguage)
-    return 0;
+  if (lang == mLanguage) return 0;
 
   struct stat statBuf;
-  
+
   // clear old dictionary
   for (int i = 0; i < 65536; ++i) {
     mDictItemArray[i].character.phonSymbol = 0;
@@ -221,7 +222,7 @@ int Dict::setLanguage(Language lang) {
   mExtraDictItemMap.clear();
 
   mLanguage = lang;
-  
+
   if (lang == CANTONESE) {
     string zhyDict(mDataPath);
     zhyDict += "/zhy.dict";
@@ -231,8 +232,7 @@ int Dict::setLanguage(Language lang) {
       string zhyList(mDataPath);
       zhyList += "/zhy_list";
       if (loadEspeakDict(zhyList) != 0) {
-        cerr << "Fail to load espeak dictionary: "
-          << zhyList << endl;
+        cerr << "Fail to load espeak dictionary: " << zhyList << endl;
         return -1;
       }
 
@@ -240,42 +240,36 @@ int Dict::setLanguage(Language lang) {
       this->saveEkhoDict(zhyDict);
     }
   } else if (lang == MANDARIN) {
-     if (loadMandarin())
-       return -1;
+    if (loadMandarin()) return -1;
   } else if (lang == ENGLISH) {
     // Nothing to do
   } else if (lang == HAKKA) {
     string kaList(mDataPath);
     kaList += "/ka_list";
     if (loadEspeakDict(kaList) != 0) {
-      cerr << "Fail to load espeak dictionary: "
-        << kaList << endl;
+      cerr << "Fail to load espeak dictionary: " << kaList << endl;
       return -1;
     }
   } else if (lang == TIBETAN) {
     string boList(mDataPath);
     boList += "/bo_list";
     if (loadEspeakDict(boList) != 0) {
-      cerr << "Fail to load espeak dictionary: "
-        << boList << endl;
+      cerr << "Fail to load espeak dictionary: " << boList << endl;
       return -1;
     }
-    if (loadMandarin())
-      return -1;
+    if (loadMandarin()) return -1;
   } else if (lang == NGANGIEN) {
     string yayanList(mDataPath);
     yayanList += "/ngangien_list";
     if (loadEspeakDict(yayanList) != 0) {
-      cerr << "Fail to load espeak dictionary: "
-      << yayanList << endl;
+      cerr << "Fail to load espeak dictionary: " << yayanList << endl;
       return -1;
     }
   } else if (lang == KOREAN) {
     string koList(mDataPath);
     koList += "/ko_list";
     if (loadEspeakDict(koList) != 0) {
-      cerr << "Fail to load espeak dictionary: "
-      << koList << endl;
+      cerr << "Fail to load espeak dictionary: " << koList << endl;
       return -1;
     }
   }
@@ -312,19 +306,19 @@ void Dict::addSpecialSymbols(void) {
   }
 
   // full pauses
-  addDictItem(10, mFullPause); // "\n"
-  addDictItem(59, mFullPause); // ";"
+  addDictItem(10, mFullPause);  // "\n"
+  addDictItem(59, mFullPause);  // ";"
   mPunctuationNameMap[59] = "分号";
-  addDictItem(65307, mFullPause); // Chinese ";"
+  addDictItem(65307, mFullPause);  // Chinese ";"
   mPunctuationNameMap[65307] = "分号";
-  addDictItem(12290, mFullPause); // Chinese "."
+  addDictItem(12290, mFullPause);  // Chinese "."
   mPunctuationNameMap[12290] = "句号";
-  addDictItem(63, mFullPause); // ?
+  addDictItem(63, mFullPause);  // ?
   mPunctuationNameMap[63] = "问号";
 
   // "." "..."
-  addDictItem(46, mFullPause); // "."
-  list< list<Character> > *wordList  = new list< list<Character> >();
+  addDictItem(46, mFullPause);  // "."
+  list<list<Character> > *wordList = new list<list<Character> >();
   list<Character> charList;
   charList.push_back(Character(46, mQuaterPause));
   charList.push_back(Character(46, mQuaterPause));
@@ -334,62 +328,62 @@ void Dict::addSpecialSymbols(void) {
   mPunctuationNameMap[46] = "点";
 
   // half pauses
-  addDictItem(44, mHalfPause); // ","
+  addDictItem(44, mHalfPause);  // ","
   mPunctuationNameMap[44] = "逗号";
-  addDictItem(65292, mHalfPause); // Chinese ","
+  addDictItem(65292, mHalfPause);  // Chinese ","
   mPunctuationNameMap[65292] = "逗号";
-  addDictItem(58, mHalfPause); // ":"
+  addDictItem(58, mHalfPause);  // ":"
   mPunctuationNameMap[58] = "冒号";
-  addDictItem(65306, mHalfPause); // Chinese ":"
+  addDictItem(65306, mHalfPause);  // Chinese ":"
   mPunctuationNameMap[65306] = "冒号";
-  addDictItem(8230, mHalfPause); // Chinese "..."
+  addDictItem(8230, mHalfPause);  // Chinese "..."
   mPunctuationNameMap[8230] = "省略号";
 
   // quater pauses
-  addDictItem(45, mQuaterPause); // "-"
+  addDictItem(45, mQuaterPause);  // "-"
   mPunctuationNameMap[45] = "减号";
-  addDictItem(8212, mQuaterPause); // Chinese "-"
+  addDictItem(8212, mQuaterPause);  // Chinese "-"
   mPunctuationNameMap[8212] = "减号";
-//  addDictItem(32, mQuaterPause); // " "
-//  addDictItem(12288, mQuaterPause); // Chinese " "
-  addDictItem(39, mQuaterPause); // "'"
+  //  addDictItem(32, mQuaterPause); // " "
+  //  addDictItem(12288, mQuaterPause); // Chinese " "
+  addDictItem(39, mQuaterPause);  // "'"
   mPunctuationNameMap[39] = "单引号";
-  addDictItem(8216, mQuaterPause); // Chinese "'"
+  addDictItem(8216, mQuaterPause);  // Chinese "'"
   mPunctuationNameMap[8216] = "单引号";
-  addDictItem(34, mQuaterPause); // '"'
+  addDictItem(34, mQuaterPause);  // '"'
   mPunctuationNameMap[34] = "双引号";
-  addDictItem(8220, mQuaterPause); // Chinese '"'
+  addDictItem(8220, mQuaterPause);  // Chinese '"'
   mPunctuationNameMap[8220] = "双引号";
-  addDictItem(40, mQuaterPause); // "("
+  addDictItem(40, mQuaterPause);  // "("
   mPunctuationNameMap[40] = "左括号";
-  addDictItem(65288, mQuaterPause); // Chinese "("
+  addDictItem(65288, mQuaterPause);  // Chinese "("
   mPunctuationNameMap[65288] = "左括号";
-  addDictItem(41, mQuaterPause); // ")"
+  addDictItem(41, mQuaterPause);  // ")"
   mPunctuationNameMap[41] = "右括号";
-  addDictItem(65289, mQuaterPause); // Chinese ")"
+  addDictItem(65289, mQuaterPause);  // Chinese ")"
   mPunctuationNameMap[65289] = "右括号";
-  addDictItem(12298, mQuaterPause); // Chinese "<<"
+  addDictItem(12298, mQuaterPause);  // Chinese "<<"
   mPunctuationNameMap[12298] = "左书名号";
-  addDictItem(12299, mQuaterPause); // Chinese ">>"
+  addDictItem(12299, mQuaterPause);  // Chinese ">>"
   mPunctuationNameMap[12299] = "右书名号";
-  addDictItem(91, mQuaterPause); // Chinese "["
+  addDictItem(91, mQuaterPause);  // Chinese "["
   mPunctuationNameMap[91] = "左中括号";
-  addDictItem(12300, mQuaterPause); // Chinese "["
+  addDictItem(12300, mQuaterPause);  // Chinese "["
   mPunctuationNameMap[12300] = "左中括号";
-  addDictItem(93, mQuaterPause); // Chinese "]"
+  addDictItem(93, mQuaterPause);  // Chinese "]"
   mPunctuationNameMap[93] = "右中括号";
-  addDictItem(12301, mQuaterPause); // Chinese "]"
+  addDictItem(12301, mQuaterPause);  // Chinese "]"
   mPunctuationNameMap[12301] = "右中括号";
-  addDictItem(12302, mQuaterPause); // Chinese "[["
+  addDictItem(12302, mQuaterPause);  // Chinese "[["
   mPunctuationNameMap[12302] = "左书名号";
-  addDictItem(12303, mQuaterPause); // Chinese "]]"
+  addDictItem(12303, mQuaterPause);  // Chinese "]]"
   mPunctuationNameMap[12303] = "右书名号";
 
   // for Tibetan
-  mPunctuationNameMap[3853] = "ཤད"; // "shad";
-  mPunctuationNameMap[3851] = "ཚེ��?"; // "tseg";
+  mPunctuationNameMap[3853] = "ཤད";    // "shad";
+  mPunctuationNameMap[3851] = "ཚེ��?";  // "tseg";
 
-  // + - * / ? ... ｛｝“”{}#$%^&*()_+| backslash <>~` 
+  // + - * / ? ... ｛｝“”{}#$%^&*()_+| backslash <>~`
   mPunctuationNameMap[43] = "加号";
   mPunctuationNameMap[42] = "乘号";
   mPunctuationNameMap[47] = "除号";
@@ -415,8 +409,7 @@ void Dict::addSpecialSymbols(void) {
 }
 
 int Dict::setVoice(string voice) {
-  if (mVoice.compare(voice) == 0)
-    return 0;
+  if (mVoice.compare(voice) == 0) return 0;
   mVoice = "English";
 
   int key_char = 0x7684;
@@ -425,11 +418,11 @@ int Dict::setVoice(string voice) {
     mSfinfo.channels = 1;
     return 0;
   } else if (mLanguage == TIBETAN) {
-    key_char = 3904; // the first char in bo_list
+    key_char = 3904;  // the first char in bo_list
   } else if (mLanguage == KOREAN) {
-    key_char = 44032; // the first char in ko_list
+    key_char = 44032;  // the first char in ko_list
   }
-  
+
   string path = mDataPath;
   path += "/";
   path += voice;
@@ -486,15 +479,16 @@ int Dict::setVoice(string voice) {
       }
     }
 
-//    cerr << "samplerate: " << mSfinfo.samplerate <<
-  //    ", voice file type: " << mVoiceFileType << endl;
+    //    cerr << "samplerate: " << mSfinfo.samplerate <<
+    //    ", voice file type: " << mVoiceFileType << endl;
 
     if (size < 25000) {
       mFullPausePcmSize = size;
     }
 
 #ifndef _WIN32_WINNT
-	// FIXME: the index and voice file is very slow and not usable for the second time
+    // FIXME: the index and voice file is very slow and not usable for the
+    // second time
     if (mLanguage == CANTONESE || mLanguage == MANDARIN) {
       saveEkhoVoiceFile();
       loadEkhoVoiceFile(path);
@@ -508,7 +502,7 @@ int Dict::setVoice(string voice) {
   }
 }
 
-PhoneticSymbol* Dict::lookup(Character &c) {
+PhoneticSymbol *Dict::lookup(Character &c) {
   if (c.code < 65536) {
     return mDictItemArray[c.code].character.phonSymbol;
   } else {
@@ -527,13 +521,17 @@ list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
   list<Character>::iterator end = charList.end();
   while (cItor != end) {
     string s = cItor->getUtf8();
-    if ( // 助词、量词等
-        s == "的" || s == "得" || s == "着" || s == "所" || s == "了" || s == "过" || s == "吗" || s == "呢" || s == "吧" || s == "啊" || s == "呀" ||
-        s == "么" || s == "与" || s == "且" || s == "之" || s == "为" || s == "兮" || s == "其" ||
-        s == "到" || s == "云" || s == "阿" || s == "却" || s == "个" || s == "以" || s == "们" || s == "似" ||
-        s == "夫" || s == "只" || s == "向" || s == "呗" || s == "呃" || s == "呵" ||
-        s == "哇" || s == "咦" || s == "哟" || s == "哉" || s == "哩" || s == "啵" || s == "唻" || s == "啰" || s == "嘛" ||
-        s == "子" || s == "焉" || s == "然" || s == "是" || s == "罢" || s == "而") {
+    if (  // 助词、量词等
+        s == "的" || s == "得" || s == "着" || s == "所" || s == "了" ||
+        s == "过" || s == "吗" || s == "呢" || s == "吧" || s == "啊" ||
+        s == "呀" || s == "么" || s == "与" || s == "且" || s == "之" ||
+        s == "为" || s == "兮" || s == "其" || s == "到" || s == "云" ||
+        s == "阿" || s == "却" || s == "个" || s == "以" || s == "们" ||
+        s == "似" || s == "夫" || s == "只" || s == "向" || s == "呗" ||
+        s == "呃" || s == "呵" || s == "哇" || s == "咦" || s == "哟" ||
+        s == "哉" || s == "哩" || s == "啵" || s == "唻" || s == "啰" ||
+        s == "嘛" || s == "子" || s == "焉" || s == "然" || s == "是" ||
+        s == "罢" || s == "而") {
       ret.push_back(OVERLAP_HALF_PART);
     } else {
       ret.push_back(OVERLAP_QUIET_PART);
@@ -545,8 +543,8 @@ list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
   return ret;
 }
 
-list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
-  list<PhoneticSymbol*> phonList;
+list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
+  list<PhoneticSymbol *> phonList;
   list<Character>::iterator cItor = charList.begin();
   list<Character>::iterator cItor2 = charList.begin();
   list<Character> convertedCharList;
@@ -564,7 +562,8 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
   }
 
   while (cItor != end) {
-    // treat alphabet number as a whole symbol, should be Pinyin, Jyutping or English
+    // treat alphabet number as a whole symbol, should be Pinyin, Jyutping or
+    // English
     /*
     if (cItor->code >= 65 && cItor->code <= 122 &&
         (cItor->code <= 90 || cItor->code >= 97)) {
@@ -577,11 +576,12 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
       di = &mExtraDictItemMap[cItor->code];
     }
 
-    if (! (di->character.phonSymbol)) {
+    if (!(di->character.phonSymbol)) {
 #ifdef WIN32
-      // backward compatable to version before 6.0 which call sync instead of sync2
+      // backward compatable to version before 6.0 which call sync instead of
+      // sync2
       // output \unknownchar
-      di->character.code = cItor->code; // needed?
+      di->character.code = cItor->code;  // needed?
       string s = di->character.getUtf8();
       const char *c = s.c_str();
       char *sym = new char[strlen(c) + 2];
@@ -597,20 +597,19 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
 
     // check word list
     bool foundMatchedWord = false;
-    list< list<Character> >::iterator matchedWordItor;
+    list<list<Character> >::iterator matchedWordItor;
     if (di->wordList) {
       unsigned int matchedWordLen = 0;
-      list< list<Character> >::iterator wordItor = di->wordList->begin();
+      list<list<Character> >::iterator wordItor = di->wordList->begin();
       for (; wordItor != di->wordList->end(); ++wordItor) {
-        if (wordItor->size() > matchedWordLen) { // only check longer word
+        if (wordItor->size() > matchedWordLen) {  // only check longer word
           // check whether current word is matched
           list<Character>::iterator charItor = wordItor->begin();
           cItor2 = cItor;
           ++cItor2;
           ++charItor;
-          while (charItor != wordItor->end()
-              && cItor2 != end
-              && charItor->code == cItor2->code) {
+          while (charItor != wordItor->end() && cItor2 != end &&
+                 charItor->code == cItor2->code) {
             ++charItor;
             ++cItor2;
           }
@@ -622,7 +621,7 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
             matchedWordItor = wordItor;
           }
         }
-      } // end of word matching for loop
+      }  // end of word matching for loop
     }
 
     if (foundMatchedWord) {
@@ -636,16 +635,15 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
       ++cItor;
     }
 
-    if (firstWord)
-      break;
+    if (firstWord) break;
   }
 
   if (mLanguage == MANDARIN || mLanguage == TIBETAN) {
     // tone 3 rules: 333->223, 33->23, 3333->2323
-    list<PhoneticSymbol*>::reverse_iterator psIt = phonList.rbegin();
+    list<PhoneticSymbol *>::reverse_iterator psIt = phonList.rbegin();
     while (psIt != phonList.rend()) {
       while (psIt != phonList.rend() &&
-          (*psIt)->symbol[strlen((*psIt)->symbol) - 1] != '3') {
+             (*psIt)->symbol[strlen((*psIt)->symbol) - 1] != '3') {
         psIt++;
       }
 
@@ -653,7 +651,7 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
         psIt++;
         if (psIt != phonList.rend() &&
             (*psIt)->symbol[strlen((*psIt)->symbol) - 1] == '3') {
-          list<PhoneticSymbol*>::reverse_iterator psNextIt = psIt;
+          list<PhoneticSymbol *>::reverse_iterator psNextIt = psIt;
           psNextIt++;
           if (psNextIt != phonList.rend() &&
               (*psNextIt)->symbol[strlen((*psNextIt)->symbol) - 1] == '3') {
@@ -677,7 +675,7 @@ list<PhoneticSymbol*> Dict::lookup(list<Character> &charList, bool firstWord) {
   return phonList;
 }
 
-PhoneticSymbol* Dict::getPhoneticSymbol(string &symbol) {
+PhoneticSymbol *Dict::getPhoneticSymbol(string &symbol) {
   SymbolCode *sym_code;
   if (mLanguage == MANDARIN) {
     sym_code = ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
@@ -694,7 +692,7 @@ PhoneticSymbol* Dict::getPhoneticSymbol(string &symbol) {
 list<Word> Dict::lookupWord(const char *text) {
   list<Word> wordlist;
   TextType type;
-  string lastword; // ENGLISH_TEXT
+  string lastword;  // ENGLISH_TEXT
 
 #ifdef ENABLE_FRISO
   if (mLanguage == MANDARIN || mLanguage == CANTONESE) {
@@ -704,16 +702,14 @@ list<Word> Dict::lookupWord(const char *text) {
     replaceNumbers(charlist, charlist2);
 
     filtered_text = Character::join(charlist2);
-    friso_set_text(mFrisoTask, (char*)filtered_text.c_str());
+    friso_set_text(mFrisoTask, (char *)filtered_text.c_str());
     const char *friso_text = filtered_text.c_str();
-    list<PhoneticSymbol*> first_word_phons;
+    list<PhoneticSymbol *> first_word_phons;
 
-    if (mDebug)
-      cerr << "friso: ";
+    if (mDebug) cerr << "friso: ";
     while (friso_next(mFriso, mFrisoConfig, mFrisoTask)) {
       string word(mFrisoTask->hits->word);
-      if (mDebug)
-        cerr << word << "/";
+      if (mDebug) cerr << word << "/";
       list<Character> char_list = Character::split(word);
       // use first character's code to decide whether it's English
       int code = char_list.begin()->code;
@@ -729,12 +725,17 @@ list<Word> Dict::lookupWord(const char *text) {
           wordlist.push_back(Word(lastword, type));
           lastword.clear();
         }
-      } else if (code < 65536 && mDictItemArray[code].character.phonSymbol && strstr(mDictItemArray[code].character.phonSymbol->symbol, "pause") > 0) {
-        if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "fullpause") == 0)
+      } else if (code < 65536 && mDictItemArray[code].character.phonSymbol &&
+                 strstr(mDictItemArray[code].character.phonSymbol->symbol,
+                        "pause") > 0) {
+        if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
+                   "fullpause") == 0)
           type = FULL_PAUSE;
-        else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "halfpause") == 0)
+        else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
+                        "halfpause") == 0)
           type = HALF_PAUSE;
-        else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "quaterpause") == 0)
+        else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
+                        "quaterpause") == 0)
           type = QUATER_PAUSE;
 
         if (!lastword.empty()) {
@@ -749,20 +750,22 @@ list<Word> Dict::lookupWord(const char *text) {
           lastword.clear();
         }
 
-        list<PhoneticSymbol*> word_phons = lookup(word);
+        list<PhoneticSymbol *> word_phons = lookup(word);
         if (first_word_phons.empty()) {
-          first_word_phons = lookupFirstWord(friso_text + mFrisoTask->hits->offset);
+          first_word_phons =
+              lookupFirstWord(friso_text + mFrisoTask->hits->offset);
           if (first_word_phons.size() < word_phons.size())
             first_word_phons.clear();
         }
 
         if (!first_word_phons.empty()) {
-          list<PhoneticSymbol*>::iterator itor2 = word_phons.begin();
-          for (list<PhoneticSymbol*>::iterator itor = first_word_phons.begin();
-              itor != first_word_phons.end() && itor2 != word_phons.end();
-              itor2++) {
+          list<PhoneticSymbol *>::iterator itor2 = word_phons.begin();
+          for (list<PhoneticSymbol *>::iterator itor = first_word_phons.begin();
+               itor != first_word_phons.end() && itor2 != word_phons.end();
+               itor2++) {
             itor++;
-            list<PhoneticSymbol*>::iterator itor3 = word_phons.insert(itor2, *first_word_phons.begin());
+            list<PhoneticSymbol *>::iterator itor3 =
+                word_phons.insert(itor2, *first_word_phons.begin());
             first_word_phons.erase(first_word_phons.begin());
             word_phons.erase(itor2);
             itor2 = itor3;
@@ -776,12 +779,10 @@ list<Word> Dict::lookupWord(const char *text) {
         wordlist.push_back(Word(word, type, word_phons, offset, bytes));
       }
     }
-    
-    if (!lastword.empty())
-      wordlist.push_back(Word(lastword, ENGLISH_TEXT));
 
-    if (mDebug)
-      cerr << endl;
+    if (!lastword.empty()) wordlist.push_back(Word(lastword, ENGLISH_TEXT));
+
+    if (mDebug) cerr << endl;
   } else {
 #endif
     string last_chinese_word;
@@ -803,14 +804,15 @@ list<Word> Dict::lookupWord(const char *text) {
           symbol.clear();
           itor2++;
           int length = 0;
-          while (itor2 != char_list.end() && itor2->code != ' ' && itor2->code != ']' &&
-              itor2->code < 128 && length < 10) {
+          while (itor2 != char_list.end() && itor2->code != ' ' &&
+                 itor2->code != ']' && itor2->code < 128 && length < 10) {
             length++;
             symbol += itor2->getUtf8();
             itor2++;
           }
 
-          if (itor2 != char_list.end() && (itor2->code == ' ' || itor2->code == ']')) {
+          if (itor2 != char_list.end() &&
+              (itor2->code == ' ' || itor2->code == ']')) {
             // found symbol
             PhoneticSymbol *phon_symbol = getPhoneticSymbol(symbol);
             if (phon_symbol) {
@@ -821,26 +823,28 @@ list<Word> Dict::lookupWord(const char *text) {
               }
 
               if (!last_chinese_word.empty()) {
-                wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
+                wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
+                                        lookup(last_chinese_word),
+                                        lookupOverlap(last_chinese_word)));
                 last_chinese_word.clear();
               }
 
               // submit raw phonetic symbol
-              list<PhoneticSymbol*> phon_list;
+              list<PhoneticSymbol *> phon_list;
               phon_list.push_back(phon_symbol);
               wordlist.push_back(Word(symbol, PHONETIC, phon_list));
               itor2++;
 
               length = 0;
               symbol.clear();
-              while (itor2 != char_list.end() &&
-                  itor2->code != ']' && itor2->code < 128 && length < 10) {
+              while (itor2 != char_list.end() && itor2->code != ']' &&
+                     itor2->code < 128 && length < 10) {
                 if (itor2->code == ' ') {
                   // found next symbol
-                  //cerr << symbol << endl;
+                  // cerr << symbol << endl;
                   phon_symbol = getPhoneticSymbol(symbol);
                   if (phon_symbol) {
-                    list<PhoneticSymbol*> phon_list;
+                    list<PhoneticSymbol *> phon_list;
                     phon_list.push_back(phon_symbol);
                     wordlist.push_back(Word(symbol, PHONETIC, phon_list));
                     length = 0;
@@ -857,7 +861,7 @@ list<Word> Dict::lookupWord(const char *text) {
                 // handle last symbol
                 phon_symbol = getPhoneticSymbol(symbol);
                 if (phon_symbol) {
-                  list<PhoneticSymbol*> phon_list;
+                  list<PhoneticSymbol *> phon_list;
                   phon_list.push_back(phon_symbol);
                   wordlist.push_back(Word(symbol, PHONETIC, phon_list));
                 }
@@ -865,26 +869,32 @@ list<Word> Dict::lookupWord(const char *text) {
 
               // end of [[pinyin ]] style
               itor = itor2;
-              if (itor == char_list.end())
-                break;
+              if (itor == char_list.end()) break;
             }
           }
         }
       }
 
-      if (code < 65536 && mDictItemArray[code].character.phonSymbol && strstr(mDictItemArray[code].character.phonSymbol->symbol, "pause") > 0) {
+      if (code < 65536 && mDictItemArray[code].character.phonSymbol &&
+          strstr(mDictItemArray[code].character.phonSymbol->symbol, "pause") >
+              0) {
         if (lastword.empty()) {
           // it's a symbol, not including space
-          if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "fullpause") == 0)
+          if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
+                     "fullpause") == 0)
             type = FULL_PAUSE;
-          else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "halfpause") == 0)
+          else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
+                          "halfpause") == 0)
             type = HALF_PAUSE;
-          else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol, "quaterpause") == 0)
+          else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
+                          "quaterpause") == 0)
             type = QUATER_PAUSE;
 
           // submit pending Chinese word
           if (!last_chinese_word.empty()) {
-            wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
+            wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
+                                    lookup(last_chinese_word),
+                                    lookupOverlap(last_chinese_word)));
             last_chinese_word.clear();
           }
 
@@ -892,15 +902,17 @@ list<Word> Dict::lookupWord(const char *text) {
         } else {
           lastword += itor->getUtf8();
         }
-      } else if (itor->code < 65536 && !mDictItemArray[itor->code].character.phonSymbol) {
+      } else if (itor->code < 65536 &&
+                 !mDictItemArray[itor->code].character.phonSymbol) {
         // it's not a Chinese character
         if ((itor->code >= 'A' && itor->code <= 'Z') ||
-            (itor->code >= 'a' && itor->code <= 'z') ||
-            !lastword.empty()) {
+            (itor->code >= 'a' && itor->code <= 'z') || !lastword.empty()) {
           // it's alphabat
           lastword += itor->getUtf8();
           if (!last_chinese_word.empty()) {
-            wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
+            wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
+                                    lookup(last_chinese_word),
+                                    lookupOverlap(last_chinese_word)));
             last_chinese_word.clear();
           }
         } else {
@@ -922,7 +934,9 @@ list<Word> Dict::lookupWord(const char *text) {
     }
 
     if (!last_chinese_word.empty()) {
-      wordlist.push_back(Word(last_chinese_word, NON_ENGLISH, lookup(last_chinese_word), lookupOverlap(last_chinese_word)));
+      wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
+                              lookup(last_chinese_word),
+                              lookupOverlap(last_chinese_word)));
     }
 #ifdef ENABLE_FRISO
   }
@@ -931,16 +945,16 @@ list<Word> Dict::lookupWord(const char *text) {
   return wordlist;
 }
 
-void Dict::getWordPcm(list<PhoneticSymbol*> &word_phon, unsigned int &offset, unsigned short &bytes) {
+void Dict::getWordPcm(list<PhoneticSymbol *> &word_phon, unsigned int &offset,
+                      unsigned short &bytes) {
   string symbols;
   int i = 0;
   int len = word_phon.size();
-  for (list<PhoneticSymbol*>::iterator itor = word_phon.begin();
-      itor != word_phon.end(); itor++) {
+  for (list<PhoneticSymbol *>::iterator itor = word_phon.begin();
+       itor != word_phon.end(); itor++) {
     symbols += (*itor)->symbol;
     i++;
-    if (i < len)
-      symbols += "-";
+    if (i < len) symbols += "-";
   }
 
   map<string, PhoneticSymbol>::iterator sym = mWordSymbolMap.find(symbols);
@@ -972,7 +986,7 @@ int Dict::getSymbolCode(SymbolLetter *root, const char *symbol) {
     }
 
     if (!sym[code].next) {
-      sym[code].next = (SymbolLetter*)malloc(sizeof(SymbolLetter) * 36);
+      sym[code].next = (SymbolLetter *)malloc(sizeof(SymbolLetter) * 36);
       memset(sym[code].next, 0, sizeof(SymbolLetter) * 36);
     }
 
@@ -982,7 +996,7 @@ int Dict::getSymbolCode(SymbolLetter *root, const char *symbol) {
 
   if (!sym[code].index) {
     mKaSymbolIndex++;
-    char *s = (char*)malloc(strlen(symbol) + 1);
+    char *s = (char *)malloc(strlen(symbol) + 1);
     memcpy(s, symbol, strlen(symbol) + 1);
     // TODO: free s
     mKaSymbolArray[mKaSymbolIndex] = new PhoneticSymbol(s);
@@ -1001,8 +1015,9 @@ int Dict::getSymbolCode(SymbolLetter *root, const char *symbol) {
 int Dict::loadEspeakDict(const char *path) {
   string line;
   bool has_syntax_error = false;
-  map<int,DictItem>::iterator it;
-  map<string,PhoneticSymbol>::iterator symbol_it;
+  map<int, DictItem>::iterator it;
+  map<string, PhoneticSymbol>::iterator symbol_it;
+  bool debug = false;
 
   ifstream fs(path);
   if (!fs.is_open()) {
@@ -1014,219 +1029,234 @@ int Dict::loadEspeakDict(const char *path) {
   int linecount = 1;
   while (!fs.eof() && !fs.fail()) {
     list<Character> char_list = Character::split(line);
-	if (char_list.size() > 0) {
-    list<Character>::iterator c = char_list.begin();
-    list<Character> word;
+    if (char_list.size() > 0) {
+      list<Character>::iterator c = char_list.begin();
+      list<Character> word;
 
-    // skip space
-    while (c != char_list.end() && (c->code == ' ' || c->code == '\t')) {
-      c++;
-    }
+      // skip space
+      while (c != char_list.end() && (c->code == ' ' || c->code == '\t')) {
+        c++;
+      }
 
-    // skip comment line and number definition line
-    // number will be defined manually
-    list<Character>::iterator c2 = c;
-    c2++;
-    if (c != char_list.end() && c2 != char_list.end() &&
-        ((c->code == '/' && c2->code == '/') || (c->code == '_'))) {
-      c = char_list.end();
-    }
-
-    // check whether it's a word line
-    else if (c != char_list.end() && c->code == '(' && c2 != char_list.end()) {
-      c++;
+      // skip comment line and number definition line
+      // number will be defined manually
+      list<Character>::iterator c2 = c;
       c2++;
-      word.push_back(c->code);
-      c++;
-      c2++;
+      if (c != char_list.end() && c2 != char_list.end() &&
+          ((c->code == '/' && c2->code == '/') || (c->code == '_'))) {
+        c = char_list.end();
+      }
 
-      while (c != char_list.end() && c->code == ' ' && c2 != char_list.end()) {
+      // check whether it's a word line
+      else if (c != char_list.end() && c->code == '(' &&
+               c2 != char_list.end()) {
         c++;
         c2++;
         word.push_back(c->code);
         c++;
         c2++;
+
+        while (c != char_list.end() && c->code == ' ' &&
+               c2 != char_list.end()) {
+          c++;
+          c2++;
+          word.push_back(c->code);
+          c++;
+          c2++;
+        }
+
+        if (c != char_list.end() && c->code == ')' && c2 != char_list.end()) {
+          // skip space
+          c++;
+          while (c != char_list.end() && (c->code == ' ' || c->code == '\t')) {
+            c++;
+          }
+
+          list<Character>::iterator ch = word.begin();
+
+          while (c != char_list.end()) {
+            // get next phonetic symbol
+            string symbol = "";
+            while (c != char_list.end() &&
+                   ((c->code >= 'a' && c->code <= 'z') ||
+                    (c->code >= '0' && c->code <= '9') ||
+                    (c->code >= 'A' && c->code <= 'Z'))) {
+              symbol += c->getUtf8();
+              if (c->code >= '0' && c->code <= '9') {
+                c++;
+                break;
+              }
+              c++;
+            }
+
+            if (symbol.length() > 0) {
+              // asign phonetic symbol to character
+              if (ch != word.end()) {
+                SymbolCode *pSymCode;
+                if (mLanguage == CANTONESE) {
+                  pSymCode =
+                      ZHY_PHash::in_word_set(symbol.c_str(), symbol.size());
+                  if (pSymCode) {
+                    ch->phonSymbol = &mSymbolArray[pSymCode->code];
+                  } else {
+                    cerr << "Unknown symbol " << symbol << " at line "
+                         << linecount << endl;
+                    has_syntax_error = true;
+                  }
+                } else if (mLanguage == MANDARIN) {
+                  pSymCode =
+                      ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
+                  if (pSymCode) {
+                    ch->phonSymbol = &mSymbolArray[pSymCode->code];
+                  } else {
+                    cerr << "Unknown symbol " << symbol << " at line "
+                         << linecount << endl;
+                    has_syntax_error = true;
+                  }
+                } else if (mLanguage == HAKKA || mLanguage == KOREAN ||
+                           mLanguage == TIBETAN || mLanguage == NGANGIEN) {
+                  int code = getSymbolCode(mKaSymbolLetter, symbol.c_str());
+                  if (code) {
+                    ch->phonSymbol = mKaSymbolArray[code];
+                  } else {
+                    cerr << "Unknown symbol " << symbol << " at line "
+                         << linecount << endl;
+                    has_syntax_error = true;
+                  }
+                }
+
+                ch++;
+              } else {
+                cerr << "Bad espeak dictionary format at line " << linecount
+                     << "(symbols more than characters): " << line << endl;
+                has_syntax_error = true;
+                break;
+              }
+
+              // skip "|" if exists
+              if (c != char_list.end() && (c->code == '|' || c->code == '\r')) {
+                c++;
+              }
+
+            } else {
+              cerr << "Bad espeak dictionary format at line " << linecount
+                   << "(symbol not ended with number): " << line << endl;
+              has_syntax_error = true;
+              break;
+            }
+          }
+
+          if (ch != word.end()) {
+            cerr << "Bad espeak dictionary format at line " << linecount
+                 << "(characters more than symbols): " << line << endl;
+            has_syntax_error = true;
+          }
+
+          if (!has_syntax_error) {
+            DictItem *di = 0;
+            int code = word.begin()->code;
+            if (code < 65536) {
+              di = &mDictItemArray[code];
+            } else {
+              di = &mExtraDictItemMap[code];
+            }
+            if (!di->wordList) {
+              di->wordList = new list<list<Character> >();
+            }
+            di->wordList->push_back(word);
+          }
+        } else {
+          cerr << "Bad espeak dictionary format at line " << linecount
+               << "(word not quoted by ')'): " << line << endl;
+        }
       }
 
-      if (c != char_list.end() && c->code == ')' && c2 != char_list.end()) {
+      // a char line
+      else if (c2 != char_list.end() &&
+               /*        c->code > 256 && // ignore ASCII temporary */
+               (c2->code == ' ' || c2->code == '\t')) {
+        Character c3 = *c;
+
         // skip space
         c++;
         while (c != char_list.end() && (c->code == ' ' || c->code == '\t')) {
           c++;
         }
 
-        list<Character>::iterator ch = word.begin();
-
-        while (c != char_list.end()) {
-          // get next phonetic symbol
-          string symbol = "";
-          while (c != char_list.end() &&
-             ((c->code >= 'a' && c->code <= 'z') ||
-              (c->code >= '0' && c->code <= '9') ||
-              (c->code >= 'A' && c->code <= 'Z'))) {
-            symbol += c->getUtf8();
-            if (c->code >= '0' && c->code <= '9') {
-              c++;
-              break;
-            }
+        // get next phonetic symbol
+        string symbol = "";
+        while (c != char_list.end() && ((c->code >= 'a' && c->code <= 'z') ||
+                                        (c->code >= '0' && c->code <= '9') ||
+                                        (c->code >= 'A' && c->code <= 'Z'))) {
+          symbol += c->getUtf8();
+          if (c->code >= '0' && c->code <= '9') {
             c++;
-          }
-
-          if (symbol.length() > 0) {
-            // asign phonetic symbol to character
-            if (ch != word.end()) {
-              SymbolCode *pSymCode;
-              if (mLanguage == CANTONESE) {
-                pSymCode = ZHY_PHash::in_word_set(symbol.c_str(), symbol.size());
-                if (pSymCode) {
-                  ch->phonSymbol = &mSymbolArray[pSymCode->code];
-                } else {
-                  cerr << "Unknown symbol " << symbol << " at line " << linecount << endl;
-                  has_syntax_error = true;
-                }
-              } else if (mLanguage == MANDARIN) {
-                pSymCode = ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
-                if (pSymCode) {
-                  ch->phonSymbol = &mSymbolArray[pSymCode->code];
-                } else {
-                  cerr << "Unknown symbol " << symbol << " at line " << linecount << endl;
-                  has_syntax_error = true;
-                }
-              } else if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == TIBETAN || mLanguage == NGANGIEN) {
-                int code = getSymbolCode(mKaSymbolLetter, symbol.c_str());
-                if (code) {
-                  ch->phonSymbol = mKaSymbolArray[code];
-                } else {
-                  cerr << "Unknown symbol " << symbol << " at line " << linecount << endl;
-                  has_syntax_error = true;
-                }
-              }
-
-              ch++;
-            } else {
-              cerr << "Bad espeak dictionary format at line " << linecount << "(symbols more than characters): " << line << endl;
-              has_syntax_error = true;
-              break;
-            }
-
-            // skip "|" if exists
-            if (c != char_list.end() && (c->code == '|' || c->code == '\r')) {
-              c++;
-            }
-
-          } else {
-            cerr << "Bad espeak dictionary format at line " << linecount << "(symbol not ended with number): " << line << endl;
-            has_syntax_error = true;
             break;
           }
-        }
-
-        if (ch != word.end()) {
-          cerr << "Bad espeak dictionary format at line " << linecount << "(characters more than symbols): " << line << endl;
-          has_syntax_error = true;
-        }
-
-        if (!has_syntax_error) {
-          DictItem *di = 0;
-          int code = word.begin()->code;
-          if (code < 65536) {
-            di = &mDictItemArray[code];
-          } else {
-            di = &mExtraDictItemMap[code];
-          }
-          if (!di->wordList) {
-            di->wordList = new list< list<Character> >();
-          }
-          di->wordList->push_back(word);
-        }
-      } else {
-        cerr << "Bad espeak dictionary format at line " << linecount << "(word not quoted by ')'): " << line << endl;
-      }
-    }
-
-    // a char line
-    else if (c2 != char_list.end() &&
-/*        c->code > 256 && // ignore ASCII temporary */
-        (c2->code == ' ' || c2->code == '\t')) {
-      Character c3 = *c;
-
-      // skip space
-      c++;
-      while (c != char_list.end() && (c->code == ' ' || c->code == '\t')) {
-        c++;
-      }
-
-      // get next phonetic symbol
-      string symbol = "";
-      while (c != char_list.end() &&
-          ((c->code >= 'a' && c->code <= 'z') ||
-           (c->code >= '0' && c->code <= '9') ||
-           (c->code >= 'A' && c->code <= 'Z'))) {
-        symbol += c->getUtf8();
-        if (c->code >= '0' && c->code <= '9') {
           c++;
-          break;
-        }
-        c++;
-      }
-
-      // asign phonetic symbol to character
-      if (symbol.length() > 0) {
-        SymbolCode *pSymCode = 0;
-        if (mLanguage == CANTONESE) {
-          pSymCode = ZHY_PHash::in_word_set(symbol.c_str(), symbol.size());
-        } else if (mLanguage == MANDARIN) {
-          pSymCode = ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
         }
 
-        if (pSymCode) {
-          c3.phonSymbol = &mSymbolArray[pSymCode->code];
-          if (c3.code < 65536) {
-            mDictItemArray[c3.code].character = c3;
-          } else {
-            mExtraDictItemMap[c3.code].character = c3;
+        // asign phonetic symbol to character
+        if (symbol.length() > 0) {
+          SymbolCode *pSymCode = 0;
+          if (mLanguage == CANTONESE) {
+            pSymCode = ZHY_PHash::in_word_set(symbol.c_str(), symbol.size());
+          } else if (mLanguage == MANDARIN) {
+            pSymCode = ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
           }
-//          cout << c3.getUtf8() << "(" << c3.code << "): " <<
-//              c3.phonSymbol->symbol << endl; // debug code
-        } else if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == TIBETAN || mLanguage == NGANGIEN) {
-          int code = getSymbolCode(mKaSymbolLetter, symbol.c_str());
-          if (code) {
-            c3.phonSymbol = mKaSymbolArray[code];
+
+          if (pSymCode) {
+            c3.phonSymbol = &mSymbolArray[pSymCode->code];
             if (c3.code < 65536) {
               mDictItemArray[c3.code].character = c3;
             } else {
               mExtraDictItemMap[c3.code].character = c3;
             }
+            //          cout << c3.getUtf8() << "(" << c3.code << "): " <<
+            //              c3.phonSymbol->symbol << endl; // debug code
+          } else if (mLanguage == HAKKA || mLanguage == KOREAN ||
+                     mLanguage == TIBETAN || mLanguage == NGANGIEN) {
+            int code = getSymbolCode(mKaSymbolLetter, symbol.c_str());
+            if (code) {
+              c3.phonSymbol = mKaSymbolArray[code];
+              if (c3.code < 65536) {
+                mDictItemArray[c3.code].character = c3;
+              } else {
+                mExtraDictItemMap[c3.code].character = c3;
+              }
+            } else {
+              cerr << "Unknown symbol " << symbol << " at line " << linecount
+                   << endl;
+            }
           } else {
-            cerr << "Unknown symbol " << symbol << " at line " << linecount << endl;
+            cerr << "Unknown symbol " << symbol << " at line " << linecount
+                 << endl;
           }
-        } else {
-          cerr << "Unknown symbol " << symbol << " at line " << linecount << endl;
         }
+
+        //    cout << c3.code << c3.phonSymbol->symbol << endl; // debug
+        // code
       }
 
-//	  cout << c3.code << c3.phonSymbol->symbol << endl; // debug code
+      // bad line
+      else if (c != char_list.end()) {
+        cerr << "Bad espeak dictionary format at line " << linecount << ": "
+             << line << endl;  // debug code
+      }
     }
-
-    // bad line
-    else if (c != char_list.end()) {
-//      cerr << "Bad espeak dictionary format at line " << linecount << ": " << line << endl; // debug code
-    }
-
-	}
 
     getline(fs, line);
     linecount++;
   }
 
   return 0;
-} // end of loadEspeakDict
+}  // end of loadEspeakDict
 
 int Dict::saveEkhoDict(const char *path) {
   ofstream os(path, ifstream::binary);
   unsigned short max_char_count = 0;
 
-  map<int,DictItem>::iterator diMapItor = mExtraDictItemMap.begin();
+  map<int, DictItem>::iterator diMapItor = mExtraDictItemMap.begin();
   DictItem *di = 0;
   for (int i = 0; i < 65536 || diMapItor != mExtraDictItemMap.end(); ++i) {
     if (i < 65536) {
@@ -1265,23 +1295,22 @@ int Dict::saveEkhoDict(const char *path) {
       os.put((unsigned char)(symbolCode & 0xFF));
       os.put((unsigned char)((symbolCode >> 8) & 0xFF));
 
-//      cout << di->character.getUtf8() << "(" << code << "): " <<
-//          mSymbolArray[symbolCode].symbol << endl; // debug code
+      //      cout << di->character.getUtf8() << "(" << code << "): " <<
+      //          mSymbolArray[symbolCode].symbol << endl; // debug code
 
       // write number of words
       if (di->wordList) {
-        list< list<Character> > *wordList = di->wordList;
+        list<list<Character> > *wordList = di->wordList;
         int size = wordList->size();
         os.put((unsigned char)(size & 0xFF));
         os.put((unsigned char)((size >> 8) & 0xFF));
 
         // write words
-        list< list<Character> >::iterator wordItor = wordList->begin();
+        list<list<Character> >::iterator wordItor = wordList->begin();
         for (; wordItor != wordList->end(); ++wordItor) {
           // write number of character in the word
           size = wordItor->size();
-          if (size > max_char_count)
-            max_char_count = size;
+          if (size > max_char_count) max_char_count = size;
           os.put((unsigned char)(size & 0xFF));
           os.put((unsigned char)((size >> 8) & 0xFF));
 
@@ -1339,7 +1368,7 @@ int Dict::loadEkhoDict(const char *path) {
   ifstream infile(path, ifstream::binary);
   Character c;
   list<Character> charList;
-  list< list<Character> > *wordList;
+  list<list<Character> > *wordList;
   unsigned char lowbyte;
   unsigned int tmpInt;
   unsigned int code;
@@ -1348,39 +1377,39 @@ int Dict::loadEkhoDict(const char *path) {
   unsigned short charCount;
 
 #ifdef DEBUG_PERF
-	clock_t begin_clock = clock();
+  clock_t begin_clock = clock();
 #endif
 
   while (infile.good()) {
     // get character code
     lowbyte = (unsigned char)infile.get();
-    if (! infile.good()) break;
+    if (!infile.good()) break;
     code = (unsigned char)infile.get();
     code = (code << 8) + lowbyte;
     if (code == 1) {
       code = (unsigned char)infile.get();
       tmpInt = (unsigned char)infile.get();
       tmpInt <<= 8;
-      code += tmpInt; 
+      code += tmpInt;
       tmpInt = (unsigned char)infile.get();
       tmpInt <<= 16;
-      code += tmpInt; 
+      code += tmpInt;
       tmpInt = (unsigned char)infile.get();
       tmpInt <<= 24;
-      code += tmpInt; 
+      code += tmpInt;
     }
 
     // get character symbol
     lowbyte = (unsigned char)infile.get();
     symbolCode = (unsigned char)infile.get();
     symbolCode = (symbolCode << 8) + lowbyte;
-/*	if (! infile.good()) {
-		cerr << "fail to get at line " << __LINE__ << endl;
-		return -1;
-	}*/
+    /*  if (! infile.good()) {
+                    cerr << "fail to get at line " << __LINE__ << endl;
+                    return -1;
+            }*/
     if (symbolCode > SYMBOL_ARRAY_SIZE) {
-      cerr << "Corrupted dictionary (phonetic symbol code out of range): " <<
-          symbolCode << " at line " << __LINE__ << endl;
+      cerr << "Corrupted dictionary (phonetic symbol code out of range): "
+           << symbolCode << " at line " << __LINE__ << endl;
       infile.close();
       return -1;
     }
@@ -1394,8 +1423,8 @@ int Dict::loadEkhoDict(const char *path) {
     }
     di->character.code = code;
     di->character.phonSymbol = &mSymbolArray[symbolCode];
-//    cout << di->character.getUtf8() << "(" << code << "): " <<
-//            mSymbolArray[symbolCode].symbol << endl; // debug code
+    //    cout << di->character.getUtf8() << "(" << code << "): " <<
+    //            mSymbolArray[symbolCode].symbol << endl; // debug code
 
     // get number of words
     lowbyte = (unsigned char)infile.get();
@@ -1403,7 +1432,7 @@ int Dict::loadEkhoDict(const char *path) {
     wordCount = (wordCount << 8) + lowbyte;
 
     if (wordCount > 0) {
-      wordList = new list< list<Character> > ();
+      wordList = new list<list<Character> >();
       for (int i = 0; i < wordCount; ++i) {
         // add a word
         charList.clear();
@@ -1421,26 +1450,27 @@ int Dict::loadEkhoDict(const char *path) {
             code = infile.get();
             tmpInt = infile.get();
             tmpInt <<= 8;
-            code += tmpInt; 
+            code += tmpInt;
             tmpInt = infile.get();
             tmpInt <<= 16;
-            code += tmpInt; 
+            code += tmpInt;
             tmpInt = infile.get();
             tmpInt <<= 24;
-            code += tmpInt; 
+            code += tmpInt;
           }
 
           // get symbol
           lowbyte = (unsigned char)infile.get();
           symbolCode = (unsigned char)infile.get();
           symbolCode = (symbolCode << 8) + lowbyte;
-/*	      if (! infile.good()) {
-		    cerr << "fail to get at line " << __LINE__ << endl;
-		    return -1;
-	      }*/
-	      if (symbolCode > SYMBOL_ARRAY_SIZE) {
-            cerr << "Corrupted dictionary (phonetic symbol code out of range): " <<
-                symbolCode << " at line " << __LINE__ << endl;
+          /*        if (! infile.good()) {
+                              cerr << "fail to get at line " << __LINE__ <<
+             endl;
+                              return -1;
+                        }*/
+          if (symbolCode > SYMBOL_ARRAY_SIZE) {
+            cerr << "Corrupted dictionary (phonetic symbol code out of range): "
+                 << symbolCode << " at line " << __LINE__ << endl;
             infile.close();
             return -1;
           }
@@ -1449,45 +1479,45 @@ int Dict::loadEkhoDict(const char *path) {
           c.code = code;
           c.phonSymbol = &mSymbolArray[symbolCode];
           charList.push_back(c);
-          //cout << c.getUtf8() << c.phonSymbol->symbol; // debug code
+          // cout << c.getUtf8() << c.phonSymbol->symbol; // debug code
         }
-        
+
         // add word to list
         wordList->push_back(charList);
-//        cout << " "; // debug code
+        //        cout << " "; // debug code
       }
 
       // add word list
       di->wordList = wordList;
-      //cout << endl; // debug code
-    } // end of if (wordCount > 0)
-  } // end of while (!infile.eof())
+      // cout << endl; // debug code
+    }  // end of if (wordCount > 0)
+  }    // end of while (!infile.eof())
 
 #ifdef DEBUG_PERF
-	clock_t end_clock = clock();
-	cout << "clocks: " << end_clock - begin_clock <<
-  		", CLOCKS_PER_SEC=" << CLOCKS_PER_SEC << endl;
+  clock_t end_clock = clock();
+  cout << "clocks: " << end_clock - begin_clock
+       << ", CLOCKS_PER_SEC=" << CLOCKS_PER_SEC << endl;
 #endif
 
-	infile.close();
+  infile.close();
   return 0;
 }
 
-void Dict::getWordContext(const char *text, char *in_word_context, int phons_len) {
+void Dict::getWordContext(const char *text, char *in_word_context,
+                          int phons_len) {
 #ifdef ENABLE_FRISO
-  if (mLanguage != MANDARIN && mLanguage != CANTONESE)
-    return;
-  friso_set_text(mFrisoTask, (char*)text);
-  int ii = 0; 
+  if (mLanguage != MANDARIN && mLanguage != CANTONESE) return;
+  friso_set_text(mFrisoTask, (char *)text);
+  int ii = 0;
   while (ii < phons_len && friso_next(mFriso, mFrisoConfig, mFrisoTask)) {
     string word(mFrisoTask->hits->word);
     list<Character> char_list = Character::split(word);
     int len = char_list.size();
     for (int i = 0; i < len - 1 && ii < phons_len; i++) {
-      in_word_context[ii] = 1; 
+      in_word_context[ii] = 1;
       ii++;
-    }    
-    in_word_context[ii] = 0; 
+    }
+    in_word_context[ii] = 0;
     ii++;
   }
 
@@ -1506,12 +1536,10 @@ unsigned short Dict::getCodeOfSymbol(string &symbol) {
   SymbolCode *symbol_code = 0;
   if (mLanguage == CANTONESE) {
     symbol_code = ZHY_PHash::in_word_set(symbol.c_str(), symbol.size());
-    if (symbol_code)
-      return symbol_code->code;
+    if (symbol_code) return symbol_code->code;
   } else if (mLanguage == MANDARIN) {
     symbol_code = ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
-    if (symbol_code)
-      return symbol_code->code;
+    if (symbol_code) return symbol_code->code;
   }
 
   return 0;
@@ -1519,7 +1547,8 @@ unsigned short Dict::getCodeOfSymbol(string &symbol) {
 
 void Dict::saveEkhoVoiceFile() {
   // only support Cantonese and Mandarin
-  if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == TIBETAN || mLanguage == NGANGIEN) {
+  if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == TIBETAN ||
+      mLanguage == NGANGIEN) {
     return;
   }
 
@@ -1537,14 +1566,14 @@ void Dict::saveEkhoVoiceFile() {
   ofstream os(index_file.c_str(), ifstream::binary);
   os.put((unsigned char)(mSfinfo.samplerate & 0xFF));
   os.put((unsigned char)((mSfinfo.samplerate >> 8) & 0xFF));
-  
+
   unsigned char type = 0;
   if (strcmp(mVoiceFileType, "wav") == 0)
     type = 1;
   else if (strcmp(mVoiceFileType, "gsm") == 0)
     type = 2;
   os.put(type);
-  
+
   // reserve for symbo count
   os.put(0);
   os.put(0);
@@ -1562,20 +1591,19 @@ void Dict::saveEkhoVoiceFile() {
 
   // prepare output file
   FILE *file = fopen(voice_file.c_str(), "w");
-  //SNDFILE *sndfile = sf_open(voice_file.c_str(), SFM_WRITE, &mSfinfo);
+  // SNDFILE *sndfile = sf_open(voice_file.c_str(), SFM_WRITE, &mSfinfo);
   unsigned int total_bytes = 0;
 
   do {
     if ((dp = readdir(dirp)) != NULL) {
       char *suffix = strstr(dp->d_name, mVoiceFileType);
-      if (!suffix || suffix - dp->d_name < 2)
-        continue;
+      if (!suffix || suffix - dp->d_name < 2) continue;
 
       symbol = dp->d_name;
       symbol = symbol.substr(0, suffix - dp->d_name - 1);
 
       if (symbol.find("-") == string::npos) {
-        //cerr << "index " << symbol << endl;
+        // cerr << "index " << symbol << endl;
         // single phonetic symbol
         os.put(1);
         unsigned short code = getCodeOfSymbol(symbol);
@@ -1594,7 +1622,7 @@ void Dict::saveEkhoVoiceFile() {
         } while (bytes == 128000);
 
         fclose(gsmfile);
-        
+
         os.put(total_bytes & 0xFF);
         os.put((total_bytes >> 8) & 0xFF);
         os.put((total_bytes >> 16) & 0xFF);
@@ -1614,10 +1642,10 @@ void Dict::saveEkhoVoiceFile() {
           symbol.erase(0, pos + 1);
         } while (pos == string::npos);
         symbols.push_back(symbol);
-        
+
         os.put(symbols.size());
-        for (list<string>::iterator sym = symbols.begin();
-            sym != symbols.end(); sym++) {
+        for (list<string>::iterator sym = symbols.begin(); sym != symbols.end();
+             sym++) {
           unsigned short code = getCodeOfSymbol(*sym);
           os.put(code & 0xFF);
           os.put((code >> 8) & 0xFF);
@@ -1635,7 +1663,7 @@ void Dict::saveEkhoVoiceFile() {
         } while (bytes == 512000);
 
         fclose(gsmfile);
-        
+
         os.put(total_bytes & 0xFF);
         os.put((total_bytes >> 8) & 0xFF);
         os.put((total_bytes >> 16) & 0xFF);
@@ -1720,8 +1748,7 @@ void Dict::loadEkhoVoiceFile(string path) {
         code = (code << 8) + lowbyte;
         mSymbolArray[code].symbol;
         strcat(symbols, mSymbolArray[code].symbol);
-        if (i < code_count - 1)
-          strcat(symbols, "-");
+        if (i < code_count - 1) strcat(symbols, "-");
       }
 
       // offset

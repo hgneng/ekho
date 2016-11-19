@@ -279,6 +279,7 @@ int EkhoImpl::initEnglish(void) {
 #else
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
+  this->setEnglishSpeed(this->getEnglishSpeed());
   //cout << "samplerate: " << samplerate << endl;
   gEkho = this;
   espeak_SetSynthCallback(espeakSynthCallback);
@@ -1266,6 +1267,20 @@ void EkhoImpl::setSpeed(int tempo_delta) {
 
 int EkhoImpl::getSpeed(void) {
   return this->tempoDelta;
+}
+
+void EkhoImpl::setEnglishSpeed(int delta) {
+  if (delta >= -50 && delta <= 150) {
+    int ret = espeak_SetParameter(espeakRATE, 175 * (100 + delta) / 100, 0);
+    this->englishSpeedDelta = delta;
+    if (EkhoImpl::mDebug) {
+      cerr << "english speed: " << 175 * (100 + delta) / 100 << ", result=" << ret << endl;
+    }
+  }
+}
+
+int EkhoImpl::getEnglishSpeed(void) {
+  return this->englishSpeedDelta;
 }
 
 void EkhoImpl::setPitch(int pitch_delta) {

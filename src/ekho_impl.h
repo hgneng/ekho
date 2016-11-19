@@ -169,6 +169,8 @@ namespace ekho {
        */
       void setSpeed(int tempo_delta);
       int getSpeed(void);
+      void setEnglishSpeed(int delta); /* -50 .. 150 */
+      int getEnglishSpeed(void);
 
       /* Set pitch delta
        * Parameter:
@@ -260,6 +262,7 @@ namespace ekho {
       static bool mDebug;
       bool mPcmCache;
       int tempoDelta; // -50 .. 100 (%)
+      int englishSpeedDelta; // -50 .. 150 (%)
       int pitchDelta; // -100 .. 100 (%)
       int volumeDelta; // -100 .. 100 (%)
       int rateDelta; // -50 .. 100 (%)
