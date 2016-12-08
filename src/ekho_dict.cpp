@@ -243,11 +243,18 @@ int Dict::setLanguage(Language lang) {
     if (loadMandarin()) return -1;
   } else if (lang == ENGLISH) {
     // Nothing to do
+  } else if (lang == TOISANESE) {
+    string toisaneseList(mDataPath);
+    toisaneseList += "/toisanese_list";
+    if (loadEspeakDict(toisaneseList) != 0) {
+      cerr << "Fail to load dictionary: " << toisaneseList << endl;
+      return -1;
+    }
   } else if (lang == HAKKA) {
     string kaList(mDataPath);
     kaList += "/ka_list";
     if (loadEspeakDict(kaList) != 0) {
-      cerr << "Fail to load espeak dictionary: " << kaList << endl;
+      cerr << "Fail to load dictionary: " << kaList << endl;
       return -1;
     }
   } else if (lang == TIBETAN) {
@@ -451,11 +458,14 @@ int Dict::setVoice(string voice) {
     mVoice = voice;
     PhoneticSymbol *ps = lookup(key_char);
     if (!ps) {
+      ps = lookup(22986);
+      if (!ps) {
 #ifdef DEBUG_ANDROID
-      LOGD("Fail to lookup(de)");
+        LOGD("Fail to lookup(de)");
 #endif
-      cerr << "Fail to lookup char of " << key_char << endl;
-      return -1;
+        cerr << "Fail to lookup char of " << key_char << endl;
+        return -1;
+      }
     }
     int size;
 
@@ -668,8 +678,6 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
         }
       }
     }
-  } else if (mLanguage == HAKKA) {
-    // some rules for Hakka
   }
 
   return phonList;
@@ -1084,6 +1092,11 @@ int Dict::loadEspeakDict(const char *path) {
               symbol += c->getUtf8();
               if (c->code >= '0' && c->code <= '9') {
                 c++;
+                while (c != char_list.end() && c->code >= '0' &&
+                       c->code <= '9') {
+                  symbol += c->getUtf8();
+                  c++;
+                }
                 break;
               }
               c++;
@@ -1114,7 +1127,8 @@ int Dict::loadEspeakDict(const char *path) {
                     has_syntax_error = true;
                   }
                 } else if (mLanguage == HAKKA || mLanguage == KOREAN ||
-                           mLanguage == TIBETAN || mLanguage == NGANGIEN) {
+                           mLanguage == TOISANESE || mLanguage == TIBETAN ||
+                           mLanguage == NGANGIEN) {
                   int code = getSymbolCode(mKaSymbolLetter, symbol.c_str());
                   if (code) {
                     ch->phonSymbol = mKaSymbolArray[code];
@@ -1191,6 +1205,10 @@ int Dict::loadEspeakDict(const char *path) {
           symbol += c->getUtf8();
           if (c->code >= '0' && c->code <= '9') {
             c++;
+            while (c != char_list.end() && c->code >= '0' && c->code <= '9') {
+              symbol += c->getUtf8();
+              c++;
+            }
             break;
           }
           c++;
@@ -1215,7 +1233,8 @@ int Dict::loadEspeakDict(const char *path) {
             //          cout << c3.getUtf8() << "(" << c3.code << "): " <<
             //              c3.phonSymbol->symbol << endl; // debug code
           } else if (mLanguage == HAKKA || mLanguage == KOREAN ||
-                     mLanguage == TIBETAN || mLanguage == NGANGIEN) {
+                     mLanguage == TOISANESE || mLanguage == TIBETAN ||
+                     mLanguage == NGANGIEN) {
             int code = getSymbolCode(mKaSymbolLetter, symbol.c_str());
             if (code) {
               c3.phonSymbol = mKaSymbolArray[code];
@@ -1548,7 +1567,7 @@ unsigned short Dict::getCodeOfSymbol(string &symbol) {
 void Dict::saveEkhoVoiceFile() {
   // only support Cantonese and Mandarin
   if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == TIBETAN ||
-      mLanguage == NGANGIEN) {
+      mLanguage == NGANGIEN || mLanguage == TOISANESE) {
     return;
   }
 
@@ -1683,7 +1702,8 @@ void Dict::saveEkhoVoiceFile() {
 
 void Dict::loadEkhoVoiceFile(string path) {
   // only support Cantonese and Mandarin
-  if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == NGANGIEN) {
+  if (mLanguage == HAKKA || mLanguage == TOISANESE || mLanguage == KOREAN ||
+      mLanguage == NGANGIEN) {
     return;
   }
 
