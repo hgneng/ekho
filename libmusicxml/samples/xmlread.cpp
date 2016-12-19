@@ -8,7 +8,7 @@
 */
 
 #ifdef WIN32
-# pragma warning (disable : 4786)
+#pragma warning(disable : 4786)
 #endif
 
 #include <stdlib.h>
@@ -25,37 +25,39 @@ using namespace MusicXML2;
 
 //_______________________________________________________________________________
 #ifdef STRREAD
-static char * read(const char* file)
-{
-	FILE * fd = fopen(file, "rb");
-	if (!fd) return 0;
-	fseek(fd, 0, SEEK_END);
-	long size = ftell (fd);
-	char * buff = (char*)malloc(size+1);
-	fseek(fd, 0, SEEK_SET );
-	fread(buff, size, 1, fd);
-	buff[size] = 0;
-	fclose(fd);
-	return buff;
+static char* read(const char* file) {
+  FILE* fd = fopen(file, "rb");
+  if (!fd) return 0;
+  fseek(fd, 0, SEEK_END);
+  long size = ftell(fd);
+  char* buff = (char*)malloc(size + 1);
+  fseek(fd, 0, SEEK_SET);
+  fread(buff, size, 1, fd);
+  buff[size] = 0;
+  fclose(fd);
+  return buff;
 }
 #endif
 
 //_______________________________________________________________________________
-int main(int argc, char *argv[]) 
-{
-	for (int i=1; i<argc; i++) {
-		xmlreader r;
+int main(int argc, char* argv[]) {
+  for (int i = 1; i < argc; i++) {
+    xmlreader r;
 #ifdef STRREAD
-		char * buff = read(argv[i]);
-		SXMLFile file = r.readbuff(buff);
+    char* buff = read(argv[i]);
+    SXMLFile file = r.readbuff(buff);
 #else
-		SXMLFile file = r.read(argv[i]);
+    SXMLFile file = r.read(argv[i]);
 #endif
-		if (file) {
-			Sxmlelement st = file->elements();
-			file->print(cout);
-			cout << endl;
-		}
-	}
-	return 0;
+    if (file) {
+      Sxmlelement st = file->elements();
+      file->print(cout);
+      cout << endl;
+
+      read_lyrics(st);
+    }
+  }
+  return 0;
 }
+
+void read_lyric(Sxmlelement elem) {}
