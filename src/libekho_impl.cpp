@@ -1706,6 +1706,9 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   LOGD("Ekho::synth2(%s, %p, %p) voiceFileType=%s lang=%d", text.c_str(),
        callback, userdata, mDict.mVoiceFileType, mDict.getLanguage());
 #endif
+  if (EkhoImpl::mDebug) {
+    cerr << "speaking " << mDict.getLanguage() << ": '" << text << "'" << endl;
+  }
 
   if (!userdata) userdata = this;
   this->isStopped = false;
