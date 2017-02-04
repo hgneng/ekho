@@ -684,7 +684,7 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
 }
 
 PhoneticSymbol *Dict::getPhoneticSymbol(string &symbol) {
-  SymbolCode *sym_code;
+  SymbolCode *sym_code = 0;
   if (mLanguage == MANDARIN) {
     sym_code = ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
   } else if (mLanguage == CANTONESE) {
