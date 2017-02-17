@@ -13,6 +13,10 @@
 using namespace std;
 using namespace MusicXML2;
 
+// gcc musicxml.cpp -g -I../libmusicxml/src/elements -I../libmusicxml/src/lib
+// -I../libmusicxml/src/visitors -I../libmusicxml/src/files
+// -I../libmusicxml/src/parser ../libmusicxml/libmusicxml2.a -lstdc++ && ./a.out
+// demo.xml
 int main(int argc, char *argv[]) {
   for (int i = 1; i < argc; i++) {
     xmlreader r;
@@ -25,27 +29,43 @@ int main(int argc, char *argv[]) {
       while (note != st->end()) {
         ctree<xmlelement>::branchs branchs = note->elements();
         vector<Sxmlelement>::iterator elem = branchs.begin();
-
-        vector<Sxmlelement>::iterator pitch = branchs.begin();
-        vector<Sxmlelement>::iterator duration = branchs.begin();
-
         string lyric = "";
+        string step = "";
+        string alter = "";
+        string octave = "";
+        string duration = "";
+
         for (; elem != branchs.end(); elem++) {
           string name = (*elem)->getName();
-          cout << name;
+          // cout << name;
 
           if (name == "pitch") {
-            pitch = elem;
+            ctree<xmlelement>::iterator step_elem = (*elem)->find(k_step);
+            if (step_elem != (*elem)->end()) {
+              step = step_elem->getValue();
+            }
+
+            ctree<xmlelement>::iterator alter_elem = (*elem)->find(k_alter);
+            if (alter_elem != (*elem)->end()) {
+              alter = alter_elem->getValue();
+            }
+
+            ctree<xmlelement>::iterator octave_elem = (*elem)->find(k_octave);
+            if (octave_elem != (*elem)->end()) {
+              octave = octave_elem->getValue();
+            }
+          } else if (name == "duration") {
+            duration = (*elem)->getValue();
           } else if (name == "lyric") {
             ctree<xmlelement>::iterator text = (*elem)->find(k_text);
-
             lyric = text->getValue();
-            cout << "lyric:" << lyric << endl;
           }
         }
 
         if (!lyric.empty()) {
-          cout << lyric << "(" << (*pitch)->getValue() << ")" << endl;
+          cout << lyric << "(step=" << step << ",alter=" << alter
+               << ",octave=" << octave << ",duration=" << duration << ")"
+               << endl;
         }
 
         ++note;

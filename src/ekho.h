@@ -22,18 +22,18 @@
 #ifndef EKHO_H
 #define EKHO_H
 
-#include <queue>
-#include <semaphore.h>
 #include <pthread.h>
+#include <semaphore.h>
 #include <sndfile.h>
+#include <queue>
 #include "config.h"
 #include "ekho_dict.h"
-#include "sonic.h"
 #include "ekho_typedef.h"
+#include "sonic.h"
 
 #ifdef HAVE_PULSEAUDIO
-#include <pulse/simple.h>
 #include <pulse/error.h>
+#include <pulse/simple.h>
 #endif
 
 #ifdef ANDROID
@@ -50,167 +50,172 @@ using namespace std;
 
 namespace ekho {
 
-  class EkhoImpl;
+class EkhoImpl;
 
-  class Ekho {
-    private:
-      EkhoImpl* m_pImpl;
-    public:
-      const static int BUFFER_SIZE = 8192;
-      const static int PENDING_PCM_FRAMES = 4096;
-      const static int MAX_CLIENTS = 100; 
+class Ekho {
+ private:
+  EkhoImpl *m_pImpl;
 
-      static void debug(bool flag = true);
+ public:
+  const static int BUFFER_SIZE = 8192;
+  const static int PENDING_PCM_FRAMES = 4096;
+  const static int MAX_CLIENTS = 100;
 
-      Ekho();
-      Ekho(string voice);
+  static void debug(bool flag = true);
 
-      /* Destructor.
-      */
-      ~Ekho();
+  Ekho();
+  Ekho(string voice);
 
-      /* Set voice 
-       * voice is the name of voice, which is a directory name under
-       * ekho-data and should be begun with jyutping-, pinyin- or 
-       * hangul-. Cantonese, Mandarin, Korean are alias to jyutping, 
-       * pinyin, hangul.
-       */
-      int setVoice(string voice);
-      /* Get current voice */
-      string getVoice(void);
+  /* Destructor.
+  */
+  ~Ekho();
 
-      /* Speak text
-       * text should be in UTF-8 format
-       * it will launch a new thread and return immediately
-       */
-      int speak(string text, void (*pCallback)(void*) = NULL, void* pCallbackArgs = NULL);
+  /* Set voice
+   * voice is the name of voice, which is a directory name under
+   * ekho-data and should be begun with jyutping-, pinyin- or
+   * hangul-. Cantonese, Mandarin, Korean are alias to jyutping,
+   * pinyin, hangul.
+   */
+  int setVoice(string voice);
+  /* Get current voice */
+  string getVoice(void);
 
-      /* Clear speech queue before speak text
-       * text should be in UTF-8 format
-       * it will launch a new thread and return immediately
-       */
-      int stopAndSpeak(string text, void (*pCallback)(void*) = NULL, void* pCallbackArgs = NULL);
+  /* Speak text
+   * text should be in UTF-8 format
+   * it will launch a new thread and return immediately
+   */
+  int speak(string text, void (*pCallback)(void *) = NULL,
+            void *pCallbackArgs = NULL);
 
-      typedef int (SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
-      /* Synth speech
-       * callback will be called time from time when buffer is ready
-       */
-      int synth(string text, SynthCallback *callback, void *userdata = 0);
-      int synth2(string text, SynthCallback *callback, void *userdata = 0);
+  void sing(string filepath);
 
-      /* no pause is allowed
-       * it will return after all sound is played
-       */
-      int blockSpeak(string text);
+  /* Clear speech queue before speak text
+   * text should be in UTF-8 format
+   * it will launch a new thread and return immediately
+   */
+  int stopAndSpeak(string text, void (*pCallback)(void *) = NULL,
+                   void *pCallbackArgs = NULL);
 
-      /* play audio file with external player */
-      int play(string file);
+  typedef int(SynthCallback)(short *pcm, int frames, void *arg,
+                             OverlapType type);
+  /* Synth speech
+   * callback will be called time from time when buffer is ready
+   */
+  int synth(string text, SynthCallback *callback, void *userdata = 0);
+  int synth2(string text, SynthCallback *callback, void *userdata = 0);
 
-      /* output text to WAVE file */
-      int saveWav(string text, string filename);
+  /* no pause is allowed
+   * it will return after all sound is played
+   */
+  int blockSpeak(string text);
 
-      /* output to OGG file */
-      int saveOgg(string text, string filename);
+  /* play audio file with external player */
+  int play(string file);
 
-      /* output to MP3 file */
-      int saveMp3(string text, string filename);
+  /* output text to WAVE file */
+  int saveWav(string text, string filename);
 
-      /* Pause speaking */
-      int pause(void);
+  /* output to OGG file */
+  int saveOgg(string text, string filename);
 
-      /* Resume speaking */
-      int resume(void);
+  /* output to MP3 file */
+  int saveMp3(string text, string filename);
 
-      /* Stop speaking */
-      int stop(void);
+  /* Pause speaking */
+  int pause(void);
 
-      /* start TTS server */
-      int startServer(int port);
+  /* Resume speaking */
+  int resume(void);
 
-      /* request wave from Ekho TTS server */
-      int request(string ip, int port, Command cmd, string text, string outfile);
+  /* Stop speaking */
+  int stop(void);
 
-      /**
-       * Set whether strip SSML tags in text
-       */
-      void setStripSsml(bool b = true);
-      bool getStripSsml();
+  /* start TTS server */
+  int startServer(int port);
 
-      void setSpeakIsolatedPunctuation(bool b = true);
-      bool getSpeakIsolatedPunctuation();
+  /* request wave from Ekho TTS server */
+  int request(string ip, int port, Command cmd, string text, string outfile);
 
-      /* Set tempo delta
-       * Parameter:
-       *    tempo_delta (-50 .. 100, in percent)
-       *    If input out of range, tempo_delta will restore to 0
-       */
-      void setSpeed(int tempo_delta);
-      int getSpeed(void);
-      void setEnglishSpeed(int delta); /* -50 .. 150 */
-      int getEnglishSpeed(void);
+  /**
+   * Set whether strip SSML tags in text
+   */
+  void setStripSsml(bool b = true);
+  bool getStripSsml();
 
-      /* Set pitch delta
-       * Parameter:
-       *    pitch_delta (-100 .. 100, in percent)
-       *    If input out of range, pitch_delta will restore to 0
-       */
-      void setPitch(int pitch_delta);
-      int getPitch(void);
+  void setSpeakIsolatedPunctuation(bool b = true);
+  bool getSpeakIsolatedPunctuation();
 
-      /* Set volume delta
-       * Parameter:
-       *    volume_delta (-100 .. 100, in percent)
-       *    If input out of range, volume_delta will restore to 0
-       */
-      void setVolume(int volume_delta);
-      int getVolume(void);
+  /* Set tempo delta
+   * Parameter:
+   *    tempo_delta (-50 .. 100, in percent)
+   *    If input out of range, tempo_delta will restore to 0
+   */
+  void setSpeed(int tempo_delta);
+  int getSpeed(void);
+  void setEnglishSpeed(int delta); /* -50 .. 150 */
+  int getEnglishSpeed(void);
 
-      /* Set rate delta
-       * Parameter:
-       *    rate_delta (-50 .. 100, in percent)
-       *    If input out of range, rate_delta will restore to 0
-       * Return: 0
-       */
-      void setRate(int rate_delta);
-      int getRate(void);
+  /* Set pitch delta
+   * Parameter:
+   *    pitch_delta (-100 .. 100, in percent)
+   *    If input out of range, pitch_delta will restore to 0
+   */
+  void setPitch(int pitch_delta);
+  int getPitch(void);
 
-      /**
-       * Set English Voice
-       * Parameter:
-       *    voice - voice_kal_diphone (default male voice) or
-       *            voice_cmu_us_slt_arctic_hts (female voice) or
-       *            other Festival voice name if installed
-       */
-      void setEnglishVoice(const char *voice);
-      const char* getEnglishVoice(void);
+  /* Set volume delta
+   * Parameter:
+   *    volume_delta (-100 .. 100, in percent)
+   *    If input out of range, volume_delta will restore to 0
+   */
+  void setVolume(int volume_delta);
+  int getVolume(void);
 
-      void setPcmCache(bool b);
+  /* Set rate delta
+   * Parameter:
+   *    rate_delta (-50 .. 100, in percent)
+   *    If input out of range, rate_delta will restore to 0
+   * Return: 0
+   */
+  void setRate(int rate_delta);
+  int getRate(void);
 
-      /**
-       * Check whether is speaking
-       */
-      bool isSpeaking();
+  /**
+   * Set English Voice
+   * Parameter:
+   *    voice - voice_kal_diphone (default male voice) or
+   *            voice_cmu_us_slt_arctic_hts (female voice) or
+   *            other Festival voice name if installed
+   */
+  void setEnglishVoice(const char *voice);
+  const char *getEnglishVoice(void);
 
-      string genTempFilename(void);
+  void setPcmCache(bool b);
 
-      sonicStream mSonicStream;
+  /**
+   * Check whether is speaking
+   */
+  bool isSpeaking();
 
-      static void* speechDaemon(void *args);
-      static int speakPcm(short *pcm, int frames, void* arg, OverlapType type);
-      static int writePcm(short *pcm, int frames, void* arg, OverlapType type);
-      void finishWritePcm();
-      int writeToSonicStream(short *pcm, int frames, OverlapType type);
-      /*
-         static int changeSamplerate(const short *source_data,
-         long source_len, // len in 8 bits
-         int source_rate,
-         short *target_data,
-         int target_rate);
-         */
+  string genTempFilename(void);
 
-      void setPunctuationMode(EkhoPuncType mode);
-  };
+  sonicStream mSonicStream;
+
+  static void *speechDaemon(void *args);
+  static int speakPcm(short *pcm, int frames, void *arg, OverlapType type);
+  static int writePcm(short *pcm, int frames, void *arg, OverlapType type);
+  void finishWritePcm();
+  int writeToSonicStream(short *pcm, int frames, OverlapType type);
+  /*
+     static int changeSamplerate(const short *source_data,
+     long source_len, // len in 8 bits
+     int source_rate,
+     short *target_data,
+     int target_rate);
+     */
+
+  void setPunctuationMode(EkhoPuncType mode);
+};
 }
 
 #endif
-

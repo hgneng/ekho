@@ -19,39 +19,39 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,              *
  * MA  02110-1301, USA.                                                    *
  **************************************************************************/
-#include <iostream>
-#include <fstream>
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
 #include <dirent.h>
-#include <time.h>
 #include <errno.h>
 #include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <time.h>
+#include <unistd.h>
+#include <fstream>
+#include <iostream>
 #include "config.h"
-#include "ekho_typedef.h"
-#include "ekho_impl.h"
 #include "ekho.h"
 #include "ekho_dict.h"
+#include "ekho_impl.h"
+#include "ekho_typedef.h"
 #include "sonic.h"
 #include "utf8.h"
 
 #ifdef ENABLE_WIN32
-#include <winsock2.h>
 #include <windows.h>
+#include <winsock2.h>
 /* We need the following two to set stdin/stdout to binary */
-#include <io.h>
 #include <fcntl.h>
+#include <io.h>
 #define sleep(seconds) Sleep((seconds)*1000)
 #else
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
 #include <arpa/inet.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <sys/types.h>
 #include <sys/wait.h>
 #endif
 
@@ -62,187 +62,138 @@ using namespace std;
 #include <lame/lame.h>
 #endif
 
-void Ekho::debug(bool flag) {
-    EkhoImpl::debug(flag);
-}
+void Ekho::debug(bool flag) { EkhoImpl::debug(flag); }
 
-Ekho::Ekho() {
-    this->m_pImpl = new EkhoImpl();
-}
+Ekho::Ekho() { this->m_pImpl = new EkhoImpl(); }
 
-Ekho::Ekho(string voice) {
-    this->m_pImpl = new EkhoImpl(voice);
-}
+Ekho::Ekho(string voice) { this->m_pImpl = new EkhoImpl(voice); }
 
-Ekho::~Ekho(void) {
-    delete this->m_pImpl;
-}
+Ekho::~Ekho(void) { delete this->m_pImpl; }
 
 static bool gsIsFestivalInited = false;
 
 int Ekho::saveWav(string text, string filename) {
-    return this->m_pImpl->saveWav(text, filename);
+  return this->m_pImpl->saveWav(text, filename);
 }
 
 int Ekho::saveOgg(string text, string filename) {
-    return this->m_pImpl->saveOgg(text, filename);
+  return this->m_pImpl->saveOgg(text, filename);
 }
 
 void Ekho::setEnglishVoice(const char *voice) {
-    this->m_pImpl->setEnglishVoice(voice);
+  this->m_pImpl->setEnglishVoice(voice);
 }
 
-void Ekho::setPcmCache(bool b) {
-    this->m_pImpl->setPcmCache(b);
-}
+void Ekho::setPcmCache(bool b) { this->m_pImpl->setPcmCache(b); }
 
-bool Ekho::isSpeaking() {
-    return this->m_pImpl->isSpeaking();
-}
+bool Ekho::isSpeaking() { return this->m_pImpl->isSpeaking(); }
 
 // generate temp filename
 // to be improve...
-string Ekho::genTempFilename() {
-    return this->m_pImpl->genTempFilename();
-}
+string Ekho::genTempFilename() { return this->m_pImpl->genTempFilename(); }
 
 #ifdef HAVE_MP3LAME
 int Ekho::saveMp3(string text, string filename) {
-    return this->m_pImpl->saveMp3(text, filename);
+  return this->m_pImpl->saveMp3(text, filename);
 }
 #endif
 
 int Ekho::speakPcm(short *pcm, int frames, void *arg, OverlapType type) {
-    return EkhoImpl::speakPcm(pcm, frames, arg, type);
+  return EkhoImpl::speakPcm(pcm, frames, arg, type);
 }
 
 int Ekho::writeToSonicStream(short *pcm, int frames, OverlapType type) {
-    return this->m_pImpl->writeToSonicStream(pcm, frames, type);
+  return this->m_pImpl->writeToSonicStream(pcm, frames, type);
 }
 
-void Ekho::finishWritePcm() {
-    this->m_pImpl->finishWritePcm();
-}
+void Ekho::finishWritePcm() { this->m_pImpl->finishWritePcm(); }
 
 int Ekho::writePcm(short *pcm, int frames, void *arg, OverlapType type) {
-    return EkhoImpl::writePcm(pcm, frames, arg, type);
+  return EkhoImpl::writePcm(pcm, frames, arg, type);
 }
 
-void* Ekho::speechDaemon(void *args) {
-    return EkhoImpl::speechDaemon(args);
-}
+void *Ekho::speechDaemon(void *args) { return EkhoImpl::speechDaemon(args); }
 
 // @TODO: remove this deprecared method
 int Ekho::synth(string text, SynthCallback *callback, void *userdata) {
-    return this->m_pImpl->synth(text, callback, userdata);
+  return this->m_pImpl->synth(text, callback, userdata);
 }
 
-int Ekho::play(string file) {
-    return this->m_pImpl->play(file);
+int Ekho::play(string file) { return this->m_pImpl->play(file); }
+
+int Ekho::setVoice(string voice) { return this->m_pImpl->setVoice(voice); }
+
+string Ekho::getVoice() { return this->m_pImpl->getVoice(); }
+
+int Ekho::speak(string text, void (*pCallback)(void *), void *pCallbackArgs) {
+  return this->m_pImpl->speak(text, pCallback, pCallbackArgs);
 }
 
-int Ekho::setVoice(string voice) {
-    return this->m_pImpl->setVoice(voice);
+int Ekho::stopAndSpeak(string text, void (*pCallback)(void *),
+                       void *pCallbackArgs) {
+  return this->m_pImpl->stopAndSpeak(text, pCallback, pCallbackArgs);
 }
 
-string Ekho::getVoice() {
-    return this->m_pImpl->getVoice();
-}
+int Ekho::blockSpeak(string text) { return this->m_pImpl->blockSpeak(text); }
 
-int Ekho::speak(string text, void (*pCallback)(void*), void* pCallbackArgs) {
-    return this->m_pImpl->speak(text, pCallback, pCallbackArgs);
-}
+int Ekho::pause() { return this->m_pImpl->pause(); }
 
-int Ekho::stopAndSpeak(string text, void (*pCallback)(void*), void* pCallbackArgs) {
-    return this->m_pImpl->stopAndSpeak(text, pCallback, pCallbackArgs);
-}
+int Ekho::resume() { return this->m_pImpl->resume(); }
 
-int Ekho::blockSpeak(string text) {
-    return this->m_pImpl->blockSpeak(text);
-}
+int Ekho::stop() { return this->m_pImpl->stop(); }
 
-int Ekho::pause() {
-    return this->m_pImpl->pause();
-}
+void Ekho::setStripSsml(bool b) { this->m_pImpl->setStripSsml(b); }
 
-int Ekho::resume() {
-    return this->m_pImpl->resume();
-}
-
-int Ekho::stop() {
-    return this->m_pImpl->stop();
-}
-
-void Ekho::setStripSsml(bool b) {
-    this->m_pImpl->setStripSsml(b);
-}
-
-bool Ekho::getStripSsml() {
-    return this->m_pImpl->getStripSsml();
-}
+bool Ekho::getStripSsml() { return this->m_pImpl->getStripSsml(); }
 
 void Ekho::setSpeakIsolatedPunctuation(bool b) {
-    this->m_pImpl->setSpeakIsolatedPunctuation(b);
+  this->m_pImpl->setSpeakIsolatedPunctuation(b);
 }
 
 bool Ekho::getSpeakIsolatedPunctuation() {
-    return this->m_pImpl->getSpeakIsolatedPunctuation();
+  return this->m_pImpl->getSpeakIsolatedPunctuation();
 }
 
 void Ekho::setSpeed(int tempo_delta) {
-    return this->m_pImpl->setSpeed(tempo_delta);
+  return this->m_pImpl->setSpeed(tempo_delta);
 }
 
-int Ekho::getSpeed() {
-    return this->m_pImpl->getSpeed();
-}
+int Ekho::getSpeed() { return this->m_pImpl->getSpeed(); }
 
 void Ekho::setEnglishSpeed(int delta) {
-    return this->m_pImpl->setEnglishSpeed(delta);
+  return this->m_pImpl->setEnglishSpeed(delta);
 }
 
-int Ekho::getEnglishSpeed() {
-    return this->m_pImpl->getSpeed();
-}
+int Ekho::getEnglishSpeed() { return this->m_pImpl->getSpeed(); }
 
-void Ekho::setPitch(int pitch_delta) {
-    this->m_pImpl->setPitch(pitch_delta);
-}
+void Ekho::setPitch(int pitch_delta) { this->m_pImpl->setPitch(pitch_delta); }
 
-int Ekho::getPitch() {
-    return this->m_pImpl->getPitch();
-}
+int Ekho::getPitch() { return this->m_pImpl->getPitch(); }
 
 void Ekho::setVolume(int volume_delta) {
-    this->m_pImpl->setVolume(volume_delta);
+  this->m_pImpl->setVolume(volume_delta);
 }
 
-int Ekho::getVolume() {
-    return this->m_pImpl->getVolume();
-}
+int Ekho::getVolume() { return this->m_pImpl->getVolume(); }
 
-void Ekho::setRate(int rate_delta) {
-    this->m_pImpl->setRate(rate_delta);
-}
+void Ekho::setRate(int rate_delta) { this->m_pImpl->setRate(rate_delta); }
 
-int Ekho::getRate() {
-    return this->m_pImpl->getRate();
-}
+int Ekho::getRate() { return this->m_pImpl->getRate(); }
 
-int Ekho::startServer(int port) {
-    return this->m_pImpl->startServer(port);
-}
+int Ekho::startServer(int port) { return this->m_pImpl->startServer(port); }
 
 // the first byte is tempo(speed) delta
-int Ekho::request(string ip, int port, Command cmd, string text, string outfile) {
-    return this->m_pImpl->request(ip, port, cmd, text, outfile);
+int Ekho::request(string ip, int port, Command cmd, string text,
+                  string outfile) {
+  return this->m_pImpl->request(ip, port, cmd, text, outfile);
 }
 
 int Ekho::synth2(string text, SynthCallback *callback, void *userdata) {
-    return this->m_pImpl->synth2(text, callback, userdata);
+  return this->m_pImpl->synth2(text, callback, userdata);
 }
 
 void Ekho::setPunctuationMode(EkhoPuncType mode) {
-    this->m_pImpl->setPunctuationMode(mode);
+  this->m_pImpl->setPunctuationMode(mode);
 }
 
+void Ekho::sing(string filepath) {}

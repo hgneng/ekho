@@ -35,7 +35,7 @@ while (my $file = <*.wav>) {
 #      `sox -v $volumn $file -r $rate -c 1 /tmp/compress.wav fade $fade_len $stop $fade_len`;
 #      my $cmd = "sox -v $volumn /tmp/compress.wav -r $rate -c 1 $present_dir/$target_dir/$lcfile fade $fade_len $stop $fade_len";
 #      my $cmd = "sox -v $volumn $file -r $rate -c 1 $present_dir/$target_dir/$lcfile fade $fade_len $stop $fade_len";
-      my $cmd = "sox -v $volumn $file -r $rate -c 1 $present_dir/$target_dir/$lcfile";
+      $cmd = "sox -v $volumn $file -r $rate -c 1 $present_dir/$target_dir/$lcfile";
     }
     #print $cmd, "\n";
     `$cmd`;

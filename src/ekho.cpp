@@ -776,16 +776,25 @@ static bool read_stdin(char **text) {
 }
 
 int main(int argc, char *argv[]) {
-  struct option opts[] = {
-      {"help", 0, NULL, 'h'},          {"gui", 0, NULL, 'g'},
-      {"voice", 1, NULL, 'v'},         {"file", 1, NULL, 'f'},
-      {"output", 1, NULL, 'o'},        {"type", 1, NULL, 't'},
-      {"pitch", 1, NULL, 'p'},         {"volume", 1, NULL, 'a'},
-      {"rate", 1, NULL, 'r'},          {"speed", 1, NULL, 's'},
-      {"english-speed", 1, NULL, 'i'}, {"port", 1, NULL, '1'},
-      {"server", 0, NULL, 'e'},        {"request", 1, NULL, 'q'},
-      {"symbol", 0, NULL, 'l'},        {"debug", 0, NULL, 'd'},
-      {"version", 0, NULL, 'n'},       {NULL, 0, NULL, 0}};
+  struct option opts[] = {{"help", 0, NULL, 'h'},
+                          {"gui", 0, NULL, 'g'},
+                          {"voice", 1, NULL, 'v'},
+                          {"file", 1, NULL, 'f'},
+                          {"output", 1, NULL, 'o'},
+                          {"type", 1, NULL, 't'},
+                          {"pitch", 1, NULL, 'p'},
+                          {"volume", 1, NULL, 'a'},
+                          {"rate", 1, NULL, 'r'},
+                          {"speed", 1, NULL, 's'},
+                          {"english-speed", 1, NULL, 'i'},
+                          {"port", 1, NULL, '1'},
+                          {"server", 0, NULL, 'e'},
+                          {"request", 1, NULL, 'q'},
+                          {"symbol", 0, NULL, 'l'},
+                          {"debug", 0, NULL, 'd'},
+                          {"sing", 1, NULL, 'b'},
+                          {"version", 0, NULL, 'n'},
+                          {NULL, 0, NULL, 0}};
   /* set locale to zh_CN.UTF-8 */
   //  setlocale(LC_ALL, "zh_CN.UTF-8");
 
@@ -797,6 +806,8 @@ int main(int argc, char *argv[]) {
 #define SERVER_MODE 2
 #define REQUEST_MODE 3
 #define LIST_MODE 4
+#define SING_MODE 5
+
   int mode = NORMAL_MODE;
   int text_buffer_size = 256;
   char *text = (char *)malloc(text_buffer_size);
@@ -815,8 +826,8 @@ int main(int argc, char *argv[]) {
   bool is_listing_word = false;
   int server_port = 2046;
 
-  while ((opt = getopt_long(argc, argv, ":i:hgv:n:f:o:t:p:r:a:s:eq:lwd1:", opts,
-                            &optidx)) != -1) {
+  while ((opt = getopt_long(argc, argv, ":i:b:hgv:n:f:o:t:p:r:a:s:eq:lwd1:",
+                            opts, &optidx)) != -1) {
     switch (opt) {
       case 'd':
         isDebugging = true;
@@ -833,6 +844,8 @@ int main(int argc, char *argv[]) {
       case 'v':
         language = optarg;
         break;
+      case 'b':
+        mode = SING_MODE;
       case 'f':
         text_filename = optarg;
         if (!text_filename) {
@@ -997,6 +1010,12 @@ int main(int argc, char *argv[]) {
     }
 
     ekho_g->request("127.0.0.1", server_port, cmd, text, save_filename);
+  } else if (mode == SING_MODE) {
+    Ekho::debug(isDebugging);
+    ekho_g = new Ekho(language);
+    ekho_g->sing(text_filename);
+    delete ekho_g;
+    ekho_g = 0;
   } else {
     Ekho::debug(isDebugging);
     ekho_g = new Ekho(language);
