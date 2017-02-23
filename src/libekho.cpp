@@ -196,4 +196,4 @@ void Ekho::setPunctuationMode(EkhoPuncType mode) {
   this->m_pImpl->setPunctuationMode(mode);
 }
 
-void Ekho::sing(string filepath) {}
+void Ekho::sing(string filepath) { this->m_pImpl->sing(filepath); }

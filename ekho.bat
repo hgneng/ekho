@@ -1,1 +1,0 @@
-start ekho.exe -g
