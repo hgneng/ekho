@@ -1,9 +1,0 @@
-Reference:
-Query zhongguyin(yayan): http://www.eastling.org/tdfweb/midage.aspx
-
-1.www.ngangien.com 此雅言域名預計下周會被註冊好，屆時便應可上載TTS功能。
-2.另外關於多音字我已有解決辦法：比如“中”字有兩音我分別作“dzaong1” 與 “dzong6”，系統優先選擇發“dzaong1” 音，但是遇到發“dzong6”音需要之時可如此解決：在ka_list中添加詞組“(中 二) 	dzaong6zzz7”，雖有“二”字，但是實際zzz7時長僅為數毫秒，並無發音，如此在Ekho中輸入“中二”（“中”字第二發音方案之意）時便可輸出“dzaong6”發音。我已實踐過，Ekho支持良好。
-3.http://cn.voicedic.com/ 我在考慮將來也在雅言網站實現此類單字查詢功能，若有多音字情形用此功能便可清楚查明。
-4.尚有一暢想：目前Ekho web版可以實現拼音顯示功能，不知能否更進一步---將所屬韻書資料一同顯示出來（為可選功能）。
-例如輸入“東”可輸出：
-東	daong1	德紅	端	東	平	合	通	一等
