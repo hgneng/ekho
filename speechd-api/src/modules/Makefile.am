@@ -37,7 +37,7 @@ endif
 
 sd_ekho_SOURCES = ekho.cc module_utils.c module_utils.h
 sd_ekho_LDFLAGS = @RPATH@ '$(spdlibdir)'
-sd_ekho_LDADD = $(EKHO_ROOT)/libekho.a -lespeak -lsdaudio -lpthread -ldotconf -lsndfile -lm -lvorbisenc -lvorbis -lm -logg -lcurses @glib_libs@ @SNDFILE_LIBS@ @gthread_libs@ $(MP3LAME_LIBS)
+sd_ekho_LDADD = $(EKHO_ROOT)/libekho.a $(EKHO_ROOT)/libmusicxml/libmusicxml2.a -lespeak -lsdaudio -lpthread -ldotconf -lsndfile -lm -lvorbisenc -lvorbis -lm -logg -lcurses @glib_libs@ @SNDFILE_LIBS@ @gthread_libs@ $(MP3LAME_LIBS)
 #-lFestival -lestools -lestbase -leststring 
 
 sd_flite_SOURCES = flite.c module_utils.c module_utils.h
