@@ -31,7 +31,7 @@ extern "C" {
 using namespace ekho;
 
 #define MODULE_NAME     "ekho"
-#define MODULE_VERSION  "5.0"
+#define MODULE_VERSION  "7.6"
 
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
@@ -69,17 +69,12 @@ static void* _ekho_speak(void*);
 
 int ekho_stop = 0;
 
-
 /* Public functions */
 
 extern "C"
-int
-module_load(void)
-{
+int module_load(void) {
    INIT_SETTINGS_TABLES();
-
    REGISTER_DEBUG();
-
    return 0;
 }
 
@@ -90,9 +85,7 @@ module_load(void)
 	return -1;
 
 extern "C"
-int
-module_init(char **status_info)
-{
+int module_init(char **status_info) {
     int ret;
 
     DBG("Module init");
@@ -115,9 +108,9 @@ module_init(char **status_info)
     DBG("ekho: creating new thread for ekho_speak\n");
     ekho_speaking = 0;
     ret = pthread_create(&ekho_speak_thread, NULL, _ekho_speak, NULL);
-    if(ret != 0){
+    if (ret != 0) {
         DBG("ekho: thread failed\n");
-	*status_info = strdup("The module couldn't initialize threads "
+        *status_info = strdup("The module couldn't initialize threads "
 			      "This could be either an internal problem or an "
 			      "architecture problem. If you are sure your architecture "
 			      "supports threads, please report a bug.");
@@ -130,20 +123,17 @@ module_init(char **status_info)
 
     return 0;
 }
+
 #undef ABORT
 
 extern "C"
-int
-module_audio_init(char **status_info){
+int module_audio_init(char **status_info) {
   DBG("Opening audio");
   return 0;
-//  return module_audio_init_spd(status_info);
 }
 
 
-VoiceDescription**
-module_list_voices(void)
-{
+VoiceDescription** module_list_voices(void) {
   if (!gpVoices) {
     gpVoices = g_new0(VoiceDescription*, 9);
 
@@ -209,12 +199,10 @@ void ekho_callback(void*) {
 }
 
 extern "C"
-int
-module_speak(gchar *data, size_t bytes, EMessageType msgtype)
-{
+int module_speak(gchar *data, size_t bytes, EMessageType msgtype) {
   DBG("write(%s, %d, %d)\n", data, bytes, msgtype);
 
-  if (ekho_speaking){
+  if (ekho_speaking) {
     DBG("Speaking when requested to write");
     return 0;
   }
@@ -223,7 +211,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 
   DBG("Requested data: |%s|\n", data);
 
-  if (*ekho_message != NULL){
+  if (*ekho_message != NULL) {
     xfree(*ekho_message);
     *ekho_message = NULL;
   }
@@ -243,12 +231,13 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
   DBG("ekho: leaving write() normally\n\r");
   if (msgtype == MSGTYPE_KEY) {
     // fix issues of always speak some symbols in English
-    if (strcmp(data, "double-quote") == 0)
+    if (strcmp(data, "double-quote") == 0) {
       gpEkho->speak("\"", ekho_callback);
-    else if (strcmp(data, "underscore") == 0)
+    } else if (strcmp(data, "underscore") == 0) {
       gpEkho->speak("_", ekho_callback);
-    else
+    } else {
       gpEkho->speak(data, ekho_callback);
+    }
   } else {
     gpEkho->speak(data, ekho_callback);
   }
@@ -261,9 +250,7 @@ module_speak(gchar *data, size_t bytes, EMessageType msgtype)
 }
 
 extern "C"
-int
-module_stop(void) 
-{
+int module_stop(void) {
   int ret;
   DBG("ekho: stop()\n");
 
@@ -273,22 +260,14 @@ module_stop(void)
   pthread_mutex_lock(&ekho_stop_mutex);
   pthread_cond_signal(&ekho_stop_cond);
   pthread_mutex_unlock(&ekho_stop_mutex);
-/*
-  if (module_audio_id){
-    DBG("Stopping audio");
-    ret = spd_audio_stop(module_audio_id);
-    if (ret != 0) DBG("WARNING: Non 0 value from spd_audio_stop: %d", ret);
-  }
-*/
+
   return 0;
 }
 
 extern "C"
-size_t
-module_pause(void)
-{
+size_t module_pause(void) {
   DBG("pause requested\n");
-  if(ekho_speaking){
+  if (ekho_speaking) {
     DBG("ekho doesn't support pause, stopping\n");
     gpEkho->pause();
   }
@@ -296,24 +275,22 @@ module_pause(void)
 }
 
 extern "C"
-void
-module_close(int status)
-{
+void module_close(int status) {
   int i = 0;
 
   DBG("ekho: close()\n");
 
   DBG("Stopping speech");
-  if(ekho_speaking){
+  if (ekho_speaking) {
     module_stop();
   }
 
   DBG("Terminating threads");
-  if (module_terminate_thread(ekho_speak_thread) != 0)
+  if (module_terminate_thread(ekho_speak_thread) != 0) {
     exit(1);
+  }
 
   DBG("Closing audio output");
-  //spd_audio_close(module_audio_id);
 
   // free gpVoices
   if (gpVoices) {
@@ -331,10 +308,7 @@ module_close(int status)
 }
 
 /* Internal functions */
-
-void*
-_ekho_speak(void* nothing)
-{	
+void* _ekho_speak(void* nothing) {	
   AudioTrack track;
   unsigned int pos;
   int bytes;
@@ -344,7 +318,7 @@ _ekho_speak(void* nothing)
 
   set_speaking_thread_parameters();
 
-  while(1){
+  while (1) {
     sem_wait(ekho_semaphore);
     DBG("Semaphore on\n");
 
@@ -355,7 +329,7 @@ _ekho_speak(void* nothing)
 
     pos = 0;
     module_report_event_begin();
-    while(1){
+    while (1) {
       pthread_mutex_lock(&ekho_stop_mutex);
       pthread_cond_wait(&ekho_stop_cond, &ekho_stop_mutex);
       if (ekho_stop) {
@@ -399,37 +373,28 @@ _ekho_speak(void* nothing)
   pthread_exit(NULL);
 }
 
-static void
-ekho_set_rate(signed int rate)
-{
-  if (rate < 0)
+static void ekho_set_rate(signed int rate) {
+  if (rate < 0) {
     gpEkho->setSpeed(rate / 2);
-  else
+  } else {
     gpEkho->setSpeed(rate * 3);
+  }
 }
 
-static void
-ekho_set_volume(signed int volume)
-{
+static void ekho_set_volume(signed int volume) {
   gpEkho->setVolume(volume);
 }
 
-static void
-ekho_set_pitch(signed int pitch)
-{
+static void ekho_set_pitch(signed int pitch) {
   assert(pitch >= -100 && pitch <= +100);
   gpEkho->setPitch(pitch);
 }
 
-static void
-ekho_set_voice(EVoiceType voice)
-{
+static void ekho_set_voice(EVoiceType voice) {
   DBG("Voice: %d\n", voice);
 }
 
-static void
-ekho_set_language(char *lang)
-{
+static void ekho_set_language(char *lang) {
   static bool visited = false;
   if (!visited) {
     visited = true;
@@ -442,15 +407,13 @@ ekho_set_language(char *lang)
   }
 }
 
-static void
-ekho_set_synthesis_voice(char *synthesis_voice)
-{
-  if (synthesis_voice)
+static void ekho_set_synthesis_voice(char *synthesis_voice) {
+  if (synthesis_voice) {
     DBG("Voice: %s\n", synthesis_voice);
+  }
 }
 
-static void ekho_set_punctuation_mode(EPunctMode punct_mode)
-{
+static void ekho_set_punctuation_mode(EPunctMode punct_mode) {
   DBG("Punctuation mode: %d\n", punct_mode);
 	EkhoPuncType mode = EKHO_PUNC_SOME;
 	switch (punct_mode)  {

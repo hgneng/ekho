@@ -564,8 +564,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 
   if (!flush_frames) {
     do {
-      frames =
-          sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
+      frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
 
       if (frames > 0 && !pEkho->isStopped) {
         if (tofile) {
