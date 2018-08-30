@@ -1693,7 +1693,7 @@ void EkhoImpl::translatePunctuations(string &text) {
 
 void EkhoImpl::synthWithEspeak(string text) {
   gSynthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
-  sonicSetRate(gEkho->mSonicStream, 22050.0 / 16000);
+  sonicSetRate(gEkho->mSonicStream, 22050.0 / mDict.mSfinfo.samplerate);
   espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
                espeakCHARS_UTF8, 0, 0);
   sonicSetRate(gEkho->mSonicStream, 1);

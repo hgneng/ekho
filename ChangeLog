@@ -1,3 +1,5 @@
+7.6: Fix English sample rate issue when Chinese voice sample rate is not
+16000.
 7.4: Toisanese is supported.
 7.0: New overlap algorithm applies. eSpeak is set as default English engine.
 6.3: support [[pin1 yin1]] style
