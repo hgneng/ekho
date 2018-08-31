@@ -1640,6 +1640,13 @@ void Dict::saveEkhoVoiceFile() {
           fwrite(buffer, 1, bytes, file);
         } while (bytes == 128000);
 
+	/*
+	fseek(gsmfile, 0L, SEEK_END);
+        int size = ftell(gsmfile);
+	if (size != bytes) {
+	  cout << "bytes=" << bytes << ", size=" << size << endl;
+	}*/
+
         fclose(gsmfile);
 
         os.put(total_bytes & 0xFF);
@@ -1756,6 +1763,7 @@ void Dict::loadEkhoVoiceFile(string path) {
       bytes = (unsigned char)is.get();
       bytes = (bytes << 8) + lowbyte;
 
+      // audio file size should less than 65535, pinyin-huang-44100 will overflow here
       mSymbolArray[code].offset = offset;
       mSymbolArray[code].bytes = bytes;
     } else {
