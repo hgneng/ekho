@@ -287,6 +287,18 @@ int Dict::setLanguage(Language lang) {
 }
 
 void Dict::addSpecialSymbols(void) {
+  // add alphabets
+  char cs[3] = {'\\', 0, 0};
+  string voicePath = mDataPath + "/alphabet";
+  for (char c = 'a'; c <= 'z'; c++) {
+    cs[1] = c;
+    PhoneticSymbol *ps = new PhoneticSymbol(cs);
+    int size = 0;
+    const char *pcm = ps->getPcm(voicePath.c_str(), "wav", size);
+    addDictItem(c, ps);
+    addDictItem(c - ('a' - 'A'), ps);
+  }
+
   // add numbers
   if (mLanguage == CANTONESE) {
     addDictItem(48, getZhyPhon("ling4"));
@@ -910,12 +922,12 @@ list<Word> Dict::lookupWord(const char *text) {
         } else {
           lastword += itor->getUtf8();
         }
-      } else if (itor->code < 65536 &&
-                 !mDictItemArray[itor->code].character.phonSymbol) {
+      } else if (itor->code < 65536 && (!mDictItemArray[itor->code].character.phonSymbol ||
+            (itor->code >= 'A' && itor->code <='Z') || (itor->code >= 'a' && itor->code <= 'z'))) {
         // it's not a Chinese character
         if ((itor->code >= 'A' && itor->code <= 'Z') ||
             (itor->code >= 'a' && itor->code <= 'z') || !lastword.empty()) {
-          // it's alphabat
+          // it's alphabet
           lastword += itor->getUtf8();
           if (!last_chinese_word.empty()) {
             wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
@@ -929,16 +941,22 @@ list<Word> Dict::lookupWord(const char *text) {
         }
       } else {
         // it's a Chinese character
+	//cout << "found chinese character: " << itor->getUtf8() << ", " << mDictItemArray[itor->code].character.getUtf8() << endl;
         last_chinese_word += itor->getUtf8();
         if (!lastword.empty()) {
-          wordlist.push_back(Word(lastword, ENGLISH_TEXT));
+	  char c = lastword[0];
+          if (lastword.length() == 1 && ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
+	    wordlist.push_back(Word(lastword, ENGLISH_TEXT, lookup(lastword), lookupOverlap(lastword)));
+          } else {
+            wordlist.push_back(Word(lastword, ENGLISH_TEXT));
+	  }
           lastword.clear();
         }
       }
     }
 
     if (!lastword.empty()) {
-      wordlist.push_back(Word(lastword, ENGLISH_TEXT));
+      wordlist.push_back(Word(lastword, ENGLISH_TEXT, lookup(lastword), lookupOverlap(lastword)));
     }
 
     if (!last_chinese_word.empty()) {

@@ -151,7 +151,7 @@ namespace ekho {
             if (c >= 'a' && c <= 'z') {
               wav_file += "/../alphabet/";
               wav_file += c;
-              wav_file += ".wav";
+              wav_file += ".gsm";
             } else {
               return 0;
             }

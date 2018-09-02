@@ -1761,6 +1761,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   list<PhoneticSymbol *>::iterator phon_symbol;
   for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
        word++) {
+    //cout << "word: " << word->text << endl;
     switch (word->type) {
       case FULL_PAUSE:
         pause += 1;
@@ -1792,13 +1793,19 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
         } else {
           char c;
           if ((word->text.length() == 1) &&
-              (c = tolower(*word->text.c_str()) && c >= 'a' && c <= 'z')) {
+              (c = tolower(word->text.c_str()[0])) && c >= 'a' && c <= 'z') {
+		  /*
             if (!mAlphabetPcmCache[c - 'a'])
               mAlphabetPcmCache[c - 'a'] =
                   getEnglishPcm(word->text, mAlphabetPcmSize[c - 'a']);
 
             pPcm = mAlphabetPcmCache[c - 'a'];
             size = mAlphabetPcmSize[c - 'a'];
+	    */
+
+            // use pinyin-huang alphabet
+	    phon_symbol = word->symbols.begin();
+	    pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
             callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
           } else {
             pPcm = this->getEnglishPcm(word->text, size);

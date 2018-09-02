@@ -16,7 +16,7 @@ lookup a Chinese string: Dict.lookup(string)
 2.1 English will keep itself
 2.2 word will split into Characters: Character::split(string)
 2.3 get DictItem from the first character: Dict.mDictItemArray[c.code]
-2.4 check mached word: DictItem.wordList
+2.4 check matched word: DictItem.wordList
 2.5 get phonetic symbol: Character.phonSymbol
 3. if it's English, synth with eSpeak or Festival
 4. else if there is phonSymbols of the word is recorded, get it
