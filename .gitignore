@@ -14,4 +14,4 @@ stamp-h1
 libekho.a
 ekho
 test_ekho
-
+*.o
