@@ -4,7 +4,7 @@ $ cd ekho
 $ ./autogen.sh
 $ sudo apt install libsndfile1-dev libespeak-dev libpulse-dev
 $ cd ekho-data
-$ wget https://sourceforge.net/projects/e-guidedog/files/Ekho%20Voice%20Data/0.2/pinyin-yali-44100-v9.tar.bz2
+$ wget https://sourceforge.net/projects/e-guidedog/files/Ekho-Voice-Data/0.2/pinyin-yali-44100-v9.tar.bz2
 $ ./configure
 $ make
 
