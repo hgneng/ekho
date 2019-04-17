@@ -1706,7 +1706,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
        callback, userdata, mDict.mVoiceFileType, mDict.getLanguage());
 #endif
   if (EkhoImpl::mDebug) {
-    cerr << "speaking " << mDict.getLanguage() << ": '" << text << "'" << endl;
+    cerr << "speaking lang(" << mDict.getLanguage() << "): '" << text << "'" << endl;
   }
 
   if (!userdata) userdata = this;
@@ -1794,18 +1794,18 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
           char c;
           if ((word->text.length() == 1) &&
               (c = tolower(word->text.c_str()[0])) && c >= 'a' && c <= 'z') {
-		  /*
-            if (!mAlphabetPcmCache[c - 'a'])
-              mAlphabetPcmCache[c - 'a'] =
-                  getEnglishPcm(word->text, mAlphabetPcmSize[c - 'a']);
+      		  /*
+                  if (!mAlphabetPcmCache[c - 'a'])
+                    mAlphabetPcmCache[c - 'a'] =
+                        getEnglishPcm(word->text, mAlphabetPcmSize[c - 'a']);
 
-            pPcm = mAlphabetPcmCache[c - 'a'];
-            size = mAlphabetPcmSize[c - 'a'];
-	    */
+                  pPcm = mAlphabetPcmCache[c - 'a'];
+                  size = mAlphabetPcmSize[c - 'a'];
+      	    */
 
             // use pinyin-huang alphabet
-	    phon_symbol = word->symbols.begin();
-	    pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
+      	    phon_symbol = word->symbols.begin();
+      	    pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
             callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
           } else {
             pPcm = this->getEnglishPcm(word->text, size);
