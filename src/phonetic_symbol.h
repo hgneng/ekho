@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2013 by Cameron Wong                                 *
+ * Copyright (C) 2008-2019 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: http://www.eguidedog.net                                       *
@@ -88,139 +88,15 @@ namespace ekho {
         return getPcm(wavDir, postfix, size, sfinfo);
       };
 
-      const char* getPcm(FILE *file, int &size) {
-#ifdef DEBUG_ANDROID
-        LOGV("getPcm(%p, %d) offset=%d bytes=%d", file, size, offset, bytes);
-#endif
-        if (!mPcm && fseek(file, offset, SEEK_SET) == 0) {
-#ifdef ANDROID
-          FILE *gsmfile = fopen("/data/data/net.eguidedog.ekho.cantonese/cache/tmpfile", "wb+");
-          if (!gsmfile)
-            gsmfile = fopen("/data/data/net.eguidedog.ekho.cantonese/tmpfile", "wb+");
-#else
-          FILE *gsmfile = tmpfile();
-#endif
+      const char* getPcm(FILE *file, int &size);
+      const char* getPcm(const char *wavDir, const char *postfix, int &size, SF_INFO &sfinfo);
 
-          if (!gsmfile) {
-#ifdef DEBUG_ANDROID
-            LOGV("Fail to open /data/data/net.eguidedog.ekho.cantonese/cache/tmpfile");
-#endif
-            cerr << "Fail to create temparary file." << endl;
-            size = 0;
-            return 0;
-          }
-          
-          char buffer[128000];
-          int b = bytes;
-          while (b > 0) {
-            if (b <= 128000) {
-              fread(buffer, 1, b, file);
-              fwrite(buffer, 1, b, gsmfile);
-              b = 0;
-            } else {
-              b -= 128000;
-              fread(buffer, 128000, b, file);
-              fwrite(buffer, 128000, b, gsmfile);
-            }
-          }
-
-#ifdef DEBUG_ANDROID
-          LOGV("finish writting gsmfile");
-#endif
-
-          rewind(gsmfile);
-          SF_INFO sfinfo;
-          memset(&sfinfo, 0, sizeof(SF_INFO));
-          SNDFILE *sndfile = sf_open_fd(fileno(gsmfile), SFM_READ, &sfinfo, 1);
-          readSndfile(sndfile, sfinfo);
-        }
-
-        size = mSize;
-        return mPcm;
-      }
-
-      const char* getPcm(const char *wavDir, const char *postfix, int &size, SF_INFO &sfinfo) {
-        if (!mPcm) {
-          memset(&sfinfo, 0, sizeof(SF_INFO));
-
-          string wav_file = wavDir;
-          // char | 32 means get lower case
-          if (this->symbol[0] == '\\')
-          {
-            char c = this->symbol[1] | 32;
-            if (c >= 'a' && c <= 'z') {
-              wav_file += "/../alphabet/";
-              wav_file += c;
-              wav_file += ".wav";
-            } else {
-              return 0;
-            }
-          } else {
-            wav_file += "/";
-            wav_file += this->symbol;
-            wav_file += ".";
-            wav_file += postfix;
-          }
-
-          SNDFILE *sndfile = sf_open(wav_file.c_str(), SFM_READ, &sfinfo);
-          readSndfile(sndfile, sfinfo);
-        }
-
-        size = mSize;
-        return mPcm;
-      };
-
-      void readSndfile(SNDFILE *sndfile, SF_INFO sfinfo) {
-#ifdef DEBUG_ANDROID
-                LOGV("readSndfile(%p, %p)", sndfile, &sfinfo);
-#endif
-          if (!sndfile) {
-//            cerr << "Fail to open file " << wav_file << " at " << __LINE__ <<
-  //              " of " << __FILE__ << endl;                
-          } else {
-//            sfinfo.channels = 1; // this->sfinfo.channels is corrupted
-            if (sfinfo.channels > 2) {
-              static bool show_channel_error = true;
-              if (show_channel_error) {
-                cerr << "Invalid channels: " << sfinfo.channels << endl;
-                show_channel_error = false;
-              }
-
-              sfinfo.channels = 1;
-            }
-            int samples = 0;
-
-            /* sfinfo.channels has not been taken into account .... */
-            switch (sfinfo.format & SF_FORMAT_SUBMASK) {
-              case SF_FORMAT_VORBIS:
-              case SF_FORMAT_GSM610:
-              case SF_FORMAT_PCM_16:
-                mSize = (int)sfinfo.frames * 2 * sfinfo.channels;
-                mPcm = new char[mSize];
-                samples = (int)sf_readf_short(sndfile, (short int*)mPcm, sfinfo.frames);
-#ifdef DEBUG_ANDROID
-                LOGV("read samples: %d, %p", samples, mPcm);
-#endif
-                break;
-              case SF_FORMAT_PCM_S8:
-              case SF_FORMAT_PCM_U8:
-              default:
-                cerr << "Unknown soundfile format: " << (sfinfo.format & SF_FORMAT_SUBMASK) << endl;
-            }
-
-            if (samples != sfinfo.frames) {
-              cerr << "Fail to read : " << samples <<
-                " frames out of " << sfinfo.frames << " have been read." << endl;
-            }
-
-            sf_close(sndfile);
-          }
-      };
+      void readSndfile(SNDFILE *sndfile, SF_INFO sfinfo);
  
       static PhoneticSymbol* getUnknownPhoneticSymbol() {
         static PhoneticSymbol *ps = new PhoneticSymbol(" ");
         return ps;
-      }
+      };
 
     private:
       char *mPcm;

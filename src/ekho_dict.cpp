@@ -1,5 +1,5 @@
 ﻿/***************************************************************************
- * Copyright (C) 2008-2013 by Cameron Wong                                 *
+ * Copyright (C) 2008-2019 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: http://www.eguidedog.net                                       *
@@ -58,6 +58,7 @@ static bool isDir(const char *path) {
   }
 }
 
+Dict *Dict::me = 0;
 bool Dict::mDebug = false;
 
 Dict::Dict(void) { init(); }
@@ -68,6 +69,7 @@ Dict::Dict(Language lang) {
 }
 
 void Dict::init(void) {
+  me = this;
   mLanguage = ENGLISH;
 
   mVoiceFile = 0;
@@ -121,7 +123,7 @@ Dict::~Dict(void) {
   delete mQuaterPause;
   if (mVoiceFile) fclose(mVoiceFile);
   mVoiceFile = 0;
-
+  Dict::me = 0;
   // TODO: detete mKaSymbolLetter
 }
 
@@ -703,6 +705,8 @@ PhoneticSymbol *Dict::getPhoneticSymbol(string &symbol) {
     sym_code = ZHY_PHash::in_word_set(symbol.c_str(), symbol.size());
   }
 
+  //cerr << "getPhoneticSymbol:" << sym_code << endl;
+
   if (sym_code)
     return &mSymbolArray[sym_code->code];
   else
@@ -980,10 +984,19 @@ void Dict::getWordPcm(list<PhoneticSymbol *> &word_phon, unsigned int &offset,
        itor != word_phon.end(); itor++) {
     symbols += (*itor)->symbol;
     i++;
-    if (i < len) symbols += "-";
+    if (i < len) symbols += "-"; // 多字录音的文件名以-分隔拼音
   }
 
   map<string, PhoneticSymbol>::iterator sym = mWordSymbolMap.find(symbols);
+
+  // 如果文件没有找到，尝试读其它声调的文件顶替
+  /*
+  for (char c = '1'; sym == mWordSymbolMap.end() && c <= '7'; c++) {
+    string s = symbols.substr(0, symbols.length() - 1) + c;
+    cerr << "try " << s << endl;
+    sym = mWordSymbolMap.find(symbols);
+  }*/
+
   if (sym != mWordSymbolMap.end()) {
     offset = sym->second.offset;
     bytes = sym->second.bytes;
@@ -1781,6 +1794,8 @@ void Dict::loadEkhoVoiceFile(string path) {
       bytes = (unsigned char)is.get();
       bytes = (bytes << 8) + lowbyte;
 
+      //cerr << code << ":" << offset << "," << bytes << endl;
+
       // audio file size should less than 65535, pinyin-huang-44100 will overflow here
       mSymbolArray[code].offset = offset;
       mSymbolArray[code].bytes = bytes;
@@ -1811,6 +1826,8 @@ void Dict::loadEkhoVoiceFile(string path) {
       bytes = (unsigned char)is.get();
       bytes = (bytes << 8) + lowbyte;
 
+      //cerr << symbols << offset << bytes << endl;
+
       mWordSymbolMap[symbols] = PhoneticSymbol(symbols, offset, bytes);
     }
   }
@@ -1827,6 +1844,16 @@ void Dict::loadEkhoVoiceFile(string path) {
     mSfinfo.format = SF_FORMAT_WAV | SF_FORMAT_GSM610;
   //mVoiceFile = sf_open(voice_file.c_str(), SFM_READ, &mSfinfo);
   mVoiceFile = fopen(voice_file.c_str(), "r");
+}
+
+PhoneticSymbol* Dict::getPhoneticSymbol(char *symbol) {
+  if (Dict::me) {
+    string s(symbol);
+    unsigned short code = Dict::me->getCodeOfSymbol(s);
+    return &Dict::me->mSymbolArray[code];
+  }
+
+  return 0;
 }
 
 }
