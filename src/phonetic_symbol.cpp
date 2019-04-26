@@ -39,7 +39,7 @@ namespace ekho {
       strncat(s, symbol, 16);
       int pos = strlen(symbol);
       s[pos - 1] = c;
-      cerr << symbol "not found. try " << s << endl;
+      cerr << symbol << " not found. try " << s << endl;
       PhoneticSymbol *phon = Dict::getPhoneticSymbol(s);
       if (phon->offset > 0) {
         offset = phon->offset;
