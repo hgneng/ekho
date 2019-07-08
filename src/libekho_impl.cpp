@@ -285,11 +285,12 @@ int EkhoImpl::initEnglish(void) {
   // cout << "samplerate: " << samplerate << endl;
   gEkho = this;
   espeak_SetSynthCallback(espeakSynthCallback);
+  /* 女声好像并不好听，还是用原声吧 
   if (!mIsMale) {
     espeak_SetVoiceByName("en+f4");
   } else {
     espeak_SetVoiceByName("en");
-  }
+  }*/
 #endif
   return 0;
 }
@@ -564,7 +565,9 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 
   if (!flush_frames) {
     do {
+      // sonic会自动剪去一些空白的frame
       frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
+      //cerr << "sonicReadShortFromStream: " << frames << endl;
 
       if (frames > 0 && !pEkho->isStopped) {
         if (tofile) {
@@ -583,7 +586,9 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
         }
       }
     } while (frames > 0);
+  }
 
+  if (!frames) {
     sonicFlushStream(pEkho->mSonicStream);  // TODO: needed?
   }
 
@@ -593,7 +598,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   if (!mSonicStream) return 0;
 
-  const int quiet_level = 1638;  // 音量低于5%的部分重叠
+  const int quiet_level = 4096; //1638;  // 音量低于(quiet_level / 65536)的部分重叠
 
   int flushframes = 0;  // mPendingFrames里应该输出的frames
   int cpframe =
@@ -602,6 +607,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   int startframe = 0;
   int endframe = mPendingFrames - 1;
   int i = 0;
+  int q_level = 0;
 
   switch (type) {
     case OVERLAP_NONE:
@@ -617,16 +623,88 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
         endframe--;
       }
 
-      while (startframe < frames && abs(pcm[startframe]) < quiet_level) {
+      // don't overlap more than half of the syllable
+      while (startframe < frames / 2 && abs(pcm[startframe]) < quiet_level) {
         startframe++;
       }
 
+      // prevent valume over max
+      // search for a proper startframe position
+      i = endframe;
+      while (i > 0 && endframe - i < startframe &&
+          abs(mPendingPcm[i]) < 32767 - quiet_level) {
+        i--;
+      }
+
+      if (endframe - i < startframe) {
+        // remember a large frame and search back for small quite frame to overlarp
+        q_level = 32767 - abs(mPendingPcm[i]);
+        while (i > 0 && endframe - i < startframe &&
+            abs(pcm[endframe - i]) < q_level) {
+          i--;
+        }
+
+        if (endframe - i < startframe) {
+          cerr << "startframe: " << startframe << " to " << endframe - i << endl;
+          startframe = endframe - i;
+        }
+      }
+
+      // search for a proper endframe position
+      i = startframe;
+      while (i < frames && i - startframe < mPendingFrames - endframe - 1 &&
+          abs(pcm[i]) < 32767 - quiet_level) {
+        i++;
+      }
+
+      if (i - startframe < mPendingFrames - endframe - 1) {
+        q_level = 32767 - abs(pcm[i]);
+        while (i < frames && i - startframe < mPendingFrames - endframe - 1 &&
+            abs(mPendingPcm[mPendingFrames + startframe - i - 1]) < q_level) {
+          i++;
+        }
+
+        if (i - startframe < mPendingFrames - endframe - 1) {
+          cerr << "endframe: " << endframe << " to " << mPendingFrames + startframe - i - 1<< endl;
+          endframe = mPendingFrames + startframe - i - 1;
+        }
+      }
+
+/* old algarithm
       for (i = max(0, min(endframe, mPendingFrames - startframe));
-           i < mPendingFrames && cpframe < frames; i++) {
+          i < mPendingFrames && cpframe < frames; i++) {
         mPendingPcm[i] += pcm[cpframe];
         cpframe++;
+      }*/
+
+      for (i = max(0, endframe - startframe);
+          i < mPendingFrames && cpframe < frames; i++) {
+        mPendingPcm[i] += pcm[cpframe];
+        if (mPendingPcm[i] > 32000) {
+          cerr << "overflow: " << mPendingPcm[i] << endl;
+        }
+        cpframe++;
       }
-      flushframes = i;
+
+      if (frames == 0) {
+        // frames=0 means flush all pending frames
+        flushframes = i;
+      } else if (mPendingFrames + mPendingFrames > Ekho::PENDING_PCM_FRAMES) {
+        // guaranteer pending frames no more than haft pending buffer
+        flushframes = mPendingFrames - Ekho::PENDING_PCM_FRAMES / 2;
+      }
+/*
+      if (endframe < mPendingFrames - 1) {
+        cerr << "clip endframe: " << mPendingFrames - endframe + 1 << endl;
+      }
+
+      if (startframe > 0) {
+        cerr << "clip startframe: " << startframe << endl;
+      }
+
+      cerr << "cpframes: " << cpframe << ", flushframes: " << flushframes 
+        << ", mPendingFrames: " << mPendingFrames << ", frames: " << frames << endl;
+*/
       break;
 
     case OVERLAP_HALF_PART:
@@ -659,10 +737,12 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
 
   sonicWriteShortToStream(mSonicStream, mPendingPcm, flushframes);
   mPendingFrames -= flushframes;
-  if (mPendingFrames > 0)
+  if (mPendingFrames > 0) {
     memcpy(mPendingPcm, mPendingPcm + flushframes, mPendingFrames * 2);
+  }
   memcpy(mPendingPcm + mPendingFrames, pcm + cpframe, (frames - cpframe) * 2);
   mPendingFrames += frames - cpframe;
+
 
   return flushframes;
 }
@@ -1259,7 +1339,9 @@ void EkhoImpl::setSpeed(int tempo_delta) {
 #endif
 }
 
-int EkhoImpl::getSpeed(void) { return this->tempoDelta; }
+int EkhoImpl::getSpeed(void) {
+  return this->tempoDelta + 30 /* 30 is for bd voice */; 
+}
 
 void EkhoImpl::setEnglishSpeed(int delta) {
   if (delta >= -50 && delta <= 150) {
@@ -1272,7 +1354,9 @@ void EkhoImpl::setEnglishSpeed(int delta) {
   }
 }
 
-int EkhoImpl::getEnglishSpeed(void) { return this->englishSpeedDelta; }
+int EkhoImpl::getEnglishSpeed(void) {
+  return this->englishSpeedDelta - 20 /* slower for bd voice */;
+}
 
 void EkhoImpl::setPitch(int pitch_delta) {
   if (EkhoImpl::mDebug) {
@@ -1846,8 +1930,10 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
               Language lang = mDict.getLanguage();
               if (lang == MANDARIN || lang == CANTONESE) {
                 pPcm = (*symbol)->getPcm(mDict.mVoiceFile, size);
-                if (pPcm && size > 0)
+                if (pPcm && size > 0) {
+                  //cerr << (*symbol)->symbol << ": " << size << endl;
                   callback((short *)pPcm, size / 2, userdata, *type);
+                }
               } else {
                 string path = mDict.mDataPath + "/" + mDict.getVoice();
                 pPcm =

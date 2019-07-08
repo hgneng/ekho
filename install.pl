@@ -121,4 +121,5 @@ if (`grep precise /etc/lsb-release`) {
 # start/restart Orca
 print "restarting Orca\n";
 `killall speech-dispatcher`;
+`sleep 3`;
 system("orca --replace &");

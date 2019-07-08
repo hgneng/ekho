@@ -57,8 +57,8 @@ class Ekho {
   EkhoImpl *m_pImpl;
 
  public:
-  const static int BUFFER_SIZE = 8192;
-  const static int PENDING_PCM_FRAMES = 4096;
+  const static int BUFFER_SIZE = 40960;
+  const static int PENDING_PCM_FRAMES = 20480;
   const static int MAX_CLIENTS = 100;
 
   static void debug(bool flag = true);

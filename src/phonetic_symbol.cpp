@@ -27,23 +27,26 @@ using namespace std;
 namespace ekho {
 
   const char* PhoneticSymbol::getPcm(FILE *file, int &size) {
-    //cerr << "getPcm:" << offset << endl;
+    //cerr << "PhoneticSymbol::getPcm:" << "offset=" << offset <<
+    //  ", bytes=" << bytes << endl;
 
 #ifdef DEBUG_ANDROID
     LOGV("getPcm(%p, %d) offset=%d bytes=%d", file, size, offset, bytes);
 #endif
 
     // 如果该拼音没有找到音频，尝试读其它声调的音频代替
-    for (char c = '1'; !mPcm && offset == 0 && c <= '7'; c++) {
-      char s[16] = {0};
-      strncat(s, symbol, 16);
-      int pos = strlen(symbol);
-      s[pos - 1] = c;
-      cerr << symbol << " not found. try " << s << endl;
-      PhoneticSymbol *phon = Dict::getPhoneticSymbol(s);
-      if (phon->offset > 0) {
-        offset = phon->offset;
-        bytes = phon->bytes;
+    if (!(strlen(symbol) == 1 && symbol[0] == ' ')) {
+      for (char c = '1'; !mPcm && offset == 0 && c <= '7'; c++) {
+        char s[16] = {0};
+        strncat(s, symbol, 16);
+        int pos = strlen(symbol);
+        s[pos - 1] = c;
+        cerr << symbol << (int)(symbol[0]) << " not found. try " << s << endl;
+        PhoneticSymbol *phon = Dict::getPhoneticSymbol(s);
+        if (phon->offset > 0) {
+          offset = phon->offset;
+          bytes = phon->bytes;
+        }
       }
     }
 
