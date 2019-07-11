@@ -645,7 +645,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
         }
 
         if (endframe - i < startframe) {
-          cerr << "startframe: " << startframe << " to " << endframe - i << endl;
+          //cerr << "startframe: " << startframe << " to " << endframe - i << endl;
           startframe = endframe - i;
         }
       }
@@ -665,7 +665,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
         }
 
         if (i - startframe < mPendingFrames - endframe - 1) {
-          cerr << "endframe: " << endframe << " to " << mPendingFrames + startframe - i - 1<< endl;
+          //cerr << "endframe: " << endframe << " to " << mPendingFrames + startframe - i - 1<< endl;
           endframe = mPendingFrames + startframe - i - 1;
         }
       }
