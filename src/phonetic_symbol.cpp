@@ -35,15 +35,16 @@ namespace ekho {
 #endif
 
     // 如果该拼音没有找到音频，尝试读其它声调的音频代替
+    cerr << symbol << " ";
     if (!(strlen(symbol) == 1 && symbol[0] == ' ')) {
-      for (char c = '1'; !mPcm && offset == 0 && c <= '7'; c++) {
+      for (char c = '1'; !mPcm && bytes == 0 && c <= '7'; c++) {
         char s[16] = {0};
         strncat(s, symbol, 16);
         int pos = strlen(symbol);
         s[pos - 1] = c;
-        cerr << symbol << (int)(symbol[0]) << " not found. try " << s << endl;
+        cerr << symbol << "(first letter value: " << (int)(symbol[0]) << ") not found. try " << s << endl;
         PhoneticSymbol *phon = Dict::getPhoneticSymbol(s);
-        if (phon->offset > 0) {
+        if (phon->bytes > 0) {
           offset = phon->offset;
           bytes = phon->bytes;
         }
