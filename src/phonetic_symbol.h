@@ -69,7 +69,7 @@ namespace ekho {
 
       const char *symbol;
       unsigned int offset; // bytes' offset
-      unsigned short bytes;
+      unsigned int bytes;
 
       void setPcm(char *pcm, const int size) {
         if (mPcm) {

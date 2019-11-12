@@ -1666,10 +1666,12 @@ void Dict::saveEkhoVoiceFile() {
         FILE *gsmfile = fopen(path.c_str(), "r");
 
         int bytes = 0;
+        int b = 0;
         do {
-          bytes = fread(buffer, 1, 128000, gsmfile);
-          fwrite(buffer, 1, bytes, file);
-        } while (bytes == 128000);
+          b = fread(buffer, 1, 128000, gsmfile);
+          bytes += b;
+          fwrite(buffer, 1, b, file);
+        } while (b == 128000);
 
 	/*
 	fseek(gsmfile, 0L, SEEK_END);
@@ -1688,8 +1690,13 @@ void Dict::saveEkhoVoiceFile() {
 
         os.put(bytes & 0xFF);
         os.put((bytes >> 8) & 0xFF);
+        os.put((bytes >> 16) & 0xFF);
+
+        //cerr << "code:" << code << ", offset=" << total_bytes <<
+        // ", bytes=" << bytes << endl;
       } else {
         // multiple symbols (word)
+        cerr << "found word:" << symbol << endl;
         list<string> symbols;
         string symbol0 = symbol;
         int pos = 0;
@@ -1714,10 +1721,12 @@ void Dict::saveEkhoVoiceFile() {
         FILE *gsmfile = fopen(path.c_str(), "r");
 
         int bytes = 0;
+        int b = 0;
         do {
-          bytes = fread(buffer, 1, 512000, gsmfile);
-          fwrite(buffer, 1, bytes, file);
-        } while (bytes == 512000);
+          b = fread(buffer, 1, 512000, gsmfile);
+          bytes += b;
+          fwrite(buffer, 1, b, file);
+        } while (b == 512000);
 
         fclose(gsmfile);
 
@@ -1729,6 +1738,7 @@ void Dict::saveEkhoVoiceFile() {
 
         os.put(bytes & 0xFF);
         os.put((bytes >> 8) & 0xFF);
+        os.put((bytes >> 16) & 0xFF);
       }
     }
   } while (dp != NULL);
@@ -1748,7 +1758,7 @@ void Dict::loadEkhoVoiceFile(string path) {
   unsigned char lowbyte;
   unsigned short code;
   unsigned int offset;
-  unsigned short bytes;
+  int bytes;
   unsigned int tmpint;
 
   string index_file = path + ".index";
@@ -1790,13 +1800,14 @@ void Dict::loadEkhoVoiceFile(string path) {
       offset += (tmpint << 24);
 
       // bytes
-      lowbyte = (unsigned char)is.get();
       bytes = (unsigned char)is.get();
-      bytes = (bytes << 8) + lowbyte;
+      tmpint = (unsigned char)is.get();
+      bytes += (tmpint << 8);
+      tmpint = (unsigned char)is.get();
+      bytes += (tmpint << 16);
 
       //cerr << code << ":" << offset << "," << bytes << endl;
 
-      // audio file size should less than 65535, pinyin-huang-44100 will overflow here
       mSymbolArray[code].offset = offset;
       mSymbolArray[code].bytes = bytes;
     } else {
@@ -1808,6 +1819,7 @@ void Dict::loadEkhoVoiceFile(string path) {
         code = (unsigned char)is.get();
         code = (code << 8) + lowbyte;
         mSymbolArray[code].symbol;
+        //cerr << mSymbolArray[code].symbol << endl;
         strcat(symbols, mSymbolArray[code].symbol);
         if (i < code_count - 1) strcat(symbols, "-");
       }
@@ -1822,9 +1834,11 @@ void Dict::loadEkhoVoiceFile(string path) {
       offset += (tmpint << 24);
 
       // bytes
-      lowbyte = (unsigned char)is.get();
       bytes = (unsigned char)is.get();
-      bytes = (bytes << 8) + lowbyte;
+      tmpint = (unsigned char)is.get();
+      bytes += (tmpint << 8);
+      tmpint = (unsigned char)is.get();
+      bytes += (tmpint << 16);
 
       //cerr << symbols << offset << bytes << endl;
 
@@ -1840,10 +1854,15 @@ void Dict::loadEkhoVoiceFile(string path) {
   memset(&mSfinfo, 0, sizeof(mSfinfo));
   mSfinfo.samplerate = samplerate;
   mSfinfo.channels = 1;
-  if (strcmp(mVoiceFileType, "gsm"))
+  if (strcmp(mVoiceFileType, "gsm")) {
     mSfinfo.format = SF_FORMAT_WAV | SF_FORMAT_GSM610;
+  }
   //mVoiceFile = sf_open(voice_file.c_str(), SFM_READ, &mSfinfo);
   mVoiceFile = fopen(voice_file.c_str(), "r");
+
+  if (mDebug) {
+    cerr << "sampleRate=" << samplerate << ", fileType=" << mVoiceFileType << endl;
+  }
 }
 
 PhoneticSymbol* Dict::getPhoneticSymbol(char *symbol) {
