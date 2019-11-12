@@ -608,6 +608,8 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   int endframe = mPendingFrames - 1;
   int i = 0;
   int q_level = 0;
+  float seconds = 0;
+  int minFrames = mDict.mSfinfo.samplerate * 0.2;
 
   switch (type) {
     case OVERLAP_NONE:
@@ -618,13 +620,21 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
       break;
 
     case OVERLAP_QUIET_PART:
+      // don't overlap more than 0.3(endframe)+0.3(startframe) of the syllable frames
+      // promise syllable no less than 0.2 seconds
+      //cerr << "seconds: " << seconds << endl;
+
       // find quiet frames
-      while (endframe > 0 && abs(mPendingPcm[endframe]) < quiet_level) {
+      while (endframe > 0 &&
+        mPendingFrames - endframe < frames * 0.3 &&
+        mPendingFrames - endframe < (frames - minFrames) * 0.5 &&
+        abs(mPendingPcm[endframe]) < quiet_level) {
         endframe--;
       }
 
-      // don't overlap more than half of the syllable
-      while (startframe < frames / 2 && abs(pcm[startframe]) < quiet_level) {
+      while (startframe < frames * 0.3 &&
+          startframe < (frames - minFrames) * 0.5 &&
+          abs(pcm[startframe]) < quiet_level) {
         startframe++;
       }
 
@@ -681,17 +691,20 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
           i < mPendingFrames && cpframe < frames; i++) {
         mPendingPcm[i] += pcm[cpframe];
         if (mPendingPcm[i] > 32000) {
-          cerr << "overflow: " << mPendingPcm[i] << endl;
+          //cerr << "overflow: " << mPendingPcm[i] << endl;
         }
         cpframe++;
       }
 
+      //cerr << "frames:" << frames << ", startframe: " << startframe <<
+      //  ", endframe:" << endframe << ", overlap: " << i - max(0, endframe - startframe) - 1 << endl;
+
       if (frames == 0) {
         // frames=0 means flush all pending frames
         flushframes = i;
-      } else if (mPendingFrames + mPendingFrames > Ekho::PENDING_PCM_FRAMES) {
-        // guaranteer pending frames no more than haft pending buffer
-        flushframes = mPendingFrames - Ekho::PENDING_PCM_FRAMES / 2;
+      } else if (mPendingFrames + mPendingFrames > frames) {
+        // guaranteer pending frames no more than haft frames
+        flushframes = mPendingFrames - frames * 0.5;
       }
 /*
       if (endframe < mPendingFrames - 1) {
