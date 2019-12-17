@@ -74,10 +74,12 @@ if ENABLE_SPEECHD
 	cd $(srcdir)/speechd-api && make clean
 endif
 
-all: all-local
+all: libmusicxml all-am speechd
 
-all-local:
+libmusicxml:
 	cd $(srcdir)/libmusicxml/linux && make
+
+speechd:
 if ENABLE_SPEECHD
 	cd $(srcdir)/speechd-api && ./build.sh && ./configure --libdir=/usr && make
 endif
