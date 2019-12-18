@@ -37,6 +37,9 @@ DATA_SUB_DIRS = $(DATA_DIR)/alphabet $(DATA_DIR)/hakka $(DATA_DIR)/tibetan $(DAT
 COPYRIGHT_FILES = $(DATA_DIR)/COPYING-jyutping-wong $(DATA_DIR)/COPYING-pinyin-yali $(DATA_DIR)/COPYING-hakka-weicheng $(DATA_DIR)/COPYING-hangul-haesung $(DATA_DIR)/COPYING-ngangien-qianshan $(DATA_DIR)/COPYING-tibetan-trinley
 EXTRA_DIST = $(COPTRIGHT_FILES) # this line seems no longer work. don't know why
 
+libmusicxml/libmusicxml2.a:
+	cd $(srcdir)/libmusicxml/linux && make
+
 install-data-hook:
 	mkdir -p $(DESTDIR)$(datadir)/ekho-data
 if DIST_VOICE_DATA
@@ -48,7 +51,7 @@ endif
 uninstall-hook:
 	rm -rf $(DESTDIR)$(datadir)/ekho-data
 
-dist-hook:
+dist-hook: clean-hook
 	mkdir -p $(distdir)/ekho-data
 if DIST_VOICE_DATA
 	cp -RL $(DATA_SUB_DIRS) $(distdir)/ekho-data/
@@ -74,10 +77,7 @@ if ENABLE_SPEECHD
 	cd $(srcdir)/speechd-api && make clean
 endif
 
-all: libmusicxml all-am speechd
-
-libmusicxml:
-	cd $(srcdir)/libmusicxml/linux && make
+all: all-am speechd
 
 speechd:
 if ENABLE_SPEECHD
