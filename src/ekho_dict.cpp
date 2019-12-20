@@ -125,6 +125,18 @@ Dict::~Dict(void) {
   mVoiceFile = 0;
   Dict::me = 0;
   // TODO: detete mKaSymbolLetter
+
+  for (list<PhoneticSymbol *>::iterator li = mSpecialSymbols.begin();
+       li != mSpecialSymbols.end(); li++) {
+    delete *li;
+  }
+  mSpecialSymbols.clear();
+
+  for (list<char *>::iterator li = mSpecialChars.begin();
+       li != mSpecialChars.end(); li++) {
+    delete[] *li;
+  }
+  mSpecialChars.clear();
 }
 
 /**
@@ -290,11 +302,16 @@ int Dict::setLanguage(Language lang) {
 
 void Dict::addSpecialSymbols(void) {
   // add alphabets
-  char cs[3] = {'\\', 0, 0};
   string voicePath = mDataPath + "/alphabet";
+
   for (char c = 'a'; c <= 'z'; c++) {
+    char *cs = new char[3];
+    cs[0] = '\\';
     cs[1] = c;
+    cs[2] = 0;
     PhoneticSymbol *ps = new PhoneticSymbol(cs);
+    mSpecialSymbols.push_back(ps);
+    mSpecialChars.push_back(cs);
     int size = 0;
     const char *pcm = ps->getPcm(voicePath.c_str(), "wav", size);
     addDictItem(c, ps);

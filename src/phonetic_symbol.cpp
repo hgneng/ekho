@@ -123,6 +123,10 @@ namespace ekho {
           case SF_FORMAT_GSM610:
           case SF_FORMAT_PCM_16:
             mSize = (int)sfinfo.frames * 2 * sfinfo.channels;
+            if (mPcm) {
+              delete[] mPcm;
+              mPcm = 0;
+            }
             mPcm = new char[mSize];
             samples = (int)sf_readf_short(sndfile, (short int*)mPcm, sfinfo.frames);
 #ifdef DEBUG_ANDROID

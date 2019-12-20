@@ -241,6 +241,8 @@ class Dict {
   DictItem mDictItemArray[65536];
   map<int, DictItem> mExtraDictItemMap;
   map<int, const char *> mPunctuationNameMap;
+  list<PhoneticSymbol *> mSpecialSymbols; // for delete when destroy
+  list<char *> mSpecialChars; // for delete when destroy
 
   string mVoice;
   int mFullPausePcmSize;

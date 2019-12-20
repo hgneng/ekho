@@ -37,7 +37,7 @@ DATA_SUB_DIRS = $(DATA_DIR)/alphabet $(DATA_DIR)/hakka $(DATA_DIR)/tibetan $(DAT
 COPYRIGHT_FILES = $(DATA_DIR)/COPYING-jyutping-wong $(DATA_DIR)/COPYING-pinyin-yali $(DATA_DIR)/COPYING-hakka-weicheng $(DATA_DIR)/COPYING-hangul-haesung $(DATA_DIR)/COPYING-ngangien-qianshan $(DATA_DIR)/COPYING-tibetan-trinley
 EXTRA_DIST = $(COPTRIGHT_FILES) # this line seems no longer work. don't know why
 
-libmusicxml/libmusicxml2.a:
+$(srcdir)/libmusicxml/libmusicxml2.a:
 	cd $(srcdir)/libmusicxml/linux && make
 
 install-data-hook:
