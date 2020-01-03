@@ -96,12 +96,7 @@ if (`grep precise /etc/lsb-release`) {
   system('sudo rm -rf /usr/local/share/ekho-data');
   system('sudo make install');
   setup_lang();
-} elsif (`grep "12.10" /etc/lsb-release` ||
-    `grep "13.04" /etc/lsb-release` ||
-    `grep "14.04" /etc/lsb-release` ||
-    `grep "15.10" /etc/lsb-release` ||
-    `grep "16.04" /etc/lsb-release` ||
-    `grep "18.04" /etc/lsb-release`) {
+} elsif (`grep "Ubuntu" /etc/lsb-release`) {
   # ubuntu 12.10
   build_common() if (not $skip_build);
   `sudo ln -s /usr/lib/i386-linux-gnu/speech-dispatcher-modules /usr/lib/` if (not `grep "14.04" /etc/lsb-release`);
