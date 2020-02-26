@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 #AC_PREREQ(2.60)
-AC_INIT(ekho, 8.1, hgneng at gmail.com)
+AC_INIT(ekho, 8.2, hgneng at gmail.com)
 AC_CONFIG_AUX_DIR([.])
 AM_PROG_AR
 AM_INIT_AUTOMAKE([-Wall foreign 1.9 tar-pax subdir-objects])
@@ -70,7 +70,7 @@ AC_CHECK_LIB([sndfile], [main], [],
     [AC_MSG_FAILURE([sndfile test failed])],[]
 )
 
-AC_CHECK_LIB([espeak], [main], [], [AC_MSG_FAILURE([espeak test failed])],[])
+AC_CHECK_LIB([espeak-ng], [main], [], [AC_MSG_FAILURE([espeak-ng test failed])],[])
 
 LIB_PULSEAUDIO=""
 CFLAG_PULSEAUDIO=""

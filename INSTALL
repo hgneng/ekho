@@ -14,7 +14,7 @@ $ ./ekho 123
 
 ===== INSTALL (for Linux) =====
 You need to have following libraries first:
-* libespeak-dev
+* libespeak-ng-dev
 * libsndfile1-dev (http://www.mega-nerd.com/libsndfile/)
 * libpulse-dev
 * libncurses5-dev (required by --enable-festival)

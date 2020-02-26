@@ -55,7 +55,7 @@
 #endif
 
 #define ENABLE_ENGLISH
-#include "espeak/speak_lib.h"
+#include "espeak-ng/speak_lib.h"
 #ifdef ENABLE_FESTIVAL
 #include "festival/festival.h"
 #endif
