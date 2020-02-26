@@ -1,33 +1,27 @@
 Notes for packagers of Speech Dispatcher.
 
-1) The 0.7.1 release has a clean make distcheck. You might find
-you do not need some of your additional patches from now.
+The python bindings distributed in this release in directory
+src/api/python/speechd/ have been ported to Python 3 and are backward
+incompatible with Python 2. For applications relying on the Python
+bindings, such as the Orca screen reader, to be compatible with this
+release, a version must be used which runs on Python 3.
 
-2) The way of installing the python bindings was changed from Setup
-Tools to Auto Tools in the 0.7.1 release as a part of the distcheck
-cleanup. This should not require any special action from you,
-but please check that the Python bindings are installed correctly
-in your package.
+Please make sure to setup the package dependencies correctly
+to avoid possible problems.
 
-3) The communication mechanism of Speech Dispatcher and the way of
-starting it has been severely reworked in the 0.7.x series. Some
-./configure variables as PIDPATH are no longer relevant. It is highly
-recommended to start Speech Dispatcher per-user in his user session
-and avoid starting it as a system service via /etc/init.d/. Please
-check the updated documentation, especially the part Technical
-Specification.
 
-4) It would be convenient if you could check where MBROLA
-voices are installed in your distribution (if your distribution
-provides a package for them) and modify the GenericExecuteString
-in config/modules/espeak-mbrola-generic.conf file accordingly.
+Copyright (C) 2006 Gary Cramblitt <garycramblitt@comcast.net>
+Copyright (C) 2006-2012 Brailcom, o.p.s
 
-The original is:
-   /usr/share/mbrola/$VOICE/$VOICE
-where $VOICE is e.g. "en1".
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
 
-For example in Ubuntu, the correct path however is
-   /usr/share/mbrola/voices/$VOICE
-and it's likely to differe slightly in other
-distributions as well.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
+COPYING in the root directory).
 
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.

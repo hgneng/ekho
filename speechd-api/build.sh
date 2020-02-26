@@ -16,53 +16,24 @@
 # General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this package; see the file COPYING.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-# Boston, MA 02110-1301, USA.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-# $Id: build.sh,v 1.5 2006-07-11 16:12:25 hanke Exp $
+# Just call autoreconf -i.  This script should really go away, but we're
+# keeping it, because people are used to it.
+rm -f ABOUT-NLS
+rm -f po/remove-potcdate.sin
+autoreconf -i
 
-libtoolize=libtoolize
-if [ "`uname`" = Darwin ]; then
-    libtoolize=glibtoolize
-fi
+# See https://savannah.gnu.org/bugs/index.php?54809
+rm -f \
+./po/remove-potcdate.sin \
+./po/quot.sed \
+./po/boldquot.sed \
+./po/en@quot.header \
+./po/en@boldquot.header \
+./po/insert-header.sin \
+./po/Rules-quot \
+./ABOUT-NLS
 
-echo "Copying libtool macros (libtoolize)"
-if ! $libtoolize --force; then
-	echo "libtoolize failed!"
-	exit 1
-fi
-
-echo "Building user-defined autoconf macros (aclocal)"
-if ! aclocal; then
-	echo "aclocal failed!"
-	exit 1
-fi
-
-echo "Creating ./configure (autoconf)"
-if ! autoconf; then
-	echo "autoconf failed!"
-	exit 1
-fi
-
-echo "Creating config.h.in (autoheader)"
-if ! autoheader; then
-	echo "autoheader failed!"
-	exit 1
-fi
-
-echo "Checking for missing scripts (automake -a)"
-if ! automake -a; then
-	echo "automake -a failed!"
-	exit 1
-fi
-
-echo "Creating makefiles.in (automake)"
-if ! automake; then
-	echo "automake failed!"
-	exit 1
-fi
-
-echo 
-echo "You can continue configuring and compiling Speech Dispatcher with"
-echo "       ./configure && make all && make install"
+touch ABOUT-NLS
+touch po/remove-potcdate.sin

@@ -1,0 +1,1 @@
+SPD_SPAWN_CMD = "@bindir@/speech-dispatcher"

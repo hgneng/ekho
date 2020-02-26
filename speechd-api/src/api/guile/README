@@ -1,0 +1,28 @@
+This is a Guile interface to SSIP.
+
+It is in an experimental state now and is expected to be significantly
+reworked before first official release.
+
+To compile it, run `make'.  libspeechd and guile libraries and headers files
+must be installed to get compiled the C part of the interface.
+
+If you have any questions, suggestions, etc., feel free to contact us at the
+mailing list <speechd-discuss@nongnu.org>.
+
+-- Milan Zamazal <pdm@freebsoft.org>
+
+
+Copyright (C) 2004-2007 Brailcom, o.p.s
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation; either version 2.1, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
+for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.

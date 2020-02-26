@@ -1,0 +1,110 @@
+This file contains instructions for translators to translate Speech
+Dispatcher interface to their languages.  Speech Dispatcher uses
+gettext[1] for its internationalization support.
+
+If you're not familiar with gettext po files we recommend that you
+read the Gettext manual[2] before continuing.
+
+== Requirements ==
+
+To translate Speech Dispatcher you need a git clone of speech
+dispatcher.  If you are not reading this file from a git checkout
+please check the `INSTALL` file for detailed instructions.  You will
+also need gettext package installed, as recommended on
+the `INSTALL` file.
+
+== Adding a new Language ==
+
+If your locale is not already supported by Speech Dispatcher you must
+create a new <locale>.po file and translate all contained
+messages. The following steps explain the process.
+
+1. ON your Speech Dispatcher source directory change to the po directory.
+
+2. Create a pot template for Speech Dispatcher running:
+
+$ make -C po speech-dispatcher.pot-update
+
+This will create a file called Speech Dispatcher.pot with all
+translatable Speech Dispatcher messages.
+
+3. Create the po template for the current system locale from Speech
+Dispatcher.pot running
+
+$ msginit
+
+And follow the prompts.  If you want to create a translation for a
+different locale please run
+
+$ msginit -l <locale>
+
+where <locale> is the locale's name.  This will create a <locale>.po
+file.  msginit will fill in the po template header for you from your
+environment but we recommend to double-check that information.
+
+You may also copy the Speech Dispatcher.pot file to <locale>.po and
+fill in the header information yourself.
+
+At this stage you can remove the Speech-Dispatcher.pot file since it
+is not needed anymore.
+
+4. Open the file `LINGUAS` and add your locale name there.  Please put
+one locale on each line and keep the file alphabetically sorted.
+
+5. Translate all messages in <locale>.po and run make.  If you found
+errors reported by msgfmt about your <locale>.po file please correct
+them before continuing.
+
+6. When you're done see the section about testing below.
+
+== Updating an existing Translation ==
+
+When there are new Speech Dispatcher messages for translation or some
+messages are changed, you need to update your <locale.>.po file.
+
+To update an existing po file with new messages please run
+
+$ make -C po <locale>.po-update
+
+Where <locale> is the locale po file to update.
+
+Then you can translate new messages and, if needed, update the ones
+gettext guessed wrong when updating the po file.
+
+== Testing your Translation ==
+
+To confirm that your translation works, please install Speech
+Dispatcher with your translation included and test it with your system
+configured for your locale.
+
+We recommend you test with spd-say and spd-conf, since those are the
+tools with more translatable content.
+
+== Sending your Translation to Speech Dispatcher ==
+
+When you think your translation is ready to be included in Speech
+Dispatcher send the po file to our development mailling-list at
+speechd-discuss@nongnu.org
+
+== References ==
+
+[1] Gettext: https://www.gnu.org/software/gettext/
+[2] Gettext Manual: https://www.gnu.org/software/gettext/manual/gettext.html
+
+
+Copyright (C) 2010 Rui Batista <ruiandrebatista@gmail.com>
+Copyright (C) 2012 Brailcom, o.p.s
+Copyright (C) 2017 Jan Tojnar <jtojnar@gmail.com>
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
+COPYING in the root directory).
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.

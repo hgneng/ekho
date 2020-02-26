@@ -1,7 +1,7 @@
 /*
  * index_marking.h -- Implements functions handling index marking
  *                    for Speech Dispatcher (header)
- * 
+ *
  * Copyright (C) 2001,2002,2003 Brailcom, o.p.s
  *
  * This is free software; you can redistribute it and/or modify it
@@ -15,9 +15,7 @@
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this package; see the file COPYING.  If not, write to
- * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301, USA.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * $Id: index_marking.h,v 1.5 2006-07-11 16:12:27 hanke Exp $
  */
@@ -33,14 +31,14 @@
 #define SD_MARK_TAIL "\"/>"
 
 /* Insert index marks into a message. */
-void insert_index_marks(TSpeechDMessage *msg, int ssml_mode);
+void insert_index_marks(TSpeechDMessage * msg, SPDDataMode ssml_mode);
 
 /* Find the index mark specified as _mark_ and return the
 rest of the text after that index mark. */
-char* find_index_mark(TSpeechDMessage *msg, int mark);
+char *find_index_mark(TSpeechDMessage * msg, int mark);
 
 /* Delete all index marks from _buf_ and return a newly
    allocated string. */
-char* strip_index_marks(char *buf, int ssml_mode);
+char *strip_index_marks(char *buf, SPDDataMode ssml_mode);
 
 #endif /* INDEX_MARKING_H */

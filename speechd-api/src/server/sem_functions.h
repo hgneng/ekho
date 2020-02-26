@@ -1,6 +1,6 @@
 /*
  * sem_functions.h - Functions for manipulating System V / IPC semaphores
- * 
+ *
  * Copyright (C) 2001, 2002, 2003 Brailcom, o.p.s.
  *
  * This is free software; you can redistribute it and/or modify it
@@ -14,12 +14,9 @@
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this package; see the file COPYING.  If not, write to
- * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301, USA.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * $Id: sem_functions.h,v 1.6 2006-07-11 16:12:27 hanke Exp $
  */
 
 void speaking_semaphore_post(void);
-

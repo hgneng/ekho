@@ -15,9 +15,7 @@
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this package; see the file COPYING.  If not, write to
- * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301, USA.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * $Id: server.h,v 1.3 2006-07-11 16:12:27 hanke Exp $
  */
@@ -29,13 +27,11 @@
 int serve(int fd);
 
 /* Switches `receiving data' mode on and off for specified client */
-int server_data_on(int fd);
+void server_data_on(int fd);
 void server_data_off(int fd);
 
 /* Put a message into Dispatcher's queue */
-int queue_message(TSpeechDMessage *new, int fd, int history_flag,
-		  EMessageType type, int reparted);
-
+int queue_message(TSpeechDMessage * new, int fd, int history_flag,
+		  SPDMessageType type, int reparted);
 
 #endif
-

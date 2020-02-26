@@ -1,3 +1,117 @@
+Version 0.10
+* Rework thread synchronization.
+* Move espeak/espeak-ng audio queuing to shared file, rework it.
+* Make baratinoo use this audio queueing, enable marks, and support
+responsiveness parameter.
+* Show mark progression in spd-say.
+* Put country/region in language instead of variant.
+* pico, generic: fix setting voice by language.
+* generic: Add fallback voices for generic languages.
+* symbols: Add support for SSML.
+* symbols: Add SymbolPreprocessingFile directive.
+* symbols: Import emojis and unicode font variants support from NVDA and Unicode
+CLDR and UnicodeData.
+
+Version 0.9.1
+* Add module for the non-free IBM TTS (voxin) speech synthesis.
+* Extend licence to later versions of GPL and LGPL.
+* Update mailing list address to savannah.
+* Make generic modules fallback to existing voices.
+
+Version 0.9
+* Add modules for non-free Baratinoo (VoxyGen) and Kali speech syntheses.
+* Add configuration file for the Mary-TTS system.
+* Add configuration file for espeak-ng + mbrola.
+* Set the pulse client name when using the generic module with paplay.
+* espeak-*-mbrola-generic: Update voice list.
+* Auto-detect module availability.
+* Make generic module provide voice list.
+* Add systemd service file.
+
+Version 0.8.8
+* Add German translation, thanks to Chris Leick for the patch
+* Fix some spelling mistakes, thanks to Paul Gevers for the patch
+* Some slight code improvements
+
+Version 0.8.7
+* Further fixes to spd-conf, which should now work properly.
+* Split the espeak-ng driver code into its own source file.
+* Add a work-around to the espeak-ng driver to account for spaces in voice
+  names which recently appeared in espeak-ng git master. This will properly
+  be fixed in 0.9.
+* Voice names are not forced to lower case, due to espeak-ng git master now
+  having multi-case voice names.
+* Fix stripped audio output from the flite module, thanks to Samuel Thibault.
+* Further code and build improvements.
+
+Version 0.8.6
+* Various internal code improvements.
+* Fix more compiler warnings.
+* Python bug fixes with thanks to Sebastian Humenda.
+
+Version 0.8.5
+* More unused code removal.
+* Fix more compiler warnings.
+* Use GLib main loop for the main server thread.
+* Implement a shutdown timer in the server, which activates after 5 seconds
+  with no clients connected.
+* Add support for espeak-ng.
+* Configuration documentation for the ibmtts module.
+* Removal of unused configuration options from the ibmtts module.
+* Add command-line argument to allow for custom modules location
+
+Version 0.8.4
+* Updated documentation for required dependencies and where to find them.
+* Removed unused code.
+* Fixed compiler and GLib warnings.
+* Cleanup header definitions and inclusions.
+* Enabled silent rules by default
+* Fix language identification references.
+
+Version 0.8.3
+* Add API methods to get language, rate, pitch, and volume.
+* A lot of code cleanup, and compatibility improvements.
+* Removed all references to GNOME Speech, since it has long since been
+  deprecated.
+* Fix some inconsistancy in the SSIP API for voice type.
+* The SET VOICE SSIP command is now deprecated, and will be removed in 0.9.
+* The C library API now provides macro definitions for major, minor, and micro
+  versions in libspeechd_versions.h.
+* The libsndfile library is now a mandetory dependency to improve the user
+  experience around sound icons.
+* Fix a possible crash in the festival driver.
+* Add a configuration option to the espeak driver to show voice variants in the
+  voice list. This will remain until a proper variants retrieval API is added
+  for compatible synthesizers.
+
+Version 0.8.2
+* Add convenience methods to the libspeech API to free module list and voice
+  data structures.
+* Add method to the libspeechd API to get the current output module, and
+  update the documentation accordingly.
+* The API is now licensed under the GNU Lesser General Public License v2.1
+  or later.
+* The spdconf configuration utility is now translatable.
+* Fixed a bug where speech-dispatcher would fail to start if the user
+  configuration directory existed but did not contain a config file.
+* Install the spdconf desktop file.
+
+Version 0.8.1
+* User dictionaries support added to the IBMTTS driver
+* Added a pico configuration file for use with the generic driver
+* Better support for multi-arch enabled distros to facilitate the use of the
+  i386 only IBMTTS driver being easily installable on an amd64 system
+* Bug fixes, and documentation cleanup
+
+Version 0.8
+ * Python 3 compatibility of the Python bindings
+ * User configuration, logs and runtime files are now stored in
+   directories according to the XDG specification
+ * Internationalization of spd-say and translations into Hungarian
+   and Czech languages
+ * Espeak output can now use libsonic for faster speech
+ * Pico output module
+ * Lots of bugfixes, cleanups and fine-tunnings
 
 Version 0.7.1
  * Easy configuration of the client communication method using a
@@ -220,3 +334,22 @@ Version 0.0.1
   * pre API designed
   * simple server core and client example written
   * CVS repository and other project stuff set up
+
+
+Copyright (C) 2002-2012 Brailcom, o.p.s
+Copyright (C) 2002-2012 Brailcom, o.p.s
+Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018 Florian Steinhardt <no.known.email@example.com>
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
+COPYING in the root directory).
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.

@@ -1,0 +1,43 @@
+The source files for these figure files are
+
+architecture-future.flw
+architecture.dia
+priorities.dia
+
+The following files are generated from them:
+
+architecture-future.eps
+architecture-future.pdf
+architecture-future.png
+architecture-future.ps
+architecture.eps
+architecture.pdf
+architecture.png
+architecture.txt
+priorities.eps
+priorities.pdf
+priorities.png
+priorities.txt
+
+All the files above, as well as this README, are licensed as mentioned below
+
+Copyright (C) 2001-2006 Brailcom, o.p.s
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts and no Back-Cover Texts.
+A copy of the license is included in the section entitled ``GNU Free
+Documentation License.''
+
+You can also (at your option) distribute this manual under the GNU
+General Public License:
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+A copy of the license is included in the section entitled ``GNU
+General Public License''
+

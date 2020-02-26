@@ -71,16 +71,32 @@ Usage: @code{spd-say [options] ["some text"]}
 Set the rate of the speech (between -100 and +100, default see below).
 @item -p or --pitch
 Set the pitch of the speech (between -100 and +100, default see below).
+@item -R or --pitch-range
+Set the pitch range of the speech (between -100 and +100, default see below).
 @item -i or --volume
 Set the volume (intensity) of the speech (between -100 and +100, default see below).
 @item -o or --output-module
 Set the output module.  Default see below.
+@item -O or --list-output-modules
+List the output modules that are available with the current server.
+@item -I or --sound-icon
+Play the sound icon.
 @item -l or --language
-Set the language. The parameter is an iso language code, like @code{en} or @code{cs}.
+Set the language. The parameter is an iso language code, like @code{en} or
+@code{cs}, possibly with a region qualification, like @code{en-US} or @code{en-GB}.
 Default see below.
 @item -t or --voice-type
-Set the prefered voice type (male1, male2, male3, female1, female2,
+Set the preferred voice type (male1, male2, male3, female1, female2,
 female3, child_male, child_female).
+@item -L or --list-synthesis-voices
+List the ''synthesis voices'' supported by an output module.
+If no -o option is supplied, -L displays
+the synthesis voices provided by the default output module.  Otherwise,
+it displays the synthesis voices provided by the chosen module.
+@item -y or --synthesis-voice
+Set the synthesis voice.  The synthesis voice is an attribute of the
+chosen synthesizer.  Most users will probably not wish to set it, but
+this setting is provided for completeness.
 @item -m or --punctuation-mode
 Set the punctuation mode (none, some, all).  Default see below.
 @item -s or --spelling
@@ -111,7 +127,7 @@ Defaults for rate, pitch, and volume are determined by @code{DefaultRate},
 Factory defaults are 0, 0, and 100 respectively.
 
 The default language code is determined by the @code{DefaultLanguage} setting in
-the @code{speechd.conf} file.  Factory default is @code{en} (English).
+the @code{speechd.conf} file.  Factory default is @code{en-US} (American English).
 
 The default output module is determined by the @code{LanguageDefaultModule}
 setting in the @code{speechd.conf} file.  Factory default is @code{flite}.

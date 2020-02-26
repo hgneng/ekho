@@ -1,38 +1,64 @@
+#
+# Copyright (C) 2002 - 2018 Brailcom, o.p.s.
+#
+# This is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This software is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
 
-localedir = $(datadir)/locale
-inc_local = "-I$(top_srcdir)/intl/"
+## Process this file with automake to produce Makefile.in
 
-am_cflags = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@
+inc_local = -I$(top_srcdir)/include/
 
-if nas_support
-NAS_FLAGS = -DWITH_NAS
-NAS_LIBS = -laudio -L/usr/X11R6/lib
-endif
-
-if pulse_support
-PULSE_FLAGS = -DWITH_PULSE
-PULSE_LIBS = -lpulse-simple
-endif
+audio_LTLIBRARIES =
 
 if alsa_support
-ALSA_FLAGS = -DWITH_ALSA
-ALSA_LIBS = -lasound
+audio_LTLIBRARIES +=  spd_alsa.la
+spd_alsa_la_SOURCES = alsa.c
+spd_alsa_la_CPPFLAGS = $(GLIB_CFLAGS) $(inc_local)  $(ALSA_CFLAGS)
+spd_alsa_la_LIBADD = $(ALSA_LIBS) $(GLIB_LIBS)
+spd_alsa_la_LDFLAGS = -module -avoid-version
 endif
+
 if libao_support
-LIBAO_FLAGS = -DWITH_LIBAO
-LIBAO_LIBS = -lao
+audio_LTLIBRARIES +=  spd_libao.la
+spd_libao_la_SOURCES = libao.c
+spd_libao_la_CPPFLAGS = $(GLIB_CFLAGS) $(inc_local)  $(LIBAO_CFLAGS)
+spd_libao_la_LIBADD = $(LIBAO_LIBS) $(GLIB_LIBS)
+spd_libao_la_LDFLAGS = -module -avoid-version
+endif
+
+if nas_support
+audio_LTLIBRARIES +=  spd_nas.la
+spd_nas_la_SOURCES = nas.c
+spd_nas_la_CPPFLAGS = $(GLIB_CFLAGS) $(inc_local)
+spd_nas_la_LIBADD = $(NAS_LIBS) $(GLIB_LIBS)
+spd_nas_la_LDFLAGS = -module -avoid-version
 endif
 
 if oss_support
-LIBOSS_FLAGS = -DWITH_OSS
+audio_LTLIBRARIES +=  spd_oss.la
+spd_oss_la_SOURCES = oss.c
+spd_oss_la_CPPFLAGS = $(GLIB_CFLAGS) $(inc_local)
+spd_oss_la_LIBADD = $(GLIB_LIBS)
+spd_oss_la_LDFLAGS = -module -avoid-version
 endif
 
+if pulse_support
+audio_LTLIBRARIES +=  spd_pulse.la
+spd_pulse_la_SOURCES = pulse.c
+spd_pulse_la_CPPFLAGS = $(GLIB_CFLAGS) $(inc_local)  $(PULSE_CFLAGS)
+spd_pulse_la_LIBADD = $(PULSE_LIBS) $(GLIB_LIBS)
+spd_pulse_la_LDFLAGS = -module -avoid-version
+endif
 
-EXTRA_DIST = alsa.c libao.c oss.c nas.c pulse.c
-
-AM_CFLAGS = $(am_cflags) $(NAS_FLAGS) $(PULSE_FLAGS) $(ALSA_FLAGS) $(LIBAO_FLAGS) $(LIBOSS_FLAGS)
-libsdaudio_la_LDFLAGS = -version-info @LIB_SDAUDIO_CURRENT@:@LIB_SDAUDIO_REVISION@:@LIB_SDAUDIO_AGE@ -lpthread $(NAS_LIBS) $(PULSE_LIBS) $(ALSA_LIBS) $(LIBAO_LIBS)
-
-spdlib_LTLIBRARIES = libsdaudio.la
-
-libsdaudio_la_SOURCES = spd_audio.c spd_audio.h
+-include $(top_srcdir)/git.mk

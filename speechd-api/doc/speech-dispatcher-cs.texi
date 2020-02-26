@@ -644,7 +644,7 @@ samotném.
 
 Ka¾dému definovanému hlasu odpovídá pøesnì jedna øádka @code{AddVoice}.
 
-@var{language} je ISO kód jazyka tohoto hlasu (en, cs, de, ...)
+@var{language} je ISO kód jazyka tohoto hlasu (en, cs, de, en-US, ...)
 
 @var{symbolicname} je symbolické jméno, pod kterým chcete, aby byl tento hlas
 dostupný.  @xref{Standardní hlasy}, pro seznam symbolických jmen, která mù¾ete
@@ -759,7 +759,7 @@ pro daný @code{iso-code} ISO kód jazyka.
 
 Opìt pøíklad z Epos generic:
 @example
-GenericLanguage "en" "english"
+GenericLanguage "en-US" "english-US"
 GenericLanguage "cs" "czech"
 GenericLanguage "sk" "slovak"
 @end example

@@ -1,0 +1,231 @@
+Speech Dispatcher TODO
+======================
+
+The release versions are not final, and could change. Targetted release is 
+based on demand from users, and difficulty of the work involved.
+
+ * Add pitch as an option for capitalization presentation
+   see https://github.com/brailcom/speechd/issues/24
+ * Allow setting a synthesis voice in the user config using spd-conf.
+ * Pronunciation dictionaries
+   see https://github.com/brailcom/speechd/issues/57
+ * Emoji support (from CLDR)
+   see https://github.com/brailcom/speechd/issues/49
+ * Add support for Mimic
+   see https://github.com/brailcom/speechd/issues/19
+ (0.10) Migrate to GSettings.
+ (0.10) Synthesizer specific settings API.
+ (0.10) Use more GLib in the server.
+ (0.10) Move audio into server.
+ (0.10) Client audio retrieval API.
+ (0.10) Server to module protocol documentation.
+ (0.11) Server to module protocol improvements.
+ * Move synth modules to plugin architecture with plugin host.
+ * Synth plugin API.
+ * Allow for building synth plugins out of tree.
+ (0.10) Integrate with logind/consolekit.
+ (0.10) Properly support system-wide mode.
+ * Support spawning the server via Systemd socket activation.
+
+
+The above improvements are documented in detail below. If work has started on 
+a particular project, a git branch will be noted. These git branches are 
+located at https://github.com/TheMuso/speechd-wip.git. To read the most up to 
+date copy of this file, please clone the master Speech Dispatcher git 
+repository, located at git://git.freebsoft.org/git/speechd.gitand check out 
+the master branch.
+
+Migrate to GSettings
+--------------------
+
+ * Write the GSettings metadata XML file.
+ * Migrate the server to GSettings.
+ * Listen to GSettings changes.
+ * Migrate synthesizer modules to GSettings.
+ * Write a program to migrate user settings to GSettings.
+
+
+Synthesizer specific settings API
+Depends on: Migration to GSettings
+---------------------------------
+
+Background:
+ * Currently have API for espeak pitch range in git master, but this is only 
+   useful for espeak.
+ * Espeak module has a config option to show variants along with available 
+   voices, which can be a very long list and can choak some clients.
+
+ * Implement server to module protocol to support:
+   - Request available settings.
+   - Request available settings and their current value.
+   - Request the value of a setting.
+   - Set a setting.
+   - Reset a setting to its default.
+ * Implement SSIP protocol support.
+ * Implement C API, see synthesizer specific settings C API draft.
+ * Implement python API.
+
+Synthesizer specific settings C API draft
+
+typedef struct {
+        char *name;
+        char *description; /* This should be localized */
+        enum SynthSettingValueType get_type;
+        enum SynthSettingValueType set_type;
+        int min_value;
+        int max_value;
+        char **value_list;
+        void *cur_value;
+] SynthSetting;
+
+In the C API, a NULL terminated array of this structure would be returned for 
+all settings a synth offers.
+
+The SynthSettingValueType enum would look something like this:
+
+typedef enum {
+        SYNTH_SETTING_VALUE_UNKNOWN = 0,
+        SYNTH_SETTING_VALUE_NUMBER = 1,
+        SYNTH_SETTING_VALUE_STRING = 2,
+        SYNTH_SETTING_VALUE_STRING_LIST = 3 /* A list of strings for the user 
+                                               to choose from, i.e voice variants */
+} SynthSettingValueType;
+
+C API methods to work with these data types could be as follows:
+
+SynthSetting **spd_synth_get_settings(SPDConnection *connection);
+int spd_synth_set_setting(SPDConnection *connection, SynthSetting *setting, 
+void *value);
+void free_synth_settings(SynthSettings **settings);
+
+
+Use more GLib in the server
+---------------------------
+
+ * Use GLib event loops where possible.
+ * use GLib GThreads and GAsyncQueues for thread communication.
+ * Use g_spawn calls for executing modules.
+ * Support multiple client connection methods, unix socket, inet socket.
+ * Use g_debug and other relevant GLib logging facilities for 
+   messages/logging.
+ * Use GThreadedSocketService for handling client connections.
+ * Replace custom implementations of parsing buffers with GLib equivalent 
+   methods where possible.
+
+
+Move audio into server
+----------------------
+
+ * Extend the server to module protocol to receive audio from modules.
+ * Consider using a separate socket for audio transfer, however this may be 
+   difficult when attempting to synchronise with index marks. An alternative is 
+   to send index mark data via the audio socket as well.
+ * Implement a playback queue supporting the following types:
+   (The Espeak module is a good reference)
+   - Begin event
+   - End event
+   - Index mark event
+   - Audio event
+   - Sound icon event
+ * Rework modules supporting audio output to not use any advanced internal 
+   playback queueing, and simply send the audio in relatively small buffers to 
+   the server. Smaller buffers to allow the server to stop/pause the audio more 
+   responsively.
+ * Implement a mechanism to allow modules to signal that they do not support 
+   audio output.
+ * Support multiple clients using different audio output devices on the one 
+   backend.
+ * Extend priority system to be either global priority, or priority per audio 
+   output device.
+ * Run audio in separate thread, possibly using 2 threads, a controller 
+   thread, and a playback thread, one playback thread per audio device. Again, 
+   the espeak module does something similar.
+ * Rework pulseaudio output to use a GLib event loop.
+ * Rework other audio output modules to better work within an event loop.
+
+
+Client audio retrieval API
+--------------------------
+
+ * Allow client to either request audio directly, or have audio written to a 
+   designated file on disk.
+ * Allow modules to decline the use of direct audio retrieval. I know of one 
+   speech synth that is not supported by speech dispatcher, who's licensing 
+   model doesn't allow for direct audio retrieval. If this module is ever 
+   supported, its code will likely remain closed to prevent people working 
+   around the implementation, but it would still be nice to support this synth 
+   in the longer term. (Luke Yelavich)
+ * Load a new instance of the requested synth module, and spin up a worker 
+   thread to handle audio file writing or sending to client, to allow the server 
+   to dispatch other speech messages, as direct audio retrieval should be 
+   independant of the priority system.
+
+
+Server to module protocol documentation
+---------------------------------------
+
+* Similar to the SSIp documentation, write up a texi document that explains 
+  the server to module protocol, currently over stdin/stdout, but may use other 
+  IPC in the future.
+
+
+Server to module protocol improvements
+--------------------------------------
+
+ * Consider using sockets for IPC, with a dedicated socket per module.
+ * Consider implementing shared memory support, particularly for audio data 
+   transfer, but this may depend on whether GLib has a shared memory API, The 
+   GMappedFile API may be useful, if the initiator can change the contents of 
+   the GMappedFile, and the other side can notice changes. Needs investigation.
+ * Support the launching of modules via systems other than Speech Dispatcher, 
+   useful where containers of some sort are being used, and the environment 
+   requires that any separate processes are run in containers/other kind of 
+   sandbox, hense the use of sockets as per above.
+
+
+Integrate with logind/consolekit
+(Depends on migration to GSettings, GLib main event loops everywhere)
+--------------------------------
+
+ * Query current user, and currently running sessions for that user.
+ * Subscribe to tty change events and cork audio playback and synthesis flow 
+   if none of the user's sessions are active.
+ * Allow the enabling/disabling of logind/consolekit via GSettings and at 
+   runtime, enabled being the default.
+ * Allow the disabling of consolekit/logind at build time.
+ * Consider abstracting this functionality into plugins, or at the very least 
+   separate code with an internal API to more easily support any future 
+   session/seat monitoring systems.
+
+
+Properly support system-wide mode
+---------------------------------
+
+ * Set a default user and group for the system wide instance to run under, at 
+   build time, and runtime.
+ * Add a systemd unit to allow the use of system wide mode, disabled by 
+   default.
+
+
+Support spawning the server via Systemd socket activation
+---------------------------------------------------------
+
+ * Allow this to be enabled/disabled at build time.
+
+
+Copyright (C) 2001 Brailcom, o.p.s
+Copyright (C) 2016 Luke Yelavich <themuso@themuso.com>
+Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
+COPYING in the root directory).
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.

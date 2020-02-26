@@ -1,0 +1,998 @@
+# German translations for speech-dispatcher package.
+#
+# Copyright of this file © 2017 Chris Leick <c.leick@vollbio.de>.
+#
+# This is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This software is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: speech-dispatcher 0.8.6\n"
+"Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
+"POT-Creation-Date: 2019-12-17 00:23+0100\n"
+"PO-Revision-Date: 2017-05-25 11:06+0100\n"
+"Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/server/options.c:63
+#, c-format
+msgid ""
+"%s -- Common interface for Speech Synthesis %s\n"
+"\n"
+msgstr ""
+"%s -- Übliche Schnittstelle für die Sprachsynthese %s\n"
+"\n"
+
+#: src/server/options.c:65
+#, c-format
+msgid "Usage: "
+msgstr "Aufruf: "
+
+#: src/server/options.c:69
+#, c-format
+msgid "Options: \n"
+msgstr ""
+
+#: src/server/options.c:71
+#, c-format
+msgid "Run as a daemon\n"
+msgstr "läuft als Daemon.\n"
+
+#: src/server/options.c:73
+#, c-format
+msgid "Run as single application\n"
+msgstr "läuft als einzelne Anwendung.\n"
+
+#: src/server/options.c:75
+#, c-format
+msgid "Start only if autospawn is not disabled\n"
+msgstr "startet nur, falls Autospawn nicht deaktiviert ist.\n"
+
+#: src/server/options.c:77
+#, c-format
+msgid "Set log level (between %d and %d)\n"
+msgstr "setzt die Protokollstufe (zwischen %d und %d).\n"
+
+#: src/server/options.c:79
+#, c-format
+msgid "Set path to logging\n"
+msgstr "setzt den Pfad zum Protokollieren.\n"
+
+#: src/server/options.c:82
+#, c-format
+msgid "Communication method to use ('%s'\n"
+msgstr "zu benutzende Kommunikationsmethode (»%s«\n"
+
+#: src/server/options.c:84
+#, c-format
+msgid "or '%s')\n"
+msgstr "oder »%s«)\n"
+
+#: src/server/options.c:87
+#, c-format
+msgid "Socket path to use for '%s' method\n"
+msgstr "zu benutzender Socket-Pfad für die Methode »%s«\n"
+
+#: src/server/options.c:89
+#, c-format
+msgid "(filesystem path or '%s')\n"
+msgstr "(Dateisystempfad oder »%s«)\n"
+
+#: src/server/options.c:91
+#, c-format
+msgid "Specify a port number for '%s' method\n"
+msgstr "gibt eine Portnummer für die Methode »%s« an.\n"
+
+#: src/server/options.c:93
+#, c-format
+msgid "Set time in seconds for the server to wait before it\n"
+msgstr ""
+"setzt die Zeit in Sekunden, die der Server vor dem Herunterfahren warten "
+"soll,\n"
+
+#: src/server/options.c:95
+#, c-format
+msgid "shuts down, if it has no clients connected\n"
+msgstr "falls er mit keinen Clients verbunden ist\n"
+
+#: src/server/options.c:97
+#, c-format
+msgid "Set path to pid file\n"
+msgstr "setzt den Pfad zur PID-Datei.\n"
+
+#: src/server/options.c:99
+#, c-format
+msgid "Set path to configuration\n"
+msgstr "setzt den Pfad zur Konfiguration.\n"
+
+#: src/server/options.c:101
+#, c-format
+msgid "Set path to modules\n"
+msgstr "setzt den Pfad zu den Modulen.\n"
+
+#: src/server/options.c:103
+#, c-format
+msgid "Report version of this program\n"
+msgstr "gibt die Version dieses Programms aus.\n"
+
+#: src/server/options.c:105
+#, c-format
+msgid "Output debugging information into $TMPDIR/%s\n"
+msgstr "gibt Fehlersuchinformationen nach $TMPDIR/%s aus\n"
+
+#: src/server/options.c:108
+#, c-format
+msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
+msgstr "falls TMPDIR exportiert wurde, andernfalls nach /tmp/%s\n"
+
+#: src/server/options.c:111 src/clients/say/options.c:161
+#, c-format
+msgid "Print this info\n"
+msgstr "gibt diese Information aus.\n"
+
+#: src/server/options.c:113 src/clients/say/options.c:164
+#, c-format
+msgid ""
+"Please report bugs to %s\n"
+"\n"
+msgstr ""
+"Bitte melden Sie Fehler an %s\n"
+"\n"
+
+# http://www.gnu.de/documents/gpl-2.0.de.html
+# COPYING ist eine Datei
+#: src/server/options.c:119 src/clients/say/options.c:171
+#: src/api/python/speechd_config/config.py.in:174
+#, c-format, python-format
+msgid ""
+"Copyright (C) %d-%d Brailcom, o.p.s.\n"
+"This is free software; you can redistribute it and/or modify it\n"
+"under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2, or (at your option)\n"
+"any later version. Please see COPYING for more details.\n"
+"\n"
+msgstr ""
+"Copyright (C) %d-%d Brailcom, o.p.s.\n"
+"Dieses Programm ist freie Software. Sie können es unter den Bedingungen der\n"
+"GNU General Public License, wie von der Free Software Foundation\n"
+"veröffentlicht, weitergeben und/oder verändern, entweder gemäß Version 2 "
+"der\n"
+"Lizenz oder (nach Ihrer Wahl) jeder neueren Version. Weitere Einzelheiten "
+"finden Sie in COPYING.\n"
+"\n"
+
+#: src/clients/say/options.c:65
+#, c-format
+msgid ""
+"send text-to-speech output request to speech-dispatcher\n"
+"\n"
+msgstr ""
+
+#: src/clients/say/options.c:66
+#, c-format
+msgid ""
+"Usage: %s [options] \"some text\"\n"
+"\n"
+msgstr ""
+"Aufruf: %s [Optionen] \"irgendein Text\"\n"
+"\n"
+
+#: src/clients/say/options.c:68
+#, c-format
+msgid "Options:\n"
+msgstr ""
+
+#: src/clients/say/options.c:70
+#, c-format
+msgid "Set the rate of the speech\n"
+msgstr "setzt die Sprechgeschwindigkeit.\n"
+
+#: src/clients/say/options.c:72 src/clients/say/options.c:77
+#: src/clients/say/options.c:82 src/clients/say/options.c:87
+#, c-format
+msgid "(between %+d and %+d, default: %d)\n"
+msgstr "(zwischen %+d und %+d, Voreinstellung: %d)\n"
+
+#: src/clients/say/options.c:75
+#, c-format
+msgid "Set the pitch of the speech\n"
+msgstr "setzt die Tonhöhe der Sprache.\n"
+
+#: src/clients/say/options.c:80
+#, fuzzy, c-format
+msgid "Set the pitch range of the speech\n"
+msgstr "setzt die Tonhöhe der Sprache.\n"
+
+#: src/clients/say/options.c:85
+#, c-format
+msgid "Set the volume (intensity) of the speech\n"
+msgstr "setzt die Lautstärke (Intensität) der Sprache.\n"
+
+#: src/clients/say/options.c:90
+#, c-format
+msgid "Set the output module\n"
+msgstr "setzt das Ausgabemodul.\n"
+
+#: src/clients/say/options.c:93
+#, c-format
+msgid "Get the list of output modules\n"
+msgstr "holt die Liste der Ausgabemodule.\n"
+
+#: src/clients/say/options.c:96
+#, c-format
+msgid "Play the sound icon\n"
+msgstr "spielt das Klangsymbol ab.\n"
+
+#: src/clients/say/options.c:99
+#, c-format
+msgid "Set the language (ISO code)\n"
+msgstr "setzt die Sprache (ISO-Code).\n"
+
+#: src/clients/say/options.c:102
+#, c-format
+msgid "Set the preferred voice type\n"
+msgstr "setzt den bevorzugten Stimmtyp.\n"
+
+#: src/clients/say/options.c:107
+#, c-format
+msgid "Get the list of synthesis voices\n"
+msgstr "holt die Liste der Synthesestimmen.\n"
+
+#: src/clients/say/options.c:110
+#, c-format
+msgid "Set the synthesis voice\n"
+msgstr "setzt die Synthesestimme.\n"
+
+#: src/clients/say/options.c:113
+#, c-format
+msgid "Set the punctuation mode %s\n"
+msgstr "setzt den Zeichensetzungsmodus %s.\n"
+
+#: src/clients/say/options.c:116
+#, c-format
+msgid "Spell the message\n"
+msgstr "buchstabiert die Nachricht.\n"
+
+# Speech Synthesis Markup Language
+#: src/clients/say/options.c:119
+#, c-format
+msgid "Set SSML mode on (default: off)\n"
+msgstr "schaltet den SSML-Modus ein (Voreinstellung: aus).\n"
+
+#: src/clients/say/options.c:123
+#, c-format
+msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
+msgstr "Pipe von der Standardein- zur Standardausgabe plus Speech Dispatcher\n"
+
+#: src/clients/say/options.c:126
+#, c-format
+msgid "Set priority of the message "
+msgstr "setzt die Priorität der Nachricht "
+
+#: src/clients/say/options.c:130
+#, c-format
+msgid "default: %s)\n"
+msgstr "Voreinstellung: %s)\n"
+
+# %s enthält \t\t\t
+#: src/clients/say/options.c:133
+#, c-format
+msgid ""
+"Set the application name used to establish\n"
+"%sthe connection to specified string value\n"
+msgstr ""
+"setzt den Anwendungsnamen, der zum Aufbau der Verbindung\n"
+"%sbenutzt wird, auf den angegebenen Zeichenkettenwert.\n"
+
+#: src/clients/say/options.c:137 src/clients/say/options.c:144
+#, c-format
+msgid "(default: %s)\n"
+msgstr "(Voreinstellung: %s)\n"
+
+#: src/clients/say/options.c:140
+#, c-format
+msgid ""
+"Set the connection name used to establish\n"
+"%sthe connection to specified string value\n"
+msgstr ""
+"setzt den Verbinndungsnamen, der zum Aufbau der Verbindung\n"
+"%sbenutzt wird, auf den angegebenen Zeichenkettenwert.\n"
+
+#: src/clients/say/options.c:148
+#, c-format
+msgid "Wait till the message is spoken or discarded\n"
+msgstr "wartet, bis die Nachricht gesprochen oder verworfen wurde.\n"
+
+#: src/clients/say/options.c:151
+#, c-format
+msgid "Stop speaking the message being spoken\n"
+msgstr "stoppt das Sprechen der Nachricht.\n"
+
+#: src/clients/say/options.c:154
+#, c-format
+msgid "Cancel all messages\n"
+msgstr "bricht alle Nachrichten ab.\n"
+
+#: src/clients/say/options.c:158
+#, c-format
+msgid "Print version and copyright info\n"
+msgstr "gibt Version und Copyright-Informationen aus.\n"
+
+#: src/clients/say/options.c:183
+#, c-format
+msgid "Syntax error or bad parameter!\n"
+msgstr "Syntaxfehler oder falscher Parameter!\n"
+
+#: src/clients/say/options.c:194
+#, c-format
+msgid "Missing argument!\n"
+msgstr "fehlendes Argument!\n"
+
+#: src/clients/say/options.c:289
+#, c-format
+msgid "Unrecognized option\n"
+msgstr "Option nicht erkannt\n"
+
+#: src/api/python/speechd_config/speechd.desktop.in:21
+msgid "Speech Dispatcher"
+msgstr "Speech Dispatcher"
+
+#: src/api/python/speechd_config/speechd.desktop.in:22
+msgid "Interface to Text to Speech services"
+msgstr "Schnittstelle zu den Text-zu-Sprache-Diensten"
+
+#: src/api/python/speechd_config/config.py.in:103
+#, python-format
+msgid ""
+"The value you have chosen is not among the suggested values.\n"
+"You have chosen '%s'."
+msgstr ""
+"Der von Ihnen ausgewählte Wert ist nicht unter den vorgeschlagenen Werten.\n"
+"Sie haben »%s« ausgewählt."
+
+#: src/api/python/speechd_config/config.py.in:105
+msgid "The suggested values are "
+msgstr "Die vorgeschlagenen Werte sind "
+
+#: src/api/python/speechd_config/config.py.in:106
+msgid "Do you want to correct your answer?"
+msgstr "Möchten Sie Ihre Antwort korrigieren?"
+
+#: src/api/python/speechd_config/config.py.in:118
+#, python-format
+msgid "You have chosen '%s'. Please choose one of %s"
+msgstr "Sie haben »%s« ausgewählt. Bitte wählen Sie unter %s"
+
+#: src/api/python/speechd_config/config.py.in:125
+msgid ""
+"A simple tool for basic configuration of Speech Dispatcher and problem "
+"diagnostics"
+msgstr ""
+
+#: src/api/python/speechd_config/config.py.in:128
+msgid "Create Speech Dispatcher configuration for the given user"
+msgstr ""
+"erzeugt die Speech-Dispatcher-Konfiguration für den angegebenen Benutzer."
+
+#: src/api/python/speechd_config/config.py.in:131
+msgid "Configure basic settings in user configuration"
+msgstr "konfiguriert Grundeinstellungen in der Benutzerkonfiguration."
+
+#: src/api/python/speechd_config/config.py.in:134
+msgid "Configure basic settings in system-wide configuration"
+msgstr "konfiguriert Grundeinstellungen in der systemweiten Konfiguration."
+
+#: src/api/python/speechd_config/config.py.in:137
+msgid "Diagnose problems with the current setup"
+msgstr "diagnostiziert Probleme in der aktuellen Einstellung."
+
+#: src/api/python/speechd_config/config.py.in:140
+msgid "Test connection to Speech Dispatcher using spd-say"
+msgstr "testet die Verbindung zum Speech Dispatcher mittels Sdp-say."
+
+#: src/api/python/speechd_config/config.py.in:143
+msgid "Test whether Festival works as a server"
+msgstr "testet, ob Festival als Server funktioniert."
+
+#: src/api/python/speechd_config/config.py.in:145
+msgid "Test whether Espeak works as a standalone binary"
+msgstr "testet, ob Espeak als alleinstehendes Programm funktioniert."
+
+#: src/api/python/speechd_config/config.py.in:147
+msgid "Test ALSA audio output"
+msgstr "testet die ALSA-Audioausgabe."
+
+#: src/api/python/speechd_config/config.py.in:149
+msgid "Test Pulse Audio output"
+msgstr "testet die Pulse-Audioausgabe."
+
+#: src/api/python/speechd_config/config.py.in:152
+msgid "Use espeak to synthesize messages"
+msgstr "verwendet Espeak, um Meldungen künstlich zu erzeugen."
+
+#: src/api/python/speechd_config/config.py.in:155
+msgid "Do not ask any questions, always use default values"
+msgstr "stellt keine Fragen, benutzt immer Standardwerte."
+
+#: src/api/python/speechd_config/config.py.in:158
+msgid "Debug a problem and generate a report"
+msgstr "sucht Fehler eines Problems und erzeugt einen Bericht."
+
+#: src/api/python/speechd_config/config.py.in:161
+msgid "Print version and copyright info"
+msgstr "gibt Version und Copyright-Informationen aus."
+
+#: src/api/python/speechd_config/config.py.in:203
+#, python-format
+msgid ""
+"ERROR: It was not possible to connect to Festival on the\n"
+"given host and port. Connection failed with error %d : %s ."
+msgstr ""
+"FEHLER: Es war nicht möglich, eine Verbindung zu Festival auf dem\n"
+"angegebenen Rechner und Port herzustellen. Das Verbinden scheiterte mit dem\n"
+"Fehler %d: %s"
+
+#: src/api/python/speechd_config/config.py.in:205
+#, python-format
+msgid ""
+"Hint: Most likely, your Festival server is not running now\n"
+"or not at the default port %d.\n"
+"\n"
+"Try /etc/init.d/festival start or run 'festival --server' from the command "
+"line."
+msgstr ""
+"Hinweis: Höchstwahrscheinlich läuft Ihr Festival-Server im Moment nicht "
+"oder\n"
+"nicht auf dem Standardport %d.\n"
+"\n"
+"Versuchen Sie auf der Befehlszeile »/etc/init.d/festival start« oder führen\n"
+"Sie »festival --server« aus."
+
+#: src/api/python/speechd_config/config.py.in:221
+msgid "Festival contains freebsoft-utils."
+msgstr "Festival enthält Freebsoft-utils."
+
+#: src/api/python/speechd_config/config.py.in:224
+msgid ""
+"ERROR: Your Festival server is working but it doesn't seem\n"
+"to load festival-freebsoft-utils. You need to install festival-freebsoft-"
+"utils\n"
+"to be able to use Festival with Speech Dispatcher."
+msgstr ""
+"FEHLER: Ihr Festival-Server funktioniert, lädt aber scheinbar nicht die\n"
+"Festival-freebsoft-utils. Sie müssen die Festival-freebsoft-utils\n"
+"installieren, um Festival mit Speech Dispatcher benutzen zu können."
+
+#: src/api/python/speechd_config/config.py.in:235
+msgid ""
+"Python can't find the Speech Dispatcher library.\n"
+"Is it installed? This won't prevent Speech Dispatcher to work, but no\n"
+"Python applications like Orca will be able to use it.\n"
+"Search for package like python-speechd, download and install it"
+msgstr ""
+"Python kann die Speech-Dispatcher-Bibliothek nicht finden.\n"
+"Ist sie installiert? Dies würde nicht verhindern, dass Speech Dispatcher\n"
+"funktioniert, allerdings wären keine Python-Anwendungen, wie Orca, in der\n"
+"Lage, es zu verwenden.\n"
+"Suchen Sie nach einem Paket wie »python-speechd«, laden Sie es herunter und\n"
+"installieren Sie es."
+
+#: src/api/python/speechd_config/config.py.in:257
+#, python-format
+msgid ""
+"%s selected, but %s not installed. This might be a false\n"
+"warning, but most likely sound is not working."
+msgstr ""
+"%s ausgewählt, %s ist jedoch nicht installiert. Diese Warnung ist\n"
+"möglicherweise falsch, höchstwahrscheinlich funktioniert der Ton aber nicht."
+
+# %s = alsa/puls, aplay ...
+#: src/api/python/speechd_config/config.py.in:259
+#, python-format
+msgid "Are you sure that %s audio is working?"
+msgstr "Sind Sie sicher, dass %s-Audio nicht funktioniert?"
+
+#: src/api/python/speechd_config/config.py.in:264
+#, python-format
+msgid ""
+"Can't play audio via\n"
+"     %s"
+msgstr ""
+"Ton kann nicht abgespielt werden über\n"
+"     %s"
+
+#: src/api/python/speechd_config/config.py.in:265
+msgid ""
+"Your audio doesn't seem to work, please fix audio first or choose\n"
+"a different method."
+msgstr ""
+"Ihr Ton scheint nicht zu funktionieren. Bitte beheben Sie dies zuerst oder\n"
+"wählen Sie eine andere Methode."
+
+#: src/api/python/speechd_config/config.py.in:270
+msgid "Did you hear the sound?"
+msgstr "Haben Sie den Ton gehört?"
+
+#: src/api/python/speechd_config/config.py.in:273
+msgid ""
+"Please examine the above output from the sound playback\n"
+"utility. If everything seems right, are you sure your audio is loud enough "
+"and\n"
+"not muted in the mixer? Please fix your audio system first or choose a "
+"different\n"
+"audio output method in configuration."
+msgstr ""
+"Bitte prüfen Sie die obige Ausgabe vom Tonwiedergabewerkzeug. Falls alles "
+"in\n"
+"Ordnung zu sein scheint, versichern Sie sich, dass der Ton laut genug und\n"
+"der Mixer nicht tonlos gestellt ist. Bitte reparieren Sie Ihr Audiosystem\n"
+"zuerst oder wählen Sie eine andere Audioausgabemethode in der Konfiguration."
+
+#: src/api/python/speechd_config/config.py.in:279
+#, python-format
+msgid "Audio output '%s' works"
+msgstr "Audioausgabe »%s« funktioniert."
+
+#: src/api/python/speechd_config/config.py.in:285
+msgid "Testing Speech Dispatcher using spd_say"
+msgstr "Speech Dispatcher wird mittels Spd_say getestet"
+
+#: src/api/python/speechd_config/config.py.in:289
+msgid ""
+"Can't execute the spd-say binary,\n"
+"it is very likely that Speech Dispatcher is not installed."
+msgstr ""
+"Das Programm Spd_say kann nicht ausgeführt werden,\n"
+"höchstwahrscheinlich ist Speech Dispatcher nicht installiert."
+
+#: src/api/python/speechd_config/config.py.in:292
+msgid "Did you hear the message about Speech Dispatcher working?"
+msgstr "Haben Sie die Nachricht gehört, dass Speech Dispatcher funktioniert?"
+
+#: src/api/python/speechd_config/config.py.in:294
+msgid "Speech Dispatcher is installed and working!"
+msgstr "Speech Dispatcher ist installiert und funktioniert!"
+
+#: src/api/python/speechd_config/config.py.in:297
+msgid "Speech Dispatcher is installed but there is some problem"
+msgstr "Speech Dispatcher ist installiert, es gibt jedoch Probleme."
+
+#: src/api/python/speechd_config/config.py.in:302
+msgid "Testing whether Festival works as a server"
+msgstr "Es wird getestet, ob Festival als Server funktioniert."
+
+#: src/api/python/speechd_config/config.py.in:306
+msgid "Festival server is not working."
+msgstr "Der Festival-Server funktioniert nicht."
+
+#: src/api/python/speechd_config/config.py.in:309
+msgid "Festival server seems to work correctly"
+msgstr "Der Festival-Server scheint korrekt zu funktionieren."
+
+#: src/api/python/speechd_config/config.py.in:315
+msgid "Testing whether Espeak works"
+msgstr "Es wird getestet, ob Espeak funktioniert."
+
+#: src/api/python/speechd_config/config.py.in:317
+msgid "Espeak is installed"
+msgstr "Espeak ist installiert."
+
+#: src/api/python/speechd_config/config.py.in:320
+msgid ""
+"Can't execute the espeak binary, it is likely that espeak\n"
+"is not installed."
+msgstr ""
+"Das Espeak-Programm kann nicht ausgeführt werden, wahrscheinlich ist Espeak\n"
+"nicht installiert."
+
+#: src/api/python/speechd_config/config.py.in:326
+msgid "Testing ALSA sound output"
+msgstr "Die ALSA-Tonausgabe wird getestet."
+
+#: src/api/python/speechd_config/config.py.in:331
+msgid "Testing PULSE sound output"
+msgstr "Die PULSE-Tonausgabe wird getestet."
+
+#: src/api/python/speechd_config/config.py.in:344
+msgid "Speech Dispatcher works. Do you want to skip other tests?"
+msgstr ""
+"Speech Dispatcher funktioniert. Möchten Sie weitere Tests überspringen?"
+
+#: src/api/python/speechd_config/config.py.in:354
+msgid ""
+"\n"
+"Speech Dispatcher isn't running or we can't connect to it (see above),\n"
+"do you want to proceed with other tests? (They can help to determine\n"
+"what is wrong)"
+msgstr ""
+"\n"
+"Speech Dispatcher läuft nicht oder es ist keine Verbindung damit möglich\n"
+"(siehe oben). Möchten Sie mit weiteren Tests fortfahren? Sie können helfen\n"
+"zu bestimmen, was falsch ist)."
+
+# %s ist z.B Festival synthesizer oder Alsa sound system
+#: src/api/python/speechd_config/config.py.in:365
+#, python-format
+msgid "Do you want to test the %s now?"
+msgstr "Möchten Sie »%s« nun testen?"
+
+#: src/api/python/speechd_config/config.py.in:386
+msgid ""
+"Testing whether Python Speech Dispatcher library is in path and importable"
+msgstr ""
+"Es wird getestet, ob sich die Python-Speech-Dispatcher-Bibliothek im Pfad\n"
+"befindet und importierbar ist."
+
+#: src/api/python/speechd_config/config.py.in:397
+msgid ""
+"\n"
+"\n"
+"Diagnostics results:"
+msgstr ""
+"\n"
+"\n"
+"Diagnoseergebnisse:"
+
+#: src/api/python/speechd_config/config.py.in:402
+msgid "Speech Dispatcher is working"
+msgstr "Speech Dispatcher funktioniert."
+
+#: src/api/python/speechd_config/config.py.in:404
+msgid "Speech Dispatcher not working through spd-say"
+msgstr "Speech Dispatcher funktioniert nicht über Spd-say."
+
+#: src/api/python/speechd_config/config.py.in:406
+#, python-format
+msgid "Synthesizers that were tested and seem to work: %s"
+msgstr "Synthesizer, die getestet wurden und zu funktionieren scheinen: %s"
+
+#: src/api/python/speechd_config/config.py.in:409
+#, python-format
+msgid "Audio systems that were tested and seem to work: %s"
+msgstr "Audiosysteme, die getestet wurden und zu funktionieren scheinen: %s"
+
+#: src/api/python/speechd_config/config.py.in:413
+msgid "Python Speech Dispatcher module is importable"
+msgstr "Das Python-Speech-Dispatcher-Modul ist importierbar."
+
+#: src/api/python/speechd_config/config.py.in:415
+msgid ""
+"Python Speech Dispatcher module not importable.\n"
+"Either not installed or not in path."
+msgstr ""
+"Das Python-Speech-Dispatcher-Modul ist nicht importierbar.\n"
+"Es ist entweder nicht installiert oder nicht im Pfad."
+
+#: src/api/python/speechd_config/config.py.in:417
+msgid "End of diagnostics results"
+msgstr "Ende der Diagnoseergebnisse"
+
+#: src/api/python/speechd_config/config.py.in:439
+msgid "Starting collecting debugging output, configuration and logfiles"
+msgstr ""
+"Das Sammeln der Fehlersuchausgabe, Konfigurations- und Protokolldateien "
+"wird\n"
+"gestartet."
+
+# user und system nicht übersetzen --> fest codiert
+#: src/api/python/speechd_config/config.py.in:442
+msgid ""
+"\n"
+"Do you want to debug 'system' or  'user' Speech Dispatcher?"
+msgstr ""
+"\n"
+"Möchten Sie Fehler in Speech Dispatcher für »system« oder »user« suchen?"
+
+#: src/api/python/speechd_config/config.py.in:447
+msgid ""
+"It is necessary to kill the currently running Speech Dispatcher\n"
+"processes. Do you want to do it now?"
+msgstr ""
+"Es ist nötig, die derzeit laufenden Speech-Dispatcher-Prozesse "
+"abzuschießen.\n"
+"Möchten Sie dies nun tun?"
+
+#: src/api/python/speechd_config/config.py.in:454
+msgid ""
+"\n"
+"You decided not to kill running Speech Dispatcher processes.\n"
+"Please make sure your Speech Dispatcher is not running now."
+msgstr ""
+"\n"
+"Sie haben sich entschieden, die laufenden Speech-Dispatcher-Prozesse nicht\n"
+"abzuschießen. Bitte vergewissern Sie sich, das Speech Dispatcher jetzt "
+"nicht\n"
+"läuft."
+
+#: src/api/python/speechd_config/config.py.in:457
+msgid "Is your Speech Dispatcher not running now?"
+msgstr "Läuft Ihr Speech Dispatcher gerade nicht?"
+
+#: src/api/python/speechd_config/config.py.in:459
+msgid "Can't continue, please stop your Speech Dispatcher and try again"
+msgstr ""
+"Fortfahren nicht möglich, bitte stoppen Sie Ihren Speech Dispatcher und\n"
+"versuchen Sie es erneut."
+
+#: src/api/python/speechd_config/config.py.in:475
+msgid "Speech Dispatcher will be started now in debugging mode"
+msgstr "Speech Dispatcher wird nun im Fehlersuchmodus gestartet."
+
+#: src/api/python/speechd_config/config.py.in:479
+#: src/api/python/speechd_config/config.py.in:615
+#: src/api/python/speechd_config/config.py.in:704
+msgid "Warning: You must be root or under sudo to do this."
+msgstr "Warnung: Sie müssen Root sein oder dies unter Sudo tun."
+
+#: src/api/python/speechd_config/config.py.in:480
+msgid ""
+"\n"
+"Please start your system Speech Dispatcher now with parameter '-D'"
+msgstr ""
+"\n"
+"Bitte starten Sie Ihr Speech-Dispatcher-System nun mit dem Parameter »-D«."
+
+#: src/api/python/speechd_config/config.py.in:482
+msgid "Is your Speech Dispatcher running now?"
+msgstr "Läuft Ihr Speech Dispatcher nun?"
+
+#: src/api/python/speechd_config/config.py.in:486
+#: src/api/python/speechd_config/config.py.in:722
+msgid "Can't continue"
+msgstr "Fortfahren nicht möglich"
+
+#: src/api/python/speechd_config/config.py.in:491
+msgid "Speech Dispatcher failed to start, continuing anyway?"
+msgstr "Starten von Speech Dispatcher fehlgeschlagen, trotzdem fortfahren?"
+
+#: src/api/python/speechd_config/config.py.in:494
+msgid "Trying to speak some messages"
+msgstr "Es wird versucht, einige Nachrichten zu sprechen."
+
+#: src/api/python/speechd_config/config.py.in:500
+msgid "Can't test Speech Dispatcher connection, can't connect"
+msgstr ""
+"Die Speech-Dispatcher-Verbindung kann nicht getestet werden, Verbinden "
+"nicht\n"
+"möglich."
+
+#: src/api/python/speechd_config/config.py.in:502
+msgid "Please wait (about 5 seconds)"
+msgstr "bitte warten (ungefähr fünf Sekunden)"
+
+#: src/api/python/speechd_config/config.py.in:505
+msgid "Collecting debugging output and your configuration information"
+msgstr ""
+"Fehlersuchausgaben und Ihre Konfigurationsinformationen werden gesammelt."
+
+#: src/api/python/speechd_config/config.py.in:515
+#, python-format
+msgid ""
+"\n"
+"Please send %s to speechd@bugs.freebsoft.org with\n"
+"a short description of what you did. We will get in touch with you soon\n"
+"and suggest a solution."
+msgstr ""
+"\n"
+"Bitte senden Sie %s an speechd@bugs.freebsoft.org mit einer kurzen\n"
+"Beschreibung auf Englisch, was Sie getan haben. Wir werden bald mit Ihnen "
+"in\n"
+"Verbindung treten und eine Lösung vorschlagen."
+
+#: src/api/python/speechd_config/config.py.in:588
+msgid ""
+"User configuration already exists.\n"
+"Do you want to rewrite it with a new one?"
+msgstr ""
+"Die Benutzerkonfiguration existiert bereits.\n"
+"Möchten Sie sie mit einer neuen überschreiben?"
+
+#: src/api/python/speechd_config/config.py.in:591
+msgid "Keeping configuration intact and continuing with settings."
+msgstr ""
+"Die Konfiguration wird intakt gelassen und mit den Einstellungen "
+"fortgefahren."
+
+#: src/api/python/speechd_config/config.py.in:596
+msgid ""
+"User configuration already exists, but it seems to be incomplete.\n"
+"Do you want to keep it?"
+msgstr ""
+"Die Benutzerkonfiguration existiert bereits, scheint aber unvollständig zu\n"
+"sein. Möchten Sie sie beibehalten?"
+
+#: src/api/python/speechd_config/config.py.in:601
+msgid "Keeping configuration intact and aborting."
+msgstr "Die Konfiguration wird intakt gelassen und abgebrochen."
+
+# % ist ein Pfad
+#: src/api/python/speechd_config/config.py.in:607
+#, python-format
+msgid "User configuration created in %s"
+msgstr "Die Benutzerkonfiguration wurde in %s erstellt."
+
+#: src/api/python/speechd_config/config.py.in:613
+msgid "Configuring user settings for Speech Dispatcher"
+msgstr "Die Benutzereinstellungen für Speech Dispatcher werden konfiguriert."
+
+#: src/api/python/speechd_config/config.py.in:616
+msgid "Configuring system settings for Speech Dispatcher"
+msgstr "Die Systemeinstellungen für Speech Dispatcher werden konfiguriert."
+
+#: src/api/python/speechd_config/config.py.in:639
+msgid ""
+"Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, "
+"-50 is slower)"
+msgstr ""
+"Standardprechgeschwindigkeit (auf einer Skala von -100 bis 100, "
+"Voreinstellung ist 0, 50 ist schneller, -50 ist langsamer)"
+
+#: src/api/python/speechd_config/config.py.in:643
+msgid ""
+"Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, "
+"-50 is lower)"
+msgstr ""
+"Standardtonhöhe (auf einer Skala von -100 bis 100, Voreinstellung ist 0, 50 "
+"ist höher, -50 ist tiefer)"
+
+#: src/api/python/speechd_config/config.py.in:647
+#, fuzzy
+msgid ""
+"Default speech pitch range (on the scale of -100..100, 0 is default, 50 is "
+"higher, -50 is lower)"
+msgstr ""
+"Standardtonhöhe (auf einer Skala von -100 bis 100, Voreinstellung ist 0, 50 "
+"ist höher, -50 ist tiefer)"
+
+#: src/api/python/speechd_config/config.py.in:666
+msgid ""
+"Do you want to have Speech Dispatcher automatically started from ~/.config/"
+"autostart ?\n"
+"This is usually not necessary, most applications will start Speech "
+"Dispatcher automatically."
+msgstr ""
+"Möchten Sie, dass Speech Dispatcher automatisch von ~/.config/autostart "
+"gestartet wird?\n"
+"Dies ist normalerweise nicht nötig, die meisten Anwendungen werden Speech "
+"Dispatcher automatisch starten."
+
+# %s ist eine Konfigurationsdatei
+#: src/api/python/speechd_config/config.py.in:673
+#, python-format
+msgid ""
+"\n"
+"Configuration written to %s\n"
+"Basic configuration now complete. You might still need to fine tune it by\n"
+"manually editing the configuration file above. Especially if you need to\n"
+"use special audio settings, non-standard synthesizer ports etc."
+msgstr ""
+"\n"
+"Die Konfiguration wurde in %s geschrieben.\n"
+"Die Grundkonfiguration ist nun komplett. Sie möchten eventuell noch\n"
+"Feinabstimmungen vornehmen, indem Sie obige Konfigurationsdatei manuell\n"
+"bearbeiten, insbesondere falls Sie spezielle Audioeinstellungen, vom "
+"Standard\n"
+"abweichende Synthesizer-Ports etc. verwenden wollen."
+
+#: src/api/python/speechd_config/config.py.in:682
+msgid "Starting Speech Dispatcher in user-mode"
+msgstr "Speech Dispatcher wird im Benutzermodus gestartet."
+
+#: src/api/python/speechd_config/config.py.in:686
+#: src/api/python/speechd_config/config.py.in:715
+#, python-format
+msgid "Can't start Speech Dispatcher. Exited with status %d"
+msgstr ""
+"Speech Dispatcher konnte nicht gestartet werden. Es wurde mit Status %d "
+"beendet."
+
+#: src/api/python/speechd_config/config.py.in:687
+msgid ""
+"Perhaps this is because your Speech Dispatcher is already running.\n"
+"Do you want to kill all running Speech Dispatchers and try again?"
+msgstr ""
+"Dies kommt vielleicht daher, dass Ihr Speech Dispatcher bereits läuft.\n"
+"Möchten Sie alle laufenden Speech Dispatcher abschießen und es erneut\n"
+"versuchen?"
+
+#: src/api/python/speechd_config/config.py.in:695
+msgid "Can't start Speech Dispatcher"
+msgstr "Speech Dispatcher kann nicht gestartet werden."
+
+#: src/api/python/speechd_config/config.py.in:705
+msgid "Starting Speech Dispatcher in system-mode"
+msgstr "Speech Dispatcher wird im Systemmodus gestartet"
+
+#: src/api/python/speechd_config/config.py.in:707
+msgid "Is your system using an /etc/init.d/speech-dispatcher script?"
+msgstr "Verwendet Ihr System ein /etc/init.d/speech-dispatcher-Skript?"
+
+#: src/api/python/speechd_config/config.py.in:710
+msgid "Stopping Speech Dispatcher in case any is running already"
+msgstr "Speech Dispatcher wird im Fall, dass es bereits läuft, gestoppt."
+
+#: src/api/python/speechd_config/config.py.in:712
+msgid "Starting Speech Dispatcher via /etc/init.d/speech-dispatcher"
+msgstr "Speech Dispatcher wird per /etc/init.d/speech-dispatcher gestartet."
+
+#: src/api/python/speechd_config/config.py.in:718
+msgid ""
+"Do not know how to start system Speech Dispatcher,\n"
+"you have to start it manually to continue."
+msgstr ""
+"Es ist nicht bekannt, wie das Speech-Dispatcher-System gestartet wird.\n"
+"Sie müssen es manuell starten, um fortzufahren."
+
+#: src/api/python/speechd_config/config.py.in:720
+msgid "Have you started Speech Dispatcher now?"
+msgstr "Haben Sie Speech Dispatcher jetzt gestartet?"
+
+# FIXME: missing '?'
+#: src/api/python/speechd_config/config.py.in:730
+msgid "Do you want to create/setup a 'user' or 'system' configuration"
+msgstr ""
+"Möchten Sie eine »user«- oder »system«-Konfiguration erstellen/einrichten?"
+
+#: src/api/python/speechd_config/config.py.in:741
+msgid "Do you want to start/restart Speech Dispatcher now and run some tests?"
+msgstr ""
+"Möchten Sie Speech Dispatcher jetzt (neu) starten und einige Tests ausführen?"
+
+#: src/api/python/speechd_config/config.py.in:743
+msgid "Your configuration is now done but not tested"
+msgstr "Ihre Konfiguration ist nun abgeschlossen aber ungetestet."
+
+#: src/api/python/speechd_config/config.py.in:752
+msgid "Your Speech Dispatcher is not running"
+msgstr "Ihr Speech Dispatcher läuft nicht."
+
+#: src/api/python/speechd_config/config.py.in:760
+msgid ""
+"Do you want to run debugging now and send a request for help to the "
+"developers?"
+msgstr ""
+"Möchten Sie jetzt die Fehlersuche ausführen und ein Hilfsersuchen an die "
+"Entwickler senden?"
+
+#: src/api/python/speechd_config/config.py.in:776
+msgid ""
+"\n"
+"Speech Dispatcher configuration tool\n"
+msgstr ""
+"\n"
+"Speech-Dispatcher-Konfigurationswerkzeug\n"
+
+#: src/api/python/speechd_config/config.py.in:781
+msgid "Do you want to continue with basic settings?"
+msgstr "Möchten Sie mit den Grundeinstellungen fortfahren?"
+
+#: src/api/python/speechd_config/config.py.in:816
+msgid "Do you want to setup a completely new configuration?"
+msgstr "Möchten Sie eine komplett neue Konfiguration einrichten?"
+
+#: src/api/python/speechd_config/config.py.in:820
+msgid "Do you want to run diagnosis of problems?"
+msgstr "Möchten Sie eine Problemdiagnose ausführen?"
+
+#: src/api/python/speechd_config/config.py.in:825
+msgid ""
+"Please run this command again and select what you want to do\n"
+"or read the quick help available through '-h' or '--help'."
+msgstr ""
+"Bitte führen Sie diesen Befehl erneut aus und wählen Sie, was Sie tun\n"
+"möchten oder lesen Sie die per »-h« oder »--help« verfügbare Schnellhilfe."

@@ -1,0 +1,4 @@
+src/server/options.c
+src/clients/say/options.c
+src/api/python/speechd_config/speechd.desktop.in
+src/api/python/speechd_config/config.py.in

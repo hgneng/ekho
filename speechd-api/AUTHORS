@@ -1,6 +1,9 @@
-
 AUTHORS
 =======
+
+Samuel Thibault <samuel point thibault at ens dash lyon point org>
+
+Luke Yelavich <themuso at themuso point com>
 
 Jan Buchal <buchal at brailcom point org>
 
@@ -12,8 +15,6 @@ Milan Zamazal <pdm at brailcom point org>
 
 Christopher Brannon <cmbrannon79 at gmail point com>
 
-Luke Yelavich <themuso at themuseo point com>
-
 Andrei Kholodnyi <andrei point kholodnyi at gmail point com>
 
 THANKS
@@ -22,7 +23,7 @@ THANKS
 Thanks to Jacob Schmude for contributing the generic output module
 configuration file for DecTalk software synthesis.
 
-Thanks to Gary Cramblittfor working on the output module for ALSA,
+Thanks to Gary Cramblitt for working on the output module for ALSA,
 contributing the IBM TTS output module and providing valuable
 consultations.
 
@@ -44,8 +45,34 @@ work on the internationalization of Speech Dispatcher.
 
 Thanks to Trevor Saunders for various improvements and bugfixes.
 
-Thanks to Halim Sahin for for fixes in the audio subsystem.
+Thanks to Halim Sahin for fixes in the audio subsystem.
 
-Thanks to Samuel Thibault for various bugfixes.
+Thanks to William Jon McCann for XDG Base Dir patches.
+
+Thanks to Didier Spaier for cleaning up lists with generic modules.
+
+Thanks to Colomban Wendling for the Baratinoo support.
+
+Thanks to Raphaël Poitevin for the Kali support.
+
+Thanks to Patrick Zajda for the symbol importation support.
 
 ...and to many others who have contributed.
+
+
+Copyright (C) 2001-2012 Brailcom, o.p.s
+Copyright (C) 2014 Luke Yelavich <themuso@ubuntu.com>
+Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details (file
+COPYING in the root directory).
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
