@@ -1276,6 +1276,7 @@ int EkhoImpl::stopAndSpeak(string text, void (*pCallback)(void *),
                            void *pCallbackArgs) {
   this->stop();
   this->speak(text, pCallback, pCallbackArgs);
+  return 0;
 }
 
 int EkhoImpl::blockSpeak(string text) {

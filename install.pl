@@ -42,17 +42,17 @@ sub setup_common() {
   `grep -v 'sd_ekho' /etc/speech-dispatcher/speechd.conf.$t | sed -e 's/^DefaultModule.*/DefaultModule ekho/' | sed -e 's/^AddModule "espeak"/AddModule "ekho" "sd_ekho" "ekho.conf"\\nAddModule "espeak"/' >/tmp/speechd.conf.ekho`;
   `sudo mv /tmp/speechd.conf.ekho /etc/speech-dispatcher/speechd.conf`;
 
-  my $config = '/usr/lib/python3/dist-packages/speechd_config/config.py';
-  if (-e '/usr/share/pyshared/speechd_config/config.py') {
+  #my $config = '/usr/lib/python3/dist-packages/speechd_config/config.py';
+  #if (-e '/usr/share/pyshared/speechd_config/config.py') {
     # older than 14.04
-    $config = '/usr/share/pyshared/speechd_config/config.py';
-  }
+  #  $config = '/usr/share/pyshared/speechd_config/config.py';
+  #}
 
-  if (-e $config) {
-    `sudo cp $config $config.$t`;
-    `cat $config.$t | sed -e 's/"espeak", /"espeak", "ekho", /' | sed -e 's/"ekho", "ekho", /"ekho", /' > /tmp/config.py.ekho`;
-    `sudo mv /tmp/config.py.ekho $config`;
-  }
+  #if (-e $config) {
+  #  `sudo cp $config $config.$t`;
+  #  `cat $config.$t | sed -e 's/"espeak", /"espeak", "ekho", /' | sed -e 's/"ekho", "ekho", /"ekho", /' > /tmp/config.py.ekho`;
+  #  `sudo mv /tmp/config.py.ekho $config`;
+  #}
 }
 
 sub setup_lang() {
@@ -87,28 +87,19 @@ if ($lang ne 'Tibetan' and $lang ne 'Mandarin' and $lang ne 'Cantonese') {
   $lang = 'Mandarin';
 }
 
-if (`grep precise /etc/lsb-release`) {
-  # ubuntu 12.04
+$version = `grep DISTRIB_RELEASE /etc/lsb-release`;
+if ($version =~ /(\d+\.\d+)/ && $1 >= 20.04) {
   build_common() if (not $skip_build);
-  setup_common();
-  system('sudo ln -f -s /usr/lib/speech-dispatcher/libsdaudio.so.2 /usr/lib/libsdaudio.so.2');
-  kill_speechd();
-  system('sudo rm -rf /usr/local/share/ekho-data');
-  system('sudo make install');
-  setup_lang();
-} elsif (`grep "Ubuntu" /etc/lsb-release`) {
-  # ubuntu 12.10
-  build_common() if (not $skip_build);
-  `sudo ln -s /usr/lib/i386-linux-gnu/speech-dispatcher-modules /usr/lib/` if (not `grep "14.04" /etc/lsb-release`);
-  if (! -e '/usr/lib/libsdaudio.so.2') {
-    `sudo cp speechd-api/src/audio/.libs/libsdaudio.so* /usr/lib/`;
-  }
+  #`sudo ln -s /usr/lib/i386-linux-gnu/speech-dispatcher-modules /usr/lib/` if (not `grep "14.04" /etc/lsb-release`);
+  #if (! -e '/usr/lib/libsdaudio.so.2') {
+  #  `sudo cp speechd-api/src/audio/.libs/libsdaudio.so* /usr/lib/`;
+  #}
   setup_common();
   kill_speechd();
   system('sudo rm -rf /usr/local/share/ekho-data');
   system('sudo make install');
   setup_lang();
-  `sudo rm -f /usr/lib/speech-dispatcher-modules/sd_cicero`;
+  #`sudo rm -f /usr/lib/speech-dispatcher-modules/sd_cicero`;
 } else {
   print "Sorry. Your OS is not supported. Please refer to INSTALL. You can also send email to Cameron <hgneng at gmail.com> for help.\n";
 }

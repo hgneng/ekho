@@ -35,7 +35,6 @@
 #include "phonetic_symbol.h"
 #include "zhy_symbol_map.h"
 #line 6 "zhy_symbol_map"
-struct ekho::SymbolCode;
 
 #define TOTAL_KEYWORDS 5012
 #define MIN_WORD_LENGTH 2

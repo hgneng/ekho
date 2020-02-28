@@ -81,12 +81,12 @@ all: all-am speechd
 
 speechd:
 if ENABLE_SPEECHD
-	cd $(srcdir)/speechd-api && ./build.sh && ./configure --libdir=/usr && make
+	cd $(srcdir)/speechd-api && ./build.sh && ./configure --prefix=/usr && make
 endif
 
 if ENABLE_SPEECHD
 install: install-am
-	cp $(srcdir)/speechd-api/src/modules/.libs/sd_ekho /usr/lib/speech-dispatcher-modules/
+	cd $(srcdir)/speechd-api && make install
 	cp $(srcdir)/speechd-api/config/modules/ekho.conf /etc/speech-dispatcher/modules/
 	mkdir -p ~/.config/speech-dispatcher/modules/
 	cp $(srcdir)/speechd-api/config/modules/ekho.conf ~/.config/speech-dispatcher/modules/

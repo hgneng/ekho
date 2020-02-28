@@ -34,7 +34,17 @@ AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE \
 	$(DOTCONF_CFLAGS) $(GLIB_CFLAGS) $(GTHREAD_CFLAGS) \
 	$(ibmtts_include) $(SNDFILE_CFLAGS)
 
-modulebin_PROGRAMS = sd_dummy sd_generic sd_festival sd_cicero
+modulebin_PROGRAMS = sd_dummy sd_generic sd_festival sd_cicero sd_ekho
+
+EKHO_ROOT = ../../..
+sd_ekho_SOURCES = ekho.cc $(audio_SOURCES) $(common_SOURCES)
+sd_ekho_CXXFLAGS = -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS) -I$(EKHO_ROOT)/src -I$(EKHO_ROOT)/utfcpp/source -I$(EKHO_ROOT)/sonic 
+sd_ekho_LDADD = $(EKHO_ROOT)/libekho.a $(EKHO_ROOT)/libmusicxml/libmusicxml2.a -lvorbisenc -lvorbis -lm -logg \
+	@LIB_PULSEAUDIO@  $(MP3LAME_LIBS) \
+	$(top_builddir)/src/common/libcommon.la \
+	$(audio_dlopen_modules) \
+	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
+	$(common_LDADD)
 
 sd_dummy_SOURCES = dummy.c $(audio_SOURCES) $(common_SOURCES) \
 	module_utils_addvoice.c

@@ -91,6 +91,19 @@ PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2])
 AC_SUBST([SNDFILE_CFLAGS])
 AC_SUBST([SNDFILE_LIBS])
 
+LIB_PULSEAUDIO=""
+CFLAG_PULSEAUDIO=""
+AS_IF([test "x$with_pulseaudio" != xno],
+        [AC_CHECK_LIB([pulse], [main],
+            [AC_SUBST([LIB_PULSEAUDIO], ["`pkg-config --libs libpulse-simple`"])
+            AC_SUBST([CFLAG_PULSEAUDIO], ["`pkg-config --cflags libpulse-simple`"])
+            AC_DEFINE([HAVE_PULSEAUDIO], [1],
+                [Define if you have libpulse])
+            ],
+            [AC_MSG_FAILURE(
+                [pulseaudio test failed (--without-pulseaudio to disable)])],
+            [])])
+            
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h langinfo.h limits.h netdb.h])
 AC_CHECK_HEADERS([netinet/in.h stddef.h stdlib.h string.h sys/filio.h])
