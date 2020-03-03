@@ -1241,12 +1241,15 @@ int EkhoImpl::setVoice(string voice) {
   } else if (voice.find("English") == 0) {
     mDict.setLanguage(ENGLISH);
   } else {
-    cerr << "Invalid voice: " << voice << ". Fall back to Mandarin" << endl;
+    cerr << "Invalid voice: " << voice << ". Fallback to Mandarin." << endl;
     mDict.setLanguage(MANDARIN);
     voice = "pinyin";
   }
 
-  if (mDict.setVoice(voice.c_str()) != 0) return -2;
+  if (mDict.setVoice(voice.c_str()) != 0) {
+    cerr << "Fail to setVoice of dictionary" << endl;
+    return -2;
+  }
 
   this->initStream();
 

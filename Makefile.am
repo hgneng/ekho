@@ -1,4 +1,4 @@
-AM_CXXFLAGS = -Wall -DEKHO_DATA_PATH='"$(datadir)/ekho-data"'
+AM_CXXFLAGS = -Wall -DEKHO_DATA_PATH='"$(datadir)/ekho-data"' -g
 CXXFLAGS += -O0
 
 FESTIVAL_H = @FESTIVAL_HEADER@
@@ -88,6 +88,6 @@ if ENABLE_SPEECHD
 install: install-am
 	cd $(srcdir)/speechd-api && make install
 	cp $(srcdir)/speechd-api/config/modules/ekho.conf /etc/speech-dispatcher/modules/
-	mkdir -p ~/.config/speech-dispatcher/modules/
-	cp $(srcdir)/speechd-api/config/modules/ekho.conf ~/.config/speech-dispatcher/modules/
+	mkdir -p /home/$(SUDO_USER)/.config/speech-dispatcher/modules/
+	cp $(srcdir)/speechd-api/config/modules/ekho.conf /home/$(SUDO_USER)/.config/speech-dispatcher/modules/
 endif

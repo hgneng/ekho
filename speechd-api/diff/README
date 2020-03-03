@@ -27,10 +27,9 @@ AS_IF([test "x$with_pulseaudio" != xno],
 
 ##### configure speech-dispatcher #####
 install ekho
-build speechd-api (./configure --libdir=/usr)
+build speechd-api (./configure --prefix=/usr)
 add ekho option to /usr/share/pyshared/speechd_config/config.py
 add ekho module to /etc/speech-dispatcher/speechd.conf and ~/.speech-dispatcher/conf/speechd.conf
-cp src/modules/.lib/sd_ekho (not src/modules/sd_ekho !!!) to /usr/lib/speech-dispatcher-modules/sd_ekho
 cp config/modules/ekho.conf /etc/speech-dispatcher/modules/
 cp config/modules/ekho.conf ~/.speech-dispatcher/conf/modules/
 troubleshooting with http://cvs.freebsoft.org/doc/speechd/speech-dispatcher.html#SEC18

@@ -84,6 +84,7 @@ int module_init(char **status_info) {
     if (gpEkho)
       return 0;
 
+    Ekho::debug(true);
     gpEkho = new Ekho();
     gpEkho->setStripSsml();
     gpEkho->setSpeakIsolatedPunctuation();
@@ -164,6 +165,7 @@ SPDVoice** module_list_voices(void) {
 
 extern "C"
 void ekho_callback(void*) {
+  DBG("ekho_callback\n");
 }
 
 extern "C"
@@ -183,7 +185,7 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
   ekho_message_type = SPD_MSGTYPE_TEXT;
 
   /* Setting voice */
-	UPDATE_STRING_PARAMETER(voice.language, ekho_set_language);  
+	UPDATE_STRING_PARAMETER(voice.language, ekho_set_language);
   UPDATE_PARAMETER(voice_type, ekho_set_voice);
   UPDATE_STRING_PARAMETER(voice.name, ekho_set_synthesis_voice);
   UPDATE_PARAMETER(rate, ekho_set_rate);
@@ -203,6 +205,7 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
     }
   } else {
     gpEkho->speak(data, ekho_callback);
+    //gpEkho->blockSpeak(data);
   }
 
   /* Send semaphore signal to the speaking thread */
@@ -276,9 +279,6 @@ static void ekho_set_language(char *lang) {
     visited = true;
     DBG("ekho_set_language: %s", lang);
     gpEkho->setVoice(lang);
-    if (strcmp(msg_settings.voice.name, "yali+kal") == 0) {
-      gpEkho->setEnglishVoice("voice_kal_diphone");
-    }
   }
 }
 

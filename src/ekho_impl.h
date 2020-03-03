@@ -69,6 +69,7 @@ class EkhoImpl {
   bool mStripSsml;
   bool mSpeakIsolatedPunctuation;
   bool mIsMale;
+  static bool mDebug;
 #ifdef ANDROID
   cst_voice *mFliteVoice;
 #endif
@@ -260,7 +261,6 @@ class EkhoImpl {
   void closeStream(void);
   int outputSpeech(string text);
 
-  static bool mDebug;
   bool mPcmCache;
   int tempoDelta;             // -50 .. 100 (%)
   int englishSpeedDelta;      // -50 .. 150 (%)
