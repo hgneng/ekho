@@ -35,10 +35,12 @@
 #include <io.h>
 #include <process.h>
 #define F_OK 0
+#include <direct.h>
+#define GetCurrentDir _getcwd
 #else
 #include <unistd.h>
+#define GetCurrentDir getcwd
 #endif
-
 using namespace std;
 
 //#define DEBUG_PERF
@@ -139,6 +141,13 @@ Dict::~Dict(void) {
   mSpecialChars.clear();
 }
 
+std::string GetCurrentWorkingDir( void ) {
+  char buff[FILENAME_MAX];
+  GetCurrentDir( buff, FILENAME_MAX );
+  std::string current_working_dir(buff);
+  return current_working_dir;
+}
+
 /**
  * Detect path to ekho-data
  * 1. check PATH_EKHO_DATA
@@ -169,6 +178,7 @@ string Dict::getDefaultDataPath(void) {
   }
 
   if (mDebug) {
+    cerr << "current dir: " << GetCurrentWorkingDir() << endl;
     cerr << "EKHO_DATA_PATH: " << path << endl;
   }
 
@@ -538,7 +548,7 @@ int Dict::setVoice(string voice) {
 
     return 0;
   } else {
-    cerr << "Fail to find voice data directory: " << voice << endl;
+    cerr << "Fail to find voice data directory: " << path << endl;
     return -1;
   }
 }

@@ -69,6 +69,9 @@ class EkhoImpl {
   bool mStripSsml;
   bool mSpeakIsolatedPunctuation;
   bool mIsMale;
+
+  static SpeechdSynthCallback *mSpeechdSynthCallback;
+
   static bool mDebug;
 #ifdef ANDROID
   cst_voice *mFliteVoice;
@@ -115,7 +118,7 @@ class EkhoImpl {
   /* Synth speech
    * callback will be called time from time when buffer is ready
    */
-  int synth(string text, SynthCallback *callback, void *userdata = 0);
+  //int synth(string text, SynthCallback *callback, void *userdata = 0);
   int synth2(string text, SynthCallback *callback, void *userdata = 0);
 
   /* no pause is allowed
@@ -286,6 +289,8 @@ class EkhoImpl {
 
   bool isSpeechThreadInited;
   pthread_t speechThread;
+  pthread_attr_t speechThreadAttr;
+
 #ifdef HAVE_PULSEAUDIO
   pa_simple *stream;
 #endif

@@ -16,6 +16,8 @@ enum EkhoPuncType {
     EKHO_PUNC_ALL
 };
 
+typedef int (SpeechdSynthCallback)(short *pcm, int frames);
+
 }
 
 #endif

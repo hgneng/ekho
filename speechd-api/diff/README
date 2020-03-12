@@ -1,14 +1,9 @@
-commit src/python/speechd_config/config.py
-bug fix?? in src/modules/module_utils.h
-commit src/modules/Makefile.am
-$ git pull
-a lot diff ...
-
 ##### patch files #####
 replace file from diff/
 * speechd/config/modules/ekho.conf
 * speechd/src/modules/ekho.cc
 * speechd/src/modules/Makefile.am
+* src/api/python/speechd_config/config.py.in
 
 add following libs definition to speechd/configure.ac:
 
@@ -28,10 +23,9 @@ AS_IF([test "x$with_pulseaudio" != xno],
 ##### configure speech-dispatcher #####
 install ekho
 build speechd-api (./configure --prefix=/usr)
-add ekho option to /usr/share/pyshared/speechd_config/config.py
-add ekho module to /etc/speech-dispatcher/speechd.conf and ~/.speech-dispatcher/conf/speechd.conf
+add ekho module to /etc/speech-dispatcher/speechd.conf and ~/.config/speech-dispatcher/speechd.conf
 cp config/modules/ekho.conf /etc/speech-dispatcher/modules/
-cp config/modules/ekho.conf ~/.speech-dispatcher/conf/modules/
+cp config/modules/ekho.conf ~/.config/speech-dispatcher/modules/
 troubleshooting with http://cvs.freebsoft.org/doc/speechd/speech-dispatcher.html#SEC18
 spd-conf
 spd-say "hello"

@@ -187,7 +187,7 @@ sd_dummy_OBJECTS = $(am_sd_dummy_OBJECTS)
 sd_dummy_DEPENDENCIES = $(top_builddir)/src/common/libcommon.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2)
 am_sd_ekho_OBJECTS = sd_ekho-ekho.$(OBJEXT) $(am__objects_1) \
-	$(am__objects_2)
+	$(am__objects_2) module_utils_speak_queue.$(OBJEXT)
 sd_ekho_OBJECTS = $(am_sd_ekho_OBJECTS)
 sd_ekho_DEPENDENCIES = $(EKHO_ROOT)/libekho.a \
 	$(EKHO_ROOT)/libmusicxml/libmusicxml2.a \
@@ -650,7 +650,7 @@ AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE \
 	$(ibmtts_include) $(SNDFILE_CFLAGS)
 
 EKHO_ROOT = ../../..
-sd_ekho_SOURCES = ekho.cc $(audio_SOURCES) $(common_SOURCES)
+sd_ekho_SOURCES = ekho.cc $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
 sd_ekho_CXXFLAGS = -g -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS) -I$(EKHO_ROOT)/src -I$(EKHO_ROOT)/utfcpp/source -I$(EKHO_ROOT)/sonic 
 sd_ekho_LDADD = $(EKHO_ROOT)/libekho.a $(EKHO_ROOT)/libmusicxml/libmusicxml2.a -lvorbisenc -lvorbis -lm -logg \
 	@LIB_PULSEAUDIO@  $(MP3LAME_LIBS) \

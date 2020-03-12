@@ -50,6 +50,8 @@ using namespace std;
 
 namespace ekho {
 
+typedef int (t_ekho_sync_callback)(short*, int);
+
 class EkhoImpl;
 
 class Ekho {
@@ -61,6 +63,7 @@ class Ekho {
   const static int PENDING_PCM_FRAMES = 20480;
   const static int MAX_CLIENTS = 100;
 
+  static bool mDebug;
   static void debug(bool flag = true);
 
   Ekho();
@@ -87,6 +90,10 @@ class Ekho {
   int speak(string text, void (*pCallback)(void *) = NULL,
             void *pCallbackArgs = NULL);
 
+  typedef int(SynthCallback)(short *pcm, int frames, void *arg = NULL,
+                             OverlapType type = OVERLAP_QUIET_PART);
+  int synth(const char *text, SpeechdSynthCallback *callback);
+
   void sing(string filepath);
 
   /* Clear speech queue before speak text
@@ -96,12 +103,10 @@ class Ekho {
   int stopAndSpeak(string text, void (*pCallback)(void *) = NULL,
                    void *pCallbackArgs = NULL);
 
-  typedef int(SynthCallback)(short *pcm, int frames, void *arg,
-                             OverlapType type);
   /* Synth speech
    * callback will be called time from time when buffer is ready
    */
-  int synth(string text, SynthCallback *callback, void *userdata = 0);
+  //int synth(string text, SynthCallback *callback, void *userdata = 0);
   int synth2(string text, SynthCallback *callback, void *userdata = 0);
 
   /* no pause is allowed
@@ -215,6 +220,7 @@ class Ekho {
      */
 
   void setPunctuationMode(EkhoPuncType mode);
+  int getSampleRate();
 };
 }
 

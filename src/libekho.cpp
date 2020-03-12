@@ -62,11 +62,20 @@ using namespace std;
 #include <lame/lame.h>
 #endif
 
-void Ekho::debug(bool flag) { EkhoImpl::debug(flag); }
+bool Ekho::mDebug = false;
 
-Ekho::Ekho() { this->m_pImpl = new EkhoImpl(); }
+void Ekho::debug(bool flag) {
+  Ekho::mDebug = flag;
+  EkhoImpl::debug(flag);
+}
 
-Ekho::Ekho(string voice) { this->m_pImpl = new EkhoImpl(voice); }
+Ekho::Ekho() {
+  this->m_pImpl = new EkhoImpl();
+}
+
+Ekho::Ekho(string voice) {
+  this->m_pImpl = new EkhoImpl(voice);
+}
 
 Ekho::~Ekho(void) { delete this->m_pImpl; }
 
@@ -115,9 +124,10 @@ int Ekho::writePcm(short *pcm, int frames, void *arg, OverlapType type) {
 void *Ekho::speechDaemon(void *args) { return EkhoImpl::speechDaemon(args); }
 
 // @TODO: remove this deprecared method
+/*
 int Ekho::synth(string text, SynthCallback *callback, void *userdata) {
   return this->m_pImpl->synth(text, callback, userdata);
-}
+}*/
 
 int Ekho::play(string file) { return this->m_pImpl->play(file); }
 
@@ -197,3 +207,13 @@ void Ekho::setPunctuationMode(EkhoPuncType mode) {
 }
 
 void Ekho::sing(string filepath) { this->m_pImpl->sing(filepath); }
+
+int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
+  EkhoImpl::mSpeechdSynthCallback = callback;
+  this->m_pImpl->speak(text);
+  return 0;
+}
+
+int Ekho::getSampleRate() {
+  return this->m_pImpl->mDict.mSfinfo.samplerate;
+}

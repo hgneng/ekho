@@ -42,17 +42,17 @@ sub setup_common() {
   `grep -v 'sd_ekho' /etc/speech-dispatcher/speechd.conf.$t | sed -e 's/^DefaultModule.*/DefaultModule ekho/' | sed -e 's/^AddModule "espeak"/AddModule "ekho" "sd_ekho" "ekho.conf"\\nAddModule "espeak"/' >/tmp/speechd.conf.ekho`;
   `sudo mv /tmp/speechd.conf.ekho /etc/speech-dispatcher/speechd.conf`;
 
-  #my $config = '/usr/lib/python3/dist-packages/speechd_config/config.py';
+  my $config = '/usr/lib/python3/dist-packages/speechd_config/config.py';
   #if (-e '/usr/share/pyshared/speechd_config/config.py') {
     # older than 14.04
   #  $config = '/usr/share/pyshared/speechd_config/config.py';
   #}
 
-  #if (-e $config) {
-  #  `sudo cp $config $config.$t`;
-  #  `cat $config.$t | sed -e 's/"espeak", /"espeak", "ekho", /' | sed -e 's/"ekho", "ekho", /"ekho", /' > /tmp/config.py.ekho`;
-  #  `sudo mv /tmp/config.py.ekho $config`;
-  #}
+  if (-e $config) {
+    `sudo cp $config $config.$t`;
+    `cat $config.$t | sed -e 's/"espeak", /"espeak", "ekho", /' | sed -e 's/"ekho", "ekho", /"ekho", /' > /tmp/config.py.ekho`;
+    `sudo mv /tmp/config.py.ekho $config`;
+  }
 }
 
 sub setup_lang() {

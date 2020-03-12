@@ -68,6 +68,7 @@ using namespace std;
 #endif
 
 bool EkhoImpl::mDebug = false;
+SpeechdSynthCallback* EkhoImpl::mSpeechdSynthCallback = 0;
 SynthCallback *gSynthCallback = 0;
 
 EkhoImpl::EkhoImpl() { this->init(); }
@@ -125,6 +126,7 @@ EkhoImpl::~EkhoImpl(void) {
 
   if (this->isSpeechThreadInited) {
     void *ret;
+    pthread_attr_destroy(&this->speechThreadAttr);
     pthread_join(this->speechThread, &ret);
   }
   closeStream();
@@ -142,11 +144,18 @@ EkhoImpl::~EkhoImpl(void) {
 int EkhoImpl::initSound(void) {
   if (!this->isSoundInited) {
     // launch speechDaemon
+    pthread_attr_init(&this->speechThreadAttr);
+    pthread_attr_setdetachstate(&this->speechThreadAttr, PTHREAD_CREATE_JOINABLE);
     pthread_create(&this->speechThread, NULL, speechDaemon, (void *)this);
     this->isSpeechThreadInited = true;
+    this->isSoundInited = true;
+
+    // not output sound directly, only return pcm data if mSynthCallback is set.
+    if (mSpeechdSynthCallback) {
+      return 0;
+    }
 
 #ifdef HAVE_PULSEAUDIO
-    this->isSoundInited = true;
     if (initStream() < 0) {
       cerr << "Fail to init audio stream." << endl;
       return -1;
@@ -555,7 +564,7 @@ int EkhoImpl::saveMp3(string text, string filename) {
 
 int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
                        bool tofile) {
-  short buffer[BUFFER_SIZE];
+  short *buffer = new short[BUFFER_SIZE];
   int error;
 
   EkhoImpl *pEkho = (EkhoImpl *)arg;
@@ -578,11 +587,20 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
             return -1;
           }
         } else {
+          if (EkhoImpl::mSpeechdSynthCallback) {
+            if (frames > 0) {
+              if (EkhoImpl::mDebug) {
+                cerr << "EkhoImpl::mSpeechdSynthCallback: " << frames << endl;
+              }
+              EkhoImpl::mSpeechdSynthCallback(buffer, frames);
+            }
+          } else {
 #ifdef HAVE_PULSEAUDIO
           int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
           if (ret < 0)
             cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
 #endif
+          }
         }
       }
     } while (frames > 0);
@@ -592,6 +610,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
     sonicFlushStream(pEkho->mSonicStream);  // TODO: needed?
   }
 
+  delete buffer;
   return 0;
 }
 
@@ -765,14 +784,21 @@ void EkhoImpl::finishWritePcm(void) {
 }
 
 void *EkhoImpl::speechDaemon(void *args) {
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::speechDaemon begin" << endl;
+  }
   EkhoImpl *pEkho = (EkhoImpl *)args;
 
   pEkho->initEnglish();
 
   while (1) {
     pthread_mutex_lock(&pEkho->mSpeechQueueMutex);
-    if (pEkho->mSpeechQueue.empty() && !pEkho->isEnded)
+    if (pEkho->mSpeechQueue.empty() && !pEkho->isEnded) {
+      if (EkhoImpl::mDebug) {
+        cerr << "EkhoImpl::speechDaemon waiting speech queue" << endl;
+      }
       pthread_cond_wait(&pEkho->mSpeechQueueCond, &pEkho->mSpeechQueueMutex);
+    }
 
     if (pEkho->isEnded) {
       pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
@@ -783,12 +809,9 @@ void *EkhoImpl::speechDaemon(void *args) {
       pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
       continue;
     }
+
     SpeechOrder order = pEkho->mSpeechQueue.front();
     pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
-
-    if (EkhoImpl::mDebug) {
-      cerr << "speaking '" << order.text << "'" << endl;
-    }
 
     // It seems that Sonic doesn't work on threads. Set arguments again. It's
     // fixed before. But it doesn't work again...
@@ -797,10 +820,17 @@ void *EkhoImpl::speechDaemon(void *args) {
     pEkho->setVolume(pEkho->volumeDelta);
     pEkho->setRate(pEkho->rateDelta);
 
+    if (EkhoImpl::mDebug) {
+      cerr << "EkhoImpl::speechDaemon synth2 " << order.text << endl;
+    }
     pEkho->synth2(order.text, speakPcm);
 
     // FIXME: following statement seems not flush rest PCM
     pEkho->speakPcm(0, 0, pEkho, OVERLAP_QUIET_PART);
+
+    if (EkhoImpl::mDebug) {
+      cerr << "EkhoImpl::speechDaemon synth2 end" << endl;
+    }
 
     int error;
 #ifdef HAVE_PULSEAUDIO
@@ -810,36 +840,52 @@ void *EkhoImpl::speechDaemon(void *args) {
       pa_simple_drain(pEkho->stream, &error);
 #endif
 
-    if (pEkho->isStopped) continue;
-
-    if (order.pCallback) {
-      order.pCallback(order.pCallbackArgs);
-    }
-
     pthread_mutex_lock(&pEkho->mSpeechQueueMutex);
-    if ((!pEkho->isStopped) && (!pEkho->mSpeechQueue.empty()))
-      pEkho->mSpeechQueue.pop();
+    if (!pEkho->isStopped) {
+      if (order.pCallback) {
+        order.pCallback(order.pCallbackArgs);
+      }
+
+      if (!pEkho->mSpeechQueue.empty()) {
+        pEkho->mSpeechQueue.pop();
+      }
+    }
     pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
+  }
+
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::speechDaemon end" << endl;
   }
 
   return 0;
 }  // end of speechDaemon
 
 /**
- * Only strip one level SSML like <speak>...</speak>
+ * Filter tags:
+ * Ex: <speak><mark name="0:8"/>屏幕阅读器启用。</speak>
  */
 static string stripSsml(string text) {
-  int first_lt = text.find_first_of('<');
+  int first_lt = text.find_first_of("<speak");
+  int first_gt;
   if (first_lt == 0) {
-    int first_gt = text.find_first_of('>');
+    first_gt = text.find_first_of('>');
     if (first_gt > 0) {
       string tag = text.substr(first_lt + 1, first_gt - first_lt - 1);
       string endtag("</");
       endtag += tag + ">";
       int last_endtag = text.find_last_of(endtag);
       if (last_endtag == text.length() - 1)
-        return text.substr(first_gt + 1,
-                           last_endtag - first_gt - endtag.length());
+        // recursively process
+        return stripSsml(text.substr(first_gt + 1,
+                           last_endtag - first_gt - endtag.length()));
+    }
+  }
+
+  first_lt = text.find_first_of("<mark");
+  if (first_lt == 0) {
+    first_gt = text.find_first_of("/>");
+    if (first_gt > first_lt) {
+      return text.substr(first_gt + 2, text.length() - first_gt - 2);
     }
   }
 
@@ -847,6 +893,7 @@ static string stripSsml(string text) {
 }
 
 // @TODO: remove this deprecared method
+/*
 int EkhoImpl::synth(string text, SynthCallback *callback, void *userdata) {
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::synth(%s, %p, %p) voiceFileType=%s lang=%d", text.c_str(),
@@ -1099,7 +1146,7 @@ int EkhoImpl::synth(string text, SynthCallback *callback, void *userdata) {
   free(in_word_context);
 
   return 0;
-}
+}*/
 
 int EkhoImpl::play(string file) {
   system((this->player + " " + file + " 2>/dev/null").c_str());
@@ -1125,23 +1172,6 @@ const char *EkhoImpl::getPcmFromFestival(string text, int &size) {
 #endif
 
 #ifdef ENABLE_FESTIVAL
-  /*
-  // replace illegal char
-  replace(text.begin(), text.end(), '\\', ' ');
-
-  // trim spaces
-  while (text.size() > 0 && text[0] == ' ') {
-  text.erase(0, 1);
-  }
-  while (text.size() > 0 && text[text.size() - 1] == ' ') {
-  text.erase(text.size() - 1, 1);
-  }
-
-  if (text.empty()) {
-  return NULL;
-  }
-  */
-
   // set voice
   static const char *current_voice = "voice_kal_diphone";
   static int current_samplerate = 16000;
@@ -1260,6 +1290,10 @@ string EkhoImpl::getVoice(void) { return this->mDict.getVoice(); }
 
 int EkhoImpl::speak(string text, void (*pCallback)(void *),
                     void *pCallbackArgs) {
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::speak(" << text << ") begin" << endl;
+  }
+
   this->initSound();
   this->isPaused = false;
   // this->isStopped = false;
@@ -1271,6 +1305,10 @@ int EkhoImpl::speak(string text, void (*pCallback)(void *),
   mSpeechQueue.push(order);
   pthread_cond_signal(&mSpeechQueueCond);
   pthread_mutex_unlock(&mSpeechQueueMutex);
+
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::speak end" << endl;
+  }
 
   return 0;
 }
@@ -1331,11 +1369,20 @@ int EkhoImpl::stop(void) {
   this->isPaused = false;
   this->isStopped = true;
   this->mPendingFrames = 0;
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::stop " << " begin" << endl;
+  }
+
   pthread_mutex_lock(&mSpeechQueueMutex);
   while (not mSpeechQueue.empty()) {
     mSpeechQueue.pop();
   }
   pthread_mutex_unlock(&mSpeechQueueMutex);
+
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::stop " << " end" << endl;
+  }
+
   return 0;
 }
 
@@ -1838,7 +1885,12 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   }
 
   // filter SSML
-  if (mStripSsml) text = stripSsml(text);
+  if (mStripSsml) {
+    text = stripSsml(text);
+    if (EkhoImpl::mDebug) {
+      cerr << "stripSsml: " << text << endl;
+    }
+  }
 
   // check punctuation
   if (mSpeakIsolatedPunctuation && text.length() <= 3) {
@@ -1853,6 +1905,9 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
 
   // filter spaces
   filterSpaces(text);
+  if (EkhoImpl::mDebug) {
+    cerr << "filterSpaces: " << text << endl;
+  }
 
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::synth2 filtered text=%s", text.c_str());
