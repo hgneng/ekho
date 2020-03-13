@@ -65,12 +65,6 @@ int module_load(void) {
    return 0;
 }
 
-#define ABORT(msg) g_string_append(info, msg); \
-        DBG("FATAL ERROR:", info->str); \
-	*status_info = info->str; \
-	g_string_free(info, 0); \
-	return -1;
-
 extern "C"
 int module_init(char **status_info) {
     int ret;
@@ -80,25 +74,27 @@ int module_init(char **status_info) {
 
     *status_info = NULL;
 
-    if (gpEkho)
+    if (gpEkho) {
+      DBG("already init. return");
       return 0;
+    }
 
     Ekho::debug(true);
     gpEkho = new Ekho();
     gpEkho->setStripSsml();
     gpEkho->setSpeakIsolatedPunctuation();
+    module_list_voices();
 
     ret = module_speak_queue_init(441000, status_info);
     if (ret != 0) {
+      DBG("module_speak_queue_init fail: %d", ret);
       return ret;
     }
 
-    *status_info = strdup("ekho initialized successfully.");
+    *status_info = g_strdup("ekho initialized successfully.");
 
     return 0;
 }
-
-#undef ABORT
 
 SPDVoice** module_list_voices(void) {
   if (!gpVoices) {
@@ -160,12 +156,23 @@ SPDVoice** module_list_voices(void) {
 
 extern "C"
 int ekho_callback(short *wav, int samples) {
-  DBG("ekho_callback begin");
+  DBG("ekho_callback: %d", samples);
+
+  /* Number of samples sent in current message. */
+  static int numsamples_sent_msg = 0;
+  /* Number of samples already sent during this call to the callback. */
+  int numsamples_sent = 0;
+
   if (module_speak_queue_stop_requested()) {
     return 1;
   }
+  
+  if (module_speak_queue_before_play()) {
+    numsamples_sent_msg = 0;
+  }
+
   AudioTrack track = {
-    .bits = samples * 16,
+    .bits = 16,
     .num_channels = 1,
     .sample_rate = gpEkho->getSampleRate(),
     .num_samples = samples,
@@ -194,8 +201,6 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
   DBG("module_speak(%s, %ld, %d)\n", data, bytes, msgtype);
   if (!module_speak_queue_before_synth())
     return 0;
-
-  DBG("Requested data: |%s|\n", data);
 
   /* Setting voice */
 	UPDATE_STRING_PARAMETER(voice.language, ekho_set_language);
@@ -247,30 +252,24 @@ size_t module_pause(void) {
 
 extern "C"
 int module_close(void) {
+  DBG("module_close");
   module_speak_queue_terminate();
   delete gpEkho;
   gpEkho = 0;
   module_speak_queue_free();
-/*
-  int i = 0;
 
-  DBG("ekho: close()\n");
-  DBG("Stopping speech");
-  module_stop();
-  DBG("Closing audio output");
-
-  // free gpVoices
-  if (gpVoices) {
-    for (; i < 5; i++) {
-      if (gpVoices[i]) {
-        g_free(gpVoices[i]);
-        gpVoices[i] = 0;
-      }
+  if (gpVoices != NULL) {
+    int i;
+    for (i = 0; gpVoices[i] != NULL; i++) {
+      g_free(gpVoices[i]->name);
+      g_free(gpVoices[i]->language);
+      g_free(gpVoices[i]->variant);
+      g_free(gpVoices[i]);
     }
+    g_free(gpVoices);
+    gpVoices = NULL;
   }
-  gpVoices = 0;
-  gpEkho = 0;
-*/
+
   return 0;
 }
 

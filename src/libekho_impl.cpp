@@ -596,9 +596,10 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
             }
           } else {
 #ifdef HAVE_PULSEAUDIO
-          int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
-          if (ret < 0)
-            cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
+            int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
+            if (ret < 0) {
+              cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
+            }
 #endif
           }
         }
@@ -834,10 +835,13 @@ void *EkhoImpl::speechDaemon(void *args) {
 
     int error;
 #ifdef HAVE_PULSEAUDIO
-    if (pEkho->isStopped)
-      pa_simple_flush(pEkho->stream, &error);
-    else
-      pa_simple_drain(pEkho->stream, &error);
+    if (!mSpeechdSynthCallback) {
+      if (pEkho->isStopped) {
+        pa_simple_flush(pEkho->stream, &error);
+      } else {
+        pa_simple_drain(pEkho->stream, &error);
+      }
+    }
 #endif
 
     pthread_mutex_lock(&pEkho->mSpeechQueueMutex);
@@ -1840,6 +1844,10 @@ void EkhoImpl::translatePunctuations(string &text) {
 }
 
 void EkhoImpl::synthWithEspeak(string text) {
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::synthWithEspeak: " << text << endl;
+  }
+
   gSynthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
   sonicSetRate(gEkho->mSonicStream, 22050.0 / mDict.mSfinfo.samplerate);
   espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
