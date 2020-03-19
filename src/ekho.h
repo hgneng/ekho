@@ -220,6 +220,7 @@ class Ekho {
      */
 
   void setPunctuationMode(EkhoPuncType mode);
+  void setCapLetterRecognMode(EkhoCapLetterRecognType mode);
   int getSampleRate();
 };
 }

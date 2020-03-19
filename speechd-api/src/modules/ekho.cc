@@ -55,6 +55,7 @@ static void ekho_set_voice(SPDVoiceType voice);
 static void ekho_set_language(char *language);
 static void ekho_set_synthesis_voice(char *voice);
 static void ekho_set_punctuation_mode(SPDPunctuation punct_mode);
+static void ekho_set_cap_let_recogn(SPDCapitalLetters punct_mode);
 
 /* Public functions */
 
@@ -209,6 +210,7 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
   UPDATE_PARAMETER(volume, ekho_set_volume);
   UPDATE_PARAMETER(pitch, ekho_set_pitch);
 	UPDATE_PARAMETER(punctuation_mode, ekho_set_punctuation_mode);
+  UPDATE_PARAMETER(cap_let_recogn, ekho_set_cap_let_recogn);
 
   string s;
   if (msgtype == SPD_MSGTYPE_KEY) {
@@ -325,4 +327,10 @@ static void ekho_set_punctuation_mode(SPDPunctuation punct_mode) {
   }
 
   gpEkho->setPunctuationMode(mode);
+}
+
+static void ekho_set_cap_let_recogn(SPDCapitalLetters cap_mode)
+{
+  DBG("ekho_set_cap_let_recogn");
+  gpEkho->setCapLetterRecognMode((EkhoCapLetterRecognType)cap_mode);
 }

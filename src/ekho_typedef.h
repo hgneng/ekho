@@ -16,6 +16,12 @@ enum EkhoPuncType {
     EKHO_PUNC_ALL
 };
 
+enum EkhoCapLetterRecognType {
+	EKHO_CAP_NONE = 0,
+	EKHO_CAP_SPELL = 1,
+	EKHO_CAP_ICON = 2
+};
+
 typedef int (SpeechdSynthCallback)(short *pcm, int frames, int bits, int channels, int samplerate);
 
 }

@@ -38,6 +38,7 @@
 #include "ekho_typedef.h"
 #include "sonic.h"
 #include "utf8.h"
+#include "espeak-ng/speak_lib.h"
 
 #ifdef ENABLE_WIN32
 #include <windows.h>
@@ -220,4 +221,22 @@ int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
 
 int Ekho::getSampleRate() {
   return this->m_pImpl->mDict.mSfinfo.samplerate;
+}
+
+void Ekho::setCapLetterRecognMode(EkhoCapLetterRecognType mode) {
+  int espeak_cap_mode = 0;
+  switch (mode) {
+  case EKHO_CAP_NONE:
+    espeak_cap_mode = 800;
+    break;
+  case EKHO_CAP_SPELL:
+    espeak_cap_mode = 2;
+    break;
+  case EKHO_CAP_ICON:
+    espeak_cap_mode = 1;
+    break;
+  }
+
+  espeak_ERROR ret =
+      espeak_SetParameter(espeakCAPITALS, espeak_cap_mode, 1);
 }
