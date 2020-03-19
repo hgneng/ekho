@@ -142,10 +142,10 @@ class Ekho {
   int request(string ip, int port, Command cmd, string text, string outfile);
 
   /**
-   * Set whether strip SSML tags in text
+   * Set whether support SSML tags in text
    */
-  void setStripSsml(bool b = true);
-  bool getStripSsml();
+  void enableSsml(); // default
+  void disableSsml();
 
   void setSpeakIsolatedPunctuation(bool b = true);
   bool getSpeakIsolatedPunctuation();

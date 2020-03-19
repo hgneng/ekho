@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2013 by Cameron Wong                                 *
+ * Copyright (C) 2008-2020 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: http://www.eguidedog.net                                       *
@@ -152,9 +152,13 @@ int Ekho::resume() { return this->m_pImpl->resume(); }
 
 int Ekho::stop() { return this->m_pImpl->stop(); }
 
-void Ekho::setStripSsml(bool b) { this->m_pImpl->setStripSsml(b); }
+void Ekho::enableSsml() {
+  this->m_pImpl->supportSsml = true;
+}
 
-bool Ekho::getStripSsml() { return this->m_pImpl->getStripSsml(); }
+void Ekho::disableSsml() {
+  this->m_pImpl->supportSsml = false;
+}
 
 void Ekho::setSpeakIsolatedPunctuation(bool b) {
   this->m_pImpl->setSpeakIsolatedPunctuation(b);
@@ -209,7 +213,7 @@ void Ekho::setPunctuationMode(EkhoPuncType mode) {
 void Ekho::sing(string filepath) { this->m_pImpl->sing(filepath); }
 
 int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
-  EkhoImpl::mSpeechdSynthCallback = callback;
+  this->m_pImpl->setSpeechdSynthCallback(callback);
   this->m_pImpl->speak(text);
   return 0;
 }

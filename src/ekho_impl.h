@@ -29,6 +29,7 @@
 #include "config.h"
 #include "ekho_dict.h"
 #include "ekho_typedef.h"
+#include "audio.h"
 #include "espeak/speak_lib.h"
 #include "sonic.h"
 
@@ -66,11 +67,12 @@ class EkhoImpl {
   const static int MAX_CLIENTS = 100;
   Dict mDict;
   int mPort;
-  bool mStripSsml;
+  bool supportSsml;
   bool mSpeakIsolatedPunctuation;
   bool mIsMale;
 
-  static SpeechdSynthCallback *mSpeechdSynthCallback;
+  static SpeechdSynthCallback *speechdSynthCallback;
+  void setSpeechdSynthCallback(SpeechdSynthCallback *callback);
 
   static bool mDebug;
 #ifdef ANDROID
@@ -152,12 +154,6 @@ class EkhoImpl {
 
   /* request wave from Ekho TTS server */
   int request(string ip, int port, Command cmd, string text, string outfile);
-
-  /**
-   * Set whether strip SSML tags in text
-   */
-  inline void setStripSsml(bool b = true) { mStripSsml = b; }
-  inline bool getStripSsml(void) { return mStripSsml; }
 
   inline void setSpeakIsolatedPunctuation(bool b = true) {
     mSpeakIsolatedPunctuation = b;
@@ -294,6 +290,7 @@ class EkhoImpl {
 #ifdef HAVE_PULSEAUDIO
   pa_simple *stream;
 #endif
+  Audio *audio;
 
   const char *mAlphabetPcmCache[26];
   int mAlphabetPcmSize[26];

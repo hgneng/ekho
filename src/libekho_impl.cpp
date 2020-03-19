@@ -35,6 +35,8 @@
 #include "ekho.h"
 #include "ekho_dict.h"
 #include "ekho_impl.h"
+#include "ssml.h"
+#include "audio.h"
 #include "sonic.h"
 #include "utf8.h"
 
@@ -68,19 +70,27 @@ using namespace std;
 #endif
 
 bool EkhoImpl::mDebug = false;
-SpeechdSynthCallback* EkhoImpl::mSpeechdSynthCallback = 0;
+SpeechdSynthCallback* EkhoImpl::speechdSynthCallback = 0;
 SynthCallback *gSynthCallback = 0;
 
 EkhoImpl::EkhoImpl() { this->init(); }
 
 int EkhoImpl::init(void) {
+  if (mDebug) {
+    cerr << "EkhoImpl::init" << endl;
+  }
+
   mIsMale = false;
   mPendingFrames = 0;
-  mStripSsml = true;
+  supportSsml = true;
   mSpeakIsolatedPunctuation = true;
   mSpeechQueueMutex = PTHREAD_MUTEX_INITIALIZER;
   mSpeechQueueCond = PTHREAD_COND_INITIALIZER;
   mEnglishVoice = "voice_kal_diphone";
+
+  this->audio = new Audio();
+  cerr << "audio:%p" << this->audio << endl;
+
   this->mSndFile = 0;
   this->isRecording = false;
   this->tempoDelta = 0;
@@ -151,7 +161,7 @@ int EkhoImpl::initSound(void) {
     this->isSoundInited = true;
 
     // not output sound directly, only return pcm data if mSynthCallback is set.
-    if (mSpeechdSynthCallback) {
+    if (speechdSynthCallback) {
       return 0;
     }
 
@@ -221,6 +231,11 @@ int EkhoImpl::initStream(void) {
 
     this->stream = pa_simple_new(NULL, "Ekho", PA_STREAM_PLAYBACK, NULL,
                                  "playback", &ss, NULL, NULL, &error);
+    this->audio->pulseAudio = this->stream;
+    if (EkhoImpl::mDebug) {
+      cerr << "pulseAudio inited: audio=%p, pulseAudio=%p"
+        << this->audio << this->audio->pulseAudio << endl;
+    }
 
     if (!this->stream) {
       cerr << "pa_simple_new() failed: " << pa_strerror(error) << endl;
@@ -587,12 +602,12 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
             return -1;
           }
         } else {
-          if (EkhoImpl::mSpeechdSynthCallback) {
+          if (EkhoImpl::speechdSynthCallback) {
             if (frames > 0) {
               if (EkhoImpl::mDebug) {
-                cerr << "EkhoImpl::mSpeechdSynthCallback: " << frames << endl;
+                cerr << "EkhoImpl::speechdSynthCallback: " << frames << endl;
               }
-              EkhoImpl::mSpeechdSynthCallback(buffer, frames);
+              EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate);
             }
           } else {
 #ifdef HAVE_PULSEAUDIO
@@ -611,7 +626,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
     sonicFlushStream(pEkho->mSonicStream);  // TODO: needed?
   }
 
-  delete buffer;
+  delete[] buffer;
   return 0;
 }
 
@@ -835,7 +850,7 @@ void *EkhoImpl::speechDaemon(void *args) {
 
     int error;
 #ifdef HAVE_PULSEAUDIO
-    if (!mSpeechdSynthCallback) {
+    if (!EkhoImpl::speechdSynthCallback) {
       if (pEkho->isStopped) {
         pa_simple_flush(pEkho->stream, &error);
       } else {
@@ -863,38 +878,6 @@ void *EkhoImpl::speechDaemon(void *args) {
 
   return 0;
 }  // end of speechDaemon
-
-/**
- * Filter tags:
- * Ex: <speak><mark name="0:8"/>屏幕阅读器启用。</speak>
- */
-static string stripSsml(string text) {
-  int first_lt = text.find_first_of("<speak");
-  int first_gt;
-  if (first_lt == 0) {
-    first_gt = text.find_first_of('>');
-    if (first_gt > 0) {
-      string tag = text.substr(first_lt + 1, first_gt - first_lt - 1);
-      string endtag("</");
-      endtag += tag + ">";
-      int last_endtag = text.find_last_of(endtag);
-      if (last_endtag == text.length() - 1)
-        // recursively process
-        return stripSsml(text.substr(first_gt + 1,
-                           last_endtag - first_gt - endtag.length()));
-    }
-  }
-
-  first_lt = text.find_first_of("<mark");
-  if (first_lt == 0) {
-    first_gt = text.find_first_of("/>");
-    if (first_gt > first_lt) {
-      return text.substr(first_gt + 2, text.length() - first_gt - 2);
-    }
-  }
-
-  return text;
-}
 
 // @TODO: remove this deprecared method
 /*
@@ -1892,12 +1875,17 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
     return -1;
   }
 
-  // filter SSML
-  if (mStripSsml) {
-    text = stripSsml(text);
-    if (EkhoImpl::mDebug) {
-      cerr << "stripSsml: " << text << endl;
+  // process SSML
+  if (mDebug) {
+    cerr << "supportSsml:" << this->supportSsml << endl;
+  }
+
+  if (this->supportSsml) {
+    if (Ssml::isAudio(text)) {
+      this->audio->play(Ssml::getAudioPath(text));
+      return 0;
     }
+    text = Ssml::stripTags(text);
   }
 
   // check punctuation
@@ -2050,3 +2038,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   return 0;
 }
 
+void EkhoImpl::setSpeechdSynthCallback(SpeechdSynthCallback *callback) {
+  EkhoImpl::speechdSynthCallback = callback;
+  this->audio->speechdSynthCallback = callback;
+}

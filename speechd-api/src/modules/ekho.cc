@@ -81,7 +81,6 @@ int module_init(char **status_info) {
 
     Ekho::debug(true);
     gpEkho = new Ekho();
-    gpEkho->setStripSsml();
     gpEkho->setSpeakIsolatedPunctuation();
     module_list_voices();
 
@@ -155,7 +154,7 @@ SPDVoice** module_list_voices(void) {
 }
 
 extern "C"
-int ekho_callback(short *wav, int samples) {
+int ekho_callback(short *wav, int samples, int bits, int channels, int samplerate) {
   DBG("ekho_callback: %d", samples);
 
   /* Number of samples sent in current message. */
@@ -172,9 +171,9 @@ int ekho_callback(short *wav, int samples) {
   }
 
   AudioTrack track = {
-    .bits = 16,
-    .num_channels = 1,
-    .sample_rate = gpEkho->getSampleRate(),
+    .bits = bits,
+    .num_channels = channels,
+    .sample_rate = samplerate,
     .num_samples = samples,
     .samples = wav,
   };
