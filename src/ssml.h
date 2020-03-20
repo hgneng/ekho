@@ -30,6 +30,7 @@ namespace ekho {
 class Ssml {
 	public:
 	 	static string stripTags(const string& text);
+	 	static void filterSpaces(string& text);
 	 	static bool isAudio(const string& text);
 	 	static string getAudioPath(const string& text);
 };

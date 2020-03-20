@@ -89,7 +89,6 @@ int EkhoImpl::init(void) {
   mEnglishVoice = "voice_kal_diphone";
 
   this->audio = new Audio();
-  cerr << "audio:%p" << this->audio << endl;
 
   this->mSndFile = 0;
   this->isRecording = false;
@@ -1733,52 +1732,6 @@ int EkhoImpl::request(string ip, int port, Command cmd, string text,
   return 0;
 }
 
-void EkhoImpl::filterSpaces(string &text) {
-  bool changed = false;
-
-  string text2;
-  bool in_chinese_context = true;
-
-  int c;
-  string::iterator it = text.begin();
-  string::iterator it2 = text.begin();
-  string::iterator end = text.end();
-
-  while (it != end) {
-    it2 = it;
-#ifdef DISABLE_EXCEPTIONS
-    c = utf8::next(it, end);
-#else
-    try {
-      c = utf8::next(it, end);
-    } catch (utf8::not_enough_room &) {
-      text = text2;
-      return;
-    } catch (utf8::invalid_utf8 &) {
-      cerr << "Invalid UTF8 encoding" << endl;
-      text = text2;
-      return;
-    }
-#endif
-
-    if (in_chinese_context && (c == 32 || c == 12288)) {
-      changed = true;
-    } else {
-      while (it2 != it) {
-        text2.push_back(*it2);
-        it2++;
-      }
-      in_chinese_context = (c > 128);
-    }
-
-    while (it2 != it) it2++;
-  }
-
-  if (changed) {
-    text = text2;
-  }
-}
-
 void EkhoImpl::translatePunctuations(string &text) {
   bool changed = false;
 
@@ -1882,6 +1835,9 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
 
   if (this->supportSsml) {
     if (Ssml::isAudio(text)) {
+      if (mDebug) {
+        cerr << "isAudio, play" << endl;
+      }
       this->audio->play(Ssml::getAudioPath(text));
       return 0;
     }
@@ -1900,7 +1856,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   if (mPuncMode == EKHO_PUNC_ALL) translatePunctuations(text);
 
   // filter spaces
-  filterSpaces(text);
+  Ssml::filterSpaces(text);
   if (EkhoImpl::mDebug) {
     cerr << "filterSpaces: " << text << endl;
   }

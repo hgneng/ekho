@@ -21,7 +21,9 @@
  **************************************************************************/
 
 #include <string>
+#include <iostream>
 #include "ssml.h"
+#include "utf8.h"
 using namespace std;
 using namespace ekho;
 
@@ -30,25 +32,25 @@ using namespace ekho;
  * Ex: <speak><mark name="0:8"/>屏幕阅读器启用。</speak>
  */
 string Ssml::stripTags(const string& text) {
-  int first_lt = text.find_first_of("<speak");
+  int first_lt = text.find("<speak");
   int first_gt;
   if (first_lt == 0) {
-    first_gt = text.find_first_of('>');
+    first_gt = text.find('>');
     if (first_gt > 0) {
       string tag = text.substr(first_lt + 1, first_gt - first_lt - 1);
       string endtag("</");
       endtag += tag + ">";
-      int last_endtag = text.find_last_of(endtag);
-      if (last_endtag == text.length() - 1)
+      int last_endtag = text.rfind(endtag);
+      if (last_endtag == text.length() - endtag.length())
         // recursively process
         return Ssml::stripTags(text.substr(first_gt + 1,
-                           last_endtag - first_gt - endtag.length()));
+                           last_endtag - first_gt - 1));
     }
   }
 
-  first_lt = text.find_first_of("<mark");
+  first_lt = text.find("<mark");
   if (first_lt == 0) {
-    first_gt = text.find_first_of("/>");
+    first_gt = text.find("/>");
     if (first_gt > first_lt) {
       return text.substr(first_gt + 2, text.length() - first_gt - 2);
     }
@@ -59,15 +61,62 @@ string Ssml::stripTags(const string& text) {
 
 // sample: <audio src=\"%s%s\">%s</audio>
 bool Ssml::isAudio(const string& text) {
-	return text.find_first_of("<audio src=") == 0;
+  int p = text.find("<audio src=");
+	return text.find("<audio src=") == 0;
 }
 
 string Ssml::getAudioPath(const string& text) {
-	int start = text.find_first_of('"');
-	int end = text.find_last_of('"');
+	int start = text.find('"');
+	int end = text.rfind('"');
 	if (start > 1 && end > 2 && end > start) {
 		return text.substr(start + 1, end - start - 1);
 	}
 
 	return "";
+}
+
+void Ssml::filterSpaces(string &text) {
+  bool changed = false;
+
+  string text2;
+  bool in_chinese_context = true;
+
+  int c;
+  string::iterator it = text.begin();
+  string::iterator it2 = text.begin();
+  string::iterator end = text.end();
+
+  while (it != end) {
+    it2 = it;
+#ifdef DISABLE_EXCEPTIONS
+    c = utf8::next(it, end);
+#else
+    try {
+      c = utf8::next(it, end);
+    } catch (utf8::not_enough_room &) {
+      text = text2;
+      return;
+    } catch (utf8::invalid_utf8 &) {
+      cerr << "Invalid UTF8 encoding" << endl;
+      text = text2;
+      return;
+    }
+#endif
+
+    if (in_chinese_context && (c == 32 || c == 12288)) {
+      changed = true;
+    } else {
+      while (it2 != it) {
+        text2.push_back(*it2);
+        it2++;
+      }
+      in_chinese_context = (c > 128);
+    }
+
+    while (it2 != it) it2++;
+  }
+
+  if (changed) {
+    text = text2;
+  }
 }
