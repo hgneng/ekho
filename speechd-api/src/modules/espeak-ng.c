@@ -629,6 +629,8 @@ static gboolean espeak_send_audio_upto(short *wav, int *sent, int upto)
 
 static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 {
+	DBG(DBG_MODNAME " synth_callback: %d, type=%d", numsamples, events->type);
+
 	/* Number of samples sent in current message. */
 	static int numsamples_sent_msg = 0;
 	/* Number of samples already sent during this call to the callback. */

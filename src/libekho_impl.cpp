@@ -602,12 +602,10 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
           }
         } else {
           if (EkhoImpl::speechdSynthCallback) {
-            if (frames > 0) {
-              if (EkhoImpl::mDebug) {
-                cerr << "EkhoImpl::speechdSynthCallback: " << frames << endl;
-              }
-              EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate);
+            if (EkhoImpl::mDebug) {
+              cerr << "EkhoImpl::speechdSynthCallback: " << frames << endl;
             }
+            EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate);
           } else {
 #ifdef HAVE_PULSEAUDIO
             int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);

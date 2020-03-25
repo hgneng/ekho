@@ -30,6 +30,7 @@ using namespace ekho;
 /**
  * Filter tags:
  * Ex: <speak><mark name="0:8"/>屏幕阅读器启用。</speak>
+ * <speak><mark name="0:1"/>左 <mark name="2:7"/>Shift </speak>
  */
 string Ssml::stripTags(const string& text) {
   int first_lt = text.find("<speak");
@@ -49,10 +50,10 @@ string Ssml::stripTags(const string& text) {
   }
 
   first_lt = text.find("<mark");
-  if (first_lt == 0) {
+  if (first_lt >= 0) {
     first_gt = text.find("/>");
     if (first_gt > first_lt) {
-      return text.substr(first_gt + 2, text.length() - first_gt - 2);
+      return Ssml::stripTags(text.substr(0, first_lt) + text.substr(first_gt + 2, text.length() - first_gt - 2));
     }
   }
 

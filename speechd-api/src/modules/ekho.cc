@@ -85,7 +85,8 @@ int module_init(char **status_info) {
     gpEkho->setSpeakIsolatedPunctuation();
     module_list_voices();
 
-    ret = module_speak_queue_init(441000, status_info);
+    // @TODO: confirm the proper size
+    ret = module_speak_queue_init(4410000, status_info);
     if (ret != 0) {
       DBG("module_speak_queue_init fail: %d", ret);
       return ret;
@@ -158,29 +159,25 @@ extern "C"
 int ekho_callback(short *wav, int samples, int bits, int channels, int samplerate) {
   DBG("ekho_callback: %d", samples);
 
-  /* Number of samples sent in current message. */
-  static int numsamples_sent_msg = 0;
-  /* Number of samples already sent during this call to the callback. */
-  int numsamples_sent = 0;
-
   if (module_speak_queue_stop_requested()) {
     return 1;
   }
-  
-  if (module_speak_queue_before_play()) {
-    numsamples_sent_msg = 0;
-  }
-
-  AudioTrack track = {
-    .bits = bits,
-    .num_channels = channels,
-    .sample_rate = samplerate,
-    .num_samples = samples,
-    .samples = wav,
-  };
 
   module_speak_queue_before_play();
-  module_speak_queue_add_audio(&track, SPD_AUDIO_LE);
+  if (samples > 0) {
+    AudioTrack track = {
+      .bits = bits,
+      .num_channels = channels,
+      .sample_rate = samplerate,
+      .num_samples = samples,
+      .samples = wav,
+    };
+
+    module_speak_queue_add_audio(&track, SPD_AUDIO_LE);
+  } else {
+    // @TODO: not sure what's this use.
+    module_speak_queue_add_end();
+  }
 
   return 0;
 }
@@ -222,6 +219,12 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
     } else {
       gpEkho->synth(data, ekho_callback);
     }
+  } else if (msgtype == SPD_MSGTYPE_SOUND_ICON) {
+    char *msg =
+        g_strdup_printf("<audio src=\"%s%s\">%s</audio>",
+            "/usr/share/sounds/sound-icons/", data, data);
+    gpEkho->synth(msg, ekho_callback);
+    g_free(msg);
   } else {
     gpEkho->synth(data, ekho_callback);
   }
