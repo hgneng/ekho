@@ -156,8 +156,8 @@ SPDVoice** module_list_voices(void) {
 }
 
 extern "C"
-int ekho_callback(short *wav, int samples, int bits, int channels, int samplerate) {
-  DBG("ekho_callback: %d", samples);
+int ekho_callback(short *wav, int samples, int bits, int channels, int samplerate, int event) {
+  DBG("ekho_callback: samples=%d, event=%d", samples, event);
 
   if (module_speak_queue_stop_requested()) {
     return 1;
@@ -174,8 +174,8 @@ int ekho_callback(short *wav, int samples, int bits, int channels, int samplerat
     };
 
     module_speak_queue_add_audio(&track, SPD_AUDIO_LE);
-  } else {
-    // @TODO: not sure what's this use.
+  } else if (event == 1) {
+    // Indicate this speech finish. Without this next speech will not begin.
     module_speak_queue_add_end();
   }
 
@@ -196,8 +196,9 @@ int ekho_callback(short *wav, int samples, int bits, int channels, int samplerat
 extern "C"
 int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
   DBG("module_speak(%s, %ld, %d)\n", data, bytes, msgtype);
-  if (!module_speak_queue_before_synth())
+  if (!module_speak_queue_before_synth()) {
     return 0;
+  }
 
   /* Setting voice */
 	UPDATE_STRING_PARAMETER(voice.language, ekho_set_language);

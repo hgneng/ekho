@@ -37,7 +37,7 @@ AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE \
 modulebin_PROGRAMS = sd_dummy sd_generic sd_festival sd_cicero sd_ekho
 
 EKHO_ROOT = ../../..
-sd_ekho_SOURCES = ekho.cc $(audio_SOURCES) $(common_SOURCES)
+sd_ekho_SOURCES = ekho.cc $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
 sd_ekho_CXXFLAGS = -g -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS) -I$(EKHO_ROOT)/src -I$(EKHO_ROOT)/utfcpp/source -I$(EKHO_ROOT)/sonic 
 sd_ekho_LDADD = $(EKHO_ROOT)/libekho.a $(EKHO_ROOT)/libmusicxml/libmusicxml2.a -lvorbisenc -lvorbis -lm -logg \
 	@LIB_PULSEAUDIO@  $(MP3LAME_LIBS) \

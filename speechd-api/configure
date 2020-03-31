@@ -636,6 +636,8 @@ gt_needs=
 ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
+CFLAG_PULSEAUDIO
+LIB_PULSEAUDIO
 HAVE_SYSTEMD_FALSE
 HAVE_SYSTEMD_TRUE
 systemdsystemunitdir
@@ -718,8 +720,6 @@ ERROR_CFLAGS
 EXTRA_SOCKET_LIBS
 EXTRA_ESPEAK_LIBS
 LIBOBJS
-CFLAG_PULSEAUDIO
-LIB_PULSEAUDIO
 SNDFILE_LIBS
 SNDFILE_CFLAGS
 DOTCONF_LIBS
@@ -19852,57 +19852,6 @@ fi
 
 
 
-LIB_PULSEAUDIO=""
-CFLAG_PULSEAUDIO=""
-if test "x$with_pulseaudio" != xno; then :
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lpulse" >&5
-$as_echo_n "checking for main in -lpulse... " >&6; }
-if ${ac_cv_lib_pulse_main+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lpulse  $LIBS"
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-
-int
-main ()
-{
-return main ();
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_pulse_main=yes
-else
-  ac_cv_lib_pulse_main=no
-fi
-rm -f core conftest.err conftest.$ac_objext \
-    conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_pulse_main" >&5
-$as_echo "$ac_cv_lib_pulse_main" >&6; }
-if test "x$ac_cv_lib_pulse_main" = xyes; then :
-  LIB_PULSEAUDIO="`pkg-config --libs libpulse-simple`"
-
-            CFLAG_PULSEAUDIO="`pkg-config --cflags libpulse-simple`"
-
-
-$as_echo "#define HAVE_PULSEAUDIO 1" >>confdefs.h
-
-
-else
-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "pulseaudio test failed (--without-pulseaudio to disable)
-See \`config.log' for more details" "$LINENO" 5; }
-fi
-
-fi
-
 # Checks for header files.
 for ac_header in arpa/inet.h fcntl.h langinfo.h limits.h netdb.h
 do :
@@ -22407,6 +22356,57 @@ else
   HAVE_SYSTEMD_FALSE=
 fi
 
+
+LIB_PULSEAUDIO=""
+CFLAG_PULSEAUDIO=""
+if test "x$with_pulseaudio" != xno; then :
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lpulse" >&5
+$as_echo_n "checking for main in -lpulse... " >&6; }
+if ${ac_cv_lib_pulse_main+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lpulse  $LIBS"
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_link "$LINENO"; then :
+  ac_cv_lib_pulse_main=yes
+else
+  ac_cv_lib_pulse_main=no
+fi
+rm -f core conftest.err conftest.$ac_objext \
+    conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_pulse_main" >&5
+$as_echo "$ac_cv_lib_pulse_main" >&6; }
+if test "x$ac_cv_lib_pulse_main" = xyes; then :
+  LIB_PULSEAUDIO="`pkg-config --libs libpulse-simple`"
+
+            CFLAG_PULSEAUDIO="`pkg-config --cflags libpulse-simple`"
+
+
+$as_echo "#define HAVE_PULSEAUDIO 1" >>confdefs.h
+
+
+else
+  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+as_fn_error $? "pulseaudio test failed (--without-pulseaudio to disable)
+See \`config.log' for more details" "$LINENO" 5; }
+fi
+
+fi
 
 ac_config_files="$ac_config_files Makefile speech-dispatcher.pc config/Makefile config/clients/Makefile config/modules/Makefile doc/Makefile include/Makefile locale/Makefile po/Makevars po/Makefile.in src/Makefile src/api/Makefile src/api/c/Makefile src/api/python/Makefile src/api/python/speechd/Makefile src/api/python/speechd_config/Makefile src/audio/Makefile src/clients/Makefile src/clients/say/Makefile src/clients/spdsend/Makefile src/common/Makefile src/modules/Makefile src/server/Makefile src/tests/Makefile"
 

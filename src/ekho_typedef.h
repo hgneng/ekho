@@ -22,7 +22,12 @@ enum EkhoCapLetterRecognType {
 	EKHO_CAP_ICON = 2
 };
 
-typedef int (SpeechdSynthCallback)(short *pcm, int frames, int bits, int channels, int samplerate);
+/**
+ * event meaning:
+ * 0: play
+ * 1: end of this speech
+ */
+typedef int (SpeechdSynthCallback)(short *pcm, int frames, int bits, int channels, int samplerate, int event);
 
 }
 

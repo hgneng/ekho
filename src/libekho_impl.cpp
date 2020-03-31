@@ -582,7 +582,9 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
   int error;
 
   EkhoImpl *pEkho = (EkhoImpl *)arg;
-  if (!pEkho->mSonicStream) return -1;
+  if (!pEkho->mSonicStream) {
+    return -1;
+  }
 
   int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
@@ -605,7 +607,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
             if (EkhoImpl::mDebug) {
               cerr << "EkhoImpl::speechdSynthCallback: " << frames << endl;
             }
-            EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate);
+            EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate, 0);
           } else {
 #ifdef HAVE_PULSEAUDIO
             int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
@@ -840,6 +842,9 @@ void *EkhoImpl::speechDaemon(void *args) {
 
     // FIXME: following statement seems not flush rest PCM
     pEkho->speakPcm(0, 0, pEkho, OVERLAP_QUIET_PART);
+    if (EkhoImpl::speechdSynthCallback) {
+      EkhoImpl::speechdSynthCallback(0, 0, 0, 0, 0, 1);
+    }
 
     if (EkhoImpl::mDebug) {
       cerr << "EkhoImpl::speechDaemon synth2 end" << endl;

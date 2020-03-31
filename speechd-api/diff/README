@@ -4,6 +4,7 @@ replace file from diff/
 * speechd/src/modules/ekho.cc
 * speechd/src/modules/Makefile.am
 * src/api/python/speechd_config/config.py.in (will install to /usr/lib/python3.8/site-packages/speechd_config/config.py)
+* speechd/configure.ac
 
 add following libs definition to speechd/configure.ac:
 

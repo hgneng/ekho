@@ -46,7 +46,7 @@ void Audio::play(const string& path) {
 
   if (this->speechdSynthCallback) {
     // @TODO: read real bits
-    speechdSynthCallback(pcm, sfinfo.frames, 16, sfinfo.channels, sfinfo.samplerate);
+    speechdSynthCallback(pcm, sfinfo.frames, 16, sfinfo.channels, sfinfo.samplerate, 0);
 #ifdef HAVE_PULSEAUDIO
   } else if (this->pulseAudio) {
     int error;
