@@ -22,7 +22,7 @@ sub kill_speechd() {
 
 sub build_common() {
   system('sudo apt-get -y install libsndfile1-dev');
-  system('sudo apt-get -y install libespeak-dev');
+  system('sudo apt-get -y install libespeak-ng-dev');
   system('sudo apt-get -y install libpulse-dev');
   system('sudo apt-get -y install libncurses5-dev');
   system('sudo apt-get -y install build-essential');
