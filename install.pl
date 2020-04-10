@@ -87,7 +87,7 @@ if ($lang ne 'Tibetan' and $lang ne 'Mandarin' and $lang ne 'Cantonese') {
   $lang = 'Mandarin';
 }
 
-$version = `grep DISTRIB_RELEASE /etc/lsb-release`;
+my $version = `grep DISTRIB_RELEASE /etc/lsb-release`;
 if ($version =~ /(\d+\.\d+)/ && $1 >= 20.04) {
   build_common() if (not $skip_build);
   #`sudo ln -s /usr/lib/i386-linux-gnu/speech-dispatcher-modules /usr/lib/` if (not `grep "14.04" /etc/lsb-release`);
