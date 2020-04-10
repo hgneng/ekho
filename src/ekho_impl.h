@@ -30,7 +30,7 @@
 #include "ekho_dict.h"
 #include "ekho_typedef.h"
 #include "audio.h"
-#include "espeak/speak_lib.h"
+#include "espeak-ng/speak_lib.h"
 #include "sonic.h"
 
 #ifdef HAVE_PULSEAUDIO
