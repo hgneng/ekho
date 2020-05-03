@@ -31,6 +31,8 @@ sub build_common() {
   system('sudo apt-get -y install libmp3lame-dev');
 #  system('sudo apt-get -y install festival-dev');
   system('sudo apt-get -y install libestools2.1-dev');
+  system('sudo apt-get -y install gettext');
+  system('sudo apt-get -y install texinfo');
 #  system('./configure --enable-festival --enable-speechd');
   system('./configure --enable-speechd');
   system('make clean && make');

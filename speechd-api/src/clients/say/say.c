@@ -1,4 +1,3 @@
-
 /*
  * say.c - Super-simple Speech Dispatcher client
  *
