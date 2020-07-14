@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <time.h>
@@ -87,6 +88,7 @@ int EkhoImpl::init(void) {
   mSpeechQueueMutex = PTHREAD_MUTEX_INITIALIZER;
   mSpeechQueueCond = PTHREAD_COND_INITIALIZER;
   mEnglishVoice = "voice_kal_diphone";
+  mOverlap = 4096;
 
   this->audio = new Audio();
 
@@ -632,7 +634,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   if (!mSonicStream) return 0;
 
-  const int quiet_level = 4096; //1638;  // 音量低于(quiet_level / 65536)的部分重叠
+  const int quiet_level = mOverlap; // 音量低于(quiet_level / 65536)的部分重叠
 
   int flushframes = 0;  // mPendingFrames里应该输出的frames
   int cpframe =
@@ -642,8 +644,9 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   int endframe = mPendingFrames - 1;
   int i = 0;
   int q_level = 0;
-  float seconds = 0;
-  int minFrames = mDict.mSfinfo.samplerate * 0.2;
+  // promise length not less than de5 * 0.8.
+  int minFrames = mDict.mSfinfo.frames * 0.8;
+  //cerr << "frames:" << frames << ",minFrames:" << minFrames << ",type:" << type << endl;
 
   switch (type) {
     case OVERLAP_NONE:
@@ -655,8 +658,6 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
 
     case OVERLAP_QUIET_PART:
       // don't overlap more than 0.3(endframe)+0.3(startframe) of the syllable frames
-      // promise syllable no less than 0.2 seconds
-      //cerr << "seconds: " << seconds << endl;
 
       // find quiet frames
       while (endframe > 0 &&
@@ -1220,6 +1221,7 @@ int EkhoImpl::setVoice(string voice) {
              voice.compare("cmn") == 0) {
     voice = "pinyin";
     mIsMale = false;
+    setSpeed(0);
     // setEnglishVoice("voice_cmu_us_slt_arctic_hts");
   } else if (voice.compare("Korean") == 0 || voice.compare("ko") == 0) {
     voice = "hangul";
@@ -1385,8 +1387,22 @@ void EkhoImpl::setSpeed(int tempo_delta) {
   this->pSoundtouch.setTempoChange(this->tempoDelta);
 #else
   if (tempo_delta >= -50 && tempo_delta <= 300) {
-    if (mSonicStream)
-      sonicSetSpeed(mSonicStream, (float)(100 + tempo_delta) / 100);
+    if (mSonicStream) {
+      // nomralize voice's tempo
+      int baseDelta = 0;
+      if (mDict.getLanguage() == MANDARIN && mDict.mSfinfo.frames > 0) {
+        baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 / mDict.mSfinfo.samplerate / 20362 * 10) * 10 - 100;
+        //cerr << "frames=" << mDict.mSfinfo.frames << endl;
+      }
+
+      if (baseDelta + tempo_delta != 0 || tempo_delta != this->tempoDelta) {
+        if (mDict.mDebug) {
+          cerr << "tempo delta: " << baseDelta + tempo_delta << endl;
+        }
+
+        sonicSetSpeed(mSonicStream, (float)(100 + baseDelta + tempo_delta) / 100);
+      }
+    }
     this->tempoDelta = tempo_delta;
   }
 #endif

@@ -175,6 +175,10 @@ void Ekho::setSpeed(int tempo_delta) {
 
 int Ekho::getSpeed() { return this->m_pImpl->getSpeed(); }
 
+void Ekho::setOverlap(int overlap) {
+  this->m_pImpl->mOverlap = overlap;
+}
+
 void Ekho::setEnglishSpeed(int delta) {
   return this->m_pImpl->setEnglishSpeed(delta);
 }

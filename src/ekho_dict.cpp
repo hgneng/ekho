@@ -363,6 +363,8 @@ void Dict::addSpecialSymbols(void) {
   mPunctuationNameMap[12290] = "句号";
   addDictItem(63, mFullPause);  // ?
   mPunctuationNameMap[63] = "问号";
+  addDictItem(65311, mFullPause);  // Chinese ?
+  mPunctuationNameMap[65311] = "问号";
 
   // "." "..."
   addDictItem(46, mFullPause);  // "."
@@ -388,6 +390,8 @@ void Dict::addSpecialSymbols(void) {
   mPunctuationNameMap[8230] = "省略号";
 
   // quater pauses
+  addDictItem(12289, mQuaterPause);
+  mPunctuationNameMap[12289] = "顿号";
   addDictItem(45, mQuaterPause);  // "-"
   mPunctuationNameMap[45] = "减号";
   addDictItem(8212, mQuaterPause);  // Chinese "-"
@@ -571,6 +575,8 @@ list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
   list<Character>::iterator cItor = charList.begin();
   list<Character>::iterator end = charList.end();
   while (cItor != end) {
+    ret.push_back(OVERLAP_QUIET_PART);
+    /*
     string s = cItor->getUtf8();
     if (  // 助词、量词等
         s == "的" || s == "得" || s == "着" || s == "所" || s == "了" ||
@@ -586,7 +592,7 @@ list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
       ret.push_back(OVERLAP_HALF_PART);
     } else {
       ret.push_back(OVERLAP_QUIET_PART);
-    }
+    }*/
 
     cItor++;
   }
@@ -1845,10 +1851,12 @@ void Dict::loadEkhoVoiceFile(string path) {
         lowbyte = (unsigned char)is.get();
         code = (unsigned char)is.get();
         code = (code << 8) + lowbyte;
-        mSymbolArray[code].symbol;
+        //mSymbolArray[code].symbol;
         //cerr << mSymbolArray[code].symbol << endl;
         strcat(symbols, mSymbolArray[code].symbol);
-        if (i < code_count - 1) strcat(symbols, "-");
+        if (i < code_count - 1) {
+          strcat(symbols, "-");
+        }
       }
 
       // offset
@@ -1875,8 +1883,9 @@ void Dict::loadEkhoVoiceFile(string path) {
 
   is.close();
 
-  if (mVoiceFile)
+  if (mVoiceFile) {
     fclose(mVoiceFile);
+  }
 
   memset(&mSfinfo, 0, sizeof(mSfinfo));
   mSfinfo.samplerate = samplerate;
@@ -1886,6 +1895,16 @@ void Dict::loadEkhoVoiceFile(string path) {
   }
   //mVoiceFile = sf_open(voice_file.c_str(), SFM_READ, &mSfinfo);
   mVoiceFile = fopen(voice_file.c_str(), "r");
+
+  SymbolCode *sym_code;
+  if (mLanguage == MANDARIN) {
+    sym_code = ZH_PHash::in_word_set("de5", 3);
+    int size = 0;
+    mSymbolArray[sym_code->code].getPcm(mVoiceFile, size);
+    mSfinfo.frames = size / 2;
+  } else {
+    mSfinfo.frames = 0;
+  }
 
   if (mDebug) {
     cerr << "sampleRate=" << samplerate << ", fileType=" << mVoiceFileType << endl;

@@ -70,6 +70,7 @@ class EkhoImpl {
   bool supportSsml;
   bool mSpeakIsolatedPunctuation;
   bool mIsMale;
+  int mOverlap;
 
   static SpeechdSynthCallback *speechdSynthCallback;
   void setSpeechdSynthCallback(SpeechdSynthCallback *callback);

@@ -787,6 +787,7 @@ int main(int argc, char *argv[]) {
                           {"rate", 1, NULL, 'r'},
                           {"speed", 1, NULL, 's'},
                           {"english-speed", 1, NULL, 'i'},
+                          {"overlap", 1, NULL, 'c'},
                           {"port", 1, NULL, '1'},
                           {"server", 0, NULL, 'e'},
                           {"request", 1, NULL, 'q'},
@@ -820,6 +821,7 @@ int main(int argc, char *argv[]) {
   int rate_delta = 0;
   int tempo_delta = 0;
   int english_speed_delta = 0;
+  int overlap = 4096;
   extern char *optarg;
   extern int optind, optopt;
   bool is_listing_symbols = false;
@@ -829,6 +831,9 @@ int main(int argc, char *argv[]) {
   while ((opt = getopt_long(argc, argv, ":i:b:hgv:n:f:o:t:p:r:a:s:eq:lwd1:",
                             opts, &optidx)) != -1) {
     switch (opt) {
+      case 'c':
+        overlap = atoi(optarg);
+        break;
       case 'd':
         isDebugging = true;
         break;
@@ -987,6 +992,7 @@ int main(int argc, char *argv[]) {
     ekho_g = new Ekho();
     ekho_g->setSpeed(tempo_delta);
     ekho_g->setEnglishSpeed(english_speed_delta);
+    ekho_g->setOverlap(overlap);
     ekho_g->setPitch(pitch_delta);
     ekho_g->setVolume(volume_delta);
 
@@ -1022,6 +1028,7 @@ int main(int argc, char *argv[]) {
     ekho_g->setPitch(pitch_delta);
     ekho_g->setSpeed(tempo_delta);
     ekho_g->setEnglishSpeed(english_speed_delta);
+    ekho_g->setOverlap(overlap);
     ekho_g->setVolume(volume_delta);
     ekho_g->setRate(rate_delta);
 

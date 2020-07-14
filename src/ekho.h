@@ -150,6 +150,8 @@ class Ekho {
   void setSpeakIsolatedPunctuation(bool b = true);
   bool getSpeakIsolatedPunctuation();
 
+  void setOverlap(int overlap);
+
   /* Set tempo delta
    * Parameter:
    *    tempo_delta (-50 .. 100, in percent)
