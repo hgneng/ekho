@@ -94,7 +94,7 @@ namespace ekho {
           } catch (utf8::not_enough_room &) {
             is_finish = true;
           } catch (utf8::invalid_utf8 &) {
-            cerr << "Invalid UTF8 encoding" << endl;
+            cerr << "Character: Invalid UTF8 encoding" << endl;
             is_finish = true;
           }
 #endif

@@ -1773,7 +1773,7 @@ void EkhoImpl::translatePunctuations(string &text) {
       text = text2;
       return;
     } catch (utf8::invalid_utf8 &) {
-      cerr << "Invalid UTF8 encoding" << endl;
+      cerr << "translatePunctuations: Invalid UTF8 encoding" << endl;
       text = text2;
       return;
     }

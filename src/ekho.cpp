@@ -31,6 +31,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <iostream>
+#include <fstream>
 #include "config.h"
 
 #ifdef HAVE_GTK2
@@ -756,23 +757,53 @@ static int read_textfile(const char *filename, char **text) {
 static bool read_stdin(char **text) {
   int c;
   int size = 0;
-  int hasInput = false;
   int buffer_size = 256;
-  char *buffer = (char *)malloc(256);
-  if (*text) free(*text);
-  *text = buffer;
+  char *buffer = (char *)malloc(buffer_size);
+  buffer[0] = 0;
 
+/*
   while ((c = fgetc(stdin)) != EOF) {
-    hasInput = true;
     size++;
     if (size > buffer_size) {
       buffer_size *= 2;
       buffer = (char *)realloc(buffer, buffer_size);
     }
     buffer[size - 1] = c;
+  }*/
+
+  for (std::string line; std::getline(std::cin, line);) {
+    //cerr << "length=" << line.length() << ", size=" << line.size() << endl;
+    size += line.length();
+    
+    while (size >= buffer_size) {
+      buffer_size *= 2;
+    }
+
+    //printf("src addr: %p, strlen:%d\n", buffer, strlen(buffer));
+    buffer = (char *)realloc(buffer, buffer_size);
+    //printf("dest addr: %p, strlen:%d\n", buffer, strlen(buffer));
+    if (!buffer) { 
+      cerr << "fail to realloc" << endl;
+    }
+
+    //cerr << "size=" << size << ", buffer_size=" << buffer_size << ", strlen=" << strlen(line.c_str()) << endl;
+    strcat(buffer, line.c_str());
   }
   buffer[size] = 0;
-  return hasInput;
+
+  if (isDebugging) {
+    ofstream myfile;
+    myfile.open("/tmp/ekho.debug");
+    myfile << "text size is " << size << ", buffer size is " << buffer_size << endl;
+    myfile << buffer << endl;
+    myfile.close();
+    cerr << "finish reading" << endl;
+  }
+
+  if (*text) free(*text);
+  *text = buffer;
+
+  return size > 0;
 }
 
 int main(int argc, char *argv[]) {
