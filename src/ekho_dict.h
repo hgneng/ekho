@@ -25,6 +25,7 @@
 #include <sndfile.h>
 #include <list>
 #include <map>
+#include "ekho_typedef.h"
 #include "character.h"
 #include "zh_symbol_map.h"
 #include "zhy_symbol_map.h"
@@ -210,9 +211,7 @@ class Dict {
   inline PhoneticSymbol *getHalfPause(void) { return mHalfPause; };
   inline PhoneticSymbol *getQuaterPause(void) { return mQuaterPause; };
 
-  inline bool isPunctuationChar(int code) {
-    return (mPunctuationNameMap.find(code) != mPunctuationNameMap.end());
-  }
+  bool isPunctuationChar(int code, EkhoPuncType mode); 
   inline string getPunctuationName(int code) {
     map<int, const char *>::iterator it = mPunctuationNameMap.find(code);
     if (it != mPunctuationNameMap.end())

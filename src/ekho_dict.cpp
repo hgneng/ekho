@@ -310,6 +310,34 @@ int Dict::setLanguage(Language lang) {
   return 0;
 }
 
+bool Dict::isPunctuationChar(int code, EkhoPuncType mode) {
+  if (mode == EKHO_PUNC_ALL) {
+    return (mPunctuationNameMap.find(code) != mPunctuationNameMap.end());
+  } else if (mode == EKHO_PUNC_SOME) {
+    switch (code) {
+      case '/':
+      case '-':
+      case '*':
+      case '+':
+      case '\\':
+      case '_':
+      case '<':
+      case '>':
+      case '~':
+      case '#':
+      case '$':
+      case '%':
+      case '^':
+      case '&':
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  return false;
+}
+
 void Dict::addSpecialSymbols(void) {
   // add alphabets
   string voicePath = mDataPath + "/alphabet";

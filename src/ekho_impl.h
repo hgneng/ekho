@@ -299,7 +299,7 @@ class EkhoImpl {
   EkhoPuncType mPuncMode;
 
   void filterSpaces(string &text);
-  void translatePunctuations(string &text);
+  void translatePunctuations(string &text, EkhoPuncType mode);
 };
 }
 #endif

@@ -1391,13 +1391,15 @@ void EkhoImpl::setSpeed(int tempo_delta) {
       // nomralize voice's tempo
       int baseDelta = 0;
       if (mDict.getLanguage() == MANDARIN && mDict.mSfinfo.frames > 0) {
-        baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 / mDict.mSfinfo.samplerate / 20362 * 10) * 10 - 100;
-        //cerr << "frames=" << mDict.mSfinfo.frames << endl;
+        baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
+        if (EkhoImpl::mDebug) {
+          cerr << "mDict.mSfinfo.frames=" << mDict.mSfinfo.frames << ", samplerate=" << mDict.mSfinfo.samplerate << endl;
+        }
       }
 
       if (baseDelta + tempo_delta != 0 || tempo_delta != this->tempoDelta) {
         if (mDict.mDebug) {
-          cerr << "tempo delta: " << baseDelta + tempo_delta << endl;
+          cerr << "baseDelta=" << baseDelta << ", tempo delta: " << baseDelta + tempo_delta << endl;
         }
 
         sonicSetSpeed(mSonicStream, (float)(100 + baseDelta + tempo_delta) / 100);
@@ -1413,7 +1415,7 @@ int EkhoImpl::getSpeed(void) {
 }
 
 void EkhoImpl::setEnglishSpeed(int delta) {
-  int baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 / mDict.mSfinfo.samplerate / 20362 * 10) * 10 - 100;
+  int baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
   if (EkhoImpl::mDebug) {
     cerr << "setEnglishSpeed espeakRATE default: " << espeak_GetParameter(espeakRATE, 0) << endl;
     cerr << "setEnglishSpeed espeakRATE current: " << espeak_GetParameter(espeakRATE, 1) << endl;
@@ -1758,7 +1760,7 @@ int EkhoImpl::request(string ip, int port, Command cmd, string text,
   return 0;
 }
 
-void EkhoImpl::translatePunctuations(string &text) {
+void EkhoImpl::translatePunctuations(string &text, EkhoPuncType mode) {
   bool changed = false;
 
   string text2;
@@ -1786,7 +1788,7 @@ void EkhoImpl::translatePunctuations(string &text) {
     }
 #endif
 
-    if (in_chinese_context && mDict.isPunctuationChar(c)) {
+    if (in_chinese_context && mDict.isPunctuationChar(c, mode)) {
       text2 += mDict.getPunctuationName(c);
       changed = true;
     } else {
@@ -1794,7 +1796,7 @@ void EkhoImpl::translatePunctuations(string &text) {
         text2.push_back(*it2);
         it2++;
       }
-      in_chinese_context = (c > 128);
+      in_chinese_context = (c > 128 || (c >= '0' && c <= '9'));
     }
 
     while (it2 != it) it2++;
@@ -1874,12 +1876,12 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   if (mSpeakIsolatedPunctuation && text.length() <= 3) {
     const char *c = text.c_str();
     int code = utf8::next(c, c + text.length());
-    if (!*c && mDict.isPunctuationChar(code))
+    if (!*c && mDict.isPunctuationChar(code, EKHO_PUNC_ALL))
       text = mDict.getPunctuationName(code);
   }
 
   // translate punctuations
-  if (mPuncMode == EKHO_PUNC_ALL) translatePunctuations(text);
+  translatePunctuations(text, mPuncMode);
 
   // filter spaces
   Ssml::filterSpaces(text);
