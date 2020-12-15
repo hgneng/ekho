@@ -840,7 +840,7 @@ list<Word> Dict::lookupWord(const char *text) {
     if (!lastword.empty()) wordlist.push_back(Word(lastword, ENGLISH_TEXT));
 
     if (mDebug) cerr << endl;
-  } else {
+  } else { // end of ENABLE_FRISO
 #endif
     string last_chinese_word;
     string t(text);
@@ -973,9 +973,13 @@ list<Word> Dict::lookupWord(const char *text) {
             last_chinese_word.clear();
           }
         } else {
-          // it's space or other symbols
+          // it's other symbols
           last_chinese_word += itor->getUtf8();
         }
+      } else if (itor->code == 32 && !lastword.empty()) {
+        // If it's space and there is pending English text, this space is treated as part of English text.
+        // Otherwise, the space is treated as part of Chinese text.
+        lastword += " ";
       } else {
         // it's a Chinese character
 	//cout << "found chinese character: " << itor->getUtf8() << ", " << mDictItemArray[itor->code].character.getUtf8() << endl;
@@ -986,7 +990,7 @@ list<Word> Dict::lookupWord(const char *text) {
 	    wordlist.push_back(Word(lastword, ENGLISH_TEXT, lookup(lastword), lookupOverlap(lastword)));
           } else {
             wordlist.push_back(Word(lastword, ENGLISH_TEXT));
-	  }
+          }
           lastword.clear();
         }
       }

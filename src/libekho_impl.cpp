@@ -1895,7 +1895,10 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   list<PhoneticSymbol *>::iterator phon_symbol;
   for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
        word++) {
-    //cout << "word: " << word->text << endl;
+    if (EkhoImpl::mDebug) {
+      cerr << "word(" << word->type << "): " << word->text << endl;
+    }
+
     switch (word->type) {
       case FULL_PAUSE:
         pause += 1;
