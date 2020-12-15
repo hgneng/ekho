@@ -1413,8 +1413,15 @@ int EkhoImpl::getSpeed(void) {
 }
 
 void EkhoImpl::setEnglishSpeed(int delta) {
+  int baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 / mDict.mSfinfo.samplerate / 20362 * 10) * 10 - 100;
+  if (EkhoImpl::mDebug) {
+    cerr << "setEnglishSpeed espeakRATE default: " << espeak_GetParameter(espeakRATE, 0) << endl;
+    cerr << "setEnglishSpeed espeakRATE current: " << espeak_GetParameter(espeakRATE, 1) << endl;
+    cerr << "setEnglishSpeed baseDelta: " << baseDelta << endl;
+  }
+
   if (delta >= -50 && delta <= 150) {
-    int ret = espeak_SetParameter(espeakRATE, 175 * (100 + delta) / 100, 0);
+    int ret = espeak_SetParameter(espeakRATE, 175 * (100 + delta - baseDelta) / 100, 0);
     this->englishSpeedDelta = delta;
     if (EkhoImpl::mDebug) {
       cerr << "english speed: " << 175 * (100 + delta) / 100
