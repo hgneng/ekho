@@ -10,3 +10,6 @@ export DH_OPTIONS
 
 %:
 	dh $@ 
+
+override_dh_installchangelogs:
+	dh_installchangelogs ChangeLog

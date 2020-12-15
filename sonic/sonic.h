@@ -3,20 +3,8 @@
    Bill Cox
    This file is part of the Sonic Library.
 
-   The Sonic Library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU Lesser General Public
-   License as published by the Free Software Foundation; either
-   version 2.1 of the License, or (at your option) any later version.
-
-   The GNU C Library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Lesser General Public License for more details.
-
-   You should have received a copy of the GNU Lesser General Public
-   License along with the GNU C Library; if not, write to the Free
-   Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
-   02111-1307 USA.  */
+   This file is licensed under the Apache 2.0 license.
+*/
 
 /*
 The Sonic Library implements a new algorithm invented by Bill Cox for the
@@ -39,10 +27,10 @@ generated with:
 
 where t = 0 to newSamples - 1.
 
-For speed factors < 2X, an algorithm similar to PICOLA is used.  The above
+For speed factors < 2X, the PICOLA algorithm is used.  The above
 algorithm is first used to double the speed of one pitch period.  Then, enough
 input is directly copied from the input to the output to achieve the desired
-speed up facter, where 1.0 < speed < 2.0.  The amount of data copied is derived:
+speed up factor, where 1.0 < speed < 2.0.  The amount of data copied is derived:
 
     speed = (2*period + length)/(period + length)
     speed*length + speed*period = 2*period + length
@@ -55,7 +43,7 @@ until the output desired speed is reached.  The length of data copied is:
 
     length = period*(speed - 0.5)/(1 - speed)
 
-For slow down factors between 0.5 and 0.5, no data is copied, and an algorithm
+For slow down factors below 0.5, no data is copied, and an algorithm
 similar to high speed factors is used.
 */
 
@@ -76,7 +64,7 @@ extern "C" {
 #define SONIC_AMDF_FREQ 4000
 
 struct sonicStreamStruct;
-typedef struct sonicStreamStruct *sonicStream;
+typedef struct sonicStreamStruct* sonicStream;
 
 /* For all of the following functions, numChannels is multiplied by numSamples
    to determine the actual number of values read or returned. */
@@ -87,26 +75,31 @@ sonicStream sonicCreateStream(int sampleRate, int numChannels);
 /* Destroy the sonic stream. */
 void sonicDestroyStream(sonicStream stream);
 /* Use this to write floating point data to be speed up or down into the stream.
-   Values must be between -1 and 1.  Return 0 if memory realloc failed, otherwise 1 */
-int sonicWriteFloatToStream(sonicStream stream, float *samples, int numSamples);
+   Values must be between -1 and 1.  Return 0 if memory realloc failed,
+   otherwise 1 */
+int sonicWriteFloatToStream(sonicStream stream, float* samples, int numSamples);
 /* Use this to write 16-bit data to be speed up or down into the stream.
    Return 0 if memory realloc failed, otherwise 1 */
-int sonicWriteShortToStream(sonicStream stream, short *samples, int numSamples);
+int sonicWriteShortToStream(sonicStream stream, short* samples, int numSamples);
 /* Use this to write 8-bit unsigned data to be speed up or down into the stream.
    Return 0 if memory realloc failed, otherwise 1 */
-int sonicWriteUnsignedCharToStream(sonicStream stream, unsigned char *samples, int numSamples);
+int sonicWriteUnsignedCharToStream(sonicStream stream, unsigned char* samples,
+                                   int numSamples);
 /* Use this to read floating point data out of the stream.  Sometimes no data
    will be available, and zero is returned, which is not an error condition. */
-int sonicReadFloatFromStream(sonicStream stream, float *samples, int maxSamples);
+int sonicReadFloatFromStream(sonicStream stream, float* samples,
+                             int maxSamples);
 /* Use this to read 16-bit data out of the stream.  Sometimes no data will
    be available, and zero is returned, which is not an error condition. */
-int sonicReadShortFromStream(sonicStream stream, short *samples, int maxSamples);
-/* Use this to read 8-bit unsigned data out of the stream.  Sometimes no data will
-   be available, and zero is returned, which is not an error condition. */
-int sonicReadUnsignedCharFromStream(sonicStream stream, unsigned char *samples, int maxSamples);
+int sonicReadShortFromStream(sonicStream stream, short* samples,
+                             int maxSamples);
+/* Use this to read 8-bit unsigned data out of the stream.  Sometimes no data
+   will be available, and zero is returned, which is not an error condition. */
+int sonicReadUnsignedCharFromStream(sonicStream stream, unsigned char* samples,
+                                    int maxSamples);
 /* Force the sonic stream to generate output using whatever data it currently
-   has.  No extra delay will be added to the output, but flushing in the middle of
-   words could introduce distortion. */
+   has.  No extra delay will be added to the output, but flushing in the middle
+   of words could introduce distortion. */
 int sonicFlushStream(sonicStream stream);
 /* Return the number of samples in the output buffer */
 int sonicSamplesAvailable(sonicStream stream);
@@ -133,23 +126,102 @@ int sonicGetChordPitch(sonicStream stream);
 void sonicSetChordPitch(sonicStream stream, int useChordPitch);
 /* Get the quality setting. */
 int sonicGetQuality(sonicStream stream);
-/* Set the "quality".  Default 0 is virtually as good as 1, but very much faster. */
+/* Set the "quality".  Default 0 is virtually as good as 1, but very much
+ * faster. */
 void sonicSetQuality(sonicStream stream, int quality);
 /* Get the sample rate of the stream. */
 int sonicGetSampleRate(sonicStream stream);
+/* Set the sample rate of the stream.  This will drop any samples that have not
+ * been read. */
+void sonicSetSampleRate(sonicStream stream, int sampleRate);
 /* Get the number of channels. */
 int sonicGetNumChannels(sonicStream stream);
+/* Set the number of channels.  This will drop any samples that have not been
+ * read. */
+void sonicSetNumChannels(sonicStream stream, int numChannels);
 /* This is a non-stream oriented interface to just change the speed of a sound
    sample.  It works in-place on the sample array, so there must be at least
-   speed*numSamples available space in the array. Returns the new number of samples. */
-int sonicChangeFloatSpeed(float *samples, int numSamples, float speed, float pitch,
-    float rate, float volume, int useChordPitch, int sampleRate, int numChannels);
+   speed*numSamples available space in the array. Returns the new number of
+   samples. */
+int sonicChangeFloatSpeed(float* samples, int numSamples, float speed,
+                          float pitch, float rate, float volume,
+                          int useChordPitch, int sampleRate, int numChannels);
 /* This is a non-stream oriented interface to just change the speed of a sound
    sample.  It works in-place on the sample array, so there must be at least
-   speed*numSamples available space in the array. Returns the new number of samples. */
-int sonicChangeShortSpeed(short *samples, int numSamples, float speed, float pitch,
-    float rate, float volume, int useChordPitch, int sampleRate, int numChannels);
+   speed*numSamples available space in the array. Returns the new number of
+   samples. */
+int sonicChangeShortSpeed(short* samples, int numSamples, float speed,
+                          float pitch, float rate, float volume,
+                          int useChordPitch, int sampleRate, int numChannels);
 
-#ifdef  __cplusplus
+#ifdef SONIC_SPECTROGRAM
+/*
+This code generates high quality spectrograms from sound samples, using
+Time-Aliased-FFTs as described at:
+
+    https://github.com/waywardgeek/spectrogram
+
+Basically, two adjacent pitch periods are overlap-added to create a sound
+sample that accurately represents the speech sound at that moment in time.
+This set of samples is converted to a spetral line using an FFT, and the result
+is saved as a single spectral line at that moment in time.  The resulting
+spectral lines vary in resolution (it is equal to the number of samples in the
+pitch period), and the spacing of spectral lines also varies (proportional to
+the numver of samples in the pitch period).
+
+To generate a bitmap, linear interpolation is used to render the grayscale
+value at any particular point in time and frequency.
+*/
+
+#define SONIC_MAX_SPECTRUM_FREQ 5000
+
+struct sonicSpectrogramStruct;
+struct sonicBitmapStruct;
+typedef struct sonicSpectrogramStruct* sonicSpectrogram;
+typedef struct sonicBitmapStruct* sonicBitmap;
+
+/* sonicBitmap objects represent spectrograms as grayscale bitmaps where each
+   pixel is from 0 (black) to 255 (white).  Bitmaps are rows*cols in size.
+   Rows are indexed top to bottom and columns are indexed left to right */
+struct sonicBitmapStruct {
+  unsigned char* data;
+  int numRows;
+  int numCols;
+};
+
+typedef struct sonicBitmapStruct* sonicBitmap;
+
+/* Enable coomputation of a spectrogram on the fly. */
+void sonicComputeSpectrogram(sonicStream stream);
+
+/* Get the spectrogram. */
+sonicSpectrogram sonicGetSpectrogram(sonicStream stream);
+
+/* Create an empty spectrogram. Called automatically if sonicComputeSpectrogram
+   has been called. */
+sonicSpectrogram sonicCreateSpectrogram(int sampleRate);
+
+/* Destroy the spectrotram.  This is called automatically when calling
+   sonicDestroyStream. */
+void sonicDestroySpectrogram(sonicSpectrogram spectrogram);
+
+/* Convert the spectrogram to a bitmap. Caller must destroy bitmap when done. */
+sonicBitmap sonicConvertSpectrogramToBitmap(sonicSpectrogram spectrogram,
+                                            int numRows, int numCols);
+
+/* Destroy a bitmap returned by sonicConvertSpectrogramToBitmap. */
+void sonicDestroyBitmap(sonicBitmap bitmap);
+
+int sonicWritePGM(sonicBitmap bitmap, char* fileName);
+
+/* Add two pitch periods worth of samples to the spectrogram.  There must be
+   2*period samples.  Time should advance one pitch period for each call to
+   this function. */
+void sonicAddPitchPeriodToSpectrogram(sonicSpectrogram spectrogram,
+                                      short* samples, int period,
+                                      int numChannels);
+#endif  /* SONIC_SPECTROGRAM */
+
+#ifdef __cplusplus
 }
 #endif

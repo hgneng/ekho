@@ -1,3 +1,4 @@
+8.4: Support speech-dispatcher 0.9. Fix issue of English too fast when Chinese is set a base rate. Treat space not a Chinese symbol if it's within English Text.
 7.7: Speak sing alphabet with Huang voice.
 7.6: Fix English sample rate issue when Chinese voice sample rate is not
 16000.
