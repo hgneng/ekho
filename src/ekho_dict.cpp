@@ -961,7 +961,7 @@ list<Word> Dict::lookupWord(const char *text) {
       }
 
       if (code < 65536 && mDictItemArray[code].character.phonSymbol &&
-          strstr(mDictItemArray[code].character.phonSymbol->symbol, "pause") >
+          strcmp(mDictItemArray[code].character.phonSymbol->symbol, "pause") >
               0) {
         if (lastword.empty()) {
           // it's a symbol, not including space

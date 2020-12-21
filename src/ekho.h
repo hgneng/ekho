@@ -90,8 +90,10 @@ class Ekho {
   int speak(string text, void (*pCallback)(void *) = NULL,
             void *pCallbackArgs = NULL);
 
-  typedef int(SynthCallback)(short *pcm, int frames, void *arg = NULL,
-                             OverlapType type = OVERLAP_QUIET_PART);
+//  typedef int(SynthCallback)(short *pcm, int frames, void *arg = NULL,
+//                             OverlapType type = OVERLAP_QUIET_PART);
+  typedef int(SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
+
   int synth(const char *text, SpeechdSynthCallback *callback);
 
   void sing(string filepath);

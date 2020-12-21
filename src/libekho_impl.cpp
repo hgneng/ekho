@@ -1523,7 +1523,7 @@ int EkhoImpl::startServer(int port) {
   my_addr.sin_addr.s_addr = INADDR_ANY;  // automatically fill with my IP
   memset(my_addr.sin_zero, '\0', sizeof my_addr.sin_zero);
 
-  if (bind(sockfd, (struct sockaddr *)&my_addr, sizeof my_addr) == -1) {
+  if (::bind(sockfd, (struct sockaddr *)&my_addr, sizeof my_addr) == -1) {
     perror("bind");
     exit(1);
   }
