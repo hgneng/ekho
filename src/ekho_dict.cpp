@@ -961,8 +961,7 @@ list<Word> Dict::lookupWord(const char *text) {
       }
 
       if (code < 65536 && mDictItemArray[code].character.phonSymbol &&
-          strcmp(mDictItemArray[code].character.phonSymbol->symbol, "pause") >
-              0) {
+          strstr(mDictItemArray[code].character.phonSymbol->symbol, "pause") != NULL) {
         if (lastword.empty()) {
           // it's a symbol, not including space
           if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
@@ -974,6 +973,9 @@ list<Word> Dict::lookupWord(const char *text) {
           else if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
                           "quaterpause") == 0)
             type = QUATER_PAUSE;
+          else {
+            cerr << "Warning: " << mDictItemArray[code].character.phonSymbol->symbol << endl;
+          }
 
           // submit pending Chinese word
           if (!last_chinese_word.empty()) {
