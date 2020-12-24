@@ -628,6 +628,32 @@ list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
   return ret;
 }
 
+bool Dict::isNumber(int code) {
+  switch (code) {
+    case 19968: // 一
+    case 20108:
+    case 19977:
+    case 22235:
+    case 20116:
+    case 20846:
+    case 19971:
+    case 20843:
+    case 20061:
+    case 21313: // 十
+    case 30334:
+    case 21315:
+    case 19975:
+    case 20159: // 亿
+      return true;
+  }
+
+  if (code >= '0' && code <= '9') {
+    return true;
+  }
+
+  return false;
+}
+
 list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
   list<PhoneticSymbol *> phonList;
   list<Character>::iterator cItor = charList.begin();
@@ -715,6 +741,16 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
         phonList.push_back(cItor2->phonSymbol);
         ++cItor;
       }
+    } else if (mLanguage == MANDARIN && cItor->code == 34892 && cItor != charList.begin()) {
+      // If there a number before character line(行), it reads hang2 not xing2.
+      cItor2 = cItor;
+      cItor2--;
+      if (isNumber(cItor2->code)) {
+        phonList.push_back(Dict::getPhoneticSymbol("hang2"));
+      } else {
+        phonList.push_back(di->character.phonSymbol);
+      }
+      ++cItor;
     } else {
       phonList.push_back(di->character.phonSymbol);
       ++cItor;
@@ -723,8 +759,8 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
     if (firstWord) break;
   }
 
-  if (mLanguage == MANDARIN || mLanguage == TIBETAN) {
-    // tone 3 rules: 333->223, 33->23, 3333->2323
+  // tone 3 rules: 333->223, 33->23, 3333->2323
+  if (mLanguage == MANDARIN || mLanguage == TIBETAN /* Tibetan also use this rule?? */) {
     list<PhoneticSymbol *>::reverse_iterator psIt = phonList.rbegin();
     while (psIt != phonList.rend()) {
       while (psIt != phonList.rend() &&
@@ -812,7 +848,7 @@ list<Word> Dict::lookupWord(const char *text) {
         }
       } else if (code < 65536 && mDictItemArray[code].character.phonSymbol &&
                  strstr(mDictItemArray[code].character.phonSymbol->symbol,
-                        "pause") > 0) {
+                        "pause") != NULL) {
         if (strcmp(mDictItemArray[code].character.phonSymbol->symbol,
                    "fullpause") == 0)
           type = FULL_PAUSE;
@@ -1945,7 +1981,7 @@ void Dict::loadEkhoVoiceFile(string path) {
   }
 }
 
-PhoneticSymbol* Dict::getPhoneticSymbol(char *symbol) {
+PhoneticSymbol* Dict::getPhoneticSymbol(const char *symbol) {
   if (Dict::me) {
     string s(symbol);
     unsigned short code = Dict::me->getCodeOfSymbol(s);

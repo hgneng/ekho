@@ -162,6 +162,8 @@ class Dict {
     return lookup(c);
   }
 
+  bool isNumber(int code);
+
   inline list<PhoneticSymbol *> lookup(string &text) {
     list<Character> charList = Character::split(text);
     return lookup(charList);
@@ -230,7 +232,7 @@ class Dict {
 
   // for style of [[pin1 yin1]]
   PhoneticSymbol *getPhoneticSymbol(string &symbol);
-  static PhoneticSymbol* getPhoneticSymbol(char *symbol);
+  static PhoneticSymbol* getPhoneticSymbol(const char *symbol);
   unsigned short getCodeOfSymbol(string &symbol);
 
  private:
