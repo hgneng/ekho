@@ -44,7 +44,7 @@
 /* maximum key range = 62420, duplicates = 0 */
 
 inline unsigned int
-ZHY_PHash::hash (register const char *str, register unsigned int len){
+ZHY_PHash::hash (const char *str, unsigned int len){
   static unsigned short asso_values[] =
     {
       62482, 62482, 62482, 62482, 62482, 62482, 62482, 62482, 62482, 62482,
@@ -76,7 +76,7 @@ ZHY_PHash::hash (register const char *str, register unsigned int len){
       62482, 62482, 62482, 62482, 62482, 62482, 62482, 62482, 62482, 62482,
       62482, 62482
     };
-  register int hval = len;
+  int hval = len;
 
   switch (hval)
     {
@@ -100,7 +100,7 @@ ZHY_PHash::hash (register const char *str, register unsigned int len){
 }
 
 struct ekho::SymbolCode *
-ZHY_PHash::in_word_set (register const char *str, register unsigned int len){
+ZHY_PHash::in_word_set (const char *str, unsigned int len){
   static struct ekho::SymbolCode wordlist[] =
     {
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
@@ -18787,11 +18787,11 @@ ZHY_PHash::in_word_set (register const char *str, register unsigned int len){
 
   if (len <= MAX_WORD_LENGTH && len >= MIN_WORD_LENGTH)
     {
-      register int key = hash (str, len);
+      int key = hash (str, len);
 
       if (key <= MAX_HASH_VALUE && key >= 0)
         {
-          register const char *s = wordlist[key].name;
+          const char *s = wordlist[key].name;
 
           if (*str == *s && !strcmp (str + 1, s + 1))
             return &wordlist[key];

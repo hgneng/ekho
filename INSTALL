@@ -47,10 +47,10 @@ $ ./install.pl Tibetan
 $ make CXXFLAGS="-D_x86_64"
 
 ===== INSTALL (for Mac) =====
+$ brew install libsndfile
 $ brew install pulseaudio
-$ brew install gcc5
-$ ./configure --without-pulseaudio CC=gcc-5 CXX=g++-5
-$ make CXXFLAGS="-D_x86_64"
-
-===== ISSUES =====
-There are some static third party software libraries in ekho/lib32/ and ekho/lib64/. There is a symbol link ekho/lib/ linking to one of them. Please change it according to your system. The libs may not meet platform other than Ubuntu. So you may need to find the right one and replace them.
+$ install espeak-ng from source (glibtoolize -c && ./autogen && ./configure && make && sudo make install)
+$ ./configure
+$ make
+$ brew services start pulseaudio
+$ ./ekho 123

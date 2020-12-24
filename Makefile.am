@@ -24,7 +24,7 @@ bin_PROGRAMS = test_ekho ekho
 
 ekho_SOURCES = src/ekho.cpp
 ekho_LDADD = libekho.a $(LIBEKHO_LIB) @LIB_GTK2@ $(srcdir)/libmusicxml/libmusicxml2.a
-ekho_CXXFLAGS = @CFLAG_GTK2@ -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic -pthread @CFLAG_FRISO@ -lstdc++
+ekho_CXXFLAGS = @CFLAG_GTK2@ -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic -pthread @CFLAG_FRISO@
 	
 test_ekho_SOURCES = src/test_ekho.cpp
 test_ekho_CXXFLAGS = -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_FRISO@

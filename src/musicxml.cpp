@@ -1,7 +1,5 @@
 #include "config.h"
 
-using namespace std;
-
 #ifdef WIN32
 #pragma warning(disable : 4786)
 #endif
