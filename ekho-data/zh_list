@@ -63,6 +63,7 @@ $textmode
 峨	e2
 鹿	lu4
 上	shang4
+㊤	shang4
 枯	ku1
 鬧	nao4
 克	ke4
@@ -166,6 +167,7 @@ $textmode
 賓	bin1
 坚	jian1
 五	wu3
+㊄	wu3
 單	dan1
 属	shu3
 惡	e4
@@ -173,6 +175,7 @@ $textmode
 檻	kan3
 嗅	xiu4
 日	ri4
+㊐	ri4
 详	xiang2
 職	zhi2
 廉	lian2
@@ -282,6 +285,7 @@ $textmode
 许	xu3
 虑	lv4
 正	zheng4
+㊣	zheng4
 偵	zhen1
 随	sui2
 珍	zhen1
@@ -363,6 +367,7 @@ $textmode
 痕	hen2
 工	gong1
 七	qi1
+㊆	qi1
 碌	lu4
 章	zhang1
 较	jiao4
@@ -387,6 +392,7 @@ $textmode
 转	zhuan3
 衙	ya2
 適	shi4
+㊜	shi4
 白	bai2
 享	xiang3
 燕	yan4
@@ -414,6 +420,7 @@ $textmode
 雄	xiong2
 幟	zhi4
 注	zhu4
+㊟	zhu4
 问	wen4
 质	zhi4
 个	ge4
@@ -675,6 +682,7 @@ $textmode
 糟	zao1
 輩	bei4
 十	shi2
+㊉	shi2
 狀	zhuang4
 嗚	wu1
 捡	jian3
@@ -826,6 +834,7 @@ $textmode
 辜	gu1
 蝗	huang2
 九	jiu3
+㊈	jiu3
 脚	jiao3
 洲	zhou1
 烏	wu1
@@ -1165,6 +1174,7 @@ $textmode
 乓	pang1
 跪	gui4
 六	liu4
+㊅	liu4
 犁	li2
 锄	chu2
 隙	xi4
@@ -1263,6 +1273,7 @@ $textmode
 吆	yao1
 炉	lu2
 財	cai2
+㊖	cai2
 仍	reng2
 婚	hun1
 均	jun1
@@ -1303,6 +1314,7 @@ $textmode
 🈞	zai4
 碧	bi4
 水	shui3
+㊌	shui3
 傷	shang1
 饒	rao2
 莖	jing1
@@ -1391,6 +1403,7 @@ $textmode
 締	di4
 記	ji4
 優	you1
+㊝	you1
 濁	zhuo2
 捞	lao1
 豬	zhu1
@@ -1423,6 +1436,7 @@ $textmode
 沾	zhan1
 返	fan3
 南	nan2
+🀁	nan2
 胶	jiao1
 鎖	suo3
 漩	xuan2
@@ -1596,6 +1610,7 @@ $textmode
 招	zhao1
 器	qi4
 有	you3
+㊒	you3
 🈶	you3
 冒	mao4
 另	ling4
@@ -1649,9 +1664,11 @@ $textmode
 郁	yu4
 歼	jian1
 北	bei3
+🀃	bei3
 屉	ti4
 槐	huai2
 八	ba1
+㊇	ba1
 各	ge4
 箱	xiang1
 蘸	zhan4
@@ -1660,12 +1677,14 @@ $textmode
 催	cui1
 取	qu3
 祝	zhu4
+㊗	zhu4
 匀	yun2
 适	shi4
 試	shi4
 读	du2
 擺	bai3
 写	xie3
+㊢	xie3
 副	fu4
 腹	fu4
 铁	tie3
@@ -1784,6 +1803,7 @@ $textmode
 據	ju4
 哺	bu3
 东	dong1
+🀀	dong1
 违	wei2
 殊	shu1
 氛	fen1
@@ -1812,6 +1832,7 @@ $textmode
 陶	tao2
 狹	xia2
 名	ming2
+㊔	ming2
 度	du4
 踱	duo2
 惚	hu1
@@ -1976,6 +1997,7 @@ $textmode
 挾	xie2
 滋	zi1
 四	si4
+㊃	si4
 樣	yang4
 蔽	bi4
 撼	han4
@@ -2162,6 +2184,7 @@ $textmode
 闭	bi4
 勘	kan1
 株	zhu1
+㊑	zhu1
 唬	hu1
 敌	di2
 则	ze2
@@ -2180,6 +2203,7 @@ $textmode
 执	zhi2
 共	gong4
 宗	zong1
+㊪	zong1
 糙	cao1
 桶	tong3
 漏	lou4
@@ -2202,6 +2226,7 @@ $textmode
 咛	ning2
 脾	pi2
 二	er4
+㊁	er4
 🈔	er4
 🉂	er4
 朽	xiu3
@@ -2227,6 +2252,7 @@ $textmode
 镜	jing4
 满	man3
 右	you4
+㊨	you4
 🈮	you4
 找	zhao3
 往	wang3
@@ -2328,6 +2354,7 @@ $textmode
 瞧	qiao2
 德	de2
 協	xie2
+㊯	xie2
 韧	ren4
 簡	jian3
 钦	qin1
@@ -2453,13 +2480,16 @@ $textmode
 牵	qian1
 厉	li4
 劳	lao2
+㊘	lao2
 陰	yin1
 下	xia4
+㊦	xia4
 悔	hui3
 飄	piao1
 拨	bo1
 熟	shu2
 項	xiang4
+㊠	xiang4
 唇	chun2
 析	xi1
 耕	geng1
@@ -2521,6 +2551,7 @@ $textmode
 末	mo4
 见	jian4
 金	jin1
+㊎	jin1
 检	jian3
 粹	cui4
 恆	heng2
@@ -2560,6 +2591,7 @@ $textmode
 森	sen1
 葱	cong1
 一	yi1
+㊀	yi1
 🈩	yi1
 谬	miu4
 夺	duo2
@@ -2739,6 +2771,7 @@ $textmode
 裝	zhuang1
 泵	beng4
 三	san1
+㊂	san1
 🈪	san1
 🉁	san1
 鼓	gu3
@@ -2809,6 +2842,7 @@ $textmode
 炒	chao3
 膜	mo2
 医	yi1
+㊩	yi1
 黎	li2
 龍	long2
 渗	shen4
@@ -2840,6 +2874,7 @@ $textmode
 貨	huo4
 碰	peng4
 火	huo3
+㊋	huo3
 邁	mai4
 宇	yu3
 演	yan3
@@ -2860,6 +2895,7 @@ $textmode
 繳	jiao3
 鳴	ming2
 夜	ye4
+㊰	ye4
 抡	lun1
 渾	hun2
 笛	di2
@@ -2920,6 +2956,7 @@ $textmode
 乎	hu1
 染	ran3
 印	yin4
+㊞	yin4
 豺	chai2
 蜓	ting2
 猛	meng3
@@ -2982,6 +3019,7 @@ $textmode
 舀	yao3
 灌	guan4
 学	xue2
+㊫	xue2
 诱	you4
 标	biao1
 隸	li4
@@ -3018,6 +3056,7 @@ $textmode
 姨	yi2
 產	chan3
 資	zi1
+㊮	zi1
 篩	shai1
 蠟	la4
 詳	xiang2
@@ -3149,6 +3188,7 @@ $textmode
 綜	zong1
 雖	sui1
 西	xi1
+🀂	xi1
 缚	fu4
 未	wei4
 嘴	zui3
@@ -3264,6 +3304,7 @@ $textmode
 浇	jiao1
 零	ling2
 特	te4
+㊕	te4
 会	hui4
 犧	xi1
 敞	chang3
@@ -3304,6 +3345,8 @@ $textmode
 谁	shui2
 室	shi4
 中	zhong1
+🀄	zhong1
+㊥	zhong1
 🈭	zhong1
 悟	wu4
 揉	rou2
@@ -3424,6 +3467,7 @@ $textmode
 席	xi2
 哆	duo1
 秘	mi4
+㊙	mi4
 攒	zan3
 餅	bing3
 闲	xian2
@@ -3447,6 +3491,7 @@ $textmode
 重	zhong4
 廓	kuo4
 監	jian1
+㊬	jian1
 鵪	an1
 持	chi2
 笑	xiao4
@@ -3471,6 +3516,7 @@ $textmode
 徒	tu2
 輝	hui1
 左	zuo3
+㊧	zuo3
 🈬	zuo3
 串	chuan4
 時	shi2
@@ -3491,6 +3537,7 @@ $textmode
 敬	jing4
 龐	pang2
 男	nan2
+㊚	nan2
 穩	wen3
 彻	che4
 唾	tuo4
@@ -3590,6 +3637,7 @@ $textmode
 療	liao2
 矗	chu4
 女	nv3
+㊛	nv3
 勃	bo2
 藍	lan2
 拣	jian3
@@ -3612,6 +3660,7 @@ $textmode
 舒	shu1
 扒	ba1
 土	tu3
+㊏	tu3
 悦	yue4
 躺	tang3
 廚	chu2
@@ -3627,6 +3676,7 @@ $textmode
 残	can2
 缘	yuan2
 木	mu4
+㊍	mu4
 兜	dou1
 音	yin1
 于	yu2
@@ -3696,6 +3746,7 @@ $textmode
 亞	ya4
 判	pan4
 社	she4
+㊓	she4
 考	kao3
 頓	dun4
 攀	pan1
@@ -3747,6 +3798,7 @@ $textmode
 浅	qian3
 修	xiu1
 月	yue4
+㊊	yue4
 🈷	yue4
 优	you1
 在	zai4
@@ -3773,6 +3825,7 @@ $textmode
 藝	yi4
 饺	jiao3
 企	qi3
+㊭	qi3
 颤	chan4
 丫	ya1
 嘻	xi1
@@ -3827,6 +3880,7 @@ $textmode
 匯	hui4
 蘋	ping2
 休	xiu1
+㊡	xiu1
 縛	fu4
 肤	fu1
 主	zhu3
