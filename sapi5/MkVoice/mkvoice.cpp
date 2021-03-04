@@ -99,12 +99,14 @@ int wmain(int argc, WCHAR* argv[])
                 else
                 {
                     hr = E_FAIL;
+					printf( "fail to write word file\n", hr );
                 }
             }
         }
         else
         {
             hr = E_FAIL;
+			printf( "fail to open wordlist and voice file\n", hr );
         }
 
         //--- Write word count
@@ -116,6 +118,8 @@ int wmain(int argc, WCHAR* argv[])
                 hr = E_FAIL;
             }
         }
+
+		printf( "begin to create voice: %d\n", hr );
 
         //--- Register the new voice file
         //    The section below shows how to programatically create a token for
@@ -134,6 +138,7 @@ int wmain(int argc, WCHAR* argv[])
                     &cpToken,
                     &cpDataKeyAttribs);
 
+			printf( "EkhoCantonese token created\n" );
             //--- Set additional attributes for searching and the path to the
             //    voice data file we just created.
             if (SUCCEEDED(hr))
@@ -160,9 +165,10 @@ int wmain(int argc, WCHAR* argv[])
                 CHAR    szFullPath[MAX_PATH * 2];
                 //if (SUCCEEDED(hr) && _fullpath(szFullPath, W2A(argv[2]), sizeof(szFullPath)/sizeof(szFullPath[0])) == NULL)
 
-				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\e-guidedog\\eGuideDog_TTS\\ekho-data");
+				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\ekho\\ekho-data");
                 hr = cpToken->SetStringValue(L"Voice", L"jyutping");
 
+				printf( "jyutping created\n" );
             }
         }
 
@@ -206,7 +212,7 @@ int wmain(int argc, WCHAR* argv[])
                 CHAR    szFullPath[MAX_PATH * 2];
                 //if (SUCCEEDED(hr) && _fullpath(szFullPath, W2A(argv[2]), sizeof(szFullPath)/sizeof(szFullPath[0])) == NULL)
 
-				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\e-guidedog\\eGuideDog_TTS\\ekho-data");
+				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\ekho\\ekho-data");
                 hr = cpToken->SetStringValue(L"Voice", L"pinyin");
 
             }
@@ -253,7 +259,7 @@ int wmain(int argc, WCHAR* argv[])
                 CHAR    szFullPath[MAX_PATH * 2];
                 //if (SUCCEEDED(hr) && _fullpath(szFullPath, W2A(argv[2]), sizeof(szFullPath)/sizeof(szFullPath[0])) == NULL)
 
-				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\e-guidedog\\eGuideDog_TTS\\ekho-data");
+				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\ekho\\ekho-data");
                 hr = cpToken->SetStringValue(L"Voice", L"hakka");
 
             }
@@ -300,7 +306,7 @@ int wmain(int argc, WCHAR* argv[])
                 CHAR    szFullPath[MAX_PATH * 2];
                 //if (SUCCEEDED(hr) && _fullpath(szFullPath, W2A(argv[2]), sizeof(szFullPath)/sizeof(szFullPath[0])) == NULL)
 
-				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\e-guidedog\\eGuideDog_TTS\\ekho-data");
+				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\ekho\\ekho-data");
                 hr = cpToken->SetStringValue(L"Voice", L"tibetan");
 
             }
@@ -347,7 +353,7 @@ int wmain(int argc, WCHAR* argv[])
                 CHAR    szFullPath[MAX_PATH * 2];
                 //if (SUCCEEDED(hr) && _fullpath(szFullPath, W2A(argv[2]), sizeof(szFullPath)/sizeof(szFullPath[0])) == NULL)
 
-				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\e-guidedog\\eGuideDog_TTS\\ekho-data");
+				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\ekho\\ekho-data");
                 hr = cpToken->SetStringValue(L"Voice", L"hangul");
 
             }
@@ -394,7 +400,7 @@ int wmain(int argc, WCHAR* argv[])
                 CHAR    szFullPath[MAX_PATH * 2];
                 //if (SUCCEEDED(hr) && _fullpath(szFullPath, W2A(argv[2]), sizeof(szFullPath)/sizeof(szFullPath[0])) == NULL)
 
-				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\e-guidedog\\eGuideDog_TTS\\ekho-data");
+				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\ekho\\ekho-data");
                 hr = cpToken->SetStringValue(L"Voice", L"ngangien");
 
             }
@@ -441,7 +447,7 @@ int wmain(int argc, WCHAR* argv[])
                 CHAR    szFullPath[MAX_PATH * 2];
                 //if (SUCCEEDED(hr) && _fullpath(szFullPath, W2A(argv[2]), sizeof(szFullPath)/sizeof(szFullPath[0])) == NULL)
 
-				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\e-guidedog\\eGuideDog_TTS\\ekho-data");
+				hr = cpToken->SetStringValue(L"EKHO_DATA_PATH", L"D:\\ekho\\ekho-data");
                 hr = cpToken->SetStringValue(L"Voice", L"English");
 
             }
@@ -458,6 +464,7 @@ int wmain(int argc, WCHAR* argv[])
         }
         ::CoUninitialize();
     }
+
     return FAILED( hr );
 }
 
