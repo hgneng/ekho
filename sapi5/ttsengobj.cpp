@@ -23,7 +23,6 @@
 #include "ekho_dict.h"
 #include "festival.h"
 #define OUTPUT16BIT
-#include "sr-convert.cpp"
 #include <iostream>
 
 using namespace std;
@@ -301,6 +300,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 	// TODO: although the version is advanced to 6.0. But it's still 5.8's code. not integrate synth2 yet.
 	SPDBG_FUNC( "CTTSEngObj::Speak" );
 	HRESULT hr = S_OK;
+	/*
 	Dict& mDict = *m_dict;
 
 	//--- Check args
@@ -537,7 +537,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 
 		m_pCurrFrag = m_pCurrFrag->pNext;
 	  }
-	}
+	}*/
 
     return hr;
 } /* CTTSEngObj::Speak */

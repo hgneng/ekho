@@ -173,22 +173,6 @@ namespace ekho {
 
       SNDFILE *sndfile = sf_open(wav_file.c_str(), SFM_READ, &sfinfo);
 
-      // 如果文件没有找到，尝试读其它声调的文件顶替
-      /*
-      if (!sndfile) {
-        char file[16] = {0};
-        strncat(file, wav_file.c_str(), 16);
-        char *pos = strchr(file, '.');
-        pos--;
-        if (pos > 0) {
-          for (char c = '1'; !sndfile && c <= '7'; c++) {
-            *pos = c;
-            cerr << "try " << file << endl;
-            sndfile = sf_open(file, SFM_READ, &sfinfo);
-          }
-        }
-      }*/
-
       readSndfile(sndfile, sfinfo);
     }
 
