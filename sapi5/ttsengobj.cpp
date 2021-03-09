@@ -24,6 +24,7 @@
 #include "festival.h"
 #define OUTPUT16BIT
 #include <iostream>
+#include "ssml.h"
 
 using namespace std;
 using namespace ekho;
@@ -38,19 +39,26 @@ using namespace ekho;
 *****************************************************************************/
 HRESULT CTTSEngObj::FinalConstruct()
 {
-    SPDBG_FUNC( "CTTSEngObj::FinalConstruct" );
-    HRESULT hr = S_OK;
+  SPDBG_FUNC( "CTTSEngObj::FinalConstruct" );
+  HRESULT hr = S_OK;
 
     //--- Init vars
-    m_hVoiceData = NULL;
-    m_pVoiceData = NULL;
-    m_pWordList  = NULL;
-    m_ulNumWords = 0;
+  m_hVoiceData = NULL;
+  m_pVoiceData = NULL;
+  m_pWordList  = NULL;
+  m_ulNumWords = 0;
 
-	m_dict = NULL;
-	mSonicStream = 0;
+  mSonicStream = 0;
+  mOutputSite = 0;
+  mPcmCache = true;
+  mOverlap = 4096;
+  mDebug = true;
+  this->audio = new Audio();
+  supportSsml = true;
+  this->isStopped = false;
+  this->isPaused = false;
 
-    return hr;
+  return hr;
 } /* CTTSEngObj::FinalConstruct */
 
 /*****************************************************************************
@@ -61,25 +69,21 @@ HRESULT CTTSEngObj::FinalConstruct()
 *****************************************************************************/
 void CTTSEngObj::FinalRelease()
 {
-    SPDBG_FUNC( "CTTSEngObj::FinalRelease" );
+  SPDBG_FUNC( "CTTSEngObj::FinalRelease" );
 
 //    delete m_pWordList;
-	delete m_dict;
 	if (mSonicStream) {
 		sonicDestroyStream(mSonicStream);
 		mSonicStream = 0;
 	}
 
-    if( m_pVoiceData )
-    {
-        ::UnmapViewOfFile( (void*)m_pVoiceData );
-    }
+  if( m_pVoiceData ) {
+    ::UnmapViewOfFile( (void*)m_pVoiceData );
+  }
 
-    if( m_hVoiceData )
-    {
-        ::CloseHandle( m_hVoiceData );
-    }
-
+  if( m_hVoiceData ) {
+    ::CloseHandle( m_hVoiceData );
+  }
 } /* CTTSEngObj::FinalRelease */
 
 /*****************************************************************************
@@ -152,107 +156,291 @@ HRESULT CTTSEngObj::MapFile( const WCHAR * pszTokenVal,  // Value that contains 
 *****************************************************************************/
 STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 {
-    SPDBG_FUNC( "CTTSEngObj::SetObjectToken" );
-    HRESULT hr = SpGenericSetObjectToken(pToken, m_cpToken);
+  SPDBG_FUNC( "CTTSEngObj::SetObjectToken" );
+  HRESULT hr = SpGenericSetObjectToken(pToken, m_cpToken);
 
 
-    //--- Map the voice data so it will be shared among all instances
-    //  Note: This is a good example of how to memory map and share
-    //        your voice data across instances.
-    if( SUCCEEDED( hr ) )
-    {
-        //hr = MapFile( L"VoiceData", &m_hVoiceData, &m_pVoiceData );
-		hr = m_cpToken->GetStringValue( L"EKHO_DATA_PATH", &m_dstrDirPath );
-		hr = m_cpToken->GetStringValue( L"Voice", &m_dstrVoice );
-    }
+  //--- Map the voice data so it will be shared among all instances
+  //  Note: This is a good example of how to memory map and share
+  //        your voice data across instances.
+  if( SUCCEEDED( hr ) )
+  {
+      //hr = MapFile( L"VoiceData", &m_hVoiceData, &m_pVoiceData );
+	  hr = m_cpToken->GetStringValue( L"EKHO_DATA_PATH", &m_dstrDirPath );
+	  hr = m_cpToken->GetStringValue( L"Voice", &m_dstrVoice );
+  }
 
-	mEnglishVoice = "voice_kal_diphone";
+  // TODO: should change following line for custome language and voice
+  mEnglishVoice = "voice_kal_diphone";
+  // mEnglishVoice = "voice_cmu_us_slt_arctic_hts"; // female voice
+  // mEnglishVoice = "voice_JuntaDeAndalucia_es_sf_diphone"; // Spanish voice
 
-	m_dict = new Dict();
-	char buffer[256] = {0};
-	WCHAR *path = m_dstrDirPath.Copy();
-	WideCharToMultiByte(CP_OEMCP,NULL,path,m_dstrDirPath.Length(),buffer, sizeof(buffer) - 1,NULL,FALSE);
-	m_dict->mDataPath = buffer;
+  char buffer[256] = {0};
+  WCHAR *path = m_dstrDirPath.Copy();
+  WideCharToMultiByte(CP_OEMCP,NULL,path,m_dstrDirPath.Length(),buffer, sizeof(buffer) - 1,NULL,FALSE);
+  mDict.mDataPath = buffer;
 
-	memset(buffer, 0, sizeof(buffer));
-	path = m_dstrVoice.Copy();
-	WideCharToMultiByte(CP_OEMCP,NULL,path,m_dstrVoice.Length(),buffer, sizeof(buffer) - 1,NULL,FALSE);
-	if (strcmp(buffer, "pinyin") == 0) {
-		m_dict->setLanguage(MANDARIN);
-		setEnglishVoice("voice_cmu_us_slt_arctic_hts");
-	} else if (strcmp(buffer, "jyutping") == 0) {
-		m_dict->setLanguage(CANTONESE);
-		setEnglishVoice("voice_kal_diphone");
-	} else if (strcmp(buffer, "hakka") == 0) {
-		m_dict->setLanguage(HAKKA);
-		setEnglishVoice("voice_kal_diphone");
-	} else if (strcmp(buffer, "tibetan") == 0) {
-		m_dict->setLanguage(TIBETAN);
-		setEnglishVoice("voice_cmu_us_slt_arctic_hts");
-	} else if (strcmp(buffer, "hangul") == 0) {
-		m_dict->setLanguage(KOREAN);
-		setEnglishVoice("voice_cmu_us_slt_arctic_hts");
-	} else if (strcmp(buffer, "ngangien") == 0) {
-		m_dict->setLanguage(NGANGIEN);
-		setEnglishVoice("voice_kal_diphone");
-	} else if (strcmp(buffer, "English") == 0) {
-		m_dict->setLanguage(ENGLISH);
-	} else {
-		return -1;
-	}
+  memset(buffer, 0, sizeof(buffer));
+  path = m_dstrVoice.Copy();
+  WideCharToMultiByte(CP_OEMCP,NULL,path,m_dstrVoice.Length(),buffer, sizeof(buffer) - 1,NULL,FALSE);
+  if (strcmp(buffer, "pinyin") == 0) {
+	  mDict.setLanguage(MANDARIN);
+  } else if (strcmp(buffer, "jyutping") == 0) {
+	  mDict.setLanguage(CANTONESE);
+  } else if (strcmp(buffer, "hakka") == 0) {
+	  mDict.setLanguage(HAKKA);
+	  setEnglishVoice("voice_kal_diphone");
+  } else if (strcmp(buffer, "tibetan") == 0) {
+	  mDict.setLanguage(TIBETAN);
+  } else if (strcmp(buffer, "hangul") == 0) {
+	  mDict.setLanguage(KOREAN);
+  } else if (strcmp(buffer, "ngangien") == 0) {
+	  mDict.setLanguage(NGANGIEN);
+  } else if (strcmp(buffer, "English") == 0) {
+	  mDict.setLanguage(ENGLISH);
+  } else {
+	  return -1;
+  }
 
-	m_dict->setVoice(buffer);
+  mDict.setVoice(buffer);
 
-//	static bool isSonicInited = false;
-//	if (!isSonicInited) 
-	mSonicStream = sonicCreateStream(m_dict->mSfinfo.samplerate, 1);
-	mPendingFrames = 0;
-//		isSonicInited = true;
-//	}
+  mSonicStream = sonicCreateStream(mDict.mSfinfo.samplerate, 1);
+  mPendingFrames = 0;
 
-	static bool isFestivalInited = false;
-	if (!isFestivalInited) {
-		initFestival();
-		isFestivalInited = true;
-	}
+  static bool isFestivalInited = false;
+  if (!isFestivalInited) {
+	  initFestival();
+	  isFestivalInited = true;
+  }
 
-    return hr;
+  return hr;
 } /* CTTSEngObj::SetObjectToken */
 
 //
 //=== ISpTTSEngine Implementation ============================================
 //
 
-int CTTSEngObj::writeToSonicStream(short *pcm, int frames) {
-  float percent = 0.1;
-  const static int PENDING_PCM_FRAMES = 4096;
+int CTTSEngObj::writeToSonicStream(short *pcm, int frames, OverlapType type) {
+  if (!mSonicStream) return 0;
 
+  const int quiet_level = mOverlap;
+  int flushframes = 0;
+  int cpframe = 0;
+  int startframe = 0;
+  int endframe = mPendingFrames - 1;
+  int i = 0;
+  int q_level = 0;
+  // promise length not less than de5 * 0.8.
+  int minFrames = (int)mDict.mSfinfo.frames * 0.8;
+  //cerr << "frames:" << frames << ",minFrames:" << minFrames << ",type:" << type << endl;
+
+  switch (type) {
+    case OVERLAP_NONE:
+      memcpy(mPendingPcm + mPendingFrames, pcm, frames * 2);
+      mPendingFrames += frames;
+      flushframes = mPendingFrames;
+      cpframe = frames;
+      break;
+
+    case OVERLAP_QUIET_PART:
+      // don't overlap more than 0.3(endframe)+0.3(startframe) of the syllable frames
+
+      // find quiet frames
+      while (endframe > 0 &&
+        mPendingFrames - endframe < frames * 0.3 &&
+        mPendingFrames - endframe < (frames - minFrames) * 0.5 &&
+        abs(mPendingPcm[endframe]) < quiet_level) {
+        endframe--;
+      }
+
+      while (startframe < frames * 0.3 &&
+          startframe < (frames - minFrames) * 0.5 &&
+          abs(pcm[startframe]) < quiet_level) {
+        startframe++;
+      }
+
+      // prevent valume over max
+      // search for a proper startframe position
+      i = endframe;
+      while (i > 0 && endframe - i < startframe &&
+          abs(mPendingPcm[i]) < 32767 - quiet_level) {
+        i--;
+      }
+
+      if (endframe - i < startframe) {
+        // remember a large frame and search back for small quite frame to overlarp
+        q_level = 32767 - abs(mPendingPcm[i]);
+        while (i > 0 && endframe - i < startframe &&
+            abs(pcm[endframe - i]) < q_level) {
+          i--;
+        }
+
+        if (endframe - i < startframe) {
+          //cerr << "startframe: " << startframe << " to " << endframe - i << endl;
+          startframe = endframe - i;
+        }
+      }
+
+      // search for a proper endframe position
+      i = startframe;
+      while (i < frames && i - startframe < mPendingFrames - endframe - 1 &&
+          abs(pcm[i]) < 32767 - quiet_level) {
+        i++;
+      }
+
+      if (i - startframe < mPendingFrames - endframe - 1) {
+        q_level = 32767 - abs(pcm[i]);
+        while (i < frames && i - startframe < mPendingFrames - endframe - 1 &&
+            abs(mPendingPcm[mPendingFrames + startframe - i - 1]) < q_level) {
+          i++;
+        }
+
+        if (i - startframe < mPendingFrames - endframe - 1) {
+          //cerr << "endframe: " << endframe << " to " << mPendingFrames + startframe - i - 1<< endl;
+          endframe = mPendingFrames + startframe - i - 1;
+        }
+      }
+
+      for (i = max(0, endframe - startframe);
+          i < mPendingFrames && cpframe < frames; i++) {
+        mPendingPcm[i] += pcm[cpframe];
+        if (mPendingPcm[i] > 32000) {
+          //cerr << "overflow: " << mPendingPcm[i] << endl;
+        }
+        cpframe++;
+      }
+
+      if (frames == 0) {
+        // frames=0 means flush all pending frames
+        flushframes = i;
+      } else if (mPendingFrames + mPendingFrames > frames) {
+        // guaranteer pending frames no more than haft frames
+        flushframes = (int)mPendingFrames - frames * 0.5;
+      }
+
+      break;
+
+    case OVERLAP_HALF_PART:
+      // find quiet frames of first char
+      while (endframe > 0 && abs(mPendingPcm[endframe]) < 32767) {
+        endframe--;
+      }
+
+      // find half but not too lound part of second char
+      while (startframe < frames * 0.5 && abs(pcm[startframe]) < 32767) {
+        startframe++;
+      }
+
+      for (i = max(endframe, mPendingFrames - startframe);
+           i < mPendingFrames && cpframe < frames; i++) {
+        mPendingPcm[i] += pcm[cpframe];
+        cpframe++;
+      }
+      flushframes = i;
+
+      break;
+  }
+
+  sonicWriteShortToStream(mSonicStream, mPendingPcm, flushframes);
+  mPendingFrames -= flushframes;
   if (mPendingFrames > 0) {
-    // make a liner joining. fade out + fade in
-    // Reference: splice.c of sox
-    for (int i = 1; i < mPendingFrames && i <= frames; i++) {
-      double p = i / mPendingFrames;
-      mPendingPcm[i] = mPendingPcm[i] * (1 - p) + pcm[i] * p;
+    memcpy(mPendingPcm, mPendingPcm + flushframes, mPendingFrames * 2);
+  }
+  memcpy(mPendingPcm + mPendingFrames, pcm + cpframe, (frames - cpframe) * 2);
+  mPendingFrames += frames - cpframe;
+
+  return flushframes;
+}
+
+int CTTSEngObj::writePcm(short *pcm, int frames, void *arg, OverlapType type,
+                       bool tofile) {
+  const int BUFFER_SIZE = 40960;
+  short *buffer = new short[BUFFER_SIZE];
+
+  CTTSEngObj *pEkho = (CTTSEngObj *)arg;
+  if (!pEkho->mSonicStream) {
+    return -1;
+  }
+
+  int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
+
+  if (!flush_frames) {
+    do {
+      // sonic会自动剪去一些空白的frame
+      frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
+      //cerr << "sonicReadShortFromStream: " << frames << endl;
+
+      if (frames > 0/* && !pEkho->isStopped*/) {
+        if (tofile) {
+          int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
+          if (frames != writtenFrames) {
+            cerr << "Fail to write WAV file " << writtenFrames << " out of "
+                 << frames << " written" << endl;
+            return -1;
+          }
+        } else {
+          if ( SP_IS_BAD_INTERFACE_PTR( pEkho->mOutputSite )) {
+            return -2;
+          }
+          pEkho->mOutputSite->Write((const void*)buffer, (ULONG)(frames * 2), 0);
+        }
+      }
+    } while (frames > 0);
+  }
+
+  if (!frames) {
+    sonicFlushStream(pEkho->mSonicStream);  // TODO: needed?
+  }
+
+  delete[] buffer;
+  return 0;
+}
+
+void CTTSEngObj::translatePunctuations(string &text, EkhoPuncType mode) {
+  bool changed = false;
+
+  string text2;
+  bool in_chinese_context = true;
+
+  int c;
+  string::iterator it = text.begin();
+  string::iterator it2 = text.begin();
+  string::iterator end = text.end();
+
+  while (it != end) {
+    it2 = it;
+#ifdef DISABLE_EXCEPTIONS
+    c = utf8::next(it, end);
+#else
+    try {
+      c = utf8::next(it, end);
+    } catch (utf8::not_enough_room &) {
+      text = text2;
+      return;
+    } catch (utf8::invalid_utf8 &) {
+      cerr << "translatePunctuations: Invalid UTF8 encoding" << endl;
+      text = text2;
+      return;
     }
+#endif
+
+    if (in_chinese_context && mDict.isPunctuationChar(c, mode)) {
+      text2 += mDict.getPunctuationName(c);
+      changed = true;
+    } else {
+      while (it2 != it) {
+        text2.push_back(*it2);
+        it2++;
+      }
+      in_chinese_context = (c > 128 || (c >= '0' && c <= '9'));
+    }
+
+    while (it2 != it) it2++;
   }
 
-  if (mPendingFrames > frames) {
-    frames = sonicWriteShortToStream(mSonicStream, mPendingPcm, mPendingFrames);
-    mPendingFrames = 0;
-  } else {
-    int ori_frames = frames;
-    frames = sonicWriteShortToStream(mSonicStream, mPendingPcm, mPendingFrames);
-    int new_pending_frames = (ori_frames - mPendingFrames) * percent;
-    if (new_pending_frames > PENDING_PCM_FRAMES)
-      new_pending_frames = PENDING_PCM_FRAMES;
-
-    frames += sonicWriteShortToStream(mSonicStream, pcm + mPendingFrames,
-        ori_frames - mPendingFrames - new_pending_frames);
-    mPendingFrames = new_pending_frames;
-    memcpy(mPendingPcm, &pcm[ori_frames - mPendingFrames - 1], mPendingFrames * 2);
+  if (changed) {
+    text = text2;
   }
-
-  return frames;
 }
 
 /*****************************************************************************
@@ -297,11 +485,257 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                                 const SPVTEXTFRAG* pTextFragList,
                                 ISpTTSEngineSite* pOutputSite )
 {
+	SPDBG_FUNC( "CTTSEngObj::Speak" );
+	HRESULT hr = S_OK;
+  SynthCallback *callback = writePcm;
+  mOutputSite = pOutputSite;
+
+	//--- Check args
+	if( SP_IS_BAD_INTERFACE_PTR( pOutputSite ) ||
+		SP_IS_BAD_READ_PTR( pTextFragList )  )
+	{
+		hr = E_INVALIDARG;
+    return hr;
+	}
+
+	//--- Init some vars
+  m_pCurrFrag   = pTextFragList;
+  while (m_pCurrFrag) {
+	  m_pNextChar   = m_pCurrFrag->pTextStart;
+	  m_pEndChar    = m_pNextChar + m_pCurrFrag->ulTextLen;
+	  m_ullAudioOff = 0;
+
+	  // skip bookmark
+	  if (m_pCurrFrag->State.eAction == SPVA_Bookmark) {
+		  m_pCurrFrag = m_pCurrFrag->pNext;
+		  continue;
+	  }
+
+	  // get pitch
+	  long pitch = m_pCurrFrag->State.PitchAdj.MiddleAdj; // [-10, 10]
+	  float pitchDelta = 0;
+	  if (pitch >= 0)
+		  pitchDelta = (float)pitch / 10;
+	  else
+		  pitchDelta = (float)pitch * 0.5 / 10;
+
+	  list<Character> char_list;
+	  LPCWSTR c = m_pCurrFrag->pTextStart;
+	  for (unsigned int i = 0; i < m_pCurrFrag->ulTextLen; i++) {
+		  char_list.push_back(unsigned short(*c));
+		  c++;
+	  }
+
+    string text = Character::join(char_list);
+    if (mDebug) {
+      cerr << "speaking lang(" << mDict.getLanguage() << "): '" << text << "'" << endl;
+    }
+
+    void *userdata = this;
+    this->isStopped = false;
+    this->isPaused = false;
+    float pause = 0;
+    int size = 0;
+    const char *pPcm = 0;
+
+    if (mDict.getLanguage() == ENGLISH) {
+  #ifdef ENABLE_ENGLISH
+      if (EkhoImpl::mDebug) {
+        cerr << "speaking '" << text << "' with Festival" << endl;
+      }
+      pPcm = this->getEnglishPcm(text, size);
+      // output pcm data
+      if (pPcm && size > 0) {
+        callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+      }
+  #endif
+      return 0;
+    }
+
+    // check whehter voice file available
+    if (!mDict.mVoiceFileType && mDict.getLanguage() != ENGLISH) {
+      cerr << "Voice file not found." << endl;
+      return -1;
+    }
+
+    // process SSML
+    if (mDebug) {
+      cerr << "supportSsml:" << this->supportSsml << endl;
+    }
+
+    if (this->supportSsml) {
+      if (Ssml::isAudio(text)) {
+        if (mDebug) {
+          cerr << "isAudio, play" << endl;
+        }
+        this->audio->play(Ssml::getAudioPath(text));
+        return 0;
+      }
+      text = Ssml::stripTags(text);
+    }
+
+    // check punctuation
+    if (mSpeakIsolatedPunctuation && text.length() <= 3) {
+      const char *c = text.c_str();
+      int code = utf8::next(c, c + text.length());
+      if (!*c && mDict.isPunctuationChar(code, EKHO_PUNC_ALL))
+        text = mDict.getPunctuationName(code);
+    }
+
+    // translate punctuations
+    translatePunctuations(text, mPuncMode);
+
+    // filter spaces
+    Ssml::filterSpaces(text);
+    if (mDebug) {
+      cerr << "filterSpaces: " << text << endl;
+    }
+
+  #ifdef DEBUG_ANDROID
+    LOGD("Ekho::synth2 filtered text=%s", text.c_str());
+  #endif
+
+    list<Word> wordlist = mDict.lookupWord(text);
+    list<PhoneticSymbol *>::iterator phon_symbol;
+    for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
+         word++) {
+      if (mDebug) {
+        cerr << "word(" << word->type << "): " << word->text << endl;
+      }
+
+      switch (word->type) {
+        case FULL_PAUSE:
+          pause += 1;
+          break;
+        case HALF_PAUSE:
+          pause += 0.5;
+          break;
+        case QUATER_PAUSE:
+          pause += 0.25;
+          break;
+        case PHONETIC:
+          phon_symbol = word->symbols.begin();
+          pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
+          if (pPcm && size > 0)
+            callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+          break;
+
+        case ENGLISH_TEXT:
+          if (pause > 0) {
+            word--;  // turn back pointer
+            if (pause > 1)
+              pPcm = this->mDict.getFullPause()->getPcm(size);
+            else if (pause >= 0.5)
+              pPcm = this->mDict.getHalfPause()->getPcm(size);
+            else
+              pPcm = this->mDict.getQuaterPause()->getPcm(size);
+            pause = 0;
+            callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+          } else {
+            char c;
+            if ((word->text.length() == 1) &&
+                (c = tolower(word->text.c_str()[0])) && c >= 'a' && c <= 'z') {
+      		    /*
+                    if (!mAlphabetPcmCache[c - 'a'])
+                      mAlphabetPcmCache[c - 'a'] =
+                          getEnglishPcm(word->text, mAlphabetPcmSize[c - 'a']);
+
+                    pPcm = mAlphabetPcmCache[c - 'a'];
+                    size = mAlphabetPcmSize[c - 'a'];
+      	      */
+
+              // use pinyin-huang alphabet
+      	      phon_symbol = word->symbols.begin();
+      	      pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
+              callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+            } else {
+              pPcm = this->getEnglishPcm(word->text, size);
+              if (pPcm && size > 0) {
+                callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+                if (pPcm) delete[] pPcm;
+              }
+              pPcm = 0;
+            }
+          }
+          break;
+
+        case NON_ENGLISH:
+          if (pause > 0) {
+            word--;  // turn back pointer
+            if (pause >= 1)
+              pPcm = this->mDict.getFullPause()->getPcm(size);
+            else if (pause >= 0.5)
+              pPcm = this->mDict.getHalfPause()->getPcm(size);
+            else
+              pPcm = this->mDict.getQuaterPause()->getPcm(size);
+            pause = 0;
+            callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+          } else {
+            if (word->bytes) {
+              PhoneticSymbol word_symbol("", word->offset, word->bytes);
+              pPcm = word_symbol.getPcm(mDict.mVoiceFile, size);
+              callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
+            } else {
+              // speak the word one by one
+              list<OverlapType>::iterator type = word->overlapTypes.begin();
+              for (list<PhoneticSymbol *>::iterator symbol =
+                       word->symbols.begin();
+                   symbol != word->symbols.end(); symbol++) {
+  #ifdef DEBUG_ANDROID
+                LOGD("Ekho::synth2 speak %s", (*symbol)->symbol);
+  #endif
+                Language lang = mDict.getLanguage();
+                if (lang == MANDARIN || lang == CANTONESE) {
+                  pPcm = (*symbol)->getPcm(mDict.mVoiceFile, size);
+                  if (pPcm && size > 0) {
+                    //cerr << (*symbol)->symbol << ": " << size << endl;
+                    callback((short *)pPcm, size / 2, userdata, *type);
+                  }
+                } else {
+                  string path = mDict.mDataPath + "/" + mDict.getVoice();
+                  pPcm =
+                      (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
+                  if (pPcm && size > 0)
+                    callback((short *)pPcm, size / 2, userdata, *type);
+                }
+
+                // speak Mandarin for Chinese
+                if (!pPcm && lang == TIBETAN) {
+                  string path = mDict.mDataPath + "/pinyin";
+                  pPcm =
+                      (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
+                  if (pPcm && size > 0)
+                    callback((short *)pPcm, size / 2, userdata, *type);
+                }
+
+                if (!mPcmCache) (*symbol)->setPcm(0, 0);
+
+                type++;
+              }
+            }
+          }
+          break;
+      }
+    }  // end of for
+
+		m_pCurrFrag = m_pCurrFrag->pNext;
+	}
+
+  return hr;
+}
+
+	/*
+STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
+                                REFGUID rguidFormatId,
+                                const WAVEFORMATEX * pWaveFormatEx,
+                                const SPVTEXTFRAG* pTextFragList,
+                                ISpTTSEngineSite* pOutputSite )
+{
 	// TODO: although the version is advanced to 6.0. But it's still 5.8's code. not integrate synth2 yet.
 	SPDBG_FUNC( "CTTSEngObj::Speak" );
 	HRESULT hr = S_OK;
-	/*
-	Dict& mDict = *m_dict;
+  
+  Dict& mDict = *m_dict;
 
 	//--- Check args
 	if( SP_IS_BAD_INTERFACE_PTR( pOutputSite ) ||
@@ -339,7 +773,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 			c++;
 		}
 
-		list<PhoneticSymbol*> phons = this->m_dict->lookup(char_list);
+		list<PhoneticSymbol*> phons = this->mDict.lookup(char_list);
 		bool has_unknown_char = false;
 		bool has_festival_char = false;
 		float pause = 0;
@@ -415,7 +849,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 								pPcm = getPcmFromFestival(unknown_str, size);
 								if (! pPcm) {
 									has_unknown_char = false;
-									pPcm = m_dict->getFullPause()->getPcm(size);
+									pPcm = mDict.getFullPause()->getPcm(size);
 								}
 								pause = 0;
 								unknown_str.clear();
@@ -432,23 +866,23 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 						
 						if (pause > 0) {
 							if (pause >= 1)
-							  pPcm = m_dict->getFullPause()->getPcm(size);
+							  pPcm = mDict.getFullPause()->getPcm(size);
 							else if (pause >= 0.5)
-							  pPcm = m_dict->getHalfPause()->getPcm(size);
+							  pPcm = mDict.getHalfPause()->getPcm(size);
 							else
-							  pPcm = m_dict->getQuaterPause()->getPcm(size);
+							  pPcm = mDict.getQuaterPause()->getPcm(size);
 							pause = 0;
 							if (!has_unknown_char) {
   								li--;
 								pos--;
 							}
 						} else if (!pPcm && li != phons.end() && (*li)) {
-							string path = m_dict->mDataPath + "/" + m_dict->getVoice();
-							pPcm = (*li)->getPcm(path.c_str(), m_dict->mVoiceFileType, size);
+							string path = mDict.mDataPath + "/" + mDict.getVoice();
+							pPcm = (*li)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
 												        
 							// speak Mandarin for Chinese
 							if (!pPcm && mDict.getLanguage() == TIBETAN) {
-						      path = m_dict->mDataPath + "/pinyin";
+						      path = mDict.mDataPath + "/pinyin";
 							  pPcm = (*li)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
 							}
 						}
@@ -537,10 +971,10 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 
 		m_pCurrFrag = m_pCurrFrag->pNext;
 	  }
-	}*/
+	}
 
     return hr;
-} /* CTTSEngObj::Speak */
+}*/ /* CTTSEngObj::Speak */
 
 /*****************************************************************************
 * CTTSEngObj::GetVoiceFormat *
@@ -556,11 +990,11 @@ STDMETHODIMP CTTSEngObj::GetOutputFormat( const GUID * pTargetFormatId, const WA
     SPDBG_FUNC( "CTTSEngObj::GetVoiceFormat" );
     HRESULT hr = S_OK;
 
-	if (this->m_dict->mSfinfo.samplerate == 16000) {
+	if (this->mDict.mSfinfo.samplerate == 16000) {
 		hr = SpConvertStreamFormatEnum(SPSF_16kHz16BitMono, pDesiredFormatId, ppCoMemDesiredWaveFormatEx);
-	} else if (this->m_dict->mSfinfo.samplerate == 44100) {
+	} else if (this->mDict.mSfinfo.samplerate == 44100) {
 	    hr = SpConvertStreamFormatEnum(SPSF_44kHz16BitMono, pDesiredFormatId, ppCoMemDesiredWaveFormatEx);
-	} else if (this->m_dict->mSfinfo.samplerate == 8000) {
+	} else if (this->mDict.mSfinfo.samplerate == 8000) {
 		hr = SpConvertStreamFormatEnum(SPSF_8kHz16BitMono, pDesiredFormatId, ppCoMemDesiredWaveFormatEx);
 	}
 
@@ -873,8 +1307,8 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
   EST_Wave wave;
   festival_text_to_wave(text.c_str(), wave);
 
-  if (m_dict->mSfinfo.samplerate != current_samplerate) {
-    wave.resample(m_dict->mSfinfo.samplerate);
+  if (mDict.mSfinfo.samplerate != current_samplerate) {
+    wave.resample(mDict.mSfinfo.samplerate);
   }
 
   EST_TVector<short> tvector;
@@ -896,11 +1330,11 @@ int CTTSEngObj::initFestival(void) {
     festival_initialize(load_init_files, heap_size);
 
     // set libdir of festival
-    string path(m_dict->mDataPath);
+    string path(mDict.mDataPath);
     path += "/festival/lib";
     siod_set_lval("libdir", strintern(path.c_str()));
 
-    path = m_dict->mDataPath;
+    path = mDict.mDataPath;
     path += "/festival/lib/init.scm";
     festival_load_file(path.c_str());
 #endif

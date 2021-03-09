@@ -26,6 +26,8 @@
 
 #include "ekho_dict.h"
 #include "sonic.h"
+#include "ekho_typedef.h"
+#include "audio.h"
 #define ENABLE_FESTIVAL
 
 using namespace ekho;
@@ -100,6 +102,8 @@ class ATL_NO_VTABLE CTTSEngObj :
 
     void setEnglishVoice(const char *voice) { mEnglishVoice = voice; }
 
+    ISpTTSEngineSite *mOutputSite;
+
   private:
     /*--- Non interface methods ---*/
     HRESULT MapFile(const WCHAR * pszTokenValName, HANDLE * phMapping, void ** ppvData );
@@ -124,18 +128,49 @@ class ATL_NO_VTABLE CTTSEngObj :
     const WCHAR*        m_pEndChar;
     ULONGLONG           m_ullAudioOff;
 
-	Dict*               m_dict;
+	Dict                mDict;
 	sonicStream         mSonicStream;
 	short mPendingPcm[81920];
     int mPendingFrames;
 	CSpDynamicString	m_dstrDirPath;
 	CSpDynamicString	m_dstrVoice;
 	const char *mEnglishVoice;
+  bool mPcmCache;
+  int mOverlap;
+  SNDFILE *mSndFile;
+  EkhoPuncType mPuncMode;
+  Audio *audio;
+  bool mSpeakIsolatedPunctuation;
+  bool mDebug;
+  bool supportSsml;
+  bool isPaused;
+  bool isStopped;
 
+  void translatePunctuations(string &text, EkhoPuncType mode);
+
+  inline const char *getEnglishPcm(string text, int &size) {
+#ifdef ENABLE_FESTIVAL
+    return 0;
+    return getPcmFromFestival(text, size);
+#else
+    synthWithEspeak(text);
+    return 0;
+#endif
+  }
 	const char* getPcmFromFestival(string text, int& size);
 	int initFestival(void);
 	string genTempFilename();
-	int writeToSonicStream(short *pcm, int frames);
+	int writeToSonicStream(short *pcm, int frames, OverlapType type);
+  static int writePcm(short *pcm, int frames, void *arg, OverlapType type,
+                      bool tofile);
+  static int writePcm(short *pcm, int frames, void *arg, OverlapType type) {
+    return writePcm(pcm, frames, arg, type, true);
+  }
+
+  static SpeechdSynthCallback *speechdSynthCallback;
+  void setSpeechdSynthCallback(SpeechdSynthCallback *callback);
 };
+
+typedef int(SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
 
 #endif //--- This must be the last line in the file

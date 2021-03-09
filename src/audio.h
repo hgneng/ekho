@@ -36,7 +36,10 @@ using namespace std;
 namespace ekho {
 class Audio {
   public:
-    SpeechdSynthCallback *speechdSynthCallback = 0;
+    Audio(void) {
+      speechdSynthCallback = 0;
+    }
+    SpeechdSynthCallback *speechdSynthCallback;
 
 #ifdef HAVE_PULSEAUDIO
     pa_simple *pulseAudio = 0;

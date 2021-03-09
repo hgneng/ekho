@@ -236,6 +236,10 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
+				RelativePath="..\src\audio.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\ekho_dict.cpp"
 				>
 			</File>
@@ -249,6 +253,10 @@
 			</File>
 			<File
 				RelativePath="..\sonic\sonic.c"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ssml.cpp"
 				>
 			</File>
 			<File
@@ -371,6 +379,10 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
+				RelativePath="..\src\audio.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\character.h"
 				>
 			</File>
@@ -387,6 +399,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\ekho_typedef.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\phonetic_symbol.h"
 				>
 			</File>
@@ -396,6 +412,10 @@
 			</File>
 			<File
 				RelativePath="..\sonic\sonic.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ssml.h"
 				>
 			</File>
 			<File
