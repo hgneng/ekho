@@ -57,6 +57,7 @@ HRESULT CTTSEngObj::FinalConstruct()
   supportSsml = true;
   this->isStopped = false;
   this->isPaused = false;
+  mDict.mDebug = true;
 
   return hr;
 } /* CTTSEngObj::FinalConstruct */
@@ -202,6 +203,9 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 	  return -1;
   }
 
+  if (mDebug) {
+    cerr << "data path: " << mDict.mDataPath << ", voice=" << buffer << endl;
+  }
   mDict.setVoice(buffer);
 
   mSonicStream = sonicCreateStream(mDict.mSfinfo.samplerate, 1);

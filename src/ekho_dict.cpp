@@ -507,7 +507,7 @@ int Dict::setVoice(string voice) {
   path += "/";
   path += voice;
 
-#ifndef _WIN32_WINNT
+//#ifndef _WIN32_WINNT
   if (mLanguage == CANTONESE || mLanguage == MANDARIN || mLanguage == TIBETAN) {
     string index_file = path;
     if (mLanguage == TIBETAN)
@@ -524,7 +524,7 @@ int Dict::setVoice(string voice) {
       }
     }
   }
-#endif
+//#endif
 
   // index file not exist. generate it
   if (isDir(path.c_str())) {
@@ -569,14 +569,14 @@ int Dict::setVoice(string voice) {
       mFullPausePcmSize = size;
     }
 
-#ifndef _WIN32_WINNT
+//#ifndef _WIN32_WINNT
     // FIXME: the index and voice file is very slow and not usable for the
     // second time
     if (mLanguage == CANTONESE || mLanguage == MANDARIN) {
       saveEkhoVoiceFile();
       loadEkhoVoiceFile(path);
     }
-#endif
+//#endif
 
     return 0;
   } else {
