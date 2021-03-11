@@ -507,7 +507,6 @@ int Dict::setVoice(string voice) {
   path += "/";
   path += voice;
 
-//#ifndef _WIN32_WINNT
   if (mLanguage == CANTONESE || mLanguage == MANDARIN || mLanguage == TIBETAN) {
     string index_file = path;
     if (mLanguage == TIBETAN)
@@ -524,7 +523,6 @@ int Dict::setVoice(string voice) {
       }
     }
   }
-//#endif
 
   // index file not exist. generate it
   if (isDir(path.c_str())) {
@@ -569,14 +567,10 @@ int Dict::setVoice(string voice) {
       mFullPausePcmSize = size;
     }
 
-//#ifndef _WIN32_WINNT
-    // FIXME: the index and voice file is very slow and not usable for the
-    // second time
     if (mLanguage == CANTONESE || mLanguage == MANDARIN) {
       saveEkhoVoiceFile();
       loadEkhoVoiceFile(path);
     }
-//#endif
 
     return 0;
   } else {
@@ -1743,7 +1737,7 @@ void Dict::saveEkhoVoiceFile() {
   SymbolCode *symbol_code = 0;
 
   // prepare output file
-  FILE *file = fopen(voice_file.c_str(), "w");
+  FILE *file = fopen(voice_file.c_str(), "wb");
   // SNDFILE *sndfile = sf_open(voice_file.c_str(), SFM_WRITE, &mSfinfo);
   unsigned int total_bytes = 0;
 
@@ -1756,7 +1750,7 @@ void Dict::saveEkhoVoiceFile() {
       symbol = symbol.substr(0, suffix - dp->d_name - 1);
 
       if (symbol.find("-") == string::npos) {
-        // cerr << "index " << symbol << endl;
+        cerr << "index " << symbol << endl;
         // single phonetic symbol
         os.put(1);
         unsigned short code = getCodeOfSymbol(symbol);
@@ -1766,22 +1760,21 @@ void Dict::saveEkhoVoiceFile() {
         // get file content
         char buffer[128000];
         string path = voice_dir + "/" + symbol + "." + mVoiceFileType;
-        FILE *gsmfile = fopen(path.c_str(), "r");
-
+        FILE *gsmfile = fopen(path.c_str(), "rb");
         int bytes = 0;
         int b = 0;
         do {
           b = fread(buffer, 1, 128000, gsmfile);
           bytes += b;
           fwrite(buffer, 1, b, file);
-        } while (b == 128000);
+        } while (!feof(gsmfile) && b > 0);
 
-	/*
-	fseek(gsmfile, 0L, SEEK_END);
+        /*
+	      fseek(gsmfile, 0L, SEEK_END);
         int size = ftell(gsmfile);
-	if (size != bytes) {
-	  cout << "bytes=" << bytes << ", size=" << size << endl;
-	}*/
+	      if (size != bytes) {
+	        cout << "bytes=" << bytes << ", size=" << size << endl;
+	      }*/
 
         fclose(gsmfile);
 
@@ -1795,8 +1788,8 @@ void Dict::saveEkhoVoiceFile() {
         os.put((bytes >> 8) & 0xFF);
         os.put((bytes >> 16) & 0xFF);
 
-        //cerr << "code:" << code << ", offset=" << total_bytes <<
-        // ", bytes=" << bytes << endl;
+        cerr << "code:" << code << ", offset=" << total_bytes <<
+         ", bytes=" << bytes << endl;
       } else {
         // multiple symbols (word)
         cerr << "found word:" << symbol << endl;

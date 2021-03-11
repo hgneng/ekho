@@ -4,18 +4,18 @@
 
 [Setup]
 AppName=Ekho
-AppVerName=Ekho 6.5
+AppVerName=Ekho 8.5
 AppPublisher=Cameron Wong
-AppPublisherURL=http://www.eguidedog.net
-AppSupportURL=http://www.eguidedog.net
-AppUpdatesURL=http://www.eguidedog.net
+AppPublisherURL=https://eguidedog.net
+AppSupportURL=https://eguidedog.net
+AppUpdatesURL=https://eguidedog.net
 DefaultDirName={pf}\Ekho
 DefaultGroupName=Ekho
 LicenseFile=COPYING
 ;InfoBeforeFile=install.txt
 InfoAfterFile=README
 OutputDir=./
-OutputBaseFilename=ekho-6.5
+OutputBaseFilename=ekho-8.5
 ;SetupIconFile=C:\lab\e-guidedog\eGuideDog_TTS\eguidedog.ico
 Compression=lzma
 SolidCompression=yes
@@ -36,19 +36,23 @@ Source: "sapi5\dll\libsndfile-1.dll"; DestDir: "{app}";
 Source: "README"; DestDir: "{app}";
 Source: "COPYING"; DestDir: "{app}";
 
-Source: "COPYING-Festival"; DestDir: "{app}";
+;Source: "COPYING-Festival"; DestDir: "{app}";
 Source: "ekho-data\festival\*"; DestDir: "{app}\ekho-data\Festival\"; Flags: recursesubdirs;
 
 Source: "ekho-data\COPYING-jyutping-wong"; DestDir: "{app}\ekho-data\";
 Source: "ekho-data\zhy.dict"; DestDir: "{app}\ekho-data\";
 ;Source: "ekho-data\zhy_list"; DestDir: "{app}\ekho-data\";
-Source: "ekho-data\jyutping\*"; DestDir: "{app}\ekho-data\jyutping\";
+;Source: "ekho-data\jyutping\*"; DestDir: "{app}\ekho-data\jyutping\";
+Source: "ekho-data\jyutping.index"; DestDir: "{app}\ekho-data\";
+Source: "ekho-data\jyutping.voice"; DestDir: "{app}\ekho-data\";
 
 Source: "ekho-data\COPYING-pinyin-yali"; DestDir: "{app}\ekho-data\";
 Source: "ekho-data\zh.dict"; DestDir: "{app}\ekho-data\";
 ;Source: "ekho-data\zh_list"; DestDir: "{app}\ekho-data\";
 ;Source: "ekho-data\zh_listx"; DestDir: "{app}\ekho-data\";
-Source: "ekho-data\pinyin\*"; DestDir: "{app}\ekho-data\pinyin\";
+;Source: "ekho-data\pinyin\*"; DestDir: "{app}\ekho-data\pinyin\";
+Source: "ekho-data\pinyin.index"; DestDir: "{app}\ekho-data\";
+Source: "ekho-data\pinyin.voice"; DestDir: "{app}\ekho-data\";
 
 Source: "ekho-data\COPYING-hakka-weicheng"; DestDir: "{app}\ekho-data\";
 Source: "ekho-data\ka_list"; DestDir: "{app}\ekho-data\";

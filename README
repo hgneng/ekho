@@ -2,7 +2,7 @@ Ekho is a text-to-speech engine. It is part of eGuideDog project, which develops
 
 Currently, it can speak Cantonese, Mandarin, Hakka, Tibetan, Ngangien and English (through Festival). Korean is in trial.
 
-Author: Cameron Wong (hgneng at gmail.com), http://www.eguidedog.net
+Author: Cameron Wong (hgneng at gmail.com), https://eguidedog.net
 
 Special thanks to Silas S. Brown (http://ssb22.user.srcf.net/) for his great contribution to Mandarin and Korean support of Ekho!
 
