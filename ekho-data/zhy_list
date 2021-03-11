@@ -5716,6 +5716,7 @@ _9      gau2||
 䶴	ceoi1
 䶵	ci4
 一	jat1
+㊀	jat1
 🈩	jat1
 (一 覺 睡 到 天 亮)	jat1|gaau3|seoi6|dou3|tin1|loeng6
 (一 覺 睡 到 天 亮)	jat1|gaau3|seoi6|dou3|tin1|loeng6
@@ -5922,6 +5923,7 @@ _9      gau2||
 (丁 下)	ding1|haa5
 (丁 上)	ding1|soeng6
 七	cat1
+㊆	cat1
 (七 世 夫 妻)	cat1|sai3|fu1|cai3
 (七 里 河)	cat1|leoi5|ho4
 (七 里 河)	cat1|leoi5|ho4
@@ -5939,6 +5941,7 @@ _9      gau2||
 (丈 量)	zoeng6|loeng4
 (丈 量)	zoeng6|loeng4
 三	saam7
+㊂	saam7
 🈪	saam7
 🉁	saam7
 (三 個 和 尚 沒 水 喝)	saam1|go3|wo4|soeng6|mut6|seoi2|hot3
@@ -6404,6 +6407,7 @@ _9      gau2||
 (三 哥)	saam1|go1
 (三 盒)	saam1|hap6
 上	soeng5
+㊤	soeng5
 (上 氣 不 接 下 氣)	soeng6|hei3|bat1|zip3|haa6|hei3
 (上 氣 不 接 下 氣)	soeng6|hei3|bat1|zip3|haa6|hei3
 (上 气 不 接 下 气)	soeng6|hei3|bat1|zip3|haa6|hei3
@@ -6691,6 +6695,7 @@ _9      gau2||
 (上 金)	soeng6|gam1
 (上 金)	soeng6|gam1
 下	haa6
+㊦	haa6
 (下 不 為 例)	haa5|bat1|wai4|lai6
 (下 不 為 例)	haa5|bat1|wai4|lai6
 (下 不 為 例)	haa5|bat1|wai4|lai6
@@ -6979,6 +6984,7 @@ _9      gau2||
 业	jip6
 丛	cung4
 东	dung1
+🀀	dung1
 (东 逃 西 窜)	dung1|tou4|sai1|cyun2
 (东 邻 西 舍)	dung1|leon4|sai1|se5
 (东 仓 里)	dung1|cong1|leoi5
@@ -7042,6 +7048,8 @@ _9      gau2||
 丫	aa1
 丬	baan6
 中	zung1
+🀄	zung1
+㊥	zung1
 🈭	zung1
 (中 華 學 生 愛 國 民 主 同 盟)	zung1|waa4|hok6|saang7|ngoi3|gwok3|man4|zyu2|tung4|mang4
 (中 華 學 生 愛 國 民 主 同 盟)	zung1|waa4|hok6|saang7|ngoi3|gwok3|man4|zyu2|tung4|mang4
@@ -7259,6 +7267,7 @@ _9      gau2||
 乛	jyut6
 乜	mat1
 九	gau2
+㊈	gau2
 (九 品 中 正)	gau2|ban2|zung3|zing1
 (九 廿 幾)	gau2|aa6|gei2
 (九 廿 几)	gau2|aa6|gei2
@@ -7344,6 +7353,7 @@ _9      gau2||
 (事 務 長)	si6|mou6|zoeng2
 (事 务 长)	si6|mou6|zoeng2
 二	ji6
+㊁	ji6
 🈔	ji6
 🉂	ji6
 (二 分 音 符)	ji6|fan1|jam1|fu4
@@ -7396,6 +7406,7 @@ _9      gau2||
 (互 与)	wu6|jyu4
 亓	kei4
 五	ng5
+㊄	ng5
 (五 雷 轟 頂)	ng5|leoi4|gwang1|deng2
 (五 雷 轟 頂)	ng5|leoi4|gwang1|deng2
 (五 雷 轰 顶)	ng5|leoi4|gwang1|deng2
@@ -7681,6 +7692,7 @@ _9      gau2||
 (仿 佛)	fong2|fat1
 伀	zung1
 企	kei5
+㊭	kei5
 伃	jyu4
 伅	deon6
 伈	sam2
@@ -7696,6 +7708,7 @@ _9      gau2||
 伏	fuk6
 伐	fat6
 休	jau1
+㊡	jau1
 (休 會)	jau1|wui6
 (休 会)	jau1|wui6
 (休 刊)	jau1|hon2
@@ -8396,6 +8409,7 @@ _9      gau2||
 儦	biu1
 儩	ci3
 優	jau1
+㊝	jau1
 儫	hou4
 儭	can3
 儱	lung5
@@ -8536,6 +8550,7 @@ _9      gau2||
 (兩 只)	loeng5|zek3
 兪	jyu6
 八	baat3
+㊇	baat3
 (八 里 鄉)	baat3|lei5|hoeng1
 (八 里 鄉)	baat3|lei5|hoeng1
 (八 里 乡)	baat3|lei5|hoeng1
@@ -8586,6 +8601,7 @@ _9      gau2||
 (公 钱)	gung1|cin4
 (公 帑)	gung1|tong2
 六	luk6
+㊅	luk6
 六	luk6
 (六 塊 錢)	luk6|faai3|cin4
 (六 塊 錢)	luk6|faai3|cin4
@@ -8732,6 +8748,7 @@ _9      gau2||
 冗	jung2
 冘	jam4
 写	se2
+㊢	se2
 冚	kam2
 (冚 挷 攔)	ham6|baang6|laang6
 (冚 挷 拦)	ham6|baang6|laang6
@@ -9226,6 +9243,7 @@ _9      gau2||
 (劲 直)	ging3|zik6
 (劲 直)	ging3|zik6
 劳	lou4
+㊘	lou4
 労	lou4
 劵	hyun3
 効	haau6
@@ -9346,6 +9364,7 @@ _9      gau2||
 (化 名)	faa3|meng2
 (化 纤)	faa3|cim1
 北	bak1
+🀃	bak1
 北	bak1
 匙	si4
 匚	fong1
@@ -9374,6 +9393,7 @@ _9      gau2||
 区	keoi1
 (区 长)	keoi1|zoeng2
 医	ji1
+㊩	ji1
 匼	hap1
 匽	jin2
 匾	bin2
@@ -9382,6 +9402,7 @@ _9      gau2||
 區	keoi1
 (區 長)	keoi1|zoeng2
 十	sap6
+㊉	sap6
 (十 里 洋 場)	sap6|leoi5|joeng4|coeng4
 (十 里 洋 場)	sap6|leoi5|joeng4|coeng4
 (十 里 洋 场)	sap6|leoi5|joeng4|coeng4
@@ -9469,6 +9490,7 @@ _9      gau2||
 卒	zeot1
 卓	coek3
 協	hip3
+㊯	hip3
 (協 調)	hip3|tiu4
 (協 調)	hip3|tiu4
 单	daan1
@@ -9479,6 +9501,7 @@ _9      gau2||
 卖	maai6
 (卖 相)	maai6|soeng3
 南	naam4
+🀁	naam4
 (南 無 阿 彌 陀 佛)	naam4|mou4|o1|nei4|to4|fat6
 (南 无 阿 弥 陀 佛)	naam4|mou4|o1|nei4|to4|fat6
 (南 方 話)	naam4|fong1|waa2
@@ -9529,6 +9552,7 @@ _9      gau2||
 卮	zi1
 卯	maau5
 印	jan3
+㊞	jan3
 (印 地 安 話)	jan3|dei6|ngon1|waa2
 (印 地 安 话)	jan3|dei6|ngon1|waa2
 (印 行)	jan3|hong4
@@ -9858,6 +9882,7 @@ _9      gau2||
 (史 不 绝 书)	si2|bat1|zyut6|syu1
 (史 上)	si2|soeng6
 右	jau6
+㊨	jau6
 🈮	jau6
 (右 傾 機 會)	jau6|king1|gei1|wui4
 (右 倾 机 会)	jau6|king1|gei1|wui4
@@ -9933,6 +9958,7 @@ _9      gau2||
 (同 被)	tung4|pei5
 (同 重)	tung4|cung5
 名	ming4
+㊔	ming4
 (名 片 盒)	ming4|pin3|hap6
 (名 分)	ming4|fan6
 (名 媛)	ming4|wun4
@@ -10784,6 +10810,7 @@ _9      gau2||
 囘	wui4
 囚	cau4
 四	sei3
+㊃	sei3
 (四 大 须 生)	sei3|daai6|sou1|saang7
 (四 下 里)	sei3|haa5|leoi5
 (四 下 里)	sei3|haa5|leoi5
@@ -10891,6 +10918,7 @@ _9      gau2||
 圝	lyun4
 圞	lyun4
 土	tou2
+㊏	tou2
 (土 生 土 長)	tou2|sang1|tou2|zoeng2
 (土 生 土 长)	tou2|sang1|tou2|zoeng2
 (土 地 銀 行)	tou2|dei6|ngan2|hong4
@@ -11521,6 +11549,7 @@ _9      gau2||
 (多 錢)	do7|cin2
 (多 钱)	do7|cin2
 夜	je6
+㊰	je6
 (夜 夜 笙 歌)	je6|je6|sang1|go1
 (夜 靜 更 深)	je6|zing6|gang1|sam1
 (夜 靜 更 深)	je6|zing6|gang1|sam1
@@ -11823,6 +11852,7 @@ _9      gau2||
 奰	bei6
 奲	ce2
 女	neoi5
+㊛	neoi5
 女	neoi5
 (女 為 悅 己 者 容)	neoi5|wai6|jyut6|gei2|ze2|jung4
 (女 為 悅 己 者 容)	neoi5|wai6|jyut6|gei2|ze2|jung4
@@ -12350,6 +12380,7 @@ _9      gau2||
 (孤 身 只 影)	gu1|san1|zek3|jing2
 孥	nou4
 学	hok6
+㊫	hok6
 (学 生 运 动)	hok6|saang7|wan6|dung6
 (学 生 会)	hok6|saang7|wui2
 (学 生 证)	hok6|saang7|zing3
@@ -12413,6 +12444,7 @@ _9      gau2||
 宕	dong1
 宖	wang4
 宗	zung1
+㊪	zung1
 官	gun1
 (官 兵 捉 強 盜)	gun1|bing1|zuk3|koeng4|dou6
 (官 兵 捉 强 盗)	gun1|bing1|zuk3|koeng4|dou6
@@ -13153,6 +13185,7 @@ _9      gau2||
 (工 钱)	gung1|cin4
 (工 房)	gung1|fong2
 左	zo2
+㊧	zo2
 🈬	zo2
 (左 支 右 絀)	zo2|zi1|jau6|zyut6
 (左 支 右 绌)	zo2|zi1|jau6|zyut6
@@ -15947,6 +15980,7 @@ _9      gau2||
 既	gei3
 旣	gei3
 日	jat6
+㊐	jat6
 (日 正 當 中)	jat6|zing3|dong1|zung1
 (日 正 当 中)	jat6|zing3|dong1|zung1
 (日 就 月 將)	jat6|zau6|jyut6|zoeng1
@@ -16359,6 +16393,7 @@ _9      gau2||
 朄	jan5
 朅	kit3
 月	jyut6
+㊊	jyut6
 🈷	jyut6
 (月 球 上)	jyut6|kau4|soeng6
 (月 刊)	jyut6|hon2
@@ -16366,6 +16401,7 @@ _9      gau2||
 (月 暈)	jyut6|wan6
 (月 晕)	jyut6|wan6
 有	jau5
+㊒	jau5
 🈶	jau5
 (有 價 證 券)	jau5|gaa3|zing3|gyun3
 (有 价 证 券)	jau5|gaa3|zing3|gyun3
@@ -16441,6 +16477,7 @@ _9      gau2||
 (朦 在 鼓 里)	mung4|zoi6|gu2|leoi5
 朧	lung4
 木	muk6
+㊍	muk6
 (木 里 藏 族 自 治 縣)	muk6|leoi5|zong6|zuk6|zi6|zi6|jyun2
 (木 里 藏 族 自 治 縣)	muk6|leoi5|zong6|zuk6|zi6|zi6|jyun2
 (木 里 藏 族 自 治 县)	muk6|leoi5|zong6|zuk6|zi6|zi6|jyun2
@@ -16828,6 +16865,7 @@ _9      gau2||
 栢	baak3
 栩	heoi2
 株	zyu1
+㊑	zyu1
 栫	zin3
 栭	ji4
 栱	gung2
@@ -17547,6 +17585,7 @@ _9      gau2||
 (止 血 带)	zi2|hyut3|daai2
 (止 遏)	zi2|kit3
 正	zing3
+㊣	zing3
 (正 襟 危 坐)	zing3|kam1|ngai4|zo6
 (正 冠 納 履)	zing3|gun1|naap6|leoi5
 (正 冠 納 履)	zing3|gun1|naap6|leoi5
@@ -17815,6 +17854,7 @@ _9      gau2||
 氲	wan1
 氳	wan1
 水	seoi2
+㊌	seoi2
 (水 滴 石 穿)	seoi2|dik1|sek6|cyun1
 (水 滸 傳)	seoi2|wu2|zyun2
 (水 浒 传)	seoi2|wu2|zyun2
@@ -18164,6 +18204,7 @@ _9      gau2||
 (泥 塑)	nai4|sok3
 泧	jyut6
 注	zyu3
+㊟	zyu3
 (注 塑)	zyu3|sok3
 (注 重)	zyu3|zung6
 泪	leoi6
@@ -19024,6 +19065,7 @@ _9      gau2||
 灩	jim6
 灪	wat1
 火	fo2
+㊋	fo2
 (火 冒 三 丈)	fo2|mou6|saam1|zoeng6
 (火 花 塞)	fo2|faa1|sak1
 (火 花 塞)	fo2|faa1|sak1
@@ -19518,6 +19560,7 @@ _9      gau2||
 牷	cyun4
 牸	zi3
 特	dak6
+㊕	dak6
 (特 內 里 費)	dak6|noi6|leoi5|fai3
 (特 內 里 費)	dak6|noi6|leoi5|fai3
 (特 内 里 费)	dak6|noi6|leoi5|fai3
@@ -20394,6 +20437,7 @@ _9      gau2||
 (电 器 铺)	din6|hei3|pou2
 (电 器 铺)	din6|hei3|pou2
 男	naam4
+㊚	naam4
 (男 才 女 貌)	naam4|coi4|neoi5|maau6
 (男 才 女 貌)	naam4|coi4|neoi5|maau6
 (男 人 婆)	naam4|jan4|po4
@@ -20894,6 +20938,7 @@ _9      gau2||
 盡	zeon6
 (盡 興)	zeon6|hing3
 監	gaam1
+㊬	gaam1
 (監 生)	gaam3|saang1
 盤	pun4
 盥	fun2
@@ -21605,6 +21650,7 @@ _9      gau2||
 (礼 乐 备)	lai5|ngok6|bei6
 礽	jing4
 社	se5
+㊓	se5
 社	se5
 (社 會 上)	se5|wui5|soeng6
 (社 會 上)	se5|wui5|soeng6
@@ -21647,6 +21693,7 @@ _9      gau2||
 祛	keoi1
 祜	wu2
 祝	zuk1
+㊗	zuk1
 祝	zuk1
 神	san4
 神	san4
@@ -21820,6 +21867,7 @@ _9      gau2||
 秕	bei2
 秖	zi1
 秘	bei3
+㊙	bei3
 (秘 撈)	bei3|lou7
 (秘 捞)	bei3|lou7
 秝	lang3
@@ -25798,6 +25846,7 @@ _9      gau2||
 襽	laan4
 襾	aa3
 西	sai1
+🀂	sai1
 (西 班 牙 話)	sai1|baan1|ngaa4|waa2
 (西 班 牙 话)	sai1|baan1|ngaa4|waa2
 (西 西 里)	sai1|sai1|leoi5
@@ -26670,6 +26719,7 @@ _9      gau2||
 (負 面)	fu6|min2
 (負 重)	fu6|cung5
 財	coi4
+㊖	coi4
 貢	gung3
 貣	tik1
 貤	ji4
@@ -26713,6 +26763,7 @@ _9      gau2||
 賄	kui2
 賅	goi1
 資	zi1
+㊮	zi1
 賈	gaa2
 賈	gaa2
 賊	caak6
@@ -27772,6 +27823,7 @@ _9      gau2||
 遥	jiu4
 遨	ngou4
 適	sik1
+㊜	sik1
 (適 當)	sik1|dong3
 遫	cuk1
 遬	cuk1
@@ -28381,6 +28433,7 @@ _9      gau2||
 (量 杯)	loeng4|bui1
 釐	lei4
 金	gam1
+㊎	gam1
 金	gam1
 (金 生 丽 水)	gam1|sang7|lai6|seoi2
 (金 生 丽 水)	gam1|sang7|lai6|seoi2
@@ -30023,6 +30076,7 @@ _9      gau2||
 頃	king2
 頄	kwai4
 項	hong6
+㊠	hong6
 順	seon6
 頇	hon1
 須	seoi1
