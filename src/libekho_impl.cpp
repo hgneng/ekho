@@ -590,7 +590,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 
   int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
-  if (!flush_frames) {
+  if (flush_frames) {
     do {
       // sonic会自动剪去一些空白的frame
       frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
