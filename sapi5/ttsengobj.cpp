@@ -52,12 +52,13 @@ HRESULT CTTSEngObj::FinalConstruct()
   mOutputSite = 0;
   mPcmCache = true;
   mOverlap = 4096;
-  mDebug = true;
   this->audio = new Audio();
   supportSsml = true;
   this->isStopped = false;
   this->isPaused = false;
-  mDict.mDebug = true;
+
+  mDebug = false;
+  mDict.mDebug = false;
 
   return hr;
 } /* CTTSEngObj::FinalConstruct */
@@ -368,26 +369,17 @@ int CTTSEngObj::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 
   int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
-  if (!flush_frames) {
+  if (flush_frames) {
     do {
       // sonic会自动剪去一些空白的frame
       frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
       //cerr << "sonicReadShortFromStream: " << frames << endl;
 
       if (frames > 0/* && !pEkho->isStopped*/) {
-        if (tofile) {
-          int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
-          if (frames != writtenFrames) {
-            cerr << "Fail to write WAV file " << writtenFrames << " out of "
-                 << frames << " written" << endl;
-            return -1;
-          }
-        } else {
-          if ( SP_IS_BAD_INTERFACE_PTR( pEkho->mOutputSite )) {
-            return -2;
-          }
-          pEkho->mOutputSite->Write((const void*)buffer, (ULONG)(frames * 2), 0);
+        if ( SP_IS_BAD_INTERFACE_PTR( pEkho->mOutputSite )) {
+          return -2;
         }
+        pEkho->mOutputSite->Write((const void*)buffer, (ULONG)(frames * 2), 0);
       }
     } while (frames > 0);
   }
@@ -502,6 +494,22 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
     return hr;
 	}
 
+	long rate; // [-10,10]
+	float rateDelta = 0;
+	if (pOutputSite->GetRate(&rate) == S_OK) {
+		if (rate >= 0)
+			rateDelta = (float)rate * 3 / 10;
+		else
+			rateDelta = (float)rate * 0.8 / 10;
+	}
+
+	USHORT volume = 100; // [0, 100]
+	pOutputSite->GetVolume(&volume);
+
+  //cerr << "rate: " << rateDelta << endl;
+	sonicSetSpeed(mSonicStream, 1 + rateDelta);
+	sonicSetVolume(mSonicStream, (float)volume / 100);
+
 	//--- Init some vars
   m_pCurrFrag   = pTextFragList;
   while (m_pCurrFrag) {
@@ -522,6 +530,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 		  pitchDelta = (float)pitch / 10;
 	  else
 		  pitchDelta = (float)pitch * 0.5 / 10;
+	  sonicSetPitch(mSonicStream, 1 + pitchDelta);
 
 	  list<Character> char_list;
 	  LPCWSTR c = m_pCurrFrag->pTextStart;
@@ -689,19 +698,11 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                 LOGD("Ekho::synth2 speak %s", (*symbol)->symbol);
   #endif
                 Language lang = mDict.getLanguage();
-                if (lang == MANDARIN || lang == CANTONESE) {
-                  pPcm = (*symbol)->getPcm(mDict.mVoiceFile, size);
-                  if (pPcm && size > 0) {
-                    //cerr << (*symbol)->symbol << ": " << size << endl;
-                    callback((short *)pPcm, size / 2, userdata, *type);
-                  }
-                } else {
-                  string path = mDict.mDataPath + "/" + mDict.getVoice();
-                  pPcm =
-                      (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
-                  if (pPcm && size > 0)
-                    callback((short *)pPcm, size / 2, userdata, *type);
-                }
+                string path = mDict.mDataPath + "/" + mDict.getVoice();
+                pPcm =
+                    (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
+                if (pPcm && size > 0)
+                  callback((short *)pPcm, size / 2, userdata, *type);
 
                 // speak Mandarin for Chinese
                 if (!pPcm && lang == TIBETAN) {
@@ -721,6 +722,11 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
           break;
       }
     }  // end of for
+
+    if (userdata)
+      callback(0, 0, userdata, OVERLAP_NONE);
+    else
+      callback(0, 0, this, OVERLAP_NONE);
 
 		m_pCurrFrag = m_pCurrFrag->pNext;
 	}

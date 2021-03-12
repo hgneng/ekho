@@ -35,6 +35,7 @@ namespace ekho {
 #endif
 
     // 如果该拼音没有找到音频，尝试读其它声调的音频代替
+    /*
     if (!(strlen(symbol) == 1 && symbol[0] == ' ')) {
       for (char c = '1'; !mPcm && bytes == 0 && c <= '7'; c++) {
         char s[16] = {0};
@@ -48,7 +49,7 @@ namespace ekho {
           bytes = phon->bytes;
         }
       }
-    }
+    }*/
 
     if (!mPcm && fseek(file, offset, SEEK_SET) == 0) {
 #ifdef ANDROID
@@ -89,7 +90,8 @@ namespace ekho {
       rewind(gsmfile);
       SF_INFO sfinfo;
       memset(&sfinfo, 0, sizeof(SF_INFO));
-      SNDFILE *sndfile = sf_open_fd(fileno(gsmfile), SFM_READ, &sfinfo, 1);
+      int fd = fileno(gsmfile);
+      SNDFILE *sndfile = sf_open_fd(fd, SFM_READ, &sfinfo, 1);
       readSndfile(sndfile, sfinfo);
     }
 

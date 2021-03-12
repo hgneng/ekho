@@ -507,6 +507,11 @@ int Dict::setVoice(string voice) {
   path += "/";
   path += voice;
 
+#ifndef _WIN32_WINNT
+  // sndfile fail to read temporary gsm file on Windows
+  // and there seems no a big problem to have small files on Windows
+  // so disable single voice file on Windws
+
   if (mLanguage == CANTONESE || mLanguage == MANDARIN || mLanguage == TIBETAN) {
     string index_file = path;
     if (mLanguage == TIBETAN)
@@ -523,6 +528,7 @@ int Dict::setVoice(string voice) {
       }
     }
   }
+#endif
 
   // index file not exist. generate it
   if (isDir(path.c_str())) {
@@ -567,10 +573,16 @@ int Dict::setVoice(string voice) {
       mFullPausePcmSize = size;
     }
 
+#ifndef _WIN32_WINNT
+    // sndfile fail to read temporary gsm file on Windows
+    // and there seems no a big problem to have small files on Windows
+    // so disable single voice file on Windws
+
     if (mLanguage == CANTONESE || mLanguage == MANDARIN) {
       saveEkhoVoiceFile();
       loadEkhoVoiceFile(path);
     }
+#endif
 
     return 0;
   } else {
@@ -1750,7 +1762,7 @@ void Dict::saveEkhoVoiceFile() {
       symbol = symbol.substr(0, suffix - dp->d_name - 1);
 
       if (symbol.find("-") == string::npos) {
-        cerr << "index " << symbol << endl;
+        //cerr << "index " << symbol << endl;
         // single phonetic symbol
         os.put(1);
         unsigned short code = getCodeOfSymbol(symbol);
@@ -1788,8 +1800,8 @@ void Dict::saveEkhoVoiceFile() {
         os.put((bytes >> 8) & 0xFF);
         os.put((bytes >> 16) & 0xFF);
 
-        cerr << "code:" << code << ", offset=" << total_bytes <<
-         ", bytes=" << bytes << endl;
+        //cerr << "code:" << code << ", offset=" << total_bytes <<
+        // ", bytes=" << bytes << endl;
       } else {
         // multiple symbols (word)
         cerr << "found word:" << symbol << endl;
@@ -1814,7 +1826,7 @@ void Dict::saveEkhoVoiceFile() {
         // get file content
         char buffer[512000];
         string path = voice_dir + "/" + symbol0 + "." + mVoiceFileType;
-        FILE *gsmfile = fopen(path.c_str(), "r");
+        FILE *gsmfile = fopen(path.c_str(), "rb");
 
         int bytes = 0;
         int b = 0;
@@ -1957,7 +1969,7 @@ void Dict::loadEkhoVoiceFile(string path) {
     mSfinfo.format = SF_FORMAT_WAV | SF_FORMAT_GSM610;
   }
   //mVoiceFile = sf_open(voice_file.c_str(), SFM_READ, &mSfinfo);
-  mVoiceFile = fopen(voice_file.c_str(), "r");
+  mVoiceFile = fopen(voice_file.c_str(), "rb");
 
   SymbolCode *sym_code;
   if (mLanguage == MANDARIN) {
