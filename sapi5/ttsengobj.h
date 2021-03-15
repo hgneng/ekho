@@ -130,7 +130,7 @@ class ATL_NO_VTABLE CTTSEngObj :
 
 	Dict                mDict;
 	sonicStream         mSonicStream;
-	short mPendingPcm[81920];
+	short mPendingPcm[819200];
   int mPendingFrames;
 	CSpDynamicString	m_dstrDirPath;
 	CSpDynamicString	m_dstrVoice;

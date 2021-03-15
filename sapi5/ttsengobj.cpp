@@ -61,8 +61,8 @@ HRESULT CTTSEngObj::FinalConstruct()
   memset(mAlphabetPcmCache, 0, 26);
   memset(mAlphabetPcmSize, 0, 26);
 
-  mDebug = false;
-  mDict.mDebug = false;
+  mDebug = true;
+  mDict.mDebug = true;
   mDebugFile = "d:/ekho/sapi5/debug/debug.txt";
 
   return hr;
@@ -212,11 +212,7 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
   mSonicStream = sonicCreateStream(mDict.mSfinfo.samplerate, 1);
   mPendingFrames = 0;
 
-  static bool isFestivalInited = false;
-  if (!isFestivalInited) {
-	  initFestival();
-	  isFestivalInited = true;
-  }
+	initFestival();
 
   return hr;
 } /* CTTSEngObj::SetObjectToken */
@@ -227,6 +223,10 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 
 int CTTSEngObj::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   if (!mSonicStream) return 0;
+  if (frames * 2 > 819200 - mPendingFrames) {
+    // a bad fix for overflow issue
+    frames = (int)(819200 - mPendingFrames) / 2;
+  }
 
   const int quiet_level = mOverlap;
   int flushframes = 0;
@@ -1341,24 +1341,33 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
 
 int CTTSEngObj::initFestival(void) {
 #ifdef ENABLE_FESTIVAL
-    int heap_size = 2100000; // scheme heap size
-    int load_init_files = 0; // don't load default festival init files
-    festival_initialize(load_init_files, heap_size);
+  static bool isFestivalInited = false;
+  if (isFestivalInited) {
+    festival_tidy_up();
+    return 1;
+  }
 
-    // set libdir of festival
-    string path(mDict.mDataPath);
-    path += "/festival/lib";
-    siod_set_lval("libdir", strintern(path.c_str()));
+  int heap_size = 2100000; // scheme heap size
+  int load_init_files = 0; // don't load default festival init files
+  festival_initialize(load_init_files, heap_size);
 
-    path = mDict.mDataPath;
-    path += "/festival/lib/init.scm";
-    festival_load_file(path.c_str());
+  // set libdir of festival
+  string path(mDict.mDataPath);
+  path += "/festival/lib";
+  siod_set_lval("libdir", strintern(path.c_str()));
 
-    // TODO: should change following line for custome language and voice
-    // mEnglishVoice = "voice_kal_diphone";
-    // mEnglishVoice = "voice_cmu_us_slt_arctic_hts"; // female voice
-    mEnglishVoice = "voice_JuntaDeAndalucia_es_sf_diphone"; // mEnglishVoice has no use
-    festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish voice
+  path = mDict.mDataPath;
+  path += "/festival/lib/init.scm";
+  festival_load_file(path.c_str());
+
+  // TODO: should change following line for custome language and voice
+  //mEnglishVoice = "voice_kal_diphone";
+  // mEnglishVoice = "voice_cmu_us_slt_arctic_hts"; // female voice
+  mEnglishVoice = "voice_JuntaDeAndalucia_es_sf_diphone"; // mEnglishVoice has no use
+  festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish voice
+
+  isFestivalInited = true;
 #endif
+
   return 0;
 }

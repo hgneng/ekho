@@ -1032,10 +1032,12 @@ list<Word> Dict::lookupWord(const char *text) {
           lastword += itor->getUtf8();
         }
       } else if (itor->code < 65536 && (!mDictItemArray[itor->code].character.phonSymbol ||
-            (itor->code >= 'A' && itor->code <='Z') || (itor->code >= 'a' && itor->code <= 'z'))) {
+            (itor->code >= 'A' && itor->code <='Z') || (itor->code >= 'a' && itor->code <= 'z') || (itor->code >= 128 && itor->code < 256))) {
         // it's not a Chinese character
         if ((itor->code >= 'A' && itor->code <= 'Z') ||
-            (itor->code >= 'a' && itor->code <= 'z') || !lastword.empty()) {
+            (itor->code >= 'a' && itor->code <= 'z') ||
+            (itor->code >= 128 && itor->code < 256) ||
+            !lastword.empty()) {
           // it's alphabet
           lastword += itor->getUtf8();
           if (!last_chinese_word.empty()) {
@@ -1058,7 +1060,7 @@ list<Word> Dict::lookupWord(const char *text) {
         last_chinese_word += itor->getUtf8();
         if (!lastword.empty()) {
 	  char c = lastword[0];
-          if (lastword.length() == 1 && ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
+          if (lastword.length() == 1 && ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= 128 && c < 256))) {
 	    wordlist.push_back(Word(lastword, ENGLISH_TEXT, lookup(lastword), lookupOverlap(lastword)));
           } else {
             wordlist.push_back(Word(lastword, ENGLISH_TEXT));
