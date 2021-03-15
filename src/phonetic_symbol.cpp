@@ -51,7 +51,7 @@ namespace ekho {
       }
     }*/
 
-    if (!mPcm && fseek(file, offset, SEEK_SET) == 0) {
+    if (!mPcm && file && fseek(file, offset, SEEK_SET) == 0) {
 #ifdef ANDROID
       FILE *gsmfile = fopen("/data/data/net.eguidedog.ekho.cantonese/cache/tmpfile", "wb+");
       if (!gsmfile)

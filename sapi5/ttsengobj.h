@@ -131,7 +131,7 @@ class ATL_NO_VTABLE CTTSEngObj :
 	Dict                mDict;
 	sonicStream         mSonicStream;
 	short mPendingPcm[81920];
-    int mPendingFrames;
+  int mPendingFrames;
 	CSpDynamicString	m_dstrDirPath;
 	CSpDynamicString	m_dstrVoice;
 	const char *mEnglishVoice;
@@ -145,18 +145,12 @@ class ATL_NO_VTABLE CTTSEngObj :
   bool supportSsml;
   bool isPaused;
   bool isStopped;
+  const char* mAlphabetPcmCache[26];
+  int mAlphabetPcmSize[26];
 
   void translatePunctuations(string &text, EkhoPuncType mode);
 
-  inline const char *getEnglishPcm(string text, int &size) {
-#ifdef ENABLE_FESTIVAL
-    return 0;
-    return getPcmFromFestival(text, size);
-#else
-    synthWithEspeak(text);
-    return 0;
-#endif
-  }
+  const char *getEnglishPcm(string text, int &size);
 	const char* getPcmFromFestival(string text, int& size);
 	int initFestival(void);
 	string genTempFilename();

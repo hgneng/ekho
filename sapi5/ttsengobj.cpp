@@ -57,6 +57,9 @@ HRESULT CTTSEngObj::FinalConstruct()
   this->isStopped = false;
   this->isPaused = false;
 
+  memset(mAlphabetPcmCache, 0, 26);
+  memset(mAlphabetPcmSize, 0, 26);
+
   mDebug = false;
   mDict.mDebug = false;
 
@@ -645,30 +648,12 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
             pause = 0;
             callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
           } else {
-            char c;
-            if ((word->text.length() == 1) &&
-                (c = tolower(word->text.c_str()[0])) && c >= 'a' && c <= 'z') {
-      		    /*
-                    if (!mAlphabetPcmCache[c - 'a'])
-                      mAlphabetPcmCache[c - 'a'] =
-                          getEnglishPcm(word->text, mAlphabetPcmSize[c - 'a']);
-
-                    pPcm = mAlphabetPcmCache[c - 'a'];
-                    size = mAlphabetPcmSize[c - 'a'];
-      	      */
-
-              // use pinyin-huang alphabet
-      	      phon_symbol = word->symbols.begin();
-      	      pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
+            pPcm = this->getEnglishPcm(word->text, size);
+            if (pPcm && size > 0) {
               callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
-            } else {
-              pPcm = this->getEnglishPcm(word->text, size);
-              if (pPcm && size > 0) {
-                callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
-                if (pPcm) delete[] pPcm;
-              }
-              pPcm = 0;
+              if (pPcm) delete[] pPcm;
             }
+            pPcm = 0;
           }
           break;
 
@@ -1289,6 +1274,29 @@ BOOL CTTSEngObj::AddNextSentItem( CItemList& ItemList )
 
     return fIsEOS;
 } /* CTTSEngObj::AddNextSentItem */
+
+const char* CTTSEngObj::getEnglishPcm(string text, int &size) {
+  return 0;
+
+#ifdef ENABLE_FESTIVAL
+  char c;
+  if ((text.length() == 1) &&
+      (c = tolower(text.c_str()[0])) && c >= 'a' && c <= 'z') {
+          if (!mAlphabetPcmCache[c - 'a'])
+    mAlphabetPcmCache[c - 'a'] =
+          getPcmFromFestival(text, mAlphabetPcmSize[c - 'a']);
+
+    const char *pPcm = mAlphabetPcmCache[c - 'a'];
+    size = mAlphabetPcmSize[c - 'a'];
+    return pPcm;
+  }
+
+  return getPcmFromFestival(text, size);
+#else
+  synthWithEspeak(text);
+  return 0;
+#endif
+}
 
 // It's caller's responsibility to delete the returned pointer
 const char* CTTSEngObj::getPcmFromFestival(string text, int& size) { 

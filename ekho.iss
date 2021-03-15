@@ -36,7 +36,7 @@ Source: "sapi5\dll\libsndfile-1.dll"; DestDir: "{app}";
 Source: "README"; DestDir: "{app}";
 Source: "COPYING"; DestDir: "{app}";
 
-;Source: "COPYING-Festival"; DestDir: "{app}";
+Source: "ekho-data\COPYING-Festival"; DestDir: "{app}";
 Source: "ekho-data\festival\*"; DestDir: "{app}\ekho-data\Festival\"; Flags: recursesubdirs;
 
 ;Source: "ekho-data\COPYING-jyutping-wong"; DestDir: "{app}\ekho-data\";
