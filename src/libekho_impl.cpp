@@ -634,6 +634,14 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   if (!mSonicStream) return 0;
 
+  while (frames > PENDING_PCM_FRAMES - mPendingFrames) {
+    memcpy(mPendingPcm + mPendingFrames, pcm, (PENDING_PCM_FRAMES - mPendingFrames) * 2);
+    sonicWriteShortToStream(mSonicStream, mPendingPcm, PENDING_PCM_FRAMES);
+    pcm += PENDING_PCM_FRAMES - mPendingFrames;
+    frames -= PENDING_PCM_FRAMES - mPendingFrames;
+    mPendingFrames = 0;
+  }
+
   const int quiet_level = mOverlap; // 音量低于(quiet_level / 65536)的部分重叠
 
   int flushframes = 0;  // mPendingFrames里应该输出的frames
