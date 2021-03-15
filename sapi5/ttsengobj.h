@@ -142,6 +142,7 @@ class ATL_NO_VTABLE CTTSEngObj :
   Audio *audio;
   bool mSpeakIsolatedPunctuation;
   bool mDebug;
+  char *mDebugFile;
   bool supportSsml;
   bool isPaused;
   bool isStopped;

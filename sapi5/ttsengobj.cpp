@@ -24,6 +24,7 @@
 #include "festival.h"
 #define OUTPUT16BIT
 #include <iostream>
+#include <fstream>
 #include "ssml.h"
 
 using namespace std;
@@ -62,6 +63,7 @@ HRESULT CTTSEngObj::FinalConstruct()
 
   mDebug = false;
   mDict.mDebug = false;
+  mDebugFile = "d:/ekho/sapi5/debug/debug.txt";
 
   return hr;
 } /* CTTSEngObj::FinalConstruct */
@@ -174,11 +176,6 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 	  hr = m_cpToken->GetStringValue( L"EKHO_DATA_PATH", &m_dstrDirPath );
 	  hr = m_cpToken->GetStringValue( L"Voice", &m_dstrVoice );
   }
-
-  // TODO: should change following line for custome language and voice
-  mEnglishVoice = "voice_kal_diphone";
-  // mEnglishVoice = "voice_cmu_us_slt_arctic_hts"; // female voice
-  // mEnglishVoice = "voice_JuntaDeAndalucia_es_sf_diphone"; // Spanish voice
 
   char buffer[256] = {0};
   WCHAR *path = m_dstrDirPath.Copy();
@@ -545,6 +542,9 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
     string text = Character::join(char_list);
     if (mDebug) {
       cerr << "speaking lang(" << mDict.getLanguage() << "): '" << text << "'" << endl;
+      std::ofstream file(mDebugFile, std::ios_base::app);
+      file << "speaking lang(" << mDict.getLanguage() << "): '" << text << "'" << endl;
+      file.close();
     }
 
     void *userdata = this;
@@ -1276,8 +1276,6 @@ BOOL CTTSEngObj::AddNextSentItem( CItemList& ItemList )
 } /* CTTSEngObj::AddNextSentItem */
 
 const char* CTTSEngObj::getEnglishPcm(string text, int &size) {
-  return 0;
-
 #ifdef ENABLE_FESTIVAL
   char c;
   if ((text.length() == 1) &&
@@ -1355,6 +1353,12 @@ int CTTSEngObj::initFestival(void) {
     path = mDict.mDataPath;
     path += "/festival/lib/init.scm";
     festival_load_file(path.c_str());
+
+    // TODO: should change following line for custome language and voice
+    // mEnglishVoice = "voice_kal_diphone";
+    // mEnglishVoice = "voice_cmu_us_slt_arctic_hts"; // female voice
+    mEnglishVoice = "voice_JuntaDeAndalucia_es_sf_diphone"; // mEnglishVoice has no use
+    festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish voice
 #endif
   return 0;
 }
