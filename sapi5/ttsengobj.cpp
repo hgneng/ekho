@@ -40,7 +40,6 @@ using namespace ekho;
 *****************************************************************************/
 HRESULT CTTSEngObj::FinalConstruct()
 {
-  SPDBG_FUNC( "CTTSEngObj::FinalConstruct" );
   HRESULT hr = S_OK;
 
     //--- Init vars
@@ -76,8 +75,6 @@ HRESULT CTTSEngObj::FinalConstruct()
 *****************************************************************************/
 void CTTSEngObj::FinalRelease()
 {
-  SPDBG_FUNC( "CTTSEngObj::FinalRelease" );
-
 //    delete m_pWordList;
 	if (mSonicStream) {
 		sonicDestroyStream(mSonicStream);
@@ -163,7 +160,6 @@ HRESULT CTTSEngObj::MapFile( const WCHAR * pszTokenVal,  // Value that contains 
 *****************************************************************************/
 STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 {
-  SPDBG_FUNC( "CTTSEngObj::SetObjectToken" );
   HRESULT hr = SpGenericSetObjectToken(pToken, m_cpToken);
 
 
@@ -481,7 +477,6 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                                 const SPVTEXTFRAG* pTextFragList,
                                 ISpTTSEngineSite* pOutputSite )
 {
-	SPDBG_FUNC( "CTTSEngObj::Speak" );
 	HRESULT hr = S_OK;
   SynthCallback *callback = writePcm;
   mOutputSite = pOutputSite;
@@ -982,7 +977,6 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 STDMETHODIMP CTTSEngObj::GetOutputFormat( const GUID * pTargetFormatId, const WAVEFORMATEX * pTargetWaveFormatEx,
                                           GUID * pDesiredFormatId, WAVEFORMATEX ** ppCoMemDesiredWaveFormatEx )
 {
-    SPDBG_FUNC( "CTTSEngObj::GetVoiceFormat" );
     HRESULT hr = S_OK;
 
 	if (this->mDict.mSfinfo.samplerate == 16000) {
