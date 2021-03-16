@@ -670,7 +670,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
               callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
             } else {
               // speak the word one by one
-              list<OverlapType>::iterator type = word->overlapTypes.begin();
+              //list<OverlapType>::iterator type = word->overlapTypes.begin();
               for (list<PhoneticSymbol *>::iterator symbol =
                        word->symbols.begin();
                    symbol != word->symbols.end(); symbol++) {
@@ -682,7 +682,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                 pPcm =
                     (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                 if (pPcm && size > 0)
-                  callback((short *)pPcm, size / 2, userdata, *type);
+                  callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART /* *type */);
 
                 // speak Mandarin for Chinese
                 if (!pPcm && lang == TIBETAN) {
@@ -690,12 +690,14 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                   pPcm =
                       (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                   if (pPcm && size > 0)
-                    callback((short *)pPcm, size / 2, userdata, *type);
+                    callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART /* *type */);
                 }
 
                 if (!mPcmCache) (*symbol)->setPcm(0, 0);
 
-                type++;
+                // FIXME: there is a bug here number of overlapTypes and symbol may not equal.
+                // ex. 21 has 3 symbols(2 shi 1) and 2 types
+                //type++;
               }
             }
           }
@@ -1285,7 +1287,7 @@ const char* CTTSEngObj::getEnglishPcm(string text, int &size) {
 
   return getPcmFromFestival(text, size);
 #else
-  synthWithEspeak(text);
+  //synthWithEspeak(text);
   return 0;
 #endif
 }
