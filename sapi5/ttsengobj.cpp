@@ -208,7 +208,7 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
   mSonicStream = sonicCreateStream(mDict.mSfinfo.samplerate, 1);
   mPendingFrames = 0;
 
-	initFestival();
+  initFestival();
 
   return hr;
 } /* CTTSEngObj::SetObjectToken */
@@ -502,8 +502,11 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 	pOutputSite->GetVolume(&volume);
 
   //cerr << "rate: " << rateDelta << endl;
-	sonicSetSpeed(mSonicStream, 1 + rateDelta);
-	sonicSetVolume(mSonicStream, (float)volume / 100);
+  if (!mSonicStream) {
+      return 2;
+  }
+  sonicSetSpeed(mSonicStream, 1 + rateDelta);
+  sonicSetVolume(mSonicStream, (float)volume / 100);
 
 	//--- Init some vars
   m_pCurrFrag   = pTextFragList;
@@ -535,6 +538,11 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 	  }
 
     string text = Character::join(char_list);
+    if (text.empty()) {
+        m_pCurrFrag = m_pCurrFrag->pNext;
+        continue;
+    }
+
     if (mDebug) {
       cerr << "speaking lang(" << mDict.getLanguage() << "): '" << text << "'" << endl;
       std::ofstream file(mDebugFile, std::ios_base::app);
@@ -583,14 +591,30 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
         return 0;
       }
       text = Ssml::stripTags(text);
+      if (text.empty()) {
+          m_pCurrFrag = m_pCurrFrag->pNext;
+          continue;
+      }
     }
 
     // check punctuation
     if (mSpeakIsolatedPunctuation && text.length() <= 3) {
       const char *c = text.c_str();
-      int code = utf8::next(c, c + text.length());
-      if (!*c && mDict.isPunctuationChar(code, EKHO_PUNC_ALL))
+      int code = 0;
+      try {
+          utf8::next(c, c + text.length());
+      }
+      catch (...) {
+          cerr << "tail to parse utf8:" << text << endl;
+      }
+
+      if (!*c && mDict.isPunctuationChar(code, EKHO_PUNC_ALL)) {
         text = mDict.getPunctuationName(code);
+        if (text.empty()) {
+            m_pCurrFrag = m_pCurrFrag->pNext;
+            continue;
+        }
+      }
     }
 
     // translate punctuations
@@ -607,6 +631,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
   #endif
 
     list<Word> wordlist = mDict.lookupWord(text);
+
     list<PhoneticSymbol *>::iterator phon_symbol;
     for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
          word++) {
@@ -682,7 +707,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                 pPcm =
                     (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                 if (pPcm && size > 0)
-                  callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART /* *type */);
+                  callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART); // type
 
                 // speak Mandarin for Chinese
                 if (!pPcm && lang == TIBETAN) {
@@ -690,7 +715,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                   pPcm =
                       (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                   if (pPcm && size > 0)
-                    callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART /* *type */);
+                    callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART); // type
                 }
 
                 if (!mPcmCache) (*symbol)->setPcm(0, 0);
@@ -710,8 +735,8 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
     else
       callback(0, 0, this, OVERLAP_NONE);
 
-		m_pCurrFrag = m_pCurrFrag->pNext;
-	}
+	  m_pCurrFrag = m_pCurrFrag->pNext;
+  }
 
   return hr;
 }

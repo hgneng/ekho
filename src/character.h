@@ -48,7 +48,7 @@ namespace ekho {
       PhoneticSymbol *phonSymbol;
 
       string getUtf8(void) {
-        char buf[10] = {0};
+        char buf[5] = {0, 0, 0, 0, 0};
 #ifdef DISABLE_EXCEPTIONS
         utf8::append(code, buf);
 #else
