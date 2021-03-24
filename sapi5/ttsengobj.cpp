@@ -668,12 +668,27 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
             pause = 0;
             callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
           } else {
-            pPcm = this->getEnglishPcm(word->text, size);
-            if (pPcm && size > 0) {
-              callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
-              if (pPcm) delete[] pPcm;
+            char c;
+            if ((word->text.length() == 1) && (c = tolower(word->text.c_str()[0])) && c >= 'a' && c <= 'z') {
+              if (!mAlphabetPcmCache[c - 'a']) {
+                mAlphabetPcmCache[c - 'a'] =
+                    getEnglishPcm(word->text, mAlphabetPcmSize[c - 'a']);
+              }
+
+              pPcm = mAlphabetPcmCache[c - 'a'];
+              size = mAlphabetPcmSize[c - 'a'];
+              if (pPcm) {
+                callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+              }
+            } else {
+              pPcm = this->getEnglishPcm(word->text, size);
+              if (pPcm && size > 0) {
+                callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+                delete[] pPcm;
+              }
             }
             pPcm = 0;
+            size = 0;
           }
           break;
 
@@ -1298,18 +1313,6 @@ BOOL CTTSEngObj::AddNextSentItem( CItemList& ItemList )
 
 const char* CTTSEngObj::getEnglishPcm(string text, int &size) {
 #ifdef ENABLE_FESTIVAL
-  char c;
-  if ((text.length() == 1) &&
-      (c = tolower(text.c_str()[0])) && c >= 'a' && c <= 'z') {
-          if (!mAlphabetPcmCache[c - 'a'])
-    mAlphabetPcmCache[c - 'a'] =
-          getPcmFromFestival(text, mAlphabetPcmSize[c - 'a']);
-
-    const char *pPcm = mAlphabetPcmCache[c - 'a'];
-    size = mAlphabetPcmSize[c - 'a'];
-    return pPcm;
-  }
-
   return getPcmFromFestival(text, size);
 #else
   //synthWithEspeak(text);
@@ -1354,6 +1357,16 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
   char *pPcm = new char[size];
   short *shortPcm = (short*)pPcm;
   tvector.get_values(shortPcm, 1, 0, tvector.p_num_columns);
+
+  // turn up volume for voice_JuntaDeAndalucia_es_pa_diphone
+  /*
+  short *p = shortPcm;
+  short *pend = shortPcm + tvector.p_num_columns;
+  while (p < pend) {
+    *p = (short)(*p * 1.5);
+    p++;
+  }*/
+
   return pPcm;
 #else
   return NULL;
@@ -1377,15 +1390,18 @@ int CTTSEngObj::initFestival(void) {
   path += "/festival/lib";
   siod_set_lval("libdir", strintern(path.c_str()));
 
-  path = mDict.mDataPath;
-  path += "/festival/lib/init.scm";
+  path = mDict.mDataPath + "/festival/lib/init.scm";
   festival_load_file(path.c_str());
 
   // TODO: should change following line for custome language and voice
   //mEnglishVoice = "voice_kal_diphone";
   // mEnglishVoice = "voice_cmu_us_slt_arctic_hts"; // female voice
-  mEnglishVoice = "voice_JuntaDeAndalucia_es_sf_diphone"; // mEnglishVoice has no use
-  festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish voice
+  mEnglishVoice = "voice_JuntaDeAndalucia_es_pa_diphone"; // mEnglishVoice has no use
+  //festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish female voice
+
+  //path = mDict.mDataPath + "/festival/lib/voices/spanish/JuntaDeAndalucia_es_sf_diphone/festvox/JuntaDeAndalucia_es_sf_diphone.scm";
+  //festival_load_file(path.c_str());
+  festival_eval_command("(voice_JuntaDeAndalucia_es_pa_diphone)"); // Spanish male voice
 
   isFestivalInited = true;
 #endif
