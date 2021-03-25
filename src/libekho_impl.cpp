@@ -115,8 +115,8 @@ int EkhoImpl::init(void) {
   mFliteVoice = 0;
 #endif
 
-  memset(mAlphabetPcmCache, 0, 26);
-  memset(mAlphabetPcmSize, 0, 26);
+  memset(mAlphabetPcmCache, 0, 26 * sizeof(const char*));
+  memset(mAlphabetPcmSize, 0, 26 * sizeof(int));
 
   mPuncMode = EKHO_PUNC_SOME;
 

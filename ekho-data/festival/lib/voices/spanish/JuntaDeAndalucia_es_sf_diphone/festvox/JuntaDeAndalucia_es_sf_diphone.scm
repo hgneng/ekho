@@ -277,7 +277,7 @@ Set speaker to sf in us from JuntaDeAndalucia."
   ;; This is where you can modify power (and sampling rate) if desired
   (set! after_synth_hooks nil)
 ;  (set! after_synth_hooks
-;      (list
+;     (list
 ;        (lambda (utt)
 ;          (utt.wave.rescale utt 2.1))))
 

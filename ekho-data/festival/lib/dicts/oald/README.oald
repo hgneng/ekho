@@ -1,0 +1,19 @@
+
+This describes the source of the cuvoald.scm file.
+
+The Computer users version of Oxford Advanced Learners' Dictionary is
+moade available without charge from the Oxford Text Archive.  Its
+is available for non-commercial use only.
+
+The file oald2ft.tar.gz contains the source of a program that
+can convert the file available from the Oxford Text Archive
+into Festival's lexicon format.
+
+The original files may be ftp'ed from (please check their licence)
+       ftp://ota.ox.ac.uk/pub/ota/public/dicts/710/
+
+The resulting file was used to construct a letter to sound model
+which is included in oald_lts_rules.scm and oald_stress.scm,
+that model was used to remove entries from the lexicon which the model
+correctly predicted thus allowing the lexicon to be much smaller.
+

@@ -21,11 +21,17 @@
 #include "stdafx.h"
 #include "TtsEngObj.h"
 #include "ekho_dict.h"
-#include "festival.h"
 #define OUTPUT16BIT
 #include <iostream>
 #include <fstream>
 #include "ssml.h"
+
+#define ENABLE_ENGLISH
+#ifdef ENABLE_FESTIVAL
+#include "festival.h"
+#else
+#include "espeak-ng/speak_lib.h"
+#endif
 
 using namespace std;
 using namespace ekho;
@@ -40,7 +46,6 @@ using namespace ekho;
 *****************************************************************************/
 HRESULT CTTSEngObj::FinalConstruct()
 {
-  SPDBG_FUNC( "CTTSEngObj::FinalConstruct" );
   HRESULT hr = S_OK;
 
     //--- Init vars
@@ -58,8 +63,8 @@ HRESULT CTTSEngObj::FinalConstruct()
   this->isStopped = false;
   this->isPaused = false;
 
-  memset(mAlphabetPcmCache, 0, 26);
-  memset(mAlphabetPcmSize, 0, 26);
+  memset(mAlphabetPcmCache, 0, 26 * sizeof(const char*));
+  memset(mAlphabetPcmSize, 0, 26 * sizeof(int));
 
   mDebug = true;
   mDict.mDebug = true;
@@ -76,8 +81,6 @@ HRESULT CTTSEngObj::FinalConstruct()
 *****************************************************************************/
 void CTTSEngObj::FinalRelease()
 {
-  SPDBG_FUNC( "CTTSEngObj::FinalRelease" );
-
 //    delete m_pWordList;
 	if (mSonicStream) {
 		sonicDestroyStream(mSonicStream);
@@ -163,7 +166,6 @@ HRESULT CTTSEngObj::MapFile( const WCHAR * pszTokenVal,  // Value that contains 
 *****************************************************************************/
 STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 {
-  SPDBG_FUNC( "CTTSEngObj::SetObjectToken" );
   HRESULT hr = SpGenericSetObjectToken(pToken, m_cpToken);
 
 
@@ -212,7 +214,7 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
   mSonicStream = sonicCreateStream(mDict.mSfinfo.samplerate, 1);
   mPendingFrames = 0;
 
-	initFestival();
+  initEnglish();
 
   return hr;
 } /* CTTSEngObj::SetObjectToken */
@@ -481,7 +483,6 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                                 const SPVTEXTFRAG* pTextFragList,
                                 ISpTTSEngineSite* pOutputSite )
 {
-	SPDBG_FUNC( "CTTSEngObj::Speak" );
 	HRESULT hr = S_OK;
   SynthCallback *callback = writePcm;
   mOutputSite = pOutputSite;
@@ -507,8 +508,11 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 	pOutputSite->GetVolume(&volume);
 
   //cerr << "rate: " << rateDelta << endl;
-	sonicSetSpeed(mSonicStream, 1 + rateDelta);
-	sonicSetVolume(mSonicStream, (float)volume / 100);
+  if (!mSonicStream) {
+      return 2;
+  }
+  sonicSetSpeed(mSonicStream, 1 + rateDelta);
+  sonicSetVolume(mSonicStream, (float)volume / 100);
 
 	//--- Init some vars
   m_pCurrFrag   = pTextFragList;
@@ -540,6 +544,11 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 	  }
 
     string text = Character::join(char_list);
+    if (text.empty()) {
+        m_pCurrFrag = m_pCurrFrag->pNext;
+        continue;
+    }
+
     if (mDebug) {
       cerr << "speaking lang(" << mDict.getLanguage() << "): '" << text << "'" << endl;
       std::ofstream file(mDebugFile, std::ios_base::app);
@@ -556,7 +565,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 
     if (mDict.getLanguage() == ENGLISH) {
   #ifdef ENABLE_ENGLISH
-      if (EkhoImpl::mDebug) {
+      if (mDebug) {
         cerr << "speaking '" << text << "' with Festival" << endl;
       }
       pPcm = this->getEnglishPcm(text, size);
@@ -588,14 +597,30 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
         return 0;
       }
       text = Ssml::stripTags(text);
+      if (text.empty()) {
+          m_pCurrFrag = m_pCurrFrag->pNext;
+          continue;
+      }
     }
 
     // check punctuation
     if (mSpeakIsolatedPunctuation && text.length() <= 3) {
       const char *c = text.c_str();
-      int code = utf8::next(c, c + text.length());
-      if (!*c && mDict.isPunctuationChar(code, EKHO_PUNC_ALL))
+      int code = 0;
+      try {
+          utf8::next(c, c + text.length());
+      }
+      catch (...) {
+          cerr << "tail to parse utf8:" << text << endl;
+      }
+
+      if (!*c && mDict.isPunctuationChar(code, EKHO_PUNC_ALL)) {
         text = mDict.getPunctuationName(code);
+        if (text.empty()) {
+            m_pCurrFrag = m_pCurrFrag->pNext;
+            continue;
+        }
+      }
     }
 
     // translate punctuations
@@ -612,11 +637,30 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
   #endif
 
     list<Word> wordlist = mDict.lookupWord(text);
+
     list<PhoneticSymbol *>::iterator phon_symbol;
     for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
          word++) {
       if (mDebug) {
         cerr << "word(" << word->type << "): " << word->text << endl;
+      }
+
+      if ((pOutputSite->GetActions() & SPVES_ABORT)) {
+        break;
+      }
+
+      //--- Fire begin sentence event
+      CSpEvent Event;
+      Event.eEventId = SPEI_SENTENCE_BOUNDARY;
+      Event.elParamType = SPET_LPARAM_IS_UNDEFINED;
+      Event.ullAudioStreamOffset = m_ullAudioOff;
+      Event.lParam = (LPARAM)0;
+      Event.wParam = (WPARAM)m_pCurrFrag->ulTextLen;
+      hr = pOutputSite->AddEvents(&Event, 1);
+
+      //--- Output
+      if (!SUCCEEDED(hr)) {
+        break;
       }
 
       switch (word->type) {
@@ -648,12 +692,27 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
             pause = 0;
             callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
           } else {
-            pPcm = this->getEnglishPcm(word->text, size);
-            if (pPcm && size > 0) {
-              callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
-              if (pPcm) delete[] pPcm;
+            char c;
+            if ((word->text.length() == 1) && (c = tolower(word->text.c_str()[0])) && c >= 'a' && c <= 'z') {
+              if (!mAlphabetPcmCache[c - 'a']) {
+                mAlphabetPcmCache[c - 'a'] =
+                    getEnglishPcm(word->text, mAlphabetPcmSize[c - 'a']);
+              }
+
+              pPcm = mAlphabetPcmCache[c - 'a'];
+              size = mAlphabetPcmSize[c - 'a'];
+              if (pPcm) {
+                callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+              }
+            } else {
+              pPcm = this->getEnglishPcm(word->text, size);
+              if (pPcm && size > 0) {
+                callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+                delete[] pPcm;
+              }
             }
             pPcm = 0;
+            size = 0;
           }
           break;
 
@@ -675,7 +734,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
               callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
             } else {
               // speak the word one by one
-              list<OverlapType>::iterator type = word->overlapTypes.begin();
+              //list<OverlapType>::iterator type = word->overlapTypes.begin();
               for (list<PhoneticSymbol *>::iterator symbol =
                        word->symbols.begin();
                    symbol != word->symbols.end(); symbol++) {
@@ -687,7 +746,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                 pPcm =
                     (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                 if (pPcm && size > 0)
-                  callback((short *)pPcm, size / 2, userdata, *type);
+                  callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART); // type
 
                 // speak Mandarin for Chinese
                 if (!pPcm && lang == TIBETAN) {
@@ -695,12 +754,14 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                   pPcm =
                       (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                   if (pPcm && size > 0)
-                    callback((short *)pPcm, size / 2, userdata, *type);
+                    callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART); // type
                 }
 
                 if (!mPcmCache) (*symbol)->setPcm(0, 0);
 
-                type++;
+                // FIXME: there is a bug here number of overlapTypes and symbol may not equal.
+                // ex. 21 has 3 symbols(2 shi 1) and 2 types
+                //type++;
               }
             }
           }
@@ -713,8 +774,8 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
     else
       callback(0, 0, this, OVERLAP_NONE);
 
-		m_pCurrFrag = m_pCurrFrag->pNext;
-	}
+	  m_pCurrFrag = m_pCurrFrag->pNext;
+  }
 
   return hr;
 }
@@ -982,7 +1043,6 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 STDMETHODIMP CTTSEngObj::GetOutputFormat( const GUID * pTargetFormatId, const WAVEFORMATEX * pTargetWaveFormatEx,
                                           GUID * pDesiredFormatId, WAVEFORMATEX ** ppCoMemDesiredWaveFormatEx )
 {
-    SPDBG_FUNC( "CTTSEngObj::GetVoiceFormat" );
     HRESULT hr = S_OK;
 
 	if (this->mDict.mSfinfo.samplerate == 16000) {
@@ -1277,23 +1337,23 @@ BOOL CTTSEngObj::AddNextSentItem( CItemList& ItemList )
 
 const char* CTTSEngObj::getEnglishPcm(string text, int &size) {
 #ifdef ENABLE_FESTIVAL
-  char c;
-  if ((text.length() == 1) &&
-      (c = tolower(text.c_str()[0])) && c >= 'a' && c <= 'z') {
-          if (!mAlphabetPcmCache[c - 'a'])
-    mAlphabetPcmCache[c - 'a'] =
-          getPcmFromFestival(text, mAlphabetPcmSize[c - 'a']);
-
-    const char *pPcm = mAlphabetPcmCache[c - 'a'];
-    size = mAlphabetPcmSize[c - 'a'];
-    return pPcm;
-  }
-
   return getPcmFromFestival(text, size);
 #else
   synthWithEspeak(text);
   return 0;
 #endif
+}
+
+void CTTSEngObj::synthWithEspeak(string text) {
+  if (mDebug) {
+    cerr << "EkhoImpl::synthWithEspeak: " << text << endl;
+  }
+
+  writePcm(0, 0, this, OVERLAP_NONE);  // flush pending pcm
+  sonicSetRate(this->mSonicStream, 22050.0 / mDict.mSfinfo.samplerate);
+  espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
+    espeakCHARS_UTF8, 0, 0);
+  sonicSetRate(this->mSonicStream, 1);
 }
 
 // It's caller's responsibility to delete the returned pointer
@@ -1333,13 +1393,34 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
   char *pPcm = new char[size];
   short *shortPcm = (short*)pPcm;
   tvector.get_values(shortPcm, 1, 0, tvector.p_num_columns);
+
+  // turn up volume for voice_JuntaDeAndalucia_es_pa_diphone
+  /*
+  short *p = shortPcm;
+  short *pend = shortPcm + tvector.p_num_columns;
+  while (p < pend) {
+    *p = (short)(*p * 1.5);
+    p++;
+  }*/
+
   return pPcm;
 #else
   return NULL;
 #endif
 }
 
-int CTTSEngObj::initFestival(void) {
+static CTTSEngObj* gEkho = NULL;
+
+static int espeakSynthCallback(short* wav, int numsamples,
+  espeak_EVENT* events) {
+  if (gEkho) {
+    return CTTSEngObj::writePcm(wav, numsamples, gEkho, OVERLAP_NONE);
+  }
+
+  return -1;
+}
+
+int CTTSEngObj::initEnglish(void) {
 #ifdef ENABLE_FESTIVAL
   static bool isFestivalInited = false;
   if (isFestivalInited) {
@@ -1356,17 +1437,26 @@ int CTTSEngObj::initFestival(void) {
   path += "/festival/lib";
   siod_set_lval("libdir", strintern(path.c_str()));
 
-  path = mDict.mDataPath;
-  path += "/festival/lib/init.scm";
+  path = mDict.mDataPath + "/festival/lib/init.scm";
   festival_load_file(path.c_str());
 
   // TODO: should change following line for custome language and voice
   //mEnglishVoice = "voice_kal_diphone";
   // mEnglishVoice = "voice_cmu_us_slt_arctic_hts"; // female voice
-  mEnglishVoice = "voice_JuntaDeAndalucia_es_sf_diphone"; // mEnglishVoice has no use
-  festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish voice
+  mEnglishVoice = "voice_JuntaDeAndalucia_es_pa_diphone"; // mEnglishVoice has no use
+  //festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish female voice
+
+  //path = mDict.mDataPath + "/festival/lib/voices/spanish/JuntaDeAndalucia_es_sf_diphone/festvox/JuntaDeAndalucia_es_sf_diphone.scm";
+  //festival_load_file(path.c_str());
+  festival_eval_command("(voice_JuntaDeAndalucia_es_pa_diphone)"); // Spanish male voice
 
   isFestivalInited = true;
+#else
+  // espeak
+  int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
+  espeak_SetVoiceByName("es");
+  gEkho = this;
+  espeak_SetSynthCallback(espeakSynthCallback);
 #endif
 
   return 0;
