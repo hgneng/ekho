@@ -28,7 +28,7 @@
 #include "sonic.h"
 #include "ekho_typedef.h"
 #include "audio.h"
-#define ENABLE_FESTIVAL
+//#define ENABLE_FESTIVAL
 
 using namespace ekho;
 
@@ -103,6 +103,11 @@ class ATL_NO_VTABLE CTTSEngObj :
     void setEnglishVoice(const char *voice) { mEnglishVoice = voice; }
 
     ISpTTSEngineSite *mOutputSite;
+    static int writePcm(short* pcm, int frames, void* arg, OverlapType type,
+      bool tofile);
+    static int writePcm(short* pcm, int frames, void* arg, OverlapType type) {
+      return writePcm(pcm, frames, arg, type, true);
+    }
 
   private:
     /*--- Non interface methods ---*/
@@ -153,17 +158,13 @@ class ATL_NO_VTABLE CTTSEngObj :
 
   const char *getEnglishPcm(string text, int &size);
 	const char* getPcmFromFestival(string text, int& size);
-	int initFestival(void);
+	int initEnglish(void);
 	string genTempFilename();
 	int writeToSonicStream(short *pcm, int frames, OverlapType type);
-  static int writePcm(short *pcm, int frames, void *arg, OverlapType type,
-                      bool tofile);
-  static int writePcm(short *pcm, int frames, void *arg, OverlapType type) {
-    return writePcm(pcm, frames, arg, type, true);
-  }
 
   static SpeechdSynthCallback *speechdSynthCallback;
   void setSpeechdSynthCallback(SpeechdSynthCallback *callback);
+  void synthWithEspeak(string text);
 };
 
 typedef int(SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);

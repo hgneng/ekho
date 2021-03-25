@@ -21,11 +21,17 @@
 #include "stdafx.h"
 #include "TtsEngObj.h"
 #include "ekho_dict.h"
-#include "festival.h"
 #define OUTPUT16BIT
 #include <iostream>
 #include <fstream>
 #include "ssml.h"
+
+#define ENABLE_ENGLISH
+#ifdef ENABLE_FESTIVAL
+#include "festival.h"
+#else
+#include "espeak-ng/speak_lib.h"
+#endif
 
 using namespace std;
 using namespace ekho;
@@ -57,8 +63,8 @@ HRESULT CTTSEngObj::FinalConstruct()
   this->isStopped = false;
   this->isPaused = false;
 
-  memset(mAlphabetPcmCache, 0, 26);
-  memset(mAlphabetPcmSize, 0, 26);
+  memset(mAlphabetPcmCache, 0, 26 * sizeof(const char*));
+  memset(mAlphabetPcmSize, 0, 26 * sizeof(int));
 
   mDebug = true;
   mDict.mDebug = true;
@@ -208,7 +214,7 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
   mSonicStream = sonicCreateStream(mDict.mSfinfo.samplerate, 1);
   mPendingFrames = 0;
 
-  initFestival();
+  initEnglish();
 
   return hr;
 } /* CTTSEngObj::SetObjectToken */
@@ -559,7 +565,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 
     if (mDict.getLanguage() == ENGLISH) {
   #ifdef ENABLE_ENGLISH
-      if (EkhoImpl::mDebug) {
+      if (mDebug) {
         cerr << "speaking '" << text << "' with Festival" << endl;
       }
       pPcm = this->getEnglishPcm(text, size);
@@ -637,6 +643,24 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
          word++) {
       if (mDebug) {
         cerr << "word(" << word->type << "): " << word->text << endl;
+      }
+
+      if ((pOutputSite->GetActions() & SPVES_ABORT)) {
+        break;
+      }
+
+      //--- Fire begin sentence event
+      CSpEvent Event;
+      Event.eEventId = SPEI_SENTENCE_BOUNDARY;
+      Event.elParamType = SPET_LPARAM_IS_UNDEFINED;
+      Event.ullAudioStreamOffset = m_ullAudioOff;
+      Event.lParam = (LPARAM)0;
+      Event.wParam = (WPARAM)m_pCurrFrag->ulTextLen;
+      hr = pOutputSite->AddEvents(&Event, 1);
+
+      //--- Output
+      if (!SUCCEEDED(hr)) {
+        break;
       }
 
       switch (word->type) {
@@ -1315,9 +1339,21 @@ const char* CTTSEngObj::getEnglishPcm(string text, int &size) {
 #ifdef ENABLE_FESTIVAL
   return getPcmFromFestival(text, size);
 #else
-  //synthWithEspeak(text);
+  synthWithEspeak(text);
   return 0;
 #endif
+}
+
+void CTTSEngObj::synthWithEspeak(string text) {
+  if (mDebug) {
+    cerr << "EkhoImpl::synthWithEspeak: " << text << endl;
+  }
+
+  writePcm(0, 0, this, OVERLAP_NONE);  // flush pending pcm
+  sonicSetRate(this->mSonicStream, 22050.0 / mDict.mSfinfo.samplerate);
+  espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
+    espeakCHARS_UTF8, 0, 0);
+  sonicSetRate(this->mSonicStream, 1);
 }
 
 // It's caller's responsibility to delete the returned pointer
@@ -1373,7 +1409,18 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
 #endif
 }
 
-int CTTSEngObj::initFestival(void) {
+static CTTSEngObj* gEkho = NULL;
+
+static int espeakSynthCallback(short* wav, int numsamples,
+  espeak_EVENT* events) {
+  if (gEkho) {
+    return CTTSEngObj::writePcm(wav, numsamples, gEkho, OVERLAP_NONE);
+  }
+
+  return -1;
+}
+
+int CTTSEngObj::initEnglish(void) {
 #ifdef ENABLE_FESTIVAL
   static bool isFestivalInited = false;
   if (isFestivalInited) {
@@ -1404,6 +1451,12 @@ int CTTSEngObj::initFestival(void) {
   festival_eval_command("(voice_JuntaDeAndalucia_es_pa_diphone)"); // Spanish male voice
 
   isFestivalInited = true;
+#else
+  // espeak
+  int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
+  espeak_SetVoiceByName("es");
+  gEkho = this;
+  espeak_SetSynthCallback(espeakSynthCallback);
 #endif
 
   return 0;
