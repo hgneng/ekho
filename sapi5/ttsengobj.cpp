@@ -1345,6 +1345,7 @@ const char* CTTSEngObj::getEnglishPcm(string text, int &size) {
 }
 
 void CTTSEngObj::synthWithEspeak(string text) {
+#ifndef ENABLE_FESTIVAL
   if (mDebug) {
     cerr << "EkhoImpl::synthWithEspeak: " << text << endl;
   }
@@ -1354,6 +1355,7 @@ void CTTSEngObj::synthWithEspeak(string text) {
   espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
     espeakCHARS_UTF8, 0, 0);
   sonicSetRate(this->mSonicStream, 1);
+#endif
 }
 
 // It's caller's responsibility to delete the returned pointer
@@ -1411,6 +1413,7 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
 
 static CTTSEngObj* gEkho = NULL;
 
+#ifndef ENABLE_FESTIVAL
 static int espeakSynthCallback(short* wav, int numsamples,
   espeak_EVENT* events) {
   if (gEkho) {
@@ -1419,6 +1422,7 @@ static int espeakSynthCallback(short* wav, int numsamples,
 
   return -1;
 }
+#endif
 
 int CTTSEngObj::initEnglish(void) {
 #ifdef ENABLE_FESTIVAL
