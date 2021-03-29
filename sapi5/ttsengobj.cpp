@@ -66,8 +66,8 @@ HRESULT CTTSEngObj::FinalConstruct()
   memset(mAlphabetPcmCache, 0, 26 * sizeof(const char*));
   memset(mAlphabetPcmSize, 0, 26 * sizeof(int));
 
-  mDebug = true;
-  mDict.mDebug = true;
+  mDebug = false;
+  mDict.mDebug = false;
   mDebugFile = "d:/ekho/sapi5/debug/debug.txt";
 
   return hr;
@@ -1421,13 +1421,18 @@ static int espeakSynthCallback(short* wav, int numsamples,
 }
 
 int CTTSEngObj::initEnglish(void) {
+  static bool isEnglishInited = false;
+  if (isEnglishInited) {
 #ifdef ENABLE_FESTIVAL
-  static bool isFestivalInited = false;
-  if (isFestivalInited) {
     festival_tidy_up();
+#else
+    gEkho = this;
+    espeak_SetSynthCallback(espeakSynthCallback);
+#endif
     return 1;
   }
 
+#ifdef ENABLE_FESTIVAL
   int heap_size = 2100000; // scheme heap size
   int load_init_files = 0; // don't load default festival init files
   festival_initialize(load_init_files, heap_size);
@@ -1449,15 +1454,15 @@ int CTTSEngObj::initEnglish(void) {
   //path = mDict.mDataPath + "/festival/lib/voices/spanish/JuntaDeAndalucia_es_sf_diphone/festvox/JuntaDeAndalucia_es_sf_diphone.scm";
   //festival_load_file(path.c_str());
   festival_eval_command("(voice_JuntaDeAndalucia_es_pa_diphone)"); // Spanish male voice
-
-  isFestivalInited = true;
 #else
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
-  espeak_SetVoiceByName("es");
+  //espeak_SetVoiceByName("es"); // spanish
   gEkho = this;
   espeak_SetSynthCallback(espeakSynthCallback);
 #endif
+
+  isEnglishInited = true;
 
   return 0;
 }
