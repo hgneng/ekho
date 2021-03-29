@@ -63,8 +63,8 @@ HRESULT CTTSEngObj::FinalConstruct()
   this->isStopped = false;
   this->isPaused = false;
 
-  memset(mAlphabetPcmCache, 0, 26 * sizeof(const char*));
-  memset(mAlphabetPcmSize, 0, 26 * sizeof(int));
+  memset(mAlphabetPcmCache, 0, sizeof(mAlphabetPcmCache));
+  memset(mAlphabetPcmSize, 0, sizeof(mAlphabetPcmSize));
 
   mDebug = false;
   mDict.mDebug = false;
@@ -572,6 +572,8 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
       // output pcm data
       if (pPcm && size > 0) {
         callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+        delete[] pPcm;
+        pPcm = 0;
       }
   #endif
       return 0;
@@ -1345,6 +1347,7 @@ const char* CTTSEngObj::getEnglishPcm(string text, int &size) {
 }
 
 void CTTSEngObj::synthWithEspeak(string text) {
+#ifndef ENABLE_FESTIVAL
   if (mDebug) {
     cerr << "EkhoImpl::synthWithEspeak: " << text << endl;
   }
@@ -1354,6 +1357,7 @@ void CTTSEngObj::synthWithEspeak(string text) {
   espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
     espeakCHARS_UTF8, 0, 0);
   sonicSetRate(this->mSonicStream, 1);
+#endif
 }
 
 // It's caller's responsibility to delete the returned pointer
@@ -1394,14 +1398,13 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
   short *shortPcm = (short*)pPcm;
   tvector.get_values(shortPcm, 1, 0, tvector.p_num_columns);
 
-  // turn up volume for voice_JuntaDeAndalucia_es_pa_diphone
-  /*
+  // turn up volume for voice_JuntaDeAndalucia_es_sf_diphone
   short *p = shortPcm;
   short *pend = shortPcm + tvector.p_num_columns;
   while (p < pend) {
-    *p = (short)(*p * 1.5);
+    *p = (short)(*p * 1.6);
     p++;
-  }*/
+  }
 
   return pPcm;
 #else
@@ -1411,6 +1414,7 @@ const char* CTTSEngObj::getPcmFromFestival(string text, int& size) {
 
 static CTTSEngObj* gEkho = NULL;
 
+#ifndef ENABLE_FESTIVAL
 static int espeakSynthCallback(short* wav, int numsamples,
   espeak_EVENT* events) {
   if (gEkho) {
@@ -1419,6 +1423,7 @@ static int espeakSynthCallback(short* wav, int numsamples,
 
   return -1;
 }
+#endif
 
 int CTTSEngObj::initEnglish(void) {
   static bool isEnglishInited = false;
@@ -1448,12 +1453,15 @@ int CTTSEngObj::initEnglish(void) {
   // TODO: should change following line for custome language and voice
   //mEnglishVoice = "voice_kal_diphone";
   // mEnglishVoice = "voice_cmu_us_slt_arctic_hts"; // female voice
-  mEnglishVoice = "voice_JuntaDeAndalucia_es_pa_diphone"; // mEnglishVoice has no use
-  //festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish female voice
+  mEnglishVoice = "voice_JuntaDeAndalucia_es_sf_diphone"; // mEnglishVoice has no use
+  festival_eval_command("(voice_JuntaDeAndalucia_es_sf_diphone)"); // Spanish female voice
 
   //path = mDict.mDataPath + "/festival/lib/voices/spanish/JuntaDeAndalucia_es_sf_diphone/festvox/JuntaDeAndalucia_es_sf_diphone.scm";
   //festival_load_file(path.c_str());
-  festival_eval_command("(voice_JuntaDeAndalucia_es_pa_diphone)"); // Spanish male voice
+  //festival_eval_command("(voice_JuntaDeAndalucia_es_pa_diphone)"); // Spanish male voice, crash when SayText "a" in festival.exe
+
+  isFestivalInited = true;
+>>>>>>> cfc0ee10cdf871b8bc18d73eb9c21b40248c0fec
 #else
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
