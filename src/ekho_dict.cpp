@@ -1168,7 +1168,6 @@ int Dict::getSymbolCode(SymbolLetter *root, const char *symbol) {
  */
 int Dict::loadEspeakDict(const char *path) {
   string line;
-  bool has_syntax_error = false;
   map<int, DictItem>::iterator it;
   map<string, PhoneticSymbol>::iterator symbol_it;
   bool debug = false;
@@ -1179,9 +1178,12 @@ int Dict::loadEspeakDict(const char *path) {
     return -1;
   }
 
+  int maxWordLen = 0;
+
   getline(fs, line);
   int linecount = 1;
   while (!fs.eof() && !fs.fail()) {
+    bool has_syntax_error = false;
     list<Character> char_list = Character::split(line);
     if (char_list.size() > 0) {
       list<Character>::iterator c = char_list.begin();
@@ -1414,6 +1416,8 @@ int Dict::loadEspeakDict(const char *path) {
     linecount++;
   }
 
+  cout << "total line: " << linecount << endl;
+
   return 0;
 }  // end of loadEspeakDict
 
@@ -1433,6 +1437,13 @@ int Dict::saveEkhoDict(const char *path) {
 
     // write character code
     unsigned int code = di->character.code;
+
+    bool debug = false;
+    if (false && code == 29983) {
+      debug = true;
+      cerr << code << ":";
+    }
+
     if (code > 0 && di->character.phonSymbol) {
       if (code < 65536) {
         os.put((unsigned char)(code & 0xFF));
@@ -1460,8 +1471,10 @@ int Dict::saveEkhoDict(const char *path) {
       os.put((unsigned char)(symbolCode & 0xFF));
       os.put((unsigned char)((symbolCode >> 8) & 0xFF));
 
-      //      cout << di->character.getUtf8() << "(" << code << "): " <<
-      //          mSymbolArray[symbolCode].symbol << endl; // debug code
+      if (debug) {
+        cerr << di->character.getUtf8() << "(" << code << "): " <<
+            mSymbolArray[symbolCode].symbol << endl;
+      }
 
       // write number of words
       if (di->wordList) {
@@ -1469,13 +1482,19 @@ int Dict::saveEkhoDict(const char *path) {
         int size = wordList->size();
         os.put((unsigned char)(size & 0xFF));
         os.put((unsigned char)((size >> 8) & 0xFF));
+        //cerr << size << endl;;
 
         // write words
         list<list<Character> >::iterator wordItor = wordList->begin();
         for (; wordItor != wordList->end(); ++wordItor) {
           // write number of character in the word
           size = wordItor->size();
-          if (size > max_char_count) max_char_count = size;
+          if (size > max_char_count) {
+            max_char_count = size;
+          }
+
+          //cerr << size << ":" << max_char_count << ",";
+
           os.put((unsigned char)(size & 0xFF));
           os.put((unsigned char)((size >> 8) & 0xFF));
 
@@ -1506,6 +1525,11 @@ int Dict::saveEkhoDict(const char *path) {
               cerr << "not implemented" << endl;
             }
             symbolCode = pSymCode->code;
+
+            if (debug) {
+              cerr << charItor->getUtf8() << symbol;
+            }
+
             if (symbolCode > SYMBOL_ARRAY_SIZE) {
               cerr << "symbol code out of range: " << symbolCode << endl;
               os.close();
@@ -1514,6 +1538,10 @@ int Dict::saveEkhoDict(const char *path) {
             os.put((unsigned char)(symbolCode & 0xFF));
             os.put((unsigned char)((symbolCode >> 8) & 0xFF));
           }
+        }
+
+        if (debug) {
+          cerr << " ";
         }
       } else {
         os.put(0);
@@ -1596,6 +1624,12 @@ int Dict::loadEkhoDict(const char *path) {
     wordCount = (unsigned char)infile.get();
     wordCount = (wordCount << 8) + lowbyte;
 
+    bool debug = false;
+    if (false && code == 29983) {
+      debug = true;
+      cerr << code << ":";
+    }
+
     if (wordCount > 0) {
       wordList = new list<list<Character> >();
       for (int i = 0; i < wordCount; ++i) {
@@ -1644,12 +1678,16 @@ int Dict::loadEkhoDict(const char *path) {
           c.code = code;
           c.phonSymbol = &mSymbolArray[symbolCode];
           charList.push_back(c);
-          // cout << c.getUtf8() << c.phonSymbol->symbol; // debug code
+          if (debug) {
+            cerr << c.getUtf8() << c.phonSymbol->symbol;
+          }
         }
 
         // add word to list
         wordList->push_back(charList);
-        //        cout << " "; // debug code
+        if (debug) {
+          cerr << " ";
+        }
       }
 
       // add word list

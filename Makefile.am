@@ -46,7 +46,7 @@ if DIST_VOICE_DATA
 	cp -RLf $(DATA_SUB_DIRS) $(DESTDIR)$(datadir)/ekho-data/
 endif
 	install $(DATA_FILES) $(DESTDIR)$(datadir)/ekho-data/
-	cp -Rf $(DATA_DIR)/festival $(DESTDIR)$(datadir)/ekho-data/
+#	cp -Rf $(DATA_DIR)/festival $(DESTDIR)$(datadir)/ekho-data/
 
 uninstall-hook:
 	rm -rf $(DESTDIR)$(datadir)/ekho-data
@@ -59,9 +59,9 @@ endif
 	cp $(srcdir)/collect_ekho_logs.sh $(distdir)/
 	cp $(DATA_FILES) $(distdir)/ekho-data/
 	cp $(COPYRIGHT_FILES) $(distdir)/ekho-data/
-	if [ -e $(srcdir)/ekho-data/festival/lib/voices/spanish ]; then mv $(srcdir)/ekho-data/festival/lib/voices/spanish $(srcdir)/ekho-data/; fi
-	cp -R $(srcdir)/ekho-data/festival $(distdir)/ekho-data/
-	if [ -e $(srcdir)/ekho-data/spanish ]; then mv $(srcdir)/ekho-data/spanish $(srcdir)/ekho-data/festival/lib/voices/; fi
+#	if [ -e $(srcdir)/ekho-data/festival/lib/voices/spanish ]; then mv $(srcdir)/ekho-data/festival/lib/voices/spanish $(srcdir)/ekho-data/; fi
+#	cp -R $(srcdir)/ekho-data/festival $(distdir)/ekho-data/
+#	if [ -e $(srcdir)/ekho-data/spanish ]; then mv $(srcdir)/ekho-data/spanish $(srcdir)/ekho-data/festival/lib/voices/; fi
 	cp -R $(srcdir)/utfcpp $(distdir)/
 	cp -R $(srcdir)/sonic $(distdir)/
 	cp -R $(srcdir)/speechd-api $(distdir)/
