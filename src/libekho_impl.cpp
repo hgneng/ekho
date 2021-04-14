@@ -149,6 +149,12 @@ EkhoImpl::~EkhoImpl(void) {
   }
 #endif
 
+#ifdef ENABLE_FESTIVAL
+  festival_eval_command("(audio_mode 'close)");
+#else
+  espeak_Terminate();
+#endif
+
   // TODO: free mAlphabetPcmCache
 }
 
@@ -1365,9 +1371,6 @@ int EkhoImpl::resume(void) {
 }
 
 int EkhoImpl::stop(void) {
-  this->isPaused = false;
-  this->isStopped = true;
-  this->mPendingFrames = 0;
   if (EkhoImpl::mDebug) {
     cerr << "EkhoImpl::stop " << " begin" << endl;
   }
@@ -1377,6 +1380,15 @@ int EkhoImpl::stop(void) {
     mSpeechQueue.pop();
   }
   pthread_mutex_unlock(&mSpeechQueueMutex);
+
+  this->isPaused = false;
+  this->isStopped = true;
+  this->mPendingFrames = 0;
+#ifdef ENABLE_FESTIVAL
+  festival_eval_command("(audio_mode 'shutup)");
+#else
+  espeak_Cancel();
+#endif
 
   if (EkhoImpl::mDebug) {
     cerr << "EkhoImpl::stop " << " end" << endl;
