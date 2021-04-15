@@ -129,10 +129,10 @@ EkhoImpl::EkhoImpl(string voice) {
 }
 
 EkhoImpl::~EkhoImpl(void) {
-  pthread_mutex_lock(&mSpeechQueueMutex);
+  //pthread_mutex_lock(&mSpeechQueueMutex);
   this->isEnded = true;
+  //pthread_mutex_unlock(&mSpeechQueueMutex);
   pthread_cond_signal(&mSpeechQueueCond);
-  pthread_mutex_unlock(&mSpeechQueueMutex);
   pthread_cond_destroy(&mSpeechQueueCond);
 
   if (this->isSpeechThreadInited) {
@@ -594,44 +594,48 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
     return -1;
   }
 
-  int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
+  pthread_mutex_lock(&(pEkho->mSpeechQueueMutex));
+  if (!pEkho->isStopped) {
+    int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
-  if (flush_frames) {
-    do {
-      // sonic会自动剪去一些空白的frame
-      frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
-      //cerr << "sonicReadShortFromStream: " << frames << endl;
+    if (flush_frames) {
+      do {
+        // sonic会自动剪去一些空白的frame
+        frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
+        //cerr << "sonicReadShortFromStream: " << frames << endl;
 
-      if (frames > 0 && !pEkho->isStopped) {
-        if (tofile) {
-          int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
-          if (frames != writtenFrames) {
-            cerr << "Fail to write WAV file " << writtenFrames << " out of "
-                 << frames << " written" << endl;
-            return -1;
-          }
-        } else {
-          if (EkhoImpl::speechdSynthCallback) {
-            if (EkhoImpl::mDebug) {
-              cerr << "EkhoImpl::speechdSynthCallback: " << frames << endl;
+        if (frames > 0) {
+          if (tofile) {
+            int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
+            if (frames != writtenFrames) {
+              cerr << "Fail to write WAV file " << writtenFrames << " out of "
+                   << frames << " written" << endl;
+              return -1;
             }
-            EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate, 0);
           } else {
-#ifdef HAVE_PULSEAUDIO
-            int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
-            if (ret < 0) {
-              cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
+            if (EkhoImpl::speechdSynthCallback) {
+              if (EkhoImpl::mDebug) {
+                cerr << "EkhoImpl::speechdSynthCallback: " << frames << endl;
+              }
+              EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate, 0);
+            } else {
+  #ifdef HAVE_PULSEAUDIO
+              int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
+              if (ret < 0) {
+                cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
+              }
+  #endif
             }
-#endif
           }
         }
-      }
-    } while (frames > 0);
-  }
+      } while (frames > 0);
+    }
 
-  if (!frames) {
-    sonicFlushStream(pEkho->mSonicStream);  // TODO: needed?
+    if (!frames) {
+      sonicFlushStream(pEkho->mSonicStream);  // TODO: needed?
+    }
   }
+  pthread_mutex_unlock(&(pEkho->mSpeechQueueMutex));
 
   delete[] buffer;
   return 0;
@@ -841,6 +845,7 @@ void *EkhoImpl::speechDaemon(void *args) {
     }
 
     SpeechOrder order = pEkho->mSpeechQueue.front();
+    pEkho->isStopped = false;
     pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
 
     // It seems that Sonic doesn't work on threads. Set arguments again. It's
@@ -1308,8 +1313,8 @@ int EkhoImpl::speak(string text, void (*pCallback)(void *),
   order.pCallbackArgs = pCallbackArgs;
   pthread_mutex_lock(&mSpeechQueueMutex);
   mSpeechQueue.push(order);
-  pthread_cond_signal(&mSpeechQueueCond);
   pthread_mutex_unlock(&mSpeechQueueMutex);
+  pthread_cond_signal(&mSpeechQueueCond);
 
   if (EkhoImpl::mDebug) {
     cerr << "EkhoImpl::speak end" << endl;
@@ -1331,22 +1336,28 @@ int EkhoImpl::blockSpeak(string text) {
     cerr << "Fail to init sound." << endl;
     return -1;
   }
+  
+  pthread_mutex_lock(&mSpeechQueueMutex);
   this->isPaused = false;
   this->isStopped = false;
   SpeechOrder order;
   order.text = text;
   order.pCallback = NULL;
   order.pCallbackArgs = NULL;
-  pthread_mutex_lock(&mSpeechQueueMutex);
   mSpeechQueue.push(order);
-  pthread_cond_signal(&mSpeechQueueCond);
   pthread_mutex_unlock(&mSpeechQueueMutex);
+  pthread_cond_signal(&mSpeechQueueCond);
 
   while (mSpeechQueue.size() > 0) {
     sleep(1);
   }
 
   int error;
+  pthread_mutex_lock(&mSpeechQueueMutex);
+  this->isStopped = true;
+  pthread_mutex_unlock(&mSpeechQueueMutex);
+  pthread_cond_signal(&mSpeechQueueCond);
+
   pa_simple_drain(this->stream, &error);
 #endif
   return 0;
@@ -1379,7 +1390,6 @@ int EkhoImpl::stop(void) {
   while (not mSpeechQueue.empty()) {
     mSpeechQueue.pop();
   }
-  pthread_mutex_unlock(&mSpeechQueueMutex);
 
   this->isPaused = false;
   this->isStopped = true;
@@ -1389,6 +1399,8 @@ int EkhoImpl::stop(void) {
 #else
   espeak_Cancel();
 #endif
+
+  pthread_mutex_unlock(&mSpeechQueueMutex);
 
   if (EkhoImpl::mDebug) {
     cerr << "EkhoImpl::stop " << " end" << endl;
@@ -1832,11 +1844,13 @@ void EkhoImpl::synthWithEspeak(string text) {
     cerr << "EkhoImpl::synthWithEspeak: " << text << endl;
   }
 
-  gSynthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
-  sonicSetRate(gEkho->mSonicStream, 22050.0 / mDict.mSfinfo.samplerate);
-  espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
-               espeakCHARS_UTF8, 0, 0);
-  sonicSetRate(gEkho->mSonicStream, 1);
+  if (!isStopped) {
+    gSynthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
+    sonicSetRate(gEkho->mSonicStream, 22050.0 / mDict.mSfinfo.samplerate);
+    espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
+                 espeakCHARS_UTF8, 0, 0);
+    sonicSetRate(gEkho->mSonicStream, 1);
+  }
 }
 
 int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
@@ -1850,7 +1864,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   }
 
   if (!userdata) userdata = this;
-  this->isStopped = false;
+  //this->isStopped = false;
   this->isPaused = false;
   float pause = 0;
   int size = 0;

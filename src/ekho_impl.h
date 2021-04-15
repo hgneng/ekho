@@ -252,6 +252,9 @@ class EkhoImpl {
 
   void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
 
+  bool isStopped;
+  pthread_mutex_t mSpeechQueueMutex;
+
  private:
   int init(void);
   int initPcm(void);
@@ -272,13 +275,11 @@ class EkhoImpl {
 
   bool isRecording;
   bool isPaused;
-  bool isStopped;
   bool isEnded;
   bool isSoundInited;
   string player;  // "ogg123", "mplayer" or "play"
   SNDFILE *mSndFile;
   queue<SpeechOrder> mSpeechQueue;
-  pthread_mutex_t mSpeechQueueMutex;
   pthread_cond_t mSpeechQueueCond;
 
   short mPendingPcm[PENDING_PCM_FRAMES * 2];
