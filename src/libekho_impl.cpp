@@ -1427,6 +1427,11 @@ void EkhoImpl::setSpeed(int tempo_delta) {
         if (EkhoImpl::mDebug) {
           cerr << "mDict.mSfinfo.frames=" << mDict.mSfinfo.frames << ", samplerate=" << mDict.mSfinfo.samplerate << endl;
         }
+
+        // Changing tempo will add noise, we'd better don't do it.
+        if (baseDelta < 10 && baseDelta > -10) {
+          baseDelta = 0;
+        }
       }
 
       if (baseDelta + tempo_delta != 0 || tempo_delta != this->tempoDelta) {
@@ -1448,6 +1453,12 @@ int EkhoImpl::getSpeed(void) {
 
 void EkhoImpl::setEnglishSpeed(int delta) {
   int baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
+
+  // Changing tempo will add noise, we'd better don't do it.
+  if (baseDelta < 10 && baseDelta > -10) {
+    baseDelta = 0;
+  }
+  
   if (EkhoImpl::mDebug) {
     cerr << "setEnglishSpeed espeakRATE default: " << espeak_GetParameter(espeakRATE, 0) << endl;
     cerr << "setEnglishSpeed espeakRATE current: " << espeak_GetParameter(espeakRATE, 1) << endl;
