@@ -1063,8 +1063,11 @@ list<Word> Dict::lookupWord(const char *text) {
 	      //cout << "found chinese character: " << itor->getUtf8() << ", " << mDictItemArray[itor->code].character.getUtf8() << endl;
         last_chinese_word += itor->getUtf8();
         if (!lastword.empty()) {
-	      char c = lastword[0];
-          if (lastword.length() == 1 && ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= 128 && c < 256))) {
+	      unsigned char c = lastword[0];
+          if (lastword.length() == 1 &&
+              ((c >= 'A' && c <= 'Z') ||
+               (c >= 'a' && c <= 'z') ||
+               (c >= 128 && c < 256 /* always true, but keep it to help understand */))) {
 	          wordlist.push_back(Word(lastword, ENGLISH_TEXT, lookup(lastword), lookupOverlap(lastword)));
           } else {
             wordlist.push_back(Word(lastword, ENGLISH_TEXT));
