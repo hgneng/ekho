@@ -27,6 +27,155 @@
 using namespace std;
 using namespace ekho;
 
+bool Audio::debug = false;
+
+Audio::~Audio(void) {
+#ifndef ENABLE_SOUNDTOUCH
+  if (this->processorStream) {
+    sonicDestroyStream(this->processorStream);
+    this->processorStream = 0;
+  }
+#endif
+}
+
+void Audio::initProcessor(int samplerate, int channels) {
+  this->sampleRate = samplerate;
+  this->channels = channels;
+
+#ifdef ENABLE_SOUNDTOUCH
+  this->pSoundtouch.setSampleRate(mDict.mSfinfo.samplerate);
+  this->pSoundtouch.setChannels(1);
+  this->pSoundtouch.setSetting(SETTING_USE_QUICKSEEK, 1);
+#else
+  this->processorStream = sonicCreateStream(samplerate, 1);
+  sonicSetQuality(this->processorStream, 1); // high quality but slower
+#endif
+
+  this->hasProcessorInited = true;
+}
+
+void Audio::destroyProcessor() {
+  if (this->processorStream) {
+    sonicDestroyStream(this->processorStream);
+    this->processorStream = 0;
+  }
+}
+
+int Audio::setTempo(int delta) {
+#ifdef ENABLE_SOUNDTOUCH
+  if (delta >= -50 && delta <= 300) {
+    this->tempoDelta = delta;
+  } else {
+    this->tempoDelta = 0;
+  }
+  this->pSoundtouch.setTempoChange(this->tempoDelta);
+#else
+  if (delta >= -50 && delta <= 300) {
+    if (this->processorStream) {
+      sonicSetSpeed(this->processorStream, (float)(100 + delta) / 100);
+    }
+    this->tempoDelta = delta;
+  }
+#endif
+
+  return this->tempoDelta;
+}
+
+int Audio::setSampleRate(int rate) {
+  flushFrames();
+  sonicSetRate(this->processorStream, (float)rate / this->sampleRate);
+  this->currentSampleRate = rate;
+  return rate;
+}
+
+int Audio::setPitch(int delta) {
+  if (!hasProcessorInited) {
+    cerr << "Audio processor has not initialized." << endl;
+    return 0;
+  }
+
+  if (Audio::debug) {
+    cerr << "Audio::setPitch(" << delta << ")" << endl;
+  }
+
+#ifdef ENABLE_SOUNDTOUCH
+  if (delta >= -100 && delta <= 100) {
+    this->pitchDelta = delta;
+  } else {
+    this->pitchDelta = 0;
+  }
+  this->pSoundtouch.setPitchOctaves((float)this->pitchDelta / 100);
+#else
+  if (this->processorStream) {
+    // sonicSetChordPitch(mSonicStream, 1);
+    sonicSetPitch(this->processorStream, (float)(100 + delta) / 100);
+  }
+  this->pitchDelta = delta;
+#endif
+
+  return this->pitchDelta;
+}
+
+int Audio::setVolume(int delta) {
+  if (!hasProcessorInited) {
+    cerr << "Audio processor has not initialized." << endl;
+    return 0;
+  }
+
+  if (delta >= -100 && delta <= 100) {
+    this->volumeDelta = delta;
+    // @TODO: Using sonic's setVolume doesn't work. Don't know why...
+    if (this->processorStream) {
+      sonicSetVolume(this->processorStream, (float)(100 + delta) / 100);
+    }
+  }
+
+  return this->volumeDelta;
+}
+
+int Audio::setRate(int delta) {
+#ifdef ENABLE_SOUNDTOUCH
+  if (delta >= -50 && delta <= 100) {
+    this->rateDelta = delta;
+  } else {
+    this->rateDelta = 0;
+  }
+  this->pSoundtouch.setRateChange(this->rateDelta);
+#else
+  if (this->processorStream) {
+    sonicSetRate(this->processorStream, (float)(100 + delta) / 100);
+  }
+  this->rateDelta = delta;
+#endif
+
+  return this->rateDelta;
+}
+
+int Audio::readShortFrames(short buffer[], int size) {
+  if (!this->processorStream) {
+    cerr << "processorStream not initialized" << endl;
+    return 0;
+  }
+  // sonic会自动剪去一些空白的frame?
+  return sonicReadShortFromStream(this->processorStream, buffer, size);
+}
+
+int Audio::writeShortFrames(short buffer[], int size) {
+  if (!this->processorStream) {
+    cerr << "processorStream not initialized" << endl;
+    return 0;
+  }
+  return sonicWriteShortToStream(this->processorStream, buffer, size);
+}
+
+void Audio::flushFrames() {
+  if (!this->processorStream) {
+    cerr << "processorStream not initialized" << endl;
+    return;
+  }
+  sonicFlushStream(this->processorStream);
+}
+
 void Audio::play(const string& path) {
   //cerr << "Audio::play:" << path << endl;
 

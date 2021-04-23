@@ -31,7 +31,6 @@
 #include "ekho_typedef.h"
 #include "audio.h"
 #include "espeak-ng/speak_lib.h"
-#include "sonic.h"
 
 #ifdef HAVE_PULSEAUDIO
 #include <pulse/error.h>
@@ -83,6 +82,7 @@ class EkhoImpl {
   static void debug(bool flag = true) {
     mDebug = flag;
     Dict::mDebug = flag;
+    Audio::debug = flag;
   };
 
   EkhoImpl(void);
@@ -169,25 +169,25 @@ class EkhoImpl {
    *    If input out of range, tempo_delta will restore to 0
    */
   void setSpeed(int tempo_delta);
-  int getSpeed(void);
+  int getSpeed(void) { return this->tempoDelta + 30 /* @TODO: 30 is for bd voice?? */; }
   void setEnglishSpeed(int delta); /* -50 .. 150 */
-  int getEnglishSpeed(void);
+  int getEnglishSpeed(void) { return this->englishSpeedDelta - 20 /* @TODO: slower for bd voice?? */; }
 
   /* Set pitch delta
    * Parameter:
    *    pitch_delta (-100 .. 100, in percent)
    *    If input out of range, pitch_delta will restore to 0
    */
-  void setPitch(int pitch_delta);
-  int getPitch(void);
+  void setPitch(int pitch_delta) { this->pitchDelta = this->audio->setPitch(pitch_delta); }
+  int getPitch(void) { return this->pitchDelta; };
 
   /* Set volume delta
    * Parameter:
    *    volume_delta (-100 .. 100, in percent)
    *    If input out of range, volume_delta will restore to 0
    */
-  void setVolume(int volume_delta);
-  int getVolume(void);
+  void setVolume(int volume_delta){ this->volumeDelta = this->audio->setVolume(volume_delta); }
+  int getVolume(void) { return this->volumeDelta; }
 
   /* Set rate delta
    * Parameter:
@@ -195,8 +195,8 @@ class EkhoImpl {
    *    If input out of range, rate_delta will restore to 0
    * Return: 0
    */
-  void setRate(int rate_delta);
-  int getRate(void);
+  void setRate(int rate_delta) { this->rateDelta = this->audio->setRate(rate_delta); }
+  int getRate(void) { return this->rateDelta; }
 
   /**
    * Set English Voice
@@ -216,8 +216,6 @@ class EkhoImpl {
   inline bool isSpeaking(void) { return !mSpeechQueue.empty(); }
 
   string genTempFilename(void);
-
-  sonicStream mSonicStream;
 
   static void *speechDaemon(void *args);
   static int writePcm(short *pcm, int frames, void *arg, OverlapType type,

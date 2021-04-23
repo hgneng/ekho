@@ -38,7 +38,6 @@
 #include "ekho_impl.h"
 #include "ssml.h"
 #include "audio.h"
-#include "sonic.h"
 #include "utf8.h"
 
 #ifdef ENABLE_WIN32
@@ -104,7 +103,6 @@ int EkhoImpl::init(void) {
   this->isSoundInited = false;
   this->isSpeechThreadInited = false;
 
-  mSonicStream = 0;
   mPcmCache = true;
 
 #ifdef HAVE_PULSEAUDIO
@@ -142,12 +140,7 @@ EkhoImpl::~EkhoImpl(void) {
   }
   closeStream();
 
-#ifndef ENABLE_SOUNDTOUCH
-  if (mSonicStream) {
-    sonicDestroyStream(mSonicStream);
-    mSonicStream = 0;
-  }
-#endif
+  delete this->audio;
 
 #ifdef ENABLE_FESTIVAL
   festival_eval_command("(audio_mode 'close)");
@@ -212,14 +205,8 @@ int EkhoImpl::initStream(void) {
     cerr << "Sample rate not detected: " << mDict.getLanguage() << endl;
     return -1;
   }
-#ifdef ENABLE_SOUNDTOUCH
-  this->pSoundtouch.setSampleRate(mDict.mSfinfo.samplerate);
-  this->pSoundtouch.setChannels(1);
-  this->pSoundtouch.setSetting(SETTING_USE_QUICKSEEK, 1);
-#else
-  mSonicStream = sonicCreateStream(mDict.mSfinfo.samplerate, 1);
-// sonicSetQuality(mSonicStream, 1); // high quality but slower`
-#endif
+
+  this->audio->initProcessor(mDict.mSfinfo.samplerate, 1);
 
 #ifdef HAVE_PULSEAUDIO
   /* create stream */
@@ -258,10 +245,7 @@ int EkhoImpl::initStream(void) {
 }  // end of initStream
 
 void EkhoImpl::closeStream(void) {
-  if (mSonicStream) {
-    sonicDestroyStream(mSonicStream);
-    mSonicStream = 0;
-  }
+  this->audio->destroyProcessor();
 
 #ifdef HAVE_PULSEAUDIO
   if (this->stream) {
@@ -590,9 +574,6 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
   int error;
 
   EkhoImpl *pEkho = (EkhoImpl *)arg;
-  if (!pEkho->mSonicStream) {
-    return -1;
-  }
 
   pthread_mutex_lock(&(pEkho->mSpeechQueueMutex));
   if (!pEkho->isStopped) {
@@ -600,9 +581,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 
     if (flush_frames) {
       do {
-        // sonic会自动剪去一些空白的frame
-        frames = sonicReadShortFromStream(pEkho->mSonicStream, buffer, BUFFER_SIZE);
-        //cerr << "sonicReadShortFromStream: " << frames << endl;
+        frames = pEkho->audio->readShortFrames(buffer, BUFFER_SIZE);
 
         if (frames > 0) {
           if (tofile) {
@@ -630,10 +609,6 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
         }
       } while (frames > 0);
     }
-
-    if (!frames) {
-      sonicFlushStream(pEkho->mSonicStream);  // TODO: needed?
-    }
   }
   pthread_mutex_unlock(&(pEkho->mSpeechQueueMutex));
 
@@ -642,11 +617,9 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 }
 
 int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
-  if (!mSonicStream) return 0;
-
   while (frames > PENDING_PCM_FRAMES - mPendingFrames) {
     memcpy(mPendingPcm + mPendingFrames, pcm, (PENDING_PCM_FRAMES - mPendingFrames) * 2);
-    sonicWriteShortToStream(mSonicStream, mPendingPcm, PENDING_PCM_FRAMES);
+    this->audio->writeShortFrames(mPendingPcm, PENDING_PCM_FRAMES);
     pcm += PENDING_PCM_FRAMES - mPendingFrames;
     frames -= PENDING_PCM_FRAMES - mPendingFrames;
     mPendingFrames = 0;
@@ -801,7 +774,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
       break;
   }
 
-  sonicWriteShortToStream(mSonicStream, mPendingPcm, flushframes);
+  this->audio->writeShortFrames(mPendingPcm, flushframes);
   mPendingFrames -= flushframes;
   if (mPendingFrames > 0) {
     memcpy(mPendingPcm, mPendingPcm + flushframes, mPendingFrames * 2);
@@ -1410,45 +1383,27 @@ int EkhoImpl::stop(void) {
 }
 
 void EkhoImpl::setSpeed(int tempo_delta) {
-#ifdef ENABLE_SOUNDTOUCH
-  if (tempo_delta >= -50 && tempo_delta <= 300) {
-    this->tempoDelta = tempo_delta;
-  } else {
-    this->tempoDelta = 0;
-  }
-  this->pSoundtouch.setTempoChange(this->tempoDelta);
-#else
-  if (tempo_delta >= -50 && tempo_delta <= 300) {
-    if (mSonicStream) {
-      // nomralize voice's tempo
-      int baseDelta = 0;
-      if (mDict.getLanguage() == MANDARIN && mDict.mSfinfo.frames > 0) {
-        baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
-        if (EkhoImpl::mDebug) {
-          cerr << "mDict.mSfinfo.frames=" << mDict.mSfinfo.frames << ", samplerate=" << mDict.mSfinfo.samplerate << endl;
-        }
-
-        // Changing tempo will add noise, we'd better don't do it.
-        if (baseDelta < 10 && baseDelta > -10) {
-          baseDelta = 0;
-        }
-      }
-
-      if (baseDelta + tempo_delta != 0 || tempo_delta != this->tempoDelta) {
-        if (mDict.mDebug) {
-          cerr << "baseDelta=" << baseDelta << ", tempo delta: " << baseDelta + tempo_delta << endl;
-        }
-
-        sonicSetSpeed(mSonicStream, (float)(100 + baseDelta + tempo_delta) / 100);
-      }
+  // nomralize voice's tempo
+  int baseDelta = 0;
+  if (mDict.getLanguage() == MANDARIN && mDict.mSfinfo.frames > 0) {
+    baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
+    if (EkhoImpl::mDebug) {
+      cerr << "mDict.mSfinfo.frames=" << mDict.mSfinfo.frames << ", samplerate=" << mDict.mSfinfo.samplerate << endl;
     }
-    this->tempoDelta = tempo_delta;
-  }
-#endif
-}
 
-int EkhoImpl::getSpeed(void) {
-  return this->tempoDelta + 30 /* 30 is for bd voice */; 
+    // Changing tempo will add noise, we'd better don't do it.
+    if (baseDelta < 10 && baseDelta > -10) {
+      baseDelta = 0;
+    }
+  }
+
+  if (baseDelta + tempo_delta != 0 || tempo_delta != this->tempoDelta) {
+    if (this->mDebug) {
+      cerr << "baseDelta=" << baseDelta << ", tempo delta: " << baseDelta + tempo_delta << endl;
+    }
+
+    this->tempoDelta = this->audio->setTempo(baseDelta + tempo_delta);
+  }
 }
 
 void EkhoImpl::setEnglishSpeed(int delta) {
@@ -1474,61 +1429,6 @@ void EkhoImpl::setEnglishSpeed(int delta) {
     }
   }
 }
-
-int EkhoImpl::getEnglishSpeed(void) {
-  return this->englishSpeedDelta - 20 /* slower for bd voice */;
-}
-
-void EkhoImpl::setPitch(int pitch_delta) {
-  if (EkhoImpl::mDebug) {
-    cerr << "Ekho::setPitch(" << pitch_delta << ")" << endl;
-  }
-#ifdef ENABLE_SOUNDTOUCH
-  if (pitch_delta >= -100 && pitch_delta <= 100) {
-    this->pitchDelta = pitch_delta;
-  } else {
-    this->pitchDelta = 0;
-  }
-  this->pSoundtouch.setPitchOctaves((float)this->pitchDelta / 100);
-#else
-  if (mSonicStream) {
-    //    sonicSetChordPitch(mSonicStream, 1);
-    sonicSetPitch(mSonicStream, (float)(100 + pitch_delta) / 100);
-  }
-  this->pitchDelta = pitch_delta;
-#endif
-}
-
-int EkhoImpl::getPitch(void) { return this->pitchDelta; }
-
-void EkhoImpl::setVolume(int volume_delta) {
-  if (volume_delta >= -100 && volume_delta <= 100) {
-    this->volumeDelta = volume_delta;
-    // Using sonic's setVolume doesn't work. Don't know why...
-    //  } else {
-    if (mSonicStream)
-      sonicSetVolume(mSonicStream, (float)(100 + volume_delta) / 100);
-    //    this->volumeDelta = volume_delta;
-  }
-}
-
-int EkhoImpl::getVolume(void) { return this->volumeDelta; }
-
-void EkhoImpl::setRate(int rate_delta) {
-#ifdef ENABLE_SOUNDTOUCH
-  if (rate_delta >= -50 && rate_delta <= 100) {
-    this->rateDelta = rate_delta;
-  } else {
-    this->rateDelta = 0;
-  }
-  this->pSoundtouch.setRateChange(this->rateDelta);
-#else
-  if (mSonicStream) sonicSetRate(mSonicStream, (float)(100 + rate_delta) / 100);
-  this->rateDelta = rate_delta;
-#endif
-}
-
-int EkhoImpl::getRate(void) { return this->rateDelta; }
 
 int EkhoImpl::startServer(int port) {
   int sockfd, clientFd;        // listen on sock_fd, new connection on clientFd
@@ -1857,10 +1757,10 @@ void EkhoImpl::synthWithEspeak(string text) {
 
   if (!isStopped) {
     gSynthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
-    sonicSetRate(gEkho->mSonicStream, 22050.0 / mDict.mSfinfo.samplerate);
+    this->audio->setSampleRate(22050);
     espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
                  espeakCHARS_UTF8, 0, 0);
-    sonicSetRate(gEkho->mSonicStream, 1);
+    this->audio->setSampleRate(this->audio->sampleRate);
   }
 }
 

@@ -36,7 +36,6 @@
 #include "ekho_dict.h"
 #include "ekho_impl.h"
 #include "ekho_typedef.h"
-#include "sonic.h"
 #include "utf8.h"
 #include "espeak-ng/speak_lib.h"
 

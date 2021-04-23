@@ -25,6 +25,7 @@
 #include <string>
 #include "ekho_typedef.h"
 #include "config.h"
+#include "sonic.h"
 
 #ifdef HAVE_PULSEAUDIO
 #include <pulse/error.h>
@@ -36,16 +37,40 @@ using namespace std;
 namespace ekho {
 class Audio {
   public:
-    Audio(void) {
-      speechdSynthCallback = 0;
-    }
-    SpeechdSynthCallback *speechdSynthCallback;
+    ~Audio(void);
+  
+    static bool debug;
+    sonicStream processorStream = 0;
+    int pitchDelta = 0;
+    int volumeDelta = 0;
+    int rateDelta = 0;
+    int tempoDelta = 0;
+    int sampleRate = 0;
+    int currentSampleRate = 0;
+    int channels = 0;
+    SpeechdSynthCallback *speechdSynthCallback = 0;
 
 #ifdef HAVE_PULSEAUDIO
     pa_simple *pulseAudio = 0;
 #endif
 
+    // processor
+    void initProcessor(int samplerate, int channels);
+    void destroyProcessor();
+    int setPitch(int delta);
+    int setVolume(int delta);
+    int setRate(int delta);
+    int setTempo(int delta);
+    int setSampleRate(int rate);
+    int readShortFrames(short buffer[], int size);
+    int writeShortFrames(short buffer[], int size);
+    void flushFrames();
+
+    // player
     void play(const string& path);
+
+  private:
+    bool hasProcessorInited = false;
 };
 }
 #endif
