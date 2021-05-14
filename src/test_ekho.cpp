@@ -41,6 +41,16 @@ void callback(void *arg) {
 }
 
 int main(int argc, char**argv) {
+  // test dictionary
+  Dict dict(CANTONESE);
+  list<PhoneticSymbol*> phons = dict.lookup("为什么，画面画画");
+  for (list<PhoneticSymbol*>::iterator li = phons.begin(); li != phons.end(); li++) {
+    cout << (*li)->symbol << " ";
+  }
+  cout << endl;
+  dict.setLanguage(MANDARIN);
+  cout << "的拼音：" << dict.lookup(0x7684)->symbol << endl;
+
   // test numbers
   Ekho wong("Cantonese");
   wong.debug();
@@ -83,16 +93,6 @@ int main(int argc, char**argv) {
   Ekho *wong_v4 = new Ekho("jyutping-wong-44100-v4");
   wong_v4->blockSpeak("123");
   delete(wong_v4);
-
-  // test dictionary
-  Dict dict(CANTONESE);
-  list<PhoneticSymbol*> phons = dict.lookup("为什么，画面画画");
-  for (list<PhoneticSymbol*>::iterator li = phons.begin(); li != phons.end(); li++) {
-    cout << (*li)->symbol << " ";
-  }
-  cout << endl;
-  dict.setLanguage(MANDARIN);
-  cout << dict.lookup(0x7684) << endl;
 
 /*
   Ekho *wong2 = new Ekho("Cantonese");

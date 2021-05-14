@@ -38,6 +38,11 @@ extern "C" {
 }
 #endif
 
+#ifdef DEBUG_ANDROID
+#define LOG_TAG "Ekho Engine"
+#include "Log.h"
+#endif
+
 using namespace std;
 
 namespace ekho {

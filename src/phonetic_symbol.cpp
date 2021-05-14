@@ -23,6 +23,11 @@
 #include <sndfile.h>
 #include <string.h>
 #include "ekho_dict.h"
+#ifdef DEBUG_ANDROID
+#define LOG_TAG "Ekho Engine"
+#include "Log.h"
+#endif
+
 using namespace std;
 namespace ekho {
 

@@ -27,6 +27,12 @@
 #include <sndfile.h>
 #include <queue>
 #include "config.h"
+
+#ifdef DEBUG_ANDROID
+#define LOG_TAG "Ekho Engine"
+#include "Log.h"
+#endif
+
 #include "ekho_dict.h"
 #include "ekho_typedef.h"
 #include "sonic.h"
@@ -39,11 +45,6 @@
 #ifdef ANDROID
 //#include "flite.h"
 //#define ENABLE_ENGLISH
-#endif
-
-#ifdef DEBUG_ANDROID
-#define LOG_TAG "Ekho Engine"
-#include "Log.h"
 #endif
 
 using namespace std;

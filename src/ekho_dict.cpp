@@ -25,6 +25,7 @@
 #include <sys/stat.h>
 #include <fstream>
 #include <iostream>
+#include <stdio.h>
 #include "character.h"
 #include "phonetic_symbol.h"
 #include "stdafx.h"
@@ -172,12 +173,18 @@ string Dict::getDefaultDataPath(void) {
       path = "/usr/local/share/ekho-data";
     } else if (isDir("/usr/share/ekho-data")) {
       path = "/usr/share/ekho-data";
+    } else if (isDir("/sdcard/ekho/ekho-data")) {
+      path = "/sdcard/ekho/ekho-data";
     } else {
       path = "";
     }
   }
 
   if (mDebug) {
+#ifdef DEBUG_ANDROID
+    LOGI("current dir: %s", GetCurrentWorkingDir().c_str());
+    LOGI("EKHO_DATA_PATH: %s", path);
+#endif
     cerr << "current dir: " << GetCurrentWorkingDir() << endl;
     cerr << "EKHO_DATA_PATH: " << path << endl;
   }
@@ -538,7 +545,7 @@ int Dict::setVoice(string voice) {
       ps = lookup(22986);
       if (!ps) {
 #ifdef DEBUG_ANDROID
-        LOGD("Fail to lookup(de)");
+        LOGI("Fail to lookup(de)");
 #endif
         cerr << "Fail to lookup char of " << key_char << endl;
         return -1;
@@ -1575,6 +1582,12 @@ int Dict::loadEkhoDict(const char *path) {
 #ifdef DEBUG_PERF
   clock_t begin_clock = clock();
 #endif
+
+  if (mDebug && !infile.good()) {
+#ifdef DEBUG_ANDROID
+    LOGI("fail to read ekho dict file: %s", path);
+#endif
+  }
 
   while (infile.good()) {
     // get character code

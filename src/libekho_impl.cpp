@@ -145,7 +145,9 @@ EkhoImpl::~EkhoImpl(void) {
 
 #ifdef ENABLE_FESTIVAL
   festival_eval_command("(audio_mode 'close)");
-#elif ENABLE_ESPEAK
+#endif
+
+#ifdef ENABLE_ESPEAK
   espeak_Terminate();
 #endif
 
@@ -297,7 +299,9 @@ int EkhoImpl::initEnglish(void) {
   } else {
     festival_tidy_up();
   }
-#elif ENABLE_ESPEAK
+#endif
+
+#ifdef ENABLE_ESPEAK
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
   this->setEnglishSpeed(this->getEnglishSpeed());
@@ -1375,7 +1379,9 @@ int EkhoImpl::stop(void) {
   this->mPendingFrames = 0;
 #ifdef ENABLE_FESTIVAL
   festival_eval_command("(audio_mode 'shutup)");
-#elif ENABLE_ESPEAK
+#endif
+
+#ifdef ENABLE_ESPEAK
   espeak_Cancel();
 #endif
 
