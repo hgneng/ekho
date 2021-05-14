@@ -30,7 +30,6 @@
 #include "ekho_dict.h"
 #include "ekho_typedef.h"
 #include "audio.h"
-#include "espeak-ng/speak_lib.h"
 
 #ifdef HAVE_PULSEAUDIO
 #include <pulse/error.h>
@@ -38,8 +37,15 @@
 #endif
 
 #ifdef ANDROID
-#include "flite.h"
+//#include "flite.h"
+//#define ENABLE_ENGLISH
+#else
 #define ENABLE_ENGLISH
+#define ENABLE_ESPEAK
+#endif
+
+#ifdef ENABLE_ESPEAK
+#include "espeak-ng/speak_lib.h"
 #endif
 
 #ifdef DEBUG_ANDROID
@@ -76,7 +82,7 @@ class EkhoImpl {
 
   static bool mDebug;
 #ifdef ANDROID
-  cst_voice *mFliteVoice;
+//  cst_voice *mFliteVoice;
 #endif
 
   static void debug(bool flag = true) {

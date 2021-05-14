@@ -37,7 +37,10 @@
 #include "ekho_impl.h"
 #include "ekho_typedef.h"
 #include "utf8.h"
+
+#ifdef ENABLE_ESPEAK
 #include "espeak-ng/speak_lib.h"
+#endif
 
 #ifdef ENABLE_WIN32
 #include <windows.h>
@@ -214,7 +217,11 @@ void Ekho::setPunctuationMode(EkhoPuncType mode) {
   this->m_pImpl->setPunctuationMode(mode);
 }
 
-void Ekho::sing(string filepath) { this->m_pImpl->sing(filepath); }
+void Ekho::sing(string filepath) {
+#ifdef ENABLE_MUSIC
+  this->m_pImpl->sing(filepath); 
+#endif
+}
 
 int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
   this->m_pImpl->setSpeechdSynthCallback(callback);
@@ -227,6 +234,7 @@ int Ekho::getSampleRate() {
 }
 
 void Ekho::setCapLetterRecognMode(EkhoCapLetterRecognType mode) {
+#ifdef ENABLE_ESPEAK
   int espeak_cap_mode = 0;
   switch (mode) {
   case EKHO_CAP_NONE:
@@ -242,4 +250,5 @@ void Ekho::setCapLetterRecognMode(EkhoCapLetterRecognType mode) {
 
   espeak_ERROR ret =
       espeak_SetParameter(espeakCAPITALS, espeak_cap_mode, 1);
+#endif
 }

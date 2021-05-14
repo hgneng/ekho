@@ -37,8 +37,8 @@
 #endif
 
 #ifdef ANDROID
-#include "flite.h"
-#define ENABLE_ENGLISH
+//#include "flite.h"
+//#define ENABLE_ENGLISH
 #endif
 
 #ifdef DEBUG_ANDROID

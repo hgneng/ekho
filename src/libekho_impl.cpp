@@ -56,8 +56,9 @@
 #include <sys/wait.h>
 #endif
 
-#define ENABLE_ENGLISH
+#ifdef ENABLE_ESPEAK
 #include "espeak-ng/speak_lib.h"
+#endif
 #ifdef ENABLE_FESTIVAL
 #include "festival/festival.h"
 #endif
@@ -110,7 +111,7 @@ int EkhoImpl::init(void) {
 #endif
 
 #ifdef ANDROID
-  mFliteVoice = 0;
+//  mFliteVoice = 0;
 #endif
 
   memset(mAlphabetPcmCache, 0, 26 * sizeof(const char*));
@@ -144,7 +145,7 @@ EkhoImpl::~EkhoImpl(void) {
 
 #ifdef ENABLE_FESTIVAL
   festival_eval_command("(audio_mode 'close)");
-#else
+#elif ENABLE_ESPEAK
   espeak_Terminate();
 #endif
 
@@ -262,10 +263,13 @@ void EkhoImpl::closeStream(void) {
 }
 
 static EkhoImpl *gEkho = NULL;
+
+#ifdef ENABLE_ESPEAK
 static int espeakSynthCallback(short *wav, int numsamples,
                                espeak_EVENT *events) {
   return gSynthCallback(wav, numsamples, gEkho, OVERLAP_NONE);
 }
+#endif
 
 static bool gsIsFestivalInited = false;
 int EkhoImpl::initEnglish(void) {
@@ -293,7 +297,7 @@ int EkhoImpl::initEnglish(void) {
   } else {
     festival_tidy_up();
   }
-#else
+#elif ENABLE_ESPEAK
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
   this->setEnglishSpeed(this->getEnglishSpeed());
@@ -1139,6 +1143,7 @@ int EkhoImpl::play(string file) {
 // It's caller's responsibility to delete the returned pointer
 const char *EkhoImpl::getPcmFromFestival(string text, int &size) {
 #ifdef ANDROID
+#ifdef ENABLE_ENGLISH
   if (mFliteVoice) {
     cst_wave *flite_wave = flite_text_to_wave(text.c_str(), mFliteVoice);
     short *pcm = flite_wave->samples;
@@ -1151,6 +1156,7 @@ const char *EkhoImpl::getPcmFromFestival(string text, int &size) {
   } else {
     return 0;
   }
+#endif
 #endif
 
 #ifdef ENABLE_FESTIVAL
@@ -1369,7 +1375,7 @@ int EkhoImpl::stop(void) {
   this->mPendingFrames = 0;
 #ifdef ENABLE_FESTIVAL
   festival_eval_command("(audio_mode 'shutup)");
-#else
+#elif ENABLE_ESPEAK
   espeak_Cancel();
 #endif
 
@@ -1407,6 +1413,7 @@ void EkhoImpl::setSpeed(int tempo_delta) {
 }
 
 void EkhoImpl::setEnglishSpeed(int delta) {
+#ifdef ENABLE_ESPEAK
   int baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
 
   // Changing tempo will add noise, we'd better don't do it.
@@ -1428,6 +1435,7 @@ void EkhoImpl::setEnglishSpeed(int delta) {
            << ", result=" << ret << endl;
     }
   }
+#endif
 }
 
 int EkhoImpl::startServer(int port) {
@@ -1751,6 +1759,7 @@ void EkhoImpl::translatePunctuations(string &text, EkhoPuncType mode) {
 }
 
 void EkhoImpl::synthWithEspeak(string text) {
+#ifdef ENABLE_ESPEAK
   if (EkhoImpl::mDebug) {
     cerr << "EkhoImpl::synthWithEspeak: " << text << endl;
   }
@@ -1762,6 +1771,7 @@ void EkhoImpl::synthWithEspeak(string text) {
                  espeakCHARS_UTF8, 0, 0);
     this->audio->setSampleRate(this->audio->sampleRate);
   }
+#endif
 }
 
 int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
