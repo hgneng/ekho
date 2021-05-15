@@ -22,6 +22,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include <sndfile.h>
 #include "audio.h"
 using namespace std;
@@ -215,4 +216,23 @@ void Audio::play(const string& path) {
 
   delete[] pcm;
   sf_close(sndfile);
+}
+
+// generate temp filename
+// to be improve...
+string Audio::genTempFilename() {
+#ifdef ENABLE_WIN32
+  string tmpFilePath("\\TEMP\\ekho");
+#else
+#ifdef ANDROID
+  string tmpFilePath("/sdcard/ekho/tmp");
+#else
+  string tmpFilePath("/tmp/ekho");
+#endif
+#endif
+  static int count = 0;
+  count++;
+  tmpFilePath.append(to_string(count));
+
+  return tmpFilePath;
 }

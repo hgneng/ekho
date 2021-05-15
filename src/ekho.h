@@ -112,6 +112,8 @@ class Ekho {
   //int synth(string text, SynthCallback *callback, void *userdata = 0);
   int synth2(string text, SynthCallback *callback, void *userdata = 0);
 
+  short* synth3(string text, int& pcmSize);
+
   /* no pause is allowed
    * it will return after all sound is played
    */
@@ -206,8 +208,6 @@ class Ekho {
    * Check whether is speaking
    */
   bool isSpeaking();
-
-  string genTempFilename(void);
 
   sonicStream mSonicStream;
 

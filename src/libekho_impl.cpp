@@ -387,27 +387,6 @@ int EkhoImpl::saveOgg(string text, string filename) {
   return 0;
 }
 
-// generate temp filename
-// to be improve...
-string EkhoImpl::genTempFilename() {
-#ifdef ENABLE_WIN32
-  string tmpfile("\\TEMP\\ekho_");
-#else
-  string tmpfile("/tmp/ekho_");
-#endif
-  char port_str[10];
-  sprintf(port_str, "%d", mPort);
-  tmpfile += port_str;
-  /* this is a bit slow, use a fixed filename instead
-  int fd = mkstemp(tmpfile);
-  close(fd);
-  string filename = tmpfile;
-
-  return filename;
-  */
-  return tmpfile;
-}
-
 #ifdef HAVE_MP3LAME
 int EkhoImpl::saveMp3(string text, string filename) {
   int pcmswapbytes;
@@ -415,7 +394,7 @@ int EkhoImpl::saveMp3(string text, string filename) {
   lame_global_flags *gf;
   FILE *outf;
 
-  string tmp_wav = genTempFilename() + ".wav";
+  string tmp_wav = Audio::genTempFilename() + ".wav";
   this->saveWav(text, tmp_wav);
 
   /* open the input file */
@@ -1536,14 +1515,14 @@ int EkhoImpl::startServer(int port) {
       this->setSpeed(buffer[1]);
       this->setPitch(buffer[2]);
       this->setVolume(buffer[3]);
-      tmpfile = genTempFilename() + ".ogg";
+      tmpfile = Audio::genTempFilename() + ".ogg";
       this->saveOgg(buffer + 4, tmpfile);
     } else if (buffer[0] == GETPHONSYMBOLS) {
       // get phonetic symbos of text
       if (EkhoImpl::mDebug) {
         cerr << "cmd=GETPHONSYMBOLS, text=" << buffer + 1 << endl;
       }
-      tmpfile = genTempFilename() + ".sym";
+      tmpfile = Audio::genTempFilename() + ".sym";
       list<PhoneticSymbol *> phons = mDict.lookup(buffer + 1);
       ofstream fs;
       fs.open(tmpfile.c_str());
@@ -1562,7 +1541,7 @@ int EkhoImpl::startServer(int port) {
       this->setSpeed(buffer[1]);
       this->setPitch(buffer[2]);
       this->setVolume(buffer[3]);
-      tmpfile = genTempFilename() + ".mp3";
+      tmpfile = Audio::genTempFilename() + ".mp3";
 #ifdef HAVE_MP3LAME
       this->saveMp3(buffer + 4, tmpfile);
 #endif

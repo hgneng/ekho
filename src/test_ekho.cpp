@@ -41,6 +41,11 @@ void callback(void *arg) {
 }
 
 int main(int argc, char**argv) {
+  // test synth3
+  Ekho *ekho = new Ekho("Mandarin");
+  int pcmSize;
+  short *pcm = ekho->synth3("123", pcmSize);
+
   // test dictionary
   Dict dict(CANTONESE);
   list<PhoneticSymbol*> phons = dict.lookup("为什么，画面画画");

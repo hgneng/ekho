@@ -69,6 +69,9 @@ class Audio {
     // player
     void play(const string& path);
 
+    // tools
+    static string genTempFilename();
+
   private:
     bool hasProcessorInited = false;
 };

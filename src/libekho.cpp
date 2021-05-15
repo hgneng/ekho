@@ -100,10 +100,6 @@ void Ekho::setPcmCache(bool b) { this->m_pImpl->setPcmCache(b); }
 
 bool Ekho::isSpeaking() { return this->m_pImpl->isSpeaking(); }
 
-// generate temp filename
-// to be improve...
-string Ekho::genTempFilename() { return this->m_pImpl->genTempFilename(); }
-
 #ifdef HAVE_MP3LAME
 int Ekho::saveMp3(string text, string filename) {
   return this->m_pImpl->saveMp3(text, filename);
@@ -211,6 +207,32 @@ int Ekho::request(string ip, int port, Command cmd, string text,
 
 int Ekho::synth2(string text, SynthCallback *callback, void *userdata) {
   return this->m_pImpl->synth2(text, callback, userdata);
+}
+
+short* Ekho::synth3(string text, int& samples) {
+  string filepath = Audio::genTempFilename();
+  this->m_pImpl->saveWav(text, filepath);
+#ifdef DEBUG_ANDROID
+  LOGD("saved to %s", filepath.c_str());
+#endif
+
+  FILE *f = fopen(filepath.c_str(), "rb+");
+  short *pcm = NULL;
+  if (f) {
+    fseek(f, 0L, SEEK_END);
+    long filesize = ftell(f); // get file size
+    if (filesize > 44) {
+      samples = (filesize - 44) / 2;
+      fseek(f, 44L ,SEEK_SET); // skip 44 bytes header in WAV file
+      pcm = new short[samples]; // allocate the read buf
+      fread(pcm, 2, samples, f);
+    }
+    fclose(f);
+
+    remove(filepath.c_str());
+  }
+
+  return pcm;
 }
 
 void Ekho::setPunctuationMode(EkhoPuncType mode) {

@@ -22,6 +22,8 @@
 #include <iostream>
 #include <sndfile.h>
 #include <string.h>
+#include <stdio.h>
+#include "audio.h"
 #include "ekho_dict.h"
 #ifdef DEBUG_ANDROID
 #define LOG_TAG "Ekho Engine"
@@ -57,17 +59,12 @@ namespace ekho {
     }*/
 
     if (!mPcm && file && fseek(file, offset, SEEK_SET) == 0) {
-#ifdef ANDROID
-      FILE *gsmfile = fopen("/data/data/net.eguidedog.ekho.cantonese/cache/tmpfile", "wb+");
-      if (!gsmfile)
-        gsmfile = fopen("/data/data/net.eguidedog.ekho.cantonese/tmpfile", "wb+");
-#else
-      FILE *gsmfile = tmpfile();
-#endif
+      string tmpFilePath = Audio::genTempFilename();
+      FILE *gsmfile = fopen(tmpFilePath.c_str(), "wb+");
 
       if (!gsmfile) {
 #ifdef DEBUG_ANDROID
-        LOGV("Fail to open /data/data/net.eguidedog.ekho.cantonese/cache/tmpfile");
+        LOGV("Fail to open %s", tmpFilePath);
 #endif
         cerr << "Fail to create temparary file." << endl;
         size = 0;
@@ -98,6 +95,7 @@ namespace ekho {
       int fd = fileno(gsmfile);
       SNDFILE *sndfile = sf_open_fd(fd, SFM_READ, &sfinfo, 1);
       readSndfile(sndfile, sfinfo);
+      remove(tmpFilePath.c_str());
     }
 
     size = mSize;

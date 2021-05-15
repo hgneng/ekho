@@ -130,6 +130,8 @@ class EkhoImpl {
   //int synth(string text, SynthCallback *callback, void *userdata = 0);
   int synth2(string text, SynthCallback *callback, void *userdata = 0);
 
+  short *synth3(string text, int& pcmSize);
+
   /* no pause is allowed
    * it will return after all sound is played
    */
@@ -220,8 +222,6 @@ class EkhoImpl {
    * Check whether is speaking
    */
   inline bool isSpeaking(void) { return !mSpeechQueue.empty(); }
-
-  string genTempFilename(void);
 
   static void *speechDaemon(void *args);
   static int writePcm(short *pcm, int frames, void *arg, OverlapType type,
