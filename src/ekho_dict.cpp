@@ -1003,11 +1003,22 @@ list<Word> Dict::lookupWord(const char *text) {
                   phon_list.push_back(phon_symbol);
                   wordlist.push_back(Word(symbol, PHONETIC, phon_list));
                 }
+
+                itor2++;
+              }
+
+              if (itor2 != char_list.end() && itor2->code == ']') {
+                itor2++;
               }
 
               // end of [[pinyin ]] style
               itor = itor2;
-              if (itor == char_list.end()) break;
+              if (itor == char_list.end()) {
+                break;
+              }
+              else {
+                code = itor->code;
+              }
             }
           }
         }
