@@ -1463,7 +1463,8 @@ int CTTSEngObj::initEnglish(void) {
 #else
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
-  //espeak_SetVoiceByName("mb-vz1"); // spanish
+  //espeak_SetVoiceByName("mb-vz1"); // Spanish
+  espeak_SetVoiceByName("en"); // English
   espeak_VOICE *voice = espeak_GetCurrentVoice();
   cerr << "espeak voice: " << voice->name << endl;
   gEkho = this;
