@@ -639,6 +639,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
   #endif
 
     list<Word> wordlist = mDict.lookupWord(text);
+    string path = mDict.mDataPath + "/" + mDict.getVoice();
 
     list<PhoneticSymbol *>::iterator phon_symbol;
     for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
@@ -677,7 +678,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
           break;
         case PHONETIC:
           phon_symbol = word->symbols.begin();
-          pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
+          pPcm = (*phon_symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
           if (pPcm && size > 0)
             callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
           break;
@@ -744,9 +745,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
                 LOGD("Ekho::synth2 speak %s", (*symbol)->symbol);
   #endif
                 Language lang = mDict.getLanguage();
-                string path = mDict.mDataPath + "/" + mDict.getVoice();
-                pPcm =
-                    (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
+                pPcm = (*symbol)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
                 if (pPcm && size > 0)
                   callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART); // type
 
@@ -1461,11 +1460,12 @@ int CTTSEngObj::initEnglish(void) {
   //festival_eval_command("(voice_JuntaDeAndalucia_es_pa_diphone)"); // Spanish male voice, crash when SayText "a" in festival.exe
 
   isFestivalInited = true;
->>>>>>> cfc0ee10cdf871b8bc18d73eb9c21b40248c0fec
 #else
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
-  //espeak_SetVoiceByName("es"); // spanish
+  //espeak_SetVoiceByName("mb-vz1"); // spanish
+  espeak_VOICE *voice = espeak_GetCurrentVoice();
+  cerr << "espeak voice: " << voice->name << endl;
   gEkho = this;
   espeak_SetSynthCallback(espeakSynthCallback);
 #endif
