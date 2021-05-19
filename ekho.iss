@@ -4,7 +4,7 @@
 
 [Setup]
 AppName=Ekho
-AppVerName=Ekho 8.6
+AppVerName=Ekho 8.7
 AppPublisher=Cameron Wong
 AppPublisherURL=https://eguidedog.net
 AppSupportURL=https://eguidedog.net
@@ -15,7 +15,7 @@ LicenseFile=COPYING
 ;InfoBeforeFile=install.txt
 InfoAfterFile=README
 OutputDir=./
-OutputBaseFilename=ekho-espeak-8.6
+OutputBaseFilename=ekho-espeak-8.7
 ;SetupIconFile=C:\lab\e-guidedog\eGuideDog_TTS\eguidedog.ico
 Compression=lzma
 SolidCompression=yes
@@ -36,13 +36,14 @@ Source: "sapi5\dll\libsndfile-1.dll"; DestDir: "{app}";
 Source: "sapi5\dll\libespeak-ng.dll"; DestDir: "{app}";
 Source: "README"; DestDir: "{app}";
 Source: "COPYING"; DestDir: "{app}";
+;Source: "ekho.conf"; DestDir: "{app}";
 
 ;Source: "ekho-data\COPYING-Festival"; DestDir: "{app}";
 ;Source: "ekho-data\festival\*"; DestDir: "{app}\ekho-data\Festival\"; Flags: recursesubdirs;
 
 Source: "ekho-data\COPYING-jyutping-wong"; DestDir: "{app}\ekho-data\";
 Source: "ekho-data\zhy.dict"; DestDir: "{app}\ekho-data\";
-Source: "ekho-data\zhy_list"; DestDir: "{app}\ekho-data\";
+;Source: "ekho-data\zhy_list"; DestDir: "{app}\ekho-data\";
 Source: "ekho-data\jyutping\*"; DestDir: "{app}\ekho-data\jyutping\";
 ;Source: "ekho-data\jyutping.index"; DestDir: "{app}\ekho-data\";
 ;Source: "ekho-data\jyutping.voice"; DestDir: "{app}\ekho-data\";
@@ -104,7 +105,7 @@ begin
   RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice + '\Attributes','Gender',Gender);
   RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice + '\Attributes','Age','Adult');
   RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice + '\Attributes','Language',Language); // 409 for US, 404 for Taiwan, 408 for China
-  RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice + '\Attributes','Vendor','http://www.eguidedog.net');
+  RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice + '\Attributes','Vendor','https://eguidedog.net');
 end;
 
 
