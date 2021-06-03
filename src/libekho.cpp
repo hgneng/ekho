@@ -240,9 +240,7 @@ void Ekho::setPunctuationMode(EkhoPuncType mode) {
 }
 
 void Ekho::sing(string filepath) {
-#ifdef ENABLE_MUSIC
   this->m_pImpl->sing(filepath); 
-#endif
 }
 
 int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
