@@ -598,7 +598,7 @@ int Dict::setVoice(string voice) {
   }
 }
 
-PhoneticSymbol *Dict::lookup(Character &c) {
+PhoneticSymbol *Dict::lookup(const Character &c) {
   if (c.code < 65536) {
     return mDictItemArray[c.code].character.phonSymbol;
   } else {
@@ -1085,7 +1085,7 @@ list<Word> Dict::lookupWord(const char *text) {
           if (lastword.length() == 1 &&
               ((c >= 'A' && c <= 'Z') ||
                (c >= 'a' && c <= 'z') ||
-               (c >= 128 && c < 256 /* always true, but keep it to help understand */))) {
+               (c >= 128 /* && c < 256 */))) {
 	          wordlist.push_back(Word(lastword, ENGLISH_TEXT, lookup(lastword), lookupOverlap(lastword)));
           } else {
             wordlist.push_back(Word(lastword, ENGLISH_TEXT));

@@ -7,7 +7,9 @@
 #include <stdlib.h>
 #include <iostream>
 
+#include "character.h"
 #include "ekho_impl.h"
+#include "ekho.h"
 #include "elements.h"
 #include "xml.h"
 #include "xmlfile.h"
@@ -21,9 +23,16 @@ namespace ekho {
 // -I../libmusicxml/src/visitors -I../libmusicxml/src/files
 // -I../libmusicxml/src/parser ../libmusicxml/libmusicxml2.a -lstdc++ && ./a.out
 // demo.xml
-void EkhoImpl::sing(string filepath) {
+void Ekho::singMusicXml(const string filepath) {
   xmlreader r;
   SXMLFile file = r.read(filepath.c_str());
+
+#ifdef HAVE_PULSEAUDIO
+  if (this->m_pImpl->initSound() < 0) {
+    cerr << "Fail to init sound." << endl;
+    return;
+  }
+#endif
 
   if (file) {
     Sxmlelement st = file->elements();
@@ -68,6 +77,7 @@ void EkhoImpl::sing(string filepath) {
       if (!lyric.empty()) {
         cout << lyric << "(step=" << step << ",alter=" << alter
              << ",octave=" << octave << ",duration=" << duration << ")" << endl;
+        this->singCharacter(Character(lyric));
       }
 
       ++note;
@@ -78,5 +88,17 @@ void EkhoImpl::sing(string filepath) {
 
     cout << endl;
   }
+}
+
+void Ekho::singCharacter(const Character &c) {
+  cerr << "singCharacter: " << c.getUtf8() << endl;
+  PhoneticSymbol *ps = this->m_pImpl->mDict.lookup(c);
+  int size = 0;
+  const char *pcm = ps->getPcm(this->m_pImpl->mDict.mVoiceFile, size);
+#ifdef HAVE_PULSEAUDIO
+  int error;
+  int ret = pa_simple_write(this->m_pImpl->stream, pcm, size * 2, &error);
+  //cerr << "size: " << size << ", error:" << error << endl;
+#endif
 }
 }  // end of namespace ekho

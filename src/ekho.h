@@ -97,7 +97,8 @@ class Ekho {
 
   int synth(const char *text, SpeechdSynthCallback *callback);
 
-  void sing(string filepath);
+  void singMusicXml(const string filepath);
+  void singCharacter(const Character &c);
 
   /* Clear speech queue before speak text
    * text should be in UTF-8 format

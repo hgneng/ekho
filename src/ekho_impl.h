@@ -98,6 +98,8 @@ class EkhoImpl {
   */
   ~EkhoImpl(void);
 
+  int initSound(void);
+
   /* Set voice
    * voice is the name of voice, which is a directory name under
    * ekho-data and should be begun with jyutping-, pinyin- or
@@ -256,13 +258,15 @@ class EkhoImpl {
 
   void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
 
+#ifdef HAVE_PULSEAUDIO
+  pa_simple *stream;
+#endif
   bool isStopped;
   pthread_mutex_t mSpeechQueueMutex;
 
  private:
   int init(void);
   int initPcm(void);
-  int initSound(void);
   int initStream(void);
   int initEnglish(void);
   void closeStream(void);
@@ -293,9 +297,6 @@ class EkhoImpl {
   pthread_t speechThread;
   pthread_attr_t speechThreadAttr;
 
-#ifdef HAVE_PULSEAUDIO
-  pa_simple *stream;
-#endif
   Audio *audio;
 
   const char *mAlphabetPcmCache[26];

@@ -1050,7 +1050,7 @@ int main(int argc, char *argv[]) {
   } else if (mode == SING_MODE) {
     Ekho::debug(isDebugging);
     ekho_g = new Ekho(language);
-    ekho_g->sing(text_filename);
+    ekho_g->singMusicXml(text_filename);
     delete ekho_g;
     ekho_g = 0;
   } else {

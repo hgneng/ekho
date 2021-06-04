@@ -161,7 +161,7 @@ class Dict {
   inline string getVoice(void) { return mVoice; };
   int loadMandarin(void);
 
-  PhoneticSymbol *lookup(Character &c);
+  PhoneticSymbol *lookup(const Character &c);
   inline PhoneticSymbol *lookup(unsigned int code) {
     Character c(code);
     return lookup(c);

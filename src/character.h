@@ -36,6 +36,9 @@ namespace ekho {
       };
       Character(const Character &c): code(c.code), phonSymbol(c.phonSymbol) {
       };
+      Character(const string &utf8) {
+        setUtf8(utf8);
+      }
       Character(unsigned int code, PhoneticSymbol *symbol):
         code(code),
         phonSymbol(symbol) {};
@@ -47,7 +50,7 @@ namespace ekho {
       unsigned int code;
       PhoneticSymbol *phonSymbol;
 
-      string getUtf8(void) {
+      string getUtf8(void) const {
         char buf[5] = {0, 0, 0, 0, 0};
 #ifdef DISABLE_EXCEPTIONS
         utf8::append(code, buf);
@@ -61,7 +64,7 @@ namespace ekho {
         return string(buf);
       };
 
-      void setUtf8(string &utf8) {
+      void setUtf8(const string &utf8) {
         code = utf8::peek_next(utf8.begin(), utf8.end());
       };
 

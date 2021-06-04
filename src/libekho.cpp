@@ -239,10 +239,6 @@ void Ekho::setPunctuationMode(EkhoPuncType mode) {
   this->m_pImpl->setPunctuationMode(mode);
 }
 
-void Ekho::sing(string filepath) {
-  this->m_pImpl->sing(filepath); 
-}
-
 int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
   this->m_pImpl->setSpeechdSynthCallback(callback);
   this->m_pImpl->speak(text);
