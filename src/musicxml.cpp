@@ -9,6 +9,7 @@
 
 #include "character.h"
 #include "ekho_impl.h"
+#include "audio.h"
 #include "ekho.h"
 #include "elements.h"
 #include "xml.h"
@@ -23,9 +24,16 @@ namespace ekho {
 // -I../libmusicxml/src/visitors -I../libmusicxml/src/files
 // -I../libmusicxml/src/parser ../libmusicxml/libmusicxml2.a -lstdc++ && ./a.out
 // demo.xml
-void Ekho::singMusicXml(const string filepath) {
+void Ekho::singMusicXml(const string xmlFile, const string outputFile) {
   xmlreader r;
-  SXMLFile file = r.read(filepath.c_str());
+  SXMLFile file = r.read(xmlFile.c_str());
+
+  if (!outputFile.empty()) {
+    SF_INFO sfinfo;
+    memcpy(&sfinfo, &this->m_pImpl->mDict.mSfinfo, sizeof(SF_INFO));
+    sfinfo.format = SF_FORMAT_WAV | SF_FORMAT_PCM_16;
+    sndFile = sf_open(outputFile.c_str(), SFM_WRITE, &sfinfo);
+  }
 
 #ifdef HAVE_PULSEAUDIO
   if (this->m_pImpl->initSound() < 0) {
@@ -45,7 +53,7 @@ void Ekho::singMusicXml(const string filepath) {
       string step = "";
       string alter = "";
       string octave = "";
-      string duration = "";
+      int duration = 0;
 
       for (; elem != branchs.end(); elem++) {
         string name = (*elem)->getName();
@@ -67,17 +75,19 @@ void Ekho::singMusicXml(const string filepath) {
             octave = octave_elem->getValue();
           }
         } else if (name == "duration") {
-          duration = (*elem)->getValue();
+          duration = atoi((*elem)->getValue().c_str());
         } else if (name == "lyric") {
           ctree<xmlelement>::iterator text = (*elem)->find(k_text);
           lyric = text->getValue();
         }
       }
 
+      cout << lyric << "(step=" << step << ",alter=" << alter
+           << ",octave=" << octave << ",duration=" << duration << ")" << endl;
       if (!lyric.empty()) {
-        cout << lyric << "(step=" << step << ",alter=" << alter
-             << ",octave=" << octave << ",duration=" << duration << ")" << endl;
-        this->singCharacter(Character(lyric));
+        this->singCharacter(Character(lyric), duration);
+      } else {
+        this->singSilence(duration);
       }
 
       ++note;
@@ -88,17 +98,74 @@ void Ekho::singMusicXml(const string filepath) {
 
     cout << endl;
   }
+
+  if (!outputFile.empty()) {
+    sf_close(sndFile);
+  }
 }
 
-void Ekho::singCharacter(const Character &c) {
+void Ekho::singSilence(int duration) {
+  cerr << "silent: " << duration << endl;
+
+  float targetSeconds = (float)duration * 120 / 24 / this->musicxmlMinuteRate;
+  int size = (int)(this->m_pImpl->mDict.mSfinfo.samplerate * targetSeconds) * 2;
+  char *pcm = new char[size];
+  memset(pcm, 0, size);
+  if (this->sndFile) {
+    sf_writef_short(this->sndFile, (const short*)pcm, size / 2);
+  } else {
+#ifdef HAVE_PULSEAUDIO
+    int error;
+    int ret = pa_simple_write(this->m_pImpl->stream, pcm, size, &error);
+#endif
+  }
+}
+
+void Ekho::singCharacter(const Character &c, int duration) {
   cerr << "singCharacter: " << c.getUtf8() << endl;
   PhoneticSymbol *ps = this->m_pImpl->mDict.lookup(c);
   int size = 0;
   const char *pcm = ps->getPcm(this->m_pImpl->mDict.mVoiceFile, size);
+  int size2 = 0;
+  const char *pcm2 = this->convertDuration(pcm, size, duration, size2);
+  cerr << "size=" << size << ", size2=" << size2 << endl;
+  if (this->sndFile) {
+    sf_writef_short(this->sndFile, (const short*)pcm2, size2 / 2);
+  } else {
 #ifdef HAVE_PULSEAUDIO
-  int error;
-  int ret = pa_simple_write(this->m_pImpl->stream, pcm, size * 2, &error);
-  //cerr << "size: " << size << ", error:" << error << endl;
+    int error;
+    int ret = pa_simple_write(this->m_pImpl->stream, pcm2, size2, &error);
+    //cerr << "size: " << size << ", error:" << error << endl;
 #endif
+  }
+  delete[] pcm2;
+  pcm2 = NULL;
+}
+
+// caller should delete return pcm array.
+char* Ekho::convertDuration(const char *pcm, int size,
+    int duration, int &convertedSize) {
+  // suppose total duraion is 48. duration of 1/16 note is 3.
+  // suppose speed is 120 * 1/4 per minute
+  // music note duration seconds = 60s / 120 / 12 * duration 
+  // = duration / 24 (s)
+
+  // compute current pcm time
+  float sourceSeconds = (float)size / 2 / this->m_pImpl->mDict.mSfinfo.samplerate;
+  float targetSeconds = (float)duration * 120 / 24 / this->musicxmlMinuteRate;
+
+  Audio *audio = new Audio();
+  audio->initProcessor(this->m_pImpl->mDict.mSfinfo.samplerate, 1);
+  audio->setTempoFloat(sourceSeconds / targetSeconds);
+  audio->writeShortFrames((short*)pcm, size / 2);
+  int targetSize = size * targetSeconds / sourceSeconds;
+  short *targetPcm = new short[targetSize / 2];
+  convertedSize = 2 * audio->readShortFrames(targetPcm, targetSize / 2);
+  cerr << "sourceSeconds=" << sourceSeconds << ", targetSeconds="
+    << targetSeconds << ", convertedSize=" << convertedSize << endl;
+  delete audio;
+  audio = NULL;
+
+  return (char*)targetPcm;
 }
 }  // end of namespace ekho

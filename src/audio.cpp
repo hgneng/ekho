@@ -76,10 +76,19 @@ int Audio::setTempo(int delta) {
       sonicSetSpeed(this->processorStream, (float)(100 + delta) / 100);
     }
     this->tempoDelta = delta;
+  } else {
+    cerr << "Audio::setTempo out of range: " << delta << endl;
   }
 #endif
 
   return this->tempoDelta;
+}
+
+// 1 means no change. 2 means double speed
+void Audio::setTempoFloat(float value) {
+  if (this->processorStream) {
+    sonicSetSpeed(this->processorStream, value);
+  }
 }
 
 int Audio::setSampleRate(int rate) {

@@ -74,10 +74,17 @@ void Ekho::debug(bool flag) {
 
 Ekho::Ekho() {
   this->m_pImpl = new EkhoImpl();
+  Ekho::init();
 }
 
 Ekho::Ekho(string voice) {
   this->m_pImpl = new EkhoImpl(voice);
+  Ekho::init();
+}
+
+void Ekho::init() {
+  this->musicxmlMinuteRate = 58; // default is 120. 58 is for demo.xml
+  this->sndFile = NULL;
 }
 
 Ekho::~Ekho(void) { delete this->m_pImpl; }

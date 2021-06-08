@@ -61,6 +61,7 @@ class Audio {
     int setVolume(int delta);
     int setRate(int delta);
     int setTempo(int delta);
+    void setTempoFloat(float value);
     int setSampleRate(int rate);
     int readShortFrames(short buffer[], int size);
     int writeShortFrames(short buffer[], int size);

@@ -58,6 +58,8 @@ class EkhoImpl;
 class Ekho {
  private:
   EkhoImpl *m_pImpl;
+  int musicxmlMinuteRate;
+  SNDFILE *sndFile;
 
  public:
   const static int BUFFER_SIZE = 40960;
@@ -69,6 +71,7 @@ class Ekho {
 
   Ekho();
   Ekho(string voice);
+  void init();
 
   /* Destructor.
   */
@@ -97,8 +100,11 @@ class Ekho {
 
   int synth(const char *text, SpeechdSynthCallback *callback);
 
-  void singMusicXml(const string filepath);
-  void singCharacter(const Character &c);
+  void singMusicXml(const string xmlFile, const string outputFile);
+  void singCharacter(const Character &c, int duration);
+  void singSilence(int duration);
+  char* convertDuration(const char *pcm, int size,
+    int duration, int &convertedSize);
 
   /* Clear speech queue before speak text
    * text should be in UTF-8 format
