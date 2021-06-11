@@ -1,0 +1,4805 @@
+commit e8fa461503cf681fd7f6fffdbe94346cb4a0b94f
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Sep 13 13:56:18 2014 -0400
+
+    [runtime] Remove an unused interpreter file.
+
+commit b8e69265771d2d730847add35620628ff003aed1
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Tue Sep 9 09:14:37 2014 -0400
+
+    [cleanup] Remove more old files.
+
+commit 69d89956fcc24cec955246588269cb7c8012b7cb
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Sep 1 13:25:07 2014 -0400
+
+    [runtime] Remove the interpreter.
+
+commit a9db0d5b41d17cb7ff5788a63ce0eee1e01652b3
+Author: Neale Ferguson <neale@sinenomine.net>
+Date:   Tue Jun 3 11:52:00 2014 -0400
+
+    Architectural level set to z10 instruction set
+
+commit edeeadda807c9189ad6b7cdd0f221c355ad95e52
+Author: Alex Rønne Petersen <alexrp@xamarin.com>
+Date:   Tue Apr 29 16:56:12 2014 +0200
+
+    Add .gitignore file in mono/arch/arm64.
+
+commit 62b813772cfa4af873a278c39dd1f01dc6e50c2e
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Apr 19 20:16:47 2014 +0200
+
+    [arm64] Add JIT support.
+
+commit 1d58ec09524d6f4ce37f39698e68fb45a3c0231b
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Apr 19 17:03:21 2014 +0200
+
+    [arm64] Add basic port infrastructure.
+
+commit 12741090edd2230bfd0fac498af3e304680380b4
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Apr 1 18:39:05 2014 +0000
+
+    [jit] Implement support for atomic intrinsics on arm.
+
+commit 21ca1bad7d0447bb5d420a58128e1c2733635efa
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Wed Dec 11 11:13:14 2013 -0500
+
+    [arch]Add cvtsi2ss to amd64 codegen.
+
+commit 4a25d5fa1811be15c62979993cd1a37c2891d0a5
+Author: Alex Rønne Petersen <alexrp@xamarin.com>
+Date:   Sat Nov 23 18:26:55 2013 +0100
+
+    Fix the encoding of x86_imul_reg_mem_imm.
+
+commit 43b05e3c36d05526f7a9f3f8767569d026e4f1c6
+Author: Alex Rønne Petersen <alexrp@xamarin.com>
+Date:   Fri Nov 15 15:08:06 2013 +0100
+
+    Fix the `nop` opcode on some MIPS-based Loongson CPUs.
+    
+    After much trouble building Mono in Debian/MIPS, @directhex
+    narrowed it down to this issue:
+    
+    https://sourceware.org/ml/binutils/2009-11/msg00387.html
+    
+    So since some of the 2E and 2F versions of the Loongson CPUs
+    break with a regular `sll zero, zero, 0` we need to issue an
+    `or at, at, 0`. This makes sure we don't randomly deadlock or
+    blow up when the CPU is under heavy load.
+    
+    Yes, really.
+
+commit 2f56d471f089b8f514377ce501a0c1643652d639
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri May 24 23:41:39 2013 +0200
+
+    Merge some Nacl/ARM changes from https://github.com/igotti-google/mono/commit/65d8d68e8c81cf6adb1076de7a9425c84cab86a3.
+
+commit ab6a96ef346220433f9f7967b763a0453d9cbc66
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue May 14 18:27:32 2013 +0200
+
+    Enable hw division/remainder on mt in non-thumb mode as well.
+
+commit 78c1e65942210449d0d1c4957b42242ebc9bdb5a
+Author: Alex Rønne Petersen <alexrp@xamarin.com>
+Date:   Tue May 14 03:10:43 2013 +0200
+
+    Kill support for the ancient FPA format on ARM.
+
+commit a42bc8f14a3393150fb6fbb772c2b0259267f5ae
+Author: Neale Ferguson <neale@sinenomine.net>
+Date:   Thu Apr 25 10:01:14 2013 -0400
+
+    Add lazy rgctx support to s390x
+
+commit 92b3dc346aad94e7e6a91e7356adcebbb180c618
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Apr 22 17:54:27 2013 +0200
+
+    Remove obsolete 32 bit s390 backend.
+
+commit 0d9d79945bfc7e791ed39e7519b8769a3c09fe28
+Author: Elijah Taylor <elijahtaylor@google.com>
+Date:   Thu Jan 31 12:48:49 2013 -0800
+
+    NaCl GC improvements
+    
+    - inline managed code implementation
+      (add x86 test mem imm8 codegen macro for this as well)
+    - clean up libgc NaCl code
+    - centralize mono_nacl_gc into mini.c
+
+commit a2b380c30f8e12e508d9b761b9b049d17dff3617
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Mar 1 20:27:07 2013 +0100
+
+    Remove the unmaintained and incomplete alpha backend.
+
+commit ddee8bb5125ad07f673a5f9a45ddc629dec8c126
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Feb 26 22:08:26 2013 +0100
+
+    Remove the unmaintained and incomplete hppa backend.
+
+commit 9c434db79ba98565a8dadcfbbe8737621a698589
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Tue Oct 9 17:23:38 2012 -0400
+
+    Use full path for includes as this was braking the cross compiler.
+
+commit 600580c96563f5702acee5a0307432e96731d837
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Oct 4 13:03:06 2012 +0200
+
+    Save fp registers in the ARM throw trampoline, ios has callee saved fp registers, and LLVM generates code which uses them.
+
+commit 0b64268e0a56e3f76063f0b679975be0daaf68b1
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Oct 3 10:26:37 2012 +0200
+
+    Use AM_CPPFLAGS instead of INCLUDES in Makefile.am files, as the later is no longer supported, see http://lists.gnu.org/archive/html/automake/2012-08/msg00087.html.
+
+commit f2e43c392dde726d2f1008dfcc8515d34354e968
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Sep 19 01:37:26 2012 +0000
+
+    Save/restore fp registers in MonoContext on ios. Fixes #1949.
+
+commit a841c76b86e38fc8e5db24f152b5fab2501ddf1a
+Author: Iain Lane <iain@orangesquash.org.uk>
+Date:   Sun Apr 15 14:49:55 2012 +0100
+
+    Fix ARM printf format problems
+    
+    When building with -Werror=format-security on ARM, mono fails to build
+    due to incorrect format strings in arm-dis.c
+
+commit 33426abe6bd7ad8eb37d2f214afe08a0a3d70a0b
+Author: Neale Ferguson <neale@sinenomine.net>
+Date:   Mon Apr 2 13:30:43 2012 -0400
+
+    s390x-codegen.h - Define s390_SP and s390_BP
+    sgen-major-copy-object.h - Correct assertion test
+    sgen-os-posix.c - Prevent race condition between restarting and suspending a thread
+
+commit c565eab0f9d79f6009c3878eaa190529838b0204
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Mon Mar 12 16:15:46 2012 -0400
+
+    Update some copyrights
+
+commit d711efe0d6403fa49697c304696843a789805112
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Dec 2 06:20:16 2011 +0000
+
+    Ongoing MIPS work. Fix mips_load () to be patchable, fix endianness issue in OP_MIPS_MFC1D, fix OP_JMP. make rcheck runs now.
+
+commit 32a164a381080aee3afa42ea33e31d89579519a4
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Nov 16 04:35:31 2011 -0500
+
+    Revert "Add support for hardfp abi on ARM."
+    
+    This reverts commit e7055b45b9211fb20021997f7da0fa24992421f5.
+
+commit aaae806b8bd16a82937c9417689aeb82bea0b952
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Wed Nov 9 10:25:48 2011 -0500
+
+    Update two days worth of copyrights, many more missing
+
+commit 96e5ba7724999828facefb30e0982d0be6931bda
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Nov 9 01:13:16 2011 +0100
+
+    Add support for hardfp abi on ARM.
+
+commit c6d53e16991eb2dcc3e4d99a008fdd899d2b78f2
+Author: Elijah Taylor <elijahtaylor@google.com>
+Date:   Fri Aug 5 17:02:45 2011 +0200
+
+    Fix up bugs in x86-codegen for NaCl.
+
+commit 8034d4b8f49485babcbffd12d3e09fd372c00ccb
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Jul 6 16:16:16 2011 +0200
+
+    Prefix ARM FPA codegen macros with 'FPA'.
+
+commit d2a95b8feb24584dd528b3deb0f5f1ec5d7766a3
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Jun 23 21:33:43 2011 +0200
+
+    Fix out-of-tree builds on arm.
+
+commit d093f6fff2bcaa4ccfc795354b151c7ca1a0c613
+Author: Neale Ferguson <neale@sinenomine.net>
+Date:   Fri May 6 12:52:19 2011 -0400
+
+    Implement soft debugger for s390x and fix context macro for s390x
+
+commit 4c9723aa3efac03bc33deed252ebda71cbb1ae86
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Mar 8 12:14:52 2011 +0100
+
+    Fix some warnings.
+
+commit b1a613aca13e03185d0ba49e46fd77fd8eb98fc9
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Feb 20 03:22:52 2011 +0100
+
+    Implement mono_memory_barrier () and OP_MEMORY_BARRIER for ARM.
+
+commit f81e3005a53a10c39f4ca8dd30a2a88719c7d005
+Author: Neale Ferguson <neale@sinenomine.net>
+Date:   Sun Jan 16 23:40:23 2011 -0500
+
+    Cast result of s390x_emit16/32 to eliminate lots of warning messages
+    Check for wrapper-managed-to-native when assessing call parameters and have emit_prolog use native_size when processing those parameters
+    Signed-off-by: Neale Ferguson <neale@sinenomine.net>
+
+commit 92a55ae009739b5ec652676b8fdd615375c27fc0
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Jan 10 10:52:46 2011 +0000
+
+    Implement mono.simd new conversion ops on amd64
+
+commit b7639e01d7603a1e34dd225edb5e99fd2181494b
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Jan 10 10:40:12 2011 +0100
+
+    Implement a few conversion operations.
+    
+    	Add conversion operations between 4f, 2d and 4i.
+    	Implemented only on x86 for now.
+
+commit f0e5c2be6946491ba052c82794361ec0d33cb04c
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Fri Jan 7 00:19:03 2011 +0000
+
+    AMD64 version of the new mono.simd ops
+
+commit 1aa6254fb828e043ea55d7d3e37b02812e2d9bdf
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Thu Jan 6 21:36:31 2011 +0100
+
+    Implement Shuffle for 64bits types.
+    
+    	* x86-codegen.h: Add macro and define to emit pshufpd.
+    
+    	* mini-ops.h: Add OP_SHUPD.
+    
+    	* cpu-x86.md:
+    	* mini-x86.h: Implement x86 support.
+    
+    	* simd-intrinsics.c: Handle shuffle on 64bit types.
+    
+    	* VectorOperations.cs: Add new methods.
+
+commit c1fb94e7e72e58924dcebe8cdfcdbcbe1e65b644
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Thu Jan 6 18:43:59 2011 +0100
+
+    Add SHUFPS and macro to emit it.
+
+commit 48f5efeb334eb4b6e867c65ae53e21b3c45fd771
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Jan 6 19:35:45 2011 +0100
+
+    Put back a macro definition accidently removed by the nacl changes.
+
+commit a7074ea55af096913e4bcc8e044be7601bcc55b5
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Jan 6 11:49:32 2011 +0100
+
+    Fix warnings introduced by the NACL merge.
+
+commit 4edb45273377cc0858dab7e12b19026467e796c5
+Author: Elijah Taylor <elijahtaylor@google.com>
+Date:   Tue Dec 14 16:03:45 2010 -0800
+
+    Merge mono/io-layer, mono/metadata, mono/arch/x86 and configure.in for Native Client
+
+commit cfdf246cd2ffd65bd25e09f1d66bb55d57bf8953
+Author: Elijah Taylor <elijahtaylor@google.com>
+Date:   Tue Dec 14 14:37:36 2010 -0800
+
+    Changes to mono/arch/amd64 for Native Client
+
+commit aa974c33a3cee416fc456053164835acbf81df70
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Fri Sep 24 11:28:46 2010 -0300
+
+    Implement amd64 support for OP_CARDTABLE.
+    
+    	* amd64-codegen.h (amd64_alu_reg_membase_size): Add support
+    	for RIP based addressing.
+    
+    	* cpu-amd64.md: Add card_table_wbarrier.
+    
+    	* mini-amd64.c (mono_arch_output_basic_block): Emit the
+    	new OP.
+    
+    	* mini-amd64.c (mono_arch_emit_exceptions): Handle another
+    	kind of patch-info - GC_CARD_TABLE_ADDR. This is required
+    	because we can neither have 64bits immediates with amd64
+    	or 2 scratch regiters with current regalloc.
+    
+    	* mini-amd64.h: Define MONO_ARCH_HAVE_CARD_TABLE_WBARRIER.
+
+commit 7981b77489eba9fafe98b764ae8c423143e55a25
+Author: Mark Mason <mmason@upwardaccess.com>
+Date:   Wed Aug 18 23:39:36 2010 +0800
+
+    Simplify test for MIPS imm16 operands.
+    
+    Code contributed under the MIT/X11 license.
+
+commit 881a8fe8dfebf42e0f50228319132001d121c983
+Author: Elijah Taylor <elijahtaylor@google.com>
+Date:   Mon Aug 9 17:40:18 2010 +0200
+
+    Add hooks to the codegen macros to support NACL codegen.
+
+commit da52cebbb28392e8043a36e8c29f4ceb4f706741
+Author: Raja R Harinath <harinath@hurrynot.org>
+Date:   Sun Jul 25 20:09:25 2010 +0530
+
+    EOL handling
+    
+    This set of .gitattributes was automatically generated from the list of files
+    that GIT tried to normalize when I enabled automatic EOL conversion.
+    
+    With this set of attributes, we prevent automated EOL conversion on files that
+    we know will cause trouble down the road.
+
+commit 80806328ee52ed52783e005f044e8447d34efac5
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed May 19 02:35:46 2010 +0000
+
+    2010-05-19  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ppc/ppc-codegen.h (ppc_load_func): Fix ilp32 support.
+    
+    svn path=/trunk/mono/; revision=157521
+
+commit bb66b04f8ca017660ae65afa4b86a33b32d48cdb
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Apr 8 04:41:44 2010 +0000
+
+    .gitignore
+    
+    svn path=/trunk/mono/; revision=155025
+
+commit 2b562993a3dced62eb48aeedcf38f234b655e86f
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Mar 29 23:21:23 2010 +0000
+
+    2010-03-30  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/*.sh: Remove bash dependency.
+    
+    svn path=/trunk/mono/; revision=154407
+
+commit 977db7f5b92aa4e7b8909f6d2440f3347e548364
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Tue Mar 23 20:00:46 2010 +0000
+
+    Primarily, add support for mono_arch_get_throw_corlib_exception and IMT
+    for s390x. Other s390x fixes to instruction sizes, parameter passing, and ARCH
+    settings.
+    
+    
+    svn path=/trunk/mono/; revision=154085
+
+commit 282ce11cd7691698334563b95ca4b49e6c32f900
+Author: Gonzalo Paniagua Javier <gonzalo.mono@gmail.com>
+Date:   Fri Nov 20 22:34:30 2009 +0000
+
+    removing PLATFORM_WIN32
+    
+    svn path=/trunk/mono/; revision=146652
+
+commit 774d55350115d1c4f08dc2a9b015e9502d796cef
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Nov 10 00:58:49 2009 +0000
+
+    2009-11-10  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/arm-codegen.h: Fix the names of the LDMIA/STMIA macros, they don't actually
+    	update the base register.
+    
+    svn path=/trunk/mono/; revision=145786
+
+commit 568b4a7ab726e87c664a682193fa57c5521ed23c
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Aug 14 13:49:01 2009 +0000
+
+    2009-08-14  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/arm-codegen.h: Add armv6 MOVW/MOVT.
+    
+    svn path=/trunk/mono/; revision=139918
+
+commit c4d98f3131b6b7d0732050c2e0ac7bd05b6c27c2
+Author: Jerri Maine <crashfourit@gmail.com>
+Date:   Tue Aug 4 00:31:14 2009 +0000
+
+    Contributed under the terms of the MIT/X11 license by
+    Jerry Maine <crashfourit@gail.com>.
+    
+    * mono/arch/amd64/amd64-codegen.h: Added missing code gen marco for single packed square root.
+    * mono/mini/basic-simd.cs: added test for packed double square root.
+    * mono/mini/cpu-amd64.md: added opcode info for packed double square root.
+    * mono/mini/cpu-x86.md: added opcode info for packed double square root.
+    * mono/mini/mini-ops.h: added IR opcode for packed double square root.
+    * mono/mini/mini-x86.c: added IR to native translation code for packed double square root.
+    * mono/mini/mini-amd64.c: removed todo for packed double square root.
+    * mono/mini/simd-intrinsics.c: added method to IR opcode converstion for
+    packed double square root.
+    
+    svn path=/trunk/mono/; revision=139309
+
+commit fc5d2d293fe800d860e9af4fcd9b19f9be7d4e17
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri Jul 24 15:00:25 2009 +0000
+
+    Fri Jul 24 16:54:13 CEST 2009 Steven Munroe  <munroesj@us.ibm.com>
+    
+    	This patch is contributed under the terms of the MIT/X11 license
+    
+    	* arch/ppc/ppc-codegen.h (ppc_ha): Define high adjusted
+    	conversion to support combining addis for bits 32-47 with
+    	signed load/store diplacements for bits 48-63.
+    	(ppc_fcfidx, ppc_fctidx, ppc_fctidzx): Share with PPC32.
+    	These instructions are availble to 32-bit programs on 64-bit
+    	hardware and 32-bit both starting with PowerISA V2.01.
+    	[__mono_ppc64__]: Define ppc_mftgpr and ppc_mffgpr for Power6
+    	native mode.
+    	[!__mono_ppc64__]: Define ppc_is_imm32 as constant true for
+    	ppc32.
+    
+    
+    svn path=/trunk/mono/; revision=138635
+
+commit f44bc9e40cc840bf63bf782aa0338aae3e898f7f
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Jul 20 20:45:49 2009 +0000
+
+    2009-07-20  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_sse_pminud_reg_reg): Fix the encoding
+    	of this instruction.
+    
+    svn path=/trunk/mono/; revision=138242
+
+commit 88ccf5c589b23d6e79ea5a588d3986693b09879a
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Jul 13 21:58:58 2009 +0000
+
+    2009-07-13  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* x86/x86-codegen.h: Applied patch from Marian Salaj <salo3@atlas.cz>.
+    	Fix encoding of PMINSW and PMINSD. Fixes #521662.
+    
+    svn path=/trunk/mono/; revision=137821
+
+commit 64d366eddf3b1c93bcaaff2190fa1cc2b01f7f03
+Author: Jerri Maine <crashfourit@gmail.com>
+Date:   Fri Jul 10 22:35:07 2009 +0000
+
+    Contributed under the terms of the MIT/X11 license by
+    Jerry Maine <crashfourit@gail.com>.
+    
+    * amd64/amd64-codegen.h: Add marcos for coding several specific sse opcodes.
+    * amd64/amd64-codegen.h: Fix bugs in simd marcos.
+    
+    svn path=/trunk/mono/; revision=137736
+
+commit d7fa5cedae9e4859b340ee29e997dfd48b45ce6e
+Author: Jerri Maine <crashfourit@gmail.com>
+Date:   Wed Jun 24 21:25:11 2009 +0000
+
+    Fix wrong date in my entry to ChangeLog files. Sorry! :((
+    
+    svn path=/trunk/mono/; revision=136786
+
+commit 1c634ebda21ddf5392c9d8edd030323d1ad85962
+Author: Jerri Maine <crashfourit@gmail.com>
+Date:   Wed Jun 24 21:19:29 2009 +0000
+
+    mini-amd64.c: Added code to convert simd IR to native amd64 sse.
+    amd64/amd64-codegen.h: Add marcos for coding several specific sse opcodes.
+    
+    svn path=/trunk/mono/; revision=136785
+
+commit bb994071dcc42ba150d88776fe70f8d35fc522a9
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Tue Jun 23 23:55:26 2009 +0000
+
+    Fix LCONV_TO_xx and ICONV_TO_xx. Fix leave_method dump of returned
+    structure. Fix formatting.
+    Correct instruction lengths.
+    Add new instructions.
+    
+    svn path=/trunk/mono/; revision=136748
+
+commit f48a4f5a13745caf5350d6f190efb97ec6b605ef
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Jun 22 15:25:02 2009 +0000
+
+    Fix a few uses of ppc_store_reg.
+    
+    svn path=/trunk/mono/; revision=136607
+
+commit 4ecc9d712b82d78c853e574edc0345c85bfcd660
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Jun 22 15:24:56 2009 +0000
+
+    Fix a few uses of ppc_load_reg/ppc_store_reg.
+    
+    svn path=/trunk/mono/; revision=136606
+
+commit 40c668ecb1553ffb7b6575b439b3ff8420265cd8
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Jun 22 15:22:10 2009 +0000
+
+    2009-06-22  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Rework the naming of the load/store macros,
+    	ldr/str now handle register sized quantities, while ldptr/stptr handle
+    	pointer sized quantities.
+    
+    svn path=/trunk/mono/; revision=136604
+
+commit cf0e113f7dd91ff8b46e35047cc48c2e5ece925c
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Jun 20 18:47:03 2009 +0000
+
+    2009-06-20  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Fix the last change to avoid self-assignments inside
+    	macros.
+    
+    svn path=/trunk/mono/; revision=136548
+
+commit 3858973d0bd980206ea3725a2e74f2a336aa1aa1
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Jun 20 13:04:42 2009 +0000
+
+    2009-06-20  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Add ppc_ldr/ppc_str macros to store regsize quantities.
+    	Handle little endian host platforms in ppc_emit32.
+    
+    svn path=/trunk/mono/; revision=136539
+
+commit 9629536810d07a63b980a29912eaf3df7313fee9
+Author: Jerri Maine <crashfourit@gmail.com>
+Date:   Fri Jun 12 17:33:11 2009 +0000
+
+    Add marcos for coding two byte SIMD/SSE opcodes. Added comments to help tell the different types of SSE code gen marcos appart.
+    
+    svn path=/trunk/mono/; revision=136018
+
+commit 76cddabf0319c7be9fae2b6c532aafe6587fafbc
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Wed Apr 22 23:59:10 2009 +0000
+
+    merge
+    
+    svn path=/trunk/mono/; revision=132427
+
+commit 965b554666f2999b9e01dd731b1134af1cfcd5fa
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Apr 6 15:09:57 2009 +0000
+
+    2009-04-06  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/arm-vfp-codegen.h: Add ARM_FSITOS/ARM_FSITOD.
+    
+    svn path=/trunk/mono/; revision=131125
+
+commit 7b7235494cabe7c5a796fafd6297070f993b03a8
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Apr 2 22:37:35 2009 +0000
+
+    2009-04-03  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h: Add macros for decoding the SIB byte.
+    
+    svn path=/trunk/mono/; revision=130910
+
+commit 9f497af70ef5ed9244ffbe9a6263f7d077136148
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Apr 2 00:50:47 2009 +0000
+
+    2009-04-02  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/arm-vfp-codegen.h: Add missing VFP codegen macros.
+    
+    svn path=/trunk/mono/; revision=130817
+
+commit 7c682141c5861685e5b0efdcc1f337083657cf9d
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Mar 6 15:55:12 2009 +0000
+
+    2009-03-06  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/tramp.c: Include a change from the debian patches. Avoid #include-ing
+    	a file in the middle of a function.
+    
+    svn path=/trunk/mono/; revision=128782
+
+commit a7f6dd7620d7c440216c0f156bcd969a28a592d4
+Author: Martin Baulig <martin@novell.com>
+Date:   Sat Feb 28 14:36:50 2009 +0000
+
+    Create .gitignore's.
+    
+    svn path=/trunk/mono/; revision=128265
+
+commit 22e6e9728faa11a87a7f6f0f0ff0f0f8ef754c03
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Feb 27 06:21:52 2009 +0000
+
+    2009-02-27  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/{arm_fpamacros.h, arm_vfpmacros.h}: Remove these files, they are
+    	autogenerated.
+    
+    svn path=/trunk/mono/; revision=128179
+
+commit c70f15fc12afeb73f19d4ff18cf11b7289d76c4f
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Mon Feb 2 23:32:58 2009 +0000
+
+    2009-02-02  Mark Probst  <mark.probst@gmail.com>
+    
+    	Contributed under the terms of the MIT/X11 license by Steven
+    	Munroe <munroesj@us.ibm.com>.
+    
+    	* ppc/ppc-codegen.h: Make operand order and case consistent
+    	(assembler order) for ppc_load_reg_update, ppc_load_multiple_regs,
+    	ppc_store_multiple_regs, ppc_lwz, ppc_lhz, ppc_lbz,
+    	ppc_stw,ppc_sth, ppc_stb, ppc_stwu, ppc_lbzu, ppc_lfdu, ppc_lfsu,
+    	ppc_lfsux, ppc_lfsx, ppc_lha, ppc_lhau, ppc_lhzu, ppc_lmw,
+    	ppc_lwzu, ppc_stbu, ppc_stfdu, ppc_stfsu, ppc_sthu, ppc_stmw.  Use
+    	"i" or "ui" instead of "d" for immediated operands to immediate
+    	arthimetic and logical instructions in macros ppc_addi, ppc_addis,
+    	ppc_ori, ppc_addic, ppc_addicd, ppc_andid, ppc_andisd.
+    	[__mono_ppc64__]: Make operand order and case consistent
+    	(assembler order) for ppc_load_multiple_regs,
+    	ppc_store_multiple_regs.  Simplify the DS form and make them
+    	consistent with D forms for ppc_load_reg, ppc_load_reg_update,
+    	ppc_store_reg, ppc_store_reg_update. ppc_ld, ppc_lwa, ppc_ldu,
+    	ppc_std, ppc_stdu.  Define ppc_lwax and ppc_lwaux.
+    
+    2009-02-02  Mark Probst  <mark.probst@gmail.com>
+    
+    	Contributed under the terms of the MIT/X11 license by Steven
+    	Munroe <munroesj@us.ibm.com>.
+    
+    	* exceptions-ppc.c (restore_regs_from_context): Correct operand
+    	order (offset then base reg) for ppc_load_multiple_regs.
+    	(emit_save_saved_regs) Correct operand order for
+    	ppc_store_multiple_regs.
+    	(mono_arch_get_call_filter): Correct operand order for
+    	ppc_load_multiple_regs.
+    
+    	* mini-ppc.c (emit_memcpy): Fix operand order for
+    	ppc_load_reg_update and ppc_store_reg_update.
+    	(mono_arch_output_basic_block): Correct operand order for ppc_lha.
+    	(mono_arch_emit_epilog): Correct operand order for
+    	ppc_load_multiple_regs.
+    
+    	* tramp-ppc.c (mono_arch_create_trampoline_code): Correct operand
+    	order for ppc_store_multiple_regs and ppc_load_multiple_regs.
+    
+    svn path=/trunk/mono/; revision=125443
+
+commit f228d47d2afc549321cec800466e6bc1cde631bb
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Jan 19 19:47:54 2009 +0000
+
+    2009-01-19 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add x86_movd_xreg_membase.
+    
+    svn path=/trunk/mono/; revision=123825
+
+commit 792160756d6ef76711408f151838c3f5a5f8d83b
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Fri Dec 19 19:46:04 2008 +0000
+
+    2008-12-19  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Fixed the argument order for lwzu in
+    	ppc_load_reg_update.
+    
+    svn path=/trunk/mono/; revision=121883
+
+commit 344a06253c9c1bad287e160b9714b0a052e68a09
+Author: Mark Mason <glowingpurple@gmail.com>
+Date:   Sat Dec 13 06:54:25 2008 +0000
+
+    2008-12-12  Mark Mason  <mmason@upwardaccess.com>
+    
+            * mips/mips-codegen.h: Changes to support n32.
+    
+    Contributed under the MIT X11 license.
+    
+    svn path=/trunk/mono/; revision=121488
+
+commit 2dcc1868b2e2e830a9fa84a445ee79a8f6ab38ba
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Wed Dec 10 09:33:57 2008 +0000
+
+    2008-12-10  Mark Probst  <mark.probst@gmail.com>
+    
+    	* mini-ppc.c: Merged with mini-ppc64.c.
+    
+    	* mini-ppc.h: Define PPC_MINIMAL_PARAM_AREA_SIZE on all targets.
+    
+    	* Makefile.am: Use the same sources for PPC and PPC64.
+    
+    	* mini-ppc64.c: Removed.
+    
+    2008-12-10  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: A few new macros for the final PPC/PPC64
+    	merge.
+    
+    svn path=/trunk/mono/; revision=121203
+
+commit 77eff8936b5e423be2712ba66cd8baba0edd2795
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Fri Dec 5 20:57:02 2008 +0000
+
+    2008-12-05  Mark Probst  <mark.probst@gmail.com>
+    
+    	* mini-ppc.c: Some simple merges from mini-ppc64.c.
+    
+    2008-12-05  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: ppc_load_func must use ppc_load_sequence.
+    	Added ppc_compare_log.
+    
+    svn path=/trunk/mono/; revision=120890
+
+commit dd397c9fd311f0411694ff1cc7904aec14f4551b
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Fri Dec 5 16:42:24 2008 +0000
+
+    2008-12-05  Mark Probst  <mark.probst@gmail.com>
+    
+    	* tramp-ppc.c, mini-ppc.c, mini-ppc.h: Merged tramp-ppc.c with
+    	tramp-ppc64.c.
+    
+    	* Makefile.am: Use tramp-ppc.c instead of tramp-ppc64.c.
+    
+    	* tramp-ppc64.c: Removed.
+    
+    2008-12-05  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Added ppc_load_func for PPC32.  Added
+    	ppc_load/store_multiple_regs and ppc_compare_reg_imm.
+    
+    svn path=/trunk/mono/; revision=120852
+
+commit 7f226f68fb98684dafd132d90ca1a24635c33557
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Tue Dec 2 16:03:45 2008 +0000
+
+    2008-12-02  Mark Probst  <mark.probst@gmail.com>
+    
+    	* tramp-ppc64.c (mono_arch_create_rgctx_lazy_fetch_trampoline):
+    	Fix trampoline size.
+    
+    	* mini-ppc64.c, mini-ppc64.h, cpu-ppc64.md: A few floating point
+    	conversion opcodes are implemented natively instead via emulation.
+    
+    2008-12-02  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Opcodes for floating point conversions from
+    	64 bit integers.
+    
+    	Code submitted by andreas.faerber@web.de at
+    	https://bugzilla.novell.com/show_bug.cgi?id=324134 under the
+    	X11/MIT license.
+    
+    svn path=/trunk/mono/; revision=120492
+
+commit 742361c7bfc21faf8485d20d00cdfc58c04800f9
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Fri Nov 28 19:06:34 2008 +0000
+
+    2008-11-28  Mark Probst  <mark.probst@gmail.com>
+    
+    	* mini-ppc64.c, mini-ppc64.h: Enable generalized IMT thunks and
+    	make them work.
+    
+    2008-11-28  Mark Probst  <mark.probst@gmail.com>
+    
+    	* object.c: Don't put function descriptors into generalized IMT
+    	thunks.
+    
+    2008-11-28  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: #define for the maximum length of a load
+    	sequence.
+    
+    svn path=/trunk/mono/; revision=120248
+
+commit b45b096d6d4246f16d05e42838122f1d58f875f6
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Fri Nov 21 00:21:53 2008 +0000
+
+    2008-11-21  Mark Probst  <mark.probst@gmail.com>
+    
+    	* mini-ppc64.c, mini-ppc64.h, cpu-ppc64.md: Several fixes.  Now
+    	PPC64 passes basic-long.exe.
+    
+    2008-11-21  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Make ppc_is_[u]imm16() work with 64 bit
+    	values.
+    
+    svn path=/trunk/mono/; revision=119560
+
+commit dc227de13e4f1cee33c379401adbb90a225e680a
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Thu Nov 20 23:45:00 2008 +0000
+
+    2008-11-20 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add X86_SSE_MOVHPD_REG_MEMBASE and renamed MOVS to MOVSD.
+    
+    svn path=/trunk/mono/; revision=119549
+
+commit 01e12b57e8773f9c65c64a91f956b0fa9335d095
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Thu Nov 20 23:44:44 2008 +0000
+
+    2008-11-20 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add X86_SSE_MOVS_ reg/membase variants.
+    
+    	* x86/x86-codegen.h: Add x86_sse_alu_pd_reg_membase_imm.
+    
+    	* x86/x86-codegen.h: Sort the x86_sse_alu_* macros decently.
+    
+    svn path=/trunk/mono/; revision=119545
+
+commit 96ed3f7c4ea51c61ec3b5d0600c32fa003b8e4f7
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Thu Nov 20 21:36:13 2008 +0000
+
+    2008-11-20  Mark Probst  <mark.probst@gmail.com>
+    
+    	* decompose.c: Decompose carry and overflow add on PPC64 like on
+    	other 64 bit archs.  Don't decompose sub at all on PPC64.
+    
+    	* mini-ppc64.c, exceptions-ppc64.c, tramp-ppc64.c, cpu-ppc64.md:
+    	Several fixes and new opcodes.  Now PPC64 runs (but doesn't pass)
+    	basic-long.exe.
+    
+    2008-11-20  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Use ppc_load_reg instead of ppc_ld in
+    	ppc_load_func to fix the 2 bit shift.
+    
+    svn path=/trunk/mono/; revision=119516
+
+commit 14651d4fa6b039131000aa5157ed99b7526f89b8
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Thu Nov 20 21:27:36 2008 +0000
+
+    2008-11-20  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: 64 bit division opcodes.
+    
+    	Code submitted by andreas.faerber@web.de at
+    	https://bugzilla.novell.com/show_bug.cgi?id=324134 under the
+    	X11/MIT license.
+    
+    svn path=/trunk/mono/; revision=119515
+
+commit daa4af175e0f8b95888918dbf429c7d5f66d3c07
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Nov 20 14:28:51 2008 +0000
+
+    2008-11-20  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/Makefile.am (libmonoarch_arm_la_SOURCES): Don't build tramp.c, it is only
+    	used by the interpreter.
+    
+    svn path=/trunk/mono/; revision=119444
+
+commit 3225dc9308230de9fbbca884c05e6b150a8e0333
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Thu Nov 20 14:12:04 2008 +0000
+
+    2008-11-20 Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add PEXTR B/W/D.
+    
+    svn path=/trunk/mono/; revision=119441
+
+commit 5c317c4676f911a0620b54e6668cf66a5c0dda31
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Tue Nov 18 21:56:58 2008 +0000
+
+    2008-11-18 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add PINSR B/W/D.
+    
+    svn path=/trunk/mono/; revision=119229
+
+commit b31b375fc1354cc835d183e7e251e602eeb038c5
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Tue Nov 18 21:56:49 2008 +0000
+
+    2008-11-17 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Fix comment about the version of PCMPGTQ.
+    
+    	* x86/x86-codegen.h: Add movsd constant and x86_sse_alu_sd_membase_reg
+    	macro.
+    
+    svn path=/trunk/mono/; revision=119227
+
+commit dbebfad82832bf895561902dd527d2e4c158c2c9
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Tue Nov 18 15:32:41 2008 +0000
+
+    2008-11-18  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: Macro for nop added.
+    
+    2008-11-18  Mark Probst  <mark.probst@gmail.com>
+    
+    	* mini-ppc64.c, mini-ppc64.h, tramp-ppc64.c, cpu-ppc64.md: Changes
+    	for PPC64.  An empty program runs now.
+    
+    svn path=/trunk/mono/; revision=119162
+
+commit 406790f1df77c80b5b28bcac561e7b6c6cd1a3a6
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Tue Nov 18 10:25:11 2008 +0000
+
+    2008-11-18  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: PPC64 code generation macros.
+    
+    	Based on code submitted by andreas.faerber@web.de at
+    	https://bugzilla.novell.com/show_bug.cgi?id=324134 under the
+    	X11/MIT license.
+    
+    svn path=/trunk/mono/; revision=119141
+
+commit 484dbedc8136e413a77ee11938d40e713cfefcfd
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Tue Nov 18 10:17:36 2008 +0000
+
+    2008-11-18  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: A few fixes and additions.
+    
+    	Based on code submitted by andreas.faerber@web.de at
+    	https://bugzilla.novell.com/show_bug.cgi?id=324134 under the
+    	X11/MIT license.
+    
+    svn path=/trunk/mono/; revision=119140
+
+commit 74b70bd5f7bc3b40a919c6c8b06c22facae8df6b
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Nov 17 17:00:22 2008 +0000
+
+    2008-11-17  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add X86_SSE_MOVHPD_MEMBASE_REG constant
+    	and x86_sse_alu_pd_membase_reg/x86_sse_alu_membase_reg macros.
+    
+    svn path=/trunk/mono/; revision=119057
+
+commit 59483983e37bb55af19f4e98e3de2f1ad216989b
+Author: Andreas Färber <afaerber@mono-cvs.ximian.com>
+Date:   Sat Nov 15 10:59:47 2008 +0000
+
+    2008-11-15  Andreas Faerber  <andreas.faerber@web.de>
+    
+    	* ppc/test.c: Add support for Mac OS X.
+    
+    	This commit is licensed under the MIT X11 license.
+    
+    svn path=/trunk/mono/; revision=118924
+
+commit 6c930cb35aa08e10abba989d9cb8560b4636ba73
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Thu Nov 13 22:51:27 2008 +0000
+
+    2008-11-13 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Remove not used macro x86_pshufd_reg_reg.
+    
+    svn path=/trunk/mono/; revision=118779
+
+commit bfe79f71f1352fbbfb696de3b0c093562b6fefb5
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Tue Nov 4 20:17:31 2008 +0000
+
+    2008-11-04 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add store nta.
+    
+    svn path=/trunk/mono/; revision=117921
+
+commit 42f47d048391da1619aa26b70e54980c4c33e3f2
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Nov 3 14:41:44 2008 +0000
+
+    2008-11-03 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add prefetch instruction
+    	and x86_sse_alu_reg_membase macro.
+    
+    svn path=/trunk/mono/; revision=117753
+
+commit eaf2804839ffb61912a8eeef7c3a58463aafcdd6
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Tue Oct 28 19:24:34 2008 +0000
+
+    2008-10-28 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add long version of the packed integer
+    	ops.
+    
+    svn path=/trunk/mono/; revision=117292
+
+commit 3fffcb4ac5879f2655ee3b4b3bee093a9eaa5016
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Tue Oct 28 00:05:56 2008 +0000
+
+    2008-10-27 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add movddup.
+    
+    svn path=/trunk/mono/; revision=117220
+
+commit bf9bec59fad96b9a7cb38921c26bb1c176fe40ce
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Fri Oct 24 21:58:17 2008 +0000
+
+    2008-10-24  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add signed pack with saturation.
+    
+    svn path=/trunk/mono/; revision=116995
+
+commit 2ffed07a8205616ea4a1605338f08c8ad6c77432
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Fri Oct 24 13:36:53 2008 +0000
+
+    2008-10-24  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+            * x86/x86-codegen.h: Add signed packed mul high.
+    
+    svn path=/trunk/mono/; revision=116936
+
+commit 2b6070d8bbd583f6bb90e02f3961252ef0854da8
+Author: Gonzalo Paniagua Javier <gonzalo.mono@gmail.com>
+Date:   Fri Oct 24 01:02:49 2008 +0000
+
+    remove temporary/generated files
+    
+    svn path=/trunk/mono/; revision=116902
+
+commit 7a2889c2ce0cfbc193324b64764a02e42f5daee8
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Fri Oct 24 00:35:54 2008 +0000
+
+    2008-10-23  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+            * x86/x86-codegen.h: Add signed packed max, min, add/sub with saturation
+            and compare greater.
+    
+    svn path=/trunk/mono/; revision=116896
+
+commit 600a42f70b41a94712aac746e44f2bba885dfc1f
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Oct 20 19:36:04 2008 +0000
+
+    2008-10-20 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add multiply and store high.
+    
+    svn path=/trunk/mono/; revision=116545
+
+commit 454b5617264c1bb64ff7296669db98a14cc58118
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Fri Oct 17 17:41:14 2008 +0000
+
+    2008-10-17 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add packed int shuffle.
+    
+    svn path=/trunk/mono/; revision=116265
+
+commit 8336fe34234402529da0e46af634948d678ee649
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Thu Oct 16 23:22:27 2008 +0000
+
+    2008-10-16  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add packed int compare equals and
+    	psabw.
+    
+    svn path=/trunk/mono/; revision=116117
+
+commit 0a6e6df8d766d7ad1b21d6c234826293d1317979
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Wed Oct 15 20:52:54 2008 +0000
+
+    2008-10-15 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add packed int max/min/avg/shuffle and extract mask.
+    
+    svn path=/trunk/mono/; revision=115919
+
+commit ec2240eaee83b7c5ff444e0708a114458394d55b
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Tue Oct 14 15:02:05 2008 +0000
+
+    2008-10-14  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add movsldup and movshdup.
+    
+    svn path=/trunk/mono/; revision=115785
+
+commit 7ed9633867d31f5dd5fd971611f952574c005a87
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Oct 13 22:13:15 2008 +0000
+
+    2008-10-13  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add remaining FP sse1 ops.
+    	Add sse ps encoding with imm operand.
+    	Add remaining sse1 ops.
+    
+    svn path=/trunk/mono/; revision=115699
+
+commit 18f1e82ca6ebaf0929f654a56ab9ddfadfacacb5
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Mon Oct 13 01:13:10 2008 +0000
+
+    2008-10-12  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add macro for sse41 ops.
+    	Add defined for pack ops, dword shifts/mul/pack.
+    
+    2008-10-12  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* basic-simd.cs: Remove PackWithUnsignedSaturation tests as it turns out
+    	that the packuswb/packusdw don't work with unsigned numbers for what
+    	would be negative numbers in signed format.
+    
+    	* cpu-x86.md: Add doubleword forms of many ops and packing ones.
+    	Fix the len of fconv_to_r8_x and xconv_r8_to_i4.
+    
+    	* mini-ops.h: Add doubleword forms of many ops and packing ones.
+    
+    	* mini-x86.c: Emit doubleword forms of many ops and packing ones.
+    
+    	* simd-intrinsics.c (SimdIntrinsc): Rename the flags field to simd_version.
+    
+    	* simd-intrinsics.c (vector4f_intrinsics): Use simd_version field for sse3 ops.
+    
+    	* simd-intrinsics.c (vector4u_intrinsics): Rename to vector4ui_intrinsics and
+    	add more ops.
+    
+    	* simd-intrinsics.c (simd_version_name): New function, returns the name of the
+    	version as the enum in mini.h.
+    
+    	* simd-intrinsics.c (emit_intrinsics): Instead of having a special emit mode
+    	for sse3 ops, check the simd_version field if present. This way the code
+    	works with all versions of sse.
+    
+    svn path=/trunk/mono/; revision=115610
+
+commit 494ea4f86907f393c8f0ba660edb100a107a8c80
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Oct 11 05:26:06 2008 +0000
+
+    2008-10-11  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_jump_code_size): Fix the 64 bit support.
+    
+    svn path=/trunk/mono/; revision=115509
+
+commit ba0739c0dc1dd6713f6127160dcee501b105c300
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Oct 10 21:55:37 2008 +0000
+
+    2008-10-10  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_jump_code_size): Handle non 32-bit targets.
+    
+    svn path=/trunk/mono/; revision=115494
+
+commit 5de452f7ff84e26bd22b86205a1cdb9fc207fe75
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Thu Oct 9 18:28:16 2008 +0000
+
+    2008-10-09  Rodrigo Kumpera  <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add macros for sse shift, pack, unpack,
+    	saturated math and packed byte/word/dword math.
+    
+    svn path=/trunk/mono/; revision=115367
+
+commit 922c5a03dc6cd66147b1c6bfeb8c1045176618da
+Author: Rodrigo Kumpera <kumpera@gmail.com>
+Date:   Fri Oct 3 14:28:09 2008 +0000
+
+    2008-10-03 Rodrigo Kumpera <rkumpera@novell.com>
+    
+    	* x86/x86-codegen.h: Add macros and enum for SSE instructions.
+    
+    svn path=/trunk/mono/; revision=114751
+
+commit f2d756dab8d08c009df41d94eb21fdf427a8e01a
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Sat Sep 27 13:02:48 2008 +0000
+
+    2008-09-27  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h: A few typecasts to fix compiler warnings.
+    
+    2008-09-27  Mark Probst  <mark.probst@gmail.com>
+    
+    	* mini-ppc.c: Compiler warning fixes.
+    
+    svn path=/trunk/mono/; revision=114279
+
+commit 386d8b482a7e399e4e8d130dd0d2d2ab405068ae
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Sun Sep 7 10:25:11 2008 +0000
+
+    2008-09-07  Mark Probst  <mark.probst@gmail.com>
+    
+    	* marshal.c (mono_type_native_stack_size): Treat
+    	MONO_TYPE_TYPEDBYREF like MONO_TYPE_VALUETYPE.
+    
+    2008-09-07  Mark Probst  <mark.probst@gmail.com>
+    
+    	* method-to-ir.c (mono_method_to_ir2): Disable tail calls for PPC
+    	until they're implemented properly.
+    
+    	* exceptions-ppc.c: Use arch-independent exception-handling code
+    	instead of custom one.
+    
+    	* exceptions-ppc.c, mini-ppc.c, mini-ppc.h: Bug fixes and changes
+    	for Linear IR.
+    
+    	* tramp-ppc.c, mini-ppc.c: Fixed warnings.
+    
+    	* decompose.c, aot-runtime.c, aot-compiler.c: PPC code also
+    	applies when __powerpc__ is defined.
+    
+    2008-09-07  Mark Probst  <mark.probst@gmail.com>
+    
+    	* libtest.c: Darwin structure alignment also applies to PPC.
+    
+    2008-09-07  Mark Probst  <mark.probst@gmail.com>
+    
+    	* ppc/ppc-codegen.h (ppc_load): Inserted cast to fix some
+    	warnings.
+    
+    svn path=/trunk/mono/; revision=112455
+
+commit 5c8178c1e6cf4d2370c865c6bc66995ca1174eb9
+Author: Mark Probst <mark.probst@gmail.com>
+Date:   Mon Jun 16 09:37:01 2008 +0000
+
+    2008-06-16  Mark Probst  <mark.probst@gmail.com>
+    
+    	* amd64/amd64-codegen.h: Removed extraneous parenthesis in a macro
+    	nobody uses.
+    
+    svn path=/trunk/mono/; revision=105886
+
+commit ecbcbb317678440e62a13e16820f95f6ea2dff3d
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Jun 6 02:08:56 2008 +0000
+
+    2008-06-06  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_padding_size): Rewrite this to use the
+    	instructions recommended by the amd64 manual.
+    
+    svn path=/trunk/mono/; revision=105134
+
+commit 0ded1416da01e39a6c4a33fc9798123d4021fe4d
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Apr 19 14:18:56 2008 +0000
+
+    2008-04-19  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_is_imm32): Use gint64 instead of glong because of
+    	win64.
+    
+    svn path=/trunk/mono/; revision=101210
+
+commit cb1954322f73b8d1b0a6836c5242b05538ed72dd
+Author: Jb Evain <jbevain@gmail.com>
+Date:   Sun Apr 13 11:44:22 2008 +0000
+
+    last merge 100420:100549
+    
+    svn path=/branches/jb/ml2/mono/; revision=100550
+
+commit a977d5e7585e338491944fc87b5e018891eedd93
+Author: Geoff Norton <grompf@sublimeintervention.com>
+Date:   Wed Mar 12 17:08:32 2008 +0000
+
+    In .:
+    2008-03-13  Geoff Norton  <gnorton@novell.com>
+    
+    	* arch/arm/tramp.c:  Dont compile this on PLATFORM_MACOSX
+    
+    
+    svn path=/trunk/mono/; revision=98063
+
+commit 8c6ca9f3fda169feccab289ecd181e06bcc8e133
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Feb 18 18:25:24 2008 +0000
+
+    2008-02-18  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_movsxd_reg_mem): New codegen macro.
+    
+    svn path=/trunk/mono/; revision=96092
+
+commit 7a7cef000b9d59672b47c0fcdf75bd1fc00b8c78
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Feb 14 14:21:56 2008 +0000
+
+    2008-02-14  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_alu_membase8_imm_size): New codegen macro.
+    
+    svn path=/trunk/mono/; revision=95633
+
+commit 9cbc23b5ee9e4f2dca88f8418d11be97079c25a1
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Feb 8 14:28:06 2008 +0000
+
+    2008-02-08  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* arm/arm-codegen.h: Fix the ordering of arguments for some load/store opcodes
+    	so they are consistent.
+    
+    svn path=/trunk/mono/; revision=95254
+
+commit b951542a9ead8a408c6560a0ffad28a5ade9670d
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Jan 24 20:12:46 2008 +0000
+
+    2008-01-24  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* Makefile.am (SUBDIRS): Or if INTERP_SUPPORTED is true.
+    
+    svn path=/trunk/mono/; revision=93834
+
+commit 95aa5dc93dbfbcf10125032ecde0e5eabc969a98
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Jan 24 20:10:14 2008 +0000
+
+    2008-01-24  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* Makefile.am (SUBDIRS): Only set this on arm.
+    
+    svn path=/trunk/mono/; revision=93833
+
+commit 11c84542edf07ed41b831c12058f9a0bdd83df93
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Nov 20 17:45:36 2007 +0000
+
+    2007-11-20  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_alu_reg_imm_size): Prefer the smaller
+    	instruction encoding.
+    
+    svn path=/trunk/mono/; revision=90005
+
+commit b15fabef0c7798e4850432910d97e0249cd691fc
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Nov 10 15:22:00 2007 +0000
+
+    2007-11-03  David S. Miller  <davem@davemloft.net>
+    
+           * sparc/sparc-codegen.h (sparc_set32, sparc_set): A plain sethi
+           can be used if the constant value only has the top 22 bits set.
+    
+    svn path=/trunk/mono/; revision=89409
+
+commit e22c1134d1553f6da21c1ef50ab4afb009d7c215
+Author: Geoff Norton <grompf@sublimeintervention.com>
+Date:   Mon Nov 5 22:28:08 2007 +0000
+
+    2007-11-01  Geoff Norton  <gnorton@novell.com>
+    
+            * x86/Makefile.am:  Only compile tramp.c if INTERP_SUPPORTED is true
+            Fixes the build on Leopard.
+    
+    
+    svn path=/trunk/mono/; revision=88931
+
+commit ad3b3601f5c113df825c3d2e09fb03b5aa4d1208
+Author: Geoff Norton <grompf@sublimeintervention.com>
+Date:   Thu Nov 1 19:03:16 2007 +0000
+
+    2007-11-01  Geoff Norton  <gnorton@novell.com>
+    
+        * ppc/Makefile.am:  Only compile tramp.c if INTERP_SUPPORTED is true
+        Fixes the build on Leopard.
+    
+    svn path=/trunk/mono/; revision=88673
+
+commit 8991f4a9503167171a0ad5e745d71ec4bd8b846c
+Author: Jonathan Chambers <joncham@gmail.com>
+Date:   Fri Oct 26 14:41:54 2007 +0000
+
+    2007-10-26  Jonathan Chambers <joncham@gmail.com>
+    
+    	* mini-amd64.c: Begin Win64 port. Use AMD64_ARG_REG#
+    	defines to access param registers. Replace long usage with
+    	gsize as sizeof(long) != sizeof(void*) on Win64.
+    
+    	* mini-amd64.h: Add %rdi and %rsi to MonoLMF structure
+    	on Win64. Fix intrinsic, use _AddressOfReturnAddress
+    	instead of non-existant _GetAddressOfReturnAddress.
+    
+    	* tramp-amd64.c: Use AMD64_ARG_REG#	defines to access
+    	param registers. Save/restore %rdi and %rsi in MonoLMF.
+    
+    	* exceptions-amd64.c: Use AMD64_ARG_REG# defines to access
+    	param registers. Modify (throw_exception) signature to take
+    	%rdi and %rsi on Win64.
+    
+    	Code is contributed under MIT/X11 license.
+    
+    2007-10-26  Jonathan Chambers <joncham@gmail.com>
+    
+    	* amd64/amd64-codegen.h: Begin Win64 port. Use AMD64_ARG_REG#
+    	defines to access param registers. Replace long usage with
+    	gsize as sizeof(long) != sizeof(void*) on Win64.
+    
+    	Code is contributed under MIT/X11 license.
+    
+    
+    svn path=/trunk/mono/; revision=88258
+
+commit 118f4540a2da9cdb72debfb786a9930e93f2a10b
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Oct 9 00:12:58 2007 +0000
+
+    2007-10-09  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_jump_membase_size): Remove an unneccesary
+    	rex prefix which trips up valgrind.
+    
+    svn path=/trunk/mono/; revision=87140
+
+commit e43f3ebed2b5b54c47b5f8ce458788dce0ef97dc
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Jul 14 14:04:54 2007 +0000
+
+    2007-07-14  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h: Remove some unused rex prefixes.
+    
+    svn path=/trunk/mono/; revision=81979
+
+commit 25f0e1d2bd61097c008fa88e4a114884bb6fe0c9
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Jul 4 13:17:45 2007 +0000
+
+    Wed Jul 4 15:29:07 CEST 2007 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: added minimal sse instructions currently
+    	needed by the JIT.
+    
+    
+    svn path=/trunk/mono/; revision=81331
+
+commit e971b6ec5cf03043dc227759fced05d5786964d4
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Jun 13 17:41:53 2007 +0000
+
+    2007-06-13  Randolph Chung  <tausq@debian.org>
+    
+    	* hppa/hppa-codegen.h: Update with more instructions.
+    	* hppa/tramp.c: Disable for linux since we don't support the
+    	interpreter.
+    
+    
+    svn path=/trunk/mono/; revision=79463
+
+commit 26169bb71cd30b373975373952fb11d7a26b0cca
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun May 20 19:41:51 2007 +0000
+
+    2007-05-20  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h (amd64_call_reg): Remove a got prefix which isn't needed.
+    
+    svn path=/trunk/mono/; revision=77730
+
+commit a024b2405701bbee2003e46a0f9b0e2c0486033c
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Apr 23 11:31:33 2007 +0000
+
+    2007-04-23  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* alpha/alpha-codegen.h: More alpha port work from
+    	Sergey Tikhonov <tsv@solvo.ru>.
+    
+    svn path=/trunk/mono/; revision=76103
+
+commit 5ca5ea86f1ff85953c28e0ba3b657268cd2cdfba
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Sun Apr 15 09:11:00 2007 +0000
+
+    * tramp.c: Add MONO_TYPE_PTR case.
+    * mini-s390.c: Correct checking for enum type in return value processing.
+    
+    svn path=/trunk/mono/; revision=75718
+
+commit 9159abc7ec906d64a15eee8e02b9e5b3f2cce87d
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Thu Apr 12 20:45:34 2007 +0000
+
+    * tramp.c: Add MONO_TYPE_PTR case.
+    
+    
+    svn path=/trunk/mono/; revision=75663
+
+commit b7fd657ee94257eeec946fa9eb11b3f60e7e33e6
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Mar 12 16:07:56 2007 +0000
+
+    Mon Mar 12 17:07:32 CET 2007 Paolo Molaro <lupus@ximian.com>
+    
+    	* amd64/amd64-codegen.h: removed some useless size rex prefixes.
+    
+    
+    svn path=/trunk/mono/; revision=74128
+
+commit 0ba3e4bdd057c7a0d25767f7647a00f07683b44c
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Jan 24 20:01:27 2007 +0000
+
+    Wed Jan 24 21:00:40 CET 2007 Paolo Molaro <lupus@ximian.com>
+    
+    	* arm/arm-codegen.h: fixed encoding of short/byte load/store
+    	instructions with negative immediate offsets.
+    
+    
+    svn path=/trunk/mono/; revision=71622
+
+commit 0251f000fba5c8f99bec6c33beae0c2aabe66451
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Tue Jan 23 17:11:29 2007 +0000
+
+    * s390x-codegen.h: Add packed attribute to several instruction structures.
+    
+    svn path=/trunk/mono/; revision=71523
+
+commit 8e25ae408b9d1836130807d3f465023347051332
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Fri Dec 22 22:51:15 2006 +0000
+
+    Patch from Sergey Tikhonov <tsv@solvo.ru>
+    
+    Mono on Alpha updates:
+    
+    - Code cleanup
+    - Some hacks to support debugger
+    - updates for "linears" optimization
+    
+    
+    svn path=/trunk/mono/; revision=69976
+
+commit edd2746e20c982e094abfd547afad74d8e7d2302
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Nov 20 16:37:26 2006 +0000
+
+    Mon Nov 20 17:36:45 CET 2006 Paolo Molaro <lupus@ximian.com>
+    
+    	* arm/arm-codegen.h: added suppot for thumb interworking instructions.
+    
+    
+    svn path=/trunk/mono/; revision=68201
+
+commit b63503e7c4b5ebb8baafb5b58ec69395146db022
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Nov 15 16:00:09 2006 +0000
+
+    Wed Nov 15 16:56:53 CET 2006 Paolo Molaro <lupus@ximian.com>
+    
+    	* mips/*: fixes by Mark E Mason <mark.e.mason@broadcom.com>.
+    
+    
+    svn path=/trunk/mono/; revision=67929
+
+commit 6f8d67005785ba86e81ac930325767d0b270a070
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri Nov 10 18:42:10 2006 +0000
+
+    Typo fixes.
+    
+    svn path=/trunk/mono/; revision=67683
+
+commit f99322f3ea7b7be85ac63c87c664aafb7f5e17bf
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Wed Oct 11 21:34:24 2006 +0000
+
+    2006-10-11  Sergey Tikhonov <tsv@solvo.ru>
+    
+    	* atomic.h: Fix atomic decrement.
+    
+    	* mini/cpu-alpha.md: Use native long shift insts
+    
+    	* mono/mono/mini/tramp-alpha.c: Implemented
+    	mono_arch_patch_delegate_trampoline method
+    
+    	* Started work on using global registers
+    
+    	* Use byte/word memory load/store insts if cpu supports it
+    
+    	* Code clean up
+    
+    
+    
+    
+    svn path=/trunk/mono/; revision=66573
+
+commit 538fd0794b9ef24f7c765891ed682fc947cf8e85
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Sep 12 13:02:59 2006 +0000
+
+    2006-09-12  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* alpha/alpha-codegen.h: More alpha updates from Sergey Tikhonov <tsv@solvo.ru>.
+    
+    svn path=/trunk/mono/; revision=65305
+
+commit 0689ca5f72fa8cb03fb1b565a31c4e2b22774a64
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Sep 12 11:10:42 2006 +0000
+
+    Tue Sep 12 13:09:56 CEST 2006 Paolo Molaro <lupus@ximian.com>
+    
+    	* arm/*: VFP floating point format code generation support.
+    
+    
+    svn path=/trunk/mono/; revision=65295
+
+commit deacad246a936216f09a81b9881c6780de8dd406
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Sep 12 10:05:29 2006 +0000
+
+    2006-09-12  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ia64/ia64-codegen.h: Add xmpy_l/u pseudo ops.
+    
+    svn path=/trunk/mono/; revision=65289
+
+commit 207e90216277d1d1ee0e6cd37f183440c8c39a26
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Jul 19 12:10:43 2006 +0000
+
+    2006-07-19  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* amd64/amd64-codegen.h: Fix amd64_mov_mem_reg.
+    
+    svn path=/trunk/mono/; revision=62746
+
+commit 8f58fa13418008cb86a8ba450a894b23efc4574e
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Jul 19 12:09:09 2006 +0000
+
+    2006-07-19  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* alpha/alpha-codegen.h alpha/test.c alpha/tramp.c: Applied patch from
+    	Sergey Tikhonov <tsv@solvo.ru>. Updates to alpha support.
+    
+    svn path=/trunk/mono/; revision=62745
+
+commit ef8021400f045f835fcf70baf5ba5880fe6eca93
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Jun 15 15:00:59 2006 +0000
+
+    Thu Jun 15 16:59:36 CEST 2006 Paolo Molaro <lupus@ximian.com>
+    
+    	* ppc/ppc-codegen.h: reduce noisy build warnings by
+    	casting to the more commonly used unsigned char type
+    	(from johannes@sipsolutions.net (Johannes Berg)).
+    
+    
+    svn path=/trunk/mono/; revision=61757
+
+commit de54a3e44b1214298b39386b49e1ca992176e2e4
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun May 14 18:51:25 2006 +0000
+
+    2006-05-14  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ia64/ia64-codegen.h (ia64_fetchadd8_acq_hint_pred): Fix encoding of this
+    	opcode.
+    
+    svn path=/trunk/mono/; revision=60695
+
+commit 3b274ddc5c946640a4c0d6a7b2dee13cd2f5096d
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Apr 21 14:51:24 2006 +0000
+
+    2006-04-21  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* Makefile.am (SUBDIRS): Revert the last change as arm depends on the old
+    	behaviour.
+    
+    svn path=/trunk/mono/; revision=59758
+
+commit e830aadb2febf62051b8fc162884a909087cfe4e
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Apr 12 19:02:09 2006 +0000
+
+    2006-04-12  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* sparc/sparc-codegen.h (sparc_inst_i): New disassembly macro.
+    
+    svn path=/trunk/mono/; revision=59415
+
+commit a65cd014e420a38b47e00f5c6f9ce590fc00987b
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Apr 4 13:18:49 2006 +0000
+
+    2006-04-04  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* Makefile.am (SUBDIRS): Avoid compiling subdirs needed by the
+    	interpreter.
+    
+    svn path=/trunk/mono/; revision=59009
+
+commit 0d566f3cb37ddf731fba6cfce9741e2224a13d77
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Mon Mar 13 22:03:39 2006 +0000
+
+    * s390x-codegen.h: Fix immediate checks.
+    
+    svn path=/trunk/mono/; revision=57914
+
+commit 15bc8b574c91bfaa40cd1d83374d0179148b5894
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Fri Jan 6 18:52:21 2006 +0000
+
+            * s390x-codegen.h: Add lpdbr instruction (OP_ABS).
+    
+            * mini-s390x.c, inssel-s390x.brg, cpu-s390x.md: Fix ATOMIC_I8
+            operations. Provide initial support for OP_ABS.
+    
+    svn path=/trunk/mono/; revision=55158
+
+commit 1092c74e7a468b7761df92c2dc0dd2f2b49f21e6
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Tue Jan 3 19:40:34 2006 +0000
+
+            * mono/io-layer/ChangeLog, mono/io-layer/atomic.h, mono/mini/mini-s390x.c,
+            mono/mini/mini-s390x.h, mono/mini/exceptions-s390x.c,
+            mono/mini/ChangeLog, mono/mini/s390-abi.cs, mono/mini/tramp-s390x.c,
+            mono/mini/inssel-s390x.brg, mono/mini/cpu-s390x.md, mono/mini/mini-codegen.c
+            mono/mini/basic-long.cs, mono/mini/Makefile.am, mono/arch/s390x/ChangeLog
+            mono/arch/s390x/s390x-codegen.h: 64-bit s390 support
+    
+    svn path=/trunk/mono/; revision=55020
+
+commit 417b7fbe8f810e8fd62b2cb805164a3b80a536d6
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Dec 22 20:18:18 2005 +0000
+
+    2005-12-22  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* sparc/sparc-codegen.h (sparc_membar): Add membar instruction.
+    
+    svn path=/trunk/mono/; revision=54750
+
+commit 259b4749eaf68bfd6818ab38df91e37239c5dd45
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Tue Dec 13 19:12:20 2005 +0000
+
+    Continuing to bring s390 up to current levels
+    
+    svn path=/trunk/mono/; revision=54312
+
+commit f5fc186c01c764705e303b3783bf06e507e54640
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Dec 13 13:57:51 2005 +0000
+
+    Avoid lvalue pointer casts.
+    
+    svn path=/trunk/mono/; revision=54279
+
+commit ab97bc8d9e311f447d9f4a78e5a28ef6ff9b82ad
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Oct 30 18:06:59 2005 +0000
+
+    2005-10-30  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ia64/ia64-codegen.h (ia64_m17): Fix a warning.
+    
+    svn path=/trunk/mono/; revision=52399
+
+commit bb6893fc1e1854a8c9f848dfbfbc2dd00bde8735
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Oct 16 15:21:39 2005 +0000
+
+    2005-10-16  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h (AMD64_CALLEE_SAVED_REGS): Add %rbp.
+    
+    svn path=/trunk/mono/; revision=51764
+
+commit 0b2d13a625bfd03f8d24538ef48870daed540ee3
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Fri Oct 7 21:25:31 2005 +0000
+
+    Patch incorporated from SUSE, Neale reviewed it
+    
+    svn path=/trunk/mono/; revision=51443
+
+commit 2bba48015b516fd326cd082eb85325aa5b7676bf
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Fri Oct 7 20:36:01 2005 +0000
+
+    Patch incorporated from SUSE, Neale reviewed it
+    
+    svn path=/trunk/mono/; revision=51434
+
+commit 749c9989f64683d8363481304647924ec1d910af
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Sep 27 13:25:16 2005 +0000
+
+    Another compilation fix.
+    
+    svn path=/trunk/mono/; revision=50857
+
+commit 64dbeb6e048aa9654800624a74e9c58065cf01ea
+Author: Raja R Harinath <harinath@hurrynot.org>
+Date:   Tue Sep 27 09:09:41 2005 +0000
+
+    * arm/dpiops.sh, arm/fpaops.h: Output to stdout.
+    * arm/Makefile.am (arm_dpimacros.h, arm_fpamacros.h): Update.  Fix
+    for srcdir != builddir.
+    
+    svn path=/trunk/mono/; revision=50833
+
+commit 7c363c19299d3f85ee7de0eec2a83108ea98eff2
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Sep 26 08:58:47 2005 +0000
+
+    Compilation fix.
+    
+    svn path=/trunk/mono/; revision=50748
+
+commit 541c387c65579ca75abe8cdb9d0725c1e6d90df1
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Sep 11 16:55:41 2005 +0000
+
+    2005-09-11  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ia64/ia64-codegen.h (ia64_unw_pop_frames): New unwind macro.
+    
+    svn path=/trunk/mono/; revision=49910
+
+commit efbd8e41cf3337d59812a7cca48df3caee116b07
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Sep 10 20:50:37 2005 +0000
+
+    2005-09-10  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ia64/ia64-codegen.h: Remove 'manual' emitting of instructions.
+    	Integrate emission of unwind directives into the assembly macros.
+    
+    svn path=/trunk/mono/; revision=49875
+
+commit 8b07d9836f60fee4ff83a14ce110921be8ef8f2e
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Sep 3 22:06:10 2005 +0000
+
+    2005-09-04  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ia64/ia64-codegen.h (ia64_no_stop): New macro.
+    
+    svn path=/trunk/mono/; revision=49399
+
+commit 4e89407a4a8dc38125a804df930515a31603cdca
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Aug 27 14:33:09 2005 +0000
+
+    2005-08-27  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ia64/ia64-codegen.h: Fix some bugs.
+    
+    	* ia64/codegen.c: Update to work with latest ia64-codegen.h
+    
+    svn path=/trunk/mono/; revision=48969
+
+commit 9a52b3ea85b1899c6cc23263eec6879841b3fd08
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Aug 26 13:34:24 2005 +0000
+
+    2005-08-26  Zoltan Varga  <vargaz@gmail.com>
+    
+    	* ia64/Makefile.am: Distribute ia64-codegen.h.
+    
+    svn path=/trunk/mono/; revision=48891
+
+commit 16291812e22e9750bf101e297fc573ce35bab382
+Author: Wade Berrier <wade@mono-cvs.ximian.com>
+Date:   Fri Aug 26 06:58:33 2005 +0000
+
+    Oops
+    
+    svn path=/trunk/mono/; revision=48874
+
+commit d4b1ea47e0395555276e1a6c8ddfa3800692b6ea
+Author: Wade Berrier <wade@mono-cvs.ximian.com>
+Date:   Fri Aug 26 06:48:41 2005 +0000
+
+    Include files for 'make dist'
+    
+    svn path=/trunk/mono/; revision=48871
+
+commit cac0da0afb2a782de1db55a000a2125531e757fd
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Aug 20 22:16:11 2005 +0000
+
+    2005-08-21  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Improve ins scheduling and fix some bugs.
+    
+    svn path=/trunk/mono/; revision=48614
+
+commit d151f0e0b203a78ca99cab91d9df89ffe7728880
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Aug 17 20:28:30 2005 +0000
+
+    2005-08-17  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Add dependency information for all instructions.
+    
+    svn path=/trunk/mono/; revision=48476
+
+commit f1bce593b3504a82fc344d696eeedd91c39bcfee
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Aug 4 18:51:34 2005 +0000
+
+    Uncommitted fixes.
+    
+    svn path=/trunk/mono/; revision=48015
+
+commit 8348805e278d70da207455a0fe5cd470b00f3d8d
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Jul 30 15:43:43 2005 +0000
+
+    2005-07-30  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=47855
+
+commit 0fb75c64cb1361cc81a4e47ca556a597b440d65a
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Jul 20 16:55:20 2005 +0000
+
+    Wed Jul 20 18:01:54 BST 2005 Paolo Molaro <lupus@ximian.com>
+    
+    	* arm/*: more codegen macros.
+    
+    
+    svn path=/trunk/mono/; revision=47473
+
+commit 2205bab6932e69490e48b9e11957041e938020ee
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Jul 18 20:33:37 2005 +0000
+
+    2005-07-18  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h (ia64_is_adds_imm): Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=47395
+
+commit 5a9a7537801ad68c0f8552e7e107994b793e93ac
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Jun 22 22:00:43 2005 +0000
+
+    2005-06-23  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Add some new pseudo ops.
+    
+    svn path=/trunk/mono/; revision=46401
+
+commit f51b94e34b1a887304ace96af27d51b4ec98ab4b
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Jun 19 20:18:07 2005 +0000
+
+    2005-06-19  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Fix encoding of ia64_fclass.
+    
+    svn path=/trunk/mono/; revision=46224
+
+commit 398224a9101808c8ca470b24366a506eeefec135
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Jun 12 20:41:05 2005 +0000
+
+    2005-06-12  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=45834
+
+commit 5a9f032072053d76af233b9906614ee491d6295c
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Jun 9 20:22:08 2005 +0000
+
+    2005-06-09  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=45719
+
+commit 5f3ca7841b8aedd35f0c23781f2ac96f31ed501e
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon May 30 14:09:48 2005 +0000
+
+    2005-05-30  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/codegen.c: Fix it after latest changes.
+    
+    svn path=/trunk/mono/; revision=45192
+
+commit d6844049f8659741b3afe9fa66136738107d28ac
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun May 29 14:24:56 2005 +0000
+
+    2005-05-29  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=45159
+
+commit 4be6ea9e269927e9fbf06b0b73f53fef311f569f
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun May 29 11:16:27 2005 +0000
+
+    2005-05-29  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=45157
+
+commit 7b483f1f48c7abc9d0c17a1fb34b30ddaa7058bb
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat May 28 18:02:41 2005 +0000
+
+    2005-05-28  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=45147
+
+commit e360150e81b841b0644b5adc604f22f4b71e3987
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat May 28 17:08:04 2005 +0000
+
+    2005-05-28  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=45145
+
+commit a781c3a65727b60386604adc6023f3f5a53b3e3e
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri May 27 21:41:59 2005 +0000
+
+    2005-05-28  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=45127
+
+commit 20c2fc7ba73ffaf5506ab9bf487c3f519de5067f
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu May 26 17:16:50 2005 +0000
+
+    2005-05-26  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=45064
+
+commit f37723d307325b539fc515774d3988e0c7ff7a14
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun May 22 18:25:06 2005 +0000
+
+    2005-05-22  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=44892
+
+commit 1d1c3f56953c0cb26c2e695b468ea1da368aaef0
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun May 22 13:31:28 2005 +0000
+
+    2005-05-22  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=44888
+
+commit e32454dae1a3679056fb4ac86ffc81defc3a5eb7
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun May 22 01:29:00 2005 +0000
+
+    2005-05-22  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=44883
+
+commit fee3f0247077513ba3254ddb410687a11c667b8c
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri May 20 21:55:37 2005 +0000
+
+    2005-05-21  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Ongoing IA64 work.
+    
+    svn path=/trunk/mono/; revision=44855
+
+commit 1d94e7499dc18c3882f4aa16e977ceeaacddd466
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed May 18 23:02:39 2005 +0000
+
+    2005-05-19  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h ia64/codegen.c: Ongoing ia64 work.
+    
+    svn path=/trunk/mono/; revision=44722
+
+commit 3f053b86a49d8c41d47ca2ff771bda64ee5a5ddc
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed May 18 18:55:54 2005 +0000
+
+    2005-05-18  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h (ia64_codegen_init): Rename macro parameter.
+    
+    svn path=/trunk/mono/; revision=44705
+
+commit 061e9ab4d483c98d6747caad5160bd30fbbf09ab
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat May 14 19:52:56 2005 +0000
+
+    2005-05-14  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* Makefile.am: Only compile libmonoarch if the interpreter is compiled.
+    
+    svn path=/trunk/mono/; revision=44526
+
+commit 82a68f6e85fbc7aaa7832584b2f51953871f1390
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat May 14 17:35:42 2005 +0000
+
+    2005-05-14  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* ia64/ia64-codegen.h: Add IA64 code generation macros.
+    
+    	* Makefile.am: Add ia64 subdir.
+    
+    svn path=/trunk/mono/; revision=44523
+
+commit 800d43a2433ffc57d904687fdd2b746d5277cab5
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu May 5 12:13:33 2005 +0000
+
+    2005-05-05  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* alpha/tramp.c: Applied patch from Jakub Bogusz <qboosh@pld-linux.org>.
+    
+    svn path=/trunk/mono/; revision=44078
+
+commit 293459dd29bdd85542f499e0530c9504ced01604
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Mar 28 21:09:11 2005 +0000
+
+    2005-03-28  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Avoid emitting a rex in some places.
+    
+    svn path=/trunk/mono/; revision=42316
+
+commit 140d5636edd892a388da877b7035f1809590e7ff
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Mar 15 19:47:29 2005 +0000
+
+    2005-03-15  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h (amd64_emit_rex): Emit a rex when accessing the
+    	byte registers.
+    
+    svn path=/trunk/mono/; revision=41848
+
+commit 242ec30220c85e3f69a1dd1d50469771c4ba7047
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Mar 15 17:08:39 2005 +0000
+
+    2005-03-15  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h (AMD64_BYTE_REGS): Add AMD64_BYTE_REGS macro.
+    
+    svn path=/trunk/mono/; revision=41842
+
+commit f7074904827b639bb500dcb92c481ec9f35a88a0
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Mar 14 15:17:54 2005 +0000
+
+    2005-03-14  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Add missing AMD64_XMM7.
+    
+    svn path=/trunk/mono/; revision=41795
+
+commit d23ce2f6ba82d598af825e20b95cf7938ff5bc39
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Mar 13 16:57:42 2005 +0000
+
+    2005-03-13  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Remove some unneccesary REXes.
+    
+    svn path=/trunk/mono/; revision=41765
+
+commit ad5014de38c4bde6ef12a04bbbcdf0303ac8acc1
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Mar 8 11:11:38 2005 +0000
+
+    2005-03-08  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h (amd64_sse_cvtsi2sd_reg_reg_size): Add _size
+    	variants to some sse2 macros.
+    
+    svn path=/trunk/mono/; revision=41557
+
+commit ee4c2805588b6d8291ac4349a520ca9c99050b59
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Mar 8 09:28:19 2005 +0000
+
+    2005-03-08  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h (amd64_sse_cvtsd2si_reg_reg): Make this convert
+    	to a 64 bit value.
+    
+    svn path=/trunk/mono/; revision=41554
+
+commit 3c4a8677815d2ad4e0b47b809ca16b43f33e3f96
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Mar 6 21:25:22 2005 +0000
+
+    2005-03-06  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Add some SSE2 instructions.
+    
+    svn path=/trunk/mono/; revision=41491
+
+commit b175669d7abc2f7e83940305cf2cb1f7663569b0
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Feb 20 18:48:25 2005 +0000
+
+    2005-02-20  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Add xadd instructions.
+    
+    svn path=/trunk/mono/; revision=40956
+
+commit c7a5bc7b7055832a36dc63ba67ad7add33a95d06
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Feb 20 14:16:51 2005 +0000
+
+    2005-02-20  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h (amd64_jump_code_size): Do not emit a rex.
+    
+    svn path=/trunk/mono/; revision=40934
+
+commit 2cf88a5c39f13e54cc5e5f95ab6021924077c1d8
+Author: Ben Maurer <benm@mono-cvs.ximian.com>
+Date:   Wed Feb 16 04:43:00 2005 +0000
+
+    remove .cvsignore, as this is not used anymore
+    
+    svn path=/trunk/mono/; revision=40731
+
+commit 0c1ce771e696eabde58e35deb64c0b578be7a92d
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Mon Jan 10 21:13:14 2005 +0000
+
+    - Fix atomic ops on s390
+    - Implement OP_ATOMIC_xxx operations on s390
+    - Standardize exception handling on s390 with other platforms
+    - Enable out of line bblock support
+    - Check vtable slot belongs to domain when building trampoline
+    
+    svn path=/trunk/mono/; revision=38647
+
+commit 9f3d964963eac63f42db702fe80cbfa89e3a73b4
+Author: Raja R Harinath <harinath@hurrynot.org>
+Date:   Mon Dec 13 06:05:53 2004 +0000
+
+    remove svn:executable from *.cs *.c *.h
+    
+    svn path=/trunk/mono/; revision=37682
+
+commit c7b8d172d479d75da8d183f9491e4651bbc5b4f7
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Tue Dec 7 04:18:03 2004 +0000
+
+    Fix atomic operations and add initial support for tls support.
+    
+    svn path=/trunk/mono/; revision=37284
+
+commit c523c66bf11c9c05df3d77d42f8be9821ad558e5
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Nov 25 13:32:53 2004 +0000
+
+    2004-11-25  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Updates to support the PIC changes.
+    
+    svn path=/trunk/mono/; revision=36549
+
+commit da4b0970bffc8f281679bddf7371679910d0a23c
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri Nov 19 15:04:41 2004 +0000
+
+    Fri Nov 19 17:29:22 CET 2004 Paolo Molaro <lupus@ximian.com>
+    
+    	* ppc/ppc-codegen.h: counter reg decrement branch values
+    	(patch by Geoff Norton <gnorton@customerdna.com>).
+    
+    
+    svn path=/trunk/mono/; revision=36320
+
+commit 3e56873e56ee01f0195683a20bd44e0fd03db4ee
+Author: Patrik Torstensson <totte@mono-cvs.ximian.com>
+Date:   Thu Nov 18 18:44:57 2004 +0000
+
+    2004-11-16  Patrik Torstensson <patrik.torstensson@gmail.com>
+    
+    	* x86/x86-codegen.h: added opcodes for xadd instructions
+    
+    
+    svn path=/trunk/mono/; revision=36283
+
+commit 59c3726af38156a306a67c2dd6e755e8bdd0d89a
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Wed Nov 17 03:05:28 2004 +0000
+
+    Add support for siginfo_t as a parameter to mono_arch_is_int_overflow. Support this
+    routine in s390.
+    
+    svn path=/trunk/mono/; revision=36188
+
+commit 149905478e1af4189a0cd9cf3f0e294dbb2bccbc
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Nov 15 19:00:05 2004 +0000
+
+    2004-11-15  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/x86-64-codegen.h: Get rid of this.
+    
+    svn path=/trunk/mono/; revision=36145
+
+commit b982bf7e3e3e98afa37544b4a197d406f00b5e5a
+Author: Ben Maurer <benm@mono-cvs.ximian.com>
+Date:   Mon Nov 8 03:19:16 2004 +0000
+
+    fix
+    
+    svn path=/trunk/mono/; revision=35803
+
+commit 4c5436f259d4a109ab352f2ec7b7891cdce76cc9
+Author: Ben Maurer <benm@mono-cvs.ximian.com>
+Date:   Mon Sep 6 15:07:37 2004 +0000
+
+    fix warning
+    
+    svn path=/trunk/mono/; revision=33415
+
+commit 3a8f0a20bd939db788d3fd871b4c0ca37a4d0f96
+Author: Ben Maurer <benm@mono-cvs.ximian.com>
+Date:   Wed Sep 1 01:04:04 2004 +0000
+
+    Support short forms of push imm
+    
+    svn path=/trunk/mono/; revision=33128
+
+commit e11c33f0ae258eb62dd5fc2e4c6ce12952d25233
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Aug 29 21:04:04 2004 +0000
+
+    2004-08-30  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h (amd64_imul_reg_membase_size): Fix REX
+    	generation.
+    
+    svn path=/trunk/mono/; revision=33003
+
+commit b0791969d5ddbcb465d86bcd42c86150f653a9a1
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Aug 29 11:11:38 2004 +0000
+
+    2004-08-29  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: More SSE work.
+    
+    svn path=/trunk/mono/; revision=32992
+
+commit 8ca359bb4894521802e1f2044ec55a9aada4c08e
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Aug 29 09:41:22 2004 +0000
+
+    2004-08-29  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Add SSE2 instructions.
+    
+    svn path=/trunk/mono/; revision=32991
+
+commit 39a59671ff853ab672d9db1c982093ee1c7cc1f8
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Aug 21 20:07:37 2004 +0000
+
+    2004-08-21  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h (X86_IS_BYTE_REG): Redefine X86_IS_BYTE_REG
+    	since under amd64, all 16 registers have a low part.
+    
+    svn path=/trunk/mono/; revision=32632
+
+commit c6a18db1cda9d62eaba7e1095f34eb84e7c39a8b
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Aug 16 12:58:06 2004 +0000
+
+    2004-08-16  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* x86/x86-codegen.h: Add macros for accessing the mod/rm byte.
+    
+    svn path=/trunk/mono/; revision=32365
+
+commit 7f2d7df98341055eaf370855c499508599770dec
+Author: Ben Maurer <benm@mono-cvs.ximian.com>
+Date:   Sat Aug 14 18:28:26 2004 +0000
+
+    hush cvs
+    
+    svn path=/trunk/mono/; revision=32344
+
+commit ee4209b85e88e6adfc07a057b41747607235805c
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Fri Aug 6 16:28:23 2004 +0000
+
+    Support the MEMCPY(base, base) rule and add initial ARGLIST support
+    
+    svn path=/trunk/mono/; revision=31985
+
+commit ee8712fd77bdd445d98c511a07f29b5136368201
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Thu Aug 5 23:28:29 2004 +0000
+
+    Add s390x
+    
+    svn path=/trunk/mono/; revision=31966
+
+commit 17467e9a25e9a1cf71c170fd85e042a5a11a0f05
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Wed Aug 4 20:43:11 2004 +0000
+
+    Further 64-bit S/390 updates
+    
+    svn path=/trunk/mono/; revision=31898
+
+commit 4ad821169050e70979e71bbd5229557570059139
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Wed Aug 4 02:54:52 2004 +0000
+
+    S/390 64-bit support
+    tailc processing fix for S/390 32-bit
+    
+    svn path=/trunk/mono/; revision=31840
+
+commit 5ebecc33aca9878d2071c8766e5741cd6434d676
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Fri Jul 30 23:11:29 2004 +0000
+
+    Add some s390 specific tests
+    
+    svn path=/trunk/mono/; revision=31690
+
+commit 4e44c97a16962680e5009c97c0022e10ddbbad30
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Fri Jul 30 18:23:23 2004 +0000
+
+    Optimize code generation macros and standardize
+    
+    svn path=/trunk/mono/; revision=31683
+
+commit 57ac232b2805d02a4e2b6322ed9532313337e56c
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Jul 30 16:01:49 2004 +0000
+
+    2004-07-30  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Ongoing JIT work.
+    
+    svn path=/trunk/mono/; revision=31664
+
+commit 128d13d3973f07f5afba3ac7022bd9a4e7550626
+Author: Ben Maurer <benm@mono-cvs.ximian.com>
+Date:   Thu Jul 29 17:10:53 2004 +0000
+
+    2004-07-29  Ben Maurer  <bmaurer@ximian.com>
+    
+    	* x86/x86-codegen.h: Add opcodes for cmp BYTE PTR [eax], imm
+    
+    svn path=/trunk/mono/; revision=31622
+
+commit 77b5d5d9a5c508cef6a93be733818c446b9fe12c
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Jul 28 20:14:03 2004 +0000
+
+    2004-07-28  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Ongoing JIT work.
+    
+    svn path=/trunk/mono/; revision=31586
+
+commit a451b99d1a51fe3ffa7334ffbe6865f388e549c0
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Jul 24 18:29:32 2004 +0000
+
+    2004-07-24  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Ongoing JIT work.
+    
+    svn path=/trunk/mono/; revision=31431
+
+commit b58d4fba4fad9c9cd52604adf39ffe578e407b14
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Jul 23 20:05:59 2004 +0000
+
+    2004-07-23  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Ongoing JIT work.
+    
+    svn path=/trunk/mono/; revision=31426
+
+commit c7d11ced2179a38a406489b57f4a2f317fbe5da3
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Jul 23 16:07:08 2004 +0000
+
+    2004-07-23  zovarga  <vargaz@freemail.hu>
+    
+    	* amd64/amd64-codegen.h: Ongoing JIT work.
+    
+    svn path=/trunk/mono/; revision=31416
+
+commit f69c71790b01b62dd17d4479db005c3ef68e5e38
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Mon Jul 12 23:03:57 2004 +0000
+
+    Add mvcl instruction
+    
+    svn path=/trunk/mono/; revision=31055
+
+commit c9c82671d87761dc9a06b78082402924cf8f540d
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Mon Jul 12 12:05:08 2004 +0000
+
+    Add instructions to support enhanced memory-to-memory operations.
+    
+    svn path=/trunk/mono/; revision=31039
+
+commit 08a92e1c00c0a0cf3c446257b446939062605260
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Jun 30 15:04:48 2004 +0000
+
+    2004-06-30  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* sparc/sparc-codegen.h: Add SPARC64 support.
+    
+    svn path=/trunk/mono/; revision=30577
+
+commit d1881ea0cd90053526fa30405f4aeac90e06b485
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Fri Jun 18 20:03:01 2004 +0000
+
+    Fix broken ABI for stack parameters
+    
+    svn path=/trunk/mono/; revision=29915
+
+commit 4e0bce5ca726ed3d2a33d6cfdc3b41b04fcb91f8
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Jun 17 16:25:19 2004 +0000
+
+    API cleanup fixes.
+    
+    svn path=/trunk/mono/; revision=29787
+
+commit 1ac8bbc10c8f2cff9fe8aef20bee51612aa77f88
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Jun 16 15:24:15 2004 +0000
+
+    Wed Jun 16 18:11:41 CEST 2004 Paolo Molaro <lupus@ximian.com>
+    
+    	* Makefile.am, *.c, *.h: more API cleanups.
+    
+    svn path=/trunk/mono/; revision=29691
+
+commit cf789b0df2ab67298e712242ca201bd01d38c254
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri May 21 13:04:55 2004 +0000
+
+    More encoding fixes.
+    
+    svn path=/trunk/mono/; revision=27820
+
+commit 47892f7ea09d90ff4385b3f9c3796d5ce80ee76d
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon May 10 14:37:42 2004 +0000
+
+    Fix macros.
+    
+    svn path=/trunk/mono/; revision=27028
+
+commit e85ff74df8db9dbeaa2f923b2d4b451fd84dcdc0
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Sat May 8 01:03:26 2004 +0000
+
+    2004-05-07  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* ppc/ppc-codegen.h: remove GCC-ism in ppc_emit32
+    
+    svn path=/trunk/mono/; revision=26957
+
+commit f4dcc4e46be455a7a289a969529ba4a1cd0bc3f3
+Author: Neale Ferguson <neale@mono-cvs.ximian.com>
+Date:   Fri May 7 19:53:40 2004 +0000
+
+    Bring s390 JIT up to date.
+    
+    svn path=/trunk/mono/; revision=26943
+
+commit e79a83571f6126771c5e997560dd7e15c540df3f
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Fri Apr 30 03:47:45 2004 +0000
+
+    2004-04-29  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* ppc/tramp.c: use sizeof (stackval), fix
+    	delegate tramp frame layout for Apple
+    
+    svn path=/trunk/mono/; revision=26383
+
+commit f05e6864576c8c9e827cf6affbaff770732628d4
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Apr 29 18:59:24 2004 +0000
+
+    Fix stmw opcode with signed offsets.
+    
+    svn path=/trunk/mono/; revision=26328
+
+commit 92e3edf52f04c550767f3ae59c0f7fcefb46cbf8
+Author: Urs C. Muff <urs@mono-cvs.ximian.com>
+Date:   Wed Apr 28 03:59:07 2004 +0000
+
+    cleanup
+    
+    svn path=/trunk/mono/; revision=26114
+
+commit ab07311f8d1aeb258795fc72c5ed216f603db092
+Author: David Waite <david@alkaline-solutions.com>
+Date:   Tue Apr 27 04:13:19 2004 +0000
+
+    2004-04-26  David Waite <mass@akuma.org>
+    
+    	* unknown.c: modify to have content for defined platforms (to
+    	avoid ISO C warning)
+    
+    svn path=/trunk/mono/; revision=26036
+
+commit 9b84c8398a2558c61613ec50d3c3546627ac1e2d
+Author: Raja R Harinath <harinath@hurrynot.org>
+Date:   Tue Apr 13 04:31:05 2004 +0000
+
+    ignores
+    
+    svn path=/trunk/mono/; revision=25379
+
+commit 8adf42aeb550308e5a30e4308ad639fafa27e7e3
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Tue Mar 30 01:44:17 2004 +0000
+
+    2004-03-29  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* hppa/hppa-codegen.h:
+    	fix displacements in FP instrs
+    
+    svn path=/trunk/mono/; revision=24755
+
+commit e82c4f6b16e7d3a7bdabe2df046b7ce17d91e716
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Tue Mar 30 01:18:11 2004 +0000
+
+    2004-03-29  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* amd64/tramp.c:
+    	* arm/tramp.c:
+    	* hppa/tramp.c:
+    	* ppc/tramp.c:
+    	* s390/tramp.c:
+    	* sparc/tramp.c:
+    	* x86/tramp.c:
+    	remove child from MonoInvocation as it isn't used.
+    
+    svn path=/trunk/mono/; revision=24751
+
+commit 73296dcd03106668c5db4511948983bdadeaee2f
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Tue Mar 23 22:01:55 2004 +0000
+
+    2004-03-23  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* hppa/hppa-codegen.h: created
+    
+    	* hppa/tramp.c: changed style to be more like
+    	other platforms.
+    
+    	* hppa/Makefile.am: add hppa-codegen.h
+    
+    svn path=/trunk/mono/; revision=24504
+
+commit 6e46d909fa182adf4051e1a3c07bae63b93a2bc3
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Mar 16 19:22:52 2004 +0000
+
+    2004-03-16  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* sparc/sparc-codegen.h: Add v9 branches with prediction.
+    
+    svn path=/trunk/mono/; revision=24153
+
+commit 49a337364d8413d2528fe97e68f16ef610bb3c6a
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Tue Mar 16 16:20:03 2004 +0000
+
+    Add
+    
+    svn path=/trunk/mono/; revision=24136
+
+commit ce4b3b024bba2c8bd4d874a75ef7aa23e118abf7
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Tue Mar 16 16:16:35 2004 +0000
+
+    Rename, since stupid cvs gets confused with the dash in x86-64
+    
+    svn path=/trunk/mono/; revision=24134
+
+commit 01dc8bdaddab8f9b1c939716c36d13a35cf2494d
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Tue Mar 16 16:16:07 2004 +0000
+
+    Added back
+    
+    svn path=/trunk/mono/; revision=24133
+
+commit a97ef493bb1e42b3afa548e47e3e14afe028b3ef
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Tue Mar 16 16:03:49 2004 +0000
+
+    Add x86-64
+    
+    svn path=/trunk/mono/; revision=24131
+
+commit 25f79c5f1b26de4e7a413128d37731e1fcf09f14
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Tue Mar 16 00:02:55 2004 +0000
+
+    2004-03-15  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* sparc/sparc-codegen.h: tweak sparc_mov_reg_reg
+    	so Sun's dis command recognizes it.
+    
+    svn path=/trunk/mono/; revision=24084
+
+commit 38dd3d4c585c7e9cc116b7dfb5e89356c4d02da2
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Mar 15 17:28:56 2004 +0000
+
+    2004-03-15  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* sparc/sparc-codegen.h: Add some v9 instructions.
+    
+    svn path=/trunk/mono/; revision=24050
+
+commit 36d64a0bbf92ca51335ddcb87627a8194f601820
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Mar 11 18:23:26 2004 +0000
+
+    2004-03-11  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* sparc/sparc-codegen.h: Ongoing sparc work.
+    
+    svn path=/trunk/mono/; revision=23926
+
+commit 7e46377b331225994068d848d9ff8ceaeb96d38a
+Author: Duncan Mak <duncan@mono-cvs.ximian.com>
+Date:   Mon Mar 8 01:47:03 2004 +0000
+
+    2004-03-07  Duncan Mak  <duncan@ximian.com>
+    
+            * Makefile.am: Removed the reference to 'x86-64'. This was the cause
+            of the missing Mono daily tarballs, 'make dist' wasn't working.
+    
+            We do have an 'amd64' directory, but it doesn't make it in 'make
+            dist'.
+    
+    svn path=/trunk/mono/; revision=23784
+
+commit 94156ea640c77f37c64332acd21adf4170ecb67b
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Sat Feb 28 15:53:18 2004 +0000
+
+    Add
+    
+    svn path=/trunk/mono/; revision=23562
+
+commit c2492eb99fe2c3e148a8dc629cc283fafad7af7c
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Fri Feb 27 17:03:30 2004 +0000
+
+    Remove amd64
+    
+    svn path=/trunk/mono/; revision=23540
+
+commit c58af24e593b96f1ccc7819ab100063aa4db3c54
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Fri Feb 27 17:03:17 2004 +0000
+
+    Add x86-64 directory
+    
+    svn path=/trunk/mono/; revision=23539
+
+commit 7fd6186b66f081ef6c0fca7708ddf8a641a09eae
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Tue Feb 24 18:01:50 2004 +0000
+
+    Add amd64 support patch from Zalman Stern
+    
+    svn path=/trunk/mono/; revision=23411
+
+commit 5d0cafa77c2cd95cb92a2990184bac64ec287016
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Feb 19 14:14:37 2004 +0000
+
+    2004-02-19  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* sparc/sparc-codegen.h: Fix lots of opcodes + add new ones.
+    
+    svn path=/trunk/mono/; revision=23248
+
+commit f9f3c20b070f92bcf6f85f5bd68a24c3434fe6c4
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Feb 19 14:13:23 2004 +0000
+
+    2004-02-19  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* sparc/tramp.c: Fix alignment of structures containing doubles.
+    
+    svn path=/trunk/mono/; revision=23247
+
+commit bb16201aaa018434f551c2657d9e38f28dfe8904
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Feb 2 15:56:15 2004 +0000
+
+    2004-02-02  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* sparc/tramp.c: Implement all floating point argument passing conventions in
+    	Sparc V8. Also fix structure passing in V8.
+    
+    svn path=/trunk/mono/; revision=22704
+
+commit 66607f84556593e2c3aa39bba418801193b6fddf
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Sun Jan 18 18:00:40 2004 +0000
+
+    Apply patches from Neale Ferguson for s390 support
+    
+    svn path=/trunk/mono/; revision=22226
+
+commit 963e1b962894e9b434a2e80e63394bd0d34e68b8
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sat Jan 3 21:42:37 2004 +0000
+
+    Codegen macros for mips.
+    
+    svn path=/trunk/mono/; revision=21658
+
+commit 7e4789fdfc87f75e63612fe0aca1f66d76134ba9
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Dec 3 16:48:07 2003 +0000
+
+    Typo fix.
+    
+    svn path=/trunk/mono/; revision=20745
+
+commit 96651158bf48aa1c31b5f2e3ca4cbf904211b1dc
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Nov 13 15:23:48 2003 +0000
+
+    Thu Nov 13 16:24:29 CET 2003 Paolo Molaro <lupus@ximian.com>
+    
+    	* ppc/ppc-codegen.h: fixed most of the incorrect macros from ct.
+    
+    svn path=/trunk/mono/; revision=19938
+
+commit ebebe8e4565897dfaad69911c88f4dda134d4b84
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Oct 31 13:03:36 2003 +0000
+
+    2003-10-31  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* */tramp.c (mono_create_method_pointer): Rename to
+    	mono_arch_create_method_pointer, move common code to a new function in
+    	interp.c.
+    
+    	* */tramp.c (mono_create_trampoline): Rename to
+    	mono_arch_create_trampoline for consistency.
+    
+    svn path=/trunk/mono/; revision=19500
+
+commit c41c989929efaf77826634392c8ce9c54525809d
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Tue Oct 14 05:17:17 2003 +0000
+
+    2003-10-13  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* x86/tramp.c: restore EDX after memcpy call
+    
+    svn path=/trunk/mono/; revision=19024
+
+commit e4f9a75ed58f5ca214a685041f2a538e2f40fe1f
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Mon Oct 13 22:56:37 2003 +0000
+
+    2003-10-13  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* Makefile.am: add hppa subdir
+    
+    svn path=/trunk/mono/; revision=18999
+
+commit fa30eb232e53c9e39eec1bd44189e8ac29ba1644
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Mon Oct 13 22:48:11 2003 +0000
+
+    2003-10-13  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* hppa/tramp.c: add initial implementation - this is 64 bit only
+    	hppa/Makefile.am hppa/.cvsignore: added
+    
+    svn path=/trunk/mono/; revision=18996
+
+commit 0b0945abf1e873f6a8dfb527236d8cce2ce15574
+Author: Bernie Solomon <bernard@mono-cvs.ximian.com>
+Date:   Mon Oct 13 22:38:25 2003 +0000
+
+    2003-10-13  Bernie Solomon  <bernard@ugsolutions.com>
+    
+    	* sparc/sparc-codegen.h sparc/tramp.c: add initial implementation
+    	for V9 (64 bit), cover more 32 bit cases as well.
+    
+    svn path=/trunk/mono/; revision=18995
+
+commit 6519bafeae686f3b32870a17dc1c84ae90ec95f9
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Sep 3 08:10:57 2003 +0000
+
+    2003-09-03  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* x86/tramp.c: Fixes from Bernie Solomon (bernard@ugsolutions.com).
+    
+    svn path=/trunk/mono/; revision=17839
+
+commit 935c93eeaff3ad8ccee032ade3584a7f6ab8f4a1
+Author: Ben Maurer <benm@mono-cvs.ximian.com>
+Date:   Mon Aug 25 13:38:19 2003 +0000
+
+    .cvsignore update
+    
+    svn path=/trunk/mono/; revision=17581
+
+commit 0fed0582997210e2a0ac71a527dbd319a85aebcb
+Author: ct <ct@localhost>
+Date:   Sun Aug 24 22:49:45 2003 +0000
+
+    completed the set of floating point ops
+    
+    svn path=/trunk/mono/; revision=17564
+
+commit 3d0f6d935e3a9c180d0bbb14fc371d40e53b7872
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Aug 21 15:23:31 2003 +0000
+
+    2003-08-21  Zoltan Varga  <vargaz@freemail.hu>
+    
+    	* x86/tramp.c: Fixes from Bernie Solomon (bernard@ugsolutions.com).
+    
+    svn path=/trunk/mono/; revision=17470
+
+commit ed628ad0776db600fab8d5e4bcd6b563f5e808fd
+Author: ct <ct@localhost>
+Date:   Tue Aug 19 03:04:34 2003 +0000
+
+    added more asm macros for floating point subtraction of single/double/quad
+    
+    svn path=/trunk/mono/; revision=17394
+
+commit 6260d65a087be486df039c80eba92e44eb7a220d
+Author: ct <ct@localhost>
+Date:   Tue Aug 19 02:53:23 2003 +0000
+
+    added floating point instructions for adding double, single, and quad numbers
+    
+    svn path=/trunk/mono/; revision=17393
+
+commit c750ad8fea95e1fc81150e516ee26fbe79ab570d
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Aug 7 14:13:05 2003 +0000
+
+    Fixed imm16 range check.
+    
+    svn path=/trunk/mono/; revision=17157
+
+commit ebc38557433accd79fce2e38dff0505dfded5691
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Jul 31 14:32:42 2003 +0000
+
+    Thu Jul 31 16:19:07 CEST 2003 Paolo Molaro <lupus@ximian.com>
+    
+    	* configure.in, etc.: portability fixes and support for
+    	buidling outside the srcdir from Laurent Morichetti <l_m@pacbell.net>.
+    
+    svn path=/trunk/mono/; revision=16937
+
+commit 6e851a87092161092c6e8f06f4de13fb45bc04a6
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Jul 1 11:12:47 2003 +0000
+
+    Tue Jul 1 13:03:43 CEST 2003 Paolo Molaro <lupus@ximian.com>
+    
+    	* alpha/tramp.c: update from Laramie Leavitt (lar@leavitt.us).
+    
+    svn path=/trunk/mono/; revision=15809
+
+commit c439e3df5cfa7c67d976258228cb9188a218c21d
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Jun 25 13:18:00 2003 +0000
+
+    FP control word enum.
+    
+    svn path=/trunk/mono/; revision=15623
+
+commit 2ad34b0dc225bf0b2efeea63c2f9287a1dbad162
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Jun 9 18:28:54 2003 +0000
+
+    Small updates.
+    
+    svn path=/trunk/mono/; revision=15250
+
+commit df86960d595f0284a453fe3fc67687b707148dbf
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed May 21 17:57:05 2003 +0000
+
+    Some fixes and more complete support.
+    
+    svn path=/trunk/mono/; revision=14769
+
+commit 3af153bd53728da9da9215141b1341d60b447bd3
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Wed May 21 12:45:22 2003 +0000
+
+    2003-05-21  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* mini-x86.c (mono_arch_get_allocatable_int_vars): dont allocate
+    	I1 to registers because there is no simply way to sign extend 8bit
+    	quantities in caller saved registers on x86.
+    
+    	* inssel-float.brg: set costs of some rules to 2 so
+    	that monobure always select the arch. specific ones if supplied,
+    	regardless of the order we pass the files to monoburg.
+    
+    svn path=/trunk/mono/; revision=14757
+
+commit c4eeb3dfdd19546fb0712e5306d8d96a9a07580e
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Tue May 20 10:44:31 2003 +0000
+
+    2003-05-20  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* mini-x86.c (mono_arch_get_allocatable_int_vars): allocate 8/16
+    	bit values to registers
+    
+    svn path=/trunk/mono/; revision=14720
+
+commit 3a48ea89b161b268bb74f013cc36f6aec59e550b
+Author: Malte Hildingson <malte@mono-cvs.ximian.com>
+Date:   Thu May 1 23:42:01 2003 +0000
+
+    * tramp.c (mono_create_trampoline): tiny register allocation fix for reference types
+    
+    svn path=/trunk/mono/; revision=14195
+
+commit 7595b109642f29ffe0cf8bb3e4411243b92a606f
+Author: Malte Hildingson <malte@mono-cvs.ximian.com>
+Date:   Sun Apr 27 16:04:54 2003 +0000
+
+    * tramp.c (alloc_code_buff): posix memory protection.
+    (mono_create_trampoline): new string marshaling + minor fixes.
+    (mono_create_method_pointer): delegates fix.
+    
+    svn path=/trunk/mono/; revision=14046
+
+commit dfe276d1e1d116b113a639eecbc14c3661af5462
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Sun Apr 27 14:50:16 2003 +0000
+
+    arm-WMMX.h: initial WirelessMMX support for ARM codegen;
+    
+    svn path=/trunk/mono/; revision=14044
+
+commit 27eb0661916c7c65b43def99be92895c61f4d315
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Sun Apr 27 14:47:57 2003 +0000
+
+     * ARM codegen update;
+    
+    svn path=/trunk/mono/; revision=14043
+
+commit e1b54daadf68eef0608ac03bd6fe4dc374d78675
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sun Apr 27 11:40:11 2003 +0000
+
+    Make the debugging output off by default.
+    
+    svn path=/trunk/mono/; revision=14039
+
+commit e679a120b848ea9e35e7c8a38ca3e03a386371c7
+Author: Patrik Torstensson <totte@mono-cvs.ximian.com>
+Date:   Fri Feb 14 10:01:29 2003 +0000
+
+    2003-02-14	Patrik Torstensson
+    
+    	* x86-codegen.h: Added fstsw op code for getting fp flags
+    
+    svn path=/trunk/mono/; revision=11577
+
+commit f468e62377dfe3079f5b2bade1f43d239842e381
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sat Feb 1 10:02:52 2003 +0000
+
+    Sat Feb 1 10:59:31 CET 2003 Paolo Molaro <lupus@ximian.com>
+    
+    	* alpha/*: update from Laramie.
+    
+    svn path=/trunk/mono/; revision=11090
+
+commit cc3953655f65398b40e11fdcc97b1ae47bebfdc1
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Jan 27 11:54:14 2003 +0000
+
+    Mon Jan 27 12:49:10 CET 2003 Paolo Molaro <lupus@ximian.com>
+    
+    	* alpha/*: start of the port to the alpha architecture by
+    	Laramie Leavitt (<lar@leavitt.us>).
+    
+    svn path=/trunk/mono/; revision=10942
+
+commit 898dd64bddf69974ae9a22d6aa0ce9625fc9a5a0
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Jan 21 16:33:33 2003 +0000
+
+    Tue Jan 21 17:29:53 CET 2003 Paolo Molaro <lupus@ximian.com>
+    
+    	* ppc/ppc-codegen.h: completed ppc native code generation by
+    	Taylor Christopher P <ct@cs.clemson.edu>.
+    
+    svn path=/trunk/mono/; revision=10778
+
+commit d2321af1b58b2fbb84c3b2cf3f6c7c7db0a787a4
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri Jan 17 20:17:58 2003 +0000
+
+    Fri Jan 17 21:14:18 CET 2003 Paolo Molaro <lupus@ximian.com>
+    
+    	* ppc/tramp.c: adapted to work for MacOSX (from a patch by
+    	John Duncan).
+    
+    svn path=/trunk/mono/; revision=10630
+
+commit 6d1b716753c1cc8a2f5c26338020941aa58ce9d7
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Jan 15 15:21:26 2003 +0000
+
+    Update to the API change of a while ago.
+    
+    svn path=/trunk/mono/; revision=10545
+
+commit d4f44103ed442b9a6e221b58b68550c1de4dfa2b
+Author: Mark Crichton <crichton@mono-cvs.ximian.com>
+Date:   Mon Nov 11 19:13:08 2002 +0000
+
+    Some debugging stubs.
+    
+    svn path=/trunk/mono/; revision=8922
+
+commit b669ce7ac5106466cc6d57e9163ca5d6d80611aa
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Oct 24 19:27:13 2002 +0000
+
+    s390 support from Neale Ferguson <Neale.Ferguson@SoftwareAG-USA.com>.
+    
+    svn path=/trunk/mono/; revision=8521
+
+commit 457b666522f839e5e94e5fdda2284255b26d79a2
+Author: Mark Crichton <crichton@mono-cvs.ximian.com>
+Date:   Mon Oct 7 03:36:50 2002 +0000
+
+    Fix some minor trampoline nags.  Now down to 15 failed tests.  Delegate code
+    still broken, if anyone wants to help fix it.
+    
+    svn path=/trunk/mono/; revision=8041
+
+commit b6d66c3ac8ae39c47b99dd8b8a7813e6f60c47e7
+Author: Mark Crichton <crichton@mono-cvs.ximian.com>
+Date:   Thu Oct 3 15:30:05 2002 +0000
+
+    Changes to tramp.c.  Pass more tests.
+    
+    svn path=/trunk/mono/; revision=7966
+
+commit e5d299dd18e820d33cf1d74e0e2de53e163cc07b
+Author: Mark Crichton <crichton@mono-cvs.ximian.com>
+Date:   Wed Sep 25 04:50:10 2002 +0000
+
+    Stupid off-by-one error fixed.
+    
+    The problem was that I incremented gr as if we were on a PPC box.  Sparc
+    doesn't need such "alignment" of the registers.
+    
+    svn path=/trunk/mono/; revision=7800
+
+commit a9d8f44092c7c313efae893ff64306dc92985110
+Author: Mark Crichton <crichton@mono-cvs.ximian.com>
+Date:   Wed Sep 25 01:52:30 2002 +0000
+
+    arch/sparc/tramp.c: Fixed once again.  Now works, mostly.
+    io-layer/atomic.h: It's sparc on gcc/solaris, and __sparc__ on gcc/linux.
+    	           had to add an #ifdef.
+    
+    svn path=/trunk/mono/; revision=7798
+
+commit 0110bf4a5a435c5d60583887e0e0f28b7993a4cf
+Author: Mark Crichton <crichton@mono-cvs.ximian.com>
+Date:   Mon Sep 23 02:25:43 2002 +0000
+
+    Starting rewrite of trampolining for SPARC.  It needed some cleanup.
+    
+    It doesn't work at all now.  GO PROGRESS!
+    
+    svn path=/trunk/mono/; revision=7728
+
+commit fe7d0f819c55d76f0cb7a54ba66d4368d40385bd
+Author: Mark Crichton <crichton@mono-cvs.ximian.com>
+Date:   Thu Sep 19 18:30:56 2002 +0000
+
+    Beginning to add support for Solaris.  Tested on Solaris 9.
+    
+    Shared handles are still not working, will be addressed soon.
+    
+    Trampoline code still broken, expect a rewrite.
+    
+    svn path=/trunk/mono/; revision=7622
+
+commit 13eb9f4ebf45ffe17d555458cec8bbecefc71849
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Wed Aug 28 15:26:29 2002 +0000
+
+    retval value type fixed
+    
+    svn path=/trunk/mono/; revision=7127
+
+commit 63315827a2ebc424954f4b8baf40497a5600ce7a
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Wed Aug 28 14:41:08 2002 +0000
+
+    fixed valuetypes marshaling in delegates
+    
+    svn path=/trunk/mono/; revision=7126
+
+commit 82d4a3ff22ea8e8dfb9a3ec2be10657e7e25cd97
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Sat Aug 24 23:54:12 2002 +0000
+
+    fixed struct marshaling, 108 tests pass now
+    
+    svn path=/trunk/mono/; revision=7013
+
+commit b94511c33193dc728e039fa776bf3b9d5dad4e5b
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Wed Aug 21 17:47:34 2002 +0000
+
+    fixed delegates
+    
+    svn path=/trunk/mono/; revision=6862
+
+commit fafa1892b8b0315cab29de09f09f2aa5041b61a7
+Author: Mark Crichton <crichton@mono-cvs.ximian.com>
+Date:   Tue Aug 20 15:03:07 2002 +0000
+
+    This nearly completes SPARC trampoline support for mint/mono.  The delegate
+    code still needs some work.
+    
+    There are bugs.  Send crash reports, as well as .cs code and exe's to
+    crichton@gimp.org
+    
+    Also, if anyone gets Bus Errors in the code, let me know as well, I've been
+    hunting down alignment bugs as well.
+    
+    svn path=/trunk/mono/; revision=6812
+
+commit f8f8b65c484f48436941e4985cfb4b837cff4ceb
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Aug 5 17:28:10 2002 +0000
+
+    Mon Aug 5 19:21:19 CEST 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: fix random memory read in mono_create_method_pointer.
+    
+    svn path=/trunk/mono/; revision=6436
+
+commit dc11862f43a6240bcc35d2ef96fb04750c4bf930
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Mon Aug 5 16:43:06 2002 +0000
+
+    x86-codegen.h: fixed bug in x86_memindex_emit, for basereg == EBP && disp == imm32;
+    
+    svn path=/trunk/mono/; revision=6433
+
+commit 60179dd8c27bf3c080ca2c7db818c01a51c9d4b1
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Mon Aug 5 09:53:43 2002 +0000
+
+    2002-08-05  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* x86/tramp.c (mono_create_trampoline): fixed stack_size bug
+    
+    svn path=/trunk/mono/; revision=6408
+
+commit e13f4a98c6fe61ec768b0da9d8832814a313ed78
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Fri Aug 2 18:34:20 2002 +0000
+
+    more WIP
+    
+    svn path=/trunk/mono/; revision=6363
+
+commit f73afba7e99de872e4e9d9dcf3c7c483632f6bc6
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Fri Aug 2 18:13:59 2002 +0000
+
+    more surgery
+    
+    svn path=/trunk/mono/; revision=6360
+
+commit 347f6a854167fa5a26484b83736de86f5ffd8ea0
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Fri Aug 2 17:55:44 2002 +0000
+
+    did quick surgery to update for Dietmar's new code
+    
+    svn path=/trunk/mono/; revision=6359
+
+commit cc4396df6db395836340d26ad2f2d920f946729f
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Fri Aug 2 07:13:54 2002 +0000
+
+    2002-08-02  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* marshal.c (mono_delegate_to_ftnptr): pass delegate->target
+    	instead of the delegate itself as this pointer (bug #28383)
+    
+    svn path=/trunk/mono/; revision=6348
+
+commit fbb833e1937ec3e3183bd1219e0f2391faa62718
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Thu Aug 1 14:17:18 2002 +0000
+
+    2002-08-01  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* x86/tramp.c (mono_create_trampoline): also push the value type pointer for
+    	methods returning value types.
+    	(mono_create_method_pointer): support valuetype returns.
+    
+    	* interp.c (ves_pinvoke_method): do not call stackval_from_data if the result
+    	is a value type.
+    
+    svn path=/trunk/mono/; revision=6311
+
+commit 27a4251f2a6fd091ddc8084ad14a8808c136431d
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Thu Aug 1 06:40:11 2002 +0000
+
+    2002-08-01  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* interp.c (stackval_from_data): add pinvoke argument
+    	(stackval_to_data): add pinvoke argument. We need consider the
+    	fact that unmanages structures may have different sizes.
+    
+    	* x86/tramp.c (mono_create_method_pointer): allocate space for
+    	value types.
+    
+    svn path=/trunk/mono/; revision=6308
+
+commit 1be0ee94a17d2a4b7edb513d845d88ba5fed8285
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Wed Jul 31 11:53:19 2002 +0000
+
+    2002-07-31  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* x86/tramp.c: (mono_create_method_pointer): return method->addr for pinvoke methods
+    
+    	* interp.c (ves_exec_method): bug fix - directly jump to handle_exception.
+    
+    svn path=/trunk/mono/; revision=6280
+
+commit 87f9fd554284e9d2037c8757a4211cf710a85ac0
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Wed Jul 31 11:00:53 2002 +0000
+
+    2002-07-31  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* interp.c: use the new marshaling code. better delegate/remoting
+    	support.
+    
+    	* debug-helpers.c (mono_method_full_name): only print a number to
+    	indicate wrapper type (so that the output is more readable in traces).
+    
+    	* x86/tramp.c: remove code to handle PInvoke because this is no
+    	longer needed.
+    
+    svn path=/trunk/mono/; revision=6278
+
+commit ebf4ad275e84a3887798ac765bdc1f0ed457cd5a
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri Jul 19 12:21:01 2002 +0000
+
+    Fri Jul 19 14:18:36 CEST 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: fix float loads. Simple delegate marshaling fix.
+    
+    svn path=/trunk/mono/; revision=5909
+
+commit 2b677a332d7e811ca9cc75d271d069787f0495c1
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Mon Jul 8 16:13:36 2002 +0000
+
+    2002-07-08  Radek Doulik  <rodo@ximian.com>
+    
+    	* ppc/tramp.c: marshaling for SZARRAY
+    
+    svn path=/trunk/mono/; revision=5650
+
+commit ef9afb744f4679c465be380b4285928fff50db5e
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Sat Jul 6 01:41:14 2002 +0000
+
+    2002-07-05  Radek Doulik  <rodo@ximian.com>
+    
+    	* ppc/tramp.c: removed magic hack
+    
+    svn path=/trunk/mono/; revision=5614
+
+commit 02476784232f22f91e347750c3fb8018d770d057
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Jun 18 04:38:23 2002 +0000
+
+    Tue Jun 18 10:21:56 CEST 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: marshal simple arrays correctly.
+    
+    svn path=/trunk/mono/; revision=5316
+
+commit 5ff6eebba3bc5e1662b84a34a276d6842e41ab87
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sat Jun 1 08:08:34 2002 +0000
+
+    Kill warning.
+    
+    svn path=/trunk/mono/; revision=5075
+
+commit 0c268fdddc804751bba57401c02b139368f7a01c
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri May 31 10:55:37 2002 +0000
+
+    Compilation fixes.
+    
+    svn path=/trunk/mono/; revision=5054
+
+commit 9fe623bf5c85da9328f895680d8688987a94427e
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Thu May 30 11:04:53 2002 +0000
+
+    2002-05-30  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* x86.brg (reg): bug fix in LOCALLOC
+    
+    	* mono.c (main): new switch --nointrinsic to disable memcpy opt.
+    
+    	* x86.brg: added block copy/init optimizations from
+    	Serge (serge@wildwestsoftware.com)
+    
+    svn path=/trunk/mono/; revision=5025
+
+commit 1b8d1ed7ce3e489dcf53cc2369a3d6d482d5901d
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Tue May 28 12:23:00 2002 +0000
+
+    2002-05-28  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* x86.brg: impl. CKFINITE
+    
+    svn path=/trunk/mono/; revision=4988
+
+commit b0826d366f4f32c6ef772c0a9deef5a9b4157f0b
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Mon May 27 22:56:15 2002 +0000
+
+    Updated copyright headers to the standard template
+    
+    svn path=/trunk/mono/; revision=4975
+
+commit 027755140cf39776018e520f7cd838e319fb9a34
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Thu May 23 07:44:00 2002 +0000
+
+    2002-05-23  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* delegate.c: move the thread pool to metadata/threadpool.c, code
+    	cleanup.
+    
+    	* threadpool.[ch]: impl. a threadpool that can
+    	be used by mint and mono.
+    
+    svn path=/trunk/mono/; revision=4875
+
+commit be70e94a20c2c1864f829122085bce03f24cc4e8
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Wed May 15 14:19:24 2002 +0000
+
+    fixed delegates return values
+    
+    svn path=/trunk/mono/; revision=4662
+
+commit 89d436d12d5746d04d9f27d9897853f846d0500e
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Mon May 13 19:00:42 2002 +0000
+
+    2002-05-13  Radek Doulik  <rodo@ximian.com>
+    
+    	* ppc/tramp.c (emit_save_parameters): fix I8 parameters
+    
+    svn path=/trunk/mono/; revision=4601
+
+commit 8e8d0cf9ac1f4aa46da775bed8da214581345ddb
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Mon May 13 17:24:04 2002 +0000
+
+    introduced DEBUG, disabled by default
+    
+    svn path=/trunk/mono/; revision=4599
+
+commit 8d20a830d50aaf3f30869283332d654472f16890
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Fri May 10 19:25:15 2002 +0000
+
+     * x86-codegen.h: renamed FP int macro for consistency (its arg is really a membase, not mem);
+    
+    svn path=/trunk/mono/; revision=4500
+
+commit 9fb095d7866ee9963f11e3bd2dcc9b9930320ddc
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Fri May 10 13:39:09 2002 +0000
+
+    updated for new strings
+    
+    svn path=/trunk/mono/; revision=4484
+
+commit 5d0a1992c7fe0252457f6644198654d06ee7a19f
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri May 10 07:24:08 2002 +0000
+
+    Fix checks in x86_patch().
+    
+    svn path=/trunk/mono/; revision=4473
+
+commit 512203d918c6998f9652d23301b553c2bb205788
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Mon May 6 16:39:01 2002 +0000
+
+    Logged changes to x86-codegen.h
+    
+    svn path=/trunk/mono/; revision=4344
+
+commit 9d1e2b5076d08bd02eb28ad8b3f2a27a42449250
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Mon May 6 16:33:54 2002 +0000
+
+     * x86-codegen.h: added missing shifts;
+       8-bit ALU operations;
+       FPU ops with integer operand;
+       FIST (without pop);
+    
+    svn path=/trunk/mono/; revision=4343
+
+commit 944736b70eb0689f094fe05c7184d36f7b7421bf
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri May 3 12:52:19 2002 +0000
+
+    Added some missing FP opcodes and made x86_patch() handle also the call opcode.
+    
+    svn path=/trunk/mono/; revision=4252
+
+commit d8cf0bf0270efb923d7c6e80c4e5d547d1161740
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Apr 29 12:14:39 2002 +0000
+
+    Removed mono_string_new_wrapper().
+    
+    svn path=/trunk/mono/; revision=4151
+
+commit cc03dca33b721c5b46cba47ff7a7bb80b820be6d
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Apr 22 07:32:11 2002 +0000
+
+    Mon Apr 22 12:57:31 CEST 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: added loop instructions and made x86_patch fully
+    	useful.
+    
+    svn path=/trunk/mono/; revision=3950
+
+commit ab877e78de2c3ac01664dc13c13c2f231fca4c11
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Sat Apr 20 14:32:46 2002 +0000
+
+    2002-04-20  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* interp.c (ves_exec_method): support internalcall String constructors
+    
+    svn path=/trunk/mono/; revision=3925
+
+commit d4ccb473cf835fd07294b7da6a6d4da9e2022dcd
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Apr 10 12:34:16 2002 +0000
+
+    Forgot to commit.
+    
+    svn path=/trunk/mono/; revision=3740
+
+commit 9116ce23467ea863a99b860849d867802c32187a
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sat Apr 6 10:40:58 2002 +0000
+
+    Sat Apr 6 16:29:40 CEST 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: fix advancement od argument position on the stack.
+    
+    svn path=/trunk/mono/; revision=3652
+
+commit bf0fa05ecc5f3537597c10704414544c50d3a0ed
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Apr 4 04:42:46 2002 +0000
+
+    Remove useless comments in rules.
+    
+    svn path=/trunk/mono/; revision=3595
+
+commit 3f3f1e23c3cced2e37ec49361ee3236c524ed107
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Sat Mar 30 11:19:26 2002 +0000
+
+    fixed compiler warnings
+    
+    svn path=/trunk/mono/; revision=3514
+
+commit 793cfcbae98d4847ff08aff44ffa27020260c317
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sat Mar 16 14:37:28 2002 +0000
+
+    Sat Mar 16 19:12:57 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: increase default allocated size for trampolines
+    	and assert on overflow.
+    
+    svn path=/trunk/mono/; revision=3143
+
+commit af361d9d30702937e3cd9412b987552f4652887a
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Thu Mar 14 09:52:53 2002 +0000
+
+    2002-03-14  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* emit-x86.c (arch_create_native_wrapper): new code to generate
+    	wrappers for calling native functions.
+    
+    	* icall.c (ves_icall_InternalInvoke): impl.
+    
+    svn path=/trunk/mono/; revision=3103
+
+commit 670be867554bb6f1ed61a17649e21d0e25f66105
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Mar 11 11:24:33 2002 +0000
+
+    Mon Mar 11 16:14:29 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: addex x86_clear_reg() and changed
+    	x86_mov_reg_imm() to not check for imm == 0.
+    
+    svn path=/trunk/mono/; revision=3051
+
+commit 51d24bbb570af055b885dfe9f06e7717e4bb3b98
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Thu Feb 28 09:35:29 2002 +0000
+
+    impl. more CONV opcodes
+    
+    svn path=/trunk/mono/; revision=2761
+
+commit d0370e0ab841b63f60170f3afcae9ee49e9faade
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Feb 28 07:43:49 2002 +0000
+
+    Thu Feb 28 12:34:21 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: start handling of more complex marshaling stuff.
+    
+    
+    Thu Feb 28 12:33:41 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* marshal.c, marshal.h: start of marshaling interface.
+    
+    svn path=/trunk/mono/; revision=2759
+
+commit 29f73f5799fb9274a44c918cb4f63c606f765b96
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Wed Feb 27 09:12:27 2002 +0000
+
+     * Makefile.am: removed SCRIPT_SOURCES to fix automake issues.
+    
+    svn path=/trunk/mono/; revision=2710
+
+commit a8b6a875977b2728019ea7cf2ea8dd432fe4469a
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Mon Feb 25 08:58:43 2002 +0000
+
+     * ChangeLog: ARM-related log entry.
+    
+    svn path=/trunk/mono/; revision=2628
+
+commit f703ca24db3d380b37434e9f1cced6d0b45a5470
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Mon Feb 25 08:56:57 2002 +0000
+
+     * Makefile.am: added arm to DIST_SUBDIRS.
+    
+    svn path=/trunk/mono/; revision=2627
+
+commit f107fb14e6c183972bec81e5727381f44c6a5333
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Sun Feb 24 20:46:13 2002 +0000
+
+    	(mono_create_method_pointer): implements delegates with parameters
+    	and return value
+    
+    svn path=/trunk/mono/; revision=2618
+
+commit 2217d1a7da2572afd033b958454b9662c42022b9
+Author: Sergey Chaban <serge@mono-cvs.ximian.com>
+Date:   Sun Feb 24 17:44:55 2002 +0000
+
+     * ARM support sources, initial check-in;
+    
+    svn path=/trunk/mono/; revision=2615
+
+commit 56dde5e20e11f2d9d2a3522923a5a4729bed469f
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Sun Feb 24 01:40:17 2002 +0000
+
+    2002-02-24  Radek Doulik  <rodo@ximian.com>
+    
+    	* ppc/tramp.c (mono_create_method_pointer): basic delegates
+    	implementation, it works for simple delegates now and I am already
+    	pretty close to have it working for every delegates, but I am
+    	going to sleep and finish it tomorrow?
+    
+    svn path=/trunk/mono/; revision=2611
+
+commit 0c4f3b00c8e831077c6ba1b28065e7be81bbff61
+Author: Jeffrey Stedfast <fejj@novell.com>
+Date:   Fri Feb 22 19:43:09 2002 +0000
+
+    2002-02-22  Jeffrey Stedfast  <fejj@ximian.com>
+    
+    	* sparc/tramp.c (mono_create_trampoline): Much tinkering to get
+    	the opcodes more correct. Still needs a lot of work.
+    
+    svn path=/trunk/mono/; revision=2602
+
+commit 6bb3f7ead4ab8d574273f5bdacf32b29809ace80
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Tue Feb 19 20:57:29 2002 +0000
+
+    ops, fix return value passing
+    
+    svn path=/trunk/mono/; revision=2526
+
+commit 725e90ef0e13752e357358ddef152a30beae174f
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Tue Feb 19 20:50:13 2002 +0000
+
+    	added stack saving for most arguments
+    
+    svn path=/trunk/mono/; revision=2523
+
+commit 5dbc4bd3639f2d012a1103ae1b0f911768e460ab
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Tue Feb 19 19:49:10 2002 +0000
+
+    2002-02-19  Radek Doulik  <rodo@ximian.com>
+    
+    	* ppc/tramp.c (emit_save_parameters): don't start saving 64bit
+    values to
+    	even registers
+    
+    svn path=/trunk/mono/; revision=2519
+
+commit e756cc154586ebdd6f4bba8b730fca09611874cf
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Feb 19 15:40:57 2002 +0000
+
+    Tue Feb 19 20:19:38 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: avoid pointer arthmetric (pointed out by Serge).
+    
+    
+    Tue Feb 19 20:20:15 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* dump.c: the prolog is before each arg in the custom attribute blob.
+    
+    svn path=/trunk/mono/; revision=2513
+
+commit 1da21d342a98bedfc9295846080043d8946f4029
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Sun Feb 17 21:10:29 2002 +0000
+
+    la la la, ChangeLog entries
+    
+    svn path=/trunk/mono/; revision=2463
+
+commit b7fa0baa6c15d3ee14a1b67dd5b56d21a931894b
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Sun Feb 17 20:02:39 2002 +0000
+
+    	(mono_string_new_wrapper): new helper function, cut&pasted from
+    	x86, modified to check for NULL text to avoid branching in
+    	generated code
+    	(calculate_sizes): updated for string retval changes
+    	(emit_call_and_store_retval): updated for string retval
+    
+    svn path=/trunk/mono/; revision=2461
+
+commit 2cee2566ae50aa32e13864135260e16fd21bfac1
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Sun Feb 17 19:41:12 2002 +0000
+
+    2002-02-17  Radek Doulik  <rodo@ximian.com>
+    
+    	* ppc/tramp.c: fixed minimal stack size, fixed string parameters,
+    	fix byte and half word parameters
+    
+    	* ppc/ppc-codegen.h (ppc_mr): added lhz, lbz, sth
+    
+    svn path=/trunk/mono/; revision=2460
+
+commit c6fd0cb7010239a29091a50aa5354e96f74bedf2
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Wed Feb 13 12:22:52 2002 +0000
+
+    added some docu
+    
+    svn path=/trunk/mono/; revision=2372
+
+commit 6b6716c9eaa66549c9c1cf86934a54a830afc1b6
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Wed Feb 13 08:29:02 2002 +0000
+
+    pass the domain to mono_string_new
+    
+    svn path=/trunk/mono/; revision=2365
+
+commit 0ffc7e417ee15973120c4f3a0cb0f2732c5c6633
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Mon Feb 11 22:48:46 2002 +0000
+
+    More
+    
+    svn path=/trunk/mono/; revision=2341
+
+commit 6f7cdfa857058ee3662e1662190315c294188ae0
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Feb 11 13:49:06 2002 +0000
+
+    Mon Feb 11 18:40:04 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* sparc/*: sparc codegen header and some untested trampoline code.
+    
+    svn path=/trunk/mono/; revision=2315
+
+commit d7a858a6ac5bc37435a157cf41eb63818905a7ea
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Feb 11 07:42:10 2002 +0000
+
+    Mon Feb 11 12:32:35 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: fix handling of multiple marshaleed strings.
+    	* x86/x86-codegen.h: some code to patch branch displacements.
+    
+    svn path=/trunk/mono/; revision=2308
+
+commit dd029fa4245c99073ae6863dcb8e1560cc1eedc0
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Fri Feb 1 12:04:34 2002 +0000
+
+    SHR/SHL impl.
+    
+    svn path=/trunk/mono/; revision=2224
+
+commit 4a977a50d70eb75760d9555854845d32595c4093
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri Feb 1 11:22:35 2002 +0000
+
+    Fri Feb 1 16:03:53 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: exception fixes. Use mono_method_pointer_get ()
+    	to easy porting to other archs. Some support for overflow detection.
+    
+    Fri Feb 1 16:03:00 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c, ppc/tramp.c: implement mono_method_pointer_get ().
+    
+    
+    Fri Feb 1 16:13:20 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* class.c: add asserts if we are ever going to scribble over memory.
+    	* socket-io.c: not all systems have AF_IRDA defined.
+    
+    svn path=/trunk/mono/; revision=2223
+
+commit 2d3dbc6213f3e12d1c7b332d80fec81384612bf8
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Thu Jan 24 01:00:53 2002 +0000
+
+    2002-01-23  Miguel de Icaza  <miguel@ximian.com>
+    
+    	* x86/tramp.c (mono_create_trampoline): Do not try to create a
+    	mono_string_new if the return value from the PInvoke code is
+    	NULL.
+    
+    2002-01-23  Miguel de Icaza  <miguel@ximian.com>
+    
+    	* genwrapper.pl: Added wrappers for the mono_glob functions.
+    
+    	* glob.c: New file, with globing functions used by the Directory
+    	code.
+    
+    svn path=/trunk/mono/; revision=2139
+
+commit 5291c24b937d193ef9861c87421bab87e0fcc4da
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Mon Jan 21 20:06:20 2002 +0000
+
+    ppc changes
+    
+    svn path=/trunk/mono/; revision=2090
+
+commit b5472227702fc528149111f0c4406c9dadb9a9e0
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Jan 14 07:00:24 2002 +0000
+
+    Mon Jan 14 11:50:16 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.c: added overflow condition code and some aliases
+    	for the other ccs.
+    
+    svn path=/trunk/mono/; revision=1968
+
+commit a18abcd00665e9bc660b90cf4c0bdf86456067af
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Jan 10 16:13:26 2002 +0000
+
+    Thu Jan 10 19:36:27 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* class.c: fix mono_class_from_mono_type () for szarray types.
+    	Remove unused cache check in mono_class_from_type_spec().
+    	* icall.c: *type_from_name () functions handle simple arrays and byref.
+    	* reflection.c: handle byref and szarray types. Handle methods without
+    	body (gets P/Invoke compilation working). Handle types and fields in
+    	get_token ().
+    	* reflection.h: add rank to MonoTypeInfo.
+    
+    
+    Thu Jan 10 20:59:59 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c, interp.h: add a flag to mono_create_trampoline ()
+    	to handle runtime methods.
+    
+    
+    Thu Jan 10 21:01:08 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: mono_create_trampoline (): the runtime argument is
+    	needed to handle correctly delegates, the previous change in handling
+    	the string return type broke them.
+    
+    svn path=/trunk/mono/; revision=1950
+
+commit 66990d65e3ac907fe24cc5411591759ce60472b0
+Author: Matt Kimball <mkimball@mono-cvs.ximian.com>
+Date:   Wed Jan 9 01:49:12 2002 +0000
+
+    Tue Jan  8 22:38:41 MST 2002 Matt Kimball <matt@kimball.net>
+    
+    	* x86/tramp.c: handle strings returned from functions in external
+    	libraries by converting to a Mono string object after the pinvoke'd
+    	function returns
+    
+    svn path=/trunk/mono/; revision=1923
+
+commit ba9f9e77bf38e3bb4b1a888d39c7b0aab8ae09bf
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sat Jan 5 11:15:42 2002 +0000
+
+    Sat Jan 5 15:48:04 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* icall.c: hack to make IsSubType work for TypeBuilders.
+    	* reflection.c: emit constructors before methods.
+    	Retrieve param names in mono_param_get_objects().
+    
+    
+    Sat Jan 5 15:45:14 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: allow classname:method name in --debug argument.
+    	Fix box opcode for valuetypes. Fix a few opcode to take a 16 bit
+    	index instead of 32 (stloc, ldloc, starg, etc.).
+    
+    
+    Sat Jan 5 15:51:06 CET 2002 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: handle short integer return types.
+    
+    svn path=/trunk/mono/; revision=1852
+
+commit 0635ffef0b38bcf88cd3320939c1d96bf8bb8c0e
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Thu Jan 3 20:13:47 2002 +0000
+
+    Fix build for new automakes, seems to work
+    
+    svn path=/trunk/mono/; revision=1795
+
+commit 054ebda213a85e3a8a1770ec5e63831e3a0f06ba
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Dec 20 15:20:42 2001 +0000
+
+    Thu Dec 20 20:13:07 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: fix create_method_pointer() to pass the arguments
+    	correctly and add check for overflow.
+    
+    svn path=/trunk/mono/; revision=1656
+
+commit faaadc7132a2cdd8c13adf7fbb79d32461759493
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Mon Dec 17 06:50:02 2001 +0000
+
+    2001-12-16  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* emit-x86.c (arch_handle_exception): new code to handle
+    	exceptions inside unmanaged code.
+    
+    	* x86.brg: impl. SAVE_LMF, RESTORE_LMF, pass implizit valuetype
+    	address as first argument.
+    
+    	* x86.brg: pass exceptions on the stack
+    
+    	* jit.h (ISSTRUCT): new macro to check for real value types
+    	(return false for enum types).
+    
+    	* unicode.c (_wapi_unicode_to_utf8): byteswap UTF16 strings before
+    	passing them to iconv
+    
+    	* file-io.c: raise exceptions if handle is invalid.
+    
+    svn path=/trunk/mono/; revision=1603
+
+commit 35430229b14448182d84a7f9348995019251fb28
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Dec 13 11:03:21 2001 +0000
+
+    Thu Dec 13 15:56:53 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: x86_mov_memindex_imm() added.
+    
+    svn path=/trunk/mono/; revision=1565
+
+commit 813f9d5a9dcbe48c711bbb8bacc876e976ce0aea
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Thu Nov 29 21:23:53 2001 +0000
+
+    2001-11-29  Radek Doulik  <rodo@ximian.com>
+    
+    	* ppc/tramp.c: use r12 which is volatile instead of non-volatile
+    	r14 to avoid saving
+    
+    svn path=/trunk/mono/; revision=1482
+
+commit 0a65eb2cf0b69f68849e7196b6e00133b3ecf3fc
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Thu Nov 29 20:19:00 2001 +0000
+
+    2001-11-29  Radek Doulik  <rodo@ximian.com>
+    
+    	* Makefile.am (libmonoarch_la_LIBADD): added ppc to DIST_SUBDIRS
+    	generate libmonoarch for ppc
+    
+    svn path=/trunk/mono/; revision=1478
+
+commit c4f49a88d52479062bd8b95669cb90c1b86242d0
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Thu Nov 29 19:32:48 2001 +0000
+
+    added test
+    
+    svn path=/trunk/mono/; revision=1477
+
+commit 2c1c4889b99aaf4be0b894ea24b4d92201cb282d
+Author: Radek Doulik <rodo@mono-cvs.ximian.com>
+Date:   Thu Nov 29 19:32:19 2001 +0000
+
+    added files for initial ppc support
+    
+    svn path=/trunk/mono/; revision=1476
+
+commit 719926a4c59c399767f10b9567859300a768b05a
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Nov 27 10:30:39 2001 +0000
+
+    Tue Nov 27 15:24:07 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x96/x86-codegen.c: x86_lea_memindex() added.
+    
+    svn path=/trunk/mono/; revision=1447
+
+commit c4a26e54cfa29ea5279d1964ef4ea7f6176c0357
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Nov 19 06:52:53 2001 +0000
+
+    Mon Nov 19 11:37:14 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* class.c, class.h: add mono_install_trampoline() so that the runtime
+    	can register a function to create a trampoline: removes the ugly
+    	requirement that a runtime needed to export arch_create_jit_trampoline.
+    	* object.h, object.c: added mono_install_handler() so that the runtime
+    	can install an handler for exceptions generated in C code (with
+    	mono_raise_exception()). Added C struct for System.Delegate.
+    	* pedump.c: removed arch_create_jit_trampoline.
+    	* reflection.c: some cleanups to allow registering user strings and
+    	later getting a token for methodrefs and fieldrefs before the assembly
+    	is built.
+    	* row-indexes.h: updates and fixes from the new ECMA specs.
+    
+    
+    Mon Nov 19 11:36:22 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* jit.c: use mono_install_trampoline (), instead of exporting
+    	a function to a lower-level library.
+    
+    
+    Mon Nov 19 11:33:00 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: start adding support for handling exceptions across
+    	managed/unmanaged boundaries. Cleanup Delegate method invocation.
+    	Pass the correct target object in Delegate::Invoke and use the correct
+    	'this' pointer in ldvirtftn (bugs pointed out by Dietmar).
+    
+    Mon Nov 19 11:32:28 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* main.c: remove arch_create_jit_trampoline().
+    
+    svn path=/trunk/mono/; revision=1380
+
+commit af643d34335bfdc90a7455f99847e954456bb07d
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Nov 14 15:18:56 2001 +0000
+
+    Wed Nov 14 19:21:26 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: handle boolean as a return value.
+    	* x96/x86-codegen.c: x86_widen_memindex() added.
+    
+    
+    Wed Nov 14 19:23:00 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: move the stack frame dumping code to a function so it can
+    	be called from the debugger. Fix virtual method lookup for interfaces.
+    	Throw exceptions instead of aborting in more places.
+    	Print also the message in an exception. Updates for field renames in
+    	corlib.
+    
+    
+    Wed Nov 14 19:26:06 CET 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* class.h, class.c: add a max_interface_id to MonoClass.
+    	* icall.c: rename my_mono_new_object() to my_mono_new_mono_type()
+    	since it's used to do that. Added mono_type_type_from_obj().
+    	Make GetType() return NULL instead of segfaulting if the type was not
+    	found. Handle simple arrays in assQualifiedName.
+    	* object.h: add a struct to represent an Exception.
+    	* reflection.c: output call convention in method signature.
+    	Add code to support P/Invoke methods and fixed offsets for fields.
+    
+    svn path=/trunk/mono/; revision=1352
+
+commit 041ab742894fbd6d90e2ffb3c6fddb60a869e952
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Fri Nov 9 13:40:43 2001 +0000
+
+    2001-11-09  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* testjit.c (mono_analyze_stack): new BOX impl.
+    
+    	* x86.brg: implemented INITOBJ
+    
+    	* testjit.c (mono_analyze_stack): finished array support
+    	(mono_analyze_stack): reimplemented DUP instruction
+    
+    svn path=/trunk/mono/; revision=1308
+
+commit bff8e602354a8d32dfaed336600b5f648af06e70
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Thu Nov 8 21:38:32 2001 +0000
+
+    2001-11-07  Miguel de Icaza  <miguel@ximian.com>
+    
+    	* x86/tramp.c: Include stdlib to kill warning.
+    
+    2001-11-07  Miguel de Icaza  <miguel@ximian.com>
+    
+    	* main.c (dis_property_methods): Added missing colon which avoided
+    	setting loc.t
+    
+    2001-11-07  Miguel de Icaza  <miguel@ximian.com>
+    
+    	* interp.c: Include stdlib to kill warning.
+    	(check_corlib): Adjust format encodings to remove warnings.
+    
+    2001-11-07  Miguel de Icaza  <miguel@ximian.com>
+    
+    	* reflection.c (build_compressed_metadata): Eliminates warnings
+    	and uses 64-bit clean code.
+    
+    	* metadata.c (mono_type_hash): Change signature to eliminate warnings.
+    	(mono_type_equal): Change signature to eliminate warnings.
+    
+    2001-11-07  Miguel de Icaza  <miguel@ximian.com>
+    
+    	* monoburg.y: Include string.h, stdlib.h to kill warnings.
+    
+    	* sample.brg: Include string.h to remove warnings.
+    
+    svn path=/trunk/mono/; revision=1298
+
+commit 306ec85b780f5f9c99ffaf19f51baa6548a298a6
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Wed Nov 7 06:33:48 2001 +0000
+
+    2001-11-07  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* emit-x86.c (enter_method): print out all method arguments
+    	(x86_magic_trampoline): impl.
+    	(arch_create_simple_jit_trampoline): we use different trampolines
+    	for static methods (no need to write the address back into to
+    	vtable).
+    
+    svn path=/trunk/mono/; revision=1278
+
+commit 689da148c801d119d0d2722ef74a497e95c5f1b3
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Oct 22 09:24:31 2001 +0000
+
+    Mon Oct 22 15:20:14 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: handle boolean, u1 and i1 as return values.
+    
+    svn path=/trunk/mono/; revision=1192
+
+commit f6b50c3852378ca35cef63056ddec70585b3ac32
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Oct 10 10:11:17 2001 +0000
+
+    Wed Oct 10 16:07:24 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.c: added x86_set_{reg,mem,membase}.
+    
+    svn path=/trunk/mono/; revision=1133
+
+commit 27043fee95be8bec691045d7ab39b1be553550e9
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Oct 8 14:33:48 2001 +0000
+
+    Mon Oct 8 20:27:50 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* configure.in: define NO_UNALIGNED_ACCESS for platforms that
+    	can't read on unaligned boundaries
+    
+    
+    Mon Oct 8 16:12:38 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* metadata.c, metadata.h: use MonoArrayType to describe the shape of an array.
+    	Guard against calling bsearch with a NULL pointer (pointed out by Laurent Rioux, smoux).
+    	* image.c: endian fixes by Laurent Rioux.
+    	* object.h, object.c: rename MonoStringObject to MonoString and
+    	MonoArrayObject to MonoArray. Change some function names to conform to
+    	the style mono_<object>_<action>. mono_string_new_utf16 () takes a
+    	guint16* as first argument, so don't use char*.
+    	Provide macros to do the interesting things on arrays in a portable way.
+    	* threads-pthread.c: updates for the API changes and #include <sched.h>
+    	(required for sched_yield()).
+    	* icall.c: updates for the API changes above.
+    	* Makefile.am, mono-endian.c. mono-endian.h: include unaligned read routines for
+    	platforms that need them.
+    
+    
+    Mon Oct 8 16:13:55 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* get.c, get.h: MonoArray changed in MonoArrayType.
+    	* main.c: guard against calling bsearch with a NULL pointer
+    	(pointed out by Laurent Rioux, smoux).
+    
+    
+    Mon Oct 8 16:13:07 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: remove mono_get_ansi_string () and use
+    	mono_string_to_utf8 () instead.
+    
+    
+    Mon Oct 8 16:14:40 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: use the accessors provided in object.h to deal with
+    	MonoArrays. Updates for API renames in metadata. Throw exception
+    	in ldelema if index is out of bounds.
+    
+    svn path=/trunk/mono/; revision=1122
+
+commit 4ff31b89c4d3458dc378cd2e915ed08281a21a8b
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Oct 4 13:32:23 2001 +0000
+
+    Thu Oct 4 19:10:30 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* class.c: MonoTypes stored in MonoClass are stored as
+    	fundamental MonoTypes when the class represents a
+    	fundamental type (System.Int32, ...).
+    	The TypeHandle return by ldtoken is a MonoType*.
+    	* icall.c: ves_icall_get_data_chunk () write out all the
+    	PE/COFF stuff. Implement ves_icall_define_method (),
+    	ves_icall_set_method_body (), ves_icall_type_from_handle ().
+    	* image.c: properly skip unknown streams.
+    	* loader.h, loader.c: add type_class to mono_defaults.
+    	* metadata.c, metadata.h: export compute_size () as
+    	mono_metadata_compute_size () with a better interface.
+    	Typo and C&P fixes.
+    	* pedump.c: don't try to print the entry point RVA if there is no entry point.
+    	* reflection.c, reflection.h: many cleanups, fixes, output method
+    	signatures and headers, typedef and typeref info, compress the metadata
+    	tables, output all the heap streams, cli header etc.
+    	* row-indexes.h: typo fixes.
+    
+    
+    Thu Oct 4 19:09:13 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: allow marshalling valuetypes if they are
+    	4 bytes long.
+    
+    
+    Thu Oct 4 19:05:56 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* dis-cil.c: fix printing of exception stuff.
+    	* dump.c: display some more info in the typedef table dump.
+    	* main.c: typo fix and method list fix.
+    
+    svn path=/trunk/mono/; revision=1071
+
+commit 7328e9088acbd2609dff8d07b841c3fafd894d25
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Oct 1 13:07:53 2001 +0000
+
+    Mon Oct 1 18:48:27 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: fix thinko (s/SUB/ADD/) in stack adjustment
+    	and avoid a couple of unnecessary instructions.
+    
+    svn path=/trunk/mono/; revision=1042
+
+commit 1fa26f9aa718559d3090d1c1275bf04d574368f0
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri Sep 28 13:49:47 2001 +0000
+
+    Fri Sep 28 19:26:30 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* metadata.c: fix type comparison for arrays.
+    	* loader.h, loader.c: half-assed fix to get more tests work in cygwin.
+    	Added a couple of new classes to monodefaults.
+    	* icall.c: added a couple of Reflection-related internalcalls.
+    	* class.h, class.c: implemented mono_ldtoken () for RuntimeTypeHandles.
+    	Added a byval_arg MonoType to MonoClass.
+    
+    
+    Fri Sep 28 19:43:12 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: marshal valuetypes that are enums.
+    
+    
+    Fri Sep 28 19:37:46 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: Implemented ldtoken, conv.ovf.i. Use MonoClass->byval_arg
+    	(and remove related kludges). Don't choke on access to arrays of
+    	references. Throw an exception when an internalcall or P/Invoke
+    	function don't have an implementation. Throw and EngineException
+    	for unimplemented opcodes.
+    
+    svn path=/trunk/mono/; revision=1027
+
+commit 0122a3ea04b06d1d51f2756e48f6392ccac1096d
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Sep 27 09:38:19 2001 +0000
+
+    Thu Sep 27 15:34:37 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: in memindex operand you can use X86_NOBASEREG
+    	as basereg.
+    
+    svn path=/trunk/mono/; revision=995
+
+commit a5844f903a68e9448d7031587ffbd02ed2c4f486
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Sep 26 10:33:18 2001 +0000
+
+    Wed Sep 26 16:29:36 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: added memindex addressing mode encoding
+    	(and mov to/from register opcodes).
+    
+    svn path=/trunk/mono/; revision=984
+
+commit 1f45df6d593cd60780ea121d08ddd035a3418e4a
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Sep 24 13:30:32 2001 +0000
+
+    Mon Sep 24 18:49:01 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: don't change a MONO_TYPE_STRING to a char*
+    	when it's an argument to an internalcall.
+    
+    
+    Mon Sep 24 18:56:59 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* object.c, object.h: added mono_ldstr (), mono_string_is_interned () and
+    	mono_string_intern () to implement the semantics of the ldstr opcode
+    	and the interning of System.Strings.
+    	* icall.c: provide hooks to make String::IsIntern and String::Intern
+    	internalcalls.
+    
+    
+    Mon Sep 24 18:50:25 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: catch a few more error conditions with exceptions instead of
+    	erroring out.
+    	Don't use g_print() in stack traces because it doesn't work with
+    	some float values.
+    	When we call an instance method of a valuetype class, unbox the 'this'
+    	argument if it is an object.
+    	Use mono_ldstr () to implement the ldstr opcode: it takes care of
+    	interning the string if necessary.
+    	Implemented new opcodes: ckfinite, cgt.un, clt.un, ldvirtftn, ldarga.
+    	Fixes to handle NaNs when comparing doubles.
+    	Make sure the loaded assembly has an entry point defined.
+    	Fixed portability bugs in neg and not opcodes.
+    
+    svn path=/trunk/mono/; revision=943
+
+commit a995bd527db97e45d979a6b97e0a15a479d2e14b
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sun Sep 23 07:49:26 2001 +0000
+
+    Sun Sep 23 13:44:57 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/tramp.c: handle MONO_TYPE_CLASS in trampolines.
+    
+    svn path=/trunk/mono/; revision=927
+
+commit c9d21b14c718c8e7f3690f5d93ac349bbdd98d88
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Fri Sep 21 12:50:46 2001 +0000
+
+    implemented more opcodes
+    
+    svn path=/trunk/mono/; revision=916
+
+commit a0930b7dcd7fe845e1c3c06f3fba6736f88d8bf9
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Sep 20 15:31:50 2001 +0000
+
+    Thu Sep 20 16:32:42 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: implemented some more opcodes: calli, rem.un,
+    	shr.un, conv.u, cpobj, stobj, conv.r.un, conv.ovf.i1.un,
+    	conv.ovf.i2.un, conv.ovf.i4.un, conv.ovf.i8.un, conv.ovf.i.un,
+    	conv.ovf.u1.un, conv.ovf.u2.un, conv.ovf.u4.un, conv.ovf.u8.un,
+    	conv.ovf.u.un.
+    	Fix some 64 bit issues in the array element access code and a small bug.
+    	Throw an exception on index out of range instead of asserting.
+    	Throw an exception on a NULL array instead of dying.
+    	Stomped a memory corruption bug (.cctor methods were freed after
+    	executing them, but they are stores in MonoClass now...).
+    	Added a simple facility to invoke the debugger when a named
+    	function is entered (use the cmdline option --debug method_name).
+    	* interp.h: fix 64 bit issue.
+    
+    svn path=/trunk/mono/; revision=904
+
+commit e177e60b93378860f0573f458d06cd641770a255
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Tue Sep 18 07:26:43 2001 +0000
+
+    Tue Sep 18 13:23:59 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: remove C++ comments.
+    
+    svn path=/trunk/mono/; revision=865
+
+commit 4f874ee6ae2442c99421087b5ad11eae88283d55
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Mon Sep 17 09:10:44 2001 +0000
+
+    2001-09-17  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* x86.brg: emit real code for calls
+    
+    	* testjit.c (create_jit_trampoline): creates a function to trigger jit
+    	compilation.
+    	(mono_compile_method): reversed argument order
+    
+    svn path=/trunk/mono/; revision=842
+
+commit 011e42b68518f5c1397ecdc0417c021b4c524560
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Mon Sep 17 07:18:11 2001 +0000
+
+    2001-09-17  Dietmar Maurer  <dietmar@ximian.com>
+    
+    	* x86/x86-codegen.h (x86_alu_reg_reg): replaced src/dest
+    
+    svn path=/trunk/mono/; revision=841
+
+commit c61474703f058c226a94ba9cdfb1d19e3a45eecd
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Wed Sep 12 03:47:43 2001 +0000
+
+    *** empty log message ***
+    
+    svn path=/trunk/mono/; revision=792
+
+commit db78bf2c09f07356fe4c8284d1a48fa9867bd2fc
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Sep 10 14:26:02 2001 +0000
+
+    Mon Sep 10 20:19:00 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* configure.in: check for sizeof(void*) and for the architecture.
+    
+    Mon Sep 10 17:26:06 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* Makefile.am, x86/Makefile.am: conditional compile logic
+    	to make porting to different targets easier.
+    
+    Mon Sep 10 17:24:45 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* Makefile.am: make it work for make distcheck.
+    
+    Mon Sep 10 20:21:34 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* endian.h, assembly.c: fix some endianness issues.
+    
+    Mon Sep 10 20:20:36 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c: endian fixes, comments.
+    
+    svn path=/trunk/mono/; revision=783
+
+commit ce34fcec9c53a31ba2cd48f22c9a5099d02779e5
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Mon Sep 10 09:34:11 2001 +0000
+
+    *** empty log message ***
+    
+    svn path=/trunk/mono/; revision=781
+
+commit 6c07667b555ca78bdad5d7b6e5aa87f8078c1989
+Author: Dietmar Maurer <dietmar@mono-cvs.ximian.com>
+Date:   Mon Sep 10 09:14:46 2001 +0000
+
+    added the jit prototype, small fixes
+    
+    svn path=/trunk/mono/; revision=780
+
+commit 680963c46ae8b96cca52387e0f5b1a2e39825b90
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Fri Sep 7 12:53:34 2001 +0000
+
+    Fri Sep 7 18:43:06 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: fixes and x86_mov_membase_imm ().
+    	* x86/tramp.c: implemented mono_create_method_pointer ():
+    	creates a native pointer to a method implementation that can be
+    	used as a normal C callback.
+    
+    
+    Fri Sep 7 18:45:38 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c, interp.h: make ves_exec_method () and stackval_from_data ()
+    	non static. Implement a couple of runtime methods needed to
+    	use delegates (ves_runtime_method ()).
+    	Implemented ldftn opcode.
+    
+    svn path=/trunk/mono/; revision=745
+
+commit 4c39a186f2fa0dc3cca3ae6f6dc6584c75341adf
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Thu Sep 6 09:46:03 2001 +0000
+
+    Thu Sep 6 15:38:00 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: added x86_rdtsc() and fixes.
+    	* x86/tramp.c: create trampolines to call pinvoke methods.
+    	* x86/Makefile.am: create a libmonoarch convenience library.
+    
+    
+    Thu Sep 6 15:41:24 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* Makefile.am: link to libmonoarch.
+    	* interp.h, interp.c: use mono_create_trampoline ().
+    	Pass the command line arguments to Main (String[]) methods.
+    
+    svn path=/trunk/mono/; revision=728
+
+commit d3a5cf739f1182a42d20f1d5ace2a272307da87f
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Mon Aug 27 03:43:09 2001 +0000
+
+    Mon Aug 27 09:29:00 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: fix x86_call_code (). x86_mov_regp_reg () added.
+    
+    svn path=/trunk/mono/; revision=636
+
+commit 231c25bd596aa45a2962a9c820fc9417985a1f3f
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Sat Aug 18 06:55:29 2001 +0000
+
+    Sat Aug 18 12:40:32 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h: fix a couple of buglets and add x86_regp_emit().
+    
+    Sat Aug 18 12:42:26 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* class.c, class.h: load also the methods when loading a class.
+    
+    Sat Aug 18 12:43:38 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* interp.c, interp.h: added support code to create exceptions.
+    	Changed interncal calling convnetion over to MonoInvocation, to support
+    	exceptions, walking the stack back and forward and passing the 'this'
+    	pointer separately (remove the cludges required before to pass this on the
+    	stack). Use alloca heavily for both local vars and a copy of the incoming
+    	arguments. Init local vars to zero.
+    	Simplify stackval_from_data() and stackval_to_data() to only take a pointer
+    	instead of pointer + offset.
+    	Implement a few exceptions-related opcodes and the code to run finally, fault and
+    	catch blocks as well as a stack trace if no handler is found.
+    
+    Sat Aug 18 12:51:28 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* metadata.c, metadata.h: in the signature and method header store
+    	only the space required for holding the loca vars and incoming arguments.
+    
+    svn path=/trunk/mono/; revision=493
+
+commit 75cdbf5cd16480631ac8579c2c2f230761e4802b
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Aug 8 17:21:29 2001 +0000
+
+    Fixed x86_mov_reg_imm().
+    
+    svn path=/trunk/mono/; revision=441
+
+commit 5263eb4d219b8054b29a4d250cec40a7c8170a84
+Author: Miguel de Icaza <miguel@gnome.org>
+Date:   Wed Aug 8 16:48:32 2001 +0000
+
+    Update copyright
+    
+    svn path=/trunk/mono/; revision=440
+
+commit c9397770c008d427da0b7ad058782fc8564c10d3
+Author: Paolo Molaro <lupus@oddwiz.org>
+Date:   Wed Aug 8 13:32:23 2001 +0000
+
+    Wed Aug 8 15:30:05 CEST 2001 Paolo Molaro <lupus@ximian.com>
+    
+    	* x86/x86-codegen.h, x86/test.c: added x86 code emitter with
+    	test.
+    
+    svn path=/trunk/mono/; revision=435

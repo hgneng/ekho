@@ -1,0 +1,10 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${exec_prefix}
+libdir=${libdir}
+includedir=${includedir}
+
+Name: @CMAKE_PROJECT_NAME@
+Description: fast Fourier transform library
+Version: @FFTS_VERSION@
+Libs: -L${libdir} -lffts -lm
+Cflags: -I${includedir}/ffts

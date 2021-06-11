@@ -1,0 +1,10 @@
+[package]
+name = "mpm-rs"
+version = "0.1.0"
+authors = ["Sevag Hanssian <sevag.hanssian@gmail.com>"]
+
+[dependencies]
+conv = "0.3.3"
+
+[dev-dependencies]
+rand = "0.5.5"

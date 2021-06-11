@@ -1,0 +1,11 @@
+[
+  {
+    "name": "noise",
+    "color": "pink",
+    "snr": 20
+  },
+  {
+    "name": "harmonic_distortion",
+    "num_passes": 5
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "noise",
+    "color": "pink",
+    "snr": 20
+  },
+  {
+    "name": "harmonic_distortion",
+    "num_passes": 5
+  },
+  {
+    "name": "mix",
+    "path": "./degraded_audio_tests/restaurant08.wav"
+  },
+  {
+    "name": "mp3",
+    "bitrate": 32
+  },
+  {
+    "name": "mp3",
+    "bitrate": 32
+  },
+  {
+    "name": "mp3",
+    "bitrate": 32
+  }
+]

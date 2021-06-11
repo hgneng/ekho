@@ -1,0 +1,9 @@
+*
+!src
+!lib
+!misc
+!include
+!test
+!degraded_audio_tests
+!wav_analyzer
+!Makefile

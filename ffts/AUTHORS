@@ -1,0 +1,6 @@
+FFTS was developed at the University of Waikato by Anthony Blake <amb@anthonix.com> 
+
+The following authors have also graciously contributed code: 
+
+Michael Zucchi <notzed@gmail.com> -- JNI java/android support
+Michael Cree <mcree@orcon.net.nz> -- Architecture specific code, including support for Altivec and DEC Alpha

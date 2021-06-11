@@ -1,0 +1,7 @@
+mono_arch
+=========
+
+Part of Mono project, https://github.com/mono
+
+These are C macros that are useful when generating native code on various platforms.
+This code is MIT X11 licensed.
