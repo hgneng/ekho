@@ -16,6 +16,10 @@
 #include "xmlfile.h"
 #include "xmlreader.h"
 
+#ifdef ENABLE_MUSICXML
+#include <pitch_detection.h>
+#endif
+
 using namespace std;
 using namespace MusicXML2;
 
@@ -154,8 +158,11 @@ char* Ekho::convertDuration(const char *pcm, int size,
   float sourceSeconds = (float)size / 2 / this->m_pImpl->mDict.mSfinfo.samplerate;
   float targetSeconds = (float)duration * 120 / 24 / this->musicxmlMinuteRate;
 
+  int sampleRate = this->m_pImpl->mDict.mSfinfo.samplerate;
+  this->detectPitch((const short*)pcm, size / 2, sampleRate);
+
   Audio *audio = new Audio();
-  audio->initProcessor(this->m_pImpl->mDict.mSfinfo.samplerate, 1);
+  audio->initProcessor(sampleRate, 1);
   audio->setTempoFloat(sourceSeconds / targetSeconds);
   audio->writeShortFrames((short*)pcm, size / 2);
   int targetSize = size * targetSeconds / sourceSeconds;
@@ -168,4 +175,31 @@ char* Ekho::convertDuration(const char *pcm, int size,
 
   return (char*)targetPcm;
 }
+
+double Ekho::detectPitch(const short *pcm, int size, int samepleRate) {
+#ifdef ENABLE_MUSICXML
+  std::vector<double> audioBuffer(size);
+  for (int i = 0; i < size; i++) {
+    audioBuffer[i] = (double)pcm[i] / 32768;
+  }
+
+  double pitchYin = pitch::yin<double>(audioBuffer, samepleRate);
+  double pitchMpm = pitch::mpm<double>(audioBuffer, samepleRate);
+  double pitchPyin = pitch::pyin<double>(audioBuffer, samepleRate);
+  double pitchPmpm = pitch::pmpm<double>(audioBuffer, samepleRate);
+  double pitchSwipe = pitch::swipe<double>(audioBuffer, samepleRate);
+
+  cerr << "pitch: yin=" << pitchYin
+      << ", mpm=" << pitchMpm
+      << ", Pyin=" << pitchPyin
+      << ", pitchPmpm=" << pitchPmpm
+      << ", pitchSwipe=" << pitchSwipe
+      << endl;
+
+  return pitchYin;
+#else
+  return 0;
+#endif
+}
+
 }  // end of namespace ekho

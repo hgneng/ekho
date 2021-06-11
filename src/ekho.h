@@ -105,6 +105,7 @@ class Ekho {
   void singSilence(int duration);
   char* convertDuration(const char *pcm, int size,
     int duration, int &convertedSize);
+  double detectPitch(const short *pcm, int size, int sampleRate);
 
   /* Clear speech queue before speak text
    * text should be in UTF-8 format
