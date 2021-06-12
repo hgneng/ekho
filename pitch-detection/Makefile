@@ -1,6 +1,6 @@
 CXX		?= gcc
-CXX_FLAGS 	:= -ansi -pedantic -Werror -Wall -O3 -std=c++2a -fPIC -flto -shared -lffts -Iinclude -lblas -llapack -larmadillo -lmlpack
-CXX_DEBUG_FLAGS := -ansi -pedantic -Werror -Wall -O0 -std=c++2a -fPIC -shared -lffts -Iinclude -ggdb -lblas -llapack -fno-omit-frame-pointer -larmadillo -lmlpack
+CXX_FLAGS 	:= -ansi -pedantic -Werror -Wall -O3 -std=c++2a -fPIC -fext-numeric-literals -flto -shared -lffts -Iinclude -lblas -llapack -fopenmp -larmadillo -lmlpack
+CXX_DEBUG_FLAGS := -ansi -pedantic -Werror -Wall -O0 -std=c++2a -fPIC -shared -lffts -Iinclude -ggdb -lblas -llapack -fno-omit-frame-pointer -fopenmp -larmadillo -lmlpack
 
 all: lib
 

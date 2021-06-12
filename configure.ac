@@ -139,7 +139,7 @@ AC_SUBST([LIB_MUSICXML])
 AC_ARG_ENABLE(musicxml,
         [AS_HELP_STRING([--enable-musicxml],[Enable musicxml])],
         [AC_DEFINE(ENABLE_MUSICXML,,[Enable musicxml])
-         LIB_MUSICXML="-lffts -lopus -lmlpack -larmadillo -lpitch_detection"
+         LIB_MUSICXML="-lpitch_detection -lffts -lopus -lmlpack -larmadillo -fopenmp"
          AM_CONDITIONAL(ENABLE_MUSICXML, true)
         ],
         [AM_CONDITIONAL(ENABLE_MUSICXML, false)]
