@@ -62,6 +62,7 @@ class Ekho {
   int musicxmlMinuteRate;
   SNDFILE *sndFile;
   map<string, double> pitchMap;
+  map<string, double> pianoPitchMap;
 
  public:
   const static int BUFFER_SIZE = 40960;
@@ -103,12 +104,13 @@ class Ekho {
   int synth(const char *text, SpeechdSynthCallback *callback);
 
   void singMusicXml(const string xmlFile, const string outputFile);
-  void singCharacter(const Character &c, int duration);
+  void singCharacter(const Character &c, int duration, string pitch);
   void singSilence(int duration);
-  char* convertDuration(const char *pcm, int size,
-    int duration, int &convertedSize);
+  char* convertDurationAndPitch(const char *pcm, int size,
+    float tempo, float pitch, int &convertedSize);
   double detectPitch(const short *pcm, int size, int sampleRate);
   int loadPitchFile();
+  void loadPianoPitch();
 
   /* Clear speech queue before speak text
    * text should be in UTF-8 format

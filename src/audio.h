@@ -58,10 +58,11 @@ class Audio {
     void initProcessor(int samplerate, int channels);
     void destroyProcessor();
     int setPitch(int delta);
+    void setPitchFloat(float factor);
     int setVolume(int delta);
     int setRate(int delta);
     int setTempo(int delta);
-    void setTempoFloat(float value);
+    void setTempoFloat(float factor);
     int setSampleRate(int rate);
     int readShortFrames(short buffer[], int size);
     int writeShortFrames(short buffer[], int size);
