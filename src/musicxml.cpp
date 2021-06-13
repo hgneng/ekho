@@ -108,6 +108,25 @@ void Ekho::singMusicXml(const string xmlFile, const string outputFile) {
   }
 }
 
+/* 降b大调，2个降号，<fifths>-2</fifths>
+  <part id="P1">
+    <measure number="1" width="0.00">
+      <print>
+        <system-layout>
+          <system-margins>
+            <left-margin>-0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <top-system-distance>105.00</top-system-distance>
+          </system-layout>
+        </print>
+      <attributes>
+        <divisions>12</divisions>
+        <key>
+          <fifths>-2</fifths>
+          </key>
+*/
+
 void Ekho::singSilence(int duration) {
   cerr << "silent: " << duration << endl;
 

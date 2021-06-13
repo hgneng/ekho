@@ -1,1 +1,0 @@
-EXTRA_DIST = ppc-codegen.h
