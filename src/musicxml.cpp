@@ -47,6 +47,8 @@ void Ekho::singMusicXml(const string xmlFile, const string outputFile) {
 #endif
 
   if (file) {
+    this->loadPitchFile();
+
     Sxmlelement st = file->elements();
     ctree<xmlelement>::iterator note = st->find(k_note);
 
@@ -152,6 +154,10 @@ void Ekho::singCharacter(const Character &c, int duration) {
   int size2 = 0;
   const char *pcm2 = this->convertDuration(pcm, size, duration, size2);
   cerr << "size=" << size << ", size2=" << size2 << endl;
+  if (this->pitchMap.find(ps->symbol) != this->pitchMap.end()) {
+    cerr << ps->symbol << " pitch=" << this->pitchMap[ps->symbol] << endl;
+  }
+
   if (this->sndFile) {
     sf_writef_short(this->sndFile, (const short*)pcm2, size2 / 2);
   } else {
@@ -195,30 +201,70 @@ char* Ekho::convertDuration(const char *pcm, int size,
   return (char*)targetPcm;
 }
 
-double Ekho::detectPitch(const short *pcm, int size, int samepleRate) {
-#ifdef ENABLE_MUSICXML
-  std::vector<double> audioBuffer(size);
-  for (int i = 0; i < size; i++) {
-    audioBuffer[i] = (double)pcm[i] / 32768;
+int Ekho::loadPitchFile() {
+  cerr << "loadPitchFile...";
+  string pitchFilePath;
+  if (this->m_pImpl->mDict.getLanguage() == CANTONESE) {
+    pitchFilePath = this->m_pImpl->mDict.mDataPath + "/jyutping.pitch";
   }
 
-  double pitchYin = pitch::yin<double>(audioBuffer, samepleRate);
-  double pitchMpm = pitch::mpm<double>(audioBuffer, samepleRate);
-  double pitchPyin = pitch::pyin<double>(audioBuffer, samepleRate);
-  double pitchPmpm = pitch::pmpm<double>(audioBuffer, samepleRate);
-  double pitchSwipe = pitch::swipe<double>(audioBuffer, samepleRate);
+  if (pitchFilePath.empty()) {
+    cerr << "no pitch file";
+    return -1;
+  }
 
-  cerr << "pitch: yin=" << pitchYin
-      << ", mpm=" << pitchMpm
-      << ", Pyin=" << pitchPyin
-      << ", pitchPmpm=" << pitchPmpm
-      << ", pitchSwipe=" << pitchSwipe
-      << endl;
+  int count = 0;
+  string line;
+  ifstream pitchFile;
+  pitchFile.open(pitchFilePath);
 
-  return pitchYin;
-#else
+  if (!pitchFile.is_open()) {
+    cerr << "file to open " << pitchFilePath << endl;
+  }
+
+  while (getline(pitchFile, line)) {
+    int pos = line.find('=', 0);
+    pitchMap[line.substr(0, pos)] = atof(line.substr(pos + 1, line.length() - pos).c_str());
+    //cerr << line.substr(0, pos) << "->" << pitchMap[line.substr(0, pos)] << endl;
+  }
+
+  cerr << "finish" << endl;
+  return count;
+}
+
+double Ekho::detectPitch(const short *pcm, int size, int sampleRate) {
   return 0;
+/*
+#ifdef ENABLE_MUSICXML
+  // slide intot 0.1s chunks
+  int chunkSize = sampleRate / 100;
+  int chunkCount = size / chunkSize;
+  std::vector<double> chunks[chunkCount];
+
+  for (int i = 0; i < chunkCount; i++) {
+    chunks[i].resize(chunkSize);
+    for (int j = 0; j < chunkSize; j++) {
+      chunks[i][j] = (double)pcm[i * chunkSize + j] / 32768;
+    }
+
+    double pitchYin = pitch::yin<double>(chunks[i], sampleRate);
+    double pitchMpm = pitch::mpm<double>(chunks[i], sampleRate);
+    double pitchPyin = pitch::pyin<double>(chunks[i], sampleRate);
+    double pitchPmpm = pitch::pmpm<double>(chunks[i], sampleRate);
+    double pitchSwipe = pitch::swipe<double>(chunks[i], sampleRate);
+
+    cerr << "pitch: yin=" << pitchYin
+        << ", mpm=" << pitchMpm
+        << ", Pyin=" << pitchPyin
+        << ", pitchPmpm=" << pitchPmpm
+        << ", pitchSwipe=" << pitchSwipe
+        << endl;
+  }
+
+  return 0;
+#else
 #endif
+*/
 }
 
 }  // end of namespace ekho
