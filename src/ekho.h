@@ -26,6 +26,7 @@
 #include <semaphore.h>
 #include <sndfile.h>
 #include <queue>
+#include <map>
 #include "config.h"
 
 #ifdef DEBUG_ANDROID
@@ -60,6 +61,7 @@ class Ekho {
   EkhoImpl *m_pImpl;
   int musicxmlMinuteRate;
   SNDFILE *sndFile;
+  map<string, double> pitchMap;
 
  public:
   const static int BUFFER_SIZE = 40960;
@@ -106,6 +108,7 @@ class Ekho {
   char* convertDuration(const char *pcm, int size,
     int duration, int &convertedSize);
   double detectPitch(const short *pcm, int size, int sampleRate);
+  int loadPitchFile();
 
   /* Clear speech queue before speak text
    * text should be in UTF-8 format

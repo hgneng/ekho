@@ -29,7 +29,7 @@ m4_warn([obsolete],
   ISO C90 headers unconditionally.])dnl
 # Autoupdate added the next two lines to ensure that your configure
 # script's behavior did not change.  They are probably safe to remove.
-AC_CHECK_INCLUDES_DEFAULT
+#AC_CHECK_INCLUDES_DEFAULT
 AC_PROG_EGREP
 
 AC_CHECK_HEADERS([locale.h stdlib.h string.h unistd.h])
@@ -134,12 +134,15 @@ AC_ARG_ENABLE(festival,
          CFLAG_FESTIVAL=""]
         )
 
+CFLAG_MUSICXML=""
 LIB_MUSICXML=""
+AC_SUBST([CFLAG_MUSICXML])
 AC_SUBST([LIB_MUSICXML])
 AC_ARG_ENABLE(musicxml,
         [AS_HELP_STRING([--enable-musicxml],[Enable musicxml])],
         [AC_DEFINE(ENABLE_MUSICXML,,[Enable musicxml])
-         LIB_MUSICXML="-lpitch_detection -lffts -lopus -lmlpack -larmadillo -fopenmp"
+         CFLAG_MUSICXML="-fopenmp"
+         LIB_MUSICXML="-lpitch_detection -lffts -lopus -lmlpack -larmadillo"
          AM_CONDITIONAL(ENABLE_MUSICXML, true)
         ],
         [AM_CONDITIONAL(ENABLE_MUSICXML, false)]
