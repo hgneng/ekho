@@ -24,9 +24,6 @@ You need to have following libraries first:
 * libmp3lame-dev (optional)
 * libdotconf-dev (required by --enable-speechd)
 * texinfo
-* cmake (required by --enable-musicxml)
-* libmlpack-dev (required by --enable-musicxml)
-* libopus-dev (required by --enable-musicxml)
 
 On Ubuntu Linux, we can use `apt-cache search <pkg_keywork>` to find a package's full name and install it with `sudo apt-get install <pkg_name>`.
 On Fedora Linux, we can use `yum search <pkg_keyword>` to find a package's full name and install it with `sudo yum install <pkg_name>`.
@@ -40,7 +37,6 @@ Some configure options:
 --enable-festival      Speak English through Festival.
 --enable-speechd       Enable speech-dispatcher API and work with screen reader like Orca. (You also need to do some extra setup. If you don't know how to setup, just run ./install.pl)
 --with-mp3lame=yes     Enable MP3 export function. This option is conflict to --enable-speechd.
---enable-musicxml      Enalbe --sing function. This option is not usable on Mac.
 
 To install and setup the speech-dispatcher, please run one of following commands (only one, it will overwrite previous setting):
 $ ./install.pl Mandarin
