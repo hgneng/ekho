@@ -85,9 +85,16 @@ int Audio::setTempo(int delta) {
 }
 
 // 1 means no change. 2 means double speed
-void Audio::setTempoFloat(float value) {
+void Audio::setTempoFloat(float factor) {
   if (this->processorStream) {
-    sonicSetSpeed(this->processorStream, value);
+    sonicSetSpeed(this->processorStream, factor);
+  }
+}
+
+// 1 means no change. 2 means double high pitch
+void Audio::setPitchFloat(float factor) {
+  if (this->processorStream) {
+    sonicSetPitch(this->processorStream, factor);
   }
 }
 

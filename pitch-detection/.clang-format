@@ -1,9 +1,0 @@
-UseTab: ForIndentation
-IndentWidth: 4
-TabWidth: 4
-BreakBeforeBraces: Linux
-AlignAfterOpenBracket: DontAlign
-AlwaysBreakAfterDefinitionReturnType: All
-AlwaysBreakAfterReturnType: All
-AllowShortFunctionsOnASingleLine: None
-MaxEmptyLinesToKeep: 1
