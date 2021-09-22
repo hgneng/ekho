@@ -106,10 +106,11 @@ int Audio::setSampleRate(int rate) {
 }
 
 int Audio::setPitch(int delta) {
+  /*
   if (!hasProcessorInited) {
     cerr << "Audio processor has not initialized." << endl;
     return 0;
-  }
+  }*/
 
   if (Audio::debug) {
     cerr << "Audio::setPitch(" << delta << ")" << endl;
@@ -134,10 +135,11 @@ int Audio::setPitch(int delta) {
 }
 
 int Audio::setVolume(int delta) {
+  /*
   if (!hasProcessorInited) {
     cerr << "Audio processor has not initialized." << endl;
     return 0;
-  }
+  }*/
 
   if (delta >= -100 && delta <= 100) {
     this->volumeDelta = delta;
