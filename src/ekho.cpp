@@ -1022,7 +1022,7 @@ int main(int argc, char *argv[]) {
     Ekho::debug(isDebugging);
     ekho_g = new Ekho();
     ekho_g->setSpeed(tempo_delta);
-    ekho_g->setEnglishSpeed(english_speed_delta);
+    //ekho_g->setEnglishSpeed(english_speed_delta);
     ekho_g->setOverlap(overlap);
     ekho_g->setPitch(pitch_delta);
     ekho_g->setVolume(volume_delta);
