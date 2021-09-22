@@ -1437,7 +1437,9 @@ int Dict::loadEspeakDict(const char *path) {
     linecount++;
   }
 
-  cout << "total line: " << linecount << endl;
+  if (mDebug) {
+    cerr << "total line: " << linecount << endl;
+  }
 
   return 0;
 }  // end of loadEspeakDict
