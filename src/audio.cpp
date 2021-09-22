@@ -118,8 +118,6 @@ void Audio::setOutputSampleRate(int rate) {
   if (rate > 0) {
     this->outputSampleRate = rate;
   }
-
-  this->setSampleRate(this->sampleRate);
 }
 
 int Audio::setPitch(int delta) {

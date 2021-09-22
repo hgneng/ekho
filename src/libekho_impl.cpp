@@ -1401,6 +1401,11 @@ void EkhoImpl::setSpeed(int tempo_delta) {
 
 void EkhoImpl::setEnglishSpeed(int delta) {
 #ifdef ENABLE_ESPEAK
+  if (mDict.mSfinfo.samplerate == 0) {
+    cerr << "Voice sample rate not set. Maybe you have not setVoice first." << endl;
+    return;
+  }
+
   int baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
 
   // Changing tempo will add noise, we'd better don't do it.

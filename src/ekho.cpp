@@ -1068,12 +1068,12 @@ int main(int argc, char *argv[]) {
     ekho_g = new Ekho();
     ekho_g->setPitch(pitch_delta);
     ekho_g->setSpeed(tempo_delta);
-    ekho_g->setEnglishSpeed(english_speed_delta);
     ekho_g->setOverlap(overlap);
     ekho_g->setVolume(volume_delta);
     ekho_g->setRate(rate_delta);
     ekho_g->setSampleRate(sample_rate);
     ekho_g->setVoice(language);
+    ekho_g->setEnglishSpeed(english_speed_delta);
 
     if (save_filename) {
       if (save_type && strcmp(save_type, "ogg") == 0) {
