@@ -8,6 +8,10 @@ using namespace std;
 namespace ekho {
 // detect whether there are number
 bool Dict::hasNumbers(list<Character> &charList) {
+  if (mLanguage != MANDARIN && mLanguage != CANTONESE) {
+    return false; // only convert numbers for Chinese
+  }
+
   int count = 0;
   list<Character>::iterator i = charList.begin();
   for (; i != charList.end(); i++) {
@@ -172,6 +176,11 @@ static void readIntegerNumber(list<Character> &charList,
 // telephone
 void Dict::replaceNumbers(list<Character> &charList,
     list<Character> &convertedCharList) {
+  if (mLanguage != MANDARIN && mLanguage != CANTONESE) {
+    convertedCharList = charList;
+    return;
+  }
+
   list<Character>::iterator begin = charList.begin();
   list<Character>::iterator end = charList.end();
   list<Character>::iterator i = charList.begin();
