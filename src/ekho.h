@@ -43,6 +43,10 @@
 #include <pulse/simple.h>
 #endif
 
+#ifdef HAVE_LIBSOXR
+#include <soxr.h>
+#endif
+
 #ifdef ANDROID
 //#include "flite.h"
 //#define ENABLE_ENGLISH
@@ -205,6 +209,13 @@ class Ekho {
   void setRate(int rate_delta);
   int getRate(void);
 
+  // 需要在setVoice之前调用，因为setVoice的时候就初始化完成音频流的samplerate了。
+  void setSampleRate(int sampleRate);
+  /* Get sample rate
+   * The default rate depends on voice data. For gsm format, it is usually 8000. 44100 is CD quality.
+   */
+  int getSampleRate(void);
+
   /**
    * Set English Voice
    * Parameter:
@@ -239,7 +250,6 @@ class Ekho {
 
   void setPunctuationMode(EkhoPuncType mode);
   void setCapLetterRecognMode(EkhoCapLetterRecognType mode);
-  int getSampleRate();
 };
 }
 

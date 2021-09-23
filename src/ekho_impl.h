@@ -76,6 +76,7 @@ class EkhoImpl {
   bool mSpeakIsolatedPunctuation;
   bool mIsMale;
   int mOverlap;
+  Audio *audio;
 
   static SpeechdSynthCallback *speechdSynthCallback;
   void setSpeechdSynthCallback(SpeechdSynthCallback *callback);
@@ -296,8 +297,6 @@ class EkhoImpl {
   bool isSpeechThreadInited;
   pthread_t speechThread;
   pthread_attr_t speechThreadAttr;
-
-  Audio *audio;
 
   const char *mAlphabetPcmCache[26];
   int mAlphabetPcmSize[26];

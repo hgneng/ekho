@@ -41,6 +41,9 @@ Audio::~Audio(void) {
 
 void Audio::initProcessor(int samplerate, int channels) {
   this->sampleRate = samplerate;
+  if (this->outputSampleRate == 0) {
+    this->outputSampleRate = samplerate;
+  }
   this->channels = channels;
 
 #ifdef ENABLE_SOUNDTOUCH
@@ -98,11 +101,25 @@ void Audio::setPitchFloat(float factor) {
   }
 }
 
+// 设置（英语）输入源的sample rate，sonic需要调整当前PCM流的语速，
+// 让后来不同的sample rate PCM流和之前的语速一致
 int Audio::setSampleRate(int rate) {
+  if (Audio::debug) {
+    cerr << "Audio::setSampleRate: " << rate << endl;
+  }
+
   flushFrames();
-  sonicSetRate(this->processorStream, (float)rate / this->sampleRate);
+  sonicSetRate(this->processorStream, (float)rate / this->outputSampleRate);
   this->currentSampleRate = rate;
   return rate;
+}
+
+void Audio::setOutputSampleRate(int rate) {
+  if (rate > 0) {
+    this->outputSampleRate = rate;
+  }
+
+  this->setSampleRate(this->sampleRate);
 }
 
 int Audio::setPitch(int delta) {
@@ -176,6 +193,7 @@ int Audio::readShortFrames(short buffer[], int size) {
     return 0;
   }
   // sonic会自动剪去一些空白的frame?
+
   return sonicReadShortFromStream(this->processorStream, buffer, size);
 }
 

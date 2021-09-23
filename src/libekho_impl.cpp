@@ -216,7 +216,7 @@ int EkhoImpl::initStream(void) {
   if (this->isSoundInited) {
     pa_sample_spec ss;
     ss.channels = mDict.mSfinfo.channels;
-    ss.rate = mDict.mSfinfo.samplerate;
+    ss.rate = this->audio->outputSampleRate;
     ss.format = PA_SAMPLE_S16LE;
     int error;
 
@@ -305,7 +305,9 @@ int EkhoImpl::initEnglish(void) {
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
   this->setEnglishSpeed(this->getEnglishSpeed());
-  // cout << "samplerate: " << samplerate << endl;
+  if (mDebug) {
+    cerr << "espeak init samplerate: " << samplerate << endl;
+  }
   gEkho = this;
   espeak_SetSynthCallback(espeakSynthCallback);
   /* 女声好像并不好听，还是用原声吧 

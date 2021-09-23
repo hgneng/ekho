@@ -45,8 +45,9 @@ class Audio {
     int volumeDelta = 0;
     int rateDelta = 0;
     int tempoDelta = 0;
-    int sampleRate = 0;
-    int currentSampleRate = 0;
+    int sampleRate = 0; // Ekho voice source sample rate
+    int currentSampleRate = 0; // sonic processing sample (change for espeak)
+    int outputSampleRate = 0; // for readShortFrames
     int channels = 0;
     SpeechdSynthCallback *speechdSynthCallback = 0;
 
@@ -64,6 +65,7 @@ class Audio {
     int setTempo(int delta);
     void setTempoFloat(float factor);
     int setSampleRate(int rate);
+    void setOutputSampleRate(int rate);
     int readShortFrames(short buffer[], int size);
     int writeShortFrames(short buffer[], int size);
     void flushFrames();

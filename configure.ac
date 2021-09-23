@@ -80,6 +80,22 @@ AC_CHECK_LIB([sndfile], [main], [],
 
 AC_CHECK_LIB([espeak-ng], [main], [], [AC_MSG_FAILURE([espeak-ng test failed])],[])
 
+AC_ARG_WITH([soxr],
+        [AS_HELP_STRING([--with-soxr],
+            [support sample rate change. @<:@default=no@:>@])],
+        [],
+        [with_soxr=no])
+LIB_SOXR=""
+AS_IF([test "x$with_soxr" != xno],
+        [AC_CHECK_LIB([soxr], [main],
+            [AC_SUBST([LIB_SOXR], ["-lsoxr"])
+            AC_DEFINE([HAVE_SOXR], [1],
+                [Define if you have libsoxr])
+            ],
+            [AC_MSG_FAILURE(
+                [--with-soxr was given, but test for soxr failed])],
+            [])])
+
 LIB_PULSEAUDIO=""
 CFLAG_PULSEAUDIO=""
 AS_IF([test "x$with_pulseaudio" != xno],

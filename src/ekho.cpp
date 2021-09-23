@@ -710,6 +710,7 @@ Syntax: ekho [option] [text]\n\
         Set delta speed. Value range from -50 to 300 (percent)\n\
 --english-speed=SPEED\n\
   Set English delta speed. Value range from -50 to 150 (percent)\n\
+--samplerate=SAMPLE_RATE\n\
 --server\n\
         Start Ekho TTS server.\n\
 --request=TEXT\n\
@@ -818,6 +819,7 @@ int main(int argc, char *argv[]) {
                           {"rate", 1, NULL, 'r'},
                           {"speed", 1, NULL, 's'},
                           {"english-speed", 1, NULL, 'i'},
+                          {"samplerate", 1, NULL, 'j'},
                           {"overlap", 1, NULL, 'c'},
                           {"port", 1, NULL, '1'},
                           {"server", 0, NULL, 'e'},
@@ -852,6 +854,7 @@ int main(int argc, char *argv[]) {
   int rate_delta = 0;
   int tempo_delta = 0;
   int english_speed_delta = 0;
+  int sample_rate = 0;
   int overlap = 4096;
   extern char *optarg;
   extern int optind, optopt;
@@ -912,6 +915,9 @@ int main(int argc, char *argv[]) {
         break;
       case 's':
         tempo_delta = atoi(optarg);
+        break;
+      case 'j':
+        sample_rate = atoi(optarg);
         break;
       case 'i':
         english_speed_delta = atoi(optarg);
@@ -1059,13 +1065,15 @@ int main(int argc, char *argv[]) {
     ekho_g = 0;
   } else {
     Ekho::debug(isDebugging);
-    ekho_g = new Ekho(language);
+    ekho_g = new Ekho();
     ekho_g->setPitch(pitch_delta);
     ekho_g->setSpeed(tempo_delta);
     ekho_g->setEnglishSpeed(english_speed_delta);
     ekho_g->setOverlap(overlap);
     ekho_g->setVolume(volume_delta);
     ekho_g->setRate(rate_delta);
+    ekho_g->setSampleRate(sample_rate);
+    ekho_g->setVoice(language);
 
     if (save_filename) {
       if (save_type && strcmp(save_type, "ogg") == 0) {

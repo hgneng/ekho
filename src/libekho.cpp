@@ -252,8 +252,12 @@ int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
   return 0;
 }
 
-int Ekho::getSampleRate() {
-  return this->m_pImpl->mDict.mSfinfo.samplerate;
+void Ekho::setSampleRate(int sampleRate) {
+  this->m_pImpl->audio->setOutputSampleRate(sampleRate);
+}
+
+int Ekho::getSampleRate(void) {
+  return this->m_pImpl->audio->outputSampleRate;
 }
 
 void Ekho::setCapLetterRecognMode(EkhoCapLetterRecognType mode) {
