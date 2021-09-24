@@ -53,9 +53,15 @@ class Audio {
 
 #ifdef HAVE_PULSEAUDIO
     pa_simple *pulseAudio = 0;
+    void initPulseAudio();
+    void destroyPulseAudio();
+    void pulseAudioDrain();
+    void pulseAudioFlush();
+    int pulseAudioWrite(const void *buffer, size_t bytes);
 #endif
 
     // processor
+    void initProcessor();
     void initProcessor(int samplerate, int channels);
     void destroyProcessor();
     int setPitch(int delta);
@@ -65,6 +71,7 @@ class Audio {
     int setTempo(int delta);
     void setTempoFloat(float factor);
     int setSampleRate(int rate);
+    void setInputSampleRate(int rate);
     void setOutputSampleRate(int rate);
     int readShortFrames(short buffer[], int size);
     int writeShortFrames(short buffer[], int size);

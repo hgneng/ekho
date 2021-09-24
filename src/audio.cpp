@@ -24,7 +24,9 @@
 #include <string>
 #include <stdlib.h>
 #include <sndfile.h>
+#include <pthread.h>
 #include "audio.h"
+
 using namespace std;
 using namespace ekho;
 
@@ -39,11 +41,22 @@ Audio::~Audio(void) {
 #endif
 }
 
-void Audio::initProcessor(int samplerate, int channels) {
-  this->sampleRate = samplerate;
+
+void Audio::initProcessor() {
   if (this->outputSampleRate == 0) {
-    this->outputSampleRate = samplerate;
+    cerr << "Audio::initProcessor: Fail! You should setSampleRate first." << endl;
+    return;
   }
+
+  this->initProcessor(this->outputSampleRate, 1);
+}
+
+void Audio::initProcessor(int samplerate, int channels) {
+  if (Audio::debug) {
+    cerr << "[" << pthread_self() << "] Audio::initProcessor: " << samplerate << endl;
+  }
+
+  this->outputSampleRate = samplerate;
   this->channels = channels;
 
 #ifdef ENABLE_SOUNDTOUCH
@@ -55,6 +68,10 @@ void Audio::initProcessor(int samplerate, int channels) {
   sonicSetQuality(this->processorStream, 1); // high quality but slower
 #endif
 
+  if (this->outputSampleRate != this->sampleRate) {
+    this->setPitchFloat(1);
+  }
+
   this->hasProcessorInited = true;
 }
 
@@ -64,6 +81,67 @@ void Audio::destroyProcessor() {
     this->processorStream = 0;
   }
 }
+
+#ifdef HAVE_PULSEAUDIO
+void Audio::initPulseAudio() {
+  if (Audio::debug) {
+    cerr << "[" << pthread_self() << "] Audio::initPulseAudio" << endl;
+  }
+
+  pa_sample_spec ss;
+  ss.channels = 1; // uint8_t seems cannot output to console directly
+  ss.rate = this->sampleRate; // this->outputSampleRate;
+  ss.format = PA_SAMPLE_S16LE;
+  int error;
+
+  if (Audio::debug) {
+    cerr << "pa_sample_spec(format=" << ss.format << ",rate=" << ss.rate
+         << ",channels=" << (int)ss.channels << ")" << endl;
+  }
+
+  this->pulseAudio = pa_simple_new(NULL, "Ekho", PA_STREAM_PLAYBACK, NULL,
+                                 "playback", &ss, NULL, NULL, &error);
+
+  if (!this->pulseAudio) {
+    cerr << "pa_simple_new() failed: " << pa_strerror(error) << endl;
+    cerr << "pa_sample_spec(format=" << ss.format << ",rate=" << ss.rate
+         << ",channels=" << ss.channels << ")" << endl;
+  }
+}
+
+void Audio::destroyPulseAudio() {
+  if (this->pulseAudio) {
+    // flush stream
+    int error;
+    if (pa_simple_drain(this->pulseAudio, &error) < 0) {
+      cerr << "pa_simple_drain() failed: " << pa_strerror(error) << endl;
+    }
+
+    pa_simple_free(this->pulseAudio);
+    this->pulseAudio = 0;
+  }
+}
+
+void Audio::pulseAudioDrain() {
+  int error;
+  pa_simple_drain(this->pulseAudio, &error);
+}
+
+void Audio::pulseAudioFlush() {
+  int error;
+  pa_simple_flush(this->pulseAudio, &error);
+}
+
+int Audio::pulseAudioWrite(const void *buffer, size_t bytes) {
+  int error;
+  int ret = pa_simple_write(this->pulseAudio, buffer, bytes, &error);
+  if (ret < 0) {
+    cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
+  }
+
+  return ret;
+}
+#endif
 
 int Audio::setTempo(int delta) {
 #ifdef ENABLE_SOUNDTOUCH
@@ -89,35 +167,69 @@ int Audio::setTempo(int delta) {
 
 // 1 means no change. 2 means double speed
 void Audio::setTempoFloat(float factor) {
-  if (this->processorStream) {
-    sonicSetSpeed(this->processorStream, factor);
+  if (!this->processorStream) {
+    cerr << "Audio::processorStream not init" << endl;
   }
+
+  if (Audio::debug) {
+    cerr << "Audio::setTempoFloat: " << factor << endl;
+  }
+
+  sonicSetSpeed(this->processorStream, factor);
 }
 
 // 1 means no change. 2 means double high pitch
 void Audio::setPitchFloat(float factor) {
-  if (this->processorStream) {
-    sonicSetPitch(this->processorStream, factor);
+  if (!this->processorStream) {
+    cerr << "Audio::processorStream not init" << endl;
+    return;
   }
+
+  float finalFactor = factor * this->sampleRate / this->outputSampleRate;
+
+  if (Audio::debug) {
+    cerr << "Audio::setPitchFloat: " << factor <<
+        ", finalFactor=" << finalFactor << endl;
+  }
+
+  sonicSetPitch(this->processorStream, finalFactor);
 }
 
 // 设置（英语）输入源的sample rate，sonic需要调整当前PCM流的语速，
 // 让后来不同的sample rate PCM流和之前的语速一致
 int Audio::setSampleRate(int rate) {
+  float r = (float)rate / this->outputSampleRate;
   if (Audio::debug) {
-    cerr << "Audio::setSampleRate: " << rate << endl;
+    cerr << "Audio::setSampleRate: " << rate <<
+        ", outputSampleRate: " << this->outputSampleRate <<
+        ", sampleRate: " << this->sampleRate <<
+        ", target rate: " << r << endl;
   }
 
   flushFrames();
-  sonicSetRate(this->processorStream, (float)rate / this->outputSampleRate);
+  //sonicSetRate(this->processorStream, r);
+  sonicSetRate(this->processorStream, (float)rate / this->sampleRate);
   this->currentSampleRate = rate;
   return rate;
 }
 
+void Audio::setInputSampleRate(int rate) {
+  this->sampleRate = rate;
+  if (this->outputSampleRate == 0) {
+    this->outputSampleRate = rate;
+  }
+}
+
 void Audio::setOutputSampleRate(int rate) {
+  if (Audio::debug) {
+    cerr << "Audio::setOutputSampleRate: " << rate << endl;
+  }
+
   if (rate > 0) {
     this->outputSampleRate = rate;
   }
+
+  //this->setSampleRate(this->outputSampleRate);
 }
 
 int Audio::setPitch(int delta) {
@@ -128,7 +240,7 @@ int Audio::setPitch(int delta) {
   }*/
 
   if (Audio::debug) {
-    cerr << "Audio::setPitch(" << delta << ")" << endl;
+    cerr << "Audio::setPitch: " << delta << endl;
   }
 
 #ifdef ENABLE_SOUNDTOUCH
@@ -168,6 +280,10 @@ int Audio::setVolume(int delta) {
 }
 
 int Audio::setRate(int delta) {
+  if (Audio::debug) {
+    cerr << "Audio::setRate: " << delta << endl;
+  }
+
 #ifdef ENABLE_SOUNDTOUCH
   if (delta >= -50 && delta <= 100) {
     this->rateDelta = delta;

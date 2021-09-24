@@ -106,10 +106,6 @@ int EkhoImpl::init(void) {
 
   mPcmCache = true;
 
-#ifdef HAVE_PULSEAUDIO
-  this->stream = NULL;
-#endif
-
 #ifdef ANDROID
 //  mFliteVoice = 0;
 #endif
@@ -169,30 +165,7 @@ int EkhoImpl::initSound(void) {
     }
 
 #ifdef HAVE_PULSEAUDIO
-    if (initStream() < 0) {
-      cerr << "Fail to init audio stream." << endl;
-      return -1;
-    }
-#else
-    int hasMplayer = system("mplayer -really-quiet 1>/dev/null 2>/dev/null");
-    if (hasMplayer == 0) {
-      this->player = "mplayer -really-quiet";
-    } else {
-      int hasOgg = system("ogg123 -h 1>/dev/null 2>/dev/null");
-      if (hasOgg == 0) {
-        this->player = "ogg123 -q";
-      } else {
-        int hasPlay = system("play -h 1>/dev/null 2>/dev/null");
-        if (hasPlay == 0) {
-          this->player = "play -q";
-        } else {
-          cerr << "Fail to find OGG player. Please install ogg123 "
-                  "(vorbis-tools), mplayer or play (sox)."
-               << endl;
-          return -1;
-        }
-      }
-    }
+    this->audio->initPulseAudio();
 #endif
   }
 
@@ -209,38 +182,13 @@ int EkhoImpl::initStream(void) {
     return -1;
   }
 
-  this->audio->initProcessor(mDict.mSfinfo.samplerate, 1);
+  this->audio->setInputSampleRate(mDict.mSfinfo.samplerate);
+  this->audio->initProcessor();
 
 #ifdef HAVE_PULSEAUDIO
   /* create stream */
   if (this->isSoundInited) {
-    pa_sample_spec ss;
-    ss.channels = mDict.mSfinfo.channels;
-    ss.rate = this->audio->outputSampleRate;
-    ss.format = PA_SAMPLE_S16LE;
-    int error;
-
-    if (EkhoImpl::mDebug) {
-      cerr << "pa_sample_spec(format=" << ss.format << ",rate=" << ss.rate
-           << ",channels=" << ss.channels << "ch=" << mDict.mSfinfo.channels
-           << ")" << endl;
-    }
-
-    this->stream = pa_simple_new(NULL, "Ekho", PA_STREAM_PLAYBACK, NULL,
-                                 "playback", &ss, NULL, NULL, &error);
-    this->audio->pulseAudio = this->stream;
-    if (EkhoImpl::mDebug) {
-      cerr << "pulseAudio inited: audio=%p, pulseAudio=%p"
-        << this->audio << this->audio->pulseAudio << endl;
-    }
-
-    if (!this->stream) {
-      cerr << "pa_simple_new() failed: " << pa_strerror(error) << endl;
-      cerr << "pa_sample_spec(format=" << ss.format << ",rate=" << ss.rate
-           << ",channels=" << ss.channels << "ch=" << mDict.mSfinfo.channels
-           << ")" << endl;
-      return -1;
-    }
+    this->audio->initPulseAudio();
   }
 #endif  // end of HAVE_PULSEAUDIO
 
@@ -249,18 +197,8 @@ int EkhoImpl::initStream(void) {
 
 void EkhoImpl::closeStream(void) {
   this->audio->destroyProcessor();
-
 #ifdef HAVE_PULSEAUDIO
-  if (this->stream) {
-    // flush stream
-    int error;
-    if (pa_simple_drain(this->stream, &error) < 0) {
-      cerr << "pa_simple_drain() failed: " << pa_strerror(error) << endl;
-    }
-
-    pa_simple_free(this->stream);
-    this->stream = 0;
-  }
+  this->audio->destroyPulseAudio();
 #endif
 }
 
@@ -330,6 +268,10 @@ int EkhoImpl::saveWav(string text, string filename) {
   SF_INFO sfinfo;
   memcpy(&sfinfo, &mDict.mSfinfo, sizeof(SF_INFO));
   sfinfo.format = SF_FORMAT_WAV | SF_FORMAT_PCM_16;
+  sfinfo.samplerate = this->audio->outputSampleRate;
+
+  this->audio->setTempoFloat((float)(100 + this->audio->tempoDelta) / 100 * this->audio->sampleRate / this->audio->outputSampleRate);
+
   if (EkhoImpl::mDebug) {
     cerr << "sfinfo format: samplerate=" << sfinfo.samplerate
          << ", channel=" << sfinfo.channels;
@@ -560,7 +502,6 @@ int EkhoImpl::saveMp3(string text, string filename) {
 int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
                        bool tofile) {
   short *buffer = new short[BUFFER_SIZE];
-  int error;
 
   EkhoImpl *pEkho = (EkhoImpl *)arg;
 
@@ -588,10 +529,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
               EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate, 0);
             } else {
   #ifdef HAVE_PULSEAUDIO
-              int ret = pa_simple_write(pEkho->stream, buffer, frames * 2, &error);
-              if (ret < 0) {
-                cerr << "pa_simple_write failed: " << pa_strerror(error) << endl;
-              }
+              int ret = pEkho->audio->pulseAudioWrite((const void*)buffer, frames * 2);
   #endif
             }
           }
@@ -832,13 +770,12 @@ void *EkhoImpl::speechDaemon(void *args) {
       cerr << "EkhoImpl::speechDaemon synth2 end" << endl;
     }
 
-    int error;
 #ifdef HAVE_PULSEAUDIO
     if (!EkhoImpl::speechdSynthCallback) {
       if (pEkho->isStopped) {
-        pa_simple_flush(pEkho->stream, &error);
+        pEkho->audio->pulseAudioFlush();
       } else {
-        pa_simple_drain(pEkho->stream, &error);
+        pEkho->audio->pulseAudioDrain();
       }
     }
 #endif
@@ -1195,6 +1132,10 @@ const char *EkhoImpl::getPcmFromFestival(string text, int &size) {
 }
 
 int EkhoImpl::setVoice(string voice) {
+  if (mDebug) {
+    cerr << "[" << pthread_self() << "] EkhoImpl::setVoice" << endl;
+  }
+
   if (voice.compare(mDict.getVoice()) == 0) return 0;
 
   if (voice.compare("Cantonese") == 0 || voice.compare("yue") == 0) {
@@ -1316,13 +1257,12 @@ int EkhoImpl::blockSpeak(string text) {
     sleep(1);
   }
 
-  int error;
   pthread_mutex_lock(&mSpeechQueueMutex);
   this->isStopped = true;
   pthread_mutex_unlock(&mSpeechQueueMutex);
   pthread_cond_signal(&mSpeechQueueCond);
 
-  pa_simple_drain(this->stream, &error);
+  this->audio->pulseAudioDrain();
 #endif
   return 0;
 }
