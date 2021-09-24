@@ -42,9 +42,13 @@ void callback(void *arg) {
 
 int main(int argc, char**argv) {
   // test synth3
-  Ekho *ekho = new Ekho("Mandarin");
+  Ekho *ekho = new Ekho();
+  ekho->setSampleRate(8000);
+  ekho->setChannels(2);
+  ekho->setVoice("Mandarin");
   int pcmSize;
   short *pcm = ekho->synth3("123", pcmSize);
+  cout << "pcm size: " << pcmSize << endl;
 
   // test dictionary
   Dict dict(CANTONESE);

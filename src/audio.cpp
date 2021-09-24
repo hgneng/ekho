@@ -48,7 +48,7 @@ void Audio::initProcessor() {
     return;
   }
 
-  this->initProcessor(this->outputSampleRate, 1);
+  this->initProcessor(this->outputSampleRate, this->channels);
 }
 
 void Audio::initProcessor(int samplerate, int channels) {
@@ -70,6 +70,7 @@ void Audio::initProcessor(int samplerate, int channels) {
 
   if (this->outputSampleRate != this->sampleRate) {
     this->setPitchFloat(1);
+    this->setTempoFloat(1);
   }
 
   this->hasProcessorInited = true;
@@ -89,8 +90,8 @@ void Audio::initPulseAudio() {
   }
 
   pa_sample_spec ss;
-  ss.channels = 1; // uint8_t seems cannot output to console directly
-  ss.rate = this->sampleRate; // this->outputSampleRate;
+  ss.channels = this->channels; // uint8_t seems cannot output to console directly
+  ss.rate = this->outputSampleRate;
   ss.format = PA_SAMPLE_S16LE;
   int error;
 
@@ -100,7 +101,7 @@ void Audio::initPulseAudio() {
   }
 
   this->pulseAudio = pa_simple_new(NULL, "Ekho", PA_STREAM_PLAYBACK, NULL,
-                                 "playback", &ss, NULL, NULL, &error);
+      "playback", &ss, NULL, NULL, &error);
 
   if (!this->pulseAudio) {
     cerr << "pa_simple_new() failed: " << pa_strerror(error) << endl;
@@ -153,9 +154,7 @@ int Audio::setTempo(int delta) {
   this->pSoundtouch.setTempoChange(this->tempoDelta);
 #else
   if (delta >= -50 && delta <= 300) {
-    if (this->processorStream) {
-      sonicSetSpeed(this->processorStream, (float)(100 + delta) / 100);
-    }
+    this->setTempoFloat((float)(100 + delta) / 100);
     this->tempoDelta = delta;
   } else {
     cerr << "Audio::setTempo out of range: " << delta << endl;
@@ -171,11 +170,14 @@ void Audio::setTempoFloat(float factor) {
     cerr << "Audio::processorStream not init" << endl;
   }
 
+  float finalFactor = factor * this->sampleRate / this->outputSampleRate;
+
   if (Audio::debug) {
-    cerr << "Audio::setTempoFloat: " << factor << endl;
+    cerr << "Audio::setTempoFloat: " << factor <<
+      ", finalFactor=" << finalFactor << endl;
   }
 
-  sonicSetSpeed(this->processorStream, factor);
+  sonicSetSpeed(this->processorStream, finalFactor);
 }
 
 // 1 means no change. 2 means double high pitch
@@ -228,8 +230,14 @@ void Audio::setOutputSampleRate(int rate) {
   if (rate > 0) {
     this->outputSampleRate = rate;
   }
+}
 
-  //this->setSampleRate(this->outputSampleRate);
+void Audio::setChannels(int channels) {
+  if (Audio::debug) {
+    cerr << "Audio::setChannels: " << channels << endl;
+  }
+
+  this->channels = channels;
 }
 
 int Audio::setPitch(int delta) {
@@ -251,10 +259,7 @@ int Audio::setPitch(int delta) {
   }
   this->pSoundtouch.setPitchOctaves((float)this->pitchDelta / 100);
 #else
-  if (this->processorStream) {
-    // sonicSetChordPitch(mSonicStream, 1);
-    sonicSetPitch(this->processorStream, (float)(100 + delta) / 100);
-  }
+  this->setPitchFloat((float)(100 + delta) / 100);
   this->pitchDelta = delta;
 #endif
 
@@ -308,7 +313,17 @@ int Audio::readShortFrames(short buffer[], int size) {
   }
   // sonic会自动剪去一些空白的frame?
 
-  return sonicReadShortFromStream(this->processorStream, buffer, size);
+  if (this->channels == 2) {
+    int monoSize = sonicReadShortFromStream(this->processorStream, buffer, size / 2);
+    for (int i = monoSize; i >= 0; i--) {
+      buffer[i + i + 1] = buffer[i];
+      buffer[i + i] = buffer[i];
+    }
+    return monoSize + monoSize;
+  } else {
+    // mono
+    return sonicReadShortFromStream(this->processorStream, buffer, size);
+  }
 }
 
 int Audio::writeShortFrames(short buffer[], int size) {

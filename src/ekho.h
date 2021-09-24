@@ -218,6 +218,8 @@ class Ekho {
    */
   int getSampleRate(void);
 
+  void setChannels(int channels);
+
   /**
    * Set English Voice
    * Parameter:

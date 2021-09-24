@@ -48,7 +48,7 @@ class Audio {
     int sampleRate = 0; // Ekho voice source sample rate
     int currentSampleRate = 0; // sonic processing sample (change for espeak)
     int outputSampleRate = 0; // for readShortFrames
-    int channels = 0;
+    int channels = 1;
     SpeechdSynthCallback *speechdSynthCallback = 0;
 
 #ifdef HAVE_PULSEAUDIO
@@ -73,6 +73,7 @@ class Audio {
     int setSampleRate(int rate);
     void setInputSampleRate(int rate);
     void setOutputSampleRate(int rate);
+    void setChannels(int channels);
     int readShortFrames(short buffer[], int size);
     int writeShortFrames(short buffer[], int size);
     void flushFrames();

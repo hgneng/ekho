@@ -260,6 +260,10 @@ int Ekho::getSampleRate(void) {
   return this->m_pImpl->audio->outputSampleRate;
 }
 
+void Ekho::setChannels(int channels) {
+  this->m_pImpl->audio->setChannels(channels);
+}
+
 void Ekho::setCapLetterRecognMode(EkhoCapLetterRecognType mode) {
 #ifdef ENABLE_ESPEAK
   int espeak_cap_mode = 0;

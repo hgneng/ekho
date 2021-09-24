@@ -269,8 +269,7 @@ int EkhoImpl::saveWav(string text, string filename) {
   memcpy(&sfinfo, &mDict.mSfinfo, sizeof(SF_INFO));
   sfinfo.format = SF_FORMAT_WAV | SF_FORMAT_PCM_16;
   sfinfo.samplerate = this->audio->outputSampleRate;
-
-  this->audio->setTempoFloat((float)(100 + this->audio->tempoDelta) / 100 * this->audio->sampleRate / this->audio->outputSampleRate);
+  sfinfo.channels = this->audio->channels;
 
   if (EkhoImpl::mDebug) {
     cerr << "sfinfo format: samplerate=" << sfinfo.samplerate
@@ -515,18 +514,20 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 
         if (frames > 0) {
           if (tofile) {
-            int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames);
-            if (frames != writtenFrames) {
+            int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames / pEkho->audio->channels);
+            /*
+            if (frames / pEkho->audio->channels != writtenFrames) {
               cerr << "Fail to write WAV file " << writtenFrames << " out of "
                    << frames << " written" << endl;
               return -1;
-            }
+            }*/
           } else {
             if (EkhoImpl::speechdSynthCallback) {
               if (EkhoImpl::mDebug) {
                 cerr << "EkhoImpl::speechdSynthCallback: " << frames << endl;
               }
-              EkhoImpl::speechdSynthCallback(buffer, frames, 16, 1, pEkho->mDict.mSfinfo.samplerate, 0);
+              EkhoImpl::speechdSynthCallback(buffer, frames, 16,
+                  pEkho->audio->channels, pEkho->audio->sampleRate, 0);
             } else {
   #ifdef HAVE_PULSEAUDIO
               int ret = pEkho->audio->pulseAudioWrite((const void*)buffer, frames * 2);
