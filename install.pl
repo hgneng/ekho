@@ -36,7 +36,7 @@ sub build_common() {
   system('sudo apt-get -y install libltdl-dev');
 #  system('./configure --enable-festival --enable-speechd');
   system('./configure --enable-speechd');
-  system('make clean && make');
+  system('make clean && make CXXFLAGS=-O0');
 }
 
 sub setup_common() {
