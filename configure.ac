@@ -5,8 +5,9 @@
 AC_INIT([ekho],[8.8],[hgneng at gmail.com])
 AC_CONFIG_AUX_DIR([.])
 AM_PROG_AR
+AC_PROG_RANLIB
 AM_INIT_AUTOMAKE([-Wall foreign 1.9 tar-pax subdir-objects])
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 LT_INIT
 
@@ -23,15 +24,6 @@ AC_CHECK_LIB([pthread], [main])
 
 # Checks for header files.
 AC_HEADER_DIRENT
-m4_warn([obsolete],
-[The preprocessor macro `STDC_HEADERS' is obsolete.
-  Except in unusual embedded environments, you can safely include all
-  ISO C90 headers unconditionally.])dnl
-# Autoupdate added the next two lines to ensure that your configure
-# script's behavior did not change.  They are probably safe to remove.
-#AC_CHECK_INCLUDES_DEFAULT
-AC_PROG_EGREP
-
 AC_CHECK_HEADERS([locale.h stdlib.h string.h unistd.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
