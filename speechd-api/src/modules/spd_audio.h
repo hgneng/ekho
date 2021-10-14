@@ -28,6 +28,10 @@
 
 #define SPD_AUDIO_LIB_PREFIX "spd_"
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
 AudioID *spd_audio_open(char *name, void **pars, char **error);
 
 int spd_audio_play(AudioID * id, AudioTrack track, AudioFormat format);
@@ -46,5 +50,9 @@ int spd_audio_set_volume(AudioID * id, int volume);
 void spd_audio_set_loglevel(AudioID * id, int level);
 
 char const *spd_audio_get_playcmd(AudioID * id);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* ifndef #__SPD_AUDIO_H */

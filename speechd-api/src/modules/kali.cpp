@@ -25,7 +25,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <kali/Kali/kali.h>
-extern "C" {
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -35,7 +34,7 @@ extern "C" {
 #include <speechd_types.h>
 
 #include "module_utils.h"
-}
+
 #define MODULE_NAME     "kali"
 #define MODULE_VERSION  "0.0"
 #define DEBUG_MODULE 1

@@ -129,6 +129,10 @@
 
 #include "spd_audio_plugin.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 /* To be called in module_init after synth initialization, to start playback
  * threads.  */
 int module_speak_queue_init(int maxsize, char **status_info);
@@ -169,5 +173,9 @@ void module_speak_queue_free(void);
  * it stop calling the module callback, and thus make the module stop calling
  * module_speak_queue_add_*.  */
 void module_speak_queue_cancel(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* #ifndef __MODULE_UTILS_SPEAK_QUEUE_H */

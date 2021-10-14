@@ -814,6 +814,9 @@ AM_BACKSLASH
 AM_DEFAULT_VERBOSITY
 AM_DEFAULT_V
 AM_V
+CSCOPE
+ETAGS
+CTAGS
 am__untar
 am__tar
 AMTAR
@@ -895,6 +898,8 @@ enable_rpath
 with_libiconv_prefix
 with_libintl_prefix
 enable_python
+with_python_prefix
+with_python_exec_prefix
 with_espeak
 with_espeak_ng
 with_flite
@@ -1609,6 +1614,9 @@ Optional Packages:
   --without-libiconv-prefix     don't search for libiconv in includedir and libdir
   --with-libintl-prefix[=DIR]  search for libintl in DIR/include and DIR/lib
   --without-libintl-prefix     don't search for libintl in includedir and libdir
+  --with-python_prefix    override the default PYTHON_PREFIX
+  --with-python_exec_prefix
+                          override the default PYTHON_EXEC_PREFIX
   --with-espeak           Compile with espeak support
   --with-espeak-ng        Compile with espeak-ng support
   --with-flite            include Festival Lite (Flite) support
@@ -2903,12 +2911,7 @@ program_transform_name=`$as_echo "$program_transform_name" | sed "$ac_script"`
 am_aux_dir=`cd "$ac_aux_dir" && pwd`
 
 if test x"${MISSING+set}" != xset; then
-  case $am_aux_dir in
-  *\ * | *\	*)
-    MISSING="\${SHELL} \"$am_aux_dir/missing\"" ;;
-  *)
-    MISSING="\${SHELL} $am_aux_dir/missing" ;;
-  esac
+  MISSING="\${SHELL} '$am_aux_dir/missing'"
 fi
 # Use eval to expand $SHELL
 if eval "$MISSING --is-lightweight"; then
@@ -3261,6 +3264,20 @@ am__tar='$${TAR-tar} chof - "$$tardir"' am__untar='$${TAR-tar} xf -'
 
 
 
+
+
+# Variables for tags utilities; see am/tags.am
+if test -z "$CTAGS"; then
+  CTAGS=ctags
+fi
+
+if test -z "$ETAGS"; then
+  ETAGS=etags
+fi
+
+if test -z "$CSCOPE"; then
+  CSCOPE=cscope
+fi
 
 
 
@@ -19384,8 +19401,8 @@ $as_echo "no" >&6; }
 fi
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GLIB" >&5
-$as_echo_n "checking for GLIB... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for glib-2.0 >= 2.36" >&5
+$as_echo_n "checking for glib-2.0 >= 2.36... " >&6; }
 
 if test -n "$GLIB_CFLAGS"; then
     pkg_cv_GLIB_CFLAGS="$GLIB_CFLAGS"
@@ -19425,7 +19442,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -19452,7 +19469,7 @@ Alternatively, you may set the environment variables GLIB_CFLAGS
 and GLIB_LIBS to avoid the need to call pkg-config.
 See the pkg-config man page for more details." "$LINENO" 5
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
@@ -19478,8 +19495,8 @@ fi
 
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GTHREAD" >&5
-$as_echo_n "checking for GTHREAD... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for gthread-2.0" >&5
+$as_echo_n "checking for gthread-2.0... " >&6; }
 
 if test -n "$GTHREAD_CFLAGS"; then
     pkg_cv_GTHREAD_CFLAGS="$GTHREAD_CFLAGS"
@@ -19519,7 +19536,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -19546,7 +19563,7 @@ Alternatively, you may set the environment variables GTHREAD_CFLAGS
 and GTHREAD_LIBS to avoid the need to call pkg-config.
 See the pkg-config man page for more details." "$LINENO" 5
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
@@ -19572,8 +19589,8 @@ fi
 
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GMODULE" >&5
-$as_echo_n "checking for GMODULE... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for gmodule-2.0" >&5
+$as_echo_n "checking for gmodule-2.0... " >&6; }
 
 if test -n "$GMODULE_CFLAGS"; then
     pkg_cv_GMODULE_CFLAGS="$GMODULE_CFLAGS"
@@ -19613,7 +19630,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -19640,7 +19657,7 @@ Alternatively, you may set the environment variables GMODULE_CFLAGS
 and GMODULE_LIBS to avoid the need to call pkg-config.
 See the pkg-config man page for more details." "$LINENO" 5
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
@@ -19666,8 +19683,8 @@ fi
 
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for DOTCONF" >&5
-$as_echo_n "checking for DOTCONF... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for dotconf >= 1.3" >&5
+$as_echo_n "checking for dotconf >= 1.3... " >&6; }
 
 if test -n "$DOTCONF_CFLAGS"; then
     pkg_cv_DOTCONF_CFLAGS="$DOTCONF_CFLAGS"
@@ -19707,7 +19724,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -19734,7 +19751,7 @@ Alternatively, you may set the environment variables DOTCONF_CFLAGS
 and DOTCONF_LIBS to avoid the need to call pkg-config.
 See the pkg-config man page for more details." "$LINENO" 5
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
@@ -19760,8 +19777,8 @@ fi
 
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for SNDFILE" >&5
-$as_echo_n "checking for SNDFILE... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for sndfile >= 1.0.2" >&5
+$as_echo_n "checking for sndfile >= 1.0.2... " >&6; }
 
 if test -n "$SNDFILE_CFLAGS"; then
     pkg_cv_SNDFILE_CFLAGS="$SNDFILE_CFLAGS"
@@ -19801,7 +19818,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -19828,7 +19845,7 @@ Alternatively, you may set the environment variables SNDFILE_CFLAGS
 and SNDFILE_LIBS to avoid the need to call pkg-config.
 See the pkg-config man page for more details." "$LINENO" 5
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
@@ -20791,7 +20808,7 @@ $as_echo_n "checking for $am_display_PYTHON version... " >&6; }
 if ${am_cv_python_version+:} false; then :
   $as_echo_n "(cached) " >&6
 else
-  am_cv_python_version=`$PYTHON -c "import sys; sys.stdout.write(sys.version[:3])"`
+  am_cv_python_version=`$PYTHON -c "import sys; print ('%u.%u' % sys.version_info[:2])"`
 fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $am_cv_python_version" >&5
 $as_echo "$am_cv_python_version" >&6; }
@@ -20799,9 +20816,98 @@ $as_echo "$am_cv_python_version" >&6; }
 
 
 
-  PYTHON_PREFIX='${prefix}'
+  if test "x$prefix" = xNONE
+  then
+   am__usable_prefix=$ac_default_prefix
+  else
+   am__usable_prefix=$prefix
+  fi
 
-  PYTHON_EXEC_PREFIX='${exec_prefix}'
+
+# Check whether --with-python_prefix was given.
+if test "${with_python_prefix+set}" = set; then :
+  withval=$with_python_prefix;  am_python_prefix_subst="$withval"
+   am_cv_python_prefix="$withval"
+   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $am_display_PYTHON prefix" >&5
+$as_echo_n "checking for $am_display_PYTHON prefix... " >&6; }
+   { $as_echo "$as_me:${as_lineno-$LINENO}: result: $am_cv_python_prefix" >&5
+$as_echo "$am_cv_python_prefix" >&6; }
+else
+
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $am_display_PYTHON prefix" >&5
+$as_echo_n "checking for $am_display_PYTHON prefix... " >&6; }
+if ${am_cv_python_prefix+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  am_cv_python_prefix=`$PYTHON -c "import sys; sys.stdout.write(sys.prefix)"`
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $am_cv_python_prefix" >&5
+$as_echo "$am_cv_python_prefix" >&6; }
+
+      case $am_cv_python_prefix in
+     $am__usable_prefix*)
+       am__strip_prefix=`echo "$am__usable_prefix" | sed 's|.|.|g'`
+       am_python_prefix_subst=`echo "$am_cv_python_prefix" | sed "s,^$am__strip_prefix,\\${prefix},"`
+       ;;
+     *)
+       am_python_prefix_subst=$am_cv_python_prefix
+       ;;
+  esac
+
+fi
+
+  PYTHON_PREFIX=$am_python_prefix_subst
+
+
+
+# Check whether --with-python_exec_prefix was given.
+if test "${with_python_exec_prefix+set}" = set; then :
+  withval=$with_python_exec_prefix;  am_python_exec_prefix_subst="$withval"
+   am_cv_python_exec_prefix="$withval"
+   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $am_display_PYTHON exec_prefix" >&5
+$as_echo_n "checking for $am_display_PYTHON exec_prefix... " >&6; }
+   { $as_echo "$as_me:${as_lineno-$LINENO}: result: $am_cv_python_exec_prefix" >&5
+$as_echo "$am_cv_python_exec_prefix" >&6; }
+else
+
+    if test -n "$with_python_prefix"; then :
+  am_python_exec_prefix_subst="$with_python_prefix"
+  am_cv_python_exec_prefix="$with_python_prefix"
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $am_display_PYTHON exec_prefix" >&5
+$as_echo_n "checking for $am_display_PYTHON exec_prefix... " >&6; }
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $am_cv_python_exec_prefix" >&5
+$as_echo "$am_cv_python_exec_prefix" >&6; }
+else
+
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $am_display_PYTHON exec_prefix" >&5
+$as_echo_n "checking for $am_display_PYTHON exec_prefix... " >&6; }
+if ${am_cv_python_exec_prefix+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  am_cv_python_exec_prefix=`$PYTHON -c "import sys; sys.stdout.write(sys.exec_prefix)"`
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $am_cv_python_exec_prefix" >&5
+$as_echo "$am_cv_python_exec_prefix" >&6; }
+        if test "x$exec_prefix" = xNONE
+  then
+   am__usable_exec_prefix=$am__usable_prefix
+  else
+   am__usable_exec_prefix=$exec_prefix
+  fi
+  case $am_cv_python_exec_prefix in
+     $am__usable_exec_prefix*)
+       am__strip_prefix=`echo "$am__usable_exec_prefix" | sed 's|.|.|g'`
+       am_python_exec_prefix_subst=`echo "$am_cv_python_exec_prefix" | sed "s,^$am__strip_prefix,\\${exec_prefix},"`
+       ;;
+     *)
+       am_python_exec_prefix_subst=$am_cv_python_exec_prefix
+       ;;
+  esac
+
+fi
+fi
+
+  PYTHON_EXEC_PREFIX=$am_python_exec_prefix_subst
 
 
 
@@ -20843,11 +20949,11 @@ $as_echo_n "checking for $am_display_PYTHON script directory... " >&6; }
 if ${am_cv_python_pythondir+:} false; then :
   $as_echo_n "(cached) " >&6
 else
-  if test "x$prefix" = xNONE
+  if test "x$am_cv_python_prefix" = x
      then
-       am_py_prefix=$ac_default_prefix
+       am_py_prefix=$am__usable_prefix
      else
-       am_py_prefix=$prefix
+       am_py_prefix=$am_cv_python_prefix
      fi
      am_cv_python_pythondir=`$PYTHON -c "
 $am_python_setup_sysconfig
@@ -20860,13 +20966,13 @@ sys.stdout.write(sitedir)"`
      case $am_cv_python_pythondir in
      $am_py_prefix*)
        am__strip_prefix=`echo "$am_py_prefix" | sed 's|.|.|g'`
-       am_cv_python_pythondir=`echo "$am_cv_python_pythondir" | sed "s,^$am__strip_prefix,$PYTHON_PREFIX,"`
+       am_cv_python_pythondir=`echo "$am_cv_python_pythondir" | sed "s,^$am__strip_prefix,\\${PYTHON_PREFIX},"`
        ;;
      *)
        case $am_py_prefix in
          /usr|/System*) ;;
          *)
-	  am_cv_python_pythondir=$PYTHON_PREFIX/lib/python$PYTHON_VERSION/site-packages
+	  am_cv_python_pythondir="\${PYTHON_PREFIX}/lib/python$PYTHON_VERSION/site-packages"
 	  ;;
        esac
        ;;
@@ -20887,30 +20993,30 @@ $as_echo_n "checking for $am_display_PYTHON extension module directory... " >&6;
 if ${am_cv_python_pyexecdir+:} false; then :
   $as_echo_n "(cached) " >&6
 else
-  if test "x$exec_prefix" = xNONE
+  if test "x$am_cv_python_exec_prefix" = x
      then
-       am_py_exec_prefix=$am_py_prefix
+       am_py_exec_prefix=$am__usable_exec_prefix
      else
-       am_py_exec_prefix=$exec_prefix
+       am_py_exec_prefix=$am_cv_python_exec_prefix
      fi
      am_cv_python_pyexecdir=`$PYTHON -c "
 $am_python_setup_sysconfig
 if can_use_sysconfig:
-    sitedir = sysconfig.get_path('platlib', vars={'platbase':'$am_py_prefix'})
+    sitedir = sysconfig.get_path('platlib', vars={'platbase':'$am_py_exec_prefix'})
 else:
     from distutils import sysconfig
-    sitedir = sysconfig.get_python_lib(1, 0, prefix='$am_py_prefix')
+    sitedir = sysconfig.get_python_lib(1, 0, prefix='$am_py_exec_prefix')
 sys.stdout.write(sitedir)"`
      case $am_cv_python_pyexecdir in
      $am_py_exec_prefix*)
        am__strip_prefix=`echo "$am_py_exec_prefix" | sed 's|.|.|g'`
-       am_cv_python_pyexecdir=`echo "$am_cv_python_pyexecdir" | sed "s,^$am__strip_prefix,$PYTHON_EXEC_PREFIX,"`
+       am_cv_python_pyexecdir=`echo "$am_cv_python_pyexecdir" | sed "s,^$am__strip_prefix,\\${PYTHON_EXEC_PREFIX},"`
        ;;
      *)
        case $am_py_exec_prefix in
          /usr|/System*) ;;
          *)
-	   am_cv_python_pyexecdir=$PYTHON_EXEC_PREFIX/lib/python$PYTHON_VERSION/site-packages
+	   am_cv_python_pyexecdir="\${PYTHON_EXEC_PREFIX}/lib/python$PYTHON_VERSION/site-packages"
 	   ;;
        esac
        ;;
@@ -21024,8 +21130,8 @@ fi
 if test $with_espeak_ng != "no"; then :
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for ESPEAK_NG" >&5
-$as_echo_n "checking for ESPEAK_NG... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for espeak-ng" >&5
+$as_echo_n "checking for espeak-ng... " >&6; }
 
 if test -n "$ESPEAK_NG_CFLAGS"; then
     pkg_cv_ESPEAK_NG_CFLAGS="$ESPEAK_NG_CFLAGS"
@@ -21065,7 +21171,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -21088,7 +21194,7 @@ as_fn_error $? "espeak-ng is not available
 See \`config.log' for more details" "$LINENO" 5; }
 fi
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	if test $with_espeak_ng = "yes"; then :
   { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
@@ -21826,8 +21932,8 @@ fi
 if test $with_pulse != "no"; then :
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for PULSE" >&5
-$as_echo_n "checking for PULSE... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for libpulse-simple" >&5
+$as_echo_n "checking for libpulse-simple... " >&6; }
 
 if test -n "$PULSE_CFLAGS"; then
     pkg_cv_PULSE_CFLAGS="$PULSE_CFLAGS"
@@ -21867,7 +21973,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -21890,7 +21996,7 @@ as_fn_error $? "pulseaudio is not available
 See \`config.log' for more details" "$LINENO" 5; }
 fi
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	if test $with_pulse = "yes"; then :
   { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
@@ -21936,8 +22042,8 @@ fi
 if test $with_libao != "no"; then :
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for LIBAO" >&5
-$as_echo_n "checking for LIBAO... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for ao" >&5
+$as_echo_n "checking for ao... " >&6; }
 
 if test -n "$LIBAO_CFLAGS"; then
     pkg_cv_LIBAO_CFLAGS="$LIBAO_CFLAGS"
@@ -21977,7 +22083,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -22000,7 +22106,7 @@ as_fn_error $? "libao is not available
 See \`config.log' for more details" "$LINENO" 5; }
 fi
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	if test $with_libao = yes; then :
   { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
@@ -22046,8 +22152,8 @@ fi
 if test $with_alsa != "no"; then :
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for ALSA" >&5
-$as_echo_n "checking for ALSA... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for alsa" >&5
+$as_echo_n "checking for alsa... " >&6; }
 
 if test -n "$ALSA_CFLAGS"; then
     pkg_cv_ALSA_CFLAGS="$ALSA_CFLAGS"
@@ -22087,7 +22193,7 @@ fi
 
 
 if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 
 if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
@@ -22110,7 +22216,7 @@ as_fn_error $? "ALSA is not available
 See \`config.log' for more details" "$LINENO" 5; }
 fi
 elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 	if test $with_alsa = "yes"; then :
   { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
@@ -24314,7 +24420,9 @@ $as_echo X/"$am_mf" |
     { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "Something went wrong bootstrapping makefile fragments
-    for automatic dependency tracking.  Try re-running configure with the
+    for automatic dependency tracking.  If GNU make was not used, consider
+    re-running the configure script with MAKE=\"gmake\" (or whatever is
+    necessary).  You can also try re-running configure with the
     '--disable-dependency-tracking' option to at least be able to build
     the package (albeit without support for automatic dependency tracking).
 See \`config.log' for more details" "$LINENO" 5; }

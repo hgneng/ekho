@@ -20,12 +20,12 @@
  *
  */
 
-extern "C" {
+
 #include "spd_audio.h"
 #include <speechd_types.h>
 #include "module_utils.h"
 #include "module_utils_speak_queue.h"
-}
+
 #define HAVE_PULSEAUDIO 1
 #include <ekho.h>
 
@@ -59,14 +59,12 @@ static void ekho_set_cap_let_recogn(SPDCapitalLetters punct_mode);
 
 /* Public functions */
 
-extern "C"
 int module_load(void) {
    INIT_SETTINGS_TABLES();
    REGISTER_DEBUG();
    return 0;
 }
 
-extern "C"
 int module_init(char **status_info) {
     int ret;
 
@@ -155,7 +153,6 @@ SPDVoice** module_list_voices(void) {
   return gpVoices;
 }
 
-extern "C"
 int ekho_callback(short *wav, int samples, int bits, int channels, int samplerate, int event) {
   DBG("ekho_callback: samples=%d, event=%d", samples, event);
 
@@ -193,7 +190,6 @@ int ekho_callback(short *wav, int samples, int bits, int channels, int samplerat
  * }
  */
 
-extern "C"
 int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
   DBG("module_speak(%s, %ld, %d)\n", data, bytes, msgtype);
   if (!module_speak_queue_before_synth()) {
@@ -233,13 +229,11 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
   return bytes;
 }
 
-extern "C"
 void module_speak_queue_cancel(void) {
   DBG("module_speak_queue_cancel");
   gpEkho->stop();
 }
 
-extern "C"
 int module_stop(void) {
   DBG("module_stop");
   module_speak_queue_stop();
@@ -247,7 +241,6 @@ int module_stop(void) {
   return 0;
 }
 
-extern "C"
 size_t module_pause(void) {
   DBG("module_pause");
   module_speak_queue_pause();
@@ -255,7 +248,6 @@ size_t module_pause(void) {
   return 0;
 }
 
-extern "C"
 int module_close(void) {
   DBG("module_close");
   module_speak_queue_terminate();

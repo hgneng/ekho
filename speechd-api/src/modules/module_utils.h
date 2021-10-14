@@ -41,6 +41,10 @@
 #include <speechd_types.h>
 #include "spd_audio.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct SPDMarks {
 	unsigned num;
 	unsigned allocated;
@@ -418,5 +422,9 @@ void module_register_available_voices(void);
 void module_register_settings_voices(void);
 char *module_getvoice(char *language, SPDVoiceType voice);
 gboolean module_existsvoice(char *voicename);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* #ifndef __MODULE_UTILS_H */
