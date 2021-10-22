@@ -1,0 +1,4 @@
+#!/bin/bash
+abs_builddir=@abs_builddir@
+abs_srcdir=@abs_srcdir@
+LD_LIBRARY_PATH=$abs_builddir/src/audio${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH} $abs_builddir/src/server/speech-dispatcher -C $abs_srcdir/config -m $abs_builddir/src/modules "$@"

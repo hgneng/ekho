@@ -1,0 +1,961 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR BRAILCOM,o.p.s.
+# This file is distributed under the same license as the speech-dispatcher package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
+"Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
+"POT-Creation-Date: 2021-10-18 01:05+0200\n"
+"PO-Revision-Date: 2021-03-25 22:29+0000\n"
+"Last-Translator: phlostically <phlostically@mailinator.com>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/speech-"
+"dispatcher/po/eo/>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.5.2-dev\n"
+
+#: src/server/options.c:63
+#, c-format
+msgid ""
+"%s -- Common interface for Speech Synthesis %s\n"
+"\n"
+msgstr ""
+"%s -- Komuna interfaco pri Parolsintezo %s\n"
+"\n"
+
+#: src/server/options.c:65
+#, c-format
+msgid "Usage: "
+msgstr "Uzado: "
+
+#: src/server/options.c:69
+#, c-format
+msgid "Options: \n"
+msgstr "Opcioj: \n"
+
+#: src/server/options.c:71
+#, c-format
+msgid "Run as a daemon\n"
+msgstr "Ruli kiel demonon\n"
+
+#: src/server/options.c:73
+#, c-format
+msgid "Run as single application\n"
+msgstr "Ruli kiel unu aplikaĵon\n"
+
+#: src/server/options.c:75
+#, c-format
+msgid "Start only if autospawn is not disabled\n"
+msgstr "Lanĉi nur se aŭtomata lanĉado estas ŝaltita\n"
+
+#: src/server/options.c:77
+#, c-format
+msgid "Set log level (between %d and %d)\n"
+msgstr "Agordi nivelon de protokoloj (inter %d kaj %d)\n"
+
+#: src/server/options.c:79
+#, c-format
+msgid "Set path to logging\n"
+msgstr "Agordi lokon de protokoloj\n"
+
+#: src/server/options.c:82
+#, c-format
+msgid "Communication method to use ('%s'\n"
+msgstr "Uzota metodo de komunikado ('%s'\n"
+
+#: src/server/options.c:84
+#, c-format
+msgid "or '%s')\n"
+msgstr "aŭ '%s')\n"
+
+#: src/server/options.c:87
+#, c-format
+msgid "Socket path to use for '%s' method\n"
+msgstr "Konektinterfaco uzota por la metodo '%s'\n"
+
+#: src/server/options.c:89
+#, c-format
+msgid "(filesystem path or '%s')\n"
+msgstr "(dosierindiko aŭ '%s')\n"
+
+#: src/server/options.c:91
+#, c-format
+msgid "Specify a port number for '%s' method\n"
+msgstr "Specifu pordan numeron por metodo \"%s\"\n"
+
+#: src/server/options.c:93
+#, c-format
+msgid "Set time in seconds for the server to wait before it\n"
+msgstr "Agordi la nombron de sekundoj, kiom la servilo atendos antaŭ\n"
+
+#: src/server/options.c:95
+#, c-format
+msgid "shuts down, if it has no clients connected. Setting to\n"
+msgstr "ĉeso, se mankas konektitaj klientoj. Agordado\n"
+
+#: src/server/options.c:97
+#, c-format
+msgid "0 disables such shutdown\n"
+msgstr "de ĝi kiel 0 malebligas tian ĉeson\n"
+
+#: src/server/options.c:99
+#, c-format
+msgid "Set path to pid file\n"
+msgstr "Agordi lokon de PID-dosiero\n"
+
+#: src/server/options.c:101
+#, c-format
+msgid "Set path to configuration\n"
+msgstr "Agordi lokon de agordodosiero\n"
+
+#: src/server/options.c:103
+#, c-format
+msgid "Set path to modules\n"
+msgstr "Agordi lokon de moduloj\n"
+
+#: src/server/options.c:105
+#, c-format
+msgid "Report version of this program\n"
+msgstr "Raporti la version de ĉi tiu programo\n"
+
+#: src/server/options.c:107
+#, c-format
+msgid "Output debugging information into $TMPDIR/%s\n"
+msgstr "Deponi informojn por erarserĉado en $TMPDIR/%s\n"
+
+#: src/server/options.c:110
+#, c-format
+msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
+msgstr "se la medivariablo TMPDIR ekzistas, alie en /tmp/%s\n"
+
+#: src/server/options.c:113 src/clients/say/options.c:169
+#, c-format
+msgid "Print this info\n"
+msgstr "Montri ĉi tiun informon\n"
+
+#: src/server/options.c:115 src/clients/say/options.c:172
+#, c-format
+msgid ""
+"Please report bugs to %s\n"
+"\n"
+msgstr ""
+"Bonvolu raporti cimojn ĉe %s\n"
+"\n"
+
+#: src/server/options.c:121 src/clients/say/options.c:179
+#: src/api/python/speechd_config/config.py.in:174
+#, c-format, python-format
+msgid ""
+"Copyright (C) %d-%d Brailcom, o.p.s.\n"
+"This is free software; you can redistribute it and/or modify it\n"
+"under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2, or (at your option)\n"
+"any later version. Please see COPYING for more details.\n"
+"\n"
+msgstr ""
+"Kopirajto (C) %d - %d Brailcom, o.p.s.\n"
+"Ĉi tio estas libera programaro; vi rajtas redistribui ĝin kaj/aŭ modifi ĝin\n"
+"laŭ la kondiĉoj de la Ĝenerala Publika Permesilo GNU eldonita de\n"
+"Free Software Foundation; aŭ versio 2, aŭ (laŭ via elekto)\n"
+"ajna posta versio. Bonvolu vidi la dosieron COPYING por pliaj detaloj.\n"
+"\n"
+
+#: src/clients/say/options.c:67
+#, c-format
+msgid ""
+"send text-to-speech output request to speech-dispatcher\n"
+"\n"
+msgstr ""
+"sendi peton pri parolsintezo al Speech Dispatcher\n"
+"\n"
+
+#: src/clients/say/options.c:68
+#, c-format
+msgid ""
+"Usage: %s [options] \"some text\"\n"
+"\n"
+msgstr ""
+"Uzado: %s [opcioj] \"iu teksto\"\n"
+"\n"
+
+#: src/clients/say/options.c:70
+#, c-format
+msgid "Options:\n"
+msgstr "Opcioj:\n"
+
+#: src/clients/say/options.c:72
+#, c-format
+msgid "Set the rate of the speech\n"
+msgstr "Agordi rapidon de parolado\n"
+
+#: src/clients/say/options.c:74 src/clients/say/options.c:79
+#: src/clients/say/options.c:84 src/clients/say/options.c:89
+#, c-format
+msgid "(between %+d and %+d, default: %d)\n"
+msgstr "(inter %+d kaj %+d, apriore: %d)\n"
+
+#: src/clients/say/options.c:77
+#, c-format
+msgid "Set the pitch of the speech\n"
+msgstr "Agordi tonon de parolado\n"
+
+#: src/clients/say/options.c:82
+#, c-format
+msgid "Set the pitch range of the speech\n"
+msgstr "Agordi tonan gamon de parolado\n"
+
+#: src/clients/say/options.c:87
+#, c-format
+msgid "Set the volume (intensity) of the speech\n"
+msgstr "Agord laŭton de parolado\n"
+
+#: src/clients/say/options.c:92
+#, c-format
+msgid "Set the output module\n"
+msgstr "Agordi sonadan modulon\n"
+
+#: src/clients/say/options.c:95
+#, c-format
+msgid "Get the list of output modules\n"
+msgstr "Akiri liston de sonadaj moduloj\n"
+
+#: src/clients/say/options.c:98
+#, c-format
+msgid "Play the sound icon\n"
+msgstr "Ludi la sonan ikonon\n"
+
+#: src/clients/say/options.c:101
+#, c-format
+msgid "Set the language (ISO code)\n"
+msgstr "Agordi la lingvon (per ISO-kodo)\n"
+
+#: src/clients/say/options.c:104
+#, c-format
+msgid "Set the preferred voice type\n"
+msgstr "Agordi la preferatan voĉan tipon\n"
+
+#: src/clients/say/options.c:109
+#, c-format
+msgid "Get the list of synthesis voices\n"
+msgstr "Akiri liston de sintezaj voĉoj\n"
+
+#: src/clients/say/options.c:112
+#, c-format
+msgid "Set the synthesis voice\n"
+msgstr "Agordi la sintezan voĉon\n"
+
+#: src/clients/say/options.c:115
+#, c-format
+msgid "Speak the character\n"
+msgstr "Paroli la signon\n"
+
+#: src/clients/say/options.c:118
+#, c-format
+msgid "Speak the key\n"
+msgstr "Paroli la klavon\n"
+
+#: src/clients/say/options.c:121
+#, c-format
+msgid "Set the punctuation mode %s\n"
+msgstr "Agordi la interpunkcian reĝimon kiel %s\n"
+
+#: src/clients/say/options.c:124
+#, c-format
+msgid "Spell the message\n"
+msgstr "Literumi la mesaĝon\n"
+
+#: src/clients/say/options.c:127
+#, c-format
+msgid "Set SSML mode on (default: off)\n"
+msgstr "Ŝalti reĝimon de SSML (apriore malŝaltita)\n"
+
+#: src/clients/say/options.c:131
+#, c-format
+msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
+msgstr "Duktekonekti ĉefenigujon al ĉefeligujo kaj Speech Dispatcher\n"
+
+#: src/clients/say/options.c:134
+#, c-format
+msgid "Set priority of the message "
+msgstr "Agordi la prioritaton de la mesaĝo "
+
+#: src/clients/say/options.c:138
+#, c-format
+msgid "default: %s)\n"
+msgstr "apriore: %s)\n"
+
+#: src/clients/say/options.c:141
+#, c-format
+msgid ""
+"Set the application name used to establish\n"
+"%sthe connection to specified string value\n"
+msgstr ""
+"Agordi la nomon de programo uzotan por konekti\n"
+"%skiel specifan signoĉenon\n"
+
+#: src/clients/say/options.c:145 src/clients/say/options.c:152
+#, c-format
+msgid "(default: %s)\n"
+msgstr "(apriore: %s)\n"
+
+#: src/clients/say/options.c:148
+#, c-format
+msgid ""
+"Set the connection name used to establish\n"
+"%sthe connection to specified string value\n"
+msgstr ""
+"Agordi la uzotan nomon de konekto\n"
+"%skiel specifan signoĉenon\n"
+
+#: src/clients/say/options.c:156
+#, c-format
+msgid "Wait till the message is spoken or discarded\n"
+msgstr "Atendi ĝis la mesaĝo estos parolata aŭ nuligita\n"
+
+#: src/clients/say/options.c:159
+#, c-format
+msgid "Stop speaking the message being spoken\n"
+msgstr "Haltigi parolatan mesaĝon\n"
+
+#: src/clients/say/options.c:162
+#, c-format
+msgid "Cancel all messages\n"
+msgstr "Nuligi ĉiujn mesaĝojn\n"
+
+#: src/clients/say/options.c:166
+#, c-format
+msgid "Print version and copyright info\n"
+msgstr "Montri la version kaj informojn pri kopirajto\n"
+
+#: src/clients/say/options.c:191
+#, c-format
+msgid "Syntax error or bad parameter!\n"
+msgstr "Sintaksa eraro aŭ netaŭga parametro!\n"
+
+#: src/clients/say/options.c:202
+#, c-format
+msgid "Missing argument!\n"
+msgstr "Mankas argumento!\n"
+
+#: src/clients/say/options.c:303
+#, c-format
+msgid "Unrecognized option\n"
+msgstr "Nekonata opcio\n"
+
+#: src/api/python/speechd_config/speechd.desktop.in:21
+msgid "Speech Dispatcher"
+msgstr "Speech Dispatcher"
+
+#: src/api/python/speechd_config/speechd.desktop.in:22
+msgid "Interface to Text to Speech services"
+msgstr "Interfaco al parolsintezaj servoj"
+
+#: src/api/python/speechd_config/config.py.in:103
+#, python-format
+msgid ""
+"The value you have chosen is not among the suggested values.\n"
+"You have chosen '%s'."
+msgstr ""
+"La valoro elektita de vi ne estas unu el la sugestataj valoroj.\n"
+"Vi elektis la valoron '%s'."
+
+#: src/api/python/speechd_config/config.py.in:105
+msgid "The suggested values are "
+msgstr "La sugestataj valoroj estas "
+
+#: src/api/python/speechd_config/config.py.in:106
+msgid "Do you want to correct your answer?"
+msgstr "Ĉu vi volas korekti vian respondon?"
+
+#: src/api/python/speechd_config/config.py.in:118
+#, python-format
+msgid "You have chosen '%s'. Please choose one of %s"
+msgstr "Vi elektis '%s'. Bonvolu elekti unu el %s"
+
+#: src/api/python/speechd_config/config.py.in:125
+msgid ""
+"A simple tool for basic configuration of Speech Dispatcher and problem "
+"diagnostics"
+msgstr ""
+"Simpla ilprogramo por baza agordado de Speech Dispatcher kaj diagnozado pri "
+"problemoj"
+
+#: src/api/python/speechd_config/config.py.in:128
+msgid "Create Speech Dispatcher configuration for the given user"
+msgstr "Agordi Speech Dispatcher por la specifita uzanto"
+
+#: src/api/python/speechd_config/config.py.in:131
+msgid "Configure basic settings in user configuration"
+msgstr "Baze agordi por uzanto"
+
+#: src/api/python/speechd_config/config.py.in:134
+msgid "Configure basic settings in system-wide configuration"
+msgstr "Baze agordi sisteme"
+
+#: src/api/python/speechd_config/config.py.in:137
+msgid "Diagnose problems with the current setup"
+msgstr "Diagnozi problemojn pri la aktualaj agordoj"
+
+#: src/api/python/speechd_config/config.py.in:140
+msgid "Test connection to Speech Dispatcher using spd-say"
+msgstr "Provi konekton al Speech Dispatcher per spd-say"
+
+#: src/api/python/speechd_config/config.py.in:143
+msgid "Test whether Festival works as a server"
+msgstr "Provi servilon de Festival"
+
+#: src/api/python/speechd_config/config.py.in:145
+msgid "Test whether Espeak works as a standalone binary"
+msgstr "Provi eSpeak kiel memstaran programon"
+
+#: src/api/python/speechd_config/config.py.in:147
+msgid "Test ALSA audio output"
+msgstr "Provi sonadon per ALSA"
+
+#: src/api/python/speechd_config/config.py.in:149
+msgid "Test Pulse Audio output"
+msgstr "Provi sonadon per PulseAudio"
+
+#: src/api/python/speechd_config/config.py.in:152
+msgid "Use espeak to synthesize messages"
+msgstr "Uzi eSpeak por sintezi mesaĝojn"
+
+#: src/api/python/speechd_config/config.py.in:155
+msgid "Do not ask any questions, always use default values"
+msgstr "Ne demandi, ĉiam uzante apriorajn agordojn"
+
+#: src/api/python/speechd_config/config.py.in:158
+msgid "Debug a problem and generate a report"
+msgstr "Serĉi problemon kaj fari raporton"
+
+#: src/api/python/speechd_config/config.py.in:161
+msgid "Print version and copyright info"
+msgstr "Montri la version kaj informojn pri kopirajto"
+
+#: src/api/python/speechd_config/config.py.in:203
+#, python-format
+msgid ""
+"ERROR: It was not possible to connect to Festival on the\n"
+"given host and port. Connection failed with error %d : %s ."
+msgstr ""
+"ERARO: Ne eblis konekti al Festival ĉe la specifita\n"
+"gastiganto kaj pordo. Konekto malsukcesis kun eraro %d: %s."
+
+#: src/api/python/speechd_config/config.py.in:205
+#, python-format
+msgid ""
+"Hint: Most likely, your Festival server is not running now\n"
+"or not at the default port %d.\n"
+"\n"
+"Try /etc/init.d/festival start or run 'festival --server' from the command "
+"line."
+msgstr ""
+"Konsilo: Verŝajne, la servilo de Festival ne funkcias nun\n"
+"aŭ ne ĉe la apriora pordo %d.\n"
+"\n"
+"Provu la terminalajn komandojn '/etc/init.d/festival start' aŭ 'festival --"
+"server'."
+
+#: src/api/python/speechd_config/config.py.in:221
+msgid "Festival contains freebsoft-utils."
+msgstr "Festival enhavas freebsoft-utils."
+
+#: src/api/python/speechd_config/config.py.in:224
+msgid ""
+"ERROR: Your Festival server is working but it doesn't seem\n"
+"to load festival-freebsoft-utils. You need to install festival-freebsoft-"
+"utils\n"
+"to be able to use Festival with Speech Dispatcher."
+msgstr ""
+"ERARO: Servilo de Festival funkcias, sed ĝi ŝajne ne ŝargas\n"
+"festival-freebsoft-utils. Vi devas instali festival-freebsoft-utils\n"
+"por uzi Festival kun Speech Dispatcher."
+
+#: src/api/python/speechd_config/config.py.in:235
+msgid ""
+"Python can't find the Speech Dispatcher library.\n"
+"Is it installed? This won't prevent Speech Dispatcher to work, but no\n"
+"Python applications like Orca will be able to use it.\n"
+"Search for package like python-speechd, download and install it."
+msgstr ""
+"Python ne trovis la bibliotekon de Speech Dispatcher.\n"
+"Ĉu ĝi estas instalita? Tio ne malhelpos funkciadon de Speech Dispatcher,\n"
+"sed Python-programoj kiel Orca ne povos uzi ĝin.\n"
+"Serĉu pakon kiel python-speechd; elŝutu kaj instalu ĝin."
+
+#: src/api/python/speechd_config/config.py.in:257
+#, python-format
+msgid ""
+"%s selected, but %s not installed. This might be a false\n"
+"warning, but most likely sound is not working."
+msgstr ""
+"%s estis elektita, sed %s ne estas instalita. Tio povas esti\n"
+"malĝusta averto, sed probable sonado ne funkcias."
+
+#: src/api/python/speechd_config/config.py.in:259
+#, python-format
+msgid "Are you sure that %s audio is working?"
+msgstr "Ĉu vi certas, ke funkcias sonado per %s?"
+
+#: src/api/python/speechd_config/config.py.in:264
+#, python-format
+msgid ""
+"Can't play audio via\n"
+"     %s"
+msgstr ""
+"Ne eblas soni per\n"
+"     %s"
+
+#: src/api/python/speechd_config/config.py.in:265
+msgid ""
+"Your audio doesn't seem to work, please fix audio first or choose\n"
+"a different method."
+msgstr ""
+"Sonado ŝajne ne funkcias. Bonvolu ripari sonadon aŭ elekti\n"
+"alian metodon."
+
+#: src/api/python/speechd_config/config.py.in:270
+msgid "Did you hear the sound?"
+msgstr "Ĉu vi aŭdis la sonon?"
+
+#: src/api/python/speechd_config/config.py.in:273
+msgid ""
+"Please examine the above output from the sound playback\n"
+"utility. If everything seems right, are you sure your audio is loud enough "
+"and\n"
+"not muted in the mixer? Please fix your audio system first or choose a "
+"different\n"
+"audio output method in configuration."
+msgstr ""
+"Bonvolu ekzameni la ĉi-supran eligon de la sonada ilprogramo.\n"
+"Se ĉio ŝajnas ĝusta, ĉu vi certas, ke la sonsistemo estas sufiĉe laŭta kaj\n"
+"ne silentigita per la miksilo? Bonvolu ripari vian sonsistemon,\n"
+"aŭ agordu alian sonadan metodon."
+
+#: src/api/python/speechd_config/config.py.in:279
+#, python-format
+msgid "Audio output '%s' works"
+msgstr "Funkcias sonado per '%s'"
+
+#: src/api/python/speechd_config/config.py.in:285
+msgid "Testing Speech Dispatcher using spd_say"
+msgstr "Provante Speech Dispatcher per spd_say"
+
+#: src/api/python/speechd_config/config.py.in:289
+msgid ""
+"Can't execute the spd-say binary,\n"
+"it is very likely that Speech Dispatcher is not installed."
+msgstr ""
+"Ne eblas lanĉi la programon spd-say;\n"
+"verŝajne, Speech Dispatcher ne estas instalita."
+
+#: src/api/python/speechd_config/config.py.in:292
+msgid "Did you hear the message about Speech Dispatcher working?"
+msgstr "Ĉu vi aŭdis la mesaĝon pri funkciado de Speech Dispatcher?"
+
+#: src/api/python/speechd_config/config.py.in:294
+msgid "Speech Dispatcher is installed and working!"
+msgstr "Speech Dispatcher estas instalita kaj funkcianta!"
+
+#: src/api/python/speechd_config/config.py.in:297
+msgid "Speech Dispatcher is installed but there is some problem"
+msgstr "Speech Dispatcher estas instalita, sed ekzistas problemo"
+
+#: src/api/python/speechd_config/config.py.in:302
+msgid "Testing whether Festival works as a server"
+msgstr "Provante Festival kiel servilon"
+
+#: src/api/python/speechd_config/config.py.in:306
+msgid "Festival server is not working."
+msgstr "Ne funkcias servilo de Festival."
+
+#: src/api/python/speechd_config/config.py.in:309
+msgid "Festival server seems to work correctly"
+msgstr "Ŝajne funkcias servilo de Festival"
+
+#: src/api/python/speechd_config/config.py.in:315
+msgid "Testing whether Espeak works"
+msgstr "Provante eSpeak"
+
+#: src/api/python/speechd_config/config.py.in:317
+msgid "Espeak is installed"
+msgstr "eSpeak estas instalita"
+
+#: src/api/python/speechd_config/config.py.in:320
+msgid ""
+"Can't execute the espeak binary, it is likely that espeak\n"
+"is not installed."
+msgstr ""
+"Ne eblas lanĉi eSpeak; verŝajne, eSpeak\n"
+"ne estas instalita."
+
+#: src/api/python/speechd_config/config.py.in:326
+msgid "Testing ALSA sound output"
+msgstr "Provante sonadon per ALSA"
+
+#: src/api/python/speechd_config/config.py.in:331
+msgid "Testing PULSE sound output"
+msgstr "Provante sonadon per PulseAudio"
+
+#: src/api/python/speechd_config/config.py.in:344
+msgid "Speech Dispatcher works. Do you want to skip other tests?"
+msgstr "Speech Dispatcher funkcias. Ĉu ignori la aliajn testojn?"
+
+#: src/api/python/speechd_config/config.py.in:354
+msgid ""
+"\n"
+"Speech Dispatcher isn't running or we can't connect to it (see above),\n"
+"do you want to proceed with other tests? (They can help to determine\n"
+"what is wrong)"
+msgstr ""
+"\n"
+"Aŭ Speech Dispatcher ne ruliĝas, aŭ oni ne povas konekti al ĝi\n"
+"(vidu ĉi-supre). Ĉu daŭrigi aliajn provojn? (Ili povas helpi trovi\n"
+"misfunkciadon.)"
+
+#: src/api/python/speechd_config/config.py.in:365
+#, python-format
+msgid "Do you want to test the %s now?"
+msgstr "Ĉu vi volas provi %s nun?"
+
+#: src/api/python/speechd_config/config.py.in:386
+msgid ""
+"Testing whether Python Speech Dispatcher library is in path and importable"
+msgstr "Provante ĉu Python-biblioteko de Speech Dispatcher estas uzebla"
+
+#: src/api/python/speechd_config/config.py.in:397
+msgid ""
+"\n"
+"\n"
+"Diagnostics results:"
+msgstr ""
+"\n"
+"\n"
+"Diagnozaj rezultoj:"
+
+#: src/api/python/speechd_config/config.py.in:402
+msgid "Speech Dispatcher is working"
+msgstr "Speech Dispatcher funkcias"
+
+#: src/api/python/speechd_config/config.py.in:404
+msgid "Speech Dispatcher not working through spd-say"
+msgstr "Speech Dispatcher ne funkcias per spd-say"
+
+#: src/api/python/speechd_config/config.py.in:406
+#, python-format
+msgid "Synthesizers that were tested and seem to work: %s"
+msgstr "Provitaj kaj ŝajne funkciantaj sinteziloj: %s"
+
+#: src/api/python/speechd_config/config.py.in:409
+#, python-format
+msgid "Audio systems that were tested and seem to work: %s"
+msgstr "Provitaj kaj ŝajne funkciantaj sonsistemoj: %s"
+
+#: src/api/python/speechd_config/config.py.in:413
+msgid "Python Speech Dispatcher module is importable"
+msgstr "Python-biblioteko de Speech Dispatcher estas uzebla"
+
+#: src/api/python/speechd_config/config.py.in:415
+msgid ""
+"Python Speech Dispatcher module not importable.\n"
+"Either not installed or not in path."
+msgstr ""
+"Python-biblioteko de Speech Dispatcher ne estas uzebla.\n"
+"Aŭ ne instalita, aŭ ne en modulserĉa dosierujo."
+
+#: src/api/python/speechd_config/config.py.in:417
+msgid "End of diagnostics results"
+msgstr "Fino de diagnozaj rezultoj"
+
+#: src/api/python/speechd_config/config.py.in:439
+msgid "Starting collecting debugging output, configuration and logfiles"
+msgstr "Ekkolektante informojn por erarserĉado, agordojn, kaj protokolojn"
+
+#: src/api/python/speechd_config/config.py.in:442
+msgid ""
+"\n"
+"Do you want to debug 'system' or  'user' Speech Dispatcher?"
+msgstr ""
+"\n"
+"Ĉu serĉi erarojn pri Speech Dispatcher sistema aŭ de uzanto?"
+
+#: src/api/python/speechd_config/config.py.in:447
+msgid ""
+"It is necessary to kill the currently running Speech Dispatcher\n"
+"processes. Do you want to do it now?"
+msgstr ""
+"Necesas ĉesigi la nuntempe ruliĝantajn procezojn\n"
+"de Speech Dispatcher. Ĉu fari tion nun?"
+
+#: src/api/python/speechd_config/config.py.in:454
+msgid ""
+"\n"
+"You decided not to kill running Speech Dispatcher processes.\n"
+"Please make sure your Speech Dispatcher is not running now."
+msgstr ""
+"\n"
+"Vi decidis ne ĉesigi ruliĝantajn procezojn de Speech Dispatcher.\n"
+"Bonvolu certigi, ke Speech Dispatcher ne ruliĝas nun."
+
+#: src/api/python/speechd_config/config.py.in:457
+msgid "Is your Speech Dispatcher not running now?"
+msgstr "Ĉu via Speech Dispatcher ne funkcias nun?"
+
+#: src/api/python/speechd_config/config.py.in:459
+msgid "Can't continue, please stop your Speech Dispatcher and try again"
+msgstr "Ne eblas daŭrigi; bonvolu ĉesigi Speech Dispatcher kaj reprovi"
+
+#: src/api/python/speechd_config/config.py.in:475
+msgid "Speech Dispatcher will be started now in debugging mode"
+msgstr "Speech Dispatcher estas nun lanĉota en erarserĉa reĝimo"
+
+#: src/api/python/speechd_config/config.py.in:479
+#: src/api/python/speechd_config/config.py.in:615
+#: src/api/python/speechd_config/config.py.in:704
+msgid "Warning: You must be root or under sudo to do this."
+msgstr ""
+"Averto: Vi devas esti la ĉefuzanto aŭ havi rajtojn de ĉefuzanto por fari ĉi "
+"tion."
+
+#: src/api/python/speechd_config/config.py.in:480
+msgid ""
+"\n"
+"Please start your system Speech Dispatcher now with parameter '-D'"
+msgstr ""
+"\n"
+"Bonvolu nun lanĉi vian sisteman Speech Dispatcher kun parametro '-D'"
+
+#: src/api/python/speechd_config/config.py.in:482
+msgid "Is your Speech Dispatcher running now?"
+msgstr "Ĉu via Speech Dispatcher funkcias nun?"
+
+#: src/api/python/speechd_config/config.py.in:486
+#: src/api/python/speechd_config/config.py.in:722
+msgid "Can't continue"
+msgstr "Ne eblas daŭrigi"
+
+#: src/api/python/speechd_config/config.py.in:491
+msgid "Speech Dispatcher failed to start, continuing anyway?"
+msgstr "Malsukcesis lanĉi Speech Dispatcher; ĉu daŭrigi malgraŭ tio?"
+
+#: src/api/python/speechd_config/config.py.in:494
+msgid "Trying to speak some messages"
+msgstr "Provante paroli kelkajn mesaĝojn"
+
+#: src/api/python/speechd_config/config.py.in:500
+msgid "Can't test Speech Dispatcher connection, can't connect"
+msgstr ""
+"Ne eblas provi konekton al Speech Dispatcher, pro malsukceso pri konektado"
+
+#: src/api/python/speechd_config/config.py.in:502
+msgid "Please wait (about 5 seconds)"
+msgstr "Bonvolu atendi (ĉirkaŭ 5 sekundojn)"
+
+#: src/api/python/speechd_config/config.py.in:505
+msgid "Collecting debugging output and your configuration information"
+msgstr "Kolektante informojn por erarserĉado kaj pri viaj agordoj"
+
+#: src/api/python/speechd_config/config.py.in:515
+#, python-format
+msgid ""
+"\n"
+"Please send %s to speechd@bugs.freebsoft.org with\n"
+"a short description of what you did. We will get in touch with you soon\n"
+"and suggest a solution."
+msgstr ""
+"\n"
+"Bonvolu sendi %s al speechd@bugs.freebsoft.org kun\n"
+"mallonga priskribo de tio, kion vi faris. Ni baldaŭ kontaktos vin\n"
+"kaj proponos solvon."
+
+#: src/api/python/speechd_config/config.py.in:588
+msgid ""
+"User configuration already exists.\n"
+"Do you want to rewrite it with a new one?"
+msgstr ""
+"Agordo por uzanto jam ekzistas.\n"
+"Ĉu superskribi ĝin per nova?"
+
+#: src/api/python/speechd_config/config.py.in:591
+msgid "Keeping configuration intact and continuing with settings."
+msgstr "Lasante agordon neŝanĝita kaj daŭrigante agordadon."
+
+#: src/api/python/speechd_config/config.py.in:596
+msgid ""
+"User configuration already exists, but it seems to be incomplete.\n"
+"Do you want to keep it?"
+msgstr ""
+"Agordo por uzanto jam ekzistas, sed ĝi ŝajnas nekompleta.\n"
+"Ĉu konservi ĝin?"
+
+#: src/api/python/speechd_config/config.py.in:601
+msgid "Keeping configuration intact and aborting."
+msgstr "Lasante agordon neŝanĝita kaj ĉesante."
+
+#: src/api/python/speechd_config/config.py.in:607
+#, python-format
+msgid "User configuration created in %s"
+msgstr "Agordoj de uzanto kreiĝis en %s"
+
+#: src/api/python/speechd_config/config.py.in:613
+msgid "Configuring user settings for Speech Dispatcher"
+msgstr "Agordante Speech Dispatcher por uzanto"
+
+#: src/api/python/speechd_config/config.py.in:616
+msgid "Configuring system settings for Speech Dispatcher"
+msgstr "Sisteme agordante Speech Dispatcher"
+
+#: src/api/python/speechd_config/config.py.in:639
+msgid ""
+"Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, "
+"-50 is slower)"
+msgstr ""
+"Apriora rapido de parolado (en la intervalo inter -100 kaj 100; 0 estas "
+"aprioro, 50 estas pli rapida, -50 estas malpli rapida)"
+
+#: src/api/python/speechd_config/config.py.in:643
+msgid ""
+"Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, "
+"-50 is lower)"
+msgstr ""
+"Apriora tono de parolado (en la intervalo inter -100 kaj 100; 0 estas "
+"aprioro, 50 estas pli alta, -50 estas malpli alta)"
+
+#: src/api/python/speechd_config/config.py.in:647
+msgid ""
+"Default speech pitch range (on the scale of -100..100, 0 is default, 50 is "
+"higher, -50 is lower)"
+msgstr ""
+"Apriora tona gamo de parolado (en la intervalo inter -100 kaj 100; 0 estas "
+"aprioro, 50 estas pli alta, -50 estas malpli alta)"
+
+#: src/api/python/speechd_config/config.py.in:666
+msgid ""
+"Do you want to have Speech Dispatcher automatically started from ~/.config/"
+"autostart ?\n"
+"This is usually not necessary, most applications will start Speech "
+"Dispatcher automatically."
+msgstr ""
+"Ĉu igi Speech Dispatcher aŭtomate lanĉota per ~/.config/autostart?\n"
+"Tio ordinare ne necesas; ordinare programoj lanĉos Speech Dispatcher "
+"aŭtomate."
+
+#: src/api/python/speechd_config/config.py.in:673
+#, python-format
+msgid ""
+"\n"
+"Configuration written to %s\n"
+"Basic configuration now complete. You might still need to fine tune it by\n"
+"manually editing the configuration file above. Especially if you need to\n"
+"use special audio settings, non-standard synthesizer ports etc."
+msgstr ""
+"\n"
+"Agordo skribita sur %s\n"
+"Baza agordado estas finita. Vi eble ankoraŭ bezonos modifi ĝin per\n"
+"mana redaktado de la ĉi-supra agorda dosiero, precipe se vi bezonas\n"
+"specialajn sonajn agordojn, nenormajn sintezilajn pordojn, ktp."
+
+#: src/api/python/speechd_config/config.py.in:682
+msgid "Starting Speech Dispatcher in user-mode"
+msgstr "Lanĉante Speech Dispatcher en reĝimo de uzanto"
+
+#: src/api/python/speechd_config/config.py.in:686
+#: src/api/python/speechd_config/config.py.in:715
+#, python-format
+msgid "Can't start Speech Dispatcher. Exited with status %d"
+msgstr "Malsukcesis lanĉi Speech Dispatcher, kiu liveris elirstaton %d"
+
+#: src/api/python/speechd_config/config.py.in:687
+msgid ""
+"Perhaps this is because your Speech Dispatcher is already running.\n"
+"Do you want to kill all running Speech Dispatchers and try again?"
+msgstr ""
+"Eble tio okazis, ĉar Speech Dispatcher ankoraŭ ruliĝas.\n"
+"Ĉu ĉesigi ĉiujn ruliĝantajn procezojn de Speech Dispatcher kaj reprovi?"
+
+#: src/api/python/speechd_config/config.py.in:695
+msgid "Can't start Speech Dispatcher"
+msgstr "Malsukcesis lanĉi Speech Dispatcher"
+
+#: src/api/python/speechd_config/config.py.in:705
+msgid "Starting Speech Dispatcher in system-mode"
+msgstr "Lanĉante Speech Dispatcher en sistema reĝimo"
+
+#: src/api/python/speechd_config/config.py.in:707
+msgid "Is your system using an /etc/init.d/speech-dispatcher script?"
+msgstr "Ĉu via sistemo uzas programon /etc/init.d/speech-dispatcher?"
+
+#: src/api/python/speechd_config/config.py.in:710
+msgid "Stopping Speech Dispatcher in case any is running already"
+msgstr "Ĉesigante Speech Dispatcher, se ĝi ankoraŭ ruliĝas"
+
+#: src/api/python/speechd_config/config.py.in:712
+msgid "Starting Speech Dispatcher via /etc/init.d/speech-dispatcher"
+msgstr "Lanĉante Speech Dispatcher laŭ /etc/init.d/speech-dispatcher"
+
+#: src/api/python/speechd_config/config.py.in:718
+msgid ""
+"Do not know how to start system Speech Dispatcher,\n"
+"you have to start it manually to continue."
+msgstr ""
+"Estas nekonate kiel lanĉi sisteman Speech Dispatcher;\n"
+"vi devas mane lanĉi ĝin por daŭrigi."
+
+#: src/api/python/speechd_config/config.py.in:720
+msgid "Have you started Speech Dispatcher now?"
+msgstr "Ĉu vi ekrulis Speech Dispatcher?"
+
+#: src/api/python/speechd_config/config.py.in:730
+msgid "Do you want to create/setup a 'user' or 'system' configuration?"
+msgstr "Ĉu vi volas agordi sisteme aŭ por uzanto?"
+
+#: src/api/python/speechd_config/config.py.in:741
+msgid "Do you want to start/restart Speech Dispatcher now and run some tests?"
+msgstr "Ĉu lanĉi/relanĉi Speech Dispatcher nun kaj provi ĝin?"
+
+#: src/api/python/speechd_config/config.py.in:743
+msgid "Your configuration is now done but not tested"
+msgstr "Agordado finiĝis sen provado"
+
+#: src/api/python/speechd_config/config.py.in:752
+msgid "Your Speech Dispatcher is not running"
+msgstr "Via Speech Dispatcher ne funkcias"
+
+#: src/api/python/speechd_config/config.py.in:760
+msgid ""
+"Do you want to run debugging now and send a request for help to the "
+"developers?"
+msgstr "Ĉu serĉi eraron nun kaj sendi peton pri helpo al la programistoj?"
+
+#: src/api/python/speechd_config/config.py.in:776
+msgid ""
+"\n"
+"Speech Dispatcher configuration tool\n"
+msgstr ""
+"\n"
+"Agordilo de Speech Dispatcher\n"
+
+#: src/api/python/speechd_config/config.py.in:781
+msgid "Do you want to continue with basic settings?"
+msgstr "Ĉu daŭrigi per bazaj agordoj?"
+
+#: src/api/python/speechd_config/config.py.in:816
+msgid "Do you want to setup a completely new configuration?"
+msgstr "Ĉu agordi tute nove?"
+
+#: src/api/python/speechd_config/config.py.in:820
+msgid "Do you want to run diagnosis of problems?"
+msgstr "Ĉu diagnozi problemojn?"
+
+#: src/api/python/speechd_config/config.py.in:825
+msgid ""
+"Please run this command again and select what you want to do\n"
+"or read the quick help available through '-h' or '--help'."
+msgstr ""
+"Bonvolu reruli ĉi tiun komandon kaj elekti tion, kion vi volas fari,\n"
+"aŭ legu la rapidhelpilon haveblan per '-h' aŭ '--help'."

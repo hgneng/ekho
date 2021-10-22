@@ -1,0 +1,11 @@
+This is the dummy output module.
+
+It seems your speech-dispatcher is working, but none of its output modules is, except me.
+
+Please check out your log file to see what the problem is. You can find it in
+
+/run/user/1000something/speech-dispatcher/log/speech-dispatcher.log
+
+/var/log/speech-dispatcher/speech-dispatcher.log
+
+or in your home in dot speech-dispatcher/log/speech-dispatcher.log
