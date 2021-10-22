@@ -1,3 +1,4 @@
+
 /*
  * say.c - Super-simple Speech Dispatcher client
  *
@@ -242,6 +243,9 @@ int main(int argc, char **argv)
 		} else if (!strcmp(punctuation_mode, "some")) {
 			if (spd_set_punctuation(conn, SPD_PUNCT_SOME))
 				printf("Can't set this punctuation mode!\n");
+		} else if (!strcmp(punctuation_mode, "most")) {
+			if (spd_set_punctuation(conn, SPD_PUNCT_MOST))
+				printf("Can't set this punctuation mode!\n");
 		} else if (!strcmp(punctuation_mode, "all")) {
 			if (spd_set_punctuation(conn, SPD_PUNCT_ALL))
 				printf("Can't set this punctuation mode!\n");
@@ -293,8 +297,42 @@ int main(int argc, char **argv)
 		spd_set_notification_on(conn, SPD_INDEX_MARKS);
 	}
 
-	/* In pipe mode, read from stdin, write to stdout, and also to Speech Dispatcher. */
-	if (pipe_mode == 1) {
+	if (character) {
+		/* Speak just characters */
+		if (optind < argc) {
+			err =
+			    spd_char(conn, spd_priority, argv[optind]);
+
+			if (err == -1) {
+				fprintf(stderr,
+					"Speech Dispatcher failed to say character");
+				exit(1);
+			}
+
+			/* Wait till the callback is called */
+			if (wait_till_end)
+				sem_wait(&semaphore);
+		}
+	}
+	else if (key) {
+		/* Speak just keys */
+		if (optind < argc) {
+			err =
+			    spd_key(conn, spd_priority, argv[optind]);
+
+			if (err == -1) {
+				fprintf(stderr,
+					"Speech Dispatcher failed to say key");
+				exit(1);
+			}
+
+			/* Wait till the callback is called */
+			if (wait_till_end)
+				sem_wait(&semaphore);
+		}
+	}
+	else if (pipe_mode == 1) {
+		/* In pipe mode, read from stdin, write to stdout, and also to Speech Dispatcher. */
 		line = (char *)malloc(MAX_LINELEN);
 		while (NULL != fgets(line, MAX_LINELEN, stdin)) {
 			fputs(line, stdout);
@@ -315,7 +353,7 @@ int main(int argc, char **argv)
 		/* Or do nothing in case of -C or -S with no message. */
 		if (optind < argc) {
 			err =
-			    spd_sayf(conn, spd_priority, (char *)argv[optind]);
+			    spd_sayf(conn, spd_priority, "%s", (char *)argv[optind]);
 			if (err == -1) {
 				fprintf(stderr,
 					"Speech Dispatcher failed to say message");

@@ -70,6 +70,7 @@ union semun {
 #include <speechd_types.h>
 #include "module.h"
 #include "compare.h"
+#include "common.h"
 
 typedef struct {
 	unsigned int uid;	/* Unique ID of the client */
@@ -99,6 +100,7 @@ typedef struct {
 	char *audio_alsa_device;
 	char *audio_nas_server;
 	char *audio_pulse_server;
+	char *audio_pulse_device;
 	int audio_pulse_min_length;
 	int log_level;
 
@@ -159,15 +161,18 @@ extern struct SpeechdOptions {
 	char *pid_file;
 	char *conf_file;
 	char *conf_dir;
+	char *user_conf_dir;
 	char *runtime_speechd_dir;
 	char *log_dir;
 	char *module_dir;
+	char *user_module_dir;
 	int log_dir_set;
 	int spawn;
 	int debug;
 	char *debug_destination;
 	char *debug_logfile;
 	int max_history_messages;	/* Maximum of messages in history before they expire */
+	int max_queue_size;
 	int server_timeout;
 	int server_timeout_set;
 } SpeechdOptions;
@@ -228,11 +233,8 @@ TSpeechDSock *speechd_socket_get_by_fd(int fd);
 
 #include "parse.h"
 
-/* Debugging */
-void MSG(int level, char *format, ...);
-void MSG2(int level, char *kind, char *format, ...);
-#define FATAL(msg) do { fatal_error(); MSG(-1,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); } while (0)
-#define DIE(msg) do { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__); exit(EXIT_FAILURE); } while (0)
+#define FATAL(msg, ...) do { fatal_error(); MSG(-1,"Fatal error [%s:%d]:"msg, __FILE__, __LINE__, ## __VA_ARGS__); exit(EXIT_FAILURE); } while (0)
+#define DIE(msg, ...) do { MSG(0,"Error [%s:%d]:"msg, __FILE__, __LINE__, ## __VA_ARGS__); exit(EXIT_FAILURE); } while (0)
 
 extern FILE *logfile;
 extern FILE *custom_logfile;

@@ -439,8 +439,6 @@ symbols:
 👴🏽	amɣaṛ taglimt talemmast	none
 👴🏾	amɣaṛ tagwlimt tubrikt talemmast	none
 👴🏿	amɣaṛ tagwlimt tubrikt	none
-#⃣	keycap #	none
-*⃣	keycap *	none
 🔟	keycap 10	none
 🇦🇨	anay Tigzirt n Aṣunsyun	none
 🇦🇩	anay Undura	none
@@ -451,7 +449,7 @@ symbols:
 🇦🇱	anay Lalbani	none
 🇦🇲	anay Arminya	none
 🇦🇴	anay Ungula	none
-🇦🇶	anay Antaṛktik	none
+🇦🇶	anay Anṭarktik	none
 🇦🇷	anay Arjuntin	none
 🇦🇸	anay Samwa Tamarikanit	none
 🇦🇹	anay Ustriya	none
@@ -496,12 +494,12 @@ symbols:
 🇨🇷	anay Kusta Rika	none
 🇨🇺	anay Kuba	none
 🇨🇻	anay Tigzirin n yixef azegzaw	none
-🇨🇼	anay Kuṛaṣaw	none
+🇨🇼	anay Kurasaw	none
 🇨🇽	anay Tigzrin n Kristmaṣ	none
 🇨🇾	anay Cipr	none
 🇨🇿	anay Čček	none
 🇩🇪	anay Lalman	none
-🇩🇬	anay Digu Gaṛsya	none
+🇩🇬	anay Dyigu Garsiya	none
 🇩🇯	anay Ǧibuti	none
 🇩🇰	anay Denmark	none
 🇩🇲	anay Duminik	none
@@ -536,13 +534,13 @@ symbols:
 🇬🇵	anay Gwadalupi	none
 🇬🇶	anay Ɣinya Tasebgast	none
 🇬🇷	anay Lagris	none
-🇬🇸	anay Tigzirin n Jyuṛjya n Unzul akked Sandwič n Unẓul	none
+🇬🇸	anay Tigzirin n Jyuṛjya n Unẓul akked Sandwič n Unẓul	none
 🇬🇹	anay Gwatimala	none
 🇬🇺	anay Gwam	none
 🇬🇼	anay Ɣinya-Bisaw	none
 🇬🇾	anay Guwana	none
 🇭🇰	anay Tamnaṭ Taqbuṛt Tacinwat n Hung Kung	none
-🇭🇲	anay Tigzirin Heard akked McDonald	none
+🇭🇲	anay Tigzirin n Hird d Makdunalt	none
 🇭🇳	anay Hunduras	none
 🇭🇷	anay Kerwasya	none
 🇭🇹	anay Hayti	none
@@ -558,7 +556,7 @@ symbols:
 🇮🇷	anay Iran	none
 🇮🇸	anay Island	none
 🇮🇹	anay Ṭelyan	none
-🇯🇪	anay Jiṛzi	none
+🇯🇪	anay Jirzi	none
 🇯🇲	anay Jamyika	none
 🇯🇴	anay Lajurdani	none
 🇯🇵	anay Jappu	none
@@ -591,10 +589,11 @@ symbols:
 🇲🇫	anay San Maṛtan	none
 🇲🇬	anay Madaɣecqer	none
 🇲🇭	anay Tigzirin n Marcal	none
+🇲🇰	anay Masidunya n ugafa	none
 🇲🇱	anay Mali	none
 🇲🇲	anay Myanmar	none
 🇲🇳	anay Mungulya	none
-🇲🇴	anay Tamnaṭ Tudbilt Tuzzigt tacenwit n Makaw	none
+🇲🇴	anay Tamnaḍt tudbilt tuzzigt tacinwat n Makaw	none
 🇲🇵	anay Tigzirin n Maryan Ufella	none
 🇲🇶	anay Martinik	none
 🇲🇷	anay Muriṭanya	none
@@ -663,7 +662,7 @@ symbols:
 🇹🇦	anay Tristan da Kunha	none
 🇹🇨	anay Ṭurk d Tegzirin n Kaykus	none
 🇹🇩	anay Čad	none
-🇹🇫	anay Timura n umalu tifṛansisiyin	none
+🇹🇫	anay Timura tifransisin n unẓul	none
 🇹🇬	anay Ṭugu	none
 🇹🇭	anay Ṭayland	none
 🇹🇯	anay Tajikistan	none
@@ -699,13 +698,17 @@ symbols:
 🇿🇦	anay Tafriqt Wadda	none
 🇿🇲	anay Zambya	none
 🇿🇼	anay Zimbabwi	none
-0⃣	keycap 0	none
-1⃣	keycap 1	none
-2⃣	keycap 2	none
-3⃣	keycap 3	none
-4⃣	keycap 4	none
-5⃣	keycap 5	none
-6⃣	keycap 6	none
-7⃣	keycap 7	none
-8⃣	keycap 8	none
-9⃣	keycap 9	none
+₡	Akulun n Kusta Rika	none
+₦	Anayra Anijiri	none
+₧	Apisetas n Spanya	none
+₪	Acikil amaynut n Izrayil	none
+₫	Adung n Vyitnam	none
+₭	Akip n Laws	none
+₮	Atugrik n Mungulya	none
+₲	Agarani n Paragway	none
+₴	Ahrivnya n Ukran	none
+₵	Asidi n Ɣana	none
+₸	Atunj n Kazaxistan	none
+₺	Apund n Ṭurk	none
+₼	Amanat Aziri	none
+₾	Alari n Jyurjya	none

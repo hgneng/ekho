@@ -13,17 +13,16 @@ symbols:
 🍜	bakuli lenye tambi	none
 🍻	vikombe vya bia vinavyogonganishwa	none
 ⛴	feri	none
+🪄	kifimbo cha miujiza	none
 🧩	kipande cha mchezo wa mafumbo	none
 🔈	sauti ya chini ya spika	none
 💿	diski ya kutumia mwangaza	none
-💹	chati inayopanda yenye yeni	none
-💱	ubadilishanaji wa sarafu	none
-💲	alama nzito ya dola	none
 🛒	kigari cha kununulia bidhaa	none
 ☣	tahadhari ya kibilojia	none
 ♏	nyota ya nge	none
 🔅	kitufe cha kufifisha mwanga	none
-🪄	kifimbo cha miujiza	none
+💱	ubadilishanaji wa sarafu	none
+💲	alama nzito ya dola	none
 👊🏻	ngumi iliyonyooshewa ngozi nyeupe	none
 👊🏼	ngumi iliyonyooshewa ngozi nyeupe kiasi	none
 👊🏽	ngumi iliyonyooshewa ngozi ya kahawia	none
@@ -53,13 +52,9 @@ symbols:
 🇧🇾	bendera Belarusi	none
 🇨🇨	bendera Visiwa vya Kokos (Keeling)	none
 🇨🇩	bendera Kongo - Kinshasa	none
-🇨🇮	bendera Ivorikosti	none
 🇨🇻	bendera Kepuvede	none
-🇨🇾	bendera Saiprasi	none
-🇩🇰	bendera Denmaki	none
 🇪🇦	bendera Keuta na Melilla	none
 🇪🇨	bendera Ekwado	none
-🇫🇲	bendera Mikronesia	none
 🇬🇦	bendera Gaboni	none
 🇬🇱	bendera Grinilandi	none
 🇬🇵	bendera Gwadelupe	none
@@ -81,7 +76,6 @@ symbols:
 🇲🇲	bendera Myama (Burma)	none
 🇲🇶	bendera Martiniki	none
 🇲🇸	bendera Montserati	none
-🇲🇻	bendera Maldivi	none
 🇳🇨	bendera Nyukaledonia	none
 🇳🇪	bendera Nijeri	none
 🇳🇴	bendera Norwe	none
@@ -107,6 +101,12 @@ symbols:
 🇻🇦	bendera Mji wa Vatikani	none
 🇻🇬	bendera Visiwa vya Virgin vya Uingereza	none
 🇻🇮	bendera Visiwa vya Virgin vya Marekani	none
-🇻🇳	bendera Vietnamu	none
 🇾🇹	bendera Mayote	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bendera Wales	none
+₦	Naira ya Naijeria	none
+₫	Dong ya Vietnamu	none
+₴	Hryvnia ya Ukraini	none
+₵	Sidi ya Ghana	none
+₸	Tenge ya Kazakistani	none
+₼	Manati ya Azabajani	none
+₾	Lari ya Jiojia	none

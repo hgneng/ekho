@@ -8,33 +8,114 @@ symbols:
 🏽	bitarteko azal-tonua	none
 🏾	5. mota	none
 🏿	6. mota	none
-⚧	transgeneroen ikurra	none
+℗	soinu-grabaketaren copyrighta	none
+←	ezkerrera seinalatzen duen gezia	none
+↚	ezkerrerako gezia trazuarekin	none
+→	eskuinera seinalatzen duen gezia	none
+↛	eskuinerako gezia trazuarekin	none
+↑	gora seinalatzen duen gezia	none
+↓	behera seinalatzen duen gezia	none
+↜	ezkerrerako uhin-gezia	none
+↝	eskuinerako uhin-gezia	none
+↞	ezkerrerako bi buruko gezia	none
+↟	gorako bi buruko gezia	none
+↠	eskuinerako bi buruko gezia	none
+↡	beherako bi buruko gezia	none
+↢	ezkerrerako gezi buztanduna	none
+↣	eskuinerako gezi buztanduna	none
+↤	ezkerrerako gezia barratik	none
+↥	gorako gezia barratik	none
+↦	eskuinerako gezia barratik	none
+↧	beherako gezia barratik	none
+↨	gorako eta beherako gezia barratik	none
+↫	ezkerrerako gezia begiztarekin	none
+↬	eskuinerako gezia begiztarekin	none
+↭	ezkerrerako uhin-gezia begiztarekin	none
+↯	beherako gezia sigi-saga eginez	none
+↰	gorako gezia ezkerrako puntarekin	none
+↱	gorako gezia eskuinerako puntarekin	none
+↲	beherako gezia ezkerrako puntarekin	none
+↳	beherako gezia eskuinerako puntarekin	none
+↴	eskuinerako gezia beherako izkinarekin	none
+↵	beherako gezia ezkerrerako izkinarekin	none
+↶	ezkerrerako goi-zirkuluerdiaren gezia	none
+↷	eskuinerako goi-zirkuluerdiaren gezia	none
+↸	ipar-mendebaldeko gezia barra luzearekin	none
+↹	ezkerrerako barradun gezia eskuinerako barradun geziaren gainean	none
+↺	ezkerrerako zirkuluerdi irekiaren gezia	none
+↻	eskuinerako zirkuluerdi irekiaren gezia	none
+↼	ezkerrerako goiko arpoi-bizarra	none
+↽	ezkerrerako beheko arpoi-bizarra	none
+↾	gorako eskuineko arpoi-bizarra	none
+↿	gorako ezkerreko arpoi-bizarra	none
+⇀	eskuinerako goiko arpoi-bizarra	none
+⇁	eskuinerako beheko arpoi-bizarra	none
+⇂	beherako eskuineko arpoi-bizarra	none
+⇃	beherako ezkerreko arpoi-bizarra	none
+⇄	eskuinerako gezia ezkerrerako geziaren gainean	none
+⇅	gora eta behera seinalatzen duten geziak	none
+⇆	ezkerrera eta eskuinera seinalatzen duen gezia	none
+⇇	ezkerrerako gezi parea	none
+⇈	gorako gezi parea	none
+⇉	ezkuinerako gezi parea	none
+⇊	beherako gezi parea	none
+⇋	ezkerrerako arpoia eskuinerako arpoiaren gainean	none
+⇌	eskuinerako arpoia ezkerrerako arpoiaren gainean	none
+⇐	ezkerrerako gezi bikoitza	none
+⇍	ezkerrerako gezi bikoitza trazuarekin	none
+⇑	gorako gezi bikoitza	none
+⇒	eskuinerako gezi bikoitza	none
+∆	gehikuntza	none
+∇	nabla	none
+∈	honen elementua	none
+≠	ez da berdin	none
+−	minus-ikurra	none
+⁻	goi-indizeko minusa	none
+√	erro karratu	none
+∞	infinitu-ikurra	none
+∩	ebakidura	none
+∪	lotura	none
+≈	ia berdin	none
+≡	honen berbera	none
+≤	hau baino txikiagoa edo berdina	none
+≥	hau baino handiagoa edo berdina	none
+⊂	honen azpimultzoa	none
+▲	gora seinalatzen duen triangelu betea	none
+▼	behera seinalatzen duen triangelu betea	none
+◊	erronbo	none
+○	zirkulu hutsa	none
+●	zirkulu betea	none
+◯	zirkulu huts handia	none
+♪	kortxea	none
+♭	bemola	none
+♯	diesea	none
 😀	barre egiten ari den aurpegia	none
-😃	irribarre egiten ari den aurpegia, ahoa irekita	none
-😄	begiez irribarre egiten ari den aurpegia, ahoa irekita	none
+😃	barre egiten ari den aurpegia, ahoa irekita	none
+😄	begiez barreka ari den aurpegia	none
 😁	begiez barre egiten ari den aurpegia	none
-😆	irribarre egiten ari den aurpegia, begiak itxita	none
-😅	irribarre egiten ari den aurpegia, izerdi hotzarekin eta ahora irekita	none
+😆	barreka ari den aurpegia, begiak itxita	none
+😅	barreka ari den aurpegia, izerdi hotzarekin	none
 🤣	barrez leherka	none
 😂	pozez negar egiten ari den aurpegia	none
 🙂	apur bat irribarre egiten ari den aurpegia	none
 🙃	buruz behera dagoen aurpegia	none
 😉	begiaz keinu egiten ari den aurpegia	none
 😊	begiez irribarre egiten ari den aurpegia	none
-😇	irribarre egiten ari den aurpegia argi-koroarekin	none
+😇	barreka ari den aurpegia argi-koroarekin	none
 🥰	irri egiten ari den aurpegia, 3 bihotzekin	none
-😍	irribarre egiten ari den aurpegia, bihotz-itxurako begiekin	none
+😍	aurpegia barreka, bihotz-itxurako begiekin	none
 🤩	izar	none
 😘	musu bat bidaltzen ari den aurpegia	none
 😗	musuka ari den aurpegia	none
 ☺	irribarre egiten ari den aurpegia	none
 😚	musuka ari den aurpegia, begiak itxita	none
-😙	musuka eta begiez irribarre egiten ari den aurpegia	none
+😙	musuka eta begiez barreka ari den aurpegia	none
+🥲	barreka ari den aurpegia, malko batekin	none
 😋	janari gozoa dastatzen ari den aurpegia	none
 😛	mingaina kanpoan duen aurpegia	none
-😜	mingaina kanpoan duen eta begiaz keinu egiten ari den aurpegia	none
+😜	mihia aterata begi-keinuka ari den aurpegia	none
 🤪	ero-aurpegia	none
-😝	mingaina kanpoan duen eta begiak itxita dituen aurpegia	none
+😝	mihia aterata eta begiak itxita dauzkan aurpegia	none
 🤑	diru-itxurako mingaina duen aurpegia	none
 🤗	besarkada ematen ari den aurpegia	none
 🤭	eskuaz ahoa estaltzen ari den aurpegia	none
@@ -45,10 +126,12 @@ symbols:
 😐	aurpegi neutrala	none
 😑	espresiorik gabeko aurpegia	none
 😶	ahorik gabeko aurpegia	none
+😶‍🌫	hodei artean dagoen aurpegia	none
 😏	handitasun-aurpegia	none
 😒	aspertu-aurpegia	none
 🙄	begiak bueltaka dituen aurpegia	none
 😬	imintzio-aurpegia	none
+😮‍💨	arnasa botatzen ari den aurpegia	none
 🤥	aurpegi gezurtia	none
 😌	lasaitasun-aurpegia	none
 😔	aurpegi pentsakorra	none
@@ -65,10 +148,12 @@ symbols:
 🥶	aurpegi izoztu	none
 🥴	tentel-aurpegia	none
 😵	zorabio-aurpegia	none
+😵‍💫	kiribil-begiak dituen aurpegia	none
 🤯	lehertzear den burua	none
 🤠	behizain txanodunaren aurpegia	none
 🥳	parrandan dabilen aurpegia	none
-😎	irribarre egiten ari den aurpegia, eguzkitako betaurrekoekin	none
+🥸	mozorrotutako aurpegia	none
+😎	aurpegia barreka, eguzkitako betaurrekoekin	none
 🤓	arraro-aurpegia	none
 🧐	monokulo bat duen aurpegia	none
 😕	nahasketa-aurpegia	none
@@ -80,7 +165,7 @@ symbols:
 😲	harritu-aurpegia	none
 😳	aurpegi gorritua	none
 🥺	aurpegi erregutzailea	none
-😦	kopeta ilunduta eta ahoa irekita duen aurpegia	none
+😦	kopeta ilun eta ahoa zabalik duen aurpegia	none
 😧	estutasun-aurpegia	none
 😨	ikara-aurpegia	none
 😰	ahoa irekita eta izerdi hotza duen aurpegia	none
@@ -135,6 +220,8 @@ symbols:
 💟	bihotz apaindua	none
 ❣	bihotz-itxurako harridura-marka	none
 💔	bihotz hautsia	none
+❤‍🔥	sutan dagoen bihotza	none
+❤‍🩹	sendatzen ari den bihotza	none
 ❤	bihotz gorria	none
 🧡	bihotz laranja	none
 💛	bihotz horia	none
@@ -164,6 +251,7 @@ symbols:
 ✋	esku altxatua	none
 🖖	vulcandar agur	none
 👌	adostasuna adierazten duen eskua	none
+🤌	hatz elkartuak	none
 🤏	atximurka egiten ari den eskua	none
 ✌	garaipena adierazten duen eskua	none
 🤞	hatz gurutzatuak	none
@@ -200,6 +288,8 @@ symbols:
 🦻	audifonoa duen belarria	none
 👃	sudur	none
 🧠	burmuin	none
+🫀	bihotza organoa	none
+🫁	birikak	none
 🦷	hortz	none
 🦴	hezur	none
 👀	begiak	none
@@ -210,12 +300,14 @@ symbols:
 🧒	haur	none
 👦	mutila	none
 👧	neska	none
-🧑	heldu	none
+🧑	pertsona	none
 👱	pertsona ilehoria	none
 👨	gizona	none
 🧔	pertsona bizarduna	none
+🧔‍♂	gizona bizarra	none
 👱‍♂	gizon ilehoria	none
 👩	emakumea	none
+🧔‍♀	emakumea bizarra	none
 👱‍♀	emakume ilehoria	none
 🧓	agure	none
 👴	aitona	none
@@ -228,7 +320,7 @@ symbols:
 🙎‍♀	emakume muturtua	none
 🙅	ados ez dagoela adierazten ari den pertsona	none
 🙅‍♂	ados ez dagoela adierazten ari den gizona	none
-🙅‍♀	ados ez dagoela adierazten ari den emakumea	none
+🙅‍♀	ezezko keinua egiten ari den emakumea	none
 🙆	ados dagoela adierazten ari den pertsona	none
 🙆‍♂	ados dagoela adierazten ari den gizona	none
 🙆‍♀	ados dagoela adierazten ari den emakumea	none
@@ -307,6 +399,7 @@ symbols:
 💂	zaindaria	none
 💂‍♂	gizon zaindaria	none
 💂‍♀	emakume zaindaria	none
+🥷	ninja	none
 👷	eskulangilea	none
 👷‍♂	gizon eskulangilea	none
 👷‍♀	emakume eskulangilea	none
@@ -315,15 +408,23 @@ symbols:
 👳	turbantea duen petsona	none
 👳‍♂	turbantea duen gizona	none
 👳‍♀	turbantea duen emakumea	none
-👲	txano txinatarra daraman gizona	none
+👲	txano txinatarra daraman pertsona	none
 🧕	buruan zapi bat daraman emakumea	none
-🤵	gizona esmokinean	none
-👰	beloa daraman emaztegaia	none
+🤵	pertsona esmokinean	none
+🤵‍♂	gizona esmokinean	none
+🤵‍♀	emakumea esmokinean	none
+👰	beloa daraman pertsona	none
+👰‍♂	beloa daraman gizona	none
+👰‍♀	beloa daraman emakumea	none
 🤰	emakumea haurdun	none
 🤱	bularra ematea	none
+👩‍🍼	emakumea bularra ematen	none
+👨‍🍼	gizona haurrari janaria ematen	none
+🧑‍🍼	haurra elikatzen	none
 👼	aingeru-itxura duen haurtxoa	none
 🎅	aita noel	none
 🤶	gabonetako ama	none
+🧑‍🎄	bizarzuri	none
 🦸	superheroi	none
 🦸‍♂	gizonezko superheroi	none
 🦸‍♀	emakumezko superheroi	none
@@ -381,9 +482,9 @@ symbols:
 💃	dantzan ari den emakumea	none
 🕺	gizona dantzan	none
 🕴	trajea daraman eta lebitatzen ari den gizona	none
-👯	parrandan ari den jendea	none
-👯‍♂	parrandan ari diren gizonak	none
-👯‍♀	parrandan ari diren emakumeak	none
+👯	jendea untxi-belarriak jantzita	none
+👯‍♂	gizonak untxi-belarriak jantzita	none
+👯‍♀	emakumeak jendea untxi-belarriak jantzita	none
 🧖	pertsona bat lurrun-gelan	none
 🧖‍♂	gizon bat lurrun-gelan	none
 🧖‍♀	emakume bat lurrun-gelan	none
@@ -448,6 +549,7 @@ symbols:
 🗣	aurrera hitz egiten ari den burua	none
 👤	soinaren silueta	none
 👥	soinen siluetak	none
+🫂	elkar besarkatzen ari den jendea	none
 👣	oin-aztarnak	none
 🦰	ilegorri	none
 🦱	ile kizkur	none
@@ -467,6 +569,7 @@ symbols:
 🦝	mapatxe	none
 🐱	katu-aurpegia	none
 🐈	katua	none
+🐈‍⬛	katu beltza	none
 🦁	lehoi	none
 🐯	tigre-aurpegia	none
 🐅	tigrea	none
@@ -476,6 +579,7 @@ symbols:
 🦄	adarbakar	none
 🦓	zebra	none
 🦌	oreina	none
+🦬	bisonte	none
 🐮	behi-aurpegi	none
 🐂	idia	none
 🐃	ur-bufaloa	none
@@ -492,15 +596,17 @@ symbols:
 🦙	llama	none
 🦒	jirafa	none
 🐘	elefantea	none
+🦣	mamut	none
 🦏	errinozeroa	none
 🦛	hipopotamo	none
 🐭	sagu-aurpegia	none
 🐁	sagua	none
 🐀	arratoia	none
-🐹	hamster	none
+🐹	hamsterra	none
 🐰	untxi-aurpegia	none
 🐇	untxia	none
 🐿	lurreko urtxintxa	none
+🦫	kastore	none
 🦔	triku	none
 🦇	saguzarra	none
 🐻	hartz	none
@@ -525,6 +631,8 @@ symbols:
 🦆	ahatea	none
 🦢	zisne	none
 🦉	hontza	none
+🦤	dodoa	none
+🪶	luma	none
 🦩	flamenkoa	none
 🦚	hegazterren	none
 🦜	loro	none
@@ -540,6 +648,7 @@ symbols:
 🐳	ura jaurtitzen ari den balea	none
 🐋	balea	none
 🐬	izurdea	none
+🦭	itsas txakur	none
 🐟	arrain	none
 🐠	arrain tropikala	none
 🐡	globo-arraina	none
@@ -551,12 +660,16 @@ symbols:
 🐛	zomorroa	none
 🐜	inurria	none
 🐝	erlea	none
+🪲	kakalardo	none
 🐞	amona mantangorri	none
 🦗	kilker	none
+🪳	labezomorro	none
 🕷	armiarma	none
 🕸	armiarma-sarea	none
 🦂	eskorpioia	none
 🦟	eltxo	none
+🪰	euli	none
+🪱	zizare	none
 🦠	mikrobio	none
 💐	lore sorta	none
 🌸	gereziondo-lorea	none
@@ -569,6 +682,7 @@ symbols:
 🌼	lorea	none
 🌷	tulipa	none
 🌱	kimua	none
+🪴	loreontziko landare	none
 🌲	hosto iraukorreko zuhaitza	none
 🌳	hosto erorkorreko zuhaitza	none
 🌴	palmondoa	none
@@ -594,8 +708,10 @@ symbols:
 🍑	muxika	none
 🍒	gereziak	none
 🍓	marrubia	none
+🫐	ahabiak	none
 🥝	kiwia	none
 🍅	tomatea	none
+🫒	oliba	none
 🥥	koko	none
 🥑	ahuakatea	none
 🍆	alberjinia	none
@@ -603,6 +719,7 @@ symbols:
 🥕	azenarioa	none
 🌽	artaburua	none
 🌶	txilea	none
+🫑	piper	none
 🥒	pepinoa	none
 🥬	barazki hostodun	none
 🥦	brokoli	none
@@ -614,6 +731,7 @@ symbols:
 🍞	ogi	none
 🥐	croissanta	none
 🥖	baguettea	none
+🫓	ogi zapal	none
 🥨	pretzel	none
 🥯	bagel	none
 🥞	opil txikiak	none
@@ -630,12 +748,14 @@ symbols:
 🥪	ogitartekoa	none
 🌮	takoa	none
 🌯	burritoa	none
+🫔	tamal	none
 🥙	ogitarteko betea	none
 🧆	falafela	none
 🥚	arrautza	none
 🍳	janaria prestatu	none
 🥘	sakonera txikiko zartagina	none
 🍲	janari bete eltzea	none
+🫕	fonduea	none
 🥣	katilua eta koilara	none
 🥗	entsalada berdea	none
 🍿	krispetak	none
@@ -681,6 +801,7 @@ symbols:
 🍼	biberoia	none
 🥛	edalontzi bat esne	none
 ☕	edari beroa	none
+🫖	teontzi	none
 🍵	giderrik gabeko kikara	none
 🍶	sake	none
 🍾	kortxoa kanpoan duen botila	none
@@ -692,6 +813,7 @@ symbols:
 🥂	kopak topa egiten	none
 🥃	edalontzi zabala	none
 🥤	kopa eta lastotxoa	none
+🧋	te burbuiladun	none
 🧃	edari-tetrabrika	none
 🧉	matea	none
 🧊	izotz zatia	none
@@ -721,6 +843,9 @@ symbols:
 🏛	eraikin historikoa	none
 🏗	eraikuntza-lanak	none
 🧱	adreilu	none
+🪨	harria	none
+🪵	egurra	none
+🛖	etxola	none
 🏘	etxebizitzak	none
 🏚	etxe abandonatua	none
 🏠	etxebizitza	none
@@ -766,7 +891,7 @@ symbols:
 🚂	tren-makina	none
 🚃	bagoia	none
 🚄	abiadura handiko trena	none
-🚅	abiadura handiko trena mutur biribilduarekin	none
+🚅	bala-trena	none
 🚆	trena	none
 🚇	metroa	none
 🚈	tren arina	none
@@ -788,6 +913,7 @@ symbols:
 🚗	autoa	none
 🚘	heldu den autoa	none
 🚙	aisiarako ibilgailua	none
+🛻	kamioneta	none
 🚚	garraiatzeko kamioia	none
 🚛	kamioi artikulatua	none
 🚜	traktorea	none
@@ -800,6 +926,7 @@ symbols:
 🚲	ziklomotorra	none
 🛴	patinetea	none
 🛹	skateboard	none
+🛼	gurpil-lerroko irristailu	none
 🚏	autobus-geltokia	none
 🛣	autobidea	none
 🛤	trenbidearen erraila	none
@@ -874,14 +1001,14 @@ symbols:
 🌘	ilbehera-bukaera	none
 🌙	ilargi-adarra	none
 🌚	ilargi berriaren aurpegia	none
-🌛	ilargi-laurdena ezkerrera begira	none
-🌜	ilargi-laurdena eskuinera begira	none
+🌛	lehen ilargi-laurdena aurpegiarekin	none
+🌜	azken ilargi-laurdena aurpegiarekin	none
 🌡	termometro	none
 ☀	eguzkia	none
 🌝	ilargi betea aurpegiarekin	none
 🌞	eguzkia aurpegiarekin	none
 🪐	planeta eraztunduna	none
-⭐	izar zuri ertaina	none
+⭐	izarra	none
 🌟	izar distiratsua	none
 🌠	izar-uxoa	none
 🌌	esne-bidea	none
@@ -894,7 +1021,7 @@ symbols:
 🌧	hodeia euriarekin	none
 🌨	hodeia elurrarekin	none
 🌩	hodeia tximistarekin	none
-🌪	tornado	none
+🌪	tornadoa	none
 🌫	lainoa	none
 🌬	haize-aurpegia	none
 🌀	zikloia	none
@@ -970,6 +1097,7 @@ symbols:
 🪁	haize-parpaila	none
 🎱	billarra	none
 🔮	kristalezko bola	none
+🪄	makiltxo magiko	none
 🧿	nazar	none
 🎮	bideo-jokoa	none
 🕹	joko-palanka	none
@@ -977,6 +1105,8 @@ symbols:
 🎲	dadoa	none
 🧩	buru-hausgarri	none
 🧸	hartzatxo	none
+🪅	gozo-eltze	none
+🪆	matrioxka	none
 ♠	pika	none
 ♥	bihotza	none
 ♦	diamanteak	none
@@ -989,7 +1119,9 @@ symbols:
 🖼	koadroa markoarekin	none
 🎨	margolari-paleta	none
 🧵	hari	none
+🪡	jostorratz	none
 🧶	harilko	none
+🪢	korapilo	none
 👓	betaurrekoak	none
 🕶	eguzkitako betaurrekoak	none
 🥽	igeriketako betaurrekoak	none
@@ -1014,7 +1146,8 @@ symbols:
 👜	eskuko poltsa	none
 👝	zorroa	none
 🛍	erosketa-poltsak	none
-🎒	eskolako bizkar-zorroa	none
+🎒	bizkar-zorroa	none
+🩴	hondartzarako sandalia	none
 👞	gizonentzako oinetakoa	none
 👟	korrika egiteko oinetakoa	none
 🥾	mendiko bota	none
@@ -1028,6 +1161,7 @@ symbols:
 🎩	kapelu altua	none
 🎓	graduatu-txanoa	none
 🧢	bixera	none
+🪖	kasko militarra	none
 ⛑	kaskoa gurutze zuriarekin	none
 📿	arrosarioa	none
 💄	ezpain-margoa	none
@@ -1052,12 +1186,14 @@ symbols:
 🎧	entzungailuak	none
 📻	irratia	none
 🎷	saxofoia	none
+🪗	akordeoi	none
 🎸	gitarra	none
 🎹	musika-teklatua	none
 🎺	tronpeta	none
 🎻	biolina	none
 🪕	banjoa	none
 🥁	danborra	none
+🪘	danbor luze	none
 📱	telefono mugikorra	none
 📲	telefono mugikorra gezi batekin	none
 ☎	telefonoa	none
@@ -1111,6 +1247,7 @@ symbols:
 🔖	laster-marka	none
 🏷	etiketa	none
 💰	poltsa bete diru	none
+🪙	txanpon	none
 💴	yen billetea	none
 💵	dolar billetea	none
 💶	euro billetea	none
@@ -1119,8 +1256,6 @@ symbols:
 💳	kreditu-txartela	none
 🧾	ordainagiri	none
 💹	diagrama gorakorra yen-ikurrarekin	none
-💱	truke-tasa	none
-💲	dolar-ikur lodia	none
 ✉	gutun-azal	none
 📧	mezu elektronikoa	none
 📨	sarrerako gutun-azala	none
@@ -1178,9 +1313,12 @@ symbols:
 🗡	daga	none
 ⚔	ezpata gurutzatuak	none
 🔫	pistola	none
+🪃	bumeran	none
 🏹	arkua eta gezia	none
 🛡	ezkutua	none
+🪚	zerra	none
 🔧	giltza ingelesa	none
+🪛	bihurkin	none
 🔩	torloju eta azkoina	none
 ⚙	engranajea	none
 🗜	konprimatzea	none
@@ -1188,8 +1326,10 @@ symbols:
 🦯	makila	none
 🔗	kate-maila	none
 ⛓	kateak	none
+🪝	amu	none
 🧰	erreminta-kutxa	none
 🧲	iman	none
+🪜	esku-eskailera	none
 ⚗	alanbikea	none
 🧪	saio-hodi	none
 🧫	Petriren kaxa	none
@@ -1203,26 +1343,35 @@ symbols:
 🩹	lotura itsaskorra	none
 🩺	estetoskopioa	none
 🚪	atea	none
+🛗	igogailua	none
+🪞	ispilua	none
+🪟	leihoa	none
 🛏	ohea	none
 🛋	sofa eta lanpara	none
 🪑	aulki	none
 🚽	bainugela	none
+🪠	libragailu	none
 🚿	dutxa	none
 🛁	bainuontzia	none
+🪤	sagu-arte	none
 🪒	bizar-labana	none
 🧴	lozio-botila	none
 🧷	kateorratz	none
 🧹	erratz	none
 🧺	saski	none
 🧻	paper-bilkari	none
+🪣	perrail	none
 🧼	xaboi	none
+🪥	hortzetako eskuila	none
 🧽	belaki	none
 🧯	su-itzalgailu	none
 🛒	erosketa-orga	none
 🚬	erre	none
 ⚰	hilkutxa	none
+🪦	hilarri	none
 ⚱	errautsak gordetzeko kutxa	none
-🗿	moai	none
+🗿	moaia	none
+🪧	idazkun	none
 🏧	kutxazainaren seinalea	none
 🚮	zaborra ontzira botatzeko seinalea	none
 🚰	edateko ura	none
@@ -1259,6 +1408,7 @@ symbols:
 ↖	gora eta ezkerrera gezia	none
 ↕	gora eta behera gezia	none
 ↔	ezkerrera eta eskuinera gezia	none
+↮	ezkerrerako eta eskuinerako gezia trazuarekin	none
 ↩	ezkerrera okertzen den eskuinera gezia	none
 ↪	eskuinera okertzen den ezkerrera gezia	none
 ⤴	gora okertzen den eskuinera gezia	none
@@ -1275,7 +1425,7 @@ symbols:
 🕉	om	none
 ✡	daviden izarra	none
 ☸	dharmaren gurpila	none
-☯	yin yang	none
+☯	yin eta yang	none
 ✝	gurutze latindarra	none
 ☦	gurutze ortodoxoa	none
 ☪	izarra eta ilargierdia	none
@@ -1321,38 +1471,35 @@ symbols:
 📴	telefono mugikorra itzalita	none
 ♀	emakumeen ikurra	none
 ♂	gizonen ikurra	none
-⚕	ikur medikoa	none
+⚧	transgeneroen ikurra	none
+✖	biderkatu	none
+➕	plus	none
+➖	minus	none
+➗	zatitu	none
 ♾	infinitu	none
+❓	galdera-marka gorria	none
+❔	galdera-marka zuria	none
+❕	harridura-marka zuria	none
+❗	harridura-marka gorria	none
+💱	truke-tasa	none
+💲	dolar-ikur lodia	none
+⚕	ikur medikoa	none
 ♻	birziklatzeko ikurra	none
 ⚜	lis-lore	none
 🔱	hiruhortza	none
 📛	izen-bereizgarria	none
-🔰	hasiberria irudikatzen duen japonierako ikurra	none
+🔰	hasiberriaren japonierako ikurra	none
 ⭕	zirkulu gorri hutsa	none
 ✅	tiletaren botoia	none
 ☑	tileta duen koadroa	none
-✔	tileta	none
-✖	biderketa-ikurra	none
+✔	hautamarka	none
 ❌	gurutze-ikurra	none
 ❎	gurutze-ikurraren botoia	none
-➕	plus zeinu lodia	none
-➖	minus ikur lodia	none
-➗	zatiketa-ikur lodia	none
 ➰	malgukia	none
 ➿	malguki bikoitza	none
-〽	txanda-markatzailea	none
 ✳	zortzi puntako izartxoa	none
 ✴	zortzi puntako izarra	none
 ❇	txinparta	none
-‼	harridura-marka bikoitza	none
-⁉	harridura- eta galdera-ikurra	none
-❓	galdera-marka	none
-❔	galdera-marka zuria	none
-❕	harridura-marka zuria	none
-❗	harridura-marka	none
-〰	marratxo ondulatua	none
-©	copyrighta	none
-®	marka erregistratua	none
 ™	marka komertziala	none
 🔠	alfabeto latindarra maiuskulaz	none
 🔡	alfabeto latindarra minuskulaz	none
@@ -1376,23 +1523,6 @@ symbols:
 🆘	“sos” hitza karratu batean	none
 🆙	“up!” botoia	none
 🆚	“vs” testua karratu batean	none
-🈁	katakana koko karratu batean	none
-🈂	katakana sa karratu batean	none
-🈷	ilargia irudikatzen duen ideograma karratu batean	none
-🈶	existentzia irudikatzen duen ideograma karratu batean	none
-🈯	hatz bat irudikatzen duen ideograma karratu batean	none
-🉐	abantaila bat irudikatzen duen ideograma zirkulu batean	none
-🈹	zatiketa irudikatzen duen ideograma karratu batean	none
-🈚	ezeztapena irudikatzen duen ideograma karratu batean	none
-🈲	debekua irudikatzen duen ideograma karratu batean	none
-🉑	onarpena irudikatzen duen ideograma zirkulu batean	none
-🈸	inprimaki bat irudikatzen duen ideograma karratu batean	none
-🈴	elkarrekin egotea irudikatzen duen ideograma karratu batean	none
-🈳	hutsa irudikatzen duen ideograma karratu batean	none
-㊗	zoriontzeko ideograma zirkulu batean	none
-㊙	sekretua irudikatzen duen ideograma zirkulu batean	none
-🈺	zerbait abian dela irudikatzen duen ideograma karratu batean	none
-🈵	osotasuna irudikatzen duen ideograma karratu batean	none
 🔴	zirkulu gorria	none
 🟠	zirkulu laranja	none
 🟡	zirkulu horia	none
@@ -1432,64 +1562,16 @@ symbols:
 🎌	bandera gurutzatuak	none
 🏴	dantzatzen ari den bandera beltza	none
 🏳	dantzatzen ari den bandera zuria	none
-🏳‍⚧	bandera transgeneroa	none
 🏳‍🌈	ortzadarraren bandera	none
+🏳‍⚧	bandera transgeneroa	none
 🏴‍☠	piraten bandera	none
-🛖	etxola	none
-🛗	igogailua	none
-🛻	kamioneta	none
-🛼	gurpil-lerroko irristailu	none
-🤌	hatz elkartuak	none
-🥲	irribarre egiten ari den aurpegia, malko batekin	none
-🥷	ninja	none
-🥸	mozorrotutako aurpegia	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	kastore	none
-🦬	bisonte	none
-🦭	itsas txakur	none
-🧋	te burbuiladun	none
-🩴	hondartzarako sandalia	none
-🪃	bumeran	none
-🪄	makiltxo magiko	none
-🪅	gozo-eltze	none
-🪆	matrioxka	none
-🪖	kasko militarra	none
-🪗	akordeoi	none
-🪘	danbor luze	none
-🪙	txanpon	none
-🪚	zerra	none
-🪛	bihurkin	none
-🪜	esku-eskailera	none
-🪝	amu	none
-🪞	ispilua	none
-🪟	leihoa	none
-🪠	libragailu	none
-🪡	jostorratz	none
-🪢	korapilo	none
-🪣	perrail	none
-🪤	sagu-arte	none
-🪥	hortzetako eskuila	none
-🪦	hilarri	none
-🪧	idazkun	none
-🪨	harria	none
-🪰	euli	none
-🪱	zizare	none
-🪲	kakalardo	none
-🪳	labezomorro	none
-🪴	loreontziko landare	none
-🪵	egurra	none
-🪶	luma	none
-🫀	bihotza organoa	none
-🫁	birikak	none
-🫂	elkar besarkatzen ari den jendea	none
-🫐	ahabiak	none
-🫑	piper	none
-🫒	oliba	none
-🫓	ogi zapal	none
-🫔	tamal	none
-🫕	fondue	none
-🫖	teontzi	none
+₥	milarena	none
+₩	wona	none
+€	euroa	none
+₱	pesoa	none
+₹	errupia indiarra	none
+₽	errubloa	none
+₿	bitcoina	none
 👋🏻	mugitzen ari den eskua 1–2. mota	none
 👋🏼	mugitzen ari den eskua 3. mota	none
 👋🏽	mugitzen ari den eskua bitarteko azal-tonua	none
@@ -1520,6 +1602,11 @@ symbols:
 👌🏽	adostasuna adierazten duen eskua bitarteko azal-tonua	none
 👌🏾	adostasuna adierazten duen eskua 5. mota	none
 👌🏿	adostasuna adierazten duen eskua 6. mota	none
+🤌🏻	hatz elkartuak 1–2. mota	none
+🤌🏼	hatz elkartuak 3. mota	none
+🤌🏽	hatz elkartuak bitarteko azal-tonua	none
+🤌🏾	hatz elkartuak 5. mota	none
+🤌🏿	hatz elkartuak 6. mota	none
 🤏🏻	atximurka egiten ari den eskua 1–2. mota	none
 🤏🏼	atximurka egiten ari den eskua 3. mota	none
 🤏🏽	atximurka egiten ari den eskua bitarteko azal-tonua	none
@@ -1700,40 +1787,80 @@ symbols:
 👧🏽	neska bitarteko azal-tonua	none
 👧🏾	neska 5. mota	none
 👧🏿	neska 6. mota	none
-🧑🏻	heldu 1–2. mota	none
-🧑🏼	heldu 3. mota	none
-🧑🏽	heldu bitarteko azal-tonua	none
-🧑🏾	heldu 5. mota	none
-🧑🏿	heldu 6. mota	none
+🧑🏻	pertsona 1–2. mota	none
+🧑🏼	pertsona 3. mota	none
+🧑🏽	pertsona bitarteko azal-tonua	none
+🧑🏾	pertsona 5. mota	none
+🧑🏿	pertsona 6. mota	none
 👱🏻	pertsona ilehoria 1–2. mota	none
 👱🏼	pertsona ilehoria 3. mota	none
 👱🏽	pertsona ilehoria bitarteko azal-tonua	none
 👱🏾	pertsona ilehoria 5. mota	none
 👱🏿	pertsona ilehoria 6. mota	none
-🧑‍🦰	heldu ilegorri	none
-🧑🏻‍🦰	heldu 1–2. mota eta ilegorri	none
-🧑🏼‍🦰	heldu 3. mota eta ilegorri	none
-🧑🏽‍🦰	heldu bitarteko azal-tonua eta ilegorri	none
-🧑🏾‍🦰	heldu 5. mota eta ilegorri	none
-🧑🏿‍🦰	heldu 6. mota eta ilegorri	none
-🧑‍🦱	heldu ile kizkur	none
-🧑🏻‍🦱	heldu 1–2. mota eta ile kizkur	none
-🧑🏼‍🦱	heldu 3. mota eta ile kizkur	none
-🧑🏽‍🦱	heldu bitarteko azal-tonua eta ile kizkur	none
-🧑🏾‍🦱	heldu 5. mota eta ile kizkur	none
-🧑🏿‍🦱	heldu 6. mota eta ile kizkur	none
-🧑‍🦳	heldu ilezuri	none
-🧑🏻‍🦳	heldu 1–2. mota eta ilezuri	none
-🧑🏼‍🦳	heldu 3. mota eta ilezuri	none
-🧑🏽‍🦳	heldu bitarteko azal-tonua eta ilezuri	none
-🧑🏾‍🦳	heldu 5. mota eta ilezuri	none
-🧑🏿‍🦳	heldu 6. mota eta ilezuri	none
-🧑‍🦲	heldu burusoil	none
-🧑🏻‍🦲	heldu 1–2. mota eta burusoil	none
-🧑🏼‍🦲	heldu 3. mota eta burusoil	none
-🧑🏽‍🦲	heldu bitarteko azal-tonua eta burusoil	none
-🧑🏾‍🦲	heldu 5. mota eta burusoil	none
-🧑🏿‍🦲	heldu 6. mota eta burusoil	none
+🧑🏻‍❤‍💋‍🧑🏼	musu pertsona, pertsona, 1–2. mota eta 3. mota	none
+🧑🏻‍❤‍💋‍🧑🏽	musu pertsona, pertsona, 1–2. mota eta bitarteko azal-tonua	none
+🧑🏻‍❤‍💋‍🧑🏾	musu pertsona, pertsona, 1–2. mota eta 5. mota	none
+🧑🏻‍❤‍💋‍🧑🏿	musu pertsona, pertsona, 1–2. mota eta 6. mota	none
+🧑🏼‍❤‍💋‍🧑🏻	musu pertsona, pertsona, 3. mota eta 1–2. mota	none
+🧑🏼‍❤‍💋‍🧑🏽	musu pertsona, pertsona, 3. mota eta bitarteko azal-tonua	none
+🧑🏼‍❤‍💋‍🧑🏾	musu pertsona, pertsona, 3. mota eta 5. mota	none
+🧑🏼‍❤‍💋‍🧑🏿	musu pertsona, pertsona, 3. mota eta 6. mota	none
+🧑🏽‍❤‍💋‍🧑🏻	musu pertsona, pertsona, bitarteko azal-tonua eta 1–2. mota	none
+🧑🏽‍❤‍💋‍🧑🏼	musu pertsona, pertsona, bitarteko azal-tonua eta 3. mota	none
+🧑🏽‍❤‍💋‍🧑🏾	musu pertsona, pertsona, bitarteko azal-tonua eta 5. mota	none
+🧑🏽‍❤‍💋‍🧑🏿	musu pertsona, pertsona, bitarteko azal-tonua eta 6. mota	none
+🧑🏾‍❤‍💋‍🧑🏻	musu pertsona, pertsona, 5. mota eta 1–2. mota	none
+🧑🏾‍❤‍💋‍🧑🏼	musu pertsona, pertsona, 5. mota eta 3. mota	none
+🧑🏾‍❤‍💋‍🧑🏽	musu pertsona, pertsona, 5. mota eta bitarteko azal-tonua	none
+🧑🏾‍❤‍💋‍🧑🏿	musu pertsona, pertsona, 5. mota eta 6. mota	none
+🧑🏿‍❤‍💋‍🧑🏻	musu pertsona, pertsona, 6. mota eta 1–2. mota	none
+🧑🏿‍❤‍💋‍🧑🏼	musu pertsona, pertsona, 6. mota eta 3. mota	none
+🧑🏿‍❤‍💋‍🧑🏽	musu pertsona, pertsona, 6. mota eta bitarteko azal-tonua	none
+🧑🏿‍❤‍💋‍🧑🏾	musu pertsona, pertsona, 6. mota eta 5. mota	none
+🧑🏻‍❤‍🧑🏼	bihotza erdian duen bikotea pertsona, pertsona, 1–2. mota eta 3. mota	none
+🧑🏻‍❤‍🧑🏽	bihotza erdian duen bikotea pertsona, pertsona, 1–2. mota eta bitarteko azal-tonua	none
+🧑🏻‍❤‍🧑🏾	bihotza erdian duen bikotea pertsona, pertsona, 1–2. mota eta 5. mota	none
+🧑🏻‍❤‍🧑🏿	bihotza erdian duen bikotea pertsona, pertsona, 1–2. mota eta 6. mota	none
+🧑🏼‍❤‍🧑🏻	bihotza erdian duen bikotea pertsona, pertsona, 3. mota eta 1–2. mota	none
+🧑🏼‍❤‍🧑🏽	bihotza erdian duen bikotea pertsona, pertsona, 3. mota eta bitarteko azal-tonua	none
+🧑🏼‍❤‍🧑🏾	bihotza erdian duen bikotea pertsona, pertsona, 3. mota eta 5. mota	none
+🧑🏼‍❤‍🧑🏿	bihotza erdian duen bikotea pertsona, pertsona, 3. mota eta 6. mota	none
+🧑🏽‍❤‍🧑🏻	bihotza erdian duen bikotea pertsona, pertsona, bitarteko azal-tonua eta 1–2. mota	none
+🧑🏽‍❤‍🧑🏼	bihotza erdian duen bikotea pertsona, pertsona, bitarteko azal-tonua eta 3. mota	none
+🧑🏽‍❤‍🧑🏾	bihotza erdian duen bikotea pertsona, pertsona, bitarteko azal-tonua eta 5. mota	none
+🧑🏽‍❤‍🧑🏿	bihotza erdian duen bikotea pertsona, pertsona, bitarteko azal-tonua eta 6. mota	none
+🧑🏾‍❤‍🧑🏻	bihotza erdian duen bikotea pertsona, pertsona, 5. mota eta 1–2. mota	none
+🧑🏾‍❤‍🧑🏼	bihotza erdian duen bikotea pertsona, pertsona, 5. mota eta 3. mota	none
+🧑🏾‍❤‍🧑🏽	bihotza erdian duen bikotea pertsona, pertsona, 5. mota eta bitarteko azal-tonua	none
+🧑🏾‍❤‍🧑🏿	bihotza erdian duen bikotea pertsona, pertsona, 5. mota eta 6. mota	none
+🧑🏿‍❤‍🧑🏻	bihotza erdian duen bikotea pertsona, pertsona, 6. mota eta 1–2. mota	none
+🧑🏿‍❤‍🧑🏼	bihotza erdian duen bikotea pertsona, pertsona, 6. mota eta 3. mota	none
+🧑🏿‍❤‍🧑🏽	bihotza erdian duen bikotea pertsona, pertsona, 6. mota eta bitarteko azal-tonua	none
+🧑🏿‍❤‍🧑🏾	bihotza erdian duen bikotea pertsona, pertsona, 6. mota eta 5. mota	none
+🧑‍🦰	pertsona ilegorri	none
+🧑🏻‍🦰	pertsona 1–2. mota eta ilegorri	none
+🧑🏼‍🦰	pertsona 3. mota eta ilegorri	none
+🧑🏽‍🦰	pertsona bitarteko azal-tonua eta ilegorri	none
+🧑🏾‍🦰	pertsona 5. mota eta ilegorri	none
+🧑🏿‍🦰	pertsona 6. mota eta ilegorri	none
+🧑‍🦱	pertsona ile kizkur	none
+🧑🏻‍🦱	pertsona 1–2. mota eta ile kizkur	none
+🧑🏼‍🦱	pertsona 3. mota eta ile kizkur	none
+🧑🏽‍🦱	pertsona bitarteko azal-tonua eta ile kizkur	none
+🧑🏾‍🦱	pertsona 5. mota eta ile kizkur	none
+🧑🏿‍🦱	pertsona 6. mota eta ile kizkur	none
+🧑‍🦳	pertsona ilezuri	none
+🧑🏻‍🦳	pertsona 1–2. mota eta ilezuri	none
+🧑🏼‍🦳	pertsona 3. mota eta ilezuri	none
+🧑🏽‍🦳	pertsona bitarteko azal-tonua eta ilezuri	none
+🧑🏾‍🦳	pertsona 5. mota eta ilezuri	none
+🧑🏿‍🦳	pertsona 6. mota eta ilezuri	none
+🧑‍🦲	pertsona burusoil	none
+🧑🏻‍🦲	pertsona 1–2. mota eta burusoil	none
+🧑🏼‍🦲	pertsona 3. mota eta burusoil	none
+🧑🏽‍🦲	pertsona bitarteko azal-tonua eta burusoil	none
+🧑🏾‍🦲	pertsona 5. mota eta burusoil	none
+🧑🏿‍🦲	pertsona 6. mota eta burusoil	none
 👨🏻	gizona 1–2. mota	none
 👨🏼	gizona 3. mota	none
 👨🏽	gizona bitarteko azal-tonua	none
@@ -1744,11 +1871,66 @@ symbols:
 🧔🏽	pertsona bizarduna bitarteko azal-tonua	none
 🧔🏾	pertsona bizarduna 5. mota	none
 🧔🏿	pertsona bizarduna 6. mota	none
+🧔🏻‍♂	gizona 1–2. mota eta bizarra	none
+🧔🏼‍♂	gizona 3. mota eta bizarra	none
+🧔🏽‍♂	gizona bitarteko azal-tonua eta bizarra	none
+🧔🏾‍♂	gizona 5. mota eta bizarra	none
+🧔🏿‍♂	gizona 6. mota eta bizarra	none
 👱🏻‍♂	gizon ilehoria 1–2. mota	none
 👱🏼‍♂	gizon ilehoria 3. mota	none
 👱🏽‍♂	gizon ilehoria bitarteko azal-tonua	none
 👱🏾‍♂	gizon ilehoria 5. mota	none
 👱🏿‍♂	gizon ilehoria 6. mota	none
+👨🏻‍❤‍💋‍👨🏻	musu gizona, gizona eta 1–2. mota	none
+👨🏻‍❤‍💋‍👨🏼	musu gizona, gizona, 1–2. mota eta 3. mota	none
+👨🏻‍❤‍💋‍👨🏽	musu gizona, gizona, 1–2. mota eta bitarteko azal-tonua	none
+👨🏻‍❤‍💋‍👨🏾	musu gizona, gizona, 1–2. mota eta 5. mota	none
+👨🏻‍❤‍💋‍👨🏿	musu gizona, gizona, 1–2. mota eta 6. mota	none
+👨🏼‍❤‍💋‍👨🏻	musu gizona, gizona, 3. mota eta 1–2. mota	none
+👨🏼‍❤‍💋‍👨🏼	musu gizona, gizona eta 3. mota	none
+👨🏼‍❤‍💋‍👨🏽	musu gizona, gizona, 3. mota eta bitarteko azal-tonua	none
+👨🏼‍❤‍💋‍👨🏾	musu gizona, gizona, 3. mota eta 5. mota	none
+👨🏼‍❤‍💋‍👨🏿	musu gizona, gizona, 3. mota eta 6. mota	none
+👨🏽‍❤‍💋‍👨🏻	musu gizona, gizona, bitarteko azal-tonua eta 1–2. mota	none
+👨🏽‍❤‍💋‍👨🏼	musu gizona, gizona, bitarteko azal-tonua eta 3. mota	none
+👨🏽‍❤‍💋‍👨🏽	musu gizona, gizona eta bitarteko azal-tonua	none
+👨🏽‍❤‍💋‍👨🏾	musu gizona, gizona, bitarteko azal-tonua eta 5. mota	none
+👨🏽‍❤‍💋‍👨🏿	musu gizona, gizona, bitarteko azal-tonua eta 6. mota	none
+👨🏾‍❤‍💋‍👨🏻	musu gizona, gizona, 5. mota eta 1–2. mota	none
+👨🏾‍❤‍💋‍👨🏼	musu gizona, gizona, 5. mota eta 3. mota	none
+👨🏾‍❤‍💋‍👨🏽	musu gizona, gizona, 5. mota eta bitarteko azal-tonua	none
+👨🏾‍❤‍💋‍👨🏾	musu gizona, gizona eta 5. mota	none
+👨🏾‍❤‍💋‍👨🏿	musu gizona, gizona, 5. mota eta 6. mota	none
+👨🏿‍❤‍💋‍👨🏻	musu gizona, gizona, 6. mota eta 1–2. mota	none
+👨🏿‍❤‍💋‍👨🏼	musu gizona, gizona, 6. mota eta 3. mota	none
+👨🏿‍❤‍💋‍👨🏽	musu gizona, gizona, 6. mota eta bitarteko azal-tonua	none
+👨🏿‍❤‍💋‍👨🏾	musu gizona, gizona, 6. mota eta 5. mota	none
+👨🏿‍❤‍💋‍👨🏿	musu gizona, gizona eta 6. mota	none
+👨🏻‍❤‍👨🏻	bihotza erdian duen bikotea gizona, gizona eta 1–2. mota	none
+👨🏻‍❤‍👨🏼	bihotza erdian duen bikotea gizona, gizona, 1–2. mota eta 3. mota	none
+👨🏻‍❤‍👨🏽	bihotza erdian duen bikotea gizona, gizona, 1–2. mota eta bitarteko azal-tonua	none
+👨🏻‍❤‍👨🏾	bihotza erdian duen bikotea gizona, gizona, 1–2. mota eta 5. mota	none
+👨🏻‍❤‍👨🏿	bihotza erdian duen bikotea gizona, gizona, 1–2. mota eta 6. mota	none
+👨🏼‍❤‍👨🏻	bihotza erdian duen bikotea gizona, gizona, 3. mota eta 1–2. mota	none
+👨🏼‍❤‍👨🏼	bihotza erdian duen bikotea gizona, gizona eta 3. mota	none
+👨🏼‍❤‍👨🏽	bihotza erdian duen bikotea gizona, gizona, 3. mota eta bitarteko azal-tonua	none
+👨🏼‍❤‍👨🏾	bihotza erdian duen bikotea gizona, gizona, 3. mota eta 5. mota	none
+👨🏼‍❤‍👨🏿	bihotza erdian duen bikotea gizona, gizona, 3. mota eta 6. mota	none
+👨🏽‍❤‍👨🏻	bihotza erdian duen bikotea gizona, gizona, bitarteko azal-tonua eta 1–2. mota	none
+👨🏽‍❤‍👨🏼	bihotza erdian duen bikotea gizona, gizona, bitarteko azal-tonua eta 3. mota	none
+👨🏽‍❤‍👨🏽	bihotza erdian duen bikotea gizona, gizona eta bitarteko azal-tonua	none
+👨🏽‍❤‍👨🏾	bihotza erdian duen bikotea gizona, gizona, bitarteko azal-tonua eta 5. mota	none
+👨🏽‍❤‍👨🏿	bihotza erdian duen bikotea gizona, gizona, bitarteko azal-tonua eta 6. mota	none
+👨🏾‍❤‍👨🏻	bihotza erdian duen bikotea gizona, gizona, 5. mota eta 1–2. mota	none
+👨🏾‍❤‍👨🏼	bihotza erdian duen bikotea gizona, gizona, 5. mota eta 3. mota	none
+👨🏾‍❤‍👨🏽	bihotza erdian duen bikotea gizona, gizona, 5. mota eta bitarteko azal-tonua	none
+👨🏾‍❤‍👨🏾	bihotza erdian duen bikotea gizona, gizona eta 5. mota	none
+👨🏾‍❤‍👨🏿	bihotza erdian duen bikotea gizona, gizona, 5. mota eta 6. mota	none
+👨🏿‍❤‍👨🏻	bihotza erdian duen bikotea gizona, gizona, 6. mota eta 1–2. mota	none
+👨🏿‍❤‍👨🏼	bihotza erdian duen bikotea gizona, gizona, 6. mota eta 3. mota	none
+👨🏿‍❤‍👨🏽	bihotza erdian duen bikotea gizona, gizona, 6. mota eta bitarteko azal-tonua	none
+👨🏿‍❤‍👨🏾	bihotza erdian duen bikotea gizona, gizona, 6. mota eta 5. mota	none
+👨🏿‍❤‍👨🏿	bihotza erdian duen bikotea gizona, gizona eta 6. mota	none
 👨‍🦰	gizona ilegorri	none
 👨🏻‍🦰	gizona 1–2. mota eta ilegorri	none
 👨🏼‍🦰	gizona 3. mota eta ilegorri	none
@@ -1778,11 +1960,116 @@ symbols:
 👩🏽	emakumea bitarteko azal-tonua	none
 👩🏾	emakumea 5. mota	none
 👩🏿	emakumea 6. mota	none
+🧔🏻‍♀	emakumea 1–2. mota eta bizarra	none
+🧔🏼‍♀	emakumea 3. mota eta bizarra	none
+🧔🏽‍♀	emakumea bitarteko azal-tonua eta bizarra	none
+🧔🏾‍♀	emakumea 5. mota eta bizarra	none
+🧔🏿‍♀	emakumea 6. mota eta bizarra	none
 👱🏻‍♀	emakume ilehoria 1–2. mota	none
 👱🏼‍♀	emakume ilehoria 3. mota	none
 👱🏽‍♀	emakume ilehoria bitarteko azal-tonua	none
 👱🏾‍♀	emakume ilehoria 5. mota	none
 👱🏿‍♀	emakume ilehoria 6. mota	none
+👩🏻‍❤‍💋‍👨🏻	musu emakumea, gizona eta 1–2. mota	none
+👩🏻‍❤‍💋‍👨🏼	musu emakumea, gizona, 1–2. mota eta 3. mota	none
+👩🏻‍❤‍💋‍👨🏽	musu emakumea, gizona, 1–2. mota eta bitarteko azal-tonua	none
+👩🏻‍❤‍💋‍👨🏾	musu emakumea, gizona, 1–2. mota eta 5. mota	none
+👩🏻‍❤‍💋‍👨🏿	musu emakumea, gizona, 1–2. mota eta 6. mota	none
+👩🏼‍❤‍💋‍👨🏻	musu emakumea, gizona, 3. mota eta 1–2. mota	none
+👩🏼‍❤‍💋‍👨🏼	musu emakumea, gizona eta 3. mota	none
+👩🏼‍❤‍💋‍👨🏽	musu emakumea, gizona, 3. mota eta bitarteko azal-tonua	none
+👩🏼‍❤‍💋‍👨🏾	musu emakumea, gizona, 3. mota eta 5. mota	none
+👩🏼‍❤‍💋‍👨🏿	musu emakumea, gizona, 3. mota eta 6. mota	none
+👩🏽‍❤‍💋‍👨🏻	musu emakumea, gizona, bitarteko azal-tonua eta 1–2. mota	none
+👩🏽‍❤‍💋‍👨🏼	musu emakumea, gizona, bitarteko azal-tonua eta 3. mota	none
+👩🏽‍❤‍💋‍👨🏽	musu emakumea, gizona eta bitarteko azal-tonua	none
+👩🏽‍❤‍💋‍👨🏾	musu emakumea, gizona, bitarteko azal-tonua eta 5. mota	none
+👩🏽‍❤‍💋‍👨🏿	musu emakumea, gizona, bitarteko azal-tonua eta 6. mota	none
+👩🏾‍❤‍💋‍👨🏻	musu emakumea, gizona, 5. mota eta 1–2. mota	none
+👩🏾‍❤‍💋‍👨🏼	musu emakumea, gizona, 5. mota eta 3. mota	none
+👩🏾‍❤‍💋‍👨🏽	musu emakumea, gizona, 5. mota eta bitarteko azal-tonua	none
+👩🏾‍❤‍💋‍👨🏾	musu emakumea, gizona eta 5. mota	none
+👩🏾‍❤‍💋‍👨🏿	musu emakumea, gizona, 5. mota eta 6. mota	none
+👩🏿‍❤‍💋‍👨🏻	musu emakumea, gizona, 6. mota eta 1–2. mota	none
+👩🏿‍❤‍💋‍👨🏼	musu emakumea, gizona, 6. mota eta 3. mota	none
+👩🏿‍❤‍💋‍👨🏽	musu emakumea, gizona, 6. mota eta bitarteko azal-tonua	none
+👩🏿‍❤‍💋‍👨🏾	musu emakumea, gizona, 6. mota eta 5. mota	none
+👩🏿‍❤‍💋‍👨🏿	musu emakumea, gizona eta 6. mota	none
+👩🏻‍❤‍💋‍👩🏻	musu emakumea, emakumea eta 1–2. mota	none
+👩🏻‍❤‍💋‍👩🏼	musu emakumea, emakumea, 1–2. mota eta 3. mota	none
+👩🏻‍❤‍💋‍👩🏽	musu emakumea, emakumea, 1–2. mota eta bitarteko azal-tonua	none
+👩🏻‍❤‍💋‍👩🏾	musu emakumea, emakumea, 1–2. mota eta 5. mota	none
+👩🏻‍❤‍💋‍👩🏿	musu emakumea, emakumea, 1–2. mota eta 6. mota	none
+👩🏼‍❤‍💋‍👩🏻	musu emakumea, emakumea, 3. mota eta 1–2. mota	none
+👩🏼‍❤‍💋‍👩🏼	musu emakumea, emakumea eta 3. mota	none
+👩🏼‍❤‍💋‍👩🏽	musu emakumea, emakumea, 3. mota eta bitarteko azal-tonua	none
+👩🏼‍❤‍💋‍👩🏾	musu emakumea, emakumea, 3. mota eta 5. mota	none
+👩🏼‍❤‍💋‍👩🏿	musu emakumea, emakumea, 3. mota eta 6. mota	none
+👩🏽‍❤‍💋‍👩🏻	musu emakumea, emakumea, bitarteko azal-tonua eta 1–2. mota	none
+👩🏽‍❤‍💋‍👩🏼	musu emakumea, emakumea, bitarteko azal-tonua eta 3. mota	none
+👩🏽‍❤‍💋‍👩🏽	musu emakumea, emakumea eta bitarteko azal-tonua	none
+👩🏽‍❤‍💋‍👩🏾	musu emakumea, emakumea, bitarteko azal-tonua eta 5. mota	none
+👩🏽‍❤‍💋‍👩🏿	musu emakumea, emakumea, bitarteko azal-tonua eta 6. mota	none
+👩🏾‍❤‍💋‍👩🏻	musu emakumea, emakumea, 5. mota eta 1–2. mota	none
+👩🏾‍❤‍💋‍👩🏼	musu emakumea, emakumea, 5. mota eta 3. mota	none
+👩🏾‍❤‍💋‍👩🏽	musu emakumea, emakumea, 5. mota eta bitarteko azal-tonua	none
+👩🏾‍❤‍💋‍👩🏾	musu emakumea, emakumea eta 5. mota	none
+👩🏾‍❤‍💋‍👩🏿	musu emakumea, emakumea, 5. mota eta 6. mota	none
+👩🏿‍❤‍💋‍👩🏻	musu emakumea, emakumea, 6. mota eta 1–2. mota	none
+👩🏿‍❤‍💋‍👩🏼	musu emakumea, emakumea, 6. mota eta 3. mota	none
+👩🏿‍❤‍💋‍👩🏽	musu emakumea, emakumea, 6. mota eta bitarteko azal-tonua	none
+👩🏿‍❤‍💋‍👩🏾	musu emakumea, emakumea, 6. mota eta 5. mota	none
+👩🏿‍❤‍💋‍👩🏿	musu emakumea, emakumea eta 6. mota	none
+👩🏻‍❤‍👨🏻	bihotza erdian duen bikotea emakumea, gizona eta 1–2. mota	none
+👩🏻‍❤‍👨🏼	bihotza erdian duen bikotea emakumea, gizona, 1–2. mota eta 3. mota	none
+👩🏻‍❤‍👨🏽	bihotza erdian duen bikotea emakumea, gizona, 1–2. mota eta bitarteko azal-tonua	none
+👩🏻‍❤‍👨🏾	bihotza erdian duen bikotea emakumea, gizona, 1–2. mota eta 5. mota	none
+👩🏻‍❤‍👨🏿	bihotza erdian duen bikotea emakumea, gizona, 1–2. mota eta 6. mota	none
+👩🏼‍❤‍👨🏻	bihotza erdian duen bikotea emakumea, gizona, 3. mota eta 1–2. mota	none
+👩🏼‍❤‍👨🏼	bihotza erdian duen bikotea emakumea, gizona eta 3. mota	none
+👩🏼‍❤‍👨🏽	bihotza erdian duen bikotea emakumea, gizona, 3. mota eta bitarteko azal-tonua	none
+👩🏼‍❤‍👨🏾	bihotza erdian duen bikotea emakumea, gizona, 3. mota eta 5. mota	none
+👩🏼‍❤‍👨🏿	bihotza erdian duen bikotea emakumea, gizona, 3. mota eta 6. mota	none
+👩🏽‍❤‍👨🏻	bihotza erdian duen bikotea emakumea, gizona, bitarteko azal-tonua eta 1–2. mota	none
+👩🏽‍❤‍👨🏼	bihotza erdian duen bikotea emakumea, gizona, bitarteko azal-tonua eta 3. mota	none
+👩🏽‍❤‍👨🏽	bihotza erdian duen bikotea emakumea, gizona eta bitarteko azal-tonua	none
+👩🏽‍❤‍👨🏾	bihotza erdian duen bikotea emakumea, gizona, bitarteko azal-tonua eta 5. mota	none
+👩🏽‍❤‍👨🏿	bihotza erdian duen bikotea emakumea, gizona, bitarteko azal-tonua eta 6. mota	none
+👩🏾‍❤‍👨🏻	bihotza erdian duen bikotea emakumea, gizona, 5. mota eta 1–2. mota	none
+👩🏾‍❤‍👨🏼	bihotza erdian duen bikotea emakumea, gizona, 5. mota eta 3. mota	none
+👩🏾‍❤‍👨🏽	bihotza erdian duen bikotea emakumea, gizona, 5. mota eta bitarteko azal-tonua	none
+👩🏾‍❤‍👨🏾	bihotza erdian duen bikotea emakumea, gizona eta 5. mota	none
+👩🏾‍❤‍👨🏿	bihotza erdian duen bikotea emakumea, gizona, 5. mota eta 6. mota	none
+👩🏿‍❤‍👨🏻	bihotza erdian duen bikotea emakumea, gizona, 6. mota eta 1–2. mota	none
+👩🏿‍❤‍👨🏼	bihotza erdian duen bikotea emakumea, gizona, 6. mota eta 3. mota	none
+👩🏿‍❤‍👨🏽	bihotza erdian duen bikotea emakumea, gizona, 6. mota eta bitarteko azal-tonua	none
+👩🏿‍❤‍👨🏾	bihotza erdian duen bikotea emakumea, gizona, 6. mota eta 5. mota	none
+👩🏿‍❤‍👨🏿	bihotza erdian duen bikotea emakumea, gizona eta 6. mota	none
+👩🏻‍❤‍👩🏻	bihotza erdian duen bikotea emakumea, emakumea eta 1–2. mota	none
+👩🏻‍❤‍👩🏼	bihotza erdian duen bikotea emakumea, emakumea, 1–2. mota eta 3. mota	none
+👩🏻‍❤‍👩🏽	bihotza erdian duen bikotea emakumea, emakumea, 1–2. mota eta bitarteko azal-tonua	none
+👩🏻‍❤‍👩🏾	bihotza erdian duen bikotea emakumea, emakumea, 1–2. mota eta 5. mota	none
+👩🏻‍❤‍👩🏿	bihotza erdian duen bikotea emakumea, emakumea, 1–2. mota eta 6. mota	none
+👩🏼‍❤‍👩🏻	bihotza erdian duen bikotea emakumea, emakumea, 3. mota eta 1–2. mota	none
+👩🏼‍❤‍👩🏼	bihotza erdian duen bikotea emakumea, emakumea eta 3. mota	none
+👩🏼‍❤‍👩🏽	bihotza erdian duen bikotea emakumea, emakumea, 3. mota eta bitarteko azal-tonua	none
+👩🏼‍❤‍👩🏾	bihotza erdian duen bikotea emakumea, emakumea, 3. mota eta 5. mota	none
+👩🏼‍❤‍👩🏿	bihotza erdian duen bikotea emakumea, emakumea, 3. mota eta 6. mota	none
+👩🏽‍❤‍👩🏻	bihotza erdian duen bikotea emakumea, emakumea, bitarteko azal-tonua eta 1–2. mota	none
+👩🏽‍❤‍👩🏼	bihotza erdian duen bikotea emakumea, emakumea, bitarteko azal-tonua eta 3. mota	none
+👩🏽‍❤‍👩🏽	bihotza erdian duen bikotea emakumea, emakumea eta bitarteko azal-tonua	none
+👩🏽‍❤‍👩🏾	bihotza erdian duen bikotea emakumea, emakumea, bitarteko azal-tonua eta 5. mota	none
+👩🏽‍❤‍👩🏿	bihotza erdian duen bikotea emakumea, emakumea, bitarteko azal-tonua eta 6. mota	none
+👩🏾‍❤‍👩🏻	bihotza erdian duen bikotea emakumea, emakumea, 5. mota eta 1–2. mota	none
+👩🏾‍❤‍👩🏼	bihotza erdian duen bikotea emakumea, emakumea, 5. mota eta 3. mota	none
+👩🏾‍❤‍👩🏽	bihotza erdian duen bikotea emakumea, emakumea, 5. mota eta bitarteko azal-tonua	none
+👩🏾‍❤‍👩🏾	bihotza erdian duen bikotea emakumea, emakumea eta 5. mota	none
+👩🏾‍❤‍👩🏿	bihotza erdian duen bikotea emakumea, emakumea, 5. mota eta 6. mota	none
+👩🏿‍❤‍👩🏻	bihotza erdian duen bikotea emakumea, emakumea, 6. mota eta 1–2. mota	none
+👩🏿‍❤‍👩🏼	bihotza erdian duen bikotea emakumea, emakumea, 6. mota eta 3. mota	none
+👩🏿‍❤‍👩🏽	bihotza erdian duen bikotea emakumea, emakumea, 6. mota eta bitarteko azal-tonua	none
+👩🏿‍❤‍👩🏾	bihotza erdian duen bikotea emakumea, emakumea, 6. mota eta 5. mota	none
+👩🏿‍❤‍👩🏿	bihotza erdian duen bikotea emakumea, emakumea eta 6. mota	none
 👩‍🦰	emakumea ilegorri	none
 👩🏻‍🦰	emakumea 1–2. mota eta ilegorri	none
 👩🏼‍🦰	emakumea 3. mota eta ilegorri	none
@@ -1862,11 +2149,11 @@ symbols:
 🙅🏽‍♂	ados ez dagoela adierazten ari den gizona bitarteko azal-tonua	none
 🙅🏾‍♂	ados ez dagoela adierazten ari den gizona 5. mota	none
 🙅🏿‍♂	ados ez dagoela adierazten ari den gizona 6. mota	none
-🙅🏻‍♀	ados ez dagoela adierazten ari den emakumea 1–2. mota	none
-🙅🏼‍♀	ados ez dagoela adierazten ari den emakumea 3. mota	none
-🙅🏽‍♀	ados ez dagoela adierazten ari den emakumea bitarteko azal-tonua	none
-🙅🏾‍♀	ados ez dagoela adierazten ari den emakumea 5. mota	none
-🙅🏿‍♀	ados ez dagoela adierazten ari den emakumea 6. mota	none
+🙅🏻‍♀	ezezko keinua egiten ari den emakumea 1–2. mota	none
+🙅🏼‍♀	ezezko keinua egiten ari den emakumea 3. mota	none
+🙅🏽‍♀	ezezko keinua egiten ari den emakumea bitarteko azal-tonua	none
+🙅🏾‍♀	ezezko keinua egiten ari den emakumea 5. mota	none
+🙅🏿‍♀	ezezko keinua egiten ari den emakumea 6. mota	none
 🙆🏻	ados dagoela adierazten ari den pertsona 1–2. mota	none
 🙆🏼	ados dagoela adierazten ari den pertsona 3. mota	none
 🙆🏽	ados dagoela adierazten ari den pertsona bitarteko azal-tonua	none
@@ -2257,6 +2544,11 @@ symbols:
 💂🏽‍♀	emakume zaindaria bitarteko azal-tonua	none
 💂🏾‍♀	emakume zaindaria 5. mota	none
 💂🏿‍♀	emakume zaindaria 6. mota	none
+🥷🏻	ninja 1–2. mota	none
+🥷🏼	ninja 3. mota	none
+🥷🏽	ninja bitarteko azal-tonua	none
+🥷🏾	ninja 5. mota	none
+🥷🏿	ninja 6. mota	none
 👷🏻	eskulangilea 1–2. mota	none
 👷🏼	eskulangilea 3. mota	none
 👷🏽	eskulangilea bitarteko azal-tonua	none
@@ -2297,26 +2589,46 @@ symbols:
 👳🏽‍♀	turbantea duen emakumea bitarteko azal-tonua	none
 👳🏾‍♀	turbantea duen emakumea 5. mota	none
 👳🏿‍♀	turbantea duen emakumea 6. mota	none
-👲🏻	txano txinatarra daraman gizona 1–2. mota	none
-👲🏼	txano txinatarra daraman gizona 3. mota	none
-👲🏽	txano txinatarra daraman gizona bitarteko azal-tonua	none
-👲🏾	txano txinatarra daraman gizona 5. mota	none
-👲🏿	txano txinatarra daraman gizona 6. mota	none
+👲🏻	txano txinatarra daraman pertsona 1–2. mota	none
+👲🏼	txano txinatarra daraman pertsona 3. mota	none
+👲🏽	txano txinatarra daraman pertsona bitarteko azal-tonua	none
+👲🏾	txano txinatarra daraman pertsona 5. mota	none
+👲🏿	txano txinatarra daraman pertsona 6. mota	none
 🧕🏻	buruan zapi bat daraman emakumea 1–2. mota	none
 🧕🏼	buruan zapi bat daraman emakumea 3. mota	none
 🧕🏽	buruan zapi bat daraman emakumea bitarteko azal-tonua	none
 🧕🏾	buruan zapi bat daraman emakumea 5. mota	none
 🧕🏿	buruan zapi bat daraman emakumea 6. mota	none
-🤵🏻	gizona esmokinean 1–2. mota	none
-🤵🏼	gizona esmokinean 3. mota	none
-🤵🏽	gizona esmokinean bitarteko azal-tonua	none
-🤵🏾	gizona esmokinean 5. mota	none
-🤵🏿	gizona esmokinean 6. mota	none
-👰🏻	beloa daraman emaztegaia 1–2. mota	none
-👰🏼	beloa daraman emaztegaia 3. mota	none
-👰🏽	beloa daraman emaztegaia bitarteko azal-tonua	none
-👰🏾	beloa daraman emaztegaia 5. mota	none
-👰🏿	beloa daraman emaztegaia 6. mota	none
+🤵🏻	pertsona esmokinean 1–2. mota	none
+🤵🏼	pertsona esmokinean 3. mota	none
+🤵🏽	pertsona esmokinean bitarteko azal-tonua	none
+🤵🏾	pertsona esmokinean 5. mota	none
+🤵🏿	pertsona esmokinean 6. mota	none
+🤵🏻‍♂	gizona esmokinean 1–2. mota	none
+🤵🏼‍♂	gizona esmokinean 3. mota	none
+🤵🏽‍♂	gizona esmokinean bitarteko azal-tonua	none
+🤵🏾‍♂	gizona esmokinean 5. mota	none
+🤵🏿‍♂	gizona esmokinean 6. mota	none
+🤵🏻‍♀	emakumea esmokinean 1–2. mota	none
+🤵🏼‍♀	emakumea esmokinean 3. mota	none
+🤵🏽‍♀	emakumea esmokinean bitarteko azal-tonua	none
+🤵🏾‍♀	emakumea esmokinean 5. mota	none
+🤵🏿‍♀	emakumea esmokinean 6. mota	none
+👰🏻	beloa daraman pertsona 1–2. mota	none
+👰🏼	beloa daraman pertsona 3. mota	none
+👰🏽	beloa daraman pertsona bitarteko azal-tonua	none
+👰🏾	beloa daraman pertsona 5. mota	none
+👰🏿	beloa daraman pertsona 6. mota	none
+👰🏻‍♂	beloa daraman gizona 1–2. mota	none
+👰🏼‍♂	beloa daraman gizona 3. mota	none
+👰🏽‍♂	beloa daraman gizona bitarteko azal-tonua	none
+👰🏾‍♂	beloa daraman gizona 5. mota	none
+👰🏿‍♂	beloa daraman gizona 6. mota	none
+👰🏻‍♀	beloa daraman emakumea 1–2. mota	none
+👰🏼‍♀	beloa daraman emakumea 3. mota	none
+👰🏽‍♀	beloa daraman emakumea bitarteko azal-tonua	none
+👰🏾‍♀	beloa daraman emakumea 5. mota	none
+👰🏿‍♀	beloa daraman emakumea 6. mota	none
 🤰🏻	emakumea haurdun 1–2. mota	none
 🤰🏼	emakumea haurdun 3. mota	none
 🤰🏽	emakumea haurdun bitarteko azal-tonua	none
@@ -2327,6 +2639,21 @@ symbols:
 🤱🏽	bularra ematea bitarteko azal-tonua	none
 🤱🏾	bularra ematea 5. mota	none
 🤱🏿	bularra ematea 6. mota	none
+👩🏻‍🍼	emakumea bularra ematen 1–2. mota	none
+👩🏼‍🍼	emakumea bularra ematen 3. mota	none
+👩🏽‍🍼	emakumea bularra ematen bitarteko azal-tonua	none
+👩🏾‍🍼	emakumea bularra ematen 5. mota	none
+👩🏿‍🍼	emakumea bularra ematen 6. mota	none
+👨🏻‍🍼	gizona haurrari janaria ematen 1–2. mota	none
+👨🏼‍🍼	gizona haurrari janaria ematen 3. mota	none
+👨🏽‍🍼	gizona haurrari janaria ematen bitarteko azal-tonua	none
+👨🏾‍🍼	gizona haurrari janaria ematen 5. mota	none
+👨🏿‍🍼	gizona haurrari janaria ematen 6. mota	none
+🧑🏻‍🍼	haurra elikatzen 1–2. mota	none
+🧑🏼‍🍼	haurra elikatzen 3. mota	none
+🧑🏽‍🍼	haurra elikatzen bitarteko azal-tonua	none
+🧑🏾‍🍼	haurra elikatzen 5. mota	none
+🧑🏿‍🍼	haurra elikatzen 6. mota	none
 👼🏻	aingeru-itxura duen haurtxoa 1–2. mota	none
 👼🏼	aingeru-itxura duen haurtxoa 3. mota	none
 👼🏽	aingeru-itxura duen haurtxoa bitarteko azal-tonua	none
@@ -2342,6 +2669,11 @@ symbols:
 🤶🏽	gabonetako ama bitarteko azal-tonua	none
 🤶🏾	gabonetako ama 5. mota	none
 🤶🏿	gabonetako ama 6. mota	none
+🧑🏻‍🎄	bizarzuri 1–2. mota	none
+🧑🏼‍🎄	bizarzuri 3. mota	none
+🧑🏽‍🎄	bizarzuri bitarteko azal-tonua	none
+🧑🏾‍🎄	bizarzuri 5. mota	none
+🧑🏿‍🎄	bizarzuri 6. mota	none
 🦸🏻	superheroi 1–2. mota	none
 🦸🏼	superheroi 3. mota	none
 🦸🏽	superheroi bitarteko azal-tonua	none
@@ -2843,30 +3175,50 @@ symbols:
 🛌🏾	pertsona bat ohean 5. mota	none
 🛌🏿	pertsona bat ohean 6. mota	none
 🧑🏻‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 1–2. mota	none
+🧑🏻‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 1–2. mota eta 3. mota	none
+🧑🏻‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen 1–2. mota eta bitarteko azal-tonua	none
+🧑🏻‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen 1–2. mota eta 5. mota	none
+🧑🏻‍🤝‍🧑🏿	bi pertsona elkarri eskua ematen 1–2. mota eta 6. mota	none
 🧑🏼‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 3. mota eta 1–2. mota	none
 🧑🏼‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 3. mota	none
+🧑🏼‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen 3. mota eta bitarteko azal-tonua	none
+🧑🏼‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen 3. mota eta 5. mota	none
+🧑🏼‍🤝‍🧑🏿	bi pertsona elkarri eskua ematen 3. mota eta 6. mota	none
 🧑🏽‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
 🧑🏽‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
 🧑🏽‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen bitarteko azal-tonua	none
+🧑🏽‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen bitarteko azal-tonua eta 5. mota	none
+🧑🏽‍🤝‍🧑🏿	bi pertsona elkarri eskua ematen bitarteko azal-tonua eta 6. mota	none
 🧑🏾‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 5. mota eta 1–2. mota	none
 🧑🏾‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 5. mota eta 3. mota	none
 🧑🏾‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
 🧑🏾‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen 5. mota	none
+🧑🏾‍🤝‍🧑🏿	bi pertsona elkarri eskua ematen 5. mota eta 6. mota	none
 🧑🏿‍🤝‍🧑🏻	bi pertsona elkarri eskua ematen 6. mota eta 1–2. mota	none
 🧑🏿‍🤝‍🧑🏼	bi pertsona elkarri eskua ematen 6. mota eta 3. mota	none
 🧑🏿‍🤝‍🧑🏽	bi pertsona elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
 🧑🏿‍🤝‍🧑🏾	bi pertsona elkarri eskua ematen 6. mota eta 5. mota	none
 🧑🏿‍🤝‍🧑🏿	bi pertsona elkarri eskua ematen 6. mota	none
 👭🏻	bi emakume elkarri eskua ematen 1–2. mota	none
+👩🏻‍🤝‍👩🏼	bi emakume elkarri eskua ematen 1–2. mota eta 3. mota	none
+👩🏻‍🤝‍👩🏽	bi emakume elkarri eskua ematen 1–2. mota eta bitarteko azal-tonua	none
+👩🏻‍🤝‍👩🏾	bi emakume elkarri eskua ematen 1–2. mota eta 5. mota	none
+👩🏻‍🤝‍👩🏿	bi emakume elkarri eskua ematen 1–2. mota eta 6. mota	none
 👩🏼‍🤝‍👩🏻	bi emakume elkarri eskua ematen 3. mota eta 1–2. mota	none
 👭🏼	bi emakume elkarri eskua ematen 3. mota	none
+👩🏼‍🤝‍👩🏽	bi emakume elkarri eskua ematen 3. mota eta bitarteko azal-tonua	none
+👩🏼‍🤝‍👩🏾	bi emakume elkarri eskua ematen 3. mota eta 5. mota	none
+👩🏼‍🤝‍👩🏿	bi emakume elkarri eskua ematen 3. mota eta 6. mota	none
 👩🏽‍🤝‍👩🏻	bi emakume elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
 👩🏽‍🤝‍👩🏼	bi emakume elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
 👭🏽	bi emakume elkarri eskua ematen bitarteko azal-tonua	none
+👩🏽‍🤝‍👩🏾	bi emakume elkarri eskua ematen bitarteko azal-tonua eta 5. mota	none
+👩🏽‍🤝‍👩🏿	bi emakume elkarri eskua ematen bitarteko azal-tonua eta 6. mota	none
 👩🏾‍🤝‍👩🏻	bi emakume elkarri eskua ematen 5. mota eta 1–2. mota	none
 👩🏾‍🤝‍👩🏼	bi emakume elkarri eskua ematen 5. mota eta 3. mota	none
 👩🏾‍🤝‍👩🏽	bi emakume elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
 👭🏾	bi emakume elkarri eskua ematen 5. mota	none
+👩🏾‍🤝‍👩🏿	bi emakume elkarri eskua ematen 5. mota eta 6. mota	none
 👩🏿‍🤝‍👩🏻	bi emakume elkarri eskua ematen 6. mota eta 1–2. mota	none
 👩🏿‍🤝‍👩🏼	bi emakume elkarri eskua ematen 6. mota eta 3. mota	none
 👩🏿‍🤝‍👩🏽	bi emakume elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
@@ -2898,23 +3250,43 @@ symbols:
 👩🏿‍🤝‍👨🏾	gizon-emakumeak elkarri eskua ematen 6. mota eta 5. mota	none
 👫🏿	gizon-emakumeak elkarri eskua ematen 6. mota	none
 👬🏻	bi gizon elkarri eskua ematen 1–2. mota	none
+👨🏻‍🤝‍👨🏼	bi gizon elkarri eskua ematen 1–2. mota eta 3. mota	none
+👨🏻‍🤝‍👨🏽	bi gizon elkarri eskua ematen 1–2. mota eta bitarteko azal-tonua	none
+👨🏻‍🤝‍👨🏾	bi gizon elkarri eskua ematen 1–2. mota eta 5. mota	none
+👨🏻‍🤝‍👨🏿	bi gizon elkarri eskua ematen 1–2. mota eta 6. mota	none
 👨🏼‍🤝‍👨🏻	bi gizon elkarri eskua ematen 3. mota eta 1–2. mota	none
 👬🏼	bi gizon elkarri eskua ematen 3. mota	none
+👨🏼‍🤝‍👨🏽	bi gizon elkarri eskua ematen 3. mota eta bitarteko azal-tonua	none
+👨🏼‍🤝‍👨🏾	bi gizon elkarri eskua ematen 3. mota eta 5. mota	none
+👨🏼‍🤝‍👨🏿	bi gizon elkarri eskua ematen 3. mota eta 6. mota	none
 👨🏽‍🤝‍👨🏻	bi gizon elkarri eskua ematen bitarteko azal-tonua eta 1–2. mota	none
 👨🏽‍🤝‍👨🏼	bi gizon elkarri eskua ematen bitarteko azal-tonua eta 3. mota	none
 👬🏽	bi gizon elkarri eskua ematen bitarteko azal-tonua	none
+👨🏽‍🤝‍👨🏾	bi gizon elkarri eskua ematen bitarteko azal-tonua eta 5. mota	none
+👨🏽‍🤝‍👨🏿	bi gizon elkarri eskua ematen bitarteko azal-tonua eta 6. mota	none
 👨🏾‍🤝‍👨🏻	bi gizon elkarri eskua ematen 5. mota eta 1–2. mota	none
 👨🏾‍🤝‍👨🏼	bi gizon elkarri eskua ematen 5. mota eta 3. mota	none
 👨🏾‍🤝‍👨🏽	bi gizon elkarri eskua ematen 5. mota eta bitarteko azal-tonua	none
 👬🏾	bi gizon elkarri eskua ematen 5. mota	none
+👨🏾‍🤝‍👨🏿	bi gizon elkarri eskua ematen 5. mota eta 6. mota	none
 👨🏿‍🤝‍👨🏻	bi gizon elkarri eskua ematen 6. mota eta 1–2. mota	none
 👨🏿‍🤝‍👨🏼	bi gizon elkarri eskua ematen 6. mota eta 3. mota	none
 👨🏿‍🤝‍👨🏽	bi gizon elkarri eskua ematen 6. mota eta bitarteko azal-tonua	none
 👨🏿‍🤝‍👨🏾	bi gizon elkarri eskua ematen 6. mota eta 5. mota	none
 👬🏿	bi gizon elkarri eskua ematen 6. mota	none
+💏🏻	musu 1–2. mota	none
+💏🏼	musu 3. mota	none
+💏🏽	musu bitarteko azal-tonua	none
+💏🏾	musu 5. mota	none
+💏🏿	musu 6. mota	none
 👩‍❤‍💋‍👨	musu emakumea eta gizona	none
 👨‍❤‍💋‍👨	musu gizona eta gizona	none
 👩‍❤‍💋‍👩	musu emakumea eta emakumea	none
+💑🏻	bihotza erdian duen bikotea 1–2. mota	none
+💑🏼	bihotza erdian duen bikotea 3. mota	none
+💑🏽	bihotza erdian duen bikotea bitarteko azal-tonua	none
+💑🏾	bihotza erdian duen bikotea 5. mota	none
+💑🏿	bihotza erdian duen bikotea 6. mota	none
 👩‍❤‍👨	bihotza erdian duen bikotea emakumea eta gizona	none
 👨‍❤‍👨	bihotza erdian duen bikotea gizona eta gizona	none
 👩‍❤‍👩	bihotza erdian duen bikotea emakumea eta emakumea	none
@@ -2943,277 +3315,278 @@ symbols:
 👩‍👧	familia emakumea eta neska	none
 👩‍👧‍👦	familia emakumea, neska eta mutila	none
 👩‍👧‍👧	familia emakumea, neska eta neska	none
-#⃣	tekla #	none
-*⃣	tekla *	none
-🔟	tekla 10	none
-🇦🇨	bandera Ascension uhartea	none
-🇦🇩	bandera Andorra	none
-🇦🇪	bandera Arabiar Emirerri Batuak	none
-🇦🇫	bandera Afganistan	none
-🇦🇬	bandera Antigua eta Barbuda	none
-🇦🇮	bandera Aingira	none
-🇦🇱	bandera Albania	none
-🇦🇲	bandera Armenia	none
-🇦🇴	bandera Angola	none
-🇦🇶	bandera Antartika	none
-🇦🇷	bandera Argentina	none
-🇦🇸	bandera Samoa Estatubatuarra	none
-🇦🇹	bandera Austria	none
-🇦🇺	bandera Australia	none
-🇦🇼	bandera Aruba	none
-🇦🇽	bandera Åland	none
-🇦🇿	bandera Azerbaijan	none
-🇧🇦	bandera Bosnia-Herzegovina	none
-🇧🇧	bandera Barbados	none
-🇧🇩	bandera Bangladesh	none
-🇧🇪	bandera Belgika	none
-🇧🇫	bandera Burkina Faso	none
-🇧🇬	bandera Bulgaria	none
-🇧🇭	bandera Bahrain	none
-🇧🇮	bandera Burundi	none
-🇧🇯	bandera Benin	none
-🇧🇱	bandera Saint Barthélemy	none
-🇧🇲	bandera Bermuda	none
-🇧🇳	bandera Brunei	none
-🇧🇴	bandera Bolivia	none
-🇧🇶	bandera Karibeko Herbehereak	none
-🇧🇷	bandera Brasil	none
-🇧🇸	bandera Bahamak	none
-🇧🇹	bandera Bhutan	none
-🇧🇻	bandera Bouvet uhartea	none
-🇧🇼	bandera Botswana	none
-🇧🇾	bandera Bielorrusia	none
-🇧🇿	bandera Belize	none
-🇨🇦	bandera Kanada	none
-🇨🇨	bandera Cocos (Keeling) uharteak	none
-🇨🇩	bandera Kongoko Errepublika Demokratikoa	none
-🇨🇫	bandera Afrika Erdiko Errepublika	none
-🇨🇬	bandera Kongo	none
-🇨🇭	bandera Suitza	none
-🇨🇮	bandera Boli Kosta	none
-🇨🇰	bandera Cook uharteak	none
-🇨🇱	bandera Txile	none
-🇨🇲	bandera Kamerun	none
-🇨🇳	bandera Txina	none
-🇨🇴	bandera Kolonbia	none
-🇨🇵	bandera Clipperton uhartea	none
-🇨🇷	bandera Costa Rica	none
-🇨🇺	bandera Kuba	none
-🇨🇻	bandera Cabo Verde	none
-🇨🇼	bandera Curaçao	none
-🇨🇽	bandera Christmas uhartea	none
-🇨🇾	bandera Zipre	none
-🇨🇿	bandera Txekia	none
-🇩🇪	bandera Alemania	none
-🇩🇬	bandera Diego García	none
-🇩🇯	bandera Djibuti	none
-🇩🇰	bandera Danimarka	none
-🇩🇲	bandera Dominika	none
-🇩🇴	bandera Dominikar Errepublika	none
-🇩🇿	bandera Aljeria	none
-🇪🇦	bandera Ceuta eta Melilla	none
-🇪🇨	bandera Ekuador	none
-🇪🇪	bandera Estonia	none
-🇪🇬	bandera Egipto	none
-🇪🇭	bandera Mendebaldeko Sahara	none
-🇪🇷	bandera Eritrea	none
-🇪🇸	bandera Espainia	none
-🇪🇹	bandera Etiopia	none
-🇪🇺	bandera Europar Batasuna	none
-🇫🇮	bandera Finlandia	none
-🇫🇯	bandera Fiji	none
-🇫🇰	bandera Falklandak	none
-🇫🇲	bandera Mikronesia	none
-🇫🇴	bandera Faroe uharteak	none
-🇫🇷	bandera Frantzia	none
-🇬🇦	bandera Gabon	none
-🇬🇧	bandera Erresuma Batua	none
-🇬🇩	bandera Grenada	none
-🇬🇪	bandera Georgia	none
-🇬🇫	bandera Guyana Frantsesa	none
-🇬🇬	bandera Guernesey	none
-🇬🇭	bandera Ghana	none
-🇬🇮	bandera Gibraltar	none
-🇬🇱	bandera Groenlandia	none
-🇬🇲	bandera Gambia	none
-🇬🇳	bandera Ginea	none
-🇬🇵	bandera Guadalupe	none
-🇬🇶	bandera Ekuatore Ginea	none
-🇬🇷	bandera Grezia	none
-🇬🇸	bandera Hegoaldeko Georgia eta Hegoaldeko Sandwich uharteak	none
-🇬🇹	bandera Guatemala	none
-🇬🇺	bandera Guam	none
-🇬🇼	bandera Ginea Bissau	none
-🇬🇾	bandera Guyana	none
-🇭🇰	bandera Hong Kong Txinako AEB	none
-🇭🇲	bandera Heard eta McDonald uharteak	none
-🇭🇳	bandera Honduras	none
-🇭🇷	bandera Kroazia	none
-🇭🇹	bandera Haiti	none
-🇭🇺	bandera Hungaria	none
-🇮🇨	bandera Kanariak	none
-🇮🇩	bandera Indonesia	none
-🇮🇪	bandera Irlanda	none
-🇮🇱	bandera Israel	none
-🇮🇲	bandera Man uhartea	none
-🇮🇳	bandera India	none
-🇮🇴	bandera Indiako Ozeanoko lurralde britainiarra	none
-🇮🇶	bandera Irak	none
-🇮🇷	bandera Iran	none
-🇮🇸	bandera Islandia	none
-🇮🇹	bandera Italia	none
-🇯🇪	bandera Jersey	none
-🇯🇲	bandera Jamaika	none
-🇯🇴	bandera Jordania	none
-🇯🇵	bandera Japonia	none
-🇰🇪	bandera Kenya	none
-🇰🇬	bandera Kirgizistan	none
-🇰🇭	bandera Kanbodia	none
-🇰🇮	bandera Kiribati	none
-🇰🇲	bandera Komoreak	none
-🇰🇳	bandera Saint Kitts eta Nevis	none
-🇰🇵	bandera Ipar Korea	none
-🇰🇷	bandera Hego Korea	none
-🇰🇼	bandera Kuwait	none
-🇰🇾	bandera Kaiman uharteak	none
-🇰🇿	bandera Kazakhstan	none
-🇱🇦	bandera Laos	none
-🇱🇧	bandera Libano	none
-🇱🇨	bandera Santa Luzia	none
-🇱🇮	bandera Liechtenstein	none
-🇱🇰	bandera Sri Lanka	none
-🇱🇷	bandera Liberia	none
-🇱🇸	bandera Lesotho	none
-🇱🇹	bandera Lituania	none
-🇱🇺	bandera Luxenburgo	none
-🇱🇻	bandera Letonia	none
-🇱🇾	bandera Libia	none
-🇲🇦	bandera Maroko	none
-🇲🇨	bandera Monako	none
-🇲🇩	bandera Moldavia	none
-🇲🇪	bandera Montenegro	none
-🇲🇫	bandera San Martin	none
-🇲🇬	bandera Madagaskar	none
-🇲🇭	bandera Marshall Uharteak	none
-🇲🇰	bandera Ipar Mazedonia	none
-🇲🇱	bandera Mali	none
-🇲🇲	bandera Myanmar (Birmania)	none
-🇲🇳	bandera Mongolia	none
-🇲🇴	bandera Macau Txinako AEB	none
-🇲🇵	bandera Ipar Mariana uharteak	none
-🇲🇶	bandera Martinika	none
-🇲🇷	bandera Mauritania	none
-🇲🇸	bandera Montserrat	none
-🇲🇹	bandera Malta	none
-🇲🇺	bandera Maurizio	none
-🇲🇻	bandera Maldivak	none
-🇲🇼	bandera Malawi	none
-🇲🇽	bandera Mexiko	none
-🇲🇾	bandera Malaysia	none
-🇲🇿	bandera Mozambike	none
-🇳🇦	bandera Namibia	none
-🇳🇨	bandera Kaledonia Berria	none
-🇳🇪	bandera Niger	none
-🇳🇫	bandera Norfolk uhartea	none
-🇳🇬	bandera Nigeria	none
-🇳🇮	bandera Nikaragua	none
-🇳🇱	bandera Herbehereak	none
-🇳🇴	bandera Norvegia	none
-🇳🇵	bandera Nepal	none
-🇳🇷	bandera Nauru	none
-🇳🇺	bandera Niue	none
-🇳🇿	bandera Zeelanda Berria	none
-🇴🇲	bandera Oman	none
-🇵🇦	bandera Panama	none
-🇵🇪	bandera Peru	none
-🇵🇫	bandera Polinesia Frantsesa	none
-🇵🇬	bandera Papua Ginea Berria	none
-🇵🇭	bandera Filipinak	none
-🇵🇰	bandera Pakistan	none
-🇵🇱	bandera Polonia	none
-🇵🇲	bandera Saint-Pierre eta Mikelune	none
-🇵🇳	bandera Pitcairn uharteak	none
-🇵🇷	bandera Puerto Rico	none
-🇵🇸	bandera Palestinar Lurralde Okupatuak	none
-🇵🇹	bandera Portugal	none
-🇵🇼	bandera Palau	none
-🇵🇾	bandera Paraguai	none
-🇶🇦	bandera Qatar	none
-🇷🇪	bandera Reunion	none
-🇷🇴	bandera Errumania	none
-🇷🇸	bandera Serbia	none
-🇷🇺	bandera Errusia	none
-🇷🇼	bandera Ruanda	none
-🇸🇦	bandera Saudi Arabia	none
-🇸🇧	bandera Salomon Uharteak	none
-🇸🇨	bandera Seychelleak	none
-🇸🇩	bandera Sudan	none
-🇸🇪	bandera Suedia	none
-🇸🇬	bandera Singapur	none
-🇸🇭	bandera Santa Helena	none
-🇸🇮	bandera Eslovenia	none
-🇸🇯	bandera Svalbard eta Jan Mayen uharteak	none
-🇸🇰	bandera Eslovakia	none
-🇸🇱	bandera Sierra Leona	none
-🇸🇲	bandera San Marino	none
-🇸🇳	bandera Senegal	none
-🇸🇴	bandera Somalia	none
-🇸🇷	bandera Surinam	none
-🇸🇸	bandera Hego Sudan	none
-🇸🇹	bandera Sao Tome eta Principe	none
-🇸🇻	bandera El Salvador	none
-🇸🇽	bandera Sint Maarten	none
-🇸🇾	bandera Siria	none
-🇸🇿	bandera Swazilandia	none
-🇹🇦	bandera Tristan da Cunha	none
-🇹🇨	bandera Turk eta Caico uharteak	none
-🇹🇩	bandera Txad	none
-🇹🇫	bandera Hegoaldeko lurralde frantsesak	none
-🇹🇬	bandera Togo	none
-🇹🇭	bandera Thailandia	none
-🇹🇯	bandera Tajikistan	none
-🇹🇰	bandera Tokelau	none
-🇹🇱	bandera Ekialdeko Timor	none
-🇹🇲	bandera Turkmenistan	none
-🇹🇳	bandera Tunisia	none
-🇹🇴	bandera Tonga	none
-🇹🇷	bandera Turkia	none
-🇹🇹	bandera Trinidad eta Tobago	none
-🇹🇻	bandera Tuvalu	none
-🇹🇼	bandera Taiwan	none
-🇹🇿	bandera Tanzania	none
-🇺🇦	bandera Ukraina	none
-🇺🇬	bandera Uganda	none
-🇺🇲	bandera Ameriketako Estatu Batuetako Kanpoaldeko Uharte Txikiak	none
-🇺🇳	bandera Nazio Batuak	none
-🇺🇸	bandera Ameriketako Estatu Batuak	none
-🇺🇾	bandera Uruguai	none
-🇺🇿	bandera Uzbekistan	none
-🇻🇦	bandera Vatikano Hiria	none
-🇻🇨	bandera Saint Vincent eta Grenadinak	none
-🇻🇪	bandera Venezuela	none
-🇻🇬	bandera Birjina uharte britainiarrak	none
-🇻🇮	bandera Birjina uharte amerikarrak	none
-🇻🇳	bandera Vietnam	none
-🇻🇺	bandera Vanuatu	none
-🇼🇫	bandera Wallis eta Futuna	none
-🇼🇸	bandera Samoa	none
-🇽🇰	bandera Kosovo	none
-🇾🇪	bandera Yemen	none
-🇾🇹	bandera Mayotte	none
-🇿🇦	bandera Hegoafrika	none
-🇿🇲	bandera Zambia	none
-🇿🇼	bandera Zimbabwe	none
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	bandera Ingalaterra	none
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	bandera Eskozia	none
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandera Gales	none
-0⃣	tekla 0	none
-1⃣	tekla 1	none
-2⃣	tekla 2	none
-3⃣	tekla 3	none
-4⃣	tekla 4	none
-5⃣	tekla 5	none
-6⃣	tekla 6	none
-7⃣	tekla 7	none
-8⃣	tekla 8	none
-9⃣	tekla 9	none
+🔟	Tekla 10	none
+🇦🇨	Bandera Ascension uhartea	none
+🇦🇩	Bandera Andorra	none
+🇦🇪	Bandera Arabiar Emirerri Batuak	none
+🇦🇫	Bandera Afganistan	none
+🇦🇬	Bandera Antigua eta Barbuda	none
+🇦🇮	Bandera Aingira	none
+🇦🇱	Bandera Albania	none
+🇦🇲	Bandera Armenia	none
+🇦🇴	Bandera Angola	none
+🇦🇶	Bandera Antartika	none
+🇦🇷	Bandera Argentina	none
+🇦🇸	Bandera Samoa Estatubatuarra	none
+🇦🇹	Bandera Austria	none
+🇦🇺	Bandera Australia	none
+🇦🇼	Bandera Aruba	none
+🇦🇽	Bandera Åland	none
+🇦🇿	Bandera Azerbaijan	none
+🇧🇦	Bandera Bosnia-Herzegovina	none
+🇧🇧	Bandera Barbados	none
+🇧🇩	Bandera Bangladesh	none
+🇧🇪	Bandera Belgika	none
+🇧🇫	Bandera Burkina Faso	none
+🇧🇬	Bandera Bulgaria	none
+🇧🇭	Bandera Bahrain	none
+🇧🇮	Bandera Burundi	none
+🇧🇯	Bandera Benin	none
+🇧🇱	Bandera Saint Barthélemy	none
+🇧🇲	Bandera Bermuda	none
+🇧🇳	Bandera Brunei	none
+🇧🇴	Bandera Bolivia	none
+🇧🇶	Bandera Karibeko Herbehereak	none
+🇧🇷	Bandera Brasil	none
+🇧🇸	Bandera Bahamak	none
+🇧🇹	Bandera Bhutan	none
+🇧🇻	Bandera Bouvet uhartea	none
+🇧🇼	Bandera Botswana	none
+🇧🇾	Bandera Bielorrusia	none
+🇧🇿	Bandera Belize	none
+🇨🇦	Bandera Kanada	none
+🇨🇨	Bandera Cocos (Keeling) uharteak	none
+🇨🇩	Bandera Kongoko Errepublika Demokratikoa	none
+🇨🇫	Bandera Afrika Erdiko Errepublika	none
+🇨🇬	Bandera Kongo	none
+🇨🇭	Bandera Suitza	none
+🇨🇮	Bandera Boli Kosta	none
+🇨🇰	Bandera Cook uharteak	none
+🇨🇱	Bandera Txile	none
+🇨🇲	Bandera Kamerun	none
+🇨🇳	Bandera Txina	none
+🇨🇴	Bandera Kolonbia	none
+🇨🇵	Bandera Clipperton uhartea	none
+🇨🇷	Bandera Costa Rica	none
+🇨🇺	Bandera Kuba	none
+🇨🇻	Bandera Cabo Verde	none
+🇨🇼	Bandera Curaçao	none
+🇨🇽	Bandera Christmas uhartea	none
+🇨🇾	Bandera Zipre	none
+🇨🇿	Bandera Txekia	none
+🇩🇪	Bandera Alemania	none
+🇩🇬	Bandera Diego García	none
+🇩🇯	Bandera Djibuti	none
+🇩🇰	Bandera Danimarka	none
+🇩🇲	Bandera Dominika	none
+🇩🇴	Bandera Dominikar Errepublika	none
+🇩🇿	Bandera Aljeria	none
+🇪🇦	Bandera Ceuta eta Melilla	none
+🇪🇨	Bandera Ekuador	none
+🇪🇪	Bandera Estonia	none
+🇪🇬	Bandera Egipto	none
+🇪🇭	Bandera Mendebaldeko Sahara	none
+🇪🇷	Bandera Eritrea	none
+🇪🇸	Bandera Espainia	none
+🇪🇹	Bandera Etiopia	none
+🇪🇺	Bandera Europar Batasuna	none
+🇫🇮	Bandera Finlandia	none
+🇫🇯	Bandera Fiji	none
+🇫🇰	Bandera Falklandak	none
+🇫🇲	Bandera Mikronesia	none
+🇫🇴	Bandera Faroe uharteak	none
+🇫🇷	Bandera Frantzia	none
+🇬🇦	Bandera Gabon	none
+🇬🇧	Bandera Erresuma Batua	none
+🇬🇩	Bandera Grenada	none
+🇬🇪	Bandera Georgia	none
+🇬🇫	Bandera Guyana Frantsesa	none
+🇬🇬	Bandera Guernesey	none
+🇬🇭	Bandera Ghana	none
+🇬🇮	Bandera Gibraltar	none
+🇬🇱	Bandera Groenlandia	none
+🇬🇲	Bandera Gambia	none
+🇬🇳	Bandera Ginea	none
+🇬🇵	Bandera Guadalupe	none
+🇬🇶	Bandera Ekuatore Ginea	none
+🇬🇷	Bandera Grezia	none
+🇬🇸	Bandera Hegoaldeko Georgia eta Hegoaldeko Sandwich uharteak	none
+🇬🇹	Bandera Guatemala	none
+🇬🇺	Bandera Guam	none
+🇬🇼	Bandera Ginea Bissau	none
+🇬🇾	Bandera Guyana	none
+🇭🇰	Bandera Hong Kong Txinako AEB	none
+🇭🇲	Bandera Heard eta McDonald uharteak	none
+🇭🇳	Bandera Honduras	none
+🇭🇷	Bandera Kroazia	none
+🇭🇹	Bandera Haiti	none
+🇭🇺	Bandera Hungaria	none
+🇮🇨	Bandera Kanariak	none
+🇮🇩	Bandera Indonesia	none
+🇮🇪	Bandera Irlanda	none
+🇮🇱	Bandera Israel	none
+🇮🇲	Bandera Man uhartea	none
+🇮🇳	Bandera India	none
+🇮🇴	Bandera Indiako Ozeanoko lurralde britainiarra	none
+🇮🇶	Bandera Irak	none
+🇮🇷	Bandera Iran	none
+🇮🇸	Bandera Islandia	none
+🇮🇹	Bandera Italia	none
+🇯🇪	Bandera Jersey	none
+🇯🇲	Bandera Jamaika	none
+🇯🇴	Bandera Jordania	none
+🇯🇵	Bandera Japonia	none
+🇰🇪	Bandera Kenya	none
+🇰🇬	Bandera Kirgizistan	none
+🇰🇭	Bandera Kanbodia	none
+🇰🇮	Bandera Kiribati	none
+🇰🇲	Bandera Komoreak	none
+🇰🇳	Bandera Saint Kitts eta Nevis	none
+🇰🇵	Bandera Ipar Korea	none
+🇰🇷	Bandera Hego Korea	none
+🇰🇼	Bandera Kuwait	none
+🇰🇾	Bandera Kaiman uharteak	none
+🇰🇿	Bandera Kazakhstan	none
+🇱🇦	Bandera Laos	none
+🇱🇧	Bandera Libano	none
+🇱🇨	Bandera Santa Luzia	none
+🇱🇮	Bandera Liechtenstein	none
+🇱🇰	Bandera Sri Lanka	none
+🇱🇷	Bandera Liberia	none
+🇱🇸	Bandera Lesotho	none
+🇱🇹	Bandera Lituania	none
+🇱🇺	Bandera Luxenburgo	none
+🇱🇻	Bandera Letonia	none
+🇱🇾	Bandera Libia	none
+🇲🇦	Bandera Maroko	none
+🇲🇨	Bandera Monako	none
+🇲🇩	Bandera Moldavia	none
+🇲🇪	Bandera Montenegro	none
+🇲🇫	Bandera San Martin	none
+🇲🇬	Bandera Madagaskar	none
+🇲🇭	Bandera Marshall Uharteak	none
+🇲🇰	Bandera Ipar Mazedonia	none
+🇲🇱	Bandera Mali	none
+🇲🇲	Bandera Myanmar (Birmania)	none
+🇲🇳	Bandera Mongolia	none
+🇲🇴	Bandera Macau Txinako AEB	none
+🇲🇵	Bandera Ipar Mariana uharteak	none
+🇲🇶	Bandera Martinika	none
+🇲🇷	Bandera Mauritania	none
+🇲🇸	Bandera Montserrat	none
+🇲🇹	Bandera Malta	none
+🇲🇺	Bandera Maurizio	none
+🇲🇻	Bandera Maldivak	none
+🇲🇼	Bandera Malawi	none
+🇲🇽	Bandera Mexiko	none
+🇲🇾	Bandera Malaysia	none
+🇲🇿	Bandera Mozambike	none
+🇳🇦	Bandera Namibia	none
+🇳🇨	Bandera Kaledonia Berria	none
+🇳🇪	Bandera Niger	none
+🇳🇫	Bandera Norfolk uhartea	none
+🇳🇬	Bandera Nigeria	none
+🇳🇮	Bandera Nikaragua	none
+🇳🇱	Bandera Herbehereak	none
+🇳🇴	Bandera Norvegia	none
+🇳🇵	Bandera Nepal	none
+🇳🇷	Bandera Nauru	none
+🇳🇺	Bandera Niue	none
+🇳🇿	Bandera Zeelanda Berria	none
+🇴🇲	Bandera Oman	none
+🇵🇦	Bandera Panama	none
+🇵🇪	Bandera Peru	none
+🇵🇫	Bandera Polinesia Frantsesa	none
+🇵🇬	Bandera Papua Ginea Berria	none
+🇵🇭	Bandera Filipinak	none
+🇵🇰	Bandera Pakistan	none
+🇵🇱	Bandera Polonia	none
+🇵🇲	Bandera Saint-Pierre eta Mikelune	none
+🇵🇳	Bandera Pitcairn uharteak	none
+🇵🇷	Bandera Puerto Rico	none
+🇵🇸	Bandera Palestinar Lurralde Okupatuak	none
+🇵🇹	Bandera Portugal	none
+🇵🇼	Bandera Palau	none
+🇵🇾	Bandera Paraguai	none
+🇶🇦	Bandera Qatar	none
+🇷🇪	Bandera Reunion	none
+🇷🇴	Bandera Errumania	none
+🇷🇸	Bandera Serbia	none
+🇷🇺	Bandera Errusia	none
+🇷🇼	Bandera Ruanda	none
+🇸🇦	Bandera Saudi Arabia	none
+🇸🇧	Bandera Salomon Uharteak	none
+🇸🇨	Bandera Seychelleak	none
+🇸🇩	Bandera Sudan	none
+🇸🇪	Bandera Suedia	none
+🇸🇬	Bandera Singapur	none
+🇸🇭	Bandera Santa Helena	none
+🇸🇮	Bandera Eslovenia	none
+🇸🇯	Bandera Svalbard eta Jan Mayen uharteak	none
+🇸🇰	Bandera Eslovakia	none
+🇸🇱	Bandera Sierra Leona	none
+🇸🇲	Bandera San Marino	none
+🇸🇳	Bandera Senegal	none
+🇸🇴	Bandera Somalia	none
+🇸🇷	Bandera Surinam	none
+🇸🇸	Bandera Hego Sudan	none
+🇸🇹	Bandera Sao Tome eta Principe	none
+🇸🇻	Bandera El Salvador	none
+🇸🇽	Bandera Sint Maarten	none
+🇸🇾	Bandera Siria	none
+🇸🇿	Bandera Swazilandia	none
+🇹🇦	Bandera Tristan da Cunha	none
+🇹🇨	Bandera Turk eta Caico uharteak	none
+🇹🇩	Bandera Txad	none
+🇹🇫	Bandera Hegoaldeko lurralde frantsesak	none
+🇹🇬	Bandera Togo	none
+🇹🇭	Bandera Thailandia	none
+🇹🇯	Bandera Tajikistan	none
+🇹🇰	Bandera Tokelau	none
+🇹🇱	Bandera Ekialdeko Timor	none
+🇹🇲	Bandera Turkmenistan	none
+🇹🇳	Bandera Tunisia	none
+🇹🇴	Bandera Tonga	none
+🇹🇷	Bandera Turkia	none
+🇹🇹	Bandera Trinidad eta Tobago	none
+🇹🇻	Bandera Tuvalu	none
+🇹🇼	Bandera Taiwan	none
+🇹🇿	Bandera Tanzania	none
+🇺🇦	Bandera Ukraina	none
+🇺🇬	Bandera Uganda	none
+🇺🇲	Bandera Ameriketako Estatu Batuetako Kanpoaldeko Uharte Txikiak	none
+🇺🇳	Bandera Nazio Batuak	none
+🇺🇸	Bandera Ameriketako Estatu Batuak	none
+🇺🇾	Bandera Uruguai	none
+🇺🇿	Bandera Uzbekistan	none
+🇻🇦	Bandera Vatikano Hiria	none
+🇻🇨	Bandera Saint Vincent eta Grenadinak	none
+🇻🇪	Bandera Venezuela	none
+🇻🇬	Bandera Birjina uharte britainiarrak	none
+🇻🇮	Bandera Birjina uharte amerikarrak	none
+🇻🇳	Bandera Vietnam	none
+🇻🇺	Bandera Vanuatu	none
+🇼🇫	Bandera Wallis eta Futuna	none
+🇼🇸	Bandera Samoa	none
+🇽🇰	Bandera Kosovo	none
+🇾🇪	Bandera Yemen	none
+🇾🇹	Bandera Mayotte	none
+🇿🇦	Bandera Hegoafrika	none
+🇿🇲	Bandera Zambia	none
+🇿🇼	Bandera Zimbabwe	none
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	Bandera Ingalaterra	none
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	Bandera Eskozia	none
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	Bandera Gales	none
+₡	Costa Ricako colona	none
+₦	naira nigeriarra	none
+₪	shekel israeldar berria	none
+₫	dong vietnamdarra	none
+₭	kip laostarra	none
+₮	tugrik mongoliarra	none
+₲	guarani paraguaitarra	none
+₴	hryvnia ukrainarra	none
+₵	cedi ghanatarra	none
+₸	tenge kazakhstandarra	none
+₺	lira turkiarra	none
+₼	manat azerbaijandarra	none
+₾	lari georgiarra	none

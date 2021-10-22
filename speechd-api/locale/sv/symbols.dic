@@ -50,7 +50,6 @@ $	dollar	all	norep
 +	plus	most
 ,	komma	all	always
 -	streck
-	most.	punkt
 .	punkt	some
 /	snedstreck	some
 :	kolon	most	norep
@@ -82,7 +81,7 @@ _	understreck	most
 ‘	vänster apostrof	most
 ’	höger apostrof	most
 –	bindestreck	most	always
-—	långt tankstreck	most	
+—	långt tankstreck	most	always
 ●	cirkel	most
 ¨	trema	most
 ‎	vänster till höger tecken	char
@@ -91,20 +90,22 @@ _	understreck	most
 ▪	svart fyrkant	some
 ◾	svart fyrkant	some
 ◦	vit listpunkt	some
-➔	dubbel högerpil	some
+⇒	dubbel högerpil	some
+➔	högerpil	some
 ⇨	vit högerpil	some
 ➢	pilspets åt höger	some
-❖	svart diamant med vitt X	some
+⮚	pilspets åt höger	some
+❖	svart ruter med vitt kryss	some
 ♣	klöver	some
-♦	ruter	some
+♦	svart ruter	some
 §	paragraf	all
 °	grader	some
 «	dubbla vänstervinklar
 »	dubbla högervinklar
 µ	my	some
-¹	i første	some
-²	i anden	some
-³	i tredje	some
+¹	upphöjt till ett	some
+²	upphöjt till två	some
+³	upphöjt till tre	some
 ®	registrerat varumärke	some
 ™	skyddat varumärke	some
 ©	upphovsrättssymbol	some
@@ -117,6 +118,7 @@ _	understreck	most
 ↓	nedåtpil some
 ✓	bockmarkering	some
 ✔	bockmarkering	some
+🡺	högerpil	some
 
 #Mathematical Operators U+2200 to U+220F
 ∀	För alla 	none

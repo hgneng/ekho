@@ -3,12 +3,14 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+≤	less than or equal to	none
+≥	greater than or equal to	none
 😍	smiling face with heart eyes	none
 😻	smiling cat face with heart eyes	none
 🤟	love you gesture	none
 🤙	call me hand	none
-💪	flexed bicep	none
 🤶	Mrs. Claus	none
+🧑‍🎄	Mx. Claus	none
 🐞	ladybug	none
 🕸	spider web	none
 🌾	sheaf of rice	none
@@ -24,9 +26,13 @@ symbols:
 ⛩	Shinto shrine	none
 🎡	Ferris wheel	none
 💈	barber pole	none
-🚋	tramcar	none
+🚃	railway car	none
+🚇	subway	none
+🚋	streetcar	none
 🚎	trolley bus	none
 🚒	fire truck	none
+🚛	semi	none
+🛣	highway	none
 ⛽	gas pump	none
 🛥	motorboat	none
 🕧	twelve thirty	none
@@ -42,11 +48,16 @@ symbols:
 🕥	ten thirty	none
 🕦	eleven thirty	none
 🌝	full-moon face	none
-⭐	yellow medium star	none
 🌌	Milky Way	none
 🎋	Tanabata tree	none
 🎑	moon-viewing ceremony	none
+⚽	soccer ball	none
+🏈	football	none
 🏉	rugby	none
+🏑	field hockey	none
+🏒	hockey	none
+🛷	sled	none
+🥌	curling rock	none
 🀄	Mahjong red dragon	none
 🎒	backpack	none
 🧢	baseball cap	none
@@ -67,13 +78,14 @@ symbols:
 ☦	Orthodox cross	none
 🔼	upward button	none
 🔽	downward button	none
-✅	white heavy check mark	none
-☑	ballot box with check	none
-✔	heavy check mark	none
+✅	check mark button	none
+☑	check box with check	none
+✔	check mark	none
 🔠	input Latin uppercase	none
 🔡	input Latin lowercase	none
 🔤	input Latin letters	none
 🏁	checkered flag	none
+₹	Indian rupee	none
 🤟🏻	love you gesture light skin tone	none
 🤟🏼	love you gesture medium-light skin tone	none
 🤟🏽	love you gesture medium skin tone	none
@@ -84,13 +96,13 @@ symbols:
 🤙🏽	call me hand medium skin tone	none
 🤙🏾	call me hand medium-dark skin tone	none
 🤙🏿	call me hand dark skin tone	none
-💪🏻	flexed bicep light skin tone	none
-💪🏼	flexed bicep medium-light skin tone	none
-💪🏽	flexed bicep medium skin tone	none
-💪🏾	flexed bicep medium-dark skin tone	none
-💪🏿	flexed bicep dark skin tone	none
 🤶🏻	Mrs. Claus light skin tone	none
 🤶🏼	Mrs. Claus medium-light skin tone	none
 🤶🏽	Mrs. Claus medium skin tone	none
 🤶🏾	Mrs. Claus medium-dark skin tone	none
 🤶🏿	Mrs. Claus dark skin tone	none
+🧑🏻‍🎄	Mx. Claus light skin tone	none
+🧑🏼‍🎄	Mx. Claus medium-light skin tone	none
+🧑🏽‍🎄	Mx. Claus medium skin tone	none
+🧑🏾‍🎄	Mx. Claus medium-dark skin tone	none
+🧑🏿‍🎄	Mx. Claus dark skin tone	none

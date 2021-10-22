@@ -197,7 +197,8 @@ class _SSIP_Connection(object):
         self._ssip_reply_semaphore = threading.Semaphore(0)
         self._communication_thread = \
                 threading.Thread(target=self._communication, kwargs={},
-                                 name="SSIP client communication thread")
+                                 name="SSIP client communication thread",
+                                 daemon=True)
         self._communication_thread.start()
     
     def close(self):
@@ -289,7 +290,7 @@ class _SSIP_Connection(object):
         and return the triplet (code, msg, data)."""
         # TODO: This check is dumb but seems to work.  The main thread
         # hangs without it, when the Speech Dispatcher connection is lost.
-        if not self._communication_thread.isAlive():
+        if not self._communication_thread.is_alive():
             raise SSIPCommunicationError
         self._ssip_reply_semaphore.acquire()
         # The list is sorted, read the first item
@@ -455,7 +456,9 @@ class PunctuationMode(object):
     NONE = 'none'
     """Don't read any punctuation character at all."""
     SOME = 'some'
-    """Only the user-defined punctuation characters are read.
+    """Only some of the user-defined punctuation characters are read."""
+    MOST = 'most'
+    """Only most of the user-defined punctuation characters are read.
 
     The set of characters is specified in Speech Dispatcher configuration.
 
@@ -664,13 +667,16 @@ class SSIPClient(object):
                     "resolves on %s which seems to be a remote host. You must start the "
                     "server manually or choose another connection address." % (connection_args['host'],
                                                                                str(ip_addresses),))
-        if os.path.exists(paths.SPD_SPAWN_CMD):
+        cmd = os.getenv("SPEECHD_CMD")
+        if not cmd:
+            cmd = paths.SPD_SPAWN_CMD
+        if os.path.exists(cmd):
             connection_params = []
             for param, value in connection_args.items():
                 if param not in ["host",]:
                     connection_params += ["--"+param.replace("_","-"), str(value)]
 
-            server = subprocess.Popen([paths.SPD_SPAWN_CMD, "--spawn"]+connection_params,
+            server = subprocess.Popen([cmd, "--spawn"]+connection_params,
                                       stdin=None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             stdout_reply, stderr_reply = server.communicate()
             retcode = server.wait()
@@ -679,7 +685,7 @@ class SSIPClient(object):
             return server.pid
         else:
             raise SpawnError("Can't find Speech Dispatcher spawn command %s"
-                                         % (paths.SPD_SPAWN_CMD,))
+                                         % (cmd))
 
     def set_priority(self, priority):
         """Set the priority category for the following messages.
@@ -973,9 +979,16 @@ class SSIPClient(object):
           scope -- see the documentation of this class.
             
         """
-        assert value in (PunctuationMode.ALL, PunctuationMode.SOME,
-                         PunctuationMode.NONE), value
+        assert value in (PunctuationMode.ALL, PunctuationMode.MOST,
+                         PunctuationMode.SOME, PunctuationMode.NONE), value
         self._conn.send_command('SET', scope, 'PUNCTUATION', value)
+
+    def get_punctuation(self):
+        """Get the punctuation pronounciation level."""
+        code, msg, data = self._conn.send_command('GET', 'PUNCTUATION')
+        if data:
+            return data[0]
+        return None
 
     def set_spelling(self, value, scope=Scope.SELF):
         """Toogle the spelling mode or on off.

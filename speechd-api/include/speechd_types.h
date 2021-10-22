@@ -24,7 +24,8 @@
 typedef enum {
 	SPD_PUNCT_ALL = 0,
 	SPD_PUNCT_NONE = 1,
-	SPD_PUNCT_SOME = 2
+	SPD_PUNCT_SOME = 2,
+	SPD_PUNCT_MOST = 3
 } SPDPunctuation;
 
 typedef enum {
@@ -46,7 +47,8 @@ typedef enum {
 	SPD_FEMALE2 = 5,
 	SPD_FEMALE3 = 6,
 	SPD_CHILD_MALE = 7,
-	SPD_CHILD_FEMALE = 8
+	SPD_CHILD_FEMALE = 8,
+	SPD_UNSPECIFIED = -1
 } SPDVoiceType;
 
 typedef struct {

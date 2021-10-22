@@ -3,8 +3,10 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+🤫	shooshing face	none
 🖖	Vulcan salute	none
 🎅	Santa	none
+🧑‍🦯	person with long mobility cane	none
 🧑‍🦼	person in motorised wheelchair	none
 👨‍🦼	man in motorised wheelchair	none
 👩‍🦼	woman in motorised wheelchair	none
@@ -15,7 +17,9 @@ symbols:
 🚴‍♀	woman riding a bike	none
 🐠	reef fish	none
 🐛	caterpillar	none
+🪴	pot plant	none
 🍊	mandarin	none
+🍆	eggplant	none
 🥖	French stick	none
 🍔	hamburger	none
 🥙	pita roll	none
@@ -38,8 +42,10 @@ symbols:
 🚎	trolley bus	none
 🚒	fire truck	none
 🚙	four-wheel drive	none
+🛻	ute	none
 🚛	articulated truck	none
 🦼	mobility scooter	none
+🛼	rollerskate	none
 🛣	freeway	none
 ⛽	petrol pump	none
 🚥	horizontal traffic lights	none
@@ -54,15 +60,18 @@ symbols:
 ⛱	beach umbrella	none
 🎍	bamboo decoration	none
 🎁	gift	none
+⚽	soccer ball	none
+🏉	rugby ball	none
 🎳	tenpin bowling	none
 🥅	goal cage	none
 🎣	fishing rod	none
 🛷	sled	none
 🧿	evil-eye amulet	none
 🎰	pokie	none
-👔	tie	none
+🪡	needle and thread	none
 👚	blouse	none
 👝	pouch	none
+🩴	thongs	none
 👟	sneaker	none
 🧢	baseball cap	none
 📀	DVD	none
@@ -83,18 +92,20 @@ symbols:
 📌	drawing-pin	none
 📍	round drawing-pin	none
 🗄	filing cabinet	none
-🔫	gun	none
+🦯	long mobility cane	none
 🧬	DNA	none
 📡	satellite dish	none
+🩹	bandaid	none
 🛋	couch and lamp	none
+🪤	mouse trap	none
 🚾	WC	none
+🛂	border security	none
 🚱	non-drinkable water	none
 ✝	Christian cross	none
 ⏩	fast forward button	none
 🔠	input Latin uppercase	none
 🔡	input Latin lowercase	none
 🔤	input Latin letters	none
-🪡	needle and thread	none
 🖖🏻	Vulcan salute light skin tone	none
 🖖🏼	Vulcan salute medium-light skin tone	none
 🖖🏽	Vulcan salute medium skin tone	none
@@ -105,6 +116,11 @@ symbols:
 🎅🏽	Santa medium skin tone	none
 🎅🏾	Santa medium-dark skin tone	none
 🎅🏿	Santa dark skin tone	none
+🧑🏻‍🦯	person with long mobility cane light skin tone	none
+🧑🏼‍🦯	person with long mobility cane medium-light skin tone	none
+🧑🏽‍🦯	person with long mobility cane medium skin tone	none
+🧑🏾‍🦯	person with long mobility cane medium-dark skin tone	none
+🧑🏿‍🦯	person with long mobility cane dark skin tone	none
 🧑🏻‍🦼	person in motorised wheelchair light skin tone	none
 🧑🏼‍🦼	person in motorised wheelchair medium-light skin tone	none
 🧑🏽‍🦼	person in motorised wheelchair medium skin tone	none
@@ -145,8 +161,4 @@ symbols:
 🚴🏽‍♀	woman riding a bike medium skin tone	none
 🚴🏾‍♀	woman riding a bike medium-dark skin tone	none
 🚴🏿‍♀	woman riding a bike dark skin tone	none
-🇧🇱	flag St. Barthélemy	none
-🇰🇳	flag St. Kitts & Nevis	none
-🇱🇨	flag St. Lucia	none
-🇲🇫	flag St. Martin	none
-🇻🇨	flag St. Vincent & Grenadines	none
+₪	Israeli Shekel	none

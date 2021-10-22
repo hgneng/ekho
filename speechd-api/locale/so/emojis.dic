@@ -8,6 +8,35 @@ symbols:
 🏽	jidh nooc dhexe	none
 🏾	jidh nooc madaw oo dhexe	none
 🏿	jidh madaw	none
+℗	xuquuqda duubista codka	none
+←	fallaar ku aadan bidix	none
+→	fallaarta midigta ku aadan	none
+↑	fallaar kor ku aadan	none
+↓	fallaar hoos ku aadan	none
+⇅	fallaaro kor iyo hoos ku aadan	none
+⇆	fallaaro bidix ku aadan oo ka sareeya kuwa midig ku aadan	none
+∆	kordhin	none
+∇	nabla	none
+∈	curiyaha	none
+≠	aan la mid ahayn	none
+−	calamada maynas	none
+⁻	calaamada kajar	none
+√	lambarka laba jibaarma	none
+∞	calaamada infinity	none
+∩	is goys	none
+∪	midow	none
+≈	ku dhawaad la mida	none
+≡	ay mataano yihiin	none
+≤	ka yar ama la mid ah	none
+≥	ka wayn ama leeg	none
+⊂	hoosaadka	none
+▲	saddex xagal buuxda oo kor u taagan	none
+▼	saddex xagal hoos-u-fiiqan	none
+◊	qaab dheeman	none
+○	duleelka goobada	none
+●	goobada buuxa	none
+◯	goobad duleel weeyn	none
+♪	xadhiga sideedaad	none
 😀	dareenka wajiga	none
 😃	muuqaalka wejiga indhaha weyn	none
 😄	waji indho dhoola cadynaya leh	none
@@ -29,6 +58,7 @@ symbols:
 ☺	waji dhoolo cadeynaya	none
 😚	waji dhunkanaayo indho xiran	none
 😙	waji dhunkanaayo indho dhoolo cadeynaya	none
+🥲	waaji ilin ladhoola cadeeynaya	none
 😋	waji cunto dhadhaminaayo	none
 😛	waji iyo carrab	none
 😜	waji il jabinaayo carrab leh	none
@@ -44,10 +74,12 @@ symbols:
 😐	waji dhexdhexaad ah	none
 😑	waji aan muuqan lahayn	none
 😶	waji af la’aan	none
+😶‍🌫	waji daruuro ku jira	none
 😏	waji isku dhagan	none
 😒	waji aan la taaban karin	none
 🙄	waji indho wareegayo leh	none
 😬	waji naxdin leh	none
+😮‍💨	waji afka kala qaday	none
 🤥	waji jiifo	none
 😌	waji niyad jabn	none
 😔	waji caajisan	none
@@ -64,9 +96,11 @@ symbols:
 🥶	waji qaboow	none
 🥴	waji aan dagneyn	none
 😵	waji wareersan	none
+😵‍💫	waji indho wareegsan leh	none
 🤯	madax qarxa	none
 🤠	waji koofid leh	none
 🥳	waji farxadeysan	none
+🥸	waji badalan	none
 😎	waji dhoola cadeynaya ookiyaala wato	none
 🤓	waji xirfad la’aan	none
 🧐	waji hal ookiyaalo leh	none
@@ -134,6 +168,8 @@ symbols:
 💟	qurxinta wadnaha	none
 ❣	claamad ujeedka wadnaha	none
 💔	wadno jaban	none
+❤‍🔥	wadne ololaya	none
+❤‍🩹	wadne dhaawacan	none
 ❤	wadno cas	none
 🧡	wadno oranji ah	none
 💛	wadno jaalle ah	none
@@ -163,17 +199,18 @@ symbols:
 ✋	gacan kor loo qaday	none
 🖖	salaan sharaf	none
 👌	gacanta saxda ah	none
+🤌	faro la isku wada duubay	none
 🤏	qanjaruufo	none
 ✌	gacanta guusha	none
 🤞	faraha gudban; Alla bari	none
 🤟	meedaarta waan ku jecelahay ah	none
 🤘	calaamadda geesaha	none
 🤙	gacanta ah isoo wac	none
-👈	farta muujinta gacanta gadaale tilmaamaysa bidix	none
-👉	farta muujinta gacanta gadaale tilmaamaysa midig	none
-👆	farta muujinta gacanta gadaale tilmaamaysa kor	none
+👈	Gacan tilmaamaysa bidix	none
+👉	gacan tilmaamaysa midig	none
+👆	gacan tilmaamaysa kor	none
 🖕	farta dhexe	none
-👇	farta muujinta gacanta gadaale tilmaamaysa hoos	none
+👇	gacan tilmaamaysa hoos	none
 ☝	farta muujinta tilmaamaysa kor	none
 👍	suulka kor	none
 👎	suulka hoos	none
@@ -199,6 +236,8 @@ symbols:
 🦻	dhag leh gargaarka maqalka	none
 👃	sanka	none
 🧠	maskaxda	none
+🫀	garaaca wadnaha	none
+🫁	sambabka	none
 🦷	ilig	none
 🦴	laf	none
 👀	indhaha	none
@@ -213,8 +252,10 @@ symbols:
 👱	qof timo cad	none
 👨	ninka	none
 🧔	nin gar	none
+🧔‍♂	nin gadh	none
 👱‍♂	nin timo cad	none
 👩	naag	none
+🧔‍♀	gabadh gadh	none
 👱‍♀	naag timo cad	none
 🧓	qof weyn	none
 👴	nin da’ weyn	none
@@ -249,36 +290,52 @@ symbols:
 🤷	qof garba-ruxaya	none
 🤷‍♂	nin garba-ruxaya	none
 🤷‍♀	naag garba-ruxaysa	none
+🧑‍⚕	shaqaale caafimaad	none
 👨‍⚕	nin shaqaale caafimaad ah	none
 👩‍⚕	naag shaqaale caafimaad ah	none
+🧑‍🎓	arday	none
 👨‍🎓	nin arday ah	none
 👩‍🎓	naag ardayad ah	none
+🧑‍🏫	bare	none
 👨‍🏫	nin macallin ah	none
 👩‍🏫	naag macallimad ah	none
+🧑‍⚖	qaalli	none
 👨‍⚖	nin garsoore ah	none
 👩‍⚖	naag garsoore ah	none
+🧑‍🌾	Beeraley	none
 👨‍🌾	nin beeraleey ah	none
 👩‍🌾	naag beeraleeyad ah	none
+🧑‍🍳	cunno kariye	none
 👨‍🍳	nin kariye ah	none
 👩‍🍳	naag kariso ah	none
+🧑‍🔧	makaanik	none
 👨‍🔧	nin makaanik ah	none
 👩‍🔧	naag makaanikad ah	none
+🧑‍🏭	shaqaale warshadeed	none
 👨‍🏭	nin shaqaale warshad ah	none
 👩‍🏭	naag shaqaale warshad ah	none
+🧑‍💼	shaqaale xafiis	none
 👨‍💼	nin shaqaale xafiis ah	none
 👩‍💼	naag shaqaale xafiis ah	none
-👨‍🔬	saynisyahan	none
+🧑‍🔬	saynisyahan	none
+👨‍🔬	qabiir saynisyahan ah	none
 👩‍🔬	haweeney cilmi sayniska taqaan	none
+🧑‍💻	Tiknoolajiste	none
 👨‍💻	nin tiknoolijiste ah	none
 👩‍💻	naag tiknoolijisate ah	none
+🧑‍🎤	heesaa	none
 👨‍🎤	nin fannaan ah	none
 👩‍🎤	naag fannaanad ah	none
+🧑‍🎨	fanaan	none
 👨‍🎨	nin farsama yaqaan ah	none
 👩‍🎨	naag farsama yaqaan ah	none
+🧑‍✈	darawal dayuurad	none
 👨‍✈	nin duuliye ah	none
 👩‍✈	naag duuliye ah	none
+🧑‍🚀	dayax u safre	none
 👨‍🚀	nin cirbixiyeen ah	none
 👩‍🚀	naag cir bixiyeenad ah	none
+🧑‍🚒	dab damis	none
 👨‍🚒	ninka dab-demiska ah	none
 👩‍🚒	naag dab-demis ah	none
 👮	sarkaal boolis	none
@@ -290,6 +347,7 @@ symbols:
 💂	ilaaliye	none
 💂‍♂	nin illaaliye ah	none
 💂‍♀	haweeney ilaaliye ah	none
+🥷	ninja	none
 👷	shaqaale dhismo	none
 👷‍♂	nin shaqaale dhismo ah	none
 👷‍♀	naag shaqaale dhismo ah	none
@@ -301,12 +359,20 @@ symbols:
 👲	nin xiran koofiyadda shiinaha	none
 🧕	naag xiran qammaar	none
 🤵	nin xiran suudka rasmiga ah	none
-👰	caruusad xijaabban	none
+🤵‍♂	nin xidhan suut ka rasmiga ah	none
+🤵‍♀	gabadh xidhan suut	none
+👰	shaqsi niqaam xidhan	none
+👰‍♂	nin niqaamaban	none
+👰‍♀	naag niqaaban	none
 🤰	haweeney uur leh	none
 🤱	naas-nuujin	none
+👩‍🍼	naag canug quudineeysa	none
+👨‍🍼	nin canug quudinaya	none
+🧑‍🍼	qof canug quudinaya	none
 👼	malaa’igta caruurta	none
 🎅	Aabaha Ciidda Masiixigga	none
 🤶	Marwada Masiixigga	none
+🧑‍🎄	mx claus	none
 🦸	halyeey ah	none
 🦸‍♂	nin halyeey ah	none
 🦸‍♀	haweeney geesinnimadeedu sareeyso	none
@@ -349,10 +415,13 @@ symbols:
 🧎	qof jilbaha dhiganaya	none
 🧎‍♂	nin jilba dhiganaya	none
 🧎‍♀	naag jilba dhiganaysa	none
+🧑‍🦯	qof wata bakoorad cas	none
 👨‍🦯	nin sita usha cad indhoolaha	none
 👩‍🦯	naag sidata usha cad indhoolaha	none
-👨‍🦼	nin saaran kursiga curyanka koronto ku shaqeeya	none
-👩‍🦼	naag ku fadhida kursiga curyaanka koronta ku shaqeeya	none
+🧑‍🦼	qof kufadhiya gaari matoor leh	none
+👨‍🦼	nin saaran kursi curyaan matoor leh	none
+👩‍🦼	gabadh saaran kursi curyaan matoor leh	none
+🧑‍🦽	qof ku fadhiya gaari curyaanka gacanta	none
 👨‍🦽	nin saaran kursiga curyaanka macmac ah	none
 👩‍🦽	naag fadhida kursiga curyaanka macmal ah	none
 🏃	qof ordaya	none
@@ -428,6 +497,7 @@ symbols:
 🗣	Madax hadlaya	none
 👤	Sawir muuqaal dumar qaarka hore mugdi ah	none
 👥	Farshaxan sawir xabad dumar oo mugdi ah	none
+🫂	dad hab isi siinaya	none
 👣	raadad	none
 🦰	timo cas	none
 🦱	timo walaaqan	none
@@ -447,6 +517,7 @@ symbols:
 🦝	dabacaddeeye	none
 🐱	waji bisad	none
 🐈	bisad	none
+🐈‍⬛	bisadda madoow	none
 🦁	libaax	none
 🐯	waji shabeel	none
 🐅	shabeel	none
@@ -456,6 +527,7 @@ symbols:
 🦄	xayawaan khuraafi ah	none
 🦓	dameer-farow	none
 🦌	deero	none
+🦬	dibi reer galbeed	none
 🐮	waji sac	none
 🐂	baqay	none
 🐃	lo’ gisida biyaha	none
@@ -472,6 +544,7 @@ symbols:
 🦙	geel bakayle	none
 🦒	geri	none
 🐘	maroodi	none
+🦣	Maroodiga weeyn	none
 🦏	wiyil	none
 🦛	jeer	none
 🐭	waji walasandheer	none
@@ -481,9 +554,11 @@ symbols:
 🐰	waji	none
 🐇	bakayle	none
 🐿	bushucle boor	none
+🦫	oorso yar oo xeeb kunool	none
 🦔	xiddig-dhul	none
 🦇	fiidmeer	none
 🐻	oorso	none
+🐻‍❄	oorso waqooyi	none
 🐨	korow	none
 🐼	ooroso madow	none
 🦥	wahsi	none
@@ -505,6 +580,8 @@ symbols:
 🦆	muwaata	none
 🦢	booloboolo	none
 🦉	guumays	none
+🦤	shimbir boolo	none
+🪶	baalal	none
 🦩	qudunquuto	none
 🦚	daa’uus	none
 🦜	baqbaqaaq	none
@@ -520,6 +597,7 @@ symbols:
 🐳	nibiriga mataga	none
 🐋	nibiri	none
 🐬	hoon-baro	none
+🦭	shaabad	none
 🐟	kalluun	none
 🐠	kalluunka kulaylaha	none
 🐡	kalluunka baaqa	none
@@ -531,12 +609,16 @@ symbols:
 🐛	kutaan	none
 🐜	quraanjo	none
 🐝	shinni malab	none
+🪲	faraanfar	none
 🐞	duqsiyada dheddiga	none
 🦗	jiiq-jiiqle	none
+🪳	baranbaro	none
 🕷	caaro	none
 🕸	xuub caaro	none
 🦂	dib qallooc	none
 🦟	kaneeco	none
+🪰	duqsi	none
+🪱	dirxi	none
 🦠	mikrobe	none
 💐	ubaxyo	none
 🌸	ubaxa buundada	none
@@ -549,6 +631,7 @@ symbols:
 🌼	ubax geed	none
 🌷	ubax caano	none
 🌱	geed naqan	none
+🪴	dhirta guriga	none
 🌲	geed abaareed	none
 🌳	geed magool	none
 🌴	geed timir	none
@@ -574,8 +657,10 @@ symbols:
 🍑	miro guduud	none
 🍒	jeerigga	none
 🍓	frawla	none
+🫐	canabka baluuga ah	none
 🥝	miraha qamboob	none
 🍅	yaanyo	none
+🫒	saytuun	none
 🥥	qumbe	none
 🥑	afokaadho	none
 🍆	dhir ukun	none
@@ -583,6 +668,7 @@ symbols:
 🥕	dabocase	none
 🌽	sabuul galley	none
 🌶	basbaas	none
+🫑	basbaas dawan	none
 🥒	qajaar	none
 🥬	caleenta cagaaran	none
 🥦	barakooli	none
@@ -594,6 +680,7 @@ symbols:
 🍞	rooti	none
 🥐	qureec faransiis macaan	none
 🥖	rootiga baguette-ka	none
+🫓	rooti bafloow	none
 🥨	buskud ulo ah	none
 🥯	pagel-ka	none
 🥞	canjeelo	none
@@ -610,12 +697,14 @@ symbols:
 🥪	saanbuus	none
 🌮	taako	none
 🌯	toortiilada meksikaanka	none
+🫔	unno maksikaan	none
 🥙	rooti khudrad laga buuxiyay	none
 🧆	falafeel	none
 🥚	ukun	none
 🍳	karinta	none
 🥘	bir daawo gun-dhow oo cunno ah	none
 🍲	digsi cunno ah	none
+🫕	digsi cunnno lagu diyaariyay	none
 🥣	baaquli iyo qaaddo	none
 🥗	anslaata cagaaran	none
 🍿	salool	none
@@ -661,6 +750,7 @@ symbols:
 🍼	dhalada ilmaha	none
 🥛	galaas caano ah	none
 ☕	cabitaan kulul	none
+🫖	kirli	none
 🍵	koob shah ah oon sidda lahayn	none
 🍶	khamro jabbaan	none
 🍾	dhalo khamri ubrinaysa	none
@@ -672,6 +762,7 @@ symbols:
 🥂	galaasyo isku dhufashada	none
 🥃	galaas dhalo	none
 🥤	koob wata istaroow	none
+🧋	shaah xumbaale	none
 🧃	sanduuq cabitaan	none
 🧉	lamaane	none
 🧊	baraf	none
@@ -701,6 +792,9 @@ symbols:
 🏛	dhismo heer sare ah	none
 🏗	daar dhisidda	none
 🧱	bulukeeti	none
+🪨	dhagax	none
+🪵	xaabo	none
+🛖	aqal hoori	none
 🏘	guryo	none
 🏚	guri burbursan	none
 🏠	guri	none
@@ -768,6 +862,7 @@ symbols:
 🚗	baabuur	none
 🚘	gaari soo socda	none
 🚙	gaadiidka cayaaraha	none
+🛻	qabaalka	none
 🚚	gaari xammuulka adeegga	none
 🚛	looriga xammuulka	none
 🚜	cagaf-cagaf	none
@@ -780,6 +875,7 @@ symbols:
 🚲	baaskiil	none
 🛴	mooto laadid	none
 🛹	alwaaxa qalfoofka	none
+🛼	skaytka kaha	none
 🚏	boosteejada	none
 🛣	waddo ballaaran	none
 🛤	jidka waddada tareenka	none
@@ -861,7 +957,7 @@ symbols:
 🌝	waji dayaxeed buuxa	none
 🌞	qorrax wajiyeed	none
 🪐	meeraha gaaban	none
-⭐	xiddig	none
+⭐	Summadda xiddigta	none
 🌟	xiddig kaahaya	none
 🌠	waran cireed	none
 🌌	habarjiid	none
@@ -950,6 +1046,7 @@ symbols:
 🪁	abitey	none
 🎱	kubada barkada 8	none
 🔮	kubada kareemka	none
+🪄	ul mucjiso	none
 🧿	balaayo xijaab	none
 🎮	cayaarta maqal-muuqal	none
 🕹	usha farxada	none
@@ -957,6 +1054,8 @@ symbols:
 🎲	ciyaarta dhimashada	none
 🧩	gabal xujo	none
 🧸	boombalo	none
+🪅	boombalaha isbaanishka	none
+🪆	buulka boombalaha	none
 ♠	farshaxan	none
 ♥	lebiska qalbiga	none
 ♦	dheemanka lebiska	none
@@ -969,7 +1068,9 @@ symbols:
 🖼	sawirka la wareegay	none
 🎨	farshaxan saxan	none
 🧵	dun	none
+🪡	irbada dharka	none
 🧶	tidcidda	none
+🪢	siriq	none
 👓	muraayado	none
 🕶	muraayada qoraxda	none
 🥽	murayaadaha ilaalinta	none
@@ -995,6 +1096,7 @@ symbols:
 👝	shandad yar	none
 🛍	bacaha dukaameysiga	none
 🎒	shandad dhabar	none
+🩴	dacas	none
 👞	kabo rag	none
 👟	kabo orod	none
 🥾	buudjhka socodka dheer	none
@@ -1008,6 +1110,7 @@ symbols:
 🎩	koofiyad dheer	none
 🎓	koofiyada qalinjabinta	none
 🧢	koofiyad caadiya	none
+🪖	koofiyada millatariga	none
 ⛑	madax-gashiga shaqaalaha badbaadinta	none
 📿	tusbax	none
 💄	libis	none
@@ -1032,12 +1135,14 @@ symbols:
 🎧	dhago	none
 📻	raadiyow	none
 🎷	buun	none
+🪗	alab muusik	none
 🎸	giitaar	none
 🎹	kiiboodhka muusika	none
 🎺	fuugwo	none
 🎻	seese	none
 🪕	gitaar nooc mareykan ah	none
 🥁	durbaan	none
+🪘	durbaan dheer	none
 📱	moobil	none
 📲	moobil leh xariiq	none
 ☎	telefoon	none
@@ -1091,6 +1196,7 @@ symbols:
 🔖	calaamadeeye	none
 🏷	warqad wax sheegaysa	none
 💰	bac lacaga	none
+🪙	lacag bir ah	none
 💴	lacag yeen ah	none
 💵	lacag doolar ah	none
 💶	lacag yuuro ah	none
@@ -1099,8 +1205,6 @@ symbols:
 💳	kaarka deynta	none
 🧾	rasiidh	none
 💹	shaxan muujinaya yeen kordhaysa	none
-💱	sarifka lacagaha	none
-💲	calaamad doolar oo muujisan	none
 ✉	baqshad	none
 📧	iimayl	none
 📨	baqshad timi	none
@@ -1158,9 +1262,12 @@ symbols:
 🗡	toorey	none
 ⚔	seefo isweydaarsan	none
 🔫	bastoolad	none
+🪃	majo	none
 🏹	leeb iyo qaanso	none
 🛡	gaashaan	none
+🪚	miinshaar	none
 🔧	baanad	none
+🪛	kashwiito	none
 🔩	weesar iyo bool	none
 ⚙	geer	none
 🗜	isku xajiye	none
@@ -1168,8 +1275,10 @@ symbols:
 🦯	usha cad indhoolaha	none
 🔗	liinki	none
 ⛓	silsilado	none
+🪝	jilaab	none
 🧰	tuulbogos	none
 🧲	birlab	none
+🪜	jaranjaro	none
 ⚗	qalab nadiifin	none
 🧪	tuyuubka tijaabinta	none
 🧫	saxan wax laga dhex arki karo	none
@@ -1183,26 +1292,35 @@ symbols:
 🩹	balastar jilicsan	none
 🩺	qalabka wadnaha lagu dhageysto	none
 🚪	albaab	none
+🛗	wiish	none
+🪞	muraayad	none
+🪟	daaqad	none
 🛏	sariir	none
 🛋	fadhi iyo laambad	none
 🪑	kursi	none
 🚽	musqul	none
+🪠	biyo mareen baneeye	none
 🚿	shaawar	none
 🛁	sinxi maydhasho	none
+🪤	dabin jiirka	none
 🪒	sakiin	none
 🧴	caagada looshinka	none
 🧷	biinka dharka	none
 🧹	mafiiq/buluuyey	none
 🧺	salad	none
 🧻	duub waraaq ah	none
+🪣	baaldi	none
 🧼	saabuun	none
+🪥	caday	none
 🧽	isboonji	none
 🧯	dab-damiye	none
 🛒	gaari-gacanka dukaameysiga	none
 🚬	sigaar	none
 ⚰	sanduuq	none
+🪦	qudbo	none
 ⚱	aas	none
 🗿	farshaxanka dadkii hore la sawiray	none
+🪧	calaamad	none
 🏧	calaamadda ATM	none
 🚮	calaamadda qashin qubidda	none
 🚰	biyaha la cabi karo	none
@@ -1301,8 +1419,19 @@ symbols:
 📴	dami taleefoonka gacanta	none
 ♀	calaamad dheddig	none
 ♂	calaamad lab	none
-⚕	calaamad caafimaad	none
+⚧	calaamada laba dhidiga	none
+✖	calaamadda isku dhufashada	none
+➕	calaamadda isugeynta	none
+➖	calaamadda ka jar	none
+➗	calaamadda isu qaybinta	none
 ♾	xad la’aan	none
+❓	calaamad su’aal	none
+❔	ccalaamad su’aal cad	none
+❕	calaamad cajiib cad	none
+❗	calaamad cajiib	none
+💱	sarifka lacagaha	none
+💲	calaamad doolar oo muujisan	none
+⚕	calaamad caafimaad	none
 ♻	calaamadda dib-u-warshadaynta	none
 ⚜	saddex midnimada quduuska	none
 🔱	astaanta garab	none
@@ -1312,27 +1441,13 @@ symbols:
 ✅	badhanka calaamadda sax	none
 ☑	ku calaamadee sanduuqa sax	none
 ✔	ku calaamadee calaamad	none
-✖	calaamadda isku dhufasho	none
 ❌	calaamadda iskutallaabta	none
 ❎	badhanka calaamadda iskutallaabta	none
-➕	calaamadda isugeynta	none
-➖	calaamadda ka jar	none
-➗	calaamadda isu qaybinta	none
 ➰	laaban oo sargo’an	none
 ➿	maroogsin sargo’an oo laban-laab ah	none
-〽	qaybta calaamadda talantaalliga ah	none
 ✳	siddeed geesood oo isku nooc u taaggan	none
 ✴	xiddig siddeed geeslood oo tilmaama	none
 ❇	dhalaal	none
-‼	laba calaamadood cajiib ah	none
-⁉	calaamad cajiib su’aal ah	none
-❓	calaamad su’aal	none
-❔	ccalaamad su’aal cad	none
-❕	calaamad cajiib cad	none
-❗	calaamad cajiib	none
-〰	qulqulka hirka	none
-©	xuquuqda daabacaadda	none
-®	diiwaan gashan	none
 ™	sumadda ganacsiga	none
 🔠	geli xarfa weyn oo latin ah	none
 🔡	geli xarfo latin oo yar yar	none
@@ -1356,23 +1471,6 @@ symbols:
 🆘	badhanka SOS	none
 🆙	badhanka KOR!	none
 🆚	badhanka VS	none
-🈁	badhanka Jabbaanka “halkan”	none
-🈂	badhanka ‘‘lacagta adeegga’‘ ee Jabbaanka	none
-🈷	badhanka “qaddarka billaha ah” ee Jabbaanka	none
-🈶	badhanka “ma aha bilaash” ee Jabbaanka	none
-🈯	badhanka “kaydsan” ee Jabbaanka	none
-🉐	badhanka ‘‘gorgortan’‘ ee Jabbaanka	none
-🈹	badhanka ‘‘sicir-dhimis’‘ ee Jabbaanka	none
-🈚	badhanka ‘‘waa bilaash’‘ ee Jabbaanka	none
-🈲	badhanka ‘‘mamnuuc’‘ ee Jabbaanka	none
-🉑	badhanka ‘‘la aqbali karo’‘ ee Jabbaanka	none
-🈸	badhanka ‘‘codsiga’‘ ee Jabbaanka	none
-🈴	badhanka ‘‘darajada baasitaanka’‘ ee Jabbaanka	none
-🈳	badhanka ‘‘bannaan’‘ ee Jabbaanka	none
-㊗	badhanka ‘‘hambalyo’‘ ee Jabbaanka	none
-㊙	badhanka ‘‘sir’‘ ee Jabbaanka	none
-🈺	badhanka ‘‘u furan ganacsi’‘ ee Jabbaanka	none
-🈵	badhanka ‘‘ma bannaana’‘ ee Jabbaanka	none
 🔴	goobada cas	none
 🟠	goobada oranjiga ah	none
 🟡	goobada jaallaha ah	none
@@ -1413,4 +1511,22 @@ symbols:
 🏴	calanka madoow	none
 🏳	calanka cad	none
 🏳‍🌈	calanka qaanso roobeed	none
+🏳‍⚧	calanka laba dhidiga	none
 🏴‍☠	calanka burcad badeedda	none
+€	yuuro	none
+₱	beeso	none
+₹	rubiiska hindiya	none
+₽	cutub lacageedka raashiya	none
+₡	Kolonka Kosta Riika	none
+₦	Nairada Neyjeeriya	none
+₪	Niyuu Shekelka Israaiil	none
+₫	Dongta Fitnaam	none
+₭	Kib Laoti	none
+₮	Tugrikta Mongoliya	none
+₲	Guranida Baraguway	none
+₴	Hirfiniyada Yukreeyn	none
+₵	Sedida Gana	none
+₸	Tengeda Kasakhstan	none
+₺	Liirada Turkiga	none
+₼	Manaata Asarbeyjan	none
+₾	Laariga Joorjiya	none

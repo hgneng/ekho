@@ -123,7 +123,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = speech-dispatcher.pc
+CONFIG_CLEAN_FILES = run-speechd speech-dispatcher.pc
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -210,9 +210,10 @@ am__define_uniq_tagged_files = \
   done | $(am__uniquify_input)`
 DIST_SUBDIRS = $(SUBDIRS)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(srcdir)/speech-dispatcher.pc.in ABOUT-NLS AUTHORS INSTALL \
-	NEWS README TODO compile config.guess config.rpath config.sub \
-	depcomp install-sh ltmain.sh missing py-compile
+	$(srcdir)/run-speechd.in $(srcdir)/speech-dispatcher.pc.in \
+	ABOUT-NLS AUTHORS INSTALL NEWS README.md TODO compile \
+	config.guess config.rpath config.sub install-sh ltmain.sh \
+	missing py-compile
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -270,7 +271,6 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
-CFLAG_PULSEAUDIO = @CFLAG_PULSEAUDIO@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CSCOPE = @CSCOPE@
@@ -292,6 +292,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 ERROR_CFLAGS = @ERROR_CFLAGS@
+ESPEAK = @ESPEAK@
 ESPEAK_NG_CFLAGS = @ESPEAK_NG_CFLAGS@
 ESPEAK_NG_LIBS = @ESPEAK_NG_LIBS@
 ETAGS = @ETAGS@
@@ -299,6 +300,7 @@ EXEEXT = @EXEEXT@
 EXTRA_ESPEAK_LIBS = @EXTRA_ESPEAK_LIBS@
 EXTRA_SOCKET_LIBS = @EXTRA_SOCKET_LIBS@
 FGREP = @FGREP@
+FLITE = @FLITE@
 GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_CFLAGS = @GLIB_CFLAGS@
@@ -327,7 +329,6 @@ LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
-LIB_PULSEAUDIO = @LIB_PULSEAUDIO@
 LIB_SPD_AGE = @LIB_SPD_AGE@
 LIB_SPD_CURRENT = @LIB_SPD_CURRENT@
 LIB_SPD_REVISION = @LIB_SPD_REVISION@
@@ -398,6 +399,7 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+audio_dlopen = @audio_dlopen@
 audio_dlopen_modules = @audio_dlopen_modules@
 audiodir = @audiodir@
 bindir = @bindir@
@@ -438,6 +440,7 @@ modulebindir = @modulebindir@
 moduleconfdir = @moduleconfdir@
 moduleconforigdir = @moduleconforigdir@
 oldincludedir = @oldincludedir@
+oldmodulebindir = @oldmodulebindir@
 pdfdir = @pdfdir@
 pkgpyexecdir = @pkgpyexecdir@
 pkgpythondir = @pkgpythondir@
@@ -466,7 +469,7 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = speech-dispatcher.pc
 BUILT_SOURCES = $(top_srcdir)/.version
 SUBDIRS = include locale src config doc po
-EXTRA_DIST = config.rpath COPYING.LGPL COPYING.GPL-2 COPYING.GPL-3 ANNOUNCE BUGS FAQ README.md README.packagers README.translators README.overview.md README.style.md build.sh git-version-gen split-version.sh speech-dispatcherd.service.in po/Makevars.in po/README import-nvda.sh
+EXTRA_DIST = config.rpath COPYING.LGPL COPYING.GPL-2 COPYING.GPL-3 ANNOUNCE BUGS FAQ README.md README.packagers README.translators README.overview.md README.style.md build.sh git-version-gen split-version.sh speech-dispatcherd.service.in po/Makevars.in po/README
 CLEANFILES = speech-dispatcherd.service
 MAINTAINERCLEANFILES = configure
 AM_DISTCHECK_CONFIGURE_FLAGS = --without-systemdsystemunitdir
@@ -527,6 +530,8 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
+run-speechd: $(top_builddir)/config.status $(srcdir)/run-speechd.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
 speech-dispatcher.pc: $(top_builddir)/config.status $(srcdir)/speech-dispatcher.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 

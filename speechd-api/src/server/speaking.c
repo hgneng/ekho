@@ -47,6 +47,7 @@ int SPEAKING = 0;
 int poll_count;
 
 OutputModule *speaking_module;
+AudioID *module_audio_id;
 int speaking_uid;
 int speaking_gid;
 
@@ -65,26 +66,23 @@ void *speak(void *data)
 {
 	TSpeechDMessage *message = NULL;
 	int ret;
-	struct pollfd *poll_fds;	/* Descriptors to poll */
-	struct pollfd main_pfd;
-	struct pollfd helper_pfd;
+	struct pollfd poll_fds[2];	/* Descriptors to poll */
 	int revents;
+	OutputModule *output;
 
-	/* Block all signals and set thread states */
-	set_speak_thread_attributes();
+	/* Make interruptible */
+	set_speaking_thread_parameters();
 
-	poll_fds = g_malloc(2 * sizeof(struct pollfd));
+	/* main_pfd */
+	poll_fds[0].fd = speaking_pipe[0];
+	poll_fds[0].events = POLLIN;
+	poll_fds[0].revents = 0;
 
-	main_pfd.fd = speaking_pipe[0];
-	main_pfd.events = POLLIN;
-	main_pfd.revents = 0;
+	/* speak queue fd */
+	poll_fds[1].fd = -1;
+	poll_fds[1].events = POLLIN;
+	poll_fds[1].revents = 0;
 
-	helper_pfd.fd = -1;
-	helper_pfd.events = POLLIN;
-	helper_pfd.revents = 0;
-
-	poll_fds[0] = main_pfd;
-	poll_fds[1] = helper_pfd;
 	poll_count = 1;
 
 	while (1) {
@@ -113,7 +111,8 @@ void *speak(void *data)
 				} else if ((revents & POLLIN)
 					   || (revents & POLLPRI)) {
 					MSG(5,
-					    "wait_for_poll: activity on output_module");
+					    "wait_for_poll: activity on output_module: %d",
+					    poll_fds[1].revents);
 					/* Check if sb is speaking or they are all silent.
 					 * If some synthesizer is speaking, we must wait. */
 					is_sb_speaking();
@@ -227,24 +226,57 @@ void *speak(void *data)
 			continue;
 		}
 
+		/* Choose the output module */
+		output = get_output_module(message);
+		if (output == NULL) {
+			MSG(3, "Output module doesn't work...");
+			output_check_module(output);
+			pthread_mutex_unlock(&element_free_mutex);
+			continue;
+		}
+
+		int punct_missing = 0;
+		if (strcmp(output->name, "flite") == 0 ||
+		    strcmp(output->name, "dtk-generic") == 0 ||
+		    strcmp(output->name, "epos-generic") == 0 ||
+		    strcmp(output->name, "llia_phon-generic") == 0 ||
+		    strcmp(output->name, "mary-generic") == 0 ||
+		    strcmp(output->name, "swift-generic") == 0 ||
+		    strcmp(output->name, "pico") == 0)
+			/* These don't support punctuation */
+			/* FIXME: rather make them express it */
+			punct_missing = 1;
+
+		if (message->settings.type == SPD_MSGTYPE_TEXT ||
+		    message->settings.type == SPD_MSGTYPE_CHAR) {
+			gchar *normalized = g_utf8_normalize(message->buf, -1,
+					G_NORMALIZE_ALL_COMPOSE);
+			if (!normalized) {
+				MSG(2, "Error: Not UTF-8 valid");
+				pthread_mutex_unlock(&element_free_mutex);
+				continue;
+			}
+			if (strcmp(message->buf, normalized)) {
+				MSG(5, "text: Normalized '%s' to '%s'", message->buf, normalized);
+			}
+			g_free(message->buf);
+			message->buf = normalized;
+			insert_symbols(message, punct_missing);
+		}
+
 		/* Insert index marks into textual messages */
 		if (message->settings.type == SPD_MSGTYPE_TEXT) {
-			if (message->settings.symbols_preprocessing)
-				insert_symbols(message);
 			insert_index_marks(message,
 					   message->settings.ssml_mode);
 		}
-		else if (message->settings.type == SPD_MSGTYPE_CHAR) {
-			if (message->settings.symbols_preprocessing)
-				insert_symbols(message);
-		}
 
 		/* Write the message to the output layer. */
-		ret = output_speak(message);
+		ret = output_speak(message, output);
+
 		MSG(4, "Message sent to output module");
 		if (ret == -1) {
 			MSG(2, "Error: Output module failed");
-			output_check_module(get_output_module(message));
+			output_check_module(output);
 			pthread_mutex_unlock(&element_free_mutex);
 			continue;
 		}
@@ -258,9 +290,8 @@ void *speak(void *data)
 		SPEAKING = 1;
 
 		if (speaking_module != NULL) {
+			poll_fds[1].fd = speaking_module->pipe_speak[0];
 			poll_count = 2;
-			helper_pfd.fd = speaking_module->pipe_out[0];
-			poll_fds[1] = helper_pfd;
 		}
 
 		/* Set the id of the client who is speaking. */
@@ -614,7 +645,7 @@ int speaking_resume(int uid)
 	return 0;
 }
 
-int socket_send_msg(int fd, char *msg)
+int socket_send_msg(int fd, const char *msg)
 {
 	int ret;
 
@@ -630,7 +661,7 @@ int socket_send_msg(int fd, char *msg)
 	return 0;
 }
 
-int report_index_mark(TSpeechDMessage * msg, char *index_mark)
+int report_index_mark(TSpeechDMessage * msg, const char *index_mark)
 {
 	char *cmd;
 	int ret;
@@ -689,8 +720,10 @@ int is_sb_speaking(void)
 		settings = &(current_message->settings);
 
 		output_is_speaking(&index_mark);
-		if (index_mark == NULL)
+		if (index_mark == NULL) {
+			poll_count = 1;
 			return SPEAKING = 0;
+		}
 
 		if (!strcmp(index_mark, "no")) {
 			g_free(index_mark);
@@ -900,26 +933,6 @@ gint message_nto_speak(gconstpointer data, gconstpointer nothing)
 		return 0;
 	else
 		return 1;
-}
-
-void set_speak_thread_attributes()
-{
-	int ret;
-	sigset_t all_signals;
-
-	ret = sigfillset(&all_signals);
-	if (ret == 0) {
-		ret = pthread_sigmask(SIG_BLOCK, &all_signals, NULL);
-		if (ret != 0)
-			MSG(1,
-			    "Can't set signal set, expect problems when terminating!");
-	} else {
-		MSG(1,
-		    "Can't fill signal set, expect problems when terminating!");
-	}
-
-	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
 }
 
 void stop_priority_except_first(SPDPriority priority)

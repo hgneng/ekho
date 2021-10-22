@@ -26,20 +26,20 @@
 
 char *EVoice2str(SPDVoiceType voice);
 
-SPDVoiceType str2EVoice(char *str);
+SPDVoiceType str2EVoice(const char *str);
 
 char *EPunctMode2str(SPDPunctuation punct);
 
-SPDPunctuation str2EPunctMode(char *str);
+SPDPunctuation str2EPunctMode(const char *str);
 
 char *ESpellMode2str(SPDSpelling spell);
 
-SPDSpelling str2ESpellMode(char *str);
+SPDSpelling str2ESpellMode(const char *str);
 
 char *ECapLetRecogn2str(SPDCapitalLetters recogn);
 
-SPDCapitalLetters str2ECapLetRecogn(char *str);
+SPDCapitalLetters str2ECapLetRecogn(const char *str);
 
-SPDPriority str2intpriority(char *str);
+SPDPriority str2intpriority(const char *str);
 
 #endif

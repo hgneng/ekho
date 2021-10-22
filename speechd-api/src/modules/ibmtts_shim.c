@@ -1,5 +1,5 @@
 /*
- * ibmtts_shim.c - Shim for IBM TTS (Voxin)
+ * ibmtts_shim.c - Shim for IBM TTS (Voxin, version < 3)
  * to be able to build the ibmtts module without the IBM TTS SDK.
  *
  * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>

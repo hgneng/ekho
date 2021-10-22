@@ -8,7 +8,37 @@ symbols:
 🏽	4-teri turi	none
 🏾	5-teri turi	none
 🏿	6-teri turi	none
-⚧	transseksuallik belgisi	none
+℗	ovozli yozuv mualliflik huquqi belgisi	none
+←	chapga qaragan chiziq	none
+→	o‘ngga qaragan chiziq	none
+↑	yuqoriga qaragan chiziq	none
+↓	pastga qaragan chiziq	none
+⇅	yuqoriga va pastga qaragan chiziqlar	none
+⇆	o‘ngga qaragan chiziq ustidagi chapga qaragan chiziqlar	none
+∆	ortish belgisi	none
+∇	nabla	none
+∈	element	none
+≠	teng emas	none
+−	minus belgisi	none
+⁻	satr ustidagi ayirish belgisi	none
+√	kvadrat ildiz	none
+∞	cheksizlik belgisi	none
+∩	kesishma	none
+∪	birlashtirish belgisi	none
+≈	deyarli teng	none
+≡	bir xillik belgisi	none
+≤	kichik yoki teng	none
+≥	katta yoki teng	none
+⊂	ichki toʻplam	none
+▲	ichi boʻyalgan yuqoriga qaragan uchburchak	none
+▼	ichi to‘ldirilgan pastga qaragan uchburchak	none
+◊	romb	none
+○	ichi bo‘sh doira	none
+●	ichi to‘ldirilgan doira	none
+◯	yirik ichi bo‘sh doira	none
+♪	sakkizinchi nota	none
+♭	bemol	none
+♯	diyez	none
 😀	tirjaygan yuz	none
 😃	og‘zini katta ochib kulayotgan yuz	none
 😄	tabassum, og‘iz ochiq, ko‘zlar qisilgan	none
@@ -30,6 +60,7 @@ symbols:
 ☺	kulayotgan yuz	none
 😚	bo‘sa olayotgan yuz va yumilgan ko‘zlar	none
 😙	bo‘sa olayotgan yuz va kulayotgan ko‘zlar	none
+🥲	koʻz yoshi bilan jilmaygan yuz	none
 😋	mazali taomni tatib ko‘rgan til	none
 😛	tilini chiqarib turgan yuz	none
 😜	tilini chiqarib turgan va ko‘zi qisilgan yuz	none
@@ -45,10 +76,12 @@ symbols:
 😐	his-tuyg‘usiz	none
 😑	his-tuyg‘usiz yuz	none
 😶	og‘izsiz yuz	none
+😶‍🌫	bulutdagi yuz	none
 😏	istehzoli yuz	none
 😒	qoniqmagan yuz	none
 🙄	ko‘zlarini aylantirayotgan yuz	none
 😬	afti burishgan	none
+😮‍💨	nafas chiqarayotgan yuz	none
 🤥	aldayotgan	none
 😌	xotirjam yuz	none
 😔	g‘amgin yuz	none
@@ -65,9 +98,11 @@ symbols:
 🥶	sovqotish	none
 🥴	boshi aylangan	none
 😵	boshi aylanayotgan yuz	none
+😵‍💫	spiral koʻzli yuz	none
 🤯	miya portlashi	none
 🤠	kovboyning boshi	none
 🥳	ziyofatda	none
+🥸	niqoblangan yuz	none
 😎	ko‘zoynak taqqan hamda kulayotgan yuz	none
 🤓	aqlli yuz	none
 🧐	monokl bilan	none
@@ -135,6 +170,8 @@ symbols:
 💟	yurak bezagi	none
 ❣	yurak shaklidagi undov belgisi	none
 💔	singan yurak	none
+❤‍🔥	olovdagi yurak	none
+❤‍🩹	yurakka malham	none
 ❤	qizil yurak	none
 🧡	apelsinrang yurak	none
 💛	sariq yurak	none
@@ -164,18 +201,19 @@ symbols:
 ✋	ko‘tarilgan qo‘l	none
 🖖	vulkan salyuti	none
 👌	qo‘lda qilingan ok	none
+🤌	chimdilgan barmoqlar	none
 🤏	chimduvchi qoʻl	none
 ✌	v harfini ko‘rsatib turgan qo‘l	none
 🤞	kesishgan barmoqlar	none
 🤟	sevaman degan ishora	none
 🤘	shox belgisi	none
 🤙	menga telefon qil	none
-👈	ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l	none
-👉	ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l	none
-👆	ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l	none
+👈	ko‘rsatkich barmoq chapga	none
+👉	ko‘rsatkich barmoq oʻngga	none
+👆	ko‘rsatkich barmoq tepaga	none
 🖕	o‘rta barmoq	none
-👇	ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l	none
-☝	ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l	none
+👇	ko‘rsatkich barmoq pastga	none
+☝	ko‘rsatkich barmoq tepada	none
 👍	tepaga qaragan bosh barmoq	none
 👎	pastga qaragan bosh barmoq	none
 ✊	ko‘tarilgan musht	none
@@ -200,6 +238,8 @@ symbols:
 🦻	eshitish qurilmasi taqilgan quloq	none
 👃	burun	none
 🧠	miya	none
+🫀	yurak	none
+🫁	oʻpka	none
 🦷	tish	none
 🦴	suyak	none
 👀	ko‘zlar	none
@@ -214,8 +254,10 @@ symbols:
 👱	shaxs mallasoch	none
 👨	erkak	none
 🧔	erkak soqolli	none
+🧔‍♂	soqolli erkak	none
 👱‍♂	erkak mallasoch	none
 👩	ayol	none
+🧔‍♀	soqolli ayol	none
 👱‍♀	ayol mallasoch	none
 🧓	qari odam	none
 👴	chol	none
@@ -307,6 +349,7 @@ symbols:
 💂	qo‘riqchi	none
 💂‍♂	erkak qo‘riqchi	none
 💂‍♀	ayol qo‘riqchi	none
+🥷	ninza	none
 👷	quruvchi	none
 👷‍♂	erkak quruvchi	none
 👷‍♀	ayol quruvchi	none
@@ -317,13 +360,21 @@ symbols:
 👳‍♀	sallali ayol	none
 👲	xitoy bosh kiyimini kiygan kishi	none
 🧕	ro‘mol o‘ragan ayol	none
-🤵	smoking kiygan erkak	none
-👰	to‘y ro‘molidagi kelin	none
+🤵	smoking kiygan odam	none
+🤵‍♂	smoking kiygan kishi	none
+🤵‍♀	smoking kiygan ayol	none
+👰	nikoh kiyimidagi odam	none
+👰‍♂	xarir parda taqib olgan erkak	none
+👰‍♀	xarir parda taqib olgan ayol	none
 🤰	homilador ayol	none
 🤱	emizish	none
+👩‍🍼	chaqaloq emizayotgan ayol	none
+👨‍🍼	chaqaloq emizayotgan erkak	none
+🧑‍🍼	chaqaloq emizayotgan kishi	none
 👼	chaqaloq farishta	none
 🎅	santa-klaus	none
 🤶	qorqiz	none
+🧑‍🎄	miks-klauz	none
 🦸	superqahramon	none
 🦸‍♂	erkak qahramon	none
 🦸‍♀	ayol superqahramon	none
@@ -448,6 +499,7 @@ symbols:
 🗣	gapirayotgan bosh	none
 👤	kontur suratli byust	none
 👥	kontur suratli byustlar	none
+🫂	quchoqlashayotgan odamlar	none
 👣	oyoq izlari	none
 🦰	malla soch	none
 🦱	jingalak soch	none
@@ -467,6 +519,7 @@ symbols:
 🦝	yenot	none
 🐱	mushuk qiyofasi	none
 🐈	mushuk	none
+🐈‍⬛	qora mushuk	none
 🦁	sher	none
 🐯	yo‘lbars qiyofasi	none
 🐅	yo‘lbars	none
@@ -476,6 +529,7 @@ symbols:
 🦄	yakkashox	none
 🦓	zebra	none
 🦌	kiyik	none
+🦬	bizon	none
 🐮	sigir qiyofasi	none
 🐂	ho‘kiz	none
 🐃	buyvol	none
@@ -492,6 +546,7 @@ symbols:
 🦙	lama	none
 🦒	jirafa	none
 🐘	fil	none
+🦣	mamont	none
 🦏	karkidon	none
 🦛	gippopotam	none
 🐭	sichqon qiyofasi	none
@@ -501,9 +556,11 @@ symbols:
 🐰	quyon qiyofasi	none
 🐇	quyon	none
 🐿	burunduq	none
+🦫	suv qunduzi	none
 🦔	tipratikan	none
 🦇	ko‘rshapalak	none
 🐻	ayiq	none
+🐻‍❄	qutb ayig‘i	none
 🐨	koala	none
 🐼	panda	none
 🦥	yalqov	none
@@ -525,6 +582,8 @@ symbols:
 🦆	o‘rdak	none
 🦢	oqqush	none
 🦉	boyqush	none
+🦤	Mavrikiya dronti	none
+🪶	pat	none
 🦩	flamingo	none
 🦚	tovus	none
 🦜	to‘ti	none
@@ -540,6 +599,7 @@ symbols:
 🐳	favvora hosil qilayotgan kit	none
 🐋	kit	none
 🐬	delfin	none
+🦭	dengiz mushugi	none
 🐟	baliq	none
 🐠	tropik baliq	none
 🐡	qorni katta baliq	none
@@ -551,12 +611,16 @@ symbols:
 🐛	taxtakana	none
 🐜	chumoli	none
 🐝	asalari	none
+🪲	qoʻngʻiz	none
 🐞	xonqizi	none
 🦗	qora chigirtka	none
+🪳	suvarak	none
 🕷	o‘rgimchak	none
 🕸	o‘rgimchak turi	none
 🦂	chayon	none
 🦟	chivin	none
+🪰	pashsha	none
+🪱	qurt	none
 🦠	mikrob	none
 💐	guldasta	none
 🌸	gilos guli	none
@@ -569,6 +633,7 @@ symbols:
 🌼	gul	none
 🌷	lola	none
 🌱	ko‘chat	none
+🪴	tuvakdagi oʻsimlik	none
 🌲	archa	none
 🌳	bargli daraxt	none
 🌴	palma daraxti	none
@@ -594,8 +659,10 @@ symbols:
 🍑	shaftoli	none
 🍒	gilos	none
 🍓	qulupnay	none
+🫐	chernika	none
 🥝	kivi	none
 🍅	pomidor	none
+🫒	zaytun	none
 🥥	kokos	none
 🥑	avokado	none
 🍆	baqlajon	none
@@ -603,6 +670,7 @@ symbols:
 🥕	sabzi	none
 🌽	makkajo‘xori	none
 🌶	achchiq qalampir	none
+🫑	bolgar qalampiri	none
 🥒	bodring	none
 🥬	salat bargi	none
 🥦	brokkoli	none
@@ -614,6 +682,7 @@ symbols:
 🍞	non	none
 🥐	kruassan	none
 🥖	baget	none
+🫓	malda non	none
 🥨	kulcha	none
 🥯	shirmoy teshik kulcha	none
 🥞	blinchik	none
@@ -630,12 +699,14 @@ symbols:
 🥪	sendvich	none
 🌮	tako	none
 🌯	burrito	none
+🫔	tamale	none
 🥙	shaurma	none
 🧆	falafel	none
 🥚	tuxum	none
 🍳	taom tayyorlash	none
 🥘	bir tova qovurdoq	none
 🍲	bir qozon ovqat	none
+🫕	fondyu	none
 🥣	kosa bilan qoshiq	none
 🥗	sabzavotli salat	none
 🍿	popkorn	none
@@ -681,6 +752,7 @@ symbols:
 🍼	chaqaloqlar idishi	none
 🥛	bir stakan sut	none
 ☕	issiq ichimlik	none
+🫖	choynak	none
 🍵	piyola	none
 🍶	ko‘za va piyola	none
 🍾	tiqinli shisha idish	none
@@ -692,6 +764,7 @@ symbols:
 🥂	qadah urishtirish	none
 🥃	vino uchun stakan	none
 🥤	stakan bilan cho‘p	none
+🧋	koʻpikli choy	none
 🧃	ichimlik qutisi	none
 🧉	mate	none
 🧊	muz	none
@@ -721,6 +794,9 @@ symbols:
 🏛	qadimiy bino	none
 🏗	bino qurilishi	none
 🧱	g‘ishtin	none
+🪨	tosh	none
+🪵	yogʻoch	none
+🛖	kulba	none
 🏘	uylar	none
 🏚	tashlandiq uy	none
 🏠	uy	none
@@ -788,6 +864,7 @@ symbols:
 🚗	avtomobil	none
 🚘	yaqinlashayotgan avtomobil	none
 🚙	hordiq chiqarish avtomobili	none
+🛻	yuk mashinasi	none
 🚚	yetkazib beruvchi yuk mashinasi	none
 🚛	tirkamali yuk mashinasi	none
 🚜	traktor	none
@@ -800,6 +877,7 @@ symbols:
 🚲	velosiped	none
 🛴	samokat	none
 🛹	skeytbord	none
+🛼	gʻildirakli konki	none
 🚏	avtobus bekati	none
 🛣	avtomobil yo‘li	none
 🛤	temiryo‘l	none
@@ -833,7 +911,7 @@ symbols:
 🛸	uchar likopcha	none
 🛎	pochtachi qo‘ng‘irog‘i	none
 🧳	jomadon	none
-⌛	qumsoat	none
+⌛	toʻlgan qumsoat	none
 ⏳	qum tushayotgan qumsoat	none
 ⌚	qo‘l soati	none
 ⏰	uyg‘otadigan soat	none
@@ -970,6 +1048,7 @@ symbols:
 🪁	varrak	none
 🎱	billiard	none
 🔮	kristall shar	none
+🪄	sehrli tayoqcha	none
 🧿	nazar tumori	none
 🎮	video o‘yin	none
 🕹	joystik	none
@@ -977,6 +1056,8 @@ symbols:
 🎲	shoshqol toshi	none
 🧩	pazl qismi	none
 🧸	baxmal ayiqcha	none
+🪅	pinyata	none
+🪆	matryoshka	none
 ♠	qarg‘a kartasi	none
 ♥	tappon kartasi	none
 ♦	g‘ishtin kartasi	none
@@ -989,7 +1070,9 @@ symbols:
 🖼	ramkali surat	none
 🎨	palitra	none
 🧵	g‘altak	none
+🪡	tikuv ignasi	none
 🧶	o‘ram	none
+🪢	tugun	none
 👓	ko‘zoynak	none
 🕶	quyoshdan himoyalaydigan ko‘zoynak	none
 🥽	himoya ko‘zoynagi	none
@@ -1015,6 +1098,7 @@ symbols:
 👝	kichik sumka	none
 🛍	xarid sumkalari	none
 🎒	ryukzak	none
+🩴	tasmali sandal	none
 👞	erkaklar tuflisi	none
 👟	krossovka	none
 🥾	tog‘ poyafzali	none
@@ -1028,6 +1112,7 @@ symbols:
 🎩	silindr shlyapa	none
 🎓	akademik bosh kiyim	none
 🧢	beysbolka	none
+🪖	harbiy kaska	none
 ⛑	oq xochli dubulg‘a	none
 📿	tasbeh	none
 💄	lab bo‘yog‘i	none
@@ -1052,12 +1137,14 @@ symbols:
 🎧	quloqlik	none
 📻	radio	none
 🎷	saksofon	none
+🪗	akkordeon	none
 🎸	gitara	none
 🎹	musiqiy klaviatura	none
 🎺	truba	none
 🎻	skripka	none
 🪕	banjo	none
 🥁	baraban	none
+🪘	uzun nogʻora	none
 📱	mobil telefon	none
 📲	mobil telefon va strelka	none
 ☎	telefon	none
@@ -1111,6 +1198,7 @@ symbols:
 🔖	xatcho‘p	none
 🏷	yorliq	none
 💰	pul xalta	none
+🪙	tanga	none
 💴	iyena banknotasi	none
 💵	dollar banknotasi	none
 💶	yevro banknotasi	none
@@ -1119,8 +1207,6 @@ symbols:
 💳	kredit karta	none
 🧾	chek	none
 💹	o‘sayotgan iyena diagrammasi	none
-💱	pul birligini almashtirish	none
-💲	katta dollar belgisi	none
 ✉	konvert	none
 📧	e-pochta	none
 📨	kiruvchi konvert	none
@@ -1129,9 +1215,9 @@ symbols:
 📥	kiruvchi xat qutisi	none
 📦	qadoq	none
 📫	bayroqchasi ko‘tarilgan yopiq pochta qutisi	none
-📪	pastga qaragan bayroqli yopiq pochta qutisi	none
-📬	yuqoriga ko‘tarilgan bayroqli ochiq pochta qutisi	none
-📭	pastga qaragan bayroqli ochiq pochta qutisi	none
+📪	pastga qaragan yopiq pochta qutisi	none
+📬	yuqoriga qaragan ochiq pochta qutisi	none
+📭	pastga qaragan bayroqli pochta qutisi	none
 📮	pochta qutisi	none
 🗳	quti va saylov byulleteni	none
 ✏	qalam	none
@@ -1177,10 +1263,13 @@ symbols:
 🛠	bolg‘a va gayka kaliti	none
 🗡	xanjar	none
 ⚔	kesishgan qilichlar	none
-🔫	to‘pponcha	none
+🔫	suvli pistolet	none
+🪃	bumerang	none
 🏹	kamon va o‘q	none
 🛡	qalqon	none
+🪚	duradgorlik arrasi	none
 🔧	gayka kaliti	none
+🪛	otvertka	none
 🔩	gayka va murvat	none
 ⚙	tishli g‘ildirak	none
 🗜	kompressor	none
@@ -1188,8 +1277,10 @@ symbols:
 🦯	hassa	none
 🔗	havola	none
 ⛓	zanjirlar	none
+🪝	ilgak	none
 🧰	asbob-uskuna qutisi	none
 🧲	magnit	none
+🪜	narvon	none
 ⚗	haydash kimyoviy shishasi	none
 🧪	probirka	none
 🧫	petri idishi	none
@@ -1203,26 +1294,35 @@ symbols:
 🩹	plastir	none
 🩺	stetoskop	none
 🚪	eshik	none
+🛗	lift	none
+🪞	oyna	none
+🪟	deraza	none
 🛏	karavot	none
 🛋	divan va lampa	none
 🪑	stul	none
 🚽	tualet	none
+🪠	tortgich	none
 🚿	dush	none
 🛁	vanna	none
+🪤	sichqon tutgich	none
 🪒	ustara	none
 🧴	losyon shishasi	none
 🧷	to‘g‘nag‘ich	none
 🧹	supurgi	none
 🧺	savat	none
 🧻	qog‘oz o‘rami	none
+🪣	chelak	none
 🧼	sovun	none
+🪥	tish choʻtkasi	none
 🧽	yuvgich	none
 🧯	o‘to‘chirgich	none
 🛒	xarid savatchasi	none
 🚬	chekish	none
 ⚰	tobut	none
+🪦	qabr toshi	none
 ⚱	dafn ko‘zasi	none
 🗿	moai	none
+🪧	plakat	none
 🏧	bankomat	none
 🚮	axlatni o‘z joyiga tashlash	none
 🚰	ichimlik suvi	none
@@ -1240,30 +1340,30 @@ symbols:
 🚸	bolalar o‘tish joyi	none
 ⛔	kirish mumkin emas	none
 🚫	to‘xtab turish taqiqlanadi	none
-🚳	velosipedlar harakatlanishi taqiqlanadi	none
+🚳	velosipedda harakatlanish taqiqlanadi	none
 🚭	chekish taqiqlanadi	none
 🚯	axlat tashlash taqiqlanadi	none
 🚱	ichib bo‘lmaydigan suv	none
-🚷	piyodalar mumkin emas	none
+🚷	piyodalar harakatlanishi mumkin emas	none
 📵	telefon mumkin emas	none
 🔞	18 yoshdan kichiklarga taqiqlangan	none
 ☢	radioaktiv	none
 ☣	biologik xavf	none
-⬆	yuqoriga yo‘nalish	none
-↗	o‘ng-yuqoriga yo‘nalish	none
-➡	o‘ngga yo‘nalish	none
-↘	o‘ng-pastga yo‘nalish	none
-⬇	pastga yo‘nalish	none
-↙	past-chapga yo‘nalish	none
-⬅	chapga yo‘nalish	none
-↖	chap yuqoriga yo‘nalish	none
-↕	tepa-pastga yo‘nalish	none
-↔	chapga-o‘ngga yo‘nalish	none
+⬆	yuqoriga strelka	none
+↗	o‘ng-yuqoriga strelka	none
+➡	oʻngga strelka	none
+↘	o‘ng-pastga strelka	none
+⬇	pastga strelka	none
+↙	past-chapga strelka	none
+⬅	chapga strelka	none
+↖	chap yuqoriga strelka	none
+↕	tepa-pastga strelka	none
+↔	chapga-o‘ngga strelka	none
 ↩	o‘ngdan chapga qayrilish	none
 ↪	chapdan o‘ngga qayrilish	none
 ⤴	o‘ngdan yuqoriga qayrilish	none
 ⤵	o‘ngdan pastga qayrilish	none
-🔃	soat millari bo‘yicha	none
+🔃	soat mili yo‘nalishi bo‘yicha	none
 🔄	soat millariga qarshi yo‘nalish	none
 🔙	orqaga yo‘nalish	none
 🔚	berk chizig‘i	none
@@ -1321,38 +1421,35 @@ symbols:
 📴	telefon o‘chiq beligisi	none
 ♀	ayol belgisi	none
 ♂	erkak belgisi	none
-⚕	tibbiy ramz	none
+⚧	transseksuallik belgisi	none
+✖	koʻpaytiruv	none
+➕	qoʻshuv	none
+➖	ayiruv	none
+➗	boʻluv	none
 ♾	cheksizilik	none
+❓	qizil soʻroq belgisi	none
+❔	oq soʻroq belgisi	none
+❕	oq undov belgisi	none
+❗	qizil undov belgisi	none
+💱	pul birligini almashtirish	none
+💲	katta dollar belgisi	none
+⚕	tibbiy ramz	none
 ♻	qayta ishlash belgisi	none
 ⚜	gulsapsar	none
 🔱	uch shoxli nayza	none
 📛	ism yoziladigan nishon	none
-🔰	boshlovchi darajasini bildiruvchi yaponcha belgi	none
+🔰	boshlovchi yaponcha belgi	none
 ⭕	boʻsh qizil doira	none
 ✅	belgilash tugmasi belgisi	none
 ☑	belgilangan belgilash maydonchasi	none
 ✔	belgilash belgisi	none
-✖	koʻpaytirish belgisi	none
 ❌	krest belgisi	none
 ❎	krest belgili tugma	none
-➕	qoʻshish belgisi	none
-➖	ayirish belgisi	none
-➗	boʻlish belgisi	none
 ➰	jingalak halqa	none
 ➿	qo‘sh jingalak halqa	none
-〽	ovoz almashinuvi belgisi	none
 ✳	sakkiz qirrali yulduz	none
 ✴	sakkiz burchakli yulduz	none
 ❇	uchqun	none
-‼	juft undov belgisi	none
-⁉	undov soʻroq belgisi	none
-❓	soʻroq belgisi	none
-❔	oq soʻroq belgisi	none
-❕	oq undov belgisi	none
-❗	undov belgisi	none
-〰	to‘lqinli chiziq	none
-©	mualliflik huquqi	none
-®	qayd qilingan	none
 ™	savdo belgisi	none
 🔠	katta lotin harflarini kiritish	none
 🔡	kichik lotin harflarini kiritish	none
@@ -1376,23 +1473,6 @@ symbols:
 🆘	kvadrat ichidagi sos so‘zi	none
 🆙	tepaga tugmasi	none
 🆚	kvadrat ichidagi raqib sifatida so‘zi	none
-🈁	kvadrat ichidagi katakanadagi koko so‘zi	none
-🈂	kvadrat ichidagi katakana sa morasi	none
-🈷	kvadrat ichidagi oy iyeroglifi	none
-🈶	kvadrat ichidagi mavjudlik iyeroglifi	none
-🈯	kvadrat ichidagi barmoq iyeroglifi	none
-🉐	aylana ichidagi afzallik iyeroglifi	none
-🈹	kvadrat ichidagi bo‘lish iyeroglifi	none
-🈚	kvadrat ichidagi inkor iyeroglifi	none
-🈲	kvadrat ichidagi taqiqlash iyeroglifi	none
-🉑	aylana ichidagi qabul qilish iyeroglifi	none
-🈸	kvadrat ichidagi tatbiq qilish iyeroglifi	none
-🈴	kvadrat ichidagi birgalik iyeroglifi	none
-🈳	kvadrat ichidagi bo‘shliq iyeroglifi	none
-㊗	aylana ichidagi bayram iyeroglifi	none
-㊙	aylana ichida iyeroglif yozuvidagi maxfiy belgisi	none
-🈺	kvadrat ichida iyeroglif yozuvidagi amaliyot belgisi	none
-🈵	kvadrat ichida iyeroglif yozuvidagi to‘liq belgisi	none
 🔴	qizil doira	none
 🟠	sabzirang doira	none
 🟡	sariq doira	none
@@ -1432,64 +1512,16 @@ symbols:
 🎌	bir-birini kesib o‘tgan bayroqlar	none
 🏴	hilpiragan qora bayroq	none
 🏳	hilpiragan oq bayroq	none
-🏳‍⚧	moviy, pushti va oq bayroq	none
 🏳‍🌈	kamalak bayroq	none
+🏳‍⚧	moviy, pushti va oq bayroq	none
 🏴‍☠	dengiz qaroqchilari bayrog‘i	none
-🛖	kulba	none
-🛗	lift	none
-🛻	yuk mashinasi	none
-🛼	gʻildirakli konki	none
-🤌	chimdilgan barmoqlar	none
-🥲	koʻz yoshi bilan jilmaygan yuz	none
-🥷	ninza	none
-🥸	niqoblangan yuz	none
-🦣	mamont	none
-🦤	Mavrikiya dronti	none
-🦫	suv qunduzi	none
-🦬	bizon	none
-🦭	dengiz mushugi	none
-🧋	koʻpikli choy	none
-🩴	tasmali sandal	none
-🪃	bumerang	none
-🪄	sehrli tayoqcha	none
-🪅	pinyata	none
-🪆	matryoshka	none
-🪖	harbiy kaska	none
-🪗	akkordeon	none
-🪘	uzun nogʻora	none
-🪙	tanga	none
-🪚	duradgorlik arrasi	none
-🪛	otvertka	none
-🪜	narvon	none
-🪝	ilgak	none
-🪞	oyna	none
-🪟	deraza	none
-🪠	tortgich	none
-🪡	tikuv ignasi	none
-🪢	tugun	none
-🪣	chelak	none
-🪤	sichqon tutgich	none
-🪥	tish choʻtkasi	none
-🪦	qabr toshi	none
-🪧	plakat	none
-🪨	tosh	none
-🪰	pashsha	none
-🪱	qurt	none
-🪲	qoʻngʻiz	none
-🪳	suvarak	none
-🪴	tuvakdagi oʻsimlik	none
-🪵	yogʻoch	none
-🪶	pat	none
-🫀	yurak	none
-🫁	oʻpka	none
-🫂	quchoqlashayotgan odamlar	none
-🫐	chernika	none
-🫑	bolgar qalampiri	none
-🫒	zaytun	none
-🫓	malda non	none
-🫔	tamale	none
-🫕	fondyu	none
-🫖	choynak	none
+₥	mill	none
+₩	von	none
+€	yevro belgisi	none
+₱	peso	none
+₹	hind rupiysi	none
+₽	rubl	none
+₿	bitkoin	none
 👋🏻	shapaloq 1–2-teri turi	none
 👋🏼	shapaloq 3-teri turi	none
 👋🏽	shapaloq 4-teri turi	none
@@ -1520,6 +1552,11 @@ symbols:
 👌🏽	qo‘lda qilingan ok 4-teri turi	none
 👌🏾	qo‘lda qilingan ok 5-teri turi	none
 👌🏿	qo‘lda qilingan ok 6-teri turi	none
+🤌🏻	chimdilgan barmoqlar 1–2-teri turi	none
+🤌🏼	chimdilgan barmoqlar 3-teri turi	none
+🤌🏽	chimdilgan barmoqlar 4-teri turi	none
+🤌🏾	chimdilgan barmoqlar 5-teri turi	none
+🤌🏿	chimdilgan barmoqlar 6-teri turi	none
 🤏🏻	chimduvchi qoʻl 1–2-teri turi	none
 🤏🏼	chimduvchi qoʻl 3-teri turi	none
 🤏🏽	chimduvchi qoʻl 4-teri turi	none
@@ -1550,36 +1587,36 @@ symbols:
 🤙🏽	menga telefon qil 4-teri turi	none
 🤙🏾	menga telefon qil 5-teri turi	none
 🤙🏿	menga telefon qil 6-teri turi	none
-👈🏻	ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l 1–2-teri turi	none
-👈🏼	ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l 3-teri turi	none
-👈🏽	ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l 4-teri turi	none
-👈🏾	ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l 5-teri turi	none
-👈🏿	ko‘rsatkich barmog‘i orqa tomoni bilan chapga qarab turgan qo‘l 6-teri turi	none
-👉🏻	ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l 1–2-teri turi	none
-👉🏼	ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l 3-teri turi	none
-👉🏽	ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l 4-teri turi	none
-👉🏾	ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l 5-teri turi	none
-👉🏿	ko‘rsatkich barmog‘i orqa tomoni bilan o‘ngga qarab turgan qo‘l 6-teri turi	none
-👆🏻	ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l 1–2-teri turi	none
-👆🏼	ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l 3-teri turi	none
-👆🏽	ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l 4-teri turi	none
-👆🏾	ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l 5-teri turi	none
-👆🏿	ko‘rsatkich barmog‘i orqa tomoni bilan tepaga qarab turgan qo‘l 6-teri turi	none
+👈🏻	ko‘rsatkich barmoq chapga 1–2-teri turi	none
+👈🏼	ko‘rsatkich barmoq chapga 3-teri turi	none
+👈🏽	ko‘rsatkich barmoq chapga 4-teri turi	none
+👈🏾	ko‘rsatkich barmoq chapga 5-teri turi	none
+👈🏿	ko‘rsatkich barmoq chapga 6-teri turi	none
+👉🏻	ko‘rsatkich barmoq oʻngga 1–2-teri turi	none
+👉🏼	ko‘rsatkich barmoq oʻngga 3-teri turi	none
+👉🏽	ko‘rsatkich barmoq oʻngga 4-teri turi	none
+👉🏾	ko‘rsatkich barmoq oʻngga 5-teri turi	none
+👉🏿	ko‘rsatkich barmoq oʻngga 6-teri turi	none
+👆🏻	ko‘rsatkich barmoq tepaga 1–2-teri turi	none
+👆🏼	ko‘rsatkich barmoq tepaga 3-teri turi	none
+👆🏽	ko‘rsatkich barmoq tepaga 4-teri turi	none
+👆🏾	ko‘rsatkich barmoq tepaga 5-teri turi	none
+👆🏿	ko‘rsatkich barmoq tepaga 6-teri turi	none
 🖕🏻	o‘rta barmoq 1–2-teri turi	none
 🖕🏼	o‘rta barmoq 3-teri turi	none
 🖕🏽	o‘rta barmoq 4-teri turi	none
 🖕🏾	o‘rta barmoq 5-teri turi	none
 🖕🏿	o‘rta barmoq 6-teri turi	none
-👇🏻	ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l 1–2-teri turi	none
-👇🏼	ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l 3-teri turi	none
-👇🏽	ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l 4-teri turi	none
-👇🏾	ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l 5-teri turi	none
-👇🏿	ko‘rsatkich barmog‘i orqa tomoni bilan pastga qarab turgan qo‘l 6-teri turi	none
-☝🏻	ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l 1–2-teri turi	none
-☝🏼	ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l 3-teri turi	none
-☝🏽	ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l 4-teri turi	none
-☝🏾	ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l 5-teri turi	none
-☝🏿	ko‘rsatkich barmog‘i tepaga qarab turgan qo‘l 6-teri turi	none
+👇🏻	ko‘rsatkich barmoq pastga 1–2-teri turi	none
+👇🏼	ko‘rsatkich barmoq pastga 3-teri turi	none
+👇🏽	ko‘rsatkich barmoq pastga 4-teri turi	none
+👇🏾	ko‘rsatkich barmoq pastga 5-teri turi	none
+👇🏿	ko‘rsatkich barmoq pastga 6-teri turi	none
+☝🏻	ko‘rsatkich barmoq tepada 1–2-teri turi	none
+☝🏼	ko‘rsatkich barmoq tepada 3-teri turi	none
+☝🏽	ko‘rsatkich barmoq tepada 4-teri turi	none
+☝🏾	ko‘rsatkich barmoq tepada 5-teri turi	none
+☝🏿	ko‘rsatkich barmoq tepada 6-teri turi	none
 👍🏻	tepaga qaragan bosh barmoq 1–2-teri turi	none
 👍🏼	tepaga qaragan bosh barmoq 3-teri turi	none
 👍🏽	tepaga qaragan bosh barmoq 4-teri turi	none
@@ -1710,6 +1747,46 @@ symbols:
 👱🏽	shaxs 4-teri turi mallasoch	none
 👱🏾	shaxs 5-teri turi mallasoch	none
 👱🏿	shaxs 6-teri turi mallasoch	none
+🧑🏻‍❤‍💋‍🧑🏼	bo‘sa olish voyaga yetgan voyaga yetgan 1–2-teri turi 3-teri turi	none
+🧑🏻‍❤‍💋‍🧑🏽	bo‘sa olish voyaga yetgan voyaga yetgan 1–2-teri turi 4-teri turi	none
+🧑🏻‍❤‍💋‍🧑🏾	bo‘sa olish voyaga yetgan voyaga yetgan 1–2-teri turi 5-teri turi	none
+🧑🏻‍❤‍💋‍🧑🏿	bo‘sa olish voyaga yetgan voyaga yetgan 1–2-teri turi 6-teri turi	none
+🧑🏼‍❤‍💋‍🧑🏻	bo‘sa olish voyaga yetgan voyaga yetgan 3-teri turi 1–2-teri turi	none
+🧑🏼‍❤‍💋‍🧑🏽	bo‘sa olish voyaga yetgan voyaga yetgan 3-teri turi 4-teri turi	none
+🧑🏼‍❤‍💋‍🧑🏾	bo‘sa olish voyaga yetgan voyaga yetgan 3-teri turi 5-teri turi	none
+🧑🏼‍❤‍💋‍🧑🏿	bo‘sa olish voyaga yetgan voyaga yetgan 3-teri turi 6-teri turi	none
+🧑🏽‍❤‍💋‍🧑🏻	bo‘sa olish voyaga yetgan voyaga yetgan 4-teri turi 1–2-teri turi	none
+🧑🏽‍❤‍💋‍🧑🏼	bo‘sa olish voyaga yetgan voyaga yetgan 4-teri turi 3-teri turi	none
+🧑🏽‍❤‍💋‍🧑🏾	bo‘sa olish voyaga yetgan voyaga yetgan 4-teri turi 5-teri turi	none
+🧑🏽‍❤‍💋‍🧑🏿	bo‘sa olish voyaga yetgan voyaga yetgan 4-teri turi 6-teri turi	none
+🧑🏾‍❤‍💋‍🧑🏻	bo‘sa olish voyaga yetgan voyaga yetgan 5-teri turi 1–2-teri turi	none
+🧑🏾‍❤‍💋‍🧑🏼	bo‘sa olish voyaga yetgan voyaga yetgan 5-teri turi 3-teri turi	none
+🧑🏾‍❤‍💋‍🧑🏽	bo‘sa olish voyaga yetgan voyaga yetgan 5-teri turi 4-teri turi	none
+🧑🏾‍❤‍💋‍🧑🏿	bo‘sa olish voyaga yetgan voyaga yetgan 5-teri turi 6-teri turi	none
+🧑🏿‍❤‍💋‍🧑🏻	bo‘sa olish voyaga yetgan voyaga yetgan 6-teri turi 1–2-teri turi	none
+🧑🏿‍❤‍💋‍🧑🏼	bo‘sa olish voyaga yetgan voyaga yetgan 6-teri turi 3-teri turi	none
+🧑🏿‍❤‍💋‍🧑🏽	bo‘sa olish voyaga yetgan voyaga yetgan 6-teri turi 4-teri turi	none
+🧑🏿‍❤‍💋‍🧑🏾	bo‘sa olish voyaga yetgan voyaga yetgan 6-teri turi 5-teri turi	none
+🧑🏻‍❤‍🧑🏼	juftlik va yurak voyaga yetgan voyaga yetgan 1–2-teri turi 3-teri turi	none
+🧑🏻‍❤‍🧑🏽	juftlik va yurak voyaga yetgan voyaga yetgan 1–2-teri turi 4-teri turi	none
+🧑🏻‍❤‍🧑🏾	juftlik va yurak voyaga yetgan voyaga yetgan 1–2-teri turi 5-teri turi	none
+🧑🏻‍❤‍🧑🏿	juftlik va yurak voyaga yetgan voyaga yetgan 1–2-teri turi 6-teri turi	none
+🧑🏼‍❤‍🧑🏻	juftlik va yurak voyaga yetgan voyaga yetgan 3-teri turi 1–2-teri turi	none
+🧑🏼‍❤‍🧑🏽	juftlik va yurak voyaga yetgan voyaga yetgan 3-teri turi 4-teri turi	none
+🧑🏼‍❤‍🧑🏾	juftlik va yurak voyaga yetgan voyaga yetgan 3-teri turi 5-teri turi	none
+🧑🏼‍❤‍🧑🏿	juftlik va yurak voyaga yetgan voyaga yetgan 3-teri turi 6-teri turi	none
+🧑🏽‍❤‍🧑🏻	juftlik va yurak voyaga yetgan voyaga yetgan 4-teri turi 1–2-teri turi	none
+🧑🏽‍❤‍🧑🏼	juftlik va yurak voyaga yetgan voyaga yetgan 4-teri turi 3-teri turi	none
+🧑🏽‍❤‍🧑🏾	juftlik va yurak voyaga yetgan voyaga yetgan 4-teri turi 5-teri turi	none
+🧑🏽‍❤‍🧑🏿	juftlik va yurak voyaga yetgan voyaga yetgan 4-teri turi 6-teri turi	none
+🧑🏾‍❤‍🧑🏻	juftlik va yurak voyaga yetgan voyaga yetgan 5-teri turi 1–2-teri turi	none
+🧑🏾‍❤‍🧑🏼	juftlik va yurak voyaga yetgan voyaga yetgan 5-teri turi 3-teri turi	none
+🧑🏾‍❤‍🧑🏽	juftlik va yurak voyaga yetgan voyaga yetgan 5-teri turi 4-teri turi	none
+🧑🏾‍❤‍🧑🏿	juftlik va yurak voyaga yetgan voyaga yetgan 5-teri turi 6-teri turi	none
+🧑🏿‍❤‍🧑🏻	juftlik va yurak voyaga yetgan voyaga yetgan 6-teri turi 1–2-teri turi	none
+🧑🏿‍❤‍🧑🏼	juftlik va yurak voyaga yetgan voyaga yetgan 6-teri turi 3-teri turi	none
+🧑🏿‍❤‍🧑🏽	juftlik va yurak voyaga yetgan voyaga yetgan 6-teri turi 4-teri turi	none
+🧑🏿‍❤‍🧑🏾	juftlik va yurak voyaga yetgan voyaga yetgan 6-teri turi 5-teri turi	none
 🧑‍🦰	voyaga yetgan malla soch	none
 🧑🏻‍🦰	voyaga yetgan 1–2-teri turi malla soch	none
 🧑🏼‍🦰	voyaga yetgan 3-teri turi malla soch	none
@@ -1744,11 +1821,66 @@ symbols:
 🧔🏽	erkak 4-teri turi soqolli	none
 🧔🏾	erkak 5-teri turi soqolli	none
 🧔🏿	erkak 6-teri turi soqolli	none
+🧔🏻‍♂	soqolli erkak 1–2-teri turi	none
+🧔🏼‍♂	soqolli erkak 3-teri turi	none
+🧔🏽‍♂	soqolli erkak 4-teri turi	none
+🧔🏾‍♂	soqolli erkak 5-teri turi	none
+🧔🏿‍♂	soqolli erkak 6-teri turi	none
 👱🏻‍♂	erkak 1–2-teri turi mallasoch	none
 👱🏼‍♂	erkak 3-teri turi mallasoch	none
 👱🏽‍♂	erkak 4-teri turi mallasoch	none
 👱🏾‍♂	erkak 5-teri turi mallasoch	none
 👱🏿‍♂	erkak 6-teri turi mallasoch	none
+👨🏻‍❤‍💋‍👨🏻	bo‘sa olish erkak erkak 1–2-teri turi	none
+👨🏻‍❤‍💋‍👨🏼	bo‘sa olish erkak erkak 1–2-teri turi 3-teri turi	none
+👨🏻‍❤‍💋‍👨🏽	bo‘sa olish erkak erkak 1–2-teri turi 4-teri turi	none
+👨🏻‍❤‍💋‍👨🏾	bo‘sa olish erkak erkak 1–2-teri turi 5-teri turi	none
+👨🏻‍❤‍💋‍👨🏿	bo‘sa olish erkak erkak 1–2-teri turi 6-teri turi	none
+👨🏼‍❤‍💋‍👨🏻	bo‘sa olish erkak erkak 3-teri turi 1–2-teri turi	none
+👨🏼‍❤‍💋‍👨🏼	bo‘sa olish erkak erkak 3-teri turi	none
+👨🏼‍❤‍💋‍👨🏽	bo‘sa olish erkak erkak 3-teri turi 4-teri turi	none
+👨🏼‍❤‍💋‍👨🏾	bo‘sa olish erkak erkak 3-teri turi 5-teri turi	none
+👨🏼‍❤‍💋‍👨🏿	bo‘sa olish erkak erkak 3-teri turi 6-teri turi	none
+👨🏽‍❤‍💋‍👨🏻	bo‘sa olish erkak erkak 4-teri turi 1–2-teri turi	none
+👨🏽‍❤‍💋‍👨🏼	bo‘sa olish erkak erkak 4-teri turi 3-teri turi	none
+👨🏽‍❤‍💋‍👨🏽	bo‘sa olish erkak erkak 4-teri turi	none
+👨🏽‍❤‍💋‍👨🏾	bo‘sa olish erkak erkak 4-teri turi 5-teri turi	none
+👨🏽‍❤‍💋‍👨🏿	bo‘sa olish erkak erkak 4-teri turi 6-teri turi	none
+👨🏾‍❤‍💋‍👨🏻	bo‘sa olish erkak erkak 5-teri turi 1–2-teri turi	none
+👨🏾‍❤‍💋‍👨🏼	bo‘sa olish erkak erkak 5-teri turi 3-teri turi	none
+👨🏾‍❤‍💋‍👨🏽	bo‘sa olish erkak erkak 5-teri turi 4-teri turi	none
+👨🏾‍❤‍💋‍👨🏾	bo‘sa olish erkak erkak 5-teri turi	none
+👨🏾‍❤‍💋‍👨🏿	bo‘sa olish erkak erkak 5-teri turi 6-teri turi	none
+👨🏿‍❤‍💋‍👨🏻	bo‘sa olish erkak erkak 6-teri turi 1–2-teri turi	none
+👨🏿‍❤‍💋‍👨🏼	bo‘sa olish erkak erkak 6-teri turi 3-teri turi	none
+👨🏿‍❤‍💋‍👨🏽	bo‘sa olish erkak erkak 6-teri turi 4-teri turi	none
+👨🏿‍❤‍💋‍👨🏾	bo‘sa olish erkak erkak 6-teri turi 5-teri turi	none
+👨🏿‍❤‍💋‍👨🏿	bo‘sa olish erkak erkak 6-teri turi	none
+👨🏻‍❤‍👨🏻	juftlik va yurak erkak erkak 1–2-teri turi	none
+👨🏻‍❤‍👨🏼	juftlik va yurak erkak erkak 1–2-teri turi 3-teri turi	none
+👨🏻‍❤‍👨🏽	juftlik va yurak erkak erkak 1–2-teri turi 4-teri turi	none
+👨🏻‍❤‍👨🏾	juftlik va yurak erkak erkak 1–2-teri turi 5-teri turi	none
+👨🏻‍❤‍👨🏿	juftlik va yurak erkak erkak 1–2-teri turi 6-teri turi	none
+👨🏼‍❤‍👨🏻	juftlik va yurak erkak erkak 3-teri turi 1–2-teri turi	none
+👨🏼‍❤‍👨🏼	juftlik va yurak erkak erkak 3-teri turi	none
+👨🏼‍❤‍👨🏽	juftlik va yurak erkak erkak 3-teri turi 4-teri turi	none
+👨🏼‍❤‍👨🏾	juftlik va yurak erkak erkak 3-teri turi 5-teri turi	none
+👨🏼‍❤‍👨🏿	juftlik va yurak erkak erkak 3-teri turi 6-teri turi	none
+👨🏽‍❤‍👨🏻	juftlik va yurak erkak erkak 4-teri turi 1–2-teri turi	none
+👨🏽‍❤‍👨🏼	juftlik va yurak erkak erkak 4-teri turi 3-teri turi	none
+👨🏽‍❤‍👨🏽	juftlik va yurak erkak erkak 4-teri turi	none
+👨🏽‍❤‍👨🏾	juftlik va yurak erkak erkak 4-teri turi 5-teri turi	none
+👨🏽‍❤‍👨🏿	juftlik va yurak erkak erkak 4-teri turi 6-teri turi	none
+👨🏾‍❤‍👨🏻	juftlik va yurak erkak erkak 5-teri turi 1–2-teri turi	none
+👨🏾‍❤‍👨🏼	juftlik va yurak erkak erkak 5-teri turi 3-teri turi	none
+👨🏾‍❤‍👨🏽	juftlik va yurak erkak erkak 5-teri turi 4-teri turi	none
+👨🏾‍❤‍👨🏾	juftlik va yurak erkak erkak 5-teri turi	none
+👨🏾‍❤‍👨🏿	juftlik va yurak erkak erkak 5-teri turi 6-teri turi	none
+👨🏿‍❤‍👨🏻	juftlik va yurak erkak erkak 6-teri turi 1–2-teri turi	none
+👨🏿‍❤‍👨🏼	juftlik va yurak erkak erkak 6-teri turi 3-teri turi	none
+👨🏿‍❤‍👨🏽	juftlik va yurak erkak erkak 6-teri turi 4-teri turi	none
+👨🏿‍❤‍👨🏾	juftlik va yurak erkak erkak 6-teri turi 5-teri turi	none
+👨🏿‍❤‍👨🏿	juftlik va yurak erkak erkak 6-teri turi	none
 👨‍🦰	erkak malla soch	none
 👨🏻‍🦰	erkak 1–2-teri turi malla soch	none
 👨🏼‍🦰	erkak 3-teri turi malla soch	none
@@ -1778,11 +1910,116 @@ symbols:
 👩🏽	ayol 4-teri turi	none
 👩🏾	ayol 5-teri turi	none
 👩🏿	ayol 6-teri turi	none
+🧔🏻‍♀	soqolli ayol 1–2-teri turi	none
+🧔🏼‍♀	soqolli ayol 3-teri turi	none
+🧔🏽‍♀	soqolli ayol 4-teri turi	none
+🧔🏾‍♀	soqolli ayol 5-teri turi	none
+🧔🏿‍♀	soqolli ayol 6-teri turi	none
 👱🏻‍♀	ayol 1–2-teri turi mallasoch	none
 👱🏼‍♀	ayol 3-teri turi mallasoch	none
 👱🏽‍♀	ayol 4-teri turi mallasoch	none
 👱🏾‍♀	ayol 5-teri turi mallasoch	none
 👱🏿‍♀	ayol 6-teri turi mallasoch	none
+👩🏻‍❤‍💋‍👨🏻	bo‘sa olish ayol erkak 1–2-teri turi	none
+👩🏻‍❤‍💋‍👨🏼	bo‘sa olish ayol erkak 1–2-teri turi 3-teri turi	none
+👩🏻‍❤‍💋‍👨🏽	bo‘sa olish ayol erkak 1–2-teri turi 4-teri turi	none
+👩🏻‍❤‍💋‍👨🏾	bo‘sa olish ayol erkak 1–2-teri turi 5-teri turi	none
+👩🏻‍❤‍💋‍👨🏿	bo‘sa olish ayol erkak 1–2-teri turi 6-teri turi	none
+👩🏼‍❤‍💋‍👨🏻	bo‘sa olish ayol erkak 3-teri turi 1–2-teri turi	none
+👩🏼‍❤‍💋‍👨🏼	bo‘sa olish ayol erkak 3-teri turi	none
+👩🏼‍❤‍💋‍👨🏽	bo‘sa olish ayol erkak 3-teri turi 4-teri turi	none
+👩🏼‍❤‍💋‍👨🏾	bo‘sa olish ayol erkak 3-teri turi 5-teri turi	none
+👩🏼‍❤‍💋‍👨🏿	bo‘sa olish ayol erkak 3-teri turi 6-teri turi	none
+👩🏽‍❤‍💋‍👨🏻	bo‘sa olish ayol erkak 4-teri turi 1–2-teri turi	none
+👩🏽‍❤‍💋‍👨🏼	bo‘sa olish ayol erkak 4-teri turi 3-teri turi	none
+👩🏽‍❤‍💋‍👨🏽	bo‘sa olish ayol erkak 4-teri turi	none
+👩🏽‍❤‍💋‍👨🏾	bo‘sa olish ayol erkak 4-teri turi 5-teri turi	none
+👩🏽‍❤‍💋‍👨🏿	bo‘sa olish ayol erkak 4-teri turi 6-teri turi	none
+👩🏾‍❤‍💋‍👨🏻	bo‘sa olish ayol erkak 5-teri turi 1–2-teri turi	none
+👩🏾‍❤‍💋‍👨🏼	bo‘sa olish ayol erkak 5-teri turi 3-teri turi	none
+👩🏾‍❤‍💋‍👨🏽	bo‘sa olish ayol erkak 5-teri turi 4-teri turi	none
+👩🏾‍❤‍💋‍👨🏾	bo‘sa olish ayol erkak 5-teri turi	none
+👩🏾‍❤‍💋‍👨🏿	bo‘sa olish ayol erkak 5-teri turi 6-teri turi	none
+👩🏿‍❤‍💋‍👨🏻	bo‘sa olish ayol erkak 6-teri turi 1–2-teri turi	none
+👩🏿‍❤‍💋‍👨🏼	bo‘sa olish ayol erkak 6-teri turi 3-teri turi	none
+👩🏿‍❤‍💋‍👨🏽	bo‘sa olish ayol erkak 6-teri turi 4-teri turi	none
+👩🏿‍❤‍💋‍👨🏾	bo‘sa olish ayol erkak 6-teri turi 5-teri turi	none
+👩🏿‍❤‍💋‍👨🏿	bo‘sa olish ayol erkak 6-teri turi	none
+👩🏻‍❤‍💋‍👩🏻	bo‘sa olish ayol ayol 1–2-teri turi	none
+👩🏻‍❤‍💋‍👩🏼	bo‘sa olish ayol ayol 1–2-teri turi 3-teri turi	none
+👩🏻‍❤‍💋‍👩🏽	bo‘sa olish ayol ayol 1–2-teri turi 4-teri turi	none
+👩🏻‍❤‍💋‍👩🏾	bo‘sa olish ayol ayol 1–2-teri turi 5-teri turi	none
+👩🏻‍❤‍💋‍👩🏿	bo‘sa olish ayol ayol 1–2-teri turi 6-teri turi	none
+👩🏼‍❤‍💋‍👩🏻	bo‘sa olish ayol ayol 3-teri turi 1–2-teri turi	none
+👩🏼‍❤‍💋‍👩🏼	bo‘sa olish ayol ayol 3-teri turi	none
+👩🏼‍❤‍💋‍👩🏽	bo‘sa olish ayol ayol 3-teri turi 4-teri turi	none
+👩🏼‍❤‍💋‍👩🏾	bo‘sa olish ayol ayol 3-teri turi 5-teri turi	none
+👩🏼‍❤‍💋‍👩🏿	bo‘sa olish ayol ayol 3-teri turi 6-teri turi	none
+👩🏽‍❤‍💋‍👩🏻	bo‘sa olish ayol ayol 4-teri turi 1–2-teri turi	none
+👩🏽‍❤‍💋‍👩🏼	bo‘sa olish ayol ayol 4-teri turi 3-teri turi	none
+👩🏽‍❤‍💋‍👩🏽	bo‘sa olish ayol ayol 4-teri turi	none
+👩🏽‍❤‍💋‍👩🏾	bo‘sa olish ayol ayol 4-teri turi 5-teri turi	none
+👩🏽‍❤‍💋‍👩🏿	bo‘sa olish ayol ayol 4-teri turi 6-teri turi	none
+👩🏾‍❤‍💋‍👩🏻	bo‘sa olish ayol ayol 5-teri turi 1–2-teri turi	none
+👩🏾‍❤‍💋‍👩🏼	bo‘sa olish ayol ayol 5-teri turi 3-teri turi	none
+👩🏾‍❤‍💋‍👩🏽	bo‘sa olish ayol ayol 5-teri turi 4-teri turi	none
+👩🏾‍❤‍💋‍👩🏾	bo‘sa olish ayol ayol 5-teri turi	none
+👩🏾‍❤‍💋‍👩🏿	bo‘sa olish ayol ayol 5-teri turi 6-teri turi	none
+👩🏿‍❤‍💋‍👩🏻	bo‘sa olish ayol ayol 6-teri turi 1–2-teri turi	none
+👩🏿‍❤‍💋‍👩🏼	bo‘sa olish ayol ayol 6-teri turi 3-teri turi	none
+👩🏿‍❤‍💋‍👩🏽	bo‘sa olish ayol ayol 6-teri turi 4-teri turi	none
+👩🏿‍❤‍💋‍👩🏾	bo‘sa olish ayol ayol 6-teri turi 5-teri turi	none
+👩🏿‍❤‍💋‍👩🏿	bo‘sa olish ayol ayol 6-teri turi	none
+👩🏻‍❤‍👨🏻	juftlik va yurak ayol erkak 1–2-teri turi	none
+👩🏻‍❤‍👨🏼	juftlik va yurak ayol erkak 1–2-teri turi 3-teri turi	none
+👩🏻‍❤‍👨🏽	juftlik va yurak ayol erkak 1–2-teri turi 4-teri turi	none
+👩🏻‍❤‍👨🏾	juftlik va yurak ayol erkak 1–2-teri turi 5-teri turi	none
+👩🏻‍❤‍👨🏿	juftlik va yurak ayol erkak 1–2-teri turi 6-teri turi	none
+👩🏼‍❤‍👨🏻	juftlik va yurak ayol erkak 3-teri turi 1–2-teri turi	none
+👩🏼‍❤‍👨🏼	juftlik va yurak ayol erkak 3-teri turi	none
+👩🏼‍❤‍👨🏽	juftlik va yurak ayol erkak 3-teri turi 4-teri turi	none
+👩🏼‍❤‍👨🏾	juftlik va yurak ayol erkak 3-teri turi 5-teri turi	none
+👩🏼‍❤‍👨🏿	juftlik va yurak ayol erkak 3-teri turi 6-teri turi	none
+👩🏽‍❤‍👨🏻	juftlik va yurak ayol erkak 4-teri turi 1–2-teri turi	none
+👩🏽‍❤‍👨🏼	juftlik va yurak ayol erkak 4-teri turi 3-teri turi	none
+👩🏽‍❤‍👨🏽	juftlik va yurak ayol erkak 4-teri turi	none
+👩🏽‍❤‍👨🏾	juftlik va yurak ayol erkak 4-teri turi 5-teri turi	none
+👩🏽‍❤‍👨🏿	juftlik va yurak ayol erkak 4-teri turi 6-teri turi	none
+👩🏾‍❤‍👨🏻	juftlik va yurak ayol erkak 5-teri turi 1–2-teri turi	none
+👩🏾‍❤‍👨🏼	juftlik va yurak ayol erkak 5-teri turi 3-teri turi	none
+👩🏾‍❤‍👨🏽	juftlik va yurak ayol erkak 5-teri turi 4-teri turi	none
+👩🏾‍❤‍👨🏾	juftlik va yurak ayol erkak 5-teri turi	none
+👩🏾‍❤‍👨🏿	juftlik va yurak ayol erkak 5-teri turi 6-teri turi	none
+👩🏿‍❤‍👨🏻	juftlik va yurak ayol erkak 6-teri turi 1–2-teri turi	none
+👩🏿‍❤‍👨🏼	juftlik va yurak ayol erkak 6-teri turi 3-teri turi	none
+👩🏿‍❤‍👨🏽	juftlik va yurak ayol erkak 6-teri turi 4-teri turi	none
+👩🏿‍❤‍👨🏾	juftlik va yurak ayol erkak 6-teri turi 5-teri turi	none
+👩🏿‍❤‍👨🏿	juftlik va yurak ayol erkak 6-teri turi	none
+👩🏻‍❤‍👩🏻	juftlik va yurak ayol ayol 1–2-teri turi	none
+👩🏻‍❤‍👩🏼	juftlik va yurak ayol ayol 1–2-teri turi 3-teri turi	none
+👩🏻‍❤‍👩🏽	juftlik va yurak ayol ayol 1–2-teri turi 4-teri turi	none
+👩🏻‍❤‍👩🏾	juftlik va yurak ayol ayol 1–2-teri turi 5-teri turi	none
+👩🏻‍❤‍👩🏿	juftlik va yurak ayol ayol 1–2-teri turi 6-teri turi	none
+👩🏼‍❤‍👩🏻	juftlik va yurak ayol ayol 3-teri turi 1–2-teri turi	none
+👩🏼‍❤‍👩🏼	juftlik va yurak ayol ayol 3-teri turi	none
+👩🏼‍❤‍👩🏽	juftlik va yurak ayol ayol 3-teri turi 4-teri turi	none
+👩🏼‍❤‍👩🏾	juftlik va yurak ayol ayol 3-teri turi 5-teri turi	none
+👩🏼‍❤‍👩🏿	juftlik va yurak ayol ayol 3-teri turi 6-teri turi	none
+👩🏽‍❤‍👩🏻	juftlik va yurak ayol ayol 4-teri turi 1–2-teri turi	none
+👩🏽‍❤‍👩🏼	juftlik va yurak ayol ayol 4-teri turi 3-teri turi	none
+👩🏽‍❤‍👩🏽	juftlik va yurak ayol ayol 4-teri turi	none
+👩🏽‍❤‍👩🏾	juftlik va yurak ayol ayol 4-teri turi 5-teri turi	none
+👩🏽‍❤‍👩🏿	juftlik va yurak ayol ayol 4-teri turi 6-teri turi	none
+👩🏾‍❤‍👩🏻	juftlik va yurak ayol ayol 5-teri turi 1–2-teri turi	none
+👩🏾‍❤‍👩🏼	juftlik va yurak ayol ayol 5-teri turi 3-teri turi	none
+👩🏾‍❤‍👩🏽	juftlik va yurak ayol ayol 5-teri turi 4-teri turi	none
+👩🏾‍❤‍👩🏾	juftlik va yurak ayol ayol 5-teri turi	none
+👩🏾‍❤‍👩🏿	juftlik va yurak ayol ayol 5-teri turi 6-teri turi	none
+👩🏿‍❤‍👩🏻	juftlik va yurak ayol ayol 6-teri turi 1–2-teri turi	none
+👩🏿‍❤‍👩🏼	juftlik va yurak ayol ayol 6-teri turi 3-teri turi	none
+👩🏿‍❤‍👩🏽	juftlik va yurak ayol ayol 6-teri turi 4-teri turi	none
+👩🏿‍❤‍👩🏾	juftlik va yurak ayol ayol 6-teri turi 5-teri turi	none
+👩🏿‍❤‍👩🏿	juftlik va yurak ayol ayol 6-teri turi	none
 👩‍🦰	ayol malla soch	none
 👩🏻‍🦰	ayol 1–2-teri turi malla soch	none
 👩🏼‍🦰	ayol 3-teri turi malla soch	none
@@ -2257,6 +2494,11 @@ symbols:
 💂🏽‍♀	ayol qo‘riqchi 4-teri turi	none
 💂🏾‍♀	ayol qo‘riqchi 5-teri turi	none
 💂🏿‍♀	ayol qo‘riqchi 6-teri turi	none
+🥷🏻	ninza 1–2-teri turi	none
+🥷🏼	ninza 3-teri turi	none
+🥷🏽	ninza 4-teri turi	none
+🥷🏾	ninza 5-teri turi	none
+🥷🏿	ninza 6-teri turi	none
 👷🏻	quruvchi 1–2-teri turi	none
 👷🏼	quruvchi 3-teri turi	none
 👷🏽	quruvchi 4-teri turi	none
@@ -2307,16 +2549,36 @@ symbols:
 🧕🏽	ro‘mol o‘ragan ayol 4-teri turi	none
 🧕🏾	ro‘mol o‘ragan ayol 5-teri turi	none
 🧕🏿	ro‘mol o‘ragan ayol 6-teri turi	none
-🤵🏻	smoking kiygan erkak 1–2-teri turi	none
-🤵🏼	smoking kiygan erkak 3-teri turi	none
-🤵🏽	smoking kiygan erkak 4-teri turi	none
-🤵🏾	smoking kiygan erkak 5-teri turi	none
-🤵🏿	smoking kiygan erkak 6-teri turi	none
-👰🏻	to‘y ro‘molidagi kelin 1–2-teri turi	none
-👰🏼	to‘y ro‘molidagi kelin 3-teri turi	none
-👰🏽	to‘y ro‘molidagi kelin 4-teri turi	none
-👰🏾	to‘y ro‘molidagi kelin 5-teri turi	none
-👰🏿	to‘y ro‘molidagi kelin 6-teri turi	none
+🤵🏻	smoking kiygan odam 1–2-teri turi	none
+🤵🏼	smoking kiygan odam 3-teri turi	none
+🤵🏽	smoking kiygan odam 4-teri turi	none
+🤵🏾	smoking kiygan odam 5-teri turi	none
+🤵🏿	smoking kiygan odam 6-teri turi	none
+🤵🏻‍♂	smoking kiygan kishi 1–2-teri turi	none
+🤵🏼‍♂	smoking kiygan kishi 3-teri turi	none
+🤵🏽‍♂	smoking kiygan kishi 4-teri turi	none
+🤵🏾‍♂	smoking kiygan kishi 5-teri turi	none
+🤵🏿‍♂	smoking kiygan kishi 6-teri turi	none
+🤵🏻‍♀	smoking kiygan ayol 1–2-teri turi	none
+🤵🏼‍♀	smoking kiygan ayol 3-teri turi	none
+🤵🏽‍♀	smoking kiygan ayol 4-teri turi	none
+🤵🏾‍♀	smoking kiygan ayol 5-teri turi	none
+🤵🏿‍♀	smoking kiygan ayol 6-teri turi	none
+👰🏻	nikoh kiyimidagi odam 1–2-teri turi	none
+👰🏼	nikoh kiyimidagi odam 3-teri turi	none
+👰🏽	nikoh kiyimidagi odam 4-teri turi	none
+👰🏾	nikoh kiyimidagi odam 5-teri turi	none
+👰🏿	nikoh kiyimidagi odam 6-teri turi	none
+👰🏻‍♂	xarir parda taqib olgan erkak 1–2-teri turi	none
+👰🏼‍♂	xarir parda taqib olgan erkak 3-teri turi	none
+👰🏽‍♂	xarir parda taqib olgan erkak 4-teri turi	none
+👰🏾‍♂	xarir parda taqib olgan erkak 5-teri turi	none
+👰🏿‍♂	xarir parda taqib olgan erkak 6-teri turi	none
+👰🏻‍♀	xarir parda taqib olgan ayol 1–2-teri turi	none
+👰🏼‍♀	xarir parda taqib olgan ayol 3-teri turi	none
+👰🏽‍♀	xarir parda taqib olgan ayol 4-teri turi	none
+👰🏾‍♀	xarir parda taqib olgan ayol 5-teri turi	none
+👰🏿‍♀	xarir parda taqib olgan ayol 6-teri turi	none
 🤰🏻	homilador ayol 1–2-teri turi	none
 🤰🏼	homilador ayol 3-teri turi	none
 🤰🏽	homilador ayol 4-teri turi	none
@@ -2327,6 +2589,21 @@ symbols:
 🤱🏽	emizish 4-teri turi	none
 🤱🏾	emizish 5-teri turi	none
 🤱🏿	emizish 6-teri turi	none
+👩🏻‍🍼	chaqaloq emizayotgan ayol 1–2-teri turi	none
+👩🏼‍🍼	chaqaloq emizayotgan ayol 3-teri turi	none
+👩🏽‍🍼	chaqaloq emizayotgan ayol 4-teri turi	none
+👩🏾‍🍼	chaqaloq emizayotgan ayol 5-teri turi	none
+👩🏿‍🍼	chaqaloq emizayotgan ayol 6-teri turi	none
+👨🏻‍🍼	chaqaloq emizayotgan erkak 1–2-teri turi	none
+👨🏼‍🍼	chaqaloq emizayotgan erkak 3-teri turi	none
+👨🏽‍🍼	chaqaloq emizayotgan erkak 4-teri turi	none
+👨🏾‍🍼	chaqaloq emizayotgan erkak 5-teri turi	none
+👨🏿‍🍼	chaqaloq emizayotgan erkak 6-teri turi	none
+🧑🏻‍🍼	chaqaloq emizayotgan kishi 1–2-teri turi	none
+🧑🏼‍🍼	chaqaloq emizayotgan kishi 3-teri turi	none
+🧑🏽‍🍼	chaqaloq emizayotgan kishi 4-teri turi	none
+🧑🏾‍🍼	chaqaloq emizayotgan kishi 5-teri turi	none
+🧑🏿‍🍼	chaqaloq emizayotgan kishi 6-teri turi	none
 👼🏻	chaqaloq farishta 1–2-teri turi	none
 👼🏼	chaqaloq farishta 3-teri turi	none
 👼🏽	chaqaloq farishta 4-teri turi	none
@@ -2342,6 +2619,11 @@ symbols:
 🤶🏽	qorqiz 4-teri turi	none
 🤶🏾	qorqiz 5-teri turi	none
 🤶🏿	qorqiz 6-teri turi	none
+🧑🏻‍🎄	miks-klauz 1–2-teri turi	none
+🧑🏼‍🎄	miks-klauz 3-teri turi	none
+🧑🏽‍🎄	miks-klauz 4-teri turi	none
+🧑🏾‍🎄	miks-klauz 5-teri turi	none
+🧑🏿‍🎄	miks-klauz 6-teri turi	none
 🦸🏻	superqahramon 1–2-teri turi	none
 🦸🏼	superqahramon 3-teri turi	none
 🦸🏽	superqahramon 4-teri turi	none
@@ -2843,30 +3125,50 @@ symbols:
 🛌🏾	karavotda yotgan kishi 5-teri turi	none
 🛌🏿	karavotda yotgan kishi 6-teri turi	none
 🧑🏻‍🤝‍🧑🏻	qoʻl ushlashib turgan odamlar 1–2-teri turi	none
+🧑🏻‍🤝‍🧑🏼	qoʻl ushlashib turgan odamlar 1–2-teri turi 3-teri turi	none
+🧑🏻‍🤝‍🧑🏽	qoʻl ushlashib turgan odamlar 1–2-teri turi 4-teri turi	none
+🧑🏻‍🤝‍🧑🏾	qoʻl ushlashib turgan odamlar 1–2-teri turi 5-teri turi	none
+🧑🏻‍🤝‍🧑🏿	qoʻl ushlashib turgan odamlar 1–2-teri turi 6-teri turi	none
 🧑🏼‍🤝‍🧑🏻	qoʻl ushlashib turgan odamlar 3-teri turi 1–2-teri turi	none
 🧑🏼‍🤝‍🧑🏼	qoʻl ushlashib turgan odamlar 3-teri turi	none
+🧑🏼‍🤝‍🧑🏽	qoʻl ushlashib turgan odamlar 3-teri turi 4-teri turi	none
+🧑🏼‍🤝‍🧑🏾	qoʻl ushlashib turgan odamlar 3-teri turi 5-teri turi	none
+🧑🏼‍🤝‍🧑🏿	qoʻl ushlashib turgan odamlar 3-teri turi 6-teri turi	none
 🧑🏽‍🤝‍🧑🏻	qoʻl ushlashib turgan odamlar 4-teri turi 1–2-teri turi	none
 🧑🏽‍🤝‍🧑🏼	qoʻl ushlashib turgan odamlar 4-teri turi 3-teri turi	none
 🧑🏽‍🤝‍🧑🏽	qoʻl ushlashib turgan odamlar 4-teri turi	none
+🧑🏽‍🤝‍🧑🏾	qoʻl ushlashib turgan odamlar 4-teri turi 5-teri turi	none
+🧑🏽‍🤝‍🧑🏿	qoʻl ushlashib turgan odamlar 4-teri turi 6-teri turi	none
 🧑🏾‍🤝‍🧑🏻	qoʻl ushlashib turgan odamlar 5-teri turi 1–2-teri turi	none
 🧑🏾‍🤝‍🧑🏼	qoʻl ushlashib turgan odamlar 5-teri turi 3-teri turi	none
 🧑🏾‍🤝‍🧑🏽	qoʻl ushlashib turgan odamlar 5-teri turi 4-teri turi	none
 🧑🏾‍🤝‍🧑🏾	qoʻl ushlashib turgan odamlar 5-teri turi	none
+🧑🏾‍🤝‍🧑🏿	qoʻl ushlashib turgan odamlar 5-teri turi 6-teri turi	none
 🧑🏿‍🤝‍🧑🏻	qoʻl ushlashib turgan odamlar 6-teri turi 1–2-teri turi	none
 🧑🏿‍🤝‍🧑🏼	qoʻl ushlashib turgan odamlar 6-teri turi 3-teri turi	none
 🧑🏿‍🤝‍🧑🏽	qoʻl ushlashib turgan odamlar 6-teri turi 4-teri turi	none
 🧑🏿‍🤝‍🧑🏾	qoʻl ushlashib turgan odamlar 6-teri turi 5-teri turi	none
 🧑🏿‍🤝‍🧑🏿	qoʻl ushlashib turgan odamlar 6-teri turi	none
 👭🏻	qoʻl ushlashgan ayollar 1–2-teri turi	none
+👩🏻‍🤝‍👩🏼	qoʻl ushlashgan ayollar 1–2-teri turi 3-teri turi	none
+👩🏻‍🤝‍👩🏽	qoʻl ushlashgan ayollar 1–2-teri turi 4-teri turi	none
+👩🏻‍🤝‍👩🏾	qoʻl ushlashgan ayollar 1–2-teri turi 5-teri turi	none
+👩🏻‍🤝‍👩🏿	qoʻl ushlashgan ayollar 1–2-teri turi 6-teri turi	none
 👩🏼‍🤝‍👩🏻	qoʻl ushlashgan ayollar 3-teri turi 1–2-teri turi	none
 👭🏼	qoʻl ushlashgan ayollar 3-teri turi	none
+👩🏼‍🤝‍👩🏽	qoʻl ushlashgan ayollar 3-teri turi 4-teri turi	none
+👩🏼‍🤝‍👩🏾	qoʻl ushlashgan ayollar 3-teri turi 5-teri turi	none
+👩🏼‍🤝‍👩🏿	qoʻl ushlashgan ayollar 3-teri turi 6-teri turi	none
 👩🏽‍🤝‍👩🏻	qoʻl ushlashgan ayollar 4-teri turi 1–2-teri turi	none
 👩🏽‍🤝‍👩🏼	qoʻl ushlashgan ayollar 4-teri turi 3-teri turi	none
 👭🏽	qoʻl ushlashgan ayollar 4-teri turi	none
+👩🏽‍🤝‍👩🏾	qoʻl ushlashgan ayollar 4-teri turi 5-teri turi	none
+👩🏽‍🤝‍👩🏿	qoʻl ushlashgan ayollar 4-teri turi 6-teri turi	none
 👩🏾‍🤝‍👩🏻	qoʻl ushlashgan ayollar 5-teri turi 1–2-teri turi	none
 👩🏾‍🤝‍👩🏼	qoʻl ushlashgan ayollar 5-teri turi 3-teri turi	none
 👩🏾‍🤝‍👩🏽	qoʻl ushlashgan ayollar 5-teri turi 4-teri turi	none
 👭🏾	qoʻl ushlashgan ayollar 5-teri turi	none
+👩🏾‍🤝‍👩🏿	qoʻl ushlashgan ayollar 5-teri turi 6-teri turi	none
 👩🏿‍🤝‍👩🏻	qoʻl ushlashgan ayollar 6-teri turi 1–2-teri turi	none
 👩🏿‍🤝‍👩🏼	qoʻl ushlashgan ayollar 6-teri turi 3-teri turi	none
 👩🏿‍🤝‍👩🏽	qoʻl ushlashgan ayollar 6-teri turi 4-teri turi	none
@@ -2898,23 +3200,43 @@ symbols:
 👩🏿‍🤝‍👨🏾	qoʻl ushlashgan ayol va erkak 6-teri turi 5-teri turi	none
 👫🏿	qoʻl ushlashgan ayol va erkak 6-teri turi	none
 👬🏻	qoʻl ushlashgan erkaklar 1–2-teri turi	none
+👨🏻‍🤝‍👨🏼	qoʻl ushlashgan erkaklar 1–2-teri turi 3-teri turi	none
+👨🏻‍🤝‍👨🏽	qoʻl ushlashgan erkaklar 1–2-teri turi 4-teri turi	none
+👨🏻‍🤝‍👨🏾	qoʻl ushlashgan erkaklar 1–2-teri turi 5-teri turi	none
+👨🏻‍🤝‍👨🏿	qoʻl ushlashgan erkaklar 1–2-teri turi 6-teri turi	none
 👨🏼‍🤝‍👨🏻	qoʻl ushlashgan erkaklar 3-teri turi 1–2-teri turi	none
 👬🏼	qoʻl ushlashgan erkaklar 3-teri turi	none
+👨🏼‍🤝‍👨🏽	qoʻl ushlashgan erkaklar 3-teri turi 4-teri turi	none
+👨🏼‍🤝‍👨🏾	qoʻl ushlashgan erkaklar 3-teri turi 5-teri turi	none
+👨🏼‍🤝‍👨🏿	qoʻl ushlashgan erkaklar 3-teri turi 6-teri turi	none
 👨🏽‍🤝‍👨🏻	qoʻl ushlashgan erkaklar 4-teri turi 1–2-teri turi	none
 👨🏽‍🤝‍👨🏼	qoʻl ushlashgan erkaklar 4-teri turi 3-teri turi	none
 👬🏽	qoʻl ushlashgan erkaklar 4-teri turi	none
+👨🏽‍🤝‍👨🏾	qoʻl ushlashgan erkaklar 4-teri turi 5-teri turi	none
+👨🏽‍🤝‍👨🏿	qoʻl ushlashgan erkaklar 4-teri turi 6-teri turi	none
 👨🏾‍🤝‍👨🏻	qoʻl ushlashgan erkaklar 5-teri turi 1–2-teri turi	none
 👨🏾‍🤝‍👨🏼	qoʻl ushlashgan erkaklar 5-teri turi 3-teri turi	none
 👨🏾‍🤝‍👨🏽	qoʻl ushlashgan erkaklar 5-teri turi 4-teri turi	none
 👬🏾	qoʻl ushlashgan erkaklar 5-teri turi	none
+👨🏾‍🤝‍👨🏿	qoʻl ushlashgan erkaklar 5-teri turi 6-teri turi	none
 👨🏿‍🤝‍👨🏻	qoʻl ushlashgan erkaklar 6-teri turi 1–2-teri turi	none
 👨🏿‍🤝‍👨🏼	qoʻl ushlashgan erkaklar 6-teri turi 3-teri turi	none
 👨🏿‍🤝‍👨🏽	qoʻl ushlashgan erkaklar 6-teri turi 4-teri turi	none
 👨🏿‍🤝‍👨🏾	qoʻl ushlashgan erkaklar 6-teri turi 5-teri turi	none
 👬🏿	qoʻl ushlashgan erkaklar 6-teri turi	none
+💏🏻	bo‘sa olish 1–2-teri turi	none
+💏🏼	bo‘sa olish 3-teri turi	none
+💏🏽	bo‘sa olish 4-teri turi	none
+💏🏾	bo‘sa olish 5-teri turi	none
+💏🏿	bo‘sa olish 6-teri turi	none
 👩‍❤‍💋‍👨	bo‘sa olish ayol erkak	none
 👨‍❤‍💋‍👨	bo‘sa olish erkak erkak	none
 👩‍❤‍💋‍👩	bo‘sa olish ayol ayol	none
+💑🏻	juftlik va yurak 1–2-teri turi	none
+💑🏼	juftlik va yurak 3-teri turi	none
+💑🏽	juftlik va yurak 4-teri turi	none
+💑🏾	juftlik va yurak 5-teri turi	none
+💑🏿	juftlik va yurak 6-teri turi	none
 👩‍❤‍👨	juftlik va yurak ayol erkak	none
 👨‍❤‍👨	juftlik va yurak erkak erkak	none
 👩‍❤‍👩	juftlik va yurak ayol ayol	none
@@ -2943,8 +3265,6 @@ symbols:
 👩‍👧	oila ayol qiz bola	none
 👩‍👧‍👦	oila ayol qiz bola o‘g‘il bola	none
 👩‍👧‍👧	oila ayol qiz bola qiz bola	none
-#⃣	tugma qalpog‘i #	none
-*⃣	tugma qalpog‘i *	none
 🔟	tugma qalpog‘i 10	none
 🇦🇨	bayroq Me’roj oroli	none
 🇦🇩	bayroq Andorra	none
@@ -3207,13 +3527,16 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bayroq Angliya	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bayroq Shotlandiya	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bayroq Uels	none
-0⃣	tugma qalpog‘i 0	none
-1⃣	tugma qalpog‘i 1	none
-2⃣	tugma qalpog‘i 2	none
-3⃣	tugma qalpog‘i 3	none
-4⃣	tugma qalpog‘i 4	none
-5⃣	tugma qalpog‘i 5	none
-6⃣	tugma qalpog‘i 6	none
-7⃣	tugma qalpog‘i 7	none
-8⃣	tugma qalpog‘i 8	none
-9⃣	tugma qalpog‘i 9	none
+₡	Kosta-Rika koloni	none
+₦	Nigeriya nayrasi	none
+₪	Isroil yangi shekeli	none
+₫	Vyetnam dongi	none
+₭	Laos kipi	none
+₮	Mongoliya tugriki	none
+₲	Paragvay guaranisi	none
+₴	Ukraina grivnasi	none
+₵	Gana sedisi	none
+₸	Qozog‘iston tengesi	none
+₺	Turk lirasi	none
+₼	Ozarbayjon manati	none
+₾	Gruziya larisi	none

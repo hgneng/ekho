@@ -39,11 +39,13 @@
 #include <sys/ipc.h>
 
 #include <speechd_types.h>
+#include "common.h"
 #include "spd_audio.h"
+#include "module_main.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
+
+extern AudioID *module_audio_id;
 
 typedef struct SPDMarks {
 	unsigned num;
@@ -55,12 +57,8 @@ typedef struct SPDMarks {
 
 extern int log_level;
 
-extern AudioID *module_audio_id;
-
 extern SPDMsgSettings msg_settings;
 extern SPDMsgSettings msg_settings_old;
-
-extern int current_index_mark;
 
 extern int Debug;
 extern FILE *CustomDebugFile;
@@ -100,56 +98,27 @@ extern const char *module_name;
 	CLEAN_OLD_SETTINGS_TABLE(); \
 } while (0)
 
-#define DBG(arg...) do { \
-	if (Debug){ \
-		time_t t; \
-		struct timeval tv; \
-		char *tstr; \
-		t = time(NULL); \
-		tstr = g_strdup(ctime(&t)); \
-		tstr[strlen(tstr)-1] = 0; \
-		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-		fprintf(stderr, ": "); \
-		fprintf(stderr, arg); \
-		fprintf(stderr, "\n"); \
-		fflush(stderr); \
-		if ((Debug==2) || (Debug==3)){ \
-			fprintf(CustomDebugFile," %s [%d]",tstr, (int) tv.tv_usec);	\
-			fprintf(CustomDebugFile, ": ");					\
-			fprintf(CustomDebugFile, arg);					\
-			fprintf(CustomDebugFile, "\n");                                   \
-			fflush(CustomDebugFile);			\
-		} \
-		g_free(tstr); \
-	} \
-} while(0)
-
-#define FATAL(msg) do { \
-		fprintf(stderr, "FATAL ERROR in output module [%s:%d]:\n   "msg, \
-		        __FILE__, __LINE__); \
+#define FATAL(msg, ...) do { \
+		fprintf(stderr, "FATAL ERROR in output module [%s:%d]:\n   " msg, \
+		        __FILE__, __LINE__, ## __VA_ARGS__); \
 		if (Debug > 1) \
-			fprintf(CustomDebugFile, "FATAL ERROR in output module [%s:%d]:\n   "msg,	\
-			        __FILE__, __LINE__); \
+			fprintf(CustomDebugFile, "FATAL ERROR in output module [%s:%d]:\n   " msg,	\
+			        __FILE__, __LINE__, ## __VA_ARGS__); \
 		exit(EXIT_FAILURE); \
 } while (0)
 
 int module_load(void);
-int module_init(char **status_info);
-SPDVoice **module_list_voices(void);
-int module_speak(char *data, size_t bytes, SPDMessageType msgtype);
-int module_stop(void);
 SPDVoice **module_get_voices(void);
+void module_strip_silence(AudioTrack * track);
+void module_strip_head_silence(AudioTrack * track);
+void module_strip_tail_silence(AudioTrack * track);
 int module_tts_output(AudioTrack track, AudioFormat format);
-int module_play_file(const char *filename);
 int module_marks_init(SPDMarks *marks);
 int module_marks_add(SPDMarks *marks, unsigned sample, const char *name);
 int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *marks);
 int module_marks_stop(SPDMarks *marks);
 int module_marks_clear(SPDMarks *marks);
-size_t module_pause(void);
 char *module_is_speaking(void);
-int module_close(void);
 SPDVoice **module_list_registered_voices(void);
 
 #define UPDATE_PARAMETER(value, setter) do { \
@@ -188,7 +157,7 @@ int module_get_message_part(const char *message, char *part,
 			    unsigned int *pos, size_t maxlen,
 			    const char *dividers);
 
-void set_speaking_thread_parameters();
+void set_speaking_thread_parameters(void);
 
 void module_parent_dp_init(TModuleDoublePipe dpipe);
 void module_child_dp_init(TModuleDoublePipe dpipe);
@@ -206,7 +175,7 @@ void module_signal_end(void);
 
 void module_strip_punctuation_default(char *buf);
 void module_strip_punctuation_some(char *buf, char *punct_some);
-char *module_strip_ssml(char *buf);
+char *module_strip_ssml(const char *buf);
 
 void module_sigblockall(void);
 void module_sigblockusr(sigset_t * signal_set);
@@ -223,7 +192,6 @@ char *do_list_voices(void);
 char *do_set(void);
 char *do_audio(void);
 char *do_loglevel(void);
-char *do_debug(char *cmd_buf);
 void do_quit(void);
 
 size_t module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
@@ -232,10 +200,10 @@ size_t module_parent_wfork(TModuleDoublePipe dpipe, const char *message,
 
 int module_parent_wait_continue(TModuleDoublePipe dpipe);
 
-void set_speaking_thread_parameters();
+void set_speaking_thread_parameters(void);
 int module_terminate_thread(pthread_t thread);
-char *module_recode_to_iso(char *data, int bytes, char *language,
-			   char *fallback);
+char *module_recode_to_iso(const char *data, int bytes, const char *language,
+			   const char *fallback);
 void module_signal_end(void);
 configoption_t *module_add_config_option(configoption_t * options,
 					 int *num_options, const char *name, int type,
@@ -399,32 +367,13 @@ configoption_t *add_config_option(configoption_t * options,
 #define INDEX_MARK_BODY_LEN 6
 #define INDEX_MARK_BODY "__spd_"
 
-extern char *module_index_mark;
-
-	/* This macro must be placed at the initialization of the module so that the
-	   later functions are possible to use */
-
-#define INIT_INDEX_MARKING() module_index_mark = NULL;
-
-void module_report_index_mark(char *mark);
-void module_report_event_begin(void);
-void module_report_event_end(void);
-void module_report_event_stop(void);
-void module_report_event_pause(void);
-
-extern pthread_mutex_t module_stdout_mutex;
-
-int module_utils_init(void);
-int module_audio_init(char **status_info);
-
 	/* Prototypes from module_utils_addvoice.c */
 void module_register_available_voices(void);
 void module_register_settings_voices(void);
-char *module_getvoice(char *language, SPDVoiceType voice);
-gboolean module_existsvoice(char *voicename);
+char *module_getvoice(const char *language, SPDVoiceType voice);
+gboolean module_existsvoice(const char *voicename);
+char *module_getdefaultvoice(void);
 
-#ifdef __cplusplus
-}
-#endif
+G_END_DECLS
 
 #endif /* #ifndef __MODULE_UTILS_H */

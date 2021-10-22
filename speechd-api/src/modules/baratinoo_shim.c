@@ -29,7 +29,7 @@ const char *BCgetBaratinooVersion(void) {
 	assert(0);
 }
 
-const const BaratinooVersionStruct *BCgetBaratinooVersionStruct(void) {
+const BaratinooVersionStruct *BCgetBaratinooVersionStruct(void) {
 	assert(0);
 }
 

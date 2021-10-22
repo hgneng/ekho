@@ -153,9 +153,9 @@ int set_volume_uid(int uid, int volume)
 	return 0;
 }
 
-SET_SELF_ALL(char *, voice)
+SET_SELF_ALL(const char *, voice)
 
-int set_voice_uid(int uid, char *voice)
+int set_voice_uid(int uid, const char *voice)
 {
 	TFDSetElement *settings;
 
@@ -241,7 +241,7 @@ SET_SELF_ALL(char *, language)
 int set_language_uid(int uid, char *language)
 {
 	TFDSetElement *settings;
-	char *output_module;
+	const char *output_module;
 
 	settings = get_client_settings_by_uid(uid);
 	if (settings == NULL)
@@ -270,9 +270,9 @@ int set_language_uid(int uid, char *language)
 	return 0;
 }
 
-SET_SELF_ALL(char *, synthesis_voice)
+SET_SELF_ALL(const char *, synthesis_voice)
 
-int set_synthesis_voice_uid(int uid, char *synthesis_voice)
+int set_synthesis_voice_uid(int uid, const char *synthesis_voice)
 {
 	TFDSetElement *settings;
 
@@ -331,7 +331,7 @@ void update_cl_settings(gpointer data, gpointer user_data)
 #undef CHECK_SET_PAR
 #undef CHECK_SET_PAR_STR
 
-int set_client_name_self(int fd, char *client_name)
+int set_client_name_self(int fd, const char *client_name)
 {
 	TFDSetElement *settings;
 	int dividers = 0;
@@ -358,9 +358,9 @@ int set_client_name_self(int fd, char *client_name)
 	return 0;
 }
 
-SET_SELF_ALL(char *, output_module)
+SET_SELF_ALL(const char *, output_module)
 
-int set_output_module_uid(int uid, char *output_module)
+int set_output_module_uid(int uid, const char *output_module)
 {
 	TFDSetElement *settings;
 
@@ -473,7 +473,7 @@ int set_debug_uid(int uid, int debug)
 	else \
 		settings->notification = settings->notification & (~ SPD_ ## state);
 
-int set_notification_self(int fd, char *type, int val)
+int set_notification_self(int fd, const char *type, int val)
 {
 	TFDSetElement *settings;
 	int uid;
@@ -540,6 +540,7 @@ TFDSetElement *default_fd_set(void)
 	new->audio_alsa_device = g_strdup(GlobalFDSet.audio_alsa_device);
 	new->audio_nas_server = g_strdup(GlobalFDSet.audio_nas_server);
 	new->audio_pulse_server = g_strdup(GlobalFDSet.audio_pulse_server);
+	new->audio_pulse_device = g_strdup(GlobalFDSet.audio_pulse_device);
 
 	new->msg_settings.voice_type = GlobalFDSet.msg_settings.voice_type;
 	new->msg_settings.voice.name = NULL;
@@ -612,7 +613,7 @@ void remove_client_settings_by_uid(int uid)
 	}
 }
 
-char *set_param_str(char *parameter, char *value)
+char *set_param_str(char *parameter, const char *value)
 {
 	char *new;
 

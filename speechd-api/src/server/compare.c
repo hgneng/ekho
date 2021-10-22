@@ -29,10 +29,10 @@
 #include "compare.h"
 
 /* Pointer to compare_message_uid */
-gint(*p_msg_lc) ();
-gint(*p_msg_uid_lc) () = compare_message_uid;
+GCompareFunc p_msg_lc;
+GCompareFunc p_msg_uid_lc = compare_message_uid;
 
-gint compare_message_uid(gconstpointer element, gconstpointer value, gpointer x)
+gint compare_message_uid(gconstpointer element, gconstpointer value)
 {
 	int *uid_val;
 	TSpeechDMessage *message;

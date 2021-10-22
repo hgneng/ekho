@@ -30,6 +30,8 @@ symbols:
 🦻	aure con audiophono	none
 👃	naso	none
 🧠	cerebro	none
+🫀	corde	none
+🫁	pulmones	none
 🦷	dente	none
 🦴	osso	none
 👀	oculos	none
@@ -70,8 +72,6 @@ symbols:
 🏳	bandiera blanc	none
 🏳‍🌈	bandiera iride	none
 🏴‍☠	bandiera de pirata	none
-🫀	corde	none
-🫁	pulmones	none
 💪🏻	biceps flectite tono de pelle clar	none
 💪🏼	biceps flectite tono de pelle medio clar	none
 💪🏽	biceps flectite tono de pelle medie	none
@@ -102,8 +102,6 @@ symbols:
 👃🏽	naso tono de pelle medie	none
 👃🏾	naso tono de pelle medio-obscur	none
 👃🏿	naso tono de pelle obscur	none
-#⃣	clave #	none
-*⃣	clave *	none
 🔟	clave 10	none
 🇦🇩	bandiera Andorra	none
 🇦🇪	bandiera Emiratos Arabe Unite	none
@@ -307,13 +305,8 @@ symbols:
 🇿🇦	bandiera Sudafrica	none
 🇿🇲	bandiera Zambia	none
 🇿🇼	bandiera Zimbabwe	none
-0⃣	clave 0	none
-1⃣	clave 1	none
-2⃣	clave 2	none
-3⃣	clave 3	none
-4⃣	clave 4	none
-5⃣	clave 5	none
-6⃣	clave 6	none
-7⃣	clave 7	none
-8⃣	clave 8	none
-9⃣	clave 9	none
+₡	colon costarican	none
+₦	naira nigerian	none
+₲	guarani paraguayan	none
+₴	hryvnia ukrainian	none
+₵	cedi ghanese	none

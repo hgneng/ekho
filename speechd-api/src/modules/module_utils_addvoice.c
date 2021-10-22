@@ -37,6 +37,7 @@ static int nbvoices=0;
 static int nbpaths=0;
 static SPDVoice *generic_voices;
 static SPDVoice **generic_voices_list;
+static char *default_voice;
 static char **dependency_paths;
 typedef struct {
 	char *male1;
@@ -84,6 +85,7 @@ DOTCONF_CB(AddVoice_cb)
 	}
 
 	if (module_voice_table == NULL) {
+		DBG("No voice table\n");
 		return NULL;
 	}
 
@@ -113,6 +115,7 @@ DOTCONF_CB(AddVoice_cb)
 	{
 		char *new_dependency_path = g_regex_replace_literal(regex, dependency_paths[i], -1, 0, cmd->data.list[2], 0, NULL);
 		if (! g_file_test(new_dependency_path, G_FILE_TEST_EXISTS)) {
+			DBG("Missing dependency %s\n", new_dependency_path);
 			g_free(new_dependency_path);
 			g_regex_unref(regex);
 			return NULL;
@@ -150,7 +153,23 @@ DOTCONF_CB(AddVoice_cb)
 	for (i = 0; i < nbvoices+1; i++)
 		generic_voices_list[i] = &generic_voices[i];
 	generic_voices_list[nbvoices+1] = NULL;
+	DBG("Added voice %s\n", generic_voices[nbvoices].name);
 	++nbvoices;
+	return NULL;
+}
+
+DOTCONF_CB(DefaultVoice_cb)
+{
+	char *voicename = cmd->data.list[0];
+	if (voicename == NULL) {
+		DBG("Missing default voice name\n");
+		return NULL;
+	}
+
+	if (default_voice)
+		free(default_voice);
+	default_voice = strdup(voicename);
+
 	return NULL;
 }
 
@@ -169,9 +188,13 @@ void module_register_settings_voices(void)
 						     &module_num_dc_options,
 						     "AddVoice", ARG_LIST,
 						     AddVoice_cb, NULL, 0);
+	module_dc_options = module_add_config_option(module_dc_options,
+						     &module_num_dc_options,
+						     "DefaultVoice", ARG_STR,
+						     DefaultVoice_cb, NULL, 0);
 }
 
-gboolean module_existsvoice(char *voicename)
+gboolean module_existsvoice(const char *voicename)
 {
 	int i;
 	if (!nbvoices)
@@ -187,7 +210,7 @@ SPDVoice **module_list_registered_voices(void) {
 	return (SPDVoice **)generic_voices_list;
 }
 
-char *module_getvoice(char *language, SPDVoiceType voice)
+char *module_getvoice(const char *language, SPDVoiceType voice)
 {
 	SPDVoiceDef *voices;
 	char *ret;
@@ -205,6 +228,7 @@ char *module_getvoice(char *language, SPDVoiceType voice)
 	}
 
 	switch (voice) {
+	case SPD_UNSPECIFIED:
 	case SPD_MALE1:
 		ret = voices->male1;
 		break;
@@ -230,7 +254,7 @@ char *module_getvoice(char *language, SPDVoiceType voice)
 		ret = voices->child_female;
 		break;
 	default:
-		printf("Unknown voice");
+		fprintf(stderr, "Unknown voice %d", voice);
 		return NULL;
 	}
 
@@ -251,7 +275,12 @@ char *module_getvoice(char *language, SPDVoiceType voice)
 	if (ret == NULL)
 		ret = voices->child_female;
 	if (ret == NULL)
-		fprintf(stderr, "No voice available for this output module!");
+		fprintf(stderr, "No voice available for this output module!\n");
 
 	return ret;
+}
+
+char *module_getdefaultvoice(void)
+{
+	return default_voice;
 }

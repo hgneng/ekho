@@ -61,7 +61,7 @@ extern const int EXIT_ERROR;
 
 /* server.c */
 
-extern Stream open_server();
+extern Stream open_server(void);
 
 /* client.c */
 

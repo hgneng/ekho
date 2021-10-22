@@ -3,13 +3,23 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+≈	fast gleich wie	none
+≥	grösser als oder gleich	none
+◯	grosser hohler Kreis	none
+♪	Achtelsnote	none
 😃	grinsendes Gesicht mit grossen Augen	none
 😅	Lachender Smiley mit kaltem Schweiss	none
 🤐	Smiley mit Reissverschlussmund	none
+😶‍🌫	Kopf in den Wolken	none
+😮‍💨	ausatmendes Gesicht	none
+😵‍💫	Gesicht mit Spiralaugen	none
+🥸	Gesicht mit Maske	none
 😳	Erröteter Smiley mit grossen Augen	none
 😰	Smiley mit offenem Mund und kaltem Schweiss	none
 😓	Smiley mit kaltem Schweiss	none
 👽	Ausserirdisches Wesen	none
+❤‍🔥	brennendes Herz	none
+❤‍🩹	Herz mit Pflaster	none
 🤍	weisses Herz	none
 💥	Zusammenstoss	none
 💦	Schweisstropfen	none
@@ -25,26 +35,35 @@ symbols:
 🦳	weisses Haar	none
 💐	Blumenstrauss	none
 🌶	Chili	none
+🫑	Peperoni	none
+🍗	Pouletschenkel	none
 🍠	Geröstete Süsskartoffel	none
 ☕	Heissgetränk	none
+🫖	Teekrug	none
 ♨	Heisse Quellen	none
-🚃	Strassenbahnwagen	none
 🚊	Strassenbahn	none
+🚋	Tramwagen	none
 ⭐	weisser mittelgrosser Stern	none
 🌌	Milchstrasse	none
 🌥	Sonne hinter grosser Wolke	none
 ⚽	Fussball	none
+🩴	Flipflops	none
 ⛑	Helm mit weissem Kreuz	none
 📆	Abreisskalender	none
 📌	Reisszwecke	none
 📍	runde Reisszwecke	none
+🛗	Lift	none
 🚼	Baby-Symbol	none
 🚸	Kinder-queren-die-Strasse-Schild	none
 🚷	Fussgänger-verboten-Schild	none
-⭕	Grosser Kreis	none
-✅	Weisses Häkchen	none
+☢	radioaktiv	none
+➕	Plus	none
+➖	Minus	none
 ❔	weisses Fragezeichen	none
 ❕	weisses Ausrufezeichen	none
+💲	fettes Dollarzeichen	none
+⭕	Grosser Kreis	none
+✅	Weisses Häkchen	none
 🔠	Eingabesymbol lateinische Grossbuchstaben	none
 🅰	Grossbuchstabe A in Quadrat	none
 🆎	Grossbuchstaben AB in rotem Quadrat	none
@@ -71,12 +90,7 @@ symbols:
 🔳	Weisse quadratische Schaltfläche	none
 🏳	Wehende weisse Fahne	none
 🏳‍⚧	Transgenderflagge	none
-🛗	Lift	none
-🥸	Gesicht mit Maske	none
-🩴	Flipflops	none
-🪝	Haken	none
-🪠	Saugglocke	none
-🫑	Peperoni	none
+₿	Bitcoin	none
 🖖🏻	Vulkanischer Gruss helle Hautfarbe	none
 🖖🏼	Vulkanischer Gruss mittelhelle Hautfarbe	none
 🖖🏽	Vulkanischer Gruss mittlere Hautfarbe	none
@@ -132,7 +146,6 @@ symbols:
 🧑🏿‍🦯	Person mit Langstock dunkle Hautfarbe	none
 🇧🇳	Flagge Brunei	none
 🇧🇼	Flagge Botswana	none
-🇧🇾	Flagge Weissrussland	none
 🇨🇻	Flagge Kapverden	none
 🇬🇧	Flagge Grossbritannien	none
 🇸🇧	Flagge Salomon-Inseln	none

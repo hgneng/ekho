@@ -92,7 +92,9 @@ void options_print_help(char *argv[])
 	printf("  -t, --timeout         ");
 	printf(_("Set time in seconds for the server to wait before it\n"));
 	printf("                        ");
-	printf(_("shuts down, if it has no clients connected\n"));
+	printf(_("shuts down, if it has no clients connected. Setting to\n"));
+	printf("                        ");
+	printf(_("0 disables such shutdown\n"));
 	printf("  -P, --pid-file        ");
 	printf(_("Set path to pid file\n"));
 	printf("  -C, --config-dir      ");

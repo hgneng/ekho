@@ -8,7 +8,77 @@ symbols:
 🏽	mittlere Hautfarbe	none
 🏾	mitteldunkle Hautfarbe	none
 🏿	dunkle Hautfarbe	none
-⚧	Symbol für Transgender	none
+℗	Copyrightzeichen für Audioaufnahme	none
+←	nach links weisender Pfeil	none
+↚	durchgestrichener Pfeil nach links	none
+→	nach rechts weisender Pfeil	none
+↛	durchgestrichener Pfeil nach rechts	none
+↑	nach oben weisender Pfeil	none
+↓	nach unten weisender Pfeil	none
+↜	Wellenpfeil nach links	none
+↝	Wellenpfeil nach rechts	none
+↞	Pfeil mit Doppelspitze nach links	none
+↟	Pfeil mit Doppelspitze nach oben	none
+↠	Pfeil mit Doppelspitze nach rechts	none
+↡	Pfeil mit Doppelspitze nach unten	none
+↢	Pfeilschwanz nach links	none
+↣	Pfeilschwanz nach rechts	none
+↤	Pfeil nach links von Strich weglaufend	none
+↥	Pfeil nach oben von Strich weglaufend	none
+↦	Pfeil nach rechts von Strich weglaufend	none
+↧	Pfeil nach unten von Strich weglaufend	none
+↨	Pfeil nach oben und unten mit Unterstrich	none
+↫	Pfeil nach links mit Schleife	none
+↬	Pfeil nach rechts mit Schleife	none
+↭	Wellenpfeil nach links und rechts	none
+↯	Zickzack-Pfeil nach unten	none
+↰	Pfeil nach oben mit Spitze nach links	none
+↱	Pfeil nach oben mit Spitze nach rechts	none
+↲	Pfeil nach unten mit Spitze nach links	none
+↳	Pfeil nach unten mit Spitze nach rechts	none
+↴	Pfeil nach rechts mit Spitze nach unten	none
+↵	Pfeil nach unten mit Ecke nach links	none
+↶	Halbkreisförmiger Pfeil gegen Uhrzeigersinn oben	none
+↷	Halbkreisförmiger Pfeil im Uhrzeigersinn oben	none
+↸	Pfeil nach Nordwesten auf langen Strich zulaufend	none
+↹	Pfeil nach links auf Strich zulaufend über Pfeil nach rechts auf Strich zulaufend	none
+↺	Kreisförmiger Pfeil gegen Uhrzeigersinn	none
+↻	Kreisförmiger Pfeil im Uhrzeigersinn	none
+↼	Harpune nach links mit Zacken nach oben	none
+↽	Harpune nach links mit Zacken nach unten	none
+↾	Harpune nach oben mit Zacken nach rechts	none
+↿	Harpune nach oben mit Zacken nach links	none
+⇀	Harpune nach rechts mit Zacken nach oben	none
+⇁	Harpune nach rechts mit Zacken nach unten	none
+⇂	Harpune nach unten mit Zacken nach rechts	none
+⇃	Harpune nach unten mit Zacken nach links	none
+⇄	Pfeil nach rechts über Pfeil nach links	none
+⇅	nach oben und nach unten weisende Pfeile	none
+⇆	Linkspfeil über Rechtspfeil	none
+∆	Inkrement	none
+∇	Nabla	none
+∈	Element	none
+≠	ungleich	none
+−	Minuszeichen	none
+⁻	hochgestelltes Minuszeichen	none
+√	Quadratwurzel	none
+∞	Unendlichkeitszeichen	none
+∩	Schnittmenge	none
+∪	Vereinigungsmenge	none
+≈	ungefähr gleich	none
+≡	identisch	none
+≤	kleiner als oder gleich	none
+≥	größer als oder gleich	none
+⊂	Teilmenge	none
+▲	gefülltes nach oben weisendes Dreieck	none
+▼	gefülltes nach unten weisendes Dreieck	none
+◊	Raute	none
+○	hohler Kreis	none
+●	gefüllter Kreis	none
+◯	großer hohler Kreis	none
+♪	Achtelnote	none
+♭	Erniedrigungszeichen	none
+♯	Erhöhungszeichen	none
 😀	grinsendes Gesicht	none
 😃	grinsendes Gesicht mit großen Augen	none
 😄	grinsendes Gesicht mit lachenden Augen	none
@@ -30,6 +100,7 @@ symbols:
 ☺	lächelndes Gesicht	none
 😚	küssendes Gesicht mit geschlossenen Augen	none
 😙	küssendes Gesicht mit lächelnden Augen	none
+🥲	lachendes Gesicht mit Träne	none
 😋	sich die Lippen leckendes Gesicht	none
 😛	Gesicht mit herausgestreckter Zunge	none
 😜	zwinkerndes Gesicht mit herausgestreckter Zunge	none
@@ -45,10 +116,12 @@ symbols:
 😐	neutrales Gesicht	none
 😑	ausdrucksloses Gesicht	none
 😶	Gesicht ohne Mund	none
-😏	selbstgefällig grinsendes Gesicht	none
+😶‍🌫	Gesicht in Wolken	none
+😏	süffisant lächelndes Gesicht	none
 😒	verstimmtes Gesicht	none
 🙄	Augen verdrehendes Gesicht	none
 😬	Grimassen schneidendes Gesicht	none
+😮‍💨	Gesicht, das ausatmet	none
 🤥	lügendes Gesicht	none
 😌	erleichtertes Gesicht	none
 😔	nachdenkliches Gesicht	none
@@ -65,9 +138,11 @@ symbols:
 🥶	frierendes Gesicht	none
 🥴	schwindeliges Gesicht	none
 😵	benommenes Gesicht	none
+😵‍💫	Gesicht mit Spiralen als Augen	none
 🤯	explodierender Kopf	none
 🤠	Gesicht mit Cowboyhut	none
 🥳	Partygesicht	none
+🥸	verkleidet	none
 😎	lächelndes Gesicht mit Sonnenbrille	none
 🤓	Strebergesicht	none
 🧐	Gesicht mit Monokel	none
@@ -135,6 +210,8 @@ symbols:
 💟	Herzdekoration	none
 ❣	Herz als Ausrufezeichen	none
 💔	gebrochenes Herz	none
+❤‍🔥	Herz in Flammen	none
+❤‍🩹	Herz mit Verband	none
 ❤	rotes Herz	none
 🧡	oranges Herz	none
 💛	gelbes Herz	none
@@ -164,6 +241,7 @@ symbols:
 ✋	erhobene Hand	none
 🖖	vulkanischer Gruß	none
 👌	OK-Zeichen	none
+🤌	zusammengedrückte Finger	none
 🤏	Wenig-Geste	none
 ✌	Victory-Geste	none
 🤞	Hand mit gekreuzten Fingern	none
@@ -197,9 +275,11 @@ symbols:
 🦵	Bein	none
 🦶	Fuß	none
 👂	Ohr	none
-🦻	Ohr mit Hörhilfe	none
+🦻	Ohr mit Hörgerät	none
 👃	Nase	none
 🧠	Gehirn	none
+🫀	Herz (Organ)	none
+🫁	Lunge	none
 🦷	Zahn	none
 🦴	Knochen	none
 👀	Augen	none
@@ -213,9 +293,11 @@ symbols:
 🧑	Erwachsener	none
 👱	Person blondes Haar	none
 👨	Mann	none
-🧔	Mann Bart	none
+🧔	Person Bart	none
+🧔‍♂	Mann Bart	none
 👱‍♂	Mann blond	none
 👩	Frau	none
+🧔‍♀	Frau Bart	none
 👱‍♀	Frau blond	none
 🧓	älterer Erwachsener	none
 👴	älterer Mann	none
@@ -305,8 +387,9 @@ symbols:
 🕵‍♂	Detektiv	none
 🕵‍♀	Detektivin	none
 💂	Wachmann/Wachfrau	none
-💂‍♂	Wachmann	none
-💂‍♀	Wachfrau	none
+💂‍♂	Wachsoldat	none
+💂‍♀	Wachsoldatin	none
+🥷	Ninja	none
 👷	Bauarbeiter(in)	none
 👷‍♂	Bauarbeiter	none
 👷‍♀	Bauarbeiterin	none
@@ -317,14 +400,22 @@ symbols:
 👳‍♀	Frau mit Turban	none
 👲	Mann mit chinesischem Hut	none
 🧕	Frau mit Kopftuch	none
-🤵	Mann im Anzug	none
-👰	Braut mit Schleier	none
+🤵	Person im Smoking	none
+🤵‍♂	Mann im Smoking	none
+🤵‍♀	Frau im Smoking	none
+👰	Person mit Schleier	none
+👰‍♂	Mann mit Schleier	none
+👰‍♀	Frau mit Schleier	none
 🤰	schwangere Frau	none
 🤱	Stillen	none
+👩‍🍼	stillende Frau	none
+👨‍🍼	stillender Mann	none
+🧑‍🍼	stillende Person	none
 👼	Putte	none
 🎅	Weihnachtsmann	none
 🤶	Weihnachtsfrau	none
-🦸	Held	none
+🧑‍🎄	Weihnachtsperson	none
+🦸	Superheld(in)	none
 🦸‍♂	Superheld	none
 🦸‍♀	Heldin	none
 🦹	Bösewicht	none
@@ -439,15 +530,16 @@ symbols:
 🛀	badende Person	none
 🛌	im Bett liegende Person	none
 🧑‍🤝‍🧑	sich an den Händen haltende Personen	none
-👭	händchenhaltende Frauen	none
+👭	Händchen haltende Frauen	none
 👫	Mann und Frau halten Hände	none
-👬	händchenhaltende Männer	none
+👬	Händchen haltende Männer	none
 💏	sich küssendes Paar	none
 💑	Liebespaar	none
 👪	Familie	none
 🗣	sprechender Kopf	none
 👤	Silhouette einer Büste	none
 👥	Silhouette mehrerer Büsten	none
+🫂	sich umarmende Personen	none
 👣	Fußabdrücke	none
 🦰	rotes Haar	none
 🦱	lockiges Haar	none
@@ -467,6 +559,7 @@ symbols:
 🦝	Waschbär	none
 🐱	Katzengesicht	none
 🐈	Katze	none
+🐈‍⬛	schwarze Katze	none
 🦁	Löwe	none
 🐯	Tigergesicht	none
 🐅	Tiger	none
@@ -476,6 +569,7 @@ symbols:
 🦄	Einhorn	none
 🦓	Zebra	none
 🦌	Hirsch	none
+🦬	Bison	none
 🐮	Kuhgesicht	none
 🐂	Ochse	none
 🐃	Wasserbüffel	none
@@ -492,6 +586,7 @@ symbols:
 🦙	Lama	none
 🦒	Giraffe	none
 🐘	Elefant	none
+🦣	Mammut	none
 🦏	Nashorn	none
 🦛	Nilpferd	none
 🐭	Mäusegesicht	none
@@ -501,9 +596,11 @@ symbols:
 🐰	Hasengesicht	none
 🐇	Hase	none
 🐿	Streifenhörnchen	none
+🦫	Biber	none
 🦔	Igel	none
 🦇	Fledermaus	none
 🐻	Bär	none
+🐻‍❄	Eisbär	none
 🐨	Koala	none
 🐼	Panda	none
 🦥	Faultier	none
@@ -525,6 +622,8 @@ symbols:
 🦆	Ente	none
 🦢	Schwan	none
 🦉	Eule	none
+🦤	Dodo	none
+🪶	Feder	none
 🦩	Flamingo	none
 🦚	Pfau	none
 🦜	Papagei	none
@@ -540,6 +639,7 @@ symbols:
 🐳	blasender Wal	none
 🐋	Wal	none
 🐬	Delfin	none
+🦭	Seehund	none
 🐟	Fisch	none
 🐠	Tropenfisch	none
 🐡	Kugelfisch	none
@@ -551,12 +651,16 @@ symbols:
 🐛	Raupe	none
 🐜	Ameise	none
 🐝	Biene	none
+🪲	Käfer	none
 🐞	Marienkäfer	none
 🦗	Grille	none
+🪳	Kakerlake	none
 🕷	Spinne	none
 🕸	Spinnennetz	none
 🦂	Skorpion	none
-🦟	Moskito	none
+🦟	Mücke	none
+🪰	Fliege	none
+🪱	Wurm	none
 🦠	Mikrobe	none
 💐	Blumenstrauß	none
 🌸	Kirschblüte	none
@@ -569,6 +673,7 @@ symbols:
 🌼	gelbe Blüte	none
 🌷	Tulpe	none
 🌱	Spross	none
+🪴	Topfpflanze	none
 🌲	Nadelbaum	none
 🌳	Laubbaum	none
 🌴	Palme	none
@@ -594,8 +699,10 @@ symbols:
 🍑	Pfirsich	none
 🍒	Kirschen	none
 🍓	Erdbeere	none
+🫐	Blaubeeren	none
 🥝	Kiwi	none
 🍅	Tomate	none
+🫒	Olive	none
 🥥	Kokosnuss	none
 🥑	Avocado	none
 🍆	Aubergine	none
@@ -603,8 +710,9 @@ symbols:
 🥕	Karotte	none
 🌽	Maiskolben	none
 🌶	Peperoni	none
+🫑	Paprika	none
 🥒	Gurke	none
-🥬	Grünzeug	none
+🥬	Blattgemüse	none
 🥦	Brokkoli	none
 🧄	Knoblauch	none
 🧅	Zwiebel	none
@@ -614,6 +722,7 @@ symbols:
 🍞	Brot	none
 🥐	Croissant	none
 🥖	Baguette	none
+🫓	Fladenbrot	none
 🥨	Brezel	none
 🥯	Bagel	none
 🥞	Pfannkuchen	none
@@ -624,18 +733,20 @@ symbols:
 🥩	Fleischstück	none
 🥓	Bacon	none
 🍔	Hamburger	none
-🍟	Pommes Frites	none
+🍟	Pommes frites	none
 🍕	Pizza	none
 🌭	Hotdog	none
 🥪	Sandwich	none
 🌮	Taco	none
 🌯	Burrito	none
+🫔	Tamale	none
 🥙	Döner	none
 🧆	Falafel	none
 🥚	Ei	none
 🍳	Spiegelei in Bratpfanne	none
 🥘	Pfannengericht	none
 🍲	Topf mit Essen	none
+🫕	Fondue	none
 🥣	Schüssel mit Löffel	none
 🥗	Salat	none
 🍿	Popcorn	none
@@ -681,8 +792,9 @@ symbols:
 🍼	Babyflasche	none
 🥛	Glas Milch	none
 ☕	Heißgetränk	none
+🫖	Teekanne	none
 🍵	Teetasse ohne Henkel	none
-🍶	Sake-Flasche und -tasse	none
+🍶	Sake-Flasche und -Tasse	none
 🍾	Flasche mit knallendem Korken	none
 🍷	Weinglas	none
 🍸	Cocktailglas	none
@@ -692,6 +804,7 @@ symbols:
 🥂	Sektgläser	none
 🥃	Trinkglas	none
 🥤	Becher mit Strohhalm	none
+🧋	Bubble Tea	none
 🧃	Trinkpäckchen	none
 🧉	Mate-Tee	none
 🧊	Eiswürfel	none
@@ -721,6 +834,9 @@ symbols:
 🏛	antikes Gebäude	none
 🏗	Kran	none
 🧱	Ziegelstein	none
+🪨	Felsen	none
+🪵	Holz	none
+🛖	Hütte	none
 🏘	Wohnhäuser	none
 🏚	verfallenes Haus	none
 🏠	Haus	none
@@ -732,7 +848,7 @@ symbols:
 🏦	Bank	none
 🏨	Hotel	none
 🏩	Stundenhotel	none
-🏪	Bedarfsartikelgeschäft	none
+🏪	Minimarkt	none
 🏫	Schule	none
 🏬	Kaufhaus	none
 🏭	Fabrik	none
@@ -764,7 +880,7 @@ symbols:
 💈	Barbershop-Säule	none
 🎪	Zirkuszelt	none
 🚂	Dampflokomotive	none
-🚃	Straßenbahnwagen	none
+🚃	Eisenbahnwagen	none
 🚄	Hochgeschwindigkeitszug mit spitzer Nase	none
 🚅	Hochgeschwindigkeitszug	none
 🚆	Zug	none
@@ -774,9 +890,9 @@ symbols:
 🚊	Straßenbahn	none
 🚝	Einschienenbahn	none
 🚞	Bergbahn	none
-🚋	Tramwagen	none
+🚋	Straßenbahnwagen	none
 🚌	Bus	none
-🚍	Vorderansicht Bus	none
+🚍	Bus von vorne	none
 🚎	Oberleitungsbus	none
 🚐	Kleinbus	none
 🚑	Krankenwagen	none
@@ -784,10 +900,11 @@ symbols:
 🚓	Polizeiwagen	none
 🚔	Vorderansicht Polizeiwagen	none
 🚕	Taxi	none
-🚖	Vorderansicht Taxi	none
+🚖	Taxi von vorne	none
 🚗	Auto	none
-🚘	Vorderansicht Auto	none
+🚘	Auto von vorne	none
 🚙	Wohnmobil	none
+🛻	Pick-up	none
 🚚	Lieferwagen	none
 🚛	Sattelzug	none
 🚜	Traktor	none
@@ -800,6 +917,7 @@ symbols:
 🚲	Fahrrad	none
 🛴	Tretroller	none
 🛹	Skateboard	none
+🛼	Rollschuh	none
 🚏	Bushaltestelle	none
 🛣	Autobahn	none
 🛤	Bahngleis	none
@@ -809,7 +927,7 @@ symbols:
 🚥	horizontale Verkehrsampel	none
 🚦	vertikale Verkehrsampel	none
 🛑	Stoppschild	none
-🚧	Baustellenschild	none
+🚧	Baustellenabsperrung	none
 ⚓	Anker	none
 ⛵	Segelboot	none
 🛶	Kanu	none
@@ -970,6 +1088,7 @@ symbols:
 🪁	Drachen	none
 🎱	Billardkugel	none
 🔮	Kristallkugel	none
+🪄	Zauberstab	none
 🧿	Nazar-Amulett	none
 🎮	Gamepad	none
 🕹	Joystick	none
@@ -977,6 +1096,8 @@ symbols:
 🎲	Spielwürfel	none
 🧩	Puzzleteil	none
 🧸	Teddybär	none
+🪅	Piñata	none
+🪆	Matroschka	none
 ♠	Pik	none
 ♥	Herz	none
 ♦	Karo	none
@@ -989,7 +1110,9 @@ symbols:
 🖼	gerahmtes Bild	none
 🎨	Mischpalette	none
 🧵	Faden	none
+🪡	Nähnadel	none
 🧶	Wollknäuel	none
+🪢	Knoten	none
 👓	Brille	none
 🕶	Sonnenbrille	none
 🥽	Schutzbrille	none
@@ -1015,6 +1138,7 @@ symbols:
 👝	Clutch	none
 🛍	Einkaufstüten	none
 🎒	Schulranzen	none
+🩴	Zehensandale	none
 👞	Herrenschuh	none
 👟	Sportschuh	none
 🥾	Wanderstiefel	none
@@ -1028,6 +1152,7 @@ symbols:
 🎩	Zylinder	none
 🎓	Doktorhut	none
 🧢	Baseballmütze	none
+🪖	Militärhelm	none
 ⛑	Rettungshelm	none
 📿	Gebetskette	none
 💄	Lippenstift	none
@@ -1052,12 +1177,14 @@ symbols:
 🎧	Kopfhörer	none
 📻	Radio	none
 🎷	Saxofon	none
+🪗	Akkordeon	none
 🎸	Gitarre	none
 🎹	Klaviatur	none
 🎺	Trompete	none
 🎻	Geige	none
 🪕	Banjo	none
 🥁	Trommel	none
+🪘	afrikanische Trommel	none
 📱	Mobiltelefon	none
 📲	Mobiltelefon mit Pfeil	none
 ☎	Telefon	none
@@ -1065,7 +1192,7 @@ symbols:
 📟	Pager	none
 📠	Faxgerät	none
 🔋	Batterie	none
-🔌	Stromstecker	none
+🔌	Netzstecker	none
 💻	Laptop	none
 🖥	Desktopcomputer	none
 🖨	Drucker	none
@@ -1111,6 +1238,7 @@ symbols:
 🔖	Lesezeichen	none
 🏷	Etikett	none
 💰	Geldsack	none
+🪙	Münze	none
 💴	Yen-Banknote	none
 💵	Dollar-Banknote	none
 💶	Euro-Banknote	none
@@ -1118,9 +1246,7 @@ symbols:
 💸	Geldschein mit Flügeln	none
 💳	Kreditkarte	none
 🧾	Beleg	none
-💹	steigender Trend mit Yen-Zeichen	none
-💱	Geldwechsel	none
-💲	Dollarzeichen	none
+💹	steigende Kurve mit Yen-Zeichen	none
 ✉	Briefumschlag	none
 📧	E-Mail	none
 📨	eingehender Briefumschlag	none
@@ -1144,7 +1270,7 @@ symbols:
 💼	Aktentasche	none
 📁	Ordner	none
 📂	geöffneter Ordner	none
-🗂	Karteibahnen	none
+🗂	Karteireiter	none
 📅	Kalender	none
 📆	Abreißkalender	none
 🗒	Notizblock	none
@@ -1153,7 +1279,7 @@ symbols:
 📈	Aufwärtstrend	none
 📉	Abwärtstrend	none
 📊	Balkendiagramm	none
-📋	Zwischenablage	none
+📋	Klemmbrett	none
 📌	Reißzwecke	none
 📍	Stecknadel	none
 📎	Büroklammer	none
@@ -1177,19 +1303,24 @@ symbols:
 🛠	Hammer und Schraubenschlüssel	none
 🗡	Dolch	none
 ⚔	gekreuzte Schwerter	none
-🔫	Pistole	none
+🔫	Wasserpistole	none
+🪃	Bumerang	none
 🏹	Pfeil und Bogen	none
 🛡	Schutzschild	none
+🪚	Handsäge	none
 🔧	Schraubenschlüssel	none
+🪛	Schraubenzieher	none
 🔩	Mutter und Schraube	none
 ⚙	Zahnrad	none
 🗜	Schraubzwinge	none
 ⚖	Waage	none
-🦯	Gehstock	none
+🦯	Blindenstock	none
 🔗	Verknüpfungssymbol	none
 ⛓	Ketten	none
+🪝	Haken	none
 🧰	Werkzeugkasten	none
 🧲	Magnet	none
+🪜	Leiter	none
 ⚗	Destillierapparat	none
 🧪	Reagenzglas	none
 🧫	Petrischale	none
@@ -1203,26 +1334,35 @@ symbols:
 🩹	Heftpflaster	none
 🩺	Stethoskop	none
 🚪	Tür	none
+🛗	Fahrstuhl	none
+🪞	Spiegel	none
+🪟	Fenster	none
 🛏	Bett	none
 🛋	Sofa und Lampe	none
 🪑	Stuhl	none
 🚽	Toilette	none
+🪠	Saugglocke	none
 🚿	Dusche	none
 🛁	Badewanne	none
+🪤	Mausefalle	none
 🪒	Rasierer	none
 🧴	Creme	none
 🧷	Sicherheitsnadel	none
 🧹	Besen	none
 🧺	Korb	none
 🧻	Küchenrolle	none
+🪣	Eimer	none
 🧼	Seife	none
+🪥	Zahnbürste	none
 🧽	Schwamm	none
 🧯	Feuerlöscher	none
 🛒	Einkaufswagen	none
 🚬	Zigarette	none
 ⚰	Sarg	none
+🪦	Grabstein	none
 ⚱	Urne	none
 🗿	Statue	none
+🪧	Protestschild	none
 🏧	Symbol „Geldautomat“	none
 🚮	Symbol „Papierkorb“	none
 🚰	Trinkwasser	none
@@ -1259,18 +1399,19 @@ symbols:
 ↖	Pfeil nach links oben	none
 ↕	Pfeil nach oben und unten	none
 ↔	Pfeil nach links und rechts	none
+↮	durchgestrichener Pfeil nach links und rechts	none
 ↩	geschwungener Pfeil nach links	none
 ↪	geschwungener Pfeil nach rechts	none
 ⤴	geschwungener Pfeil nach oben	none
 ⤵	geschwungener Pfeil nach unten	none
 🔃	kreisförmige Pfeile im Uhrzeigersinn	none
-🔄	kreisförmige Pfeile gegen den Uhrzeigersinn	none
+🔄	Pfeile gegen den Uhrzeigersinn	none
 🔙	BACK-Pfeil	none
 🔚	END-Pfeil	none
 🔛	ON!-Pfeil	none
 🔜	SOON-Pfeil	none
 🔝	TOP-Pfeil	none
-🛐	Kultstätte	none
+🛐	religiöse Stätte	none
 ⚛	Atomzeichen	none
 🕉	om	none
 ✡	Davidstern	none
@@ -1315,14 +1456,25 @@ symbols:
 ⏏	Auswerfen	none
 🎦	Kinosymbol	none
 🔅	Taste Dimmen	none
-🔆	Taste Heller	none
+🔆	Heller-Taste	none
 📶	balkenförmige Signalstärkenanzeige	none
 📳	Vibrationsmodus	none
 📴	Mobiltelefon aus	none
 ♀	Frauensymbol	none
 ♂	Männersymbol	none
-⚕	Äskulapstab	none
+⚧	Transgender-Symbol	none
+✖	mal	none
+➕	plus	none
+➖	minus	none
+➗	geteilt durch	none
 ♾	Unendlichkeit	none
+❓	rotes Fragezeichen	none
+❔	weißes Fragezeichen	none
+❕	weißes Ausrufezeichen	none
+❗	rotes Ausrufezeichen	none
+💱	Geldwechsel	none
+💲	Dollarzeichen extrafett	none
+⚕	Äskulapstab	none
 ♻	Recycling-Symbol	none
 ⚜	Lilie	none
 🔱	Dreizack	none
@@ -1330,29 +1482,15 @@ symbols:
 🔰	japanisches Anfänger-Zeichen	none
 ⭕	hohler roter Kreis	none
 ✅	weißes Häkchen	none
-☑	Abstimmungsfeld mit Häkchen	none
+☑	abgehaktes Kästchen	none
 ✔	kräftiges Häkchen	none
-✖	Multiplikationszeichen	none
 ❌	Kreuzzeichen	none
-❎	Kreuzsymbol im Quadrat	none
-➕	Pluszeichen	none
-➖	Minuszeichen	none
-➗	Divisionszeichen	none
+❎	angekreuztes Kästchen	none
 ➰	Schleife	none
 ➿	Doppelschleife	none
-〽	Teilalternationszeichen	none
 ✳	achtzackiger Stern	none
-✴	Stern mit acht Zacken	none
+✴	achtstrahliger Stern	none
 ❇	Funkeln	none
-‼	doppeltes Ausrufezeichen	none
-⁉	Ausrufe- und Fragezeichen	none
-❓	rotes Fragezeichen	none
-❔	weißes Fragezeichen	none
-❕	weißes Ausrufezeichen	none
-❗	rotes Ausrufezeichen	none
-〰	Wellenlinie	none
-©	Copyright	none
-®	Registered-Trademark	none
 ™	Markenzeichen	none
 🔠	Eingabesymbol lateinische Großbuchstaben	none
 🔡	Eingabesymbol lateinische Kleinbuchstaben	none
@@ -1375,40 +1513,23 @@ symbols:
 🅿	Großbuchstabe P in blauem Quadrat	none
 🆘	SOS-Zeichen	none
 🆙	Schriftzug „UP!“ im blauen Quadrat	none
-🆚	Großbuchstaben VS in orangefarbenem Quadrat	none
-🈁	Schriftzeichen „koko“	none
-🈂	Schriftzeichen „sa“	none
-🈷	Schriftzeichen für „Monatsbetrag“	none
-🈶	Schriftzeichen für „nicht gratis“	none
-🈯	Schriftzeichen für „reserviert“	none
-🉐	Schriftzeichen für „Schnäppchen“	none
-🈹	Schriftzeichen für „Rabatt“	none
-🈚	Schriftzeichen für „gratis“	none
-🈲	Schriftzeichen für „verbieten“	none
-🉑	Schriftzeichen für „akzeptieren“	none
-🈸	Schriftzeichen für „anwenden“	none
-🈴	Schriftzeichen für „Note zum Bestehen“	none
-🈳	Schriftzeichen für „Zimmer frei“	none
-㊗	Schriftzeichen für „Gratulation“	none
-㊙	Schriftzeichen für „Geheimnis“	none
-🈺	Schriftzeichen für „Geöffnet“	none
-🈵	Schriftzeichen für „Kein Zimmer frei“	none
-🔴	roter Kreis	none
-🟠	oranger Kreis	none
-🟡	gelber Kreis	none
-🟢	grüner Kreis	none
-🔵	blauer Kreis	none
-🟣	lila Kreis	none
-🟤	brauner Kreis	none
-⚫	schwarzer Kreis	none
-⚪	weißer Kreis	none
-🟥	rotes Viereck	none
-🟧	oranges Viereck	none
-🟨	gelbes Viereck	none
-🟩	grünes Viereck	none
-🟦	blaues Viereck	none
-🟪	lila Viereck	none
-🟫	braunes Viereck	none
+🆚	Schriftzug VS in orangem Quadrat	none
+🔴	roter Punkt	none
+🟠	oranger Punkt	none
+🟡	gelber Punkt	none
+🟢	grüner Punkt	none
+🔵	blauer Punkt	none
+🟣	lila Punkt	none
+🟤	brauner Punkt	none
+⚫	schwarzer Punkt	none
+⚪	weißer Punkt	none
+🟥	rotes Quadrat	none
+🟧	oranges Quadrat	none
+🟨	gelbes Quadrat	none
+🟩	grünes Quadrat	none
+🟦	blaues Quadrat	none
+🟪	lila Quadrat	none
+🟫	braunes Quadrat	none
 ⬛	großes schwarzes Quadrat	none
 ⬜	großes weißes Quadrat	none
 ◼	mittelgroßes schwarzes Quadrat	none
@@ -1428,68 +1549,20 @@ symbols:
 🔳	weiße quadratische Schaltfläche	none
 🔲	schwarze quadratische Schaltfläche	none
 🏁	Zielflagge	none
-🚩	Dreiecksflagge	none
+🚩	Wimpel	none
 🎌	überkreuzte Flaggen	none
 🏴	schwarze Flagge	none
 🏳	weiße Flagge	none
-🏳‍⚧	Transgender-Flagge	none
 🏳‍🌈	Regenbogenflagge	none
+🏳‍⚧	Transgender-Flagge	none
 🏴‍☠	Piratenflagge	none
-🛖	Hütte	none
-🛗	Fahrstuhl	none
-🛻	Pick-up	none
-🛼	Rollschuh	none
-🤌	zusammengedrückte Finger	none
-🥲	lachendes Gesicht mit Träne	none
-🥷	Ninja	none
-🥸	verkleidet	none
-🦣	Mammut	none
-🦤	Dodo	none
-🦫	Biber	none
-🦬	Bison	none
-🦭	Seehund	none
-🧋	Bubble Tea	none
-🩴	Zehensandale	none
-🪃	Bumerang	none
-🪄	Zauberstab	none
-🪅	Piñata	none
-🪆	Matroschka	none
-🪖	Militärhelm	none
-🪗	Akkordeon	none
-🪘	afrikanische Trommel	none
-🪙	Münze	none
-🪚	Handsäge	none
-🪛	Schraubenzieher	none
-🪜	Leiter	none
-🪝	Angelhaken	none
-🪞	Spiegel	none
-🪟	Fenster	none
-🪠	Pömpel	none
-🪡	Nähnadel	none
-🪢	Knoten	none
-🪣	Eimer	none
-🪤	Mäusefalle	none
-🪥	Zahnbürste	none
-🪦	Grabstein	none
-🪧	Plakat	none
-🪨	Felsen	none
-🪰	Fliege	none
-🪱	Wurm	none
-🪲	Käfer	none
-🪳	Kakerlake	none
-🪴	Topfpflanze	none
-🪵	Holz	none
-🪶	Feder	none
-🫀	Herz (Organ)	none
-🫁	Lungen	none
-🫂	sich umarmende Personen	none
-🫐	Blaubeeren	none
-🫑	Paprika	none
-🫒	Olive	none
-🫓	Fladenbrot	none
-🫔	Tamale	none
-🫕	Fondue	none
-🫖	Teekanne	none
+₥	Millzeichen	none
+₩	Won	none
+€	Euro	none
+₱	Peso	none
+₹	Indische Rupie	none
+₽	Rubel	none
+₿	Bitcoin-Zeichen	none
 👋🏻	winkende Hand helle Hautfarbe	none
 👋🏼	winkende Hand mittelhelle Hautfarbe	none
 👋🏽	winkende Hand mittlere Hautfarbe	none
@@ -1520,6 +1593,11 @@ symbols:
 👌🏽	OK-Zeichen mittlere Hautfarbe	none
 👌🏾	OK-Zeichen mitteldunkle Hautfarbe	none
 👌🏿	OK-Zeichen dunkle Hautfarbe	none
+🤌🏻	zusammengedrückte Finger helle Hautfarbe	none
+🤌🏼	zusammengedrückte Finger mittelhelle Hautfarbe	none
+🤌🏽	zusammengedrückte Finger mittlere Hautfarbe	none
+🤌🏾	zusammengedrückte Finger mitteldunkle Hautfarbe	none
+🤌🏿	zusammengedrückte Finger dunkle Hautfarbe	none
 🤏🏻	Wenig-Geste helle Hautfarbe	none
 🤏🏼	Wenig-Geste mittelhelle Hautfarbe	none
 🤏🏽	Wenig-Geste mittlere Hautfarbe	none
@@ -1670,11 +1748,11 @@ symbols:
 👂🏽	Ohr mittlere Hautfarbe	none
 👂🏾	Ohr mitteldunkle Hautfarbe	none
 👂🏿	Ohr dunkle Hautfarbe	none
-🦻🏻	Ohr mit Hörhilfe helle Hautfarbe	none
-🦻🏼	Ohr mit Hörhilfe mittelhelle Hautfarbe	none
-🦻🏽	Ohr mit Hörhilfe mittlere Hautfarbe	none
-🦻🏾	Ohr mit Hörhilfe mitteldunkle Hautfarbe	none
-🦻🏿	Ohr mit Hörhilfe dunkle Hautfarbe	none
+🦻🏻	Ohr mit Hörgerät helle Hautfarbe	none
+🦻🏼	Ohr mit Hörgerät mittelhelle Hautfarbe	none
+🦻🏽	Ohr mit Hörgerät mittlere Hautfarbe	none
+🦻🏾	Ohr mit Hörgerät mitteldunkle Hautfarbe	none
+🦻🏿	Ohr mit Hörgerät dunkle Hautfarbe	none
 👃🏻	Nase helle Hautfarbe	none
 👃🏼	Nase mittelhelle Hautfarbe	none
 👃🏽	Nase mittlere Hautfarbe	none
@@ -1710,6 +1788,46 @@ symbols:
 👱🏽	Person mittlere Hautfarbe, blondes Haar	none
 👱🏾	Person mitteldunkle Hautfarbe, blondes Haar	none
 👱🏿	Person dunkle Hautfarbe, blondes Haar	none
+🧑🏻‍❤‍💋‍🧑🏼	sich küssendes Paar Erwachsener, Erwachsener, helle Hautfarbe und mittelhelle Hautfarbe	none
+🧑🏻‍❤‍💋‍🧑🏽	sich küssendes Paar Erwachsener, Erwachsener, helle Hautfarbe und mittlere Hautfarbe	none
+🧑🏻‍❤‍💋‍🧑🏾	sich küssendes Paar Erwachsener, Erwachsener, helle Hautfarbe und mitteldunkle Hautfarbe	none
+🧑🏻‍❤‍💋‍🧑🏿	sich küssendes Paar Erwachsener, Erwachsener, helle Hautfarbe und dunkle Hautfarbe	none
+🧑🏼‍❤‍💋‍🧑🏻	sich küssendes Paar Erwachsener, Erwachsener, mittelhelle Hautfarbe und helle Hautfarbe	none
+🧑🏼‍❤‍💋‍🧑🏽	sich küssendes Paar Erwachsener, Erwachsener, mittelhelle Hautfarbe und mittlere Hautfarbe	none
+🧑🏼‍❤‍💋‍🧑🏾	sich küssendes Paar Erwachsener, Erwachsener, mittelhelle Hautfarbe und mitteldunkle Hautfarbe	none
+🧑🏼‍❤‍💋‍🧑🏿	sich küssendes Paar Erwachsener, Erwachsener, mittelhelle Hautfarbe und dunkle Hautfarbe	none
+🧑🏽‍❤‍💋‍🧑🏻	sich küssendes Paar Erwachsener, Erwachsener, mittlere Hautfarbe und helle Hautfarbe	none
+🧑🏽‍❤‍💋‍🧑🏼	sich küssendes Paar Erwachsener, Erwachsener, mittlere Hautfarbe und mittelhelle Hautfarbe	none
+🧑🏽‍❤‍💋‍🧑🏾	sich küssendes Paar Erwachsener, Erwachsener, mittlere Hautfarbe und mitteldunkle Hautfarbe	none
+🧑🏽‍❤‍💋‍🧑🏿	sich küssendes Paar Erwachsener, Erwachsener, mittlere Hautfarbe und dunkle Hautfarbe	none
+🧑🏾‍❤‍💋‍🧑🏻	sich küssendes Paar Erwachsener, Erwachsener, mitteldunkle Hautfarbe und helle Hautfarbe	none
+🧑🏾‍❤‍💋‍🧑🏼	sich küssendes Paar Erwachsener, Erwachsener, mitteldunkle Hautfarbe und mittelhelle Hautfarbe	none
+🧑🏾‍❤‍💋‍🧑🏽	sich küssendes Paar Erwachsener, Erwachsener, mitteldunkle Hautfarbe und mittlere Hautfarbe	none
+🧑🏾‍❤‍💋‍🧑🏿	sich küssendes Paar Erwachsener, Erwachsener, mitteldunkle Hautfarbe und dunkle Hautfarbe	none
+🧑🏿‍❤‍💋‍🧑🏻	sich küssendes Paar Erwachsener, Erwachsener, dunkle Hautfarbe und helle Hautfarbe	none
+🧑🏿‍❤‍💋‍🧑🏼	sich küssendes Paar Erwachsener, Erwachsener, dunkle Hautfarbe und mittelhelle Hautfarbe	none
+🧑🏿‍❤‍💋‍🧑🏽	sich küssendes Paar Erwachsener, Erwachsener, dunkle Hautfarbe und mittlere Hautfarbe	none
+🧑🏿‍❤‍💋‍🧑🏾	sich küssendes Paar Erwachsener, Erwachsener, dunkle Hautfarbe und mitteldunkle Hautfarbe	none
+🧑🏻‍❤‍🧑🏼	Liebespaar Erwachsener, Erwachsener, helle Hautfarbe und mittelhelle Hautfarbe	none
+🧑🏻‍❤‍🧑🏽	Liebespaar Erwachsener, Erwachsener, helle Hautfarbe und mittlere Hautfarbe	none
+🧑🏻‍❤‍🧑🏾	Liebespaar Erwachsener, Erwachsener, helle Hautfarbe und mitteldunkle Hautfarbe	none
+🧑🏻‍❤‍🧑🏿	Liebespaar Erwachsener, Erwachsener, helle Hautfarbe und dunkle Hautfarbe	none
+🧑🏼‍❤‍🧑🏻	Liebespaar Erwachsener, Erwachsener, mittelhelle Hautfarbe und helle Hautfarbe	none
+🧑🏼‍❤‍🧑🏽	Liebespaar Erwachsener, Erwachsener, mittelhelle Hautfarbe und mittlere Hautfarbe	none
+🧑🏼‍❤‍🧑🏾	Liebespaar Erwachsener, Erwachsener, mittelhelle Hautfarbe und mitteldunkle Hautfarbe	none
+🧑🏼‍❤‍🧑🏿	Liebespaar Erwachsener, Erwachsener, mittelhelle Hautfarbe und dunkle Hautfarbe	none
+🧑🏽‍❤‍🧑🏻	Liebespaar Erwachsener, Erwachsener, mittlere Hautfarbe und helle Hautfarbe	none
+🧑🏽‍❤‍🧑🏼	Liebespaar Erwachsener, Erwachsener, mittlere Hautfarbe und mittelhelle Hautfarbe	none
+🧑🏽‍❤‍🧑🏾	Liebespaar Erwachsener, Erwachsener, mittlere Hautfarbe und mitteldunkle Hautfarbe	none
+🧑🏽‍❤‍🧑🏿	Liebespaar Erwachsener, Erwachsener, mittlere Hautfarbe und dunkle Hautfarbe	none
+🧑🏾‍❤‍🧑🏻	Liebespaar Erwachsener, Erwachsener, mitteldunkle Hautfarbe und helle Hautfarbe	none
+🧑🏾‍❤‍🧑🏼	Liebespaar Erwachsener, Erwachsener, mitteldunkle Hautfarbe und mittelhelle Hautfarbe	none
+🧑🏾‍❤‍🧑🏽	Liebespaar Erwachsener, Erwachsener, mitteldunkle Hautfarbe und mittlere Hautfarbe	none
+🧑🏾‍❤‍🧑🏿	Liebespaar Erwachsener, Erwachsener, mitteldunkle Hautfarbe und dunkle Hautfarbe	none
+🧑🏿‍❤‍🧑🏻	Liebespaar Erwachsener, Erwachsener, dunkle Hautfarbe und helle Hautfarbe	none
+🧑🏿‍❤‍🧑🏼	Liebespaar Erwachsener, Erwachsener, dunkle Hautfarbe und mittelhelle Hautfarbe	none
+🧑🏿‍❤‍🧑🏽	Liebespaar Erwachsener, Erwachsener, dunkle Hautfarbe und mittlere Hautfarbe	none
+🧑🏿‍❤‍🧑🏾	Liebespaar Erwachsener, Erwachsener, dunkle Hautfarbe und mitteldunkle Hautfarbe	none
 🧑‍🦰	Erwachsener rotes Haar	none
 🧑🏻‍🦰	Erwachsener helle Hautfarbe, rotes Haar	none
 🧑🏼‍🦰	Erwachsener mittelhelle Hautfarbe, rotes Haar	none
@@ -1739,16 +1857,71 @@ symbols:
 👨🏽	Mann mittlere Hautfarbe	none
 👨🏾	Mann mitteldunkle Hautfarbe	none
 👨🏿	Mann dunkle Hautfarbe	none
-🧔🏻	Mann helle Hautfarbe, Bart	none
-🧔🏼	Mann mittelhelle Hautfarbe, Bart	none
-🧔🏽	Mann mittlere Hautfarbe, Bart	none
-🧔🏾	Mann mitteldunkle Hautfarbe, Bart	none
-🧔🏿	Mann dunkle Hautfarbe, Bart	none
+🧔🏻	Person helle Hautfarbe, Bart	none
+🧔🏼	Person mittelhelle Hautfarbe, Bart	none
+🧔🏽	Person mittlere Hautfarbe, Bart	none
+🧔🏾	Person mitteldunkle Hautfarbe, Bart	none
+🧔🏿	Person dunkle Hautfarbe, Bart	none
+🧔🏻‍♂	Mann helle Hautfarbe, Bart	none
+🧔🏼‍♂	Mann mittelhelle Hautfarbe, Bart	none
+🧔🏽‍♂	Mann mittlere Hautfarbe, Bart	none
+🧔🏾‍♂	Mann mitteldunkle Hautfarbe, Bart	none
+🧔🏿‍♂	Mann dunkle Hautfarbe, Bart	none
 👱🏻‍♂	Mann helle Hautfarbe, blond	none
 👱🏼‍♂	Mann mittelhelle Hautfarbe, blond	none
 👱🏽‍♂	Mann mittlere Hautfarbe, blond	none
 👱🏾‍♂	Mann mitteldunkle Hautfarbe, blond	none
 👱🏿‍♂	Mann dunkle Hautfarbe, blond	none
+👨🏻‍❤‍💋‍👨🏻	sich küssendes Paar Mann, Mann und helle Hautfarbe	none
+👨🏻‍❤‍💋‍👨🏼	sich küssendes Paar Mann, Mann, helle Hautfarbe und mittelhelle Hautfarbe	none
+👨🏻‍❤‍💋‍👨🏽	sich küssendes Paar Mann, Mann, helle Hautfarbe und mittlere Hautfarbe	none
+👨🏻‍❤‍💋‍👨🏾	sich küssendes Paar Mann, Mann, helle Hautfarbe und mitteldunkle Hautfarbe	none
+👨🏻‍❤‍💋‍👨🏿	sich küssendes Paar Mann, Mann, helle Hautfarbe und dunkle Hautfarbe	none
+👨🏼‍❤‍💋‍👨🏻	sich küssendes Paar Mann, Mann, mittelhelle Hautfarbe und helle Hautfarbe	none
+👨🏼‍❤‍💋‍👨🏼	sich küssendes Paar Mann, Mann und mittelhelle Hautfarbe	none
+👨🏼‍❤‍💋‍👨🏽	sich küssendes Paar Mann, Mann, mittelhelle Hautfarbe und mittlere Hautfarbe	none
+👨🏼‍❤‍💋‍👨🏾	sich küssendes Paar Mann, Mann, mittelhelle Hautfarbe und mitteldunkle Hautfarbe	none
+👨🏼‍❤‍💋‍👨🏿	sich küssendes Paar Mann, Mann, mittelhelle Hautfarbe und dunkle Hautfarbe	none
+👨🏽‍❤‍💋‍👨🏻	sich küssendes Paar Mann, Mann, mittlere Hautfarbe und helle Hautfarbe	none
+👨🏽‍❤‍💋‍👨🏼	sich küssendes Paar Mann, Mann, mittlere Hautfarbe und mittelhelle Hautfarbe	none
+👨🏽‍❤‍💋‍👨🏽	sich küssendes Paar Mann, Mann und mittlere Hautfarbe	none
+👨🏽‍❤‍💋‍👨🏾	sich küssendes Paar Mann, Mann, mittlere Hautfarbe und mitteldunkle Hautfarbe	none
+👨🏽‍❤‍💋‍👨🏿	sich küssendes Paar Mann, Mann, mittlere Hautfarbe und dunkle Hautfarbe	none
+👨🏾‍❤‍💋‍👨🏻	sich küssendes Paar Mann, Mann, mitteldunkle Hautfarbe und helle Hautfarbe	none
+👨🏾‍❤‍💋‍👨🏼	sich küssendes Paar Mann, Mann, mitteldunkle Hautfarbe und mittelhelle Hautfarbe	none
+👨🏾‍❤‍💋‍👨🏽	sich küssendes Paar Mann, Mann, mitteldunkle Hautfarbe und mittlere Hautfarbe	none
+👨🏾‍❤‍💋‍👨🏾	sich küssendes Paar Mann, Mann und mitteldunkle Hautfarbe	none
+👨🏾‍❤‍💋‍👨🏿	sich küssendes Paar Mann, Mann, mitteldunkle Hautfarbe und dunkle Hautfarbe	none
+👨🏿‍❤‍💋‍👨🏻	sich küssendes Paar Mann, Mann, dunkle Hautfarbe und helle Hautfarbe	none
+👨🏿‍❤‍💋‍👨🏼	sich küssendes Paar Mann, Mann, dunkle Hautfarbe und mittelhelle Hautfarbe	none
+👨🏿‍❤‍💋‍👨🏽	sich küssendes Paar Mann, Mann, dunkle Hautfarbe und mittlere Hautfarbe	none
+👨🏿‍❤‍💋‍👨🏾	sich küssendes Paar Mann, Mann, dunkle Hautfarbe und mitteldunkle Hautfarbe	none
+👨🏿‍❤‍💋‍👨🏿	sich küssendes Paar Mann, Mann und dunkle Hautfarbe	none
+👨🏻‍❤‍👨🏻	Liebespaar Mann, Mann und helle Hautfarbe	none
+👨🏻‍❤‍👨🏼	Liebespaar Mann, Mann, helle Hautfarbe und mittelhelle Hautfarbe	none
+👨🏻‍❤‍👨🏽	Liebespaar Mann, Mann, helle Hautfarbe und mittlere Hautfarbe	none
+👨🏻‍❤‍👨🏾	Liebespaar Mann, Mann, helle Hautfarbe und mitteldunkle Hautfarbe	none
+👨🏻‍❤‍👨🏿	Liebespaar Mann, Mann, helle Hautfarbe und dunkle Hautfarbe	none
+👨🏼‍❤‍👨🏻	Liebespaar Mann, Mann, mittelhelle Hautfarbe und helle Hautfarbe	none
+👨🏼‍❤‍👨🏼	Liebespaar Mann, Mann und mittelhelle Hautfarbe	none
+👨🏼‍❤‍👨🏽	Liebespaar Mann, Mann, mittelhelle Hautfarbe und mittlere Hautfarbe	none
+👨🏼‍❤‍👨🏾	Liebespaar Mann, Mann, mittelhelle Hautfarbe und mitteldunkle Hautfarbe	none
+👨🏼‍❤‍👨🏿	Liebespaar Mann, Mann, mittelhelle Hautfarbe und dunkle Hautfarbe	none
+👨🏽‍❤‍👨🏻	Liebespaar Mann, Mann, mittlere Hautfarbe und helle Hautfarbe	none
+👨🏽‍❤‍👨🏼	Liebespaar Mann, Mann, mittlere Hautfarbe und mittelhelle Hautfarbe	none
+👨🏽‍❤‍👨🏽	Liebespaar Mann, Mann und mittlere Hautfarbe	none
+👨🏽‍❤‍👨🏾	Liebespaar Mann, Mann, mittlere Hautfarbe und mitteldunkle Hautfarbe	none
+👨🏽‍❤‍👨🏿	Liebespaar Mann, Mann, mittlere Hautfarbe und dunkle Hautfarbe	none
+👨🏾‍❤‍👨🏻	Liebespaar Mann, Mann, mitteldunkle Hautfarbe und helle Hautfarbe	none
+👨🏾‍❤‍👨🏼	Liebespaar Mann, Mann, mitteldunkle Hautfarbe und mittelhelle Hautfarbe	none
+👨🏾‍❤‍👨🏽	Liebespaar Mann, Mann, mitteldunkle Hautfarbe und mittlere Hautfarbe	none
+👨🏾‍❤‍👨🏾	Liebespaar Mann, Mann und mitteldunkle Hautfarbe	none
+👨🏾‍❤‍👨🏿	Liebespaar Mann, Mann, mitteldunkle Hautfarbe und dunkle Hautfarbe	none
+👨🏿‍❤‍👨🏻	Liebespaar Mann, Mann, dunkle Hautfarbe und helle Hautfarbe	none
+👨🏿‍❤‍👨🏼	Liebespaar Mann, Mann, dunkle Hautfarbe und mittelhelle Hautfarbe	none
+👨🏿‍❤‍👨🏽	Liebespaar Mann, Mann, dunkle Hautfarbe und mittlere Hautfarbe	none
+👨🏿‍❤‍👨🏾	Liebespaar Mann, Mann, dunkle Hautfarbe und mitteldunkle Hautfarbe	none
+👨🏿‍❤‍👨🏿	Liebespaar Mann, Mann und dunkle Hautfarbe	none
 👨‍🦰	Mann rotes Haar	none
 👨🏻‍🦰	Mann helle Hautfarbe, rotes Haar	none
 👨🏼‍🦰	Mann mittelhelle Hautfarbe, rotes Haar	none
@@ -1778,11 +1951,116 @@ symbols:
 👩🏽	Frau mittlere Hautfarbe	none
 👩🏾	Frau mitteldunkle Hautfarbe	none
 👩🏿	Frau dunkle Hautfarbe	none
+🧔🏻‍♀	Frau helle Hautfarbe, Bart	none
+🧔🏼‍♀	Frau mittelhelle Hautfarbe, Bart	none
+🧔🏽‍♀	Frau mittlere Hautfarbe, Bart	none
+🧔🏾‍♀	Frau mitteldunkle Hautfarbe, Bart	none
+🧔🏿‍♀	Frau dunkle Hautfarbe, Bart	none
 👱🏻‍♀	Frau helle Hautfarbe, blond	none
 👱🏼‍♀	Frau mittelhelle Hautfarbe, blond	none
 👱🏽‍♀	Frau mittlere Hautfarbe, blond	none
 👱🏾‍♀	Frau mitteldunkle Hautfarbe, blond	none
 👱🏿‍♀	Frau dunkle Hautfarbe, blond	none
+👩🏻‍❤‍💋‍👨🏻	sich küssendes Paar Frau, Mann und helle Hautfarbe	none
+👩🏻‍❤‍💋‍👨🏼	sich küssendes Paar Frau, Mann, helle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏻‍❤‍💋‍👨🏽	sich küssendes Paar Frau, Mann, helle Hautfarbe und mittlere Hautfarbe	none
+👩🏻‍❤‍💋‍👨🏾	sich küssendes Paar Frau, Mann, helle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏻‍❤‍💋‍👨🏿	sich küssendes Paar Frau, Mann, helle Hautfarbe und dunkle Hautfarbe	none
+👩🏼‍❤‍💋‍👨🏻	sich küssendes Paar Frau, Mann, mittelhelle Hautfarbe und helle Hautfarbe	none
+👩🏼‍❤‍💋‍👨🏼	sich küssendes Paar Frau, Mann und mittelhelle Hautfarbe	none
+👩🏼‍❤‍💋‍👨🏽	sich küssendes Paar Frau, Mann, mittelhelle Hautfarbe und mittlere Hautfarbe	none
+👩🏼‍❤‍💋‍👨🏾	sich küssendes Paar Frau, Mann, mittelhelle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏼‍❤‍💋‍👨🏿	sich küssendes Paar Frau, Mann, mittelhelle Hautfarbe und dunkle Hautfarbe	none
+👩🏽‍❤‍💋‍👨🏻	sich küssendes Paar Frau, Mann, mittlere Hautfarbe und helle Hautfarbe	none
+👩🏽‍❤‍💋‍👨🏼	sich küssendes Paar Frau, Mann, mittlere Hautfarbe und mittelhelle Hautfarbe	none
+👩🏽‍❤‍💋‍👨🏽	sich küssendes Paar Frau, Mann und mittlere Hautfarbe	none
+👩🏽‍❤‍💋‍👨🏾	sich küssendes Paar Frau, Mann, mittlere Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏽‍❤‍💋‍👨🏿	sich küssendes Paar Frau, Mann, mittlere Hautfarbe und dunkle Hautfarbe	none
+👩🏾‍❤‍💋‍👨🏻	sich küssendes Paar Frau, Mann, mitteldunkle Hautfarbe und helle Hautfarbe	none
+👩🏾‍❤‍💋‍👨🏼	sich küssendes Paar Frau, Mann, mitteldunkle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏾‍❤‍💋‍👨🏽	sich küssendes Paar Frau, Mann, mitteldunkle Hautfarbe und mittlere Hautfarbe	none
+👩🏾‍❤‍💋‍👨🏾	sich küssendes Paar Frau, Mann und mitteldunkle Hautfarbe	none
+👩🏾‍❤‍💋‍👨🏿	sich küssendes Paar Frau, Mann, mitteldunkle Hautfarbe und dunkle Hautfarbe	none
+👩🏿‍❤‍💋‍👨🏻	sich küssendes Paar Frau, Mann, dunkle Hautfarbe und helle Hautfarbe	none
+👩🏿‍❤‍💋‍👨🏼	sich küssendes Paar Frau, Mann, dunkle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏿‍❤‍💋‍👨🏽	sich küssendes Paar Frau, Mann, dunkle Hautfarbe und mittlere Hautfarbe	none
+👩🏿‍❤‍💋‍👨🏾	sich küssendes Paar Frau, Mann, dunkle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏿‍❤‍💋‍👨🏿	sich küssendes Paar Frau, Mann und dunkle Hautfarbe	none
+👩🏻‍❤‍💋‍👩🏻	sich küssendes Paar Frau, Frau und helle Hautfarbe	none
+👩🏻‍❤‍💋‍👩🏼	sich küssendes Paar Frau, Frau, helle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏻‍❤‍💋‍👩🏽	sich küssendes Paar Frau, Frau, helle Hautfarbe und mittlere Hautfarbe	none
+👩🏻‍❤‍💋‍👩🏾	sich küssendes Paar Frau, Frau, helle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏻‍❤‍💋‍👩🏿	sich küssendes Paar Frau, Frau, helle Hautfarbe und dunkle Hautfarbe	none
+👩🏼‍❤‍💋‍👩🏻	sich küssendes Paar Frau, Frau, mittelhelle Hautfarbe und helle Hautfarbe	none
+👩🏼‍❤‍💋‍👩🏼	sich küssendes Paar Frau, Frau und mittelhelle Hautfarbe	none
+👩🏼‍❤‍💋‍👩🏽	sich küssendes Paar Frau, Frau, mittelhelle Hautfarbe und mittlere Hautfarbe	none
+👩🏼‍❤‍💋‍👩🏾	sich küssendes Paar Frau, Frau, mittelhelle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏼‍❤‍💋‍👩🏿	sich küssendes Paar Frau, Frau, mittelhelle Hautfarbe und dunkle Hautfarbe	none
+👩🏽‍❤‍💋‍👩🏻	sich küssendes Paar Frau, Frau, mittlere Hautfarbe und helle Hautfarbe	none
+👩🏽‍❤‍💋‍👩🏼	sich küssendes Paar Frau, Frau, mittlere Hautfarbe und mittelhelle Hautfarbe	none
+👩🏽‍❤‍💋‍👩🏽	sich küssendes Paar Frau, Frau und mittlere Hautfarbe	none
+👩🏽‍❤‍💋‍👩🏾	sich küssendes Paar Frau, Frau, mittlere Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏽‍❤‍💋‍👩🏿	sich küssendes Paar Frau, Frau, mittlere Hautfarbe und dunkle Hautfarbe	none
+👩🏾‍❤‍💋‍👩🏻	sich küssendes Paar Frau, Frau, mitteldunkle Hautfarbe und helle Hautfarbe	none
+👩🏾‍❤‍💋‍👩🏼	sich küssendes Paar Frau, Frau, mitteldunkle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏾‍❤‍💋‍👩🏽	sich küssendes Paar Frau, Frau, mitteldunkle Hautfarbe und mittlere Hautfarbe	none
+👩🏾‍❤‍💋‍👩🏾	sich küssendes Paar Frau, Frau und mitteldunkle Hautfarbe	none
+👩🏾‍❤‍💋‍👩🏿	sich küssendes Paar Frau, Frau, mitteldunkle Hautfarbe und dunkle Hautfarbe	none
+👩🏿‍❤‍💋‍👩🏻	sich küssendes Paar Frau, Frau, dunkle Hautfarbe und helle Hautfarbe	none
+👩🏿‍❤‍💋‍👩🏼	sich küssendes Paar Frau, Frau, dunkle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏿‍❤‍💋‍👩🏽	sich küssendes Paar Frau, Frau, dunkle Hautfarbe und mittlere Hautfarbe	none
+👩🏿‍❤‍💋‍👩🏾	sich küssendes Paar Frau, Frau, dunkle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏿‍❤‍💋‍👩🏿	sich küssendes Paar Frau, Frau und dunkle Hautfarbe	none
+👩🏻‍❤‍👨🏻	Liebespaar Frau, Mann und helle Hautfarbe	none
+👩🏻‍❤‍👨🏼	Liebespaar Frau, Mann, helle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏻‍❤‍👨🏽	Liebespaar Frau, Mann, helle Hautfarbe und mittlere Hautfarbe	none
+👩🏻‍❤‍👨🏾	Liebespaar Frau, Mann, helle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏻‍❤‍👨🏿	Liebespaar Frau, Mann, helle Hautfarbe und dunkle Hautfarbe	none
+👩🏼‍❤‍👨🏻	Liebespaar Frau, Mann, mittelhelle Hautfarbe und helle Hautfarbe	none
+👩🏼‍❤‍👨🏼	Liebespaar Frau, Mann und mittelhelle Hautfarbe	none
+👩🏼‍❤‍👨🏽	Liebespaar Frau, Mann, mittelhelle Hautfarbe und mittlere Hautfarbe	none
+👩🏼‍❤‍👨🏾	Liebespaar Frau, Mann, mittelhelle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏼‍❤‍👨🏿	Liebespaar Frau, Mann, mittelhelle Hautfarbe und dunkle Hautfarbe	none
+👩🏽‍❤‍👨🏻	Liebespaar Frau, Mann, mittlere Hautfarbe und helle Hautfarbe	none
+👩🏽‍❤‍👨🏼	Liebespaar Frau, Mann, mittlere Hautfarbe und mittelhelle Hautfarbe	none
+👩🏽‍❤‍👨🏽	Liebespaar Frau, Mann und mittlere Hautfarbe	none
+👩🏽‍❤‍👨🏾	Liebespaar Frau, Mann, mittlere Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏽‍❤‍👨🏿	Liebespaar Frau, Mann, mittlere Hautfarbe und dunkle Hautfarbe	none
+👩🏾‍❤‍👨🏻	Liebespaar Frau, Mann, mitteldunkle Hautfarbe und helle Hautfarbe	none
+👩🏾‍❤‍👨🏼	Liebespaar Frau, Mann, mitteldunkle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏾‍❤‍👨🏽	Liebespaar Frau, Mann, mitteldunkle Hautfarbe und mittlere Hautfarbe	none
+👩🏾‍❤‍👨🏾	Liebespaar Frau, Mann und mitteldunkle Hautfarbe	none
+👩🏾‍❤‍👨🏿	Liebespaar Frau, Mann, mitteldunkle Hautfarbe und dunkle Hautfarbe	none
+👩🏿‍❤‍👨🏻	Liebespaar Frau, Mann, dunkle Hautfarbe und helle Hautfarbe	none
+👩🏿‍❤‍👨🏼	Liebespaar Frau, Mann, dunkle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏿‍❤‍👨🏽	Liebespaar Frau, Mann, dunkle Hautfarbe und mittlere Hautfarbe	none
+👩🏿‍❤‍👨🏾	Liebespaar Frau, Mann, dunkle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏿‍❤‍👨🏿	Liebespaar Frau, Mann und dunkle Hautfarbe	none
+👩🏻‍❤‍👩🏻	Liebespaar Frau, Frau und helle Hautfarbe	none
+👩🏻‍❤‍👩🏼	Liebespaar Frau, Frau, helle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏻‍❤‍👩🏽	Liebespaar Frau, Frau, helle Hautfarbe und mittlere Hautfarbe	none
+👩🏻‍❤‍👩🏾	Liebespaar Frau, Frau, helle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏻‍❤‍👩🏿	Liebespaar Frau, Frau, helle Hautfarbe und dunkle Hautfarbe	none
+👩🏼‍❤‍👩🏻	Liebespaar Frau, Frau, mittelhelle Hautfarbe und helle Hautfarbe	none
+👩🏼‍❤‍👩🏼	Liebespaar Frau, Frau und mittelhelle Hautfarbe	none
+👩🏼‍❤‍👩🏽	Liebespaar Frau, Frau, mittelhelle Hautfarbe und mittlere Hautfarbe	none
+👩🏼‍❤‍👩🏾	Liebespaar Frau, Frau, mittelhelle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏼‍❤‍👩🏿	Liebespaar Frau, Frau, mittelhelle Hautfarbe und dunkle Hautfarbe	none
+👩🏽‍❤‍👩🏻	Liebespaar Frau, Frau, mittlere Hautfarbe und helle Hautfarbe	none
+👩🏽‍❤‍👩🏼	Liebespaar Frau, Frau, mittlere Hautfarbe und mittelhelle Hautfarbe	none
+👩🏽‍❤‍👩🏽	Liebespaar Frau, Frau und mittlere Hautfarbe	none
+👩🏽‍❤‍👩🏾	Liebespaar Frau, Frau, mittlere Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏽‍❤‍👩🏿	Liebespaar Frau, Frau, mittlere Hautfarbe und dunkle Hautfarbe	none
+👩🏾‍❤‍👩🏻	Liebespaar Frau, Frau, mitteldunkle Hautfarbe und helle Hautfarbe	none
+👩🏾‍❤‍👩🏼	Liebespaar Frau, Frau, mitteldunkle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏾‍❤‍👩🏽	Liebespaar Frau, Frau, mitteldunkle Hautfarbe und mittlere Hautfarbe	none
+👩🏾‍❤‍👩🏾	Liebespaar Frau, Frau und mitteldunkle Hautfarbe	none
+👩🏾‍❤‍👩🏿	Liebespaar Frau, Frau, mitteldunkle Hautfarbe und dunkle Hautfarbe	none
+👩🏿‍❤‍👩🏻	Liebespaar Frau, Frau, dunkle Hautfarbe und helle Hautfarbe	none
+👩🏿‍❤‍👩🏼	Liebespaar Frau, Frau, dunkle Hautfarbe und mittelhelle Hautfarbe	none
+👩🏿‍❤‍👩🏽	Liebespaar Frau, Frau, dunkle Hautfarbe und mittlere Hautfarbe	none
+👩🏿‍❤‍👩🏾	Liebespaar Frau, Frau, dunkle Hautfarbe und mitteldunkle Hautfarbe	none
+👩🏿‍❤‍👩🏿	Liebespaar Frau, Frau und dunkle Hautfarbe	none
 👩‍🦰	Frau rotes Haar	none
 👩🏻‍🦰	Frau helle Hautfarbe, rotes Haar	none
 👩🏼‍🦰	Frau mittelhelle Hautfarbe, rotes Haar	none
@@ -2247,16 +2525,21 @@ symbols:
 💂🏽	Wachmann/Wachfrau mittlere Hautfarbe	none
 💂🏾	Wachmann/Wachfrau mitteldunkle Hautfarbe	none
 💂🏿	Wachmann/Wachfrau dunkle Hautfarbe	none
-💂🏻‍♂	Wachmann helle Hautfarbe	none
-💂🏼‍♂	Wachmann mittelhelle Hautfarbe	none
-💂🏽‍♂	Wachmann mittlere Hautfarbe	none
-💂🏾‍♂	Wachmann mitteldunkle Hautfarbe	none
-💂🏿‍♂	Wachmann dunkle Hautfarbe	none
-💂🏻‍♀	Wachfrau helle Hautfarbe	none
-💂🏼‍♀	Wachfrau mittelhelle Hautfarbe	none
-💂🏽‍♀	Wachfrau mittlere Hautfarbe	none
-💂🏾‍♀	Wachfrau mitteldunkle Hautfarbe	none
-💂🏿‍♀	Wachfrau dunkle Hautfarbe	none
+💂🏻‍♂	Wachsoldat helle Hautfarbe	none
+💂🏼‍♂	Wachsoldat mittelhelle Hautfarbe	none
+💂🏽‍♂	Wachsoldat mittlere Hautfarbe	none
+💂🏾‍♂	Wachsoldat mitteldunkle Hautfarbe	none
+💂🏿‍♂	Wachsoldat dunkle Hautfarbe	none
+💂🏻‍♀	Wachsoldatin helle Hautfarbe	none
+💂🏼‍♀	Wachsoldatin mittelhelle Hautfarbe	none
+💂🏽‍♀	Wachsoldatin mittlere Hautfarbe	none
+💂🏾‍♀	Wachsoldatin mitteldunkle Hautfarbe	none
+💂🏿‍♀	Wachsoldatin dunkle Hautfarbe	none
+🥷🏻	Ninja helle Hautfarbe	none
+🥷🏼	Ninja mittelhelle Hautfarbe	none
+🥷🏽	Ninja mittlere Hautfarbe	none
+🥷🏾	Ninja mitteldunkle Hautfarbe	none
+🥷🏿	Ninja dunkle Hautfarbe	none
 👷🏻	Bauarbeiter(in) helle Hautfarbe	none
 👷🏼	Bauarbeiter(in) mittelhelle Hautfarbe	none
 👷🏽	Bauarbeiter(in) mittlere Hautfarbe	none
@@ -2307,16 +2590,36 @@ symbols:
 🧕🏽	Frau mit Kopftuch mittlere Hautfarbe	none
 🧕🏾	Frau mit Kopftuch mitteldunkle Hautfarbe	none
 🧕🏿	Frau mit Kopftuch dunkle Hautfarbe	none
-🤵🏻	Mann im Anzug helle Hautfarbe	none
-🤵🏼	Mann im Anzug mittelhelle Hautfarbe	none
-🤵🏽	Mann im Anzug mittlere Hautfarbe	none
-🤵🏾	Mann im Anzug mitteldunkle Hautfarbe	none
-🤵🏿	Mann im Anzug dunkle Hautfarbe	none
-👰🏻	Braut mit Schleier helle Hautfarbe	none
-👰🏼	Braut mit Schleier mittelhelle Hautfarbe	none
-👰🏽	Braut mit Schleier mittlere Hautfarbe	none
-👰🏾	Braut mit Schleier mitteldunkle Hautfarbe	none
-👰🏿	Braut mit Schleier dunkle Hautfarbe	none
+🤵🏻	Person im Smoking helle Hautfarbe	none
+🤵🏼	Person im Smoking mittelhelle Hautfarbe	none
+🤵🏽	Person im Smoking mittlere Hautfarbe	none
+🤵🏾	Person im Smoking mitteldunkle Hautfarbe	none
+🤵🏿	Person im Smoking dunkle Hautfarbe	none
+🤵🏻‍♂	Mann im Smoking helle Hautfarbe	none
+🤵🏼‍♂	Mann im Smoking mittelhelle Hautfarbe	none
+🤵🏽‍♂	Mann im Smoking mittlere Hautfarbe	none
+🤵🏾‍♂	Mann im Smoking mitteldunkle Hautfarbe	none
+🤵🏿‍♂	Mann im Smoking dunkle Hautfarbe	none
+🤵🏻‍♀	Frau im Smoking helle Hautfarbe	none
+🤵🏼‍♀	Frau im Smoking mittelhelle Hautfarbe	none
+🤵🏽‍♀	Frau im Smoking mittlere Hautfarbe	none
+🤵🏾‍♀	Frau im Smoking mitteldunkle Hautfarbe	none
+🤵🏿‍♀	Frau im Smoking dunkle Hautfarbe	none
+👰🏻	Person mit Schleier helle Hautfarbe	none
+👰🏼	Person mit Schleier mittelhelle Hautfarbe	none
+👰🏽	Person mit Schleier mittlere Hautfarbe	none
+👰🏾	Person mit Schleier mitteldunkle Hautfarbe	none
+👰🏿	Person mit Schleier dunkle Hautfarbe	none
+👰🏻‍♂	Mann mit Schleier helle Hautfarbe	none
+👰🏼‍♂	Mann mit Schleier mittelhelle Hautfarbe	none
+👰🏽‍♂	Mann mit Schleier mittlere Hautfarbe	none
+👰🏾‍♂	Mann mit Schleier mitteldunkle Hautfarbe	none
+👰🏿‍♂	Mann mit Schleier dunkle Hautfarbe	none
+👰🏻‍♀	Frau mit Schleier helle Hautfarbe	none
+👰🏼‍♀	Frau mit Schleier mittelhelle Hautfarbe	none
+👰🏽‍♀	Frau mit Schleier mittlere Hautfarbe	none
+👰🏾‍♀	Frau mit Schleier mitteldunkle Hautfarbe	none
+👰🏿‍♀	Frau mit Schleier dunkle Hautfarbe	none
 🤰🏻	schwangere Frau helle Hautfarbe	none
 🤰🏼	schwangere Frau mittelhelle Hautfarbe	none
 🤰🏽	schwangere Frau mittlere Hautfarbe	none
@@ -2327,6 +2630,21 @@ symbols:
 🤱🏽	Stillen mittlere Hautfarbe	none
 🤱🏾	Stillen mitteldunkle Hautfarbe	none
 🤱🏿	Stillen dunkle Hautfarbe	none
+👩🏻‍🍼	stillende Frau helle Hautfarbe	none
+👩🏼‍🍼	stillende Frau mittelhelle Hautfarbe	none
+👩🏽‍🍼	stillende Frau mittlere Hautfarbe	none
+👩🏾‍🍼	stillende Frau mitteldunkle Hautfarbe	none
+👩🏿‍🍼	stillende Frau dunkle Hautfarbe	none
+👨🏻‍🍼	stillender Mann helle Hautfarbe	none
+👨🏼‍🍼	stillender Mann mittelhelle Hautfarbe	none
+👨🏽‍🍼	stillender Mann mittlere Hautfarbe	none
+👨🏾‍🍼	stillender Mann mitteldunkle Hautfarbe	none
+👨🏿‍🍼	stillender Mann dunkle Hautfarbe	none
+🧑🏻‍🍼	stillende Person helle Hautfarbe	none
+🧑🏼‍🍼	stillende Person mittelhelle Hautfarbe	none
+🧑🏽‍🍼	stillende Person mittlere Hautfarbe	none
+🧑🏾‍🍼	stillende Person mitteldunkle Hautfarbe	none
+🧑🏿‍🍼	stillende Person dunkle Hautfarbe	none
 👼🏻	Putte helle Hautfarbe	none
 👼🏼	Putte mittelhelle Hautfarbe	none
 👼🏽	Putte mittlere Hautfarbe	none
@@ -2342,11 +2660,16 @@ symbols:
 🤶🏽	Weihnachtsfrau mittlere Hautfarbe	none
 🤶🏾	Weihnachtsfrau mitteldunkle Hautfarbe	none
 🤶🏿	Weihnachtsfrau dunkle Hautfarbe	none
-🦸🏻	Held helle Hautfarbe	none
-🦸🏼	Held mittelhelle Hautfarbe	none
-🦸🏽	Held mittlere Hautfarbe	none
-🦸🏾	Held mitteldunkle Hautfarbe	none
-🦸🏿	Held dunkle Hautfarbe	none
+🧑🏻‍🎄	Weihnachtsperson helle Hautfarbe	none
+🧑🏼‍🎄	Weihnachtsperson mittelhelle Hautfarbe	none
+🧑🏽‍🎄	Weihnachtsperson mittlere Hautfarbe	none
+🧑🏾‍🎄	Weihnachtsperson mitteldunkle Hautfarbe	none
+🧑🏿‍🎄	Weihnachtsperson dunkle Hautfarbe	none
+🦸🏻	Superheld(in) helle Hautfarbe	none
+🦸🏼	Superheld(in) mittelhelle Hautfarbe	none
+🦸🏽	Superheld(in) mittlere Hautfarbe	none
+🦸🏾	Superheld(in) mitteldunkle Hautfarbe	none
+🦸🏿	Superheld(in) dunkle Hautfarbe	none
 🦸🏻‍♂	Superheld helle Hautfarbe	none
 🦸🏼‍♂	Superheld mittelhelle Hautfarbe	none
 🦸🏽‍♂	Superheld mittlere Hautfarbe	none
@@ -2843,35 +3166,55 @@ symbols:
 🛌🏾	im Bett liegende Person mitteldunkle Hautfarbe	none
 🛌🏿	im Bett liegende Person dunkle Hautfarbe	none
 🧑🏻‍🤝‍🧑🏻	sich an den Händen haltende Personen helle Hautfarbe	none
+🧑🏻‍🤝‍🧑🏼	sich an den Händen haltende Personen helle Hautfarbe, mittelhelle Hautfarbe	none
+🧑🏻‍🤝‍🧑🏽	sich an den Händen haltende Personen helle Hautfarbe, mittlere Hautfarbe	none
+🧑🏻‍🤝‍🧑🏾	sich an den Händen haltende Personen helle Hautfarbe, mitteldunkle Hautfarbe	none
+🧑🏻‍🤝‍🧑🏿	sich an den Händen haltende Personen helle Hautfarbe, dunkle Hautfarbe	none
 🧑🏼‍🤝‍🧑🏻	sich an den Händen haltende Personen mittelhelle Hautfarbe, helle Hautfarbe	none
 🧑🏼‍🤝‍🧑🏼	sich an den Händen haltende Personen mittelhelle Hautfarbe	none
+🧑🏼‍🤝‍🧑🏽	sich an den Händen haltende Personen mittelhelle Hautfarbe, mittlere Hautfarbe	none
+🧑🏼‍🤝‍🧑🏾	sich an den Händen haltende Personen mittelhelle Hautfarbe, mitteldunkle Hautfarbe	none
+🧑🏼‍🤝‍🧑🏿	sich an den Händen haltende Personen mittelhelle Hautfarbe, dunkle Hautfarbe	none
 🧑🏽‍🤝‍🧑🏻	sich an den Händen haltende Personen mittlere Hautfarbe, helle Hautfarbe	none
 🧑🏽‍🤝‍🧑🏼	sich an den Händen haltende Personen mittlere Hautfarbe, mittelhelle Hautfarbe	none
 🧑🏽‍🤝‍🧑🏽	sich an den Händen haltende Personen mittlere Hautfarbe	none
+🧑🏽‍🤝‍🧑🏾	sich an den Händen haltende Personen mittlere Hautfarbe, mitteldunkle Hautfarbe	none
+🧑🏽‍🤝‍🧑🏿	sich an den Händen haltende Personen mittlere Hautfarbe, dunkle Hautfarbe	none
 🧑🏾‍🤝‍🧑🏻	sich an den Händen haltende Personen mitteldunkle Hautfarbe, helle Hautfarbe	none
 🧑🏾‍🤝‍🧑🏼	sich an den Händen haltende Personen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
 🧑🏾‍🤝‍🧑🏽	sich an den Händen haltende Personen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
 🧑🏾‍🤝‍🧑🏾	sich an den Händen haltende Personen mitteldunkle Hautfarbe	none
+🧑🏾‍🤝‍🧑🏿	sich an den Händen haltende Personen mitteldunkle Hautfarbe, dunkle Hautfarbe	none
 🧑🏿‍🤝‍🧑🏻	sich an den Händen haltende Personen dunkle Hautfarbe, helle Hautfarbe	none
 🧑🏿‍🤝‍🧑🏼	sich an den Händen haltende Personen dunkle Hautfarbe, mittelhelle Hautfarbe	none
 🧑🏿‍🤝‍🧑🏽	sich an den Händen haltende Personen dunkle Hautfarbe, mittlere Hautfarbe	none
 🧑🏿‍🤝‍🧑🏾	sich an den Händen haltende Personen dunkle Hautfarbe, mitteldunkle Hautfarbe	none
 🧑🏿‍🤝‍🧑🏿	sich an den Händen haltende Personen dunkle Hautfarbe	none
-👭🏻	händchenhaltende Frauen helle Hautfarbe	none
-👩🏼‍🤝‍👩🏻	händchenhaltende Frauen mittelhelle Hautfarbe, helle Hautfarbe	none
-👭🏼	händchenhaltende Frauen mittelhelle Hautfarbe	none
-👩🏽‍🤝‍👩🏻	händchenhaltende Frauen mittlere Hautfarbe, helle Hautfarbe	none
-👩🏽‍🤝‍👩🏼	händchenhaltende Frauen mittlere Hautfarbe, mittelhelle Hautfarbe	none
-👭🏽	händchenhaltende Frauen mittlere Hautfarbe	none
-👩🏾‍🤝‍👩🏻	händchenhaltende Frauen mitteldunkle Hautfarbe, helle Hautfarbe	none
-👩🏾‍🤝‍👩🏼	händchenhaltende Frauen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
-👩🏾‍🤝‍👩🏽	händchenhaltende Frauen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
-👭🏾	händchenhaltende Frauen mitteldunkle Hautfarbe	none
-👩🏿‍🤝‍👩🏻	händchenhaltende Frauen dunkle Hautfarbe, helle Hautfarbe	none
-👩🏿‍🤝‍👩🏼	händchenhaltende Frauen dunkle Hautfarbe, mittelhelle Hautfarbe	none
-👩🏿‍🤝‍👩🏽	händchenhaltende Frauen dunkle Hautfarbe, mittlere Hautfarbe	none
-👩🏿‍🤝‍👩🏾	händchenhaltende Frauen dunkle Hautfarbe, mitteldunkle Hautfarbe	none
-👭🏿	händchenhaltende Frauen dunkle Hautfarbe	none
+👭🏻	Händchen haltende Frauen helle Hautfarbe	none
+👩🏻‍🤝‍👩🏼	Händchen haltende Frauen helle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏻‍🤝‍👩🏽	Händchen haltende Frauen helle Hautfarbe, mittlere Hautfarbe	none
+👩🏻‍🤝‍👩🏾	Händchen haltende Frauen helle Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏻‍🤝‍👩🏿	Händchen haltende Frauen helle Hautfarbe, dunkle Hautfarbe	none
+👩🏼‍🤝‍👩🏻	Händchen haltende Frauen mittelhelle Hautfarbe, helle Hautfarbe	none
+👭🏼	Händchen haltende Frauen mittelhelle Hautfarbe	none
+👩🏼‍🤝‍👩🏽	Händchen haltende Frauen mittelhelle Hautfarbe, mittlere Hautfarbe	none
+👩🏼‍🤝‍👩🏾	Händchen haltende Frauen mittelhelle Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏼‍🤝‍👩🏿	Händchen haltende Frauen mittelhelle Hautfarbe, dunkle Hautfarbe	none
+👩🏽‍🤝‍👩🏻	Händchen haltende Frauen mittlere Hautfarbe, helle Hautfarbe	none
+👩🏽‍🤝‍👩🏼	Händchen haltende Frauen mittlere Hautfarbe, mittelhelle Hautfarbe	none
+👭🏽	Händchen haltende Frauen mittlere Hautfarbe	none
+👩🏽‍🤝‍👩🏾	Händchen haltende Frauen mittlere Hautfarbe, mitteldunkle Hautfarbe	none
+👩🏽‍🤝‍👩🏿	Händchen haltende Frauen mittlere Hautfarbe, dunkle Hautfarbe	none
+👩🏾‍🤝‍👩🏻	Händchen haltende Frauen mitteldunkle Hautfarbe, helle Hautfarbe	none
+👩🏾‍🤝‍👩🏼	Händchen haltende Frauen mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏾‍🤝‍👩🏽	Händchen haltende Frauen mitteldunkle Hautfarbe, mittlere Hautfarbe	none
+👭🏾	Händchen haltende Frauen mitteldunkle Hautfarbe	none
+👩🏾‍🤝‍👩🏿	Händchen haltende Frauen mitteldunkle Hautfarbe, dunkle Hautfarbe	none
+👩🏿‍🤝‍👩🏻	Händchen haltende Frauen dunkle Hautfarbe, helle Hautfarbe	none
+👩🏿‍🤝‍👩🏼	Händchen haltende Frauen dunkle Hautfarbe, mittelhelle Hautfarbe	none
+👩🏿‍🤝‍👩🏽	Händchen haltende Frauen dunkle Hautfarbe, mittlere Hautfarbe	none
+👩🏿‍🤝‍👩🏾	Händchen haltende Frauen dunkle Hautfarbe, mitteldunkle Hautfarbe	none
+👭🏿	Händchen haltende Frauen dunkle Hautfarbe	none
 👫🏻	Mann und Frau halten Hände helle Hautfarbe	none
 👩🏻‍🤝‍👨🏼	Mann und Frau halten Hände helle Hautfarbe, mittelhelle Hautfarbe	none
 👩🏻‍🤝‍👨🏽	Mann und Frau halten Hände helle Hautfarbe, mittlere Hautfarbe	none
@@ -2897,24 +3240,44 @@ symbols:
 👩🏿‍🤝‍👨🏽	Mann und Frau halten Hände dunkle Hautfarbe, mittlere Hautfarbe	none
 👩🏿‍🤝‍👨🏾	Mann und Frau halten Hände dunkle Hautfarbe, mitteldunkle Hautfarbe	none
 👫🏿	Mann und Frau halten Hände dunkle Hautfarbe	none
-👬🏻	händchenhaltende Männer helle Hautfarbe	none
-👨🏼‍🤝‍👨🏻	händchenhaltende Männer mittelhelle Hautfarbe, helle Hautfarbe	none
-👬🏼	händchenhaltende Männer mittelhelle Hautfarbe	none
-👨🏽‍🤝‍👨🏻	händchenhaltende Männer mittlere Hautfarbe, helle Hautfarbe	none
-👨🏽‍🤝‍👨🏼	händchenhaltende Männer mittlere Hautfarbe, mittelhelle Hautfarbe	none
-👬🏽	händchenhaltende Männer mittlere Hautfarbe	none
-👨🏾‍🤝‍👨🏻	händchenhaltende Männer mitteldunkle Hautfarbe, helle Hautfarbe	none
-👨🏾‍🤝‍👨🏼	händchenhaltende Männer mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
-👨🏾‍🤝‍👨🏽	händchenhaltende Männer mitteldunkle Hautfarbe, mittlere Hautfarbe	none
-👬🏾	händchenhaltende Männer mitteldunkle Hautfarbe	none
-👨🏿‍🤝‍👨🏻	händchenhaltende Männer dunkle Hautfarbe, helle Hautfarbe	none
-👨🏿‍🤝‍👨🏼	händchenhaltende Männer dunkle Hautfarbe, mittelhelle Hautfarbe	none
-👨🏿‍🤝‍👨🏽	händchenhaltende Männer dunkle Hautfarbe, mittlere Hautfarbe	none
-👨🏿‍🤝‍👨🏾	händchenhaltende Männer dunkle Hautfarbe, mitteldunkle Hautfarbe	none
-👬🏿	händchenhaltende Männer dunkle Hautfarbe	none
+👬🏻	Händchen haltende Männer helle Hautfarbe	none
+👨🏻‍🤝‍👨🏼	Händchen haltende Männer helle Hautfarbe, mittelhelle Hautfarbe	none
+👨🏻‍🤝‍👨🏽	Händchen haltende Männer helle Hautfarbe, mittlere Hautfarbe	none
+👨🏻‍🤝‍👨🏾	Händchen haltende Männer helle Hautfarbe, mitteldunkle Hautfarbe	none
+👨🏻‍🤝‍👨🏿	Händchen haltende Männer helle Hautfarbe, dunkle Hautfarbe	none
+👨🏼‍🤝‍👨🏻	Händchen haltende Männer mittelhelle Hautfarbe, helle Hautfarbe	none
+👬🏼	Händchen haltende Männer mittelhelle Hautfarbe	none
+👨🏼‍🤝‍👨🏽	Händchen haltende Männer mittelhelle Hautfarbe, mittlere Hautfarbe	none
+👨🏼‍🤝‍👨🏾	Händchen haltende Männer mittelhelle Hautfarbe, mitteldunkle Hautfarbe	none
+👨🏼‍🤝‍👨🏿	Händchen haltende Männer mittelhelle Hautfarbe, dunkle Hautfarbe	none
+👨🏽‍🤝‍👨🏻	Händchen haltende Männer mittlere Hautfarbe, helle Hautfarbe	none
+👨🏽‍🤝‍👨🏼	Händchen haltende Männer mittlere Hautfarbe, mittelhelle Hautfarbe	none
+👬🏽	Händchen haltende Männer mittlere Hautfarbe	none
+👨🏽‍🤝‍👨🏾	Händchen haltende Männer mittlere Hautfarbe, mitteldunkle Hautfarbe	none
+👨🏽‍🤝‍👨🏿	Händchen haltende Männer mittlere Hautfarbe, dunkle Hautfarbe	none
+👨🏾‍🤝‍👨🏻	Händchen haltende Männer mitteldunkle Hautfarbe, helle Hautfarbe	none
+👨🏾‍🤝‍👨🏼	Händchen haltende Männer mitteldunkle Hautfarbe, mittelhelle Hautfarbe	none
+👨🏾‍🤝‍👨🏽	Händchen haltende Männer mitteldunkle Hautfarbe, mittlere Hautfarbe	none
+👬🏾	Händchen haltende Männer mitteldunkle Hautfarbe	none
+👨🏾‍🤝‍👨🏿	Händchen haltende Männer mitteldunkle Hautfarbe, dunkle Hautfarbe	none
+👨🏿‍🤝‍👨🏻	Händchen haltende Männer dunkle Hautfarbe, helle Hautfarbe	none
+👨🏿‍🤝‍👨🏼	Händchen haltende Männer dunkle Hautfarbe, mittelhelle Hautfarbe	none
+👨🏿‍🤝‍👨🏽	Händchen haltende Männer dunkle Hautfarbe, mittlere Hautfarbe	none
+👨🏿‍🤝‍👨🏾	Händchen haltende Männer dunkle Hautfarbe, mitteldunkle Hautfarbe	none
+👬🏿	Händchen haltende Männer dunkle Hautfarbe	none
+💏🏻	sich küssendes Paar helle Hautfarbe	none
+💏🏼	sich küssendes Paar mittelhelle Hautfarbe	none
+💏🏽	sich küssendes Paar mittlere Hautfarbe	none
+💏🏾	sich küssendes Paar mitteldunkle Hautfarbe	none
+💏🏿	sich küssendes Paar dunkle Hautfarbe	none
 👩‍❤‍💋‍👨	sich küssendes Paar Frau, Mann	none
 👨‍❤‍💋‍👨	sich küssendes Paar Mann, Mann	none
 👩‍❤‍💋‍👩	sich küssendes Paar Frau, Frau	none
+💑🏻	Liebespaar helle Hautfarbe	none
+💑🏼	Liebespaar mittelhelle Hautfarbe	none
+💑🏽	Liebespaar mittlere Hautfarbe	none
+💑🏾	Liebespaar mitteldunkle Hautfarbe	none
+💑🏿	Liebespaar dunkle Hautfarbe	none
 👩‍❤‍👨	Liebespaar Frau, Mann	none
 👨‍❤‍👨	Liebespaar Mann, Mann	none
 👩‍❤‍👩	Liebespaar Frau, Frau	none
@@ -2943,8 +3306,6 @@ symbols:
 👩‍👧	Familie Frau, Mädchen	none
 👩‍👧‍👦	Familie Frau, Mädchen und Junge	none
 👩‍👧‍👧	Familie Frau, Mädchen und Mädchen	none
-#⃣	Taste #	none
-*⃣	Taste *	none
 🔟	Taste 10	none
 🇦🇨	Flagge Ascension	none
 🇦🇩	Flagge Andorra	none
@@ -2976,7 +3337,7 @@ symbols:
 🇧🇲	Flagge Bermuda	none
 🇧🇳	Flagge Brunei Darussalam	none
 🇧🇴	Flagge Bolivien	none
-🇧🇶	Flagge Bonaire, Sint Eustatius und Saba	none
+🇧🇶	Flagge Karibische Niederlande	none
 🇧🇷	Flagge Brasilien	none
 🇧🇸	Flagge Bahamas	none
 🇧🇹	Flagge Bhutan	none
@@ -3207,13 +3568,17 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	Flagge England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	Flagge Schottland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	Flagge Wales	none
-0⃣	Taste 0	none
-1⃣	Taste 1	none
-2⃣	Taste 2	none
-3⃣	Taste 3	none
-4⃣	Taste 4	none
-5⃣	Taste 5	none
-6⃣	Taste 6	none
-7⃣	Taste 7	none
-8⃣	Taste 8	none
-9⃣	Taste 9	none
+₡	Costa-Rica-Colón	none
+₦	Nigerianischer Naira	none
+₧	Spanische Peseta	none
+₪	Israelischer Neuer Schekel	none
+₫	Vietnamesischer Dong	none
+₭	Laotischer Kip	none
+₮	Mongolischer Tögrög	none
+₲	Paraguayischer Guaraní	none
+₴	Ukrainische Hrywnja	none
+₵	Ghanaischer Cedi	none
+₸	Kasachischer Tenge	none
+₺	Türkische Lira	none
+₼	Aserbaidschan-Manat	none
+₾	Georgischer Lari	none

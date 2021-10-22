@@ -8,7 +8,97 @@ symbols:
 🏽	tipo de pele 4	none
 🏾	tipo de pele 5	none
 🏿	tipo de pele 6	none
-⚧	símbolo transgénero	none
+℗	símbolo de direitos de autor de fonograma	none
+←	seta a apontar para a esquerda	none
+↚	barra com seta para a esquerda	none
+→	seta a apontar para a direita	none
+↛	barra com seta para a direita	none
+↑	seta a apontar para cima	none
+↓	seta a apontar para baixo	none
+↢	seta para a esquerda com cauda	none
+↣	seta para a direita com cauda	none
+↤	seta para a esquerda da barra	none
+↥	seta para cima da barra	none
+↦	seta para a direita da barra	none
+↧	seta para baixo da barra	none
+↨	seta para cima e para baixo com base	none
+↫	seta para a esquerda com laço	none
+↬	seta para a direita com laço	none
+↭	seta ondulada bidirecional	none
+↯	seta em zigue-zague para baixo	none
+↰	seta para cima com a ponta para a esquerda	none
+↱	seta para cima com a ponta para a direita	none
+↲	seta para baixo com a ponta para a esquerda	none
+↳	seta para baixo com a ponta para a direita	none
+↴	seta para a direita com canto para baixo	none
+↵	seta para baixo com canto para a esquerda	none
+↶	seta semicírculo superior no sentido anti-horário	none
+↷	seta semicírculo superior no sentido horário	none
+↸	seta noroeste para barra longa	none
+↹	seta para a esquerda da barra sobre seta para a direita da barra	none
+↺	seta de círculo aberto no sentido anti-horário	none
+↻	seta de círculo aberto no sentido horário	none
+↼	arpão para a esquerda com farpa para cima	none
+↽	arpão para a esquerda com farpa para baixo	none
+↾	arpão para cima com farpa para a direita	none
+↿	arpão para cima com farpa para a esquerda	none
+⇀	arpão para a direita com farpa para cima	none
+⇁	arpão para a direita com farpa para baixo	none
+⇂	arpão para baixo com farpa para a direita	none
+⇃	arpão para baixo com farpa para a esquerda	none
+⇄	seta para a direita sobre seta para a esquerda	none
+⇅	setas a apontar para cima e para baixo	none
+⇆	setas a apontar para a esquerda e para a direita	none
+⇇	setas paralelas para a esquerda	none
+⇈	setas paralelas para cima	none
+⇉	setas paralelas para a direita	none
+⇊	setas paralelas para baixo	none
+⇋	arpão para a esquerda sobre arpão para a direita	none
+⇌	arpão para a direita sobre arpão para a esquerda	none
+⇐	seta dupla para a esquerda	none
+⇍	seta dupla para a esquerda com traço	none
+⇑	seta dupla para cima	none
+⇒	seta dupla para a direita	none
+⇏	seta dupla para a direita com traço	none
+⇓	seta dupla para baixo	none
+⇔	seta dupla bidirecional	none
+⇎	seta dupla bidirecional com traço	none
+⇖	seta dupla para noroeste	none
+⇗	seta dupla para nordeste	none
+⇘	seta dupla para sudeste	none
+⇙	seta dupla para sudoeste	none
+⇚	seta tripla para a esquerda	none
+⇛	seta tripla para a direita	none
+⇜	seta de rabisco para a esquerda	none
+⇝	seta de rabisco para a direita	none
+⇞	seta para cima com traço duplo	none
+⇟	seta para baixo com traço duplo	none
+⇠	seta tracejada para a esquerda	none
+⇡	seta tracejada para cima	none
+⇢	seta tracejada para a direita	none
+⇣	seta tracejada para baixo	none
+⇤	seta para a esquerda para barra	none
+⇥	seta para a direita para barra	none
+⇦	seta branca para a esquerda	none
+⇧	seta branca para cima	none
+⇨	seta branca para a direita	none
+⇩	seta branca para baixo	none
+⇪	seta branca para cima da barra	none
+⇵	seta para baixo à esquerda da seta para cima	none
+∀	para todo	none
+∂	diferencial parcial	none
+∃	existe	none
+∅	conjunto vazio	none
+∈	pertence	none
+∉	não pertence	none
+∋	contém como membro	none
+∎	fim da prova	none
+∞	símbolo de infinito	none
+≡	idêntico a	none
+≤	menor ou igual	none
+≥	maior ou igual	none
+▲	triângulo preenchido a apontar para cima	none
+▼	triângulo preenchido a apontar para baixo	none
 😀	cara sorridente	none
 😃	cara sorridente com olhos bem abertos	none
 😄	cara a sorrir com boca aberta e olhos sorridentes	none
@@ -30,6 +120,7 @@ symbols:
 ☺	cara a sorrir	none
 😚	cara a dar um beijo com olhos fechados	none
 😙	cara a dar um beijo com olhos sorridentes	none
+🥲	cara sorridente com lágrima	none
 😋	cara a saborear uma refeição deliciosa	none
 😛	cara com língua de fora	none
 😜	cara com língua de fora e olho a piscar	none
@@ -45,10 +136,12 @@ symbols:
 😐	cara neutra	none
 😑	cara sem expressão	none
 😶	cara sem boca	none
+😶‍🌫	cara nas nuvens	none
 😏	cara com sorriso sarcástico	none
 😒	cara aborrecida	none
 🙄	cara com olhos revirados	none
 😬	cara a fazer caretas	none
+😮‍💨	cara a exalar	none
 🤥	cara de mentiroso	none
 😌	cara aliviada	none
 😔	cara pensativa	none
@@ -65,9 +158,11 @@ symbols:
 🥶	cara com frio	none
 🥴	cara embriagada	none
 😵	cara atordoada	none
+😵‍💫	cara com olhos em espiral	none
 🤯	cabeça a explodir	none
 🤠	cara sorridente com chapéu de vaqueiro	none
 🥳	cara de festa	none
+🥸	cara disfarçada	none
 😎	cara a sorrir com óculos de sol	none
 🤓	cara de cromo	none
 🧐	cara com monóculo	none
@@ -164,6 +259,8 @@ symbols:
 👶	bebé	none
 👦	rapaz	none
 👧	rapariga	none
+🧔	pessoa barba	none
+🧔‍♂	homem barba	none
 🧓	pessoa idosa	none
 👴	idoso	none
 🙍	pessoa de sobrolho franzido	none
@@ -179,8 +276,6 @@ symbols:
 🙆‍♂	homem que faz gesto de OK	none
 🙆‍♀	mulher que faz gesto de OK	none
 💁	assistente de balcão de informações	none
-💁‍♂	assistente de balcão de informações (homem)	none
-💁‍♀	assistente de balcão de informações (mulher)	none
 🙋	pessoa de mão levantada	none
 🙋‍♂	homem de mão levantada	none
 🙋‍♀	mulher de mão levantada	none
@@ -214,17 +309,17 @@ symbols:
 🧑‍💼	empregado de escritório	none
 👨‍🔬	cientista (homem)	none
 👩‍🔬	cientista (mulher)	none
-👨‍💻	informático	none
+🧑‍💻	informático	none
+👨‍💻	informático (homem)	none
 👩‍💻	informática	none
 🧑‍🎤	vocalista	none
+👨‍🎤	cantor	none
 👨‍🎨	artista (homem)	none
 👩‍🎨	artista (mulher)	none
 👨‍✈	piloto (homem)	none
 👩‍✈	piloto (mulher)	none
 👨‍🚀	astronauta (homem)	none
 👩‍🚀	astronauta (mulher)	none
-🧑‍🚒	bombeiro (homem)	none
-👨‍🚒	bombeiro	none
 👮	agente da polícia	none
 👮‍♂	polícia (homem)	none
 👮‍♀	polícia (mulher)	none
@@ -237,11 +332,17 @@ symbols:
 👷‍♀	operária da construção civil	none
 👲	homem com chapéu chinês	none
 🧕	mulher com lenço na cabeça	none
-👰	noiva com véu	none
+👰	pessoa com véu	none
+👰‍♂	homem com véu	none
+👰‍♀	mulher com véu	none
 🤱	amamentar	none
+👩‍🍼	mulher a alimentar bebé	none
+👨‍🍼	homem a alimentar bebé	none
+🧑‍🍼	pessoa a alimentar bebé	none
 👼	anjo bebé	none
 🎅	pai natal	none
 🤶	mãe natal	none
+🧑‍🎄	Sra. Natal	none
 🦹‍♀	mulher supervilã	none
 🧛‍♀	vampira	none
 🧜	tritão	none
@@ -324,6 +425,7 @@ symbols:
 👬	homens de mãos dadas	none
 💑	casal com coração	none
 🗣	cabeça a falar	none
+🫂	pessoas abraçadas	none
 🦰	cabelo ruivo	none
 🦱	cabelo encaracolado	none
 🐵	cara de macaco	none
@@ -361,6 +463,7 @@ symbols:
 🐥	pintainho a olhar para a frente	none
 🕊	pomba	none
 🦉	mocho	none
+🦤	dodó	none
 🦎	lagarto	none
 🐲	cara de dragão	none
 🐳	baleia com esguicho de água	none
@@ -389,6 +492,7 @@ symbols:
 🍆	beringela	none
 🌽	espiga de milho	none
 🌶	malagueta	none
+🫑	pimento	none
 🥦	brócolos	none
 🥜	amendoins	none
 🥯	bagel	none
@@ -443,6 +547,7 @@ symbols:
 🥂	brinde	none
 🥃	copo de whisky	none
 🥤	copo com palhinha	none
+🧋	chá bubble	none
 🧃	pacote de sumo	none
 🧊	gelo	none
 🥢	pauzinhos	none
@@ -499,6 +604,7 @@ symbols:
 🚖	táxi a aproximar-se	none
 🚗	automóvel	none
 🚘	automóvel a aproximar-se	none
+🛻	carrinha	none
 🚚	camião de entregas	none
 🚛	camião articulado	none
 🏍	mota	none
@@ -556,13 +662,13 @@ symbols:
 🌝	lua cheia com cara	none
 🌞	sol com cara	none
 🪐	planeta anelado	none
+⭐	estrela	none
 ⛅	sol atrás de nuvem	none
 ⛈	nuvem com relâmpago e chuva	none
 🌤	sol atrás de nuvem pequena	none
 🌥	sol atrás de nuvem grande	none
 🌦	sol atrás de nuvem com chuva	none
 🌩	nuvem com relâmpago	none
-🌫	nevoeiro	none
 🌬	cara de vento	none
 ☔	guarda-chuva com gotas de chuva	none
 ⛱	guarda-sol na areia	none
@@ -594,7 +700,6 @@ symbols:
 🏑	hóquei em campo	none
 🏒	stick e disco de hóquei no gelo	none
 🏸	badmínton	none
-🥋	kimono de artes marciais	none
 🥅	baliza	none
 ⛸	patim de gelo	none
 🎣	cana de pesca	none
@@ -637,6 +742,7 @@ symbols:
 👢	bota de senhora	none
 👒	chapéu de senhora	none
 🎓	chapéu de graduação	none
+⛑	capacete de socorrista	none
 📿	rosário	none
 🔇	altifalante desligado	none
 🔈	altifalante baixo	none
@@ -650,6 +756,7 @@ symbols:
 🎛	botões de controlo	none
 🎧	auscultador	none
 🎸	guitarra elétrica	none
+🪘	tambor alto	none
 📱	telemóvel	none
 📲	telemóvel com seta	none
 ☎	telefone	none
@@ -682,7 +789,6 @@ symbols:
 🔖	marcador de livros	none
 💸	dinheiro com asas	none
 💹	gráfico a subir com iene	none
-💲	símbolo de dólar	none
 📨	envelope a chegar	none
 📤	bandeja de correio a enviar	none
 📥	bandeja de correio recebido	none
@@ -716,6 +822,8 @@ symbols:
 🗑	cesto do lixo	none
 🛠	martelo e chave inglesa	none
 🗡	punhal	none
+🔫	pistola de água	none
+🪛	chave de fendas	none
 ⚙	roda dentada	none
 🗜	grampo	none
 ⚖	balança (objeto)	none
@@ -733,6 +841,7 @@ symbols:
 🧻	rolo de cozinha	none
 🧯	extintor	none
 ⚱	urna	none
+🪧	placard	none
 🏧	sinal de caixa automática	none
 🚮	sinal de lixo no caixote do lixo	none
 🚹	casa de banho para homens	none
@@ -751,6 +860,7 @@ symbols:
 ☣	perigo biológico	none
 ↘	seta para a direita e para baixo	none
 ↔	seta para a esquerda e para a direita	none
+↮	barra com seta bidirecional	none
 ↩	seta para a direita com curva para a esquerda	none
 ↪	seta para a esquerda com curva para a direita	none
 ⤴	seta para a direita com curva para cima	none
@@ -803,6 +913,12 @@ symbols:
 📴	telemóvel desligado	none
 ♀	símbolo feminino	none
 ♂	símbolo masculino	none
+⚧	símbolo transgénero	none
+✖	multiplicação	none
+➕	adição	none
+➖	subtração	none
+➗	divisão	none
+💲	símbolo de dólar	none
 ⚕	símbolo médico	none
 📛	dístico	none
 🔰	símbolo japonês para principiante	none
@@ -812,18 +928,9 @@ symbols:
 ✔	visto	none
 ❌	cruz	none
 ❎	botão com cruz	none
-➕	sinal de adição	none
-➖	sinal de subtração	none
-➗	sinal de divisão	none
 ➿	laço encaracolado duplo	none
-〽	marca de alternância parcial	none
 ✳	asterisco com oito raios	none
 ✴	estrela com oito pontas	none
-‼	ponto de exclamação duplo	none
-⁉	pontos de exclamação e de interrogação	none
-〰	traço ondulado	none
-©	direitos de autor	none
-®	marca registada	none
 ™	marca comercial	none
 🔠	introdução de maiúsculas latinas	none
 🔡	introdução de minúsculas latinas	none
@@ -840,23 +947,6 @@ symbols:
 🆕	botão NEW	none
 🅾	botão O (tipo de sangue)	none
 🆙	botão up!	none
-🈁	botão "aqui" em japonês	none
-🈂	botão "taxa de serviço" em japonês	none
-🈷	botão "valor mensal" em japonês	none
-🈶	botão "não gratuito" em japonês	none
-🈯	botão "reservado" em japonês	none
-🉐	botão "boa oportunidade" em japonês	none
-🈹	botão "desconto" em japonês	none
-🈚	botão "gratuito" em japonês	none
-🈲	botão "proibido" em japonês	none
-🉑	botão "aceitável" em japonês	none
-🈸	botão "aplicação" em japonês	none
-🈴	botão "nota positiva" em japonês	none
-🈳	botão "com vagas" em japonês	none
-㊗	botão "parabéns" em japonês	none
-㊙	botão "segredo" em japonês	none
-🈺	botão "em funcionamento" em japonês	none
-🈵	botão "sem vagas" em japonês	none
 🟠	círculo cor de laranja	none
 🟤	círculo castanho	none
 🟧	quadrado cor de laranja	none
@@ -870,17 +960,9 @@ symbols:
 💠	losango com um ponto	none
 🏁	bandeira axadrezada	none
 🎌	bandeiras do Japão cruzadas	none
-🏳‍⚧	bandeira transgénero	none
 🏳‍🌈	bandeira arco-íris	none
+🏳‍⚧	bandeira transgénero	none
 🏴‍☠	bandeira pirata	none
-🛻	carrinha	none
-🥲	cara sorridente com lágrima	none
-🦤	dodó	none
-🪘	tambor alto	none
-🪛	chave de fendas	none
-🪧	placard	none
-🫂	pessoas abraçadas	none
-🫑	pimento	none
 👋🏻	mão a acenar tipo de pele 1–2	none
 👋🏼	mão a acenar tipo de pele 3	none
 👋🏽	mão a acenar tipo de pele 4	none
@@ -911,6 +993,11 @@ symbols:
 👌🏽	gesto de OK tipo de pele 4	none
 👌🏾	gesto de OK tipo de pele 5	none
 👌🏿	gesto de OK tipo de pele 6	none
+🤌🏻	dedos comprimidos tipo de pele 1–2	none
+🤌🏼	dedos comprimidos tipo de pele 3	none
+🤌🏽	dedos comprimidos tipo de pele 4	none
+🤌🏾	dedos comprimidos tipo de pele 5	none
+🤌🏿	dedos comprimidos tipo de pele 6	none
 🤏🏻	mão a dar um beliscão tipo de pele 1–2	none
 🤏🏼	mão a dar um beliscão tipo de pele 3	none
 🤏🏽	mão a dar um beliscão tipo de pele 4	none
@@ -1101,6 +1188,46 @@ symbols:
 👱🏽	pessoa tipo de pele 4 e cabelo louro	none
 👱🏾	pessoa tipo de pele 5 e cabelo louro	none
 👱🏿	pessoa tipo de pele 6 e cabelo louro	none
+🧑🏻‍❤‍💋‍🧑🏼	beijo pessoa, pessoa, tipo de pele 1–2 e tipo de pele 3	none
+🧑🏻‍❤‍💋‍🧑🏽	beijo pessoa, pessoa, tipo de pele 1–2 e tipo de pele 4	none
+🧑🏻‍❤‍💋‍🧑🏾	beijo pessoa, pessoa, tipo de pele 1–2 e tipo de pele 5	none
+🧑🏻‍❤‍💋‍🧑🏿	beijo pessoa, pessoa, tipo de pele 1–2 e tipo de pele 6	none
+🧑🏼‍❤‍💋‍🧑🏻	beijo pessoa, pessoa, tipo de pele 3 e tipo de pele 1–2	none
+🧑🏼‍❤‍💋‍🧑🏽	beijo pessoa, pessoa, tipo de pele 3 e tipo de pele 4	none
+🧑🏼‍❤‍💋‍🧑🏾	beijo pessoa, pessoa, tipo de pele 3 e tipo de pele 5	none
+🧑🏼‍❤‍💋‍🧑🏿	beijo pessoa, pessoa, tipo de pele 3 e tipo de pele 6	none
+🧑🏽‍❤‍💋‍🧑🏻	beijo pessoa, pessoa, tipo de pele 4 e tipo de pele 1–2	none
+🧑🏽‍❤‍💋‍🧑🏼	beijo pessoa, pessoa, tipo de pele 4 e tipo de pele 3	none
+🧑🏽‍❤‍💋‍🧑🏾	beijo pessoa, pessoa, tipo de pele 4 e tipo de pele 5	none
+🧑🏽‍❤‍💋‍🧑🏿	beijo pessoa, pessoa, tipo de pele 4 e tipo de pele 6	none
+🧑🏾‍❤‍💋‍🧑🏻	beijo pessoa, pessoa, tipo de pele 5 e tipo de pele 1–2	none
+🧑🏾‍❤‍💋‍🧑🏼	beijo pessoa, pessoa, tipo de pele 5 e tipo de pele 3	none
+🧑🏾‍❤‍💋‍🧑🏽	beijo pessoa, pessoa, tipo de pele 5 e tipo de pele 4	none
+🧑🏾‍❤‍💋‍🧑🏿	beijo pessoa, pessoa, tipo de pele 5 e tipo de pele 6	none
+🧑🏿‍❤‍💋‍🧑🏻	beijo pessoa, pessoa, tipo de pele 6 e tipo de pele 1–2	none
+🧑🏿‍❤‍💋‍🧑🏼	beijo pessoa, pessoa, tipo de pele 6 e tipo de pele 3	none
+🧑🏿‍❤‍💋‍🧑🏽	beijo pessoa, pessoa, tipo de pele 6 e tipo de pele 4	none
+🧑🏿‍❤‍💋‍🧑🏾	beijo pessoa, pessoa, tipo de pele 6 e tipo de pele 5	none
+🧑🏻‍❤‍🧑🏼	casal com coração pessoa, pessoa, tipo de pele 1–2 e tipo de pele 3	none
+🧑🏻‍❤‍🧑🏽	casal com coração pessoa, pessoa, tipo de pele 1–2 e tipo de pele 4	none
+🧑🏻‍❤‍🧑🏾	casal com coração pessoa, pessoa, tipo de pele 1–2 e tipo de pele 5	none
+🧑🏻‍❤‍🧑🏿	casal com coração pessoa, pessoa, tipo de pele 1–2 e tipo de pele 6	none
+🧑🏼‍❤‍🧑🏻	casal com coração pessoa, pessoa, tipo de pele 3 e tipo de pele 1–2	none
+🧑🏼‍❤‍🧑🏽	casal com coração pessoa, pessoa, tipo de pele 3 e tipo de pele 4	none
+🧑🏼‍❤‍🧑🏾	casal com coração pessoa, pessoa, tipo de pele 3 e tipo de pele 5	none
+🧑🏼‍❤‍🧑🏿	casal com coração pessoa, pessoa, tipo de pele 3 e tipo de pele 6	none
+🧑🏽‍❤‍🧑🏻	casal com coração pessoa, pessoa, tipo de pele 4 e tipo de pele 1–2	none
+🧑🏽‍❤‍🧑🏼	casal com coração pessoa, pessoa, tipo de pele 4 e tipo de pele 3	none
+🧑🏽‍❤‍🧑🏾	casal com coração pessoa, pessoa, tipo de pele 4 e tipo de pele 5	none
+🧑🏽‍❤‍🧑🏿	casal com coração pessoa, pessoa, tipo de pele 4 e tipo de pele 6	none
+🧑🏾‍❤‍🧑🏻	casal com coração pessoa, pessoa, tipo de pele 5 e tipo de pele 1–2	none
+🧑🏾‍❤‍🧑🏼	casal com coração pessoa, pessoa, tipo de pele 5 e tipo de pele 3	none
+🧑🏾‍❤‍🧑🏽	casal com coração pessoa, pessoa, tipo de pele 5 e tipo de pele 4	none
+🧑🏾‍❤‍🧑🏿	casal com coração pessoa, pessoa, tipo de pele 5 e tipo de pele 6	none
+🧑🏿‍❤‍🧑🏻	casal com coração pessoa, pessoa, tipo de pele 6 e tipo de pele 1–2	none
+🧑🏿‍❤‍🧑🏼	casal com coração pessoa, pessoa, tipo de pele 6 e tipo de pele 3	none
+🧑🏿‍❤‍🧑🏽	casal com coração pessoa, pessoa, tipo de pele 6 e tipo de pele 4	none
+🧑🏿‍❤‍🧑🏾	casal com coração pessoa, pessoa, tipo de pele 6 e tipo de pele 5	none
 🧑‍🦰	pessoa cabelo ruivo	none
 🧑🏻‍🦰	pessoa tipo de pele 1–2 e cabelo ruivo	none
 🧑🏼‍🦰	pessoa tipo de pele 3 e cabelo ruivo	none
@@ -1128,16 +1255,71 @@ symbols:
 👨🏽	homem tipo de pele 4	none
 👨🏾	homem tipo de pele 5	none
 👨🏿	homem tipo de pele 6	none
-🧔🏻	homem tipo de pele 1–2 e barba	none
-🧔🏼	homem tipo de pele 3 e barba	none
-🧔🏽	homem tipo de pele 4 e barba	none
-🧔🏾	homem tipo de pele 5 e barba	none
-🧔🏿	homem tipo de pele 6 e barba	none
+🧔🏻	pessoa tipo de pele 1–2 e barba	none
+🧔🏼	pessoa tipo de pele 3 e barba	none
+🧔🏽	pessoa tipo de pele 4 e barba	none
+🧔🏾	pessoa tipo de pele 5 e barba	none
+🧔🏿	pessoa tipo de pele 6 e barba	none
+🧔🏻‍♂	homem tipo de pele 1–2 e barba	none
+🧔🏼‍♂	homem tipo de pele 3 e barba	none
+🧔🏽‍♂	homem tipo de pele 4 e barba	none
+🧔🏾‍♂	homem tipo de pele 5 e barba	none
+🧔🏿‍♂	homem tipo de pele 6 e barba	none
 👱🏻‍♂	homem tipo de pele 1–2 e cabelo loiro	none
 👱🏼‍♂	homem tipo de pele 3 e cabelo loiro	none
 👱🏽‍♂	homem tipo de pele 4 e cabelo loiro	none
 👱🏾‍♂	homem tipo de pele 5 e cabelo loiro	none
 👱🏿‍♂	homem tipo de pele 6 e cabelo loiro	none
+👨🏻‍❤‍💋‍👨🏻	beijo homem, homem e tipo de pele 1–2	none
+👨🏻‍❤‍💋‍👨🏼	beijo homem, homem, tipo de pele 1–2 e tipo de pele 3	none
+👨🏻‍❤‍💋‍👨🏽	beijo homem, homem, tipo de pele 1–2 e tipo de pele 4	none
+👨🏻‍❤‍💋‍👨🏾	beijo homem, homem, tipo de pele 1–2 e tipo de pele 5	none
+👨🏻‍❤‍💋‍👨🏿	beijo homem, homem, tipo de pele 1–2 e tipo de pele 6	none
+👨🏼‍❤‍💋‍👨🏻	beijo homem, homem, tipo de pele 3 e tipo de pele 1–2	none
+👨🏼‍❤‍💋‍👨🏼	beijo homem, homem e tipo de pele 3	none
+👨🏼‍❤‍💋‍👨🏽	beijo homem, homem, tipo de pele 3 e tipo de pele 4	none
+👨🏼‍❤‍💋‍👨🏾	beijo homem, homem, tipo de pele 3 e tipo de pele 5	none
+👨🏼‍❤‍💋‍👨🏿	beijo homem, homem, tipo de pele 3 e tipo de pele 6	none
+👨🏽‍❤‍💋‍👨🏻	beijo homem, homem, tipo de pele 4 e tipo de pele 1–2	none
+👨🏽‍❤‍💋‍👨🏼	beijo homem, homem, tipo de pele 4 e tipo de pele 3	none
+👨🏽‍❤‍💋‍👨🏽	beijo homem, homem e tipo de pele 4	none
+👨🏽‍❤‍💋‍👨🏾	beijo homem, homem, tipo de pele 4 e tipo de pele 5	none
+👨🏽‍❤‍💋‍👨🏿	beijo homem, homem, tipo de pele 4 e tipo de pele 6	none
+👨🏾‍❤‍💋‍👨🏻	beijo homem, homem, tipo de pele 5 e tipo de pele 1–2	none
+👨🏾‍❤‍💋‍👨🏼	beijo homem, homem, tipo de pele 5 e tipo de pele 3	none
+👨🏾‍❤‍💋‍👨🏽	beijo homem, homem, tipo de pele 5 e tipo de pele 4	none
+👨🏾‍❤‍💋‍👨🏾	beijo homem, homem e tipo de pele 5	none
+👨🏾‍❤‍💋‍👨🏿	beijo homem, homem, tipo de pele 5 e tipo de pele 6	none
+👨🏿‍❤‍💋‍👨🏻	beijo homem, homem, tipo de pele 6 e tipo de pele 1–2	none
+👨🏿‍❤‍💋‍👨🏼	beijo homem, homem, tipo de pele 6 e tipo de pele 3	none
+👨🏿‍❤‍💋‍👨🏽	beijo homem, homem, tipo de pele 6 e tipo de pele 4	none
+👨🏿‍❤‍💋‍👨🏾	beijo homem, homem, tipo de pele 6 e tipo de pele 5	none
+👨🏿‍❤‍💋‍👨🏿	beijo homem, homem e tipo de pele 6	none
+👨🏻‍❤‍👨🏻	casal com coração homem, homem e tipo de pele 1–2	none
+👨🏻‍❤‍👨🏼	casal com coração homem, homem, tipo de pele 1–2 e tipo de pele 3	none
+👨🏻‍❤‍👨🏽	casal com coração homem, homem, tipo de pele 1–2 e tipo de pele 4	none
+👨🏻‍❤‍👨🏾	casal com coração homem, homem, tipo de pele 1–2 e tipo de pele 5	none
+👨🏻‍❤‍👨🏿	casal com coração homem, homem, tipo de pele 1–2 e tipo de pele 6	none
+👨🏼‍❤‍👨🏻	casal com coração homem, homem, tipo de pele 3 e tipo de pele 1–2	none
+👨🏼‍❤‍👨🏼	casal com coração homem, homem e tipo de pele 3	none
+👨🏼‍❤‍👨🏽	casal com coração homem, homem, tipo de pele 3 e tipo de pele 4	none
+👨🏼‍❤‍👨🏾	casal com coração homem, homem, tipo de pele 3 e tipo de pele 5	none
+👨🏼‍❤‍👨🏿	casal com coração homem, homem, tipo de pele 3 e tipo de pele 6	none
+👨🏽‍❤‍👨🏻	casal com coração homem, homem, tipo de pele 4 e tipo de pele 1–2	none
+👨🏽‍❤‍👨🏼	casal com coração homem, homem, tipo de pele 4 e tipo de pele 3	none
+👨🏽‍❤‍👨🏽	casal com coração homem, homem e tipo de pele 4	none
+👨🏽‍❤‍👨🏾	casal com coração homem, homem, tipo de pele 4 e tipo de pele 5	none
+👨🏽‍❤‍👨🏿	casal com coração homem, homem, tipo de pele 4 e tipo de pele 6	none
+👨🏾‍❤‍👨🏻	casal com coração homem, homem, tipo de pele 5 e tipo de pele 1–2	none
+👨🏾‍❤‍👨🏼	casal com coração homem, homem, tipo de pele 5 e tipo de pele 3	none
+👨🏾‍❤‍👨🏽	casal com coração homem, homem, tipo de pele 5 e tipo de pele 4	none
+👨🏾‍❤‍👨🏾	casal com coração homem, homem e tipo de pele 5	none
+👨🏾‍❤‍👨🏿	casal com coração homem, homem, tipo de pele 5 e tipo de pele 6	none
+👨🏿‍❤‍👨🏻	casal com coração homem, homem, tipo de pele 6 e tipo de pele 1–2	none
+👨🏿‍❤‍👨🏼	casal com coração homem, homem, tipo de pele 6 e tipo de pele 3	none
+👨🏿‍❤‍👨🏽	casal com coração homem, homem, tipo de pele 6 e tipo de pele 4	none
+👨🏿‍❤‍👨🏾	casal com coração homem, homem, tipo de pele 6 e tipo de pele 5	none
+👨🏿‍❤‍👨🏿	casal com coração homem, homem e tipo de pele 6	none
 👨‍🦰	homem cabelo ruivo	none
 👨🏻‍🦰	homem tipo de pele 1–2 e cabelo ruivo	none
 👨🏼‍🦰	homem tipo de pele 3 e cabelo ruivo	none
@@ -1165,11 +1347,116 @@ symbols:
 👩🏽	mulher tipo de pele 4	none
 👩🏾	mulher tipo de pele 5	none
 👩🏿	mulher tipo de pele 6	none
+🧔🏻‍♀	mulher tipo de pele 1–2 e barba	none
+🧔🏼‍♀	mulher tipo de pele 3 e barba	none
+🧔🏽‍♀	mulher tipo de pele 4 e barba	none
+🧔🏾‍♀	mulher tipo de pele 5 e barba	none
+🧔🏿‍♀	mulher tipo de pele 6 e barba	none
 👱🏻‍♀	mulher tipo de pele 1–2 e cabelo loiro	none
 👱🏼‍♀	mulher tipo de pele 3 e cabelo loiro	none
 👱🏽‍♀	mulher tipo de pele 4 e cabelo loiro	none
 👱🏾‍♀	mulher tipo de pele 5 e cabelo loiro	none
 👱🏿‍♀	mulher tipo de pele 6 e cabelo loiro	none
+👩🏻‍❤‍💋‍👨🏻	beijo mulher, homem e tipo de pele 1–2	none
+👩🏻‍❤‍💋‍👨🏼	beijo mulher, homem, tipo de pele 1–2 e tipo de pele 3	none
+👩🏻‍❤‍💋‍👨🏽	beijo mulher, homem, tipo de pele 1–2 e tipo de pele 4	none
+👩🏻‍❤‍💋‍👨🏾	beijo mulher, homem, tipo de pele 1–2 e tipo de pele 5	none
+👩🏻‍❤‍💋‍👨🏿	beijo mulher, homem, tipo de pele 1–2 e tipo de pele 6	none
+👩🏼‍❤‍💋‍👨🏻	beijo mulher, homem, tipo de pele 3 e tipo de pele 1–2	none
+👩🏼‍❤‍💋‍👨🏼	beijo mulher, homem e tipo de pele 3	none
+👩🏼‍❤‍💋‍👨🏽	beijo mulher, homem, tipo de pele 3 e tipo de pele 4	none
+👩🏼‍❤‍💋‍👨🏾	beijo mulher, homem, tipo de pele 3 e tipo de pele 5	none
+👩🏼‍❤‍💋‍👨🏿	beijo mulher, homem, tipo de pele 3 e tipo de pele 6	none
+👩🏽‍❤‍💋‍👨🏻	beijo mulher, homem, tipo de pele 4 e tipo de pele 1–2	none
+👩🏽‍❤‍💋‍👨🏼	beijo mulher, homem, tipo de pele 4 e tipo de pele 3	none
+👩🏽‍❤‍💋‍👨🏽	beijo mulher, homem e tipo de pele 4	none
+👩🏽‍❤‍💋‍👨🏾	beijo mulher, homem, tipo de pele 4 e tipo de pele 5	none
+👩🏽‍❤‍💋‍👨🏿	beijo mulher, homem, tipo de pele 4 e tipo de pele 6	none
+👩🏾‍❤‍💋‍👨🏻	beijo mulher, homem, tipo de pele 5 e tipo de pele 1–2	none
+👩🏾‍❤‍💋‍👨🏼	beijo mulher, homem, tipo de pele 5 e tipo de pele 3	none
+👩🏾‍❤‍💋‍👨🏽	beijo mulher, homem, tipo de pele 5 e tipo de pele 4	none
+👩🏾‍❤‍💋‍👨🏾	beijo mulher, homem e tipo de pele 5	none
+👩🏾‍❤‍💋‍👨🏿	beijo mulher, homem, tipo de pele 5 e tipo de pele 6	none
+👩🏿‍❤‍💋‍👨🏻	beijo mulher, homem, tipo de pele 6 e tipo de pele 1–2	none
+👩🏿‍❤‍💋‍👨🏼	beijo mulher, homem, tipo de pele 6 e tipo de pele 3	none
+👩🏿‍❤‍💋‍👨🏽	beijo mulher, homem, tipo de pele 6 e tipo de pele 4	none
+👩🏿‍❤‍💋‍👨🏾	beijo mulher, homem, tipo de pele 6 e tipo de pele 5	none
+👩🏿‍❤‍💋‍👨🏿	beijo mulher, homem e tipo de pele 6	none
+👩🏻‍❤‍💋‍👩🏻	beijo mulher, mulher e tipo de pele 1–2	none
+👩🏻‍❤‍💋‍👩🏼	beijo mulher, mulher, tipo de pele 1–2 e tipo de pele 3	none
+👩🏻‍❤‍💋‍👩🏽	beijo mulher, mulher, tipo de pele 1–2 e tipo de pele 4	none
+👩🏻‍❤‍💋‍👩🏾	beijo mulher, mulher, tipo de pele 1–2 e tipo de pele 5	none
+👩🏻‍❤‍💋‍👩🏿	beijo mulher, mulher, tipo de pele 1–2 e tipo de pele 6	none
+👩🏼‍❤‍💋‍👩🏻	beijo mulher, mulher, tipo de pele 3 e tipo de pele 1–2	none
+👩🏼‍❤‍💋‍👩🏼	beijo mulher, mulher e tipo de pele 3	none
+👩🏼‍❤‍💋‍👩🏽	beijo mulher, mulher, tipo de pele 3 e tipo de pele 4	none
+👩🏼‍❤‍💋‍👩🏾	beijo mulher, mulher, tipo de pele 3 e tipo de pele 5	none
+👩🏼‍❤‍💋‍👩🏿	beijo mulher, mulher, tipo de pele 3 e tipo de pele 6	none
+👩🏽‍❤‍💋‍👩🏻	beijo mulher, mulher, tipo de pele 4 e tipo de pele 1–2	none
+👩🏽‍❤‍💋‍👩🏼	beijo mulher, mulher, tipo de pele 4 e tipo de pele 3	none
+👩🏽‍❤‍💋‍👩🏽	beijo mulher, mulher e tipo de pele 4	none
+👩🏽‍❤‍💋‍👩🏾	beijo mulher, mulher, tipo de pele 4 e tipo de pele 5	none
+👩🏽‍❤‍💋‍👩🏿	beijo mulher, mulher, tipo de pele 4 e tipo de pele 6	none
+👩🏾‍❤‍💋‍👩🏻	beijo mulher, mulher, tipo de pele 5 e tipo de pele 1–2	none
+👩🏾‍❤‍💋‍👩🏼	beijo mulher, mulher, tipo de pele 5 e tipo de pele 3	none
+👩🏾‍❤‍💋‍👩🏽	beijo mulher, mulher, tipo de pele 5 e tipo de pele 4	none
+👩🏾‍❤‍💋‍👩🏾	beijo mulher, mulher e tipo de pele 5	none
+👩🏾‍❤‍💋‍👩🏿	beijo mulher, mulher, tipo de pele 5 e tipo de pele 6	none
+👩🏿‍❤‍💋‍👩🏻	beijo mulher, mulher, tipo de pele 6 e tipo de pele 1–2	none
+👩🏿‍❤‍💋‍👩🏼	beijo mulher, mulher, tipo de pele 6 e tipo de pele 3	none
+👩🏿‍❤‍💋‍👩🏽	beijo mulher, mulher, tipo de pele 6 e tipo de pele 4	none
+👩🏿‍❤‍💋‍👩🏾	beijo mulher, mulher, tipo de pele 6 e tipo de pele 5	none
+👩🏿‍❤‍💋‍👩🏿	beijo mulher, mulher e tipo de pele 6	none
+👩🏻‍❤‍👨🏻	casal com coração mulher, homem e tipo de pele 1–2	none
+👩🏻‍❤‍👨🏼	casal com coração mulher, homem, tipo de pele 1–2 e tipo de pele 3	none
+👩🏻‍❤‍👨🏽	casal com coração mulher, homem, tipo de pele 1–2 e tipo de pele 4	none
+👩🏻‍❤‍👨🏾	casal com coração mulher, homem, tipo de pele 1–2 e tipo de pele 5	none
+👩🏻‍❤‍👨🏿	casal com coração mulher, homem, tipo de pele 1–2 e tipo de pele 6	none
+👩🏼‍❤‍👨🏻	casal com coração mulher, homem, tipo de pele 3 e tipo de pele 1–2	none
+👩🏼‍❤‍👨🏼	casal com coração mulher, homem e tipo de pele 3	none
+👩🏼‍❤‍👨🏽	casal com coração mulher, homem, tipo de pele 3 e tipo de pele 4	none
+👩🏼‍❤‍👨🏾	casal com coração mulher, homem, tipo de pele 3 e tipo de pele 5	none
+👩🏼‍❤‍👨🏿	casal com coração mulher, homem, tipo de pele 3 e tipo de pele 6	none
+👩🏽‍❤‍👨🏻	casal com coração mulher, homem, tipo de pele 4 e tipo de pele 1–2	none
+👩🏽‍❤‍👨🏼	casal com coração mulher, homem, tipo de pele 4 e tipo de pele 3	none
+👩🏽‍❤‍👨🏽	casal com coração mulher, homem e tipo de pele 4	none
+👩🏽‍❤‍👨🏾	casal com coração mulher, homem, tipo de pele 4 e tipo de pele 5	none
+👩🏽‍❤‍👨🏿	casal com coração mulher, homem, tipo de pele 4 e tipo de pele 6	none
+👩🏾‍❤‍👨🏻	casal com coração mulher, homem, tipo de pele 5 e tipo de pele 1–2	none
+👩🏾‍❤‍👨🏼	casal com coração mulher, homem, tipo de pele 5 e tipo de pele 3	none
+👩🏾‍❤‍👨🏽	casal com coração mulher, homem, tipo de pele 5 e tipo de pele 4	none
+👩🏾‍❤‍👨🏾	casal com coração mulher, homem e tipo de pele 5	none
+👩🏾‍❤‍👨🏿	casal com coração mulher, homem, tipo de pele 5 e tipo de pele 6	none
+👩🏿‍❤‍👨🏻	casal com coração mulher, homem, tipo de pele 6 e tipo de pele 1–2	none
+👩🏿‍❤‍👨🏼	casal com coração mulher, homem, tipo de pele 6 e tipo de pele 3	none
+👩🏿‍❤‍👨🏽	casal com coração mulher, homem, tipo de pele 6 e tipo de pele 4	none
+👩🏿‍❤‍👨🏾	casal com coração mulher, homem, tipo de pele 6 e tipo de pele 5	none
+👩🏿‍❤‍👨🏿	casal com coração mulher, homem e tipo de pele 6	none
+👩🏻‍❤‍👩🏻	casal com coração mulher, mulher e tipo de pele 1–2	none
+👩🏻‍❤‍👩🏼	casal com coração mulher, mulher, tipo de pele 1–2 e tipo de pele 3	none
+👩🏻‍❤‍👩🏽	casal com coração mulher, mulher, tipo de pele 1–2 e tipo de pele 4	none
+👩🏻‍❤‍👩🏾	casal com coração mulher, mulher, tipo de pele 1–2 e tipo de pele 5	none
+👩🏻‍❤‍👩🏿	casal com coração mulher, mulher, tipo de pele 1–2 e tipo de pele 6	none
+👩🏼‍❤‍👩🏻	casal com coração mulher, mulher, tipo de pele 3 e tipo de pele 1–2	none
+👩🏼‍❤‍👩🏼	casal com coração mulher, mulher e tipo de pele 3	none
+👩🏼‍❤‍👩🏽	casal com coração mulher, mulher, tipo de pele 3 e tipo de pele 4	none
+👩🏼‍❤‍👩🏾	casal com coração mulher, mulher, tipo de pele 3 e tipo de pele 5	none
+👩🏼‍❤‍👩🏿	casal com coração mulher, mulher, tipo de pele 3 e tipo de pele 6	none
+👩🏽‍❤‍👩🏻	casal com coração mulher, mulher, tipo de pele 4 e tipo de pele 1–2	none
+👩🏽‍❤‍👩🏼	casal com coração mulher, mulher, tipo de pele 4 e tipo de pele 3	none
+👩🏽‍❤‍👩🏽	casal com coração mulher, mulher e tipo de pele 4	none
+👩🏽‍❤‍👩🏾	casal com coração mulher, mulher, tipo de pele 4 e tipo de pele 5	none
+👩🏽‍❤‍👩🏿	casal com coração mulher, mulher, tipo de pele 4 e tipo de pele 6	none
+👩🏾‍❤‍👩🏻	casal com coração mulher, mulher, tipo de pele 5 e tipo de pele 1–2	none
+👩🏾‍❤‍👩🏼	casal com coração mulher, mulher, tipo de pele 5 e tipo de pele 3	none
+👩🏾‍❤‍👩🏽	casal com coração mulher, mulher, tipo de pele 5 e tipo de pele 4	none
+👩🏾‍❤‍👩🏾	casal com coração mulher, mulher e tipo de pele 5	none
+👩🏾‍❤‍👩🏿	casal com coração mulher, mulher, tipo de pele 5 e tipo de pele 6	none
+👩🏿‍❤‍👩🏻	casal com coração mulher, mulher, tipo de pele 6 e tipo de pele 1–2	none
+👩🏿‍❤‍👩🏼	casal com coração mulher, mulher, tipo de pele 6 e tipo de pele 3	none
+👩🏿‍❤‍👩🏽	casal com coração mulher, mulher, tipo de pele 6 e tipo de pele 4	none
+👩🏿‍❤‍👩🏾	casal com coração mulher, mulher, tipo de pele 6 e tipo de pele 5	none
+👩🏿‍❤‍👩🏿	casal com coração mulher, mulher e tipo de pele 6	none
 👩‍🦰	mulher cabelo ruivo	none
 👩🏻‍🦰	mulher tipo de pele 1–2 e cabelo ruivo	none
 👩🏼‍🦰	mulher tipo de pele 3 e cabelo ruivo	none
@@ -1272,16 +1559,16 @@ symbols:
 💁🏽	assistente de balcão de informações tipo de pele 4	none
 💁🏾	assistente de balcão de informações tipo de pele 5	none
 💁🏿	assistente de balcão de informações tipo de pele 6	none
-💁🏻‍♂	assistente de balcão de informações (homem) tipo de pele 1–2	none
-💁🏼‍♂	assistente de balcão de informações (homem) tipo de pele 3	none
-💁🏽‍♂	assistente de balcão de informações (homem) tipo de pele 4	none
-💁🏾‍♂	assistente de balcão de informações (homem) tipo de pele 5	none
-💁🏿‍♂	assistente de balcão de informações (homem) tipo de pele 6	none
-💁🏻‍♀	assistente de balcão de informações (mulher) tipo de pele 1–2	none
-💁🏼‍♀	assistente de balcão de informações (mulher) tipo de pele 3	none
-💁🏽‍♀	assistente de balcão de informações (mulher) tipo de pele 4	none
-💁🏾‍♀	assistente de balcão de informações (mulher) tipo de pele 5	none
-💁🏿‍♀	assistente de balcão de informações (mulher) tipo de pele 6	none
+💁🏻‍♂	homem com a palma virada para cima tipo de pele 1–2	none
+💁🏼‍♂	homem com a palma virada para cima tipo de pele 3	none
+💁🏽‍♂	homem com a palma virada para cima tipo de pele 4	none
+💁🏾‍♂	homem com a palma virada para cima tipo de pele 5	none
+💁🏿‍♂	homem com a palma virada para cima tipo de pele 6	none
+💁🏻‍♀	mulher com a palma virada para cima tipo de pele 1–2	none
+💁🏼‍♀	mulher com a palma virada para cima tipo de pele 3	none
+💁🏽‍♀	mulher com a palma virada para cima tipo de pele 4	none
+💁🏾‍♀	mulher com a palma virada para cima tipo de pele 5	none
+💁🏿‍♀	mulher com a palma virada para cima tipo de pele 6	none
 🙋🏻	pessoa de mão levantada tipo de pele 1–2	none
 🙋🏼	pessoa de mão levantada tipo de pele 3	none
 🙋🏽	pessoa de mão levantada tipo de pele 4	none
@@ -1507,16 +1794,16 @@ symbols:
 👩🏽‍🔬	cientista (mulher) tipo de pele 4	none
 👩🏾‍🔬	cientista (mulher) tipo de pele 5	none
 👩🏿‍🔬	cientista (mulher) tipo de pele 6	none
-🧑🏻‍💻	programador tipo de pele 1–2	none
-🧑🏼‍💻	programador tipo de pele 3	none
-🧑🏽‍💻	programador tipo de pele 4	none
-🧑🏾‍💻	programador tipo de pele 5	none
-🧑🏿‍💻	programador tipo de pele 6	none
-👨🏻‍💻	informático tipo de pele 1–2	none
-👨🏼‍💻	informático tipo de pele 3	none
-👨🏽‍💻	informático tipo de pele 4	none
-👨🏾‍💻	informático tipo de pele 5	none
-👨🏿‍💻	informático tipo de pele 6	none
+🧑🏻‍💻	informático tipo de pele 1–2	none
+🧑🏼‍💻	informático tipo de pele 3	none
+🧑🏽‍💻	informático tipo de pele 4	none
+🧑🏾‍💻	informático tipo de pele 5	none
+🧑🏿‍💻	informático tipo de pele 6	none
+👨🏻‍💻	informático (homem) tipo de pele 1–2	none
+👨🏼‍💻	informático (homem) tipo de pele 3	none
+👨🏽‍💻	informático (homem) tipo de pele 4	none
+👨🏾‍💻	informático (homem) tipo de pele 5	none
+👨🏿‍💻	informático (homem) tipo de pele 6	none
 👩🏻‍💻	informática tipo de pele 1–2	none
 👩🏼‍💻	informática tipo de pele 3	none
 👩🏽‍💻	informática tipo de pele 4	none
@@ -1527,11 +1814,11 @@ symbols:
 🧑🏽‍🎤	vocalista tipo de pele 4	none
 🧑🏾‍🎤	vocalista tipo de pele 5	none
 🧑🏿‍🎤	vocalista tipo de pele 6	none
-👨🏻‍🎤	cantor homem tipo de pele 1–2	none
-👨🏼‍🎤	cantor homem tipo de pele 3	none
-👨🏽‍🎤	cantor homem tipo de pele 4	none
-👨🏾‍🎤	cantor homem tipo de pele 5	none
-👨🏿‍🎤	cantor homem tipo de pele 6	none
+👨🏻‍🎤	cantor tipo de pele 1–2	none
+👨🏼‍🎤	cantor tipo de pele 3	none
+👨🏽‍🎤	cantor tipo de pele 4	none
+👨🏾‍🎤	cantor tipo de pele 5	none
+👨🏿‍🎤	cantor tipo de pele 6	none
 👩🏻‍🎤	cantora tipo de pele 1–2	none
 👩🏼‍🎤	cantora tipo de pele 3	none
 👩🏽‍🎤	cantora tipo de pele 4	none
@@ -1582,16 +1869,16 @@ symbols:
 👩🏽‍🚀	astronauta (mulher) tipo de pele 4	none
 👩🏾‍🚀	astronauta (mulher) tipo de pele 5	none
 👩🏿‍🚀	astronauta (mulher) tipo de pele 6	none
-🧑🏻‍🚒	bombeiro (homem) tipo de pele 1–2	none
-🧑🏼‍🚒	bombeiro (homem) tipo de pele 3	none
-🧑🏽‍🚒	bombeiro (homem) tipo de pele 4	none
-🧑🏾‍🚒	bombeiro (homem) tipo de pele 5	none
-🧑🏿‍🚒	bombeiro (homem) tipo de pele 6	none
-👨🏻‍🚒	bombeiro tipo de pele 1–2	none
-👨🏼‍🚒	bombeiro tipo de pele 3	none
-👨🏽‍🚒	bombeiro tipo de pele 4	none
-👨🏾‍🚒	bombeiro tipo de pele 5	none
-👨🏿‍🚒	bombeiro tipo de pele 6	none
+🧑🏻‍🚒	bombeiro tipo de pele 1–2	none
+🧑🏼‍🚒	bombeiro tipo de pele 3	none
+🧑🏽‍🚒	bombeiro tipo de pele 4	none
+🧑🏾‍🚒	bombeiro tipo de pele 5	none
+🧑🏿‍🚒	bombeiro tipo de pele 6	none
+👨🏻‍🚒	bombeiro homem tipo de pele 1–2	none
+👨🏼‍🚒	bombeiro homem tipo de pele 3	none
+👨🏽‍🚒	bombeiro homem tipo de pele 4	none
+👨🏾‍🚒	bombeiro homem tipo de pele 5	none
+👨🏿‍🚒	bombeiro homem tipo de pele 6	none
 👩🏻‍🚒	bombeira tipo de pele 1–2	none
 👩🏼‍🚒	bombeira tipo de pele 3	none
 👩🏽‍🚒	bombeira tipo de pele 4	none
@@ -1642,6 +1929,11 @@ symbols:
 💂🏽‍♀	segurança (mulher) tipo de pele 4	none
 💂🏾‍♀	segurança (mulher) tipo de pele 5	none
 💂🏿‍♀	segurança (mulher) tipo de pele 6	none
+🥷🏻	ninja tipo de pele 1–2	none
+🥷🏼	ninja tipo de pele 3	none
+🥷🏽	ninja tipo de pele 4	none
+🥷🏾	ninja tipo de pele 5	none
+🥷🏿	ninja tipo de pele 6	none
 👷🏻	pedreiro tipo de pele 1–2	none
 👷🏼	pedreiro tipo de pele 3	none
 👷🏽	pedreiro tipo de pele 4	none
@@ -1692,16 +1984,36 @@ symbols:
 🧕🏽	mulher com lenço na cabeça tipo de pele 4	none
 🧕🏾	mulher com lenço na cabeça tipo de pele 5	none
 🧕🏿	mulher com lenço na cabeça tipo de pele 6	none
-🤵🏻	homem de smoking tipo de pele 1–2	none
-🤵🏼	homem de smoking tipo de pele 3	none
-🤵🏽	homem de smoking tipo de pele 4	none
-🤵🏾	homem de smoking tipo de pele 5	none
-🤵🏿	homem de smoking tipo de pele 6	none
-👰🏻	noiva com véu tipo de pele 1–2	none
-👰🏼	noiva com véu tipo de pele 3	none
-👰🏽	noiva com véu tipo de pele 4	none
-👰🏾	noiva com véu tipo de pele 5	none
-👰🏿	noiva com véu tipo de pele 6	none
+🤵🏻	pessoa de smoking tipo de pele 1–2	none
+🤵🏼	pessoa de smoking tipo de pele 3	none
+🤵🏽	pessoa de smoking tipo de pele 4	none
+🤵🏾	pessoa de smoking tipo de pele 5	none
+🤵🏿	pessoa de smoking tipo de pele 6	none
+🤵🏻‍♂	homem de smoking tipo de pele 1–2	none
+🤵🏼‍♂	homem de smoking tipo de pele 3	none
+🤵🏽‍♂	homem de smoking tipo de pele 4	none
+🤵🏾‍♂	homem de smoking tipo de pele 5	none
+🤵🏿‍♂	homem de smoking tipo de pele 6	none
+🤵🏻‍♀	mulher de smoking tipo de pele 1–2	none
+🤵🏼‍♀	mulher de smoking tipo de pele 3	none
+🤵🏽‍♀	mulher de smoking tipo de pele 4	none
+🤵🏾‍♀	mulher de smoking tipo de pele 5	none
+🤵🏿‍♀	mulher de smoking tipo de pele 6	none
+👰🏻	pessoa com véu tipo de pele 1–2	none
+👰🏼	pessoa com véu tipo de pele 3	none
+👰🏽	pessoa com véu tipo de pele 4	none
+👰🏾	pessoa com véu tipo de pele 5	none
+👰🏿	pessoa com véu tipo de pele 6	none
+👰🏻‍♂	homem com véu tipo de pele 1–2	none
+👰🏼‍♂	homem com véu tipo de pele 3	none
+👰🏽‍♂	homem com véu tipo de pele 4	none
+👰🏾‍♂	homem com véu tipo de pele 5	none
+👰🏿‍♂	homem com véu tipo de pele 6	none
+👰🏻‍♀	mulher com véu tipo de pele 1–2	none
+👰🏼‍♀	mulher com véu tipo de pele 3	none
+👰🏽‍♀	mulher com véu tipo de pele 4	none
+👰🏾‍♀	mulher com véu tipo de pele 5	none
+👰🏿‍♀	mulher com véu tipo de pele 6	none
 🤰🏻	grávida tipo de pele 1–2	none
 🤰🏼	grávida tipo de pele 3	none
 🤰🏽	grávida tipo de pele 4	none
@@ -1712,6 +2024,21 @@ symbols:
 🤱🏽	amamentar tipo de pele 4	none
 🤱🏾	amamentar tipo de pele 5	none
 🤱🏿	amamentar tipo de pele 6	none
+👩🏻‍🍼	mulher a alimentar bebé tipo de pele 1–2	none
+👩🏼‍🍼	mulher a alimentar bebé tipo de pele 3	none
+👩🏽‍🍼	mulher a alimentar bebé tipo de pele 4	none
+👩🏾‍🍼	mulher a alimentar bebé tipo de pele 5	none
+👩🏿‍🍼	mulher a alimentar bebé tipo de pele 6	none
+👨🏻‍🍼	homem a alimentar bebé tipo de pele 1–2	none
+👨🏼‍🍼	homem a alimentar bebé tipo de pele 3	none
+👨🏽‍🍼	homem a alimentar bebé tipo de pele 4	none
+👨🏾‍🍼	homem a alimentar bebé tipo de pele 5	none
+👨🏿‍🍼	homem a alimentar bebé tipo de pele 6	none
+🧑🏻‍🍼	pessoa a alimentar bebé tipo de pele 1–2	none
+🧑🏼‍🍼	pessoa a alimentar bebé tipo de pele 3	none
+🧑🏽‍🍼	pessoa a alimentar bebé tipo de pele 4	none
+🧑🏾‍🍼	pessoa a alimentar bebé tipo de pele 5	none
+🧑🏿‍🍼	pessoa a alimentar bebé tipo de pele 6	none
 👼🏻	anjo bebé tipo de pele 1–2	none
 👼🏼	anjo bebé tipo de pele 3	none
 👼🏽	anjo bebé tipo de pele 4	none
@@ -1727,6 +2054,11 @@ symbols:
 🤶🏽	mãe natal tipo de pele 4	none
 🤶🏾	mãe natal tipo de pele 5	none
 🤶🏿	mãe natal tipo de pele 6	none
+🧑🏻‍🎄	Sra. Natal tipo de pele 1–2	none
+🧑🏼‍🎄	Sra. Natal tipo de pele 3	none
+🧑🏽‍🎄	Sra. Natal tipo de pele 4	none
+🧑🏾‍🎄	Sra. Natal tipo de pele 5	none
+🧑🏿‍🎄	Sra. Natal tipo de pele 6	none
 🦸🏻	super-herói tipo de pele 1–2	none
 🦸🏼	super-herói tipo de pele 3	none
 🦸🏽	super-herói tipo de pele 4	none
@@ -2228,30 +2560,50 @@ symbols:
 🛌🏾	pessoa na cama tipo de pele 5	none
 🛌🏿	pessoa na cama tipo de pele 6	none
 🧑🏻‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 1–2	none
+🧑🏻‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 1–2 e tipo de pele 3	none
+🧑🏻‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 1–2 e tipo de pele 4	none
+🧑🏻‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 1–2 e tipo de pele 5	none
+🧑🏻‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 1–2 e tipo de pele 6	none
 🧑🏼‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 3 e tipo de pele 1–2	none
 🧑🏼‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 3	none
+🧑🏼‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 3 e tipo de pele 4	none
+🧑🏼‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 3 e tipo de pele 5	none
+🧑🏼‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 3 e tipo de pele 6	none
 🧑🏽‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 4 e tipo de pele 1–2	none
 🧑🏽‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 4 e tipo de pele 3	none
 🧑🏽‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 4	none
+🧑🏽‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 4 e tipo de pele 5	none
+🧑🏽‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 4 e tipo de pele 6	none
 🧑🏾‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 5 e tipo de pele 1–2	none
 🧑🏾‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 5 e tipo de pele 3	none
 🧑🏾‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 5 e tipo de pele 4	none
 🧑🏾‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 5	none
+🧑🏾‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 5 e tipo de pele 6	none
 🧑🏿‍🤝‍🧑🏻	pessoas de mãos dadas tipo de pele 6 e tipo de pele 1–2	none
 🧑🏿‍🤝‍🧑🏼	pessoas de mãos dadas tipo de pele 6 e tipo de pele 3	none
 🧑🏿‍🤝‍🧑🏽	pessoas de mãos dadas tipo de pele 6 e tipo de pele 4	none
 🧑🏿‍🤝‍🧑🏾	pessoas de mãos dadas tipo de pele 6 e tipo de pele 5	none
 🧑🏿‍🤝‍🧑🏿	pessoas de mãos dadas tipo de pele 6	none
 👭🏻	mulheres de mãos dadas tipo de pele 1–2	none
+👩🏻‍🤝‍👩🏼	mulheres de mãos dadas tipo de pele 1–2 e tipo de pele 3	none
+👩🏻‍🤝‍👩🏽	mulheres de mãos dadas tipo de pele 1–2 e tipo de pele 4	none
+👩🏻‍🤝‍👩🏾	mulheres de mãos dadas tipo de pele 1–2 e tipo de pele 5	none
+👩🏻‍🤝‍👩🏿	mulheres de mãos dadas tipo de pele 1–2 e tipo de pele 6	none
 👩🏼‍🤝‍👩🏻	mulheres de mãos dadas tipo de pele 3 e tipo de pele 1–2	none
 👭🏼	mulheres de mãos dadas tipo de pele 3	none
+👩🏼‍🤝‍👩🏽	mulheres de mãos dadas tipo de pele 3 e tipo de pele 4	none
+👩🏼‍🤝‍👩🏾	mulheres de mãos dadas tipo de pele 3 e tipo de pele 5	none
+👩🏼‍🤝‍👩🏿	mulheres de mãos dadas tipo de pele 3 e tipo de pele 6	none
 👩🏽‍🤝‍👩🏻	mulheres de mãos dadas tipo de pele 4 e tipo de pele 1–2	none
 👩🏽‍🤝‍👩🏼	mulheres de mãos dadas tipo de pele 4 e tipo de pele 3	none
 👭🏽	mulheres de mãos dadas tipo de pele 4	none
+👩🏽‍🤝‍👩🏾	mulheres de mãos dadas tipo de pele 4 e tipo de pele 5	none
+👩🏽‍🤝‍👩🏿	mulheres de mãos dadas tipo de pele 4 e tipo de pele 6	none
 👩🏾‍🤝‍👩🏻	mulheres de mãos dadas tipo de pele 5 e tipo de pele 1–2	none
 👩🏾‍🤝‍👩🏼	mulheres de mãos dadas tipo de pele 5 e tipo de pele 3	none
 👩🏾‍🤝‍👩🏽	mulheres de mãos dadas tipo de pele 5 e tipo de pele 4	none
 👭🏾	mulheres de mãos dadas tipo de pele 5	none
+👩🏾‍🤝‍👩🏿	mulheres de mãos dadas tipo de pele 5 e tipo de pele 6	none
 👩🏿‍🤝‍👩🏻	mulheres de mãos dadas tipo de pele 6 e tipo de pele 1–2	none
 👩🏿‍🤝‍👩🏼	mulheres de mãos dadas tipo de pele 6 e tipo de pele 3	none
 👩🏿‍🤝‍👩🏽	mulheres de mãos dadas tipo de pele 6 e tipo de pele 4	none
@@ -2283,20 +2635,40 @@ symbols:
 👩🏿‍🤝‍👨🏾	mulher e homem de mãos dadas tipo de pele 6 e tipo de pele 5	none
 👫🏿	mulher e homem de mãos dadas tipo de pele 6	none
 👬🏻	homens de mãos dadas tipo de pele 1–2	none
+👨🏻‍🤝‍👨🏼	homens de mãos dadas tipo de pele 1–2 e tipo de pele 3	none
+👨🏻‍🤝‍👨🏽	homens de mãos dadas tipo de pele 1–2 e tipo de pele 4	none
+👨🏻‍🤝‍👨🏾	homens de mãos dadas tipo de pele 1–2 e tipo de pele 5	none
+👨🏻‍🤝‍👨🏿	homens de mãos dadas tipo de pele 1–2 e tipo de pele 6	none
 👨🏼‍🤝‍👨🏻	homens de mãos dadas tipo de pele 3 e tipo de pele 1–2	none
 👬🏼	homens de mãos dadas tipo de pele 3	none
+👨🏼‍🤝‍👨🏽	homens de mãos dadas tipo de pele 3 e tipo de pele 4	none
+👨🏼‍🤝‍👨🏾	homens de mãos dadas tipo de pele 3 e tipo de pele 5	none
+👨🏼‍🤝‍👨🏿	homens de mãos dadas tipo de pele 3 e tipo de pele 6	none
 👨🏽‍🤝‍👨🏻	homens de mãos dadas tipo de pele 4 e tipo de pele 1–2	none
 👨🏽‍🤝‍👨🏼	homens de mãos dadas tipo de pele 4 e tipo de pele 3	none
 👬🏽	homens de mãos dadas tipo de pele 4	none
+👨🏽‍🤝‍👨🏾	homens de mãos dadas tipo de pele 4 e tipo de pele 5	none
+👨🏽‍🤝‍👨🏿	homens de mãos dadas tipo de pele 4 e tipo de pele 6	none
 👨🏾‍🤝‍👨🏻	homens de mãos dadas tipo de pele 5 e tipo de pele 1–2	none
 👨🏾‍🤝‍👨🏼	homens de mãos dadas tipo de pele 5 e tipo de pele 3	none
 👨🏾‍🤝‍👨🏽	homens de mãos dadas tipo de pele 5 e tipo de pele 4	none
 👬🏾	homens de mãos dadas tipo de pele 5	none
+👨🏾‍🤝‍👨🏿	homens de mãos dadas tipo de pele 5 e tipo de pele 6	none
 👨🏿‍🤝‍👨🏻	homens de mãos dadas tipo de pele 6 e tipo de pele 1–2	none
 👨🏿‍🤝‍👨🏼	homens de mãos dadas tipo de pele 6 e tipo de pele 3	none
 👨🏿‍🤝‍👨🏽	homens de mãos dadas tipo de pele 6 e tipo de pele 4	none
 👨🏿‍🤝‍👨🏾	homens de mãos dadas tipo de pele 6 e tipo de pele 5	none
 👬🏿	homens de mãos dadas tipo de pele 6	none
+💏🏻	beijo tipo de pele 1–2	none
+💏🏼	beijo tipo de pele 3	none
+💏🏽	beijo tipo de pele 4	none
+💏🏾	beijo tipo de pele 5	none
+💏🏿	beijo tipo de pele 6	none
+💑🏻	casal com coração tipo de pele 1–2	none
+💑🏼	casal com coração tipo de pele 3	none
+💑🏽	casal com coração tipo de pele 4	none
+💑🏾	casal com coração tipo de pele 5	none
+💑🏿	casal com coração tipo de pele 6	none
 👩‍❤‍👨	casal com coração mulher e homem	none
 👨‍❤‍👨	casal com coração homem e homem	none
 👩‍❤‍👩	casal com coração mulher e mulher	none
@@ -2343,8 +2715,7 @@ symbols:
 🇪🇦	bandeira Ceuta e Melilha	none
 🇪🇪	bandeira Estónia	none
 🇪🇭	bandeira Sara Ocidental	none
-🇫🇰	bandeira Ilhas Malvinas (Falkland)	none
-🇫🇴	bandeira Ilhas Faroé	none
+🇫🇰	bandeira Ilhas Falkland	none
 🇬🇬	bandeira Guernesey	none
 🇬🇱	bandeira Gronelândia	none
 🇬🇺	bandeira Guame	none
@@ -2358,7 +2729,6 @@ symbols:
 🇱🇰	bandeira Sri Lanca	none
 🇱🇻	bandeira Letónia	none
 🇲🇨	bandeira Mónaco	none
-🇲🇩	bandeira Moldávia	none
 🇲🇬	bandeira Madagáscar	none
 🇲🇰	bandeira Macedónia do Norte	none
 🇲🇸	bandeira Monserrate	none
@@ -2385,3 +2755,16 @@ symbols:
 🇾🇪	bandeira Iémen	none
 🇾🇹	bandeira Maiote	none
 🇿🇼	bandeira Zimbabué	none
+₡	colon costa-riquenho	none
+₦	naira nigeriana	none
+₪	sheqel novo israelita	none
+₫	dong vietnamita	none
+₭	kip laosiano	none
+₮	tugrik mongol	none
+₲	guarani paraguaio	none
+₴	hryvnia ucraniano	none
+₵	cedi ganês	none
+₸	tenge cazaque	none
+₺	lira turca	none
+₼	manat azeri	none
+₾	lari georgiano	none

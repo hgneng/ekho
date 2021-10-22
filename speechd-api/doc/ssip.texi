@@ -949,11 +949,11 @@ Hello world!
 .
 @end example
 
-@item SET @{ all | self | @var{id} @} PUNCTUATION @{ all | some | none @}
+@item SET @{ all | self | @var{id} @} PUNCTUATION @{ all | most | some | none @}
 Set punctuation mode to the given value.  @code{all} means speak all
 punctuation characters, @code{none} means speak no punctuation characters,
-@code{some} means speak only punctuation characters set in the synthesizer's
-configuration.
+@code{some} and @code{most} mean speak only intermediate sets of punctuation
+characters defined in the synthesizer's configuration or symbols files.
 The default for the Speech Dispatcher implementation of SSIP
 is determined by the @code{DefaultPunctuationMode} setting in the
 @code{speechd.conf} file.  The factory default is @code{none}.
@@ -1419,9 +1419,9 @@ methods.
 
 On the other hand, this may cause security issues as several
 clients may connect to Speech Server and they might originate
-from different users. For this reason, only those messages
-that come from the same user should be accessible by default
-(if not overridden in server configuration).
+from different users. Because of flatpak and other technologies
+checking the user id isn't enough. So now, only those messages
+that come from the same client connection are accessible.
 
 @node Message History in SSIP,  , Purpose of Message History, History Handling Commands
 @subsection Message History in SSIP

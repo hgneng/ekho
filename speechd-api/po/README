@@ -1,11 +1,13 @@
 cs.gmo
 de.gmo
 hu.gmo
+pt_BR.gmo
 
 are respectively generated from
 
 cs.po
 de.po
 hu.po
+pt_BR.po
 
 and thus inherit their licence and copyright notices.

@@ -18,175 +18,315 @@
 ## Process this file with automake to produce Makefile.in
 
 nobase_localedata_DATA = \
-	en/font-variants.dic \
+	base/font-variants.dic \
+	base/symbols.dic \
+	\
 	af/emojis.dic \
 	am/emojis.dic \
-	an/symbols.dic \
 	ar/emojis.dic \
-	ar/symbols.dic \
 	ar_SA/emojis.dic \
 	as/emojis.dic \
 	ast/emojis.dic \
 	az/emojis.dic \
 	be/emojis.dic \
 	bg/emojis.dic \
-	bg/symbols.dic \
 	bn/emojis.dic \
 	br/emojis.dic \
 	bs/emojis.dic \
 	ca/emojis.dic \
-	ca/symbols.dic \
 	ccp/emojis.dic \
 	ceb/emojis.dic \
 	chr/emojis.dic \
-	ckb/symbols.dic \
+	ckb/emojis.dic \
 	cs/emojis.dic \
-	cs/symbols.dic \
 	cy/emojis.dic \
 	da/emojis.dic \
-	da/symbols.dic \
 	de/emojis.dic \
-	de/symbols.dic \
 	de_CH/emojis.dic \
-	de_CH/symbols.dic \
+	doi/emojis.dic \
 	el/emojis.dic \
-	el/symbols.dic \
 	en/emojis.dic \
-	en/symbols.dic \
 	en_AU/emojis.dic \
 	en_CA/emojis.dic \
 	en_GB/emojis.dic \
 	en_IN/emojis.dic \
 	es/emojis.dic \
-	es/symbols.dic \
 	es_419/emojis.dic \
-	es_CO/symbols.dic \
 	es_MX/emojis.dic \
 	es_US/emojis.dic \
 	et/emojis.dic \
 	eu/emojis.dic \
 	fa/emojis.dic \
-	fa/symbols.dic \
 	fi/emojis.dic \
-	fi/symbols.dic \
 	fil/emojis.dic \
 	fo/emojis.dic \
 	fr/emojis.dic \
-	fr/symbols.dic \
 	fr_CA/emojis.dic \
 	ga/emojis.dic \
-	ga/symbols.dic \
 	gd/emojis.dic \
 	gl/emojis.dic \
-	gl/symbols.dic \
 	gu/emojis.dic \
+	ha/emojis.dic \
 	he/emojis.dic \
-	he/symbols.dic \
 	hi/emojis.dic \
-	hi/symbols.dic \
 	hr/emojis.dic \
-	hr/symbols.dic \
 	hu/emojis.dic \
-	hu/symbols.dic \
 	hy/emojis.dic \
 	ia/emojis.dic \
 	id/emojis.dic \
+	ig/emojis.dic \
 	is/emojis.dic \
-	is/symbols.dic \
 	it/emojis.dic \
-	it/symbols.dic \
 	ja/emojis.dic \
-	ja/symbols.dic \
 	jv/emojis.dic \
 	ka/emojis.dic \
-	ka/symbols.dic \
 	kab/emojis.dic \
 	kk/emojis.dic \
+	kl/emojis.dic \
 	km/emojis.dic \
-	kmr/symbols.dic \
 	kn/emojis.dic \
-	kn/symbols.dic \
 	ko/emojis.dic \
-	ko/symbols.dic \
 	kok/emojis.dic \
 	ku/emojis.dic \
 	ky/emojis.dic \
-	ky/symbols.dic \
+	lb/emojis.dic \
 	lo/emojis.dic \
 	lt/emojis.dic \
-	lt/symbols.dic \
 	lv/emojis.dic \
+	mi/emojis.dic \
 	mk/emojis.dic \
-	mk/symbols.dic \
 	ml/emojis.dic \
 	mn/emojis.dic \
-	mn/symbols.dic \
+	mni/emojis.dic \
 	mr/emojis.dic \
 	ms/emojis.dic \
+	mt/emojis.dic \
 	my/emojis.dic \
-	my/symbols.dic \
 	nb/emojis.dic \
-	nb_NO/symbols.dic \
 	ne/emojis.dic \
 	nl/emojis.dic \
-	nl/symbols.dic \
 	nn/emojis.dic \
-	nn_NO/symbols.dic \
+	no/emojis.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
-	pa/symbols.dic \
+	pa_Arab/emojis.dic \
+	pcm/emojis.dic \
 	pl/emojis.dic \
-	pl/symbols.dic \
 	ps/emojis.dic \
 	pt/emojis.dic \
-	pt_BR/symbols.dic \
 	pt_PT/emojis.dic \
-	pt_PT/symbols.dic \
 	qu/emojis.dic \
+	rm/emojis.dic \
 	ro/emojis.dic \
-	ro/symbols.dic \
 	ru/emojis.dic \
-	ru/symbols.dic \
+	rw/emojis.dic \
+	sa/emojis.dic \
 	sd/emojis.dic \
 	si/emojis.dic \
 	sk/emojis.dic \
-	sk/symbols.dic \
 	sl/emojis.dic \
-	sl/symbols.dic \
 	so/emojis.dic \
-	so/symbols.dic \
 	sq/emojis.dic \
-	sq/symbols.dic \
 	sr/emojis.dic \
-	sr/symbols.dic \
 	sr_BA/emojis.dic \
 	sv/emojis.dic \
-	sv/symbols.dic \
 	sw/emojis.dic \
 	sw_KE/emojis.dic \
 	ta/emojis.dic \
-	ta/symbols.dic \
 	te/emojis.dic \
+	tg/emojis.dic \
 	th/emojis.dic \
+	ti/emojis.dic \
 	tk/emojis.dic \
 	to/emojis.dic \
 	tr/emojis.dic \
-	tr/symbols.dic \
+	ug/emojis.dic \
 	uk/emojis.dic \
-	uk/symbols.dic \
 	ur/emojis.dic \
 	uz/emojis.dic \
 	vi/emojis.dic \
-	vi/symbols.dic \
+	wo/emojis.dic \
+	xh/emojis.dic \
+	yo/emojis.dic \
+	yo_BJ/emojis.dic \
 	yue/emojis.dic \
 	zh/emojis.dic \
+	zh_HK/emojis.dic \
+	zh_TW/emojis.dic \
+	zu/emojis.dic \
+	\
+	an/orca.dic \
+	ar/orca.dic \
+	ast/orca.dic \
+	base/orca.dic \
+	be/orca.dic \
+	bg/orca.dic \
+	bn_IN/orca.dic \
+	bn/orca.dic \
+	bs/orca.dic \
+	ca/orca.dic \
+	ca@valencia/orca.dic \
+	cs/orca.dic \
+	da/orca.dic \
+	de/orca.dic \
+	el/orca.dic \
+	es/orca.dic \
+	eu/orca.dic \
+	fr/orca.dic \
+	fur/orca.dic \
+	gl/orca.dic \
+	hi/orca.dic \
+	hr/orca.dic \
+	hu/orca.dic \
+	id/orca.dic \
+	it/orca.dic \
+	lt/orca.dic \
+	lv/orca.dic \
+	ml/orca.dic \
+	nb/orca.dic \
+	ne/orca.dic \
+	nl/orca.dic \
+	oc/orca.dic \
+	pa/orca.dic \
+	pl/orca.dic \
+	pt_BR/orca.dic \
+	pt/orca.dic \
+	ro/orca.dic \
+	ru/orca.dic \
+	sk/orca.dic \
+	sr@latin/orca.dic \
+	sr/orca.dic \
+	sv/orca.dic \
+	te/orca.dic \
+	tg/orca.dic \
+	th/orca.dic \
+	tr/orca.dic \
+	ug/orca.dic \
+	uk/orca.dic \
+	vi/orca.dic \
+	\
+	an/orca-chars.dic \
+	ar/orca-chars.dic \
+	ast/orca-chars.dic \
+	base/orca-chars.dic \
+	be/orca-chars.dic \
+	bg/orca-chars.dic \
+	bn_IN/orca-chars.dic \
+	bn/orca-chars.dic \
+	bs/orca-chars.dic \
+	ca/orca-chars.dic \
+	ca@valencia/orca-chars.dic \
+	cs/orca-chars.dic \
+	da/orca-chars.dic \
+	de/orca-chars.dic \
+	el/orca-chars.dic \
+	eo/orca-chars.dic \
+	es/orca-chars.dic \
+	eu/orca-chars.dic \
+	fi/orca-chars.dic \
+	fr/orca-chars.dic \
+	gl/orca-chars.dic \
+	hi/orca-chars.dic \
+	hr/orca-chars.dic \
+	hu/orca-chars.dic \
+	id/orca-chars.dic \
+	it/orca-chars.dic \
+	lt/orca-chars.dic \
+	lv/orca-chars.dic \
+	mk/orca-chars.dic \
+	ml/orca-chars.dic \
+	ms/orca-chars.dic \
+	nb/orca-chars.dic \
+	ne/orca-chars.dic \
+	nl/orca-chars.dic \
+	nn/orca-chars.dic \
+	oc/orca-chars.dic \
+	pa/orca-chars.dic \
+	pl/orca-chars.dic \
+	pt_BR/orca-chars.dic \
+	pt/orca-chars.dic \
+	ro/orca-chars.dic \
+	ru/orca-chars.dic \
+	sk/orca-chars.dic \
+	sl/orca-chars.dic \
+	sq/orca-chars.dic \
+	sr@latin/orca-chars.dic \
+	sr/orca-chars.dic \
+	sv/orca-chars.dic \
+	ta/orca-chars.dic \
+	te/orca-chars.dic \
+	tg/orca-chars.dic \
+	th/orca-chars.dic \
+	tr/orca-chars.dic \
+	ug/orca-chars.dic \
+	uk/orca-chars.dic \
+	vi/orca-chars.dic \
+	zh_CN/orca-chars.dic \
+	zh_HK/orca-chars.dic \
+	zh_TW/orca-chars.dic \
+	\
+	an/symbols.dic \
+	ar/symbols.dic \
+	bg/symbols.dic \
+	ca/symbols.dic \
+	ckb/symbols.dic \
+	cs/symbols.dic \
+	da/symbols.dic \
+	de/symbols.dic \
+	de_CH/symbols.dic \
+	el/symbols.dic \
+	en/symbols.dic \
+	es/symbols.dic \
+	es_CO/symbols.dic \
+	fa/symbols.dic \
+	fi/symbols.dic \
+	fr/symbols.dic \
+	ga/symbols.dic \
+	gl/symbols.dic \
+	he/symbols.dic \
+	hi/symbols.dic \
+	hr/symbols.dic \
+	hu/symbols.dic \
+	is/symbols.dic \
+	it/symbols.dic \
+	ja/symbols.dic \
+	ka/symbols.dic \
+	kmr/symbols.dic \
+	kn/symbols.dic \
+	ko/symbols.dic \
+	ky/symbols.dic \
+	lt/symbols.dic \
+	mk/symbols.dic \
+	mn/symbols.dic \
+	my/symbols.dic \
+	nb_NO/symbols.dic \
+	nl/symbols.dic \
+	nn_NO/symbols.dic \
+	pa/symbols.dic \
+	pl/symbols.dic \
+	pt_BR/symbols.dic \
+	pt_PT/symbols.dic \
+	ro/symbols.dic \
+	ru/symbols.dic \
+	sk/symbols.dic \
+	sl/symbols.dic \
+	so/symbols.dic \
+	sq/symbols.dic \
+	sr/symbols.dic \
+	sv/symbols.dic \
+	ta/symbols.dic \
+	tr/symbols.dic \
+	uk/symbols.dic \
+	vi/symbols.dic \
 	zh/symbols.dic \
 	zh_CN/symbols.dic \
-	zh_HK/emojis.dic \
 	zh_HK/symbols.dic \
-	zh_TW/emojis.dic \
-	zh_TW/symbols.dic \
-	zu/emojis.dic
+	zh_TW/symbols.dic
+
+nobase_localedata_DATA += \
+	de/gender-neutral.dic \
+	es/gender-neutral.dic \
+	fr/gender-neutral.dic
 
 EXTRA_DIST = ${nobase_localedata_DATA}
 
@@ -213,6 +353,8 @@ ES_419_CLDR = \
 
 import-symbols:
 	./import-symbols.py
+	./import-orca
+	./import-orca -chars
 
 install-data-hook:
 	for lang419 in $(ES_419_CLDR) ; do \

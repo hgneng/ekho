@@ -14,7 +14,8 @@ You will need these components to compile Speech Dispatcher:
         (http://www.python.org)
 
 Only if you are building from Git, you also need these:
- - automake 1.11+, autoconf, pkg-config, libtool, texinfo and gettext
+ - automake 1.11+, autoconf, autopoint, pkg-config, libtool, makeinfo, texinfo
+   and gettext
 
 We recommend to also install these packages:
  - PulseAudio (http://www.pulseaudio.org)
@@ -164,7 +165,8 @@ $ make all
 If everything worked ok, you can install all the parts to the default
 path by running (as root):
 
- $ make install
+ # make install
+ # ldconfig
 
 If it doesn't work, please see "Building from Git" if this is your case. If
 not, you can ask us on speechd-discuss@nongnu.org .
@@ -181,7 +183,7 @@ sensitive.
 Then please do:
 
  $ cd speech-dispatcher # where speech-dispatcher is your Git clone
- $ autoreconf -i
+ $ ./build.sh
 
 Now the configure file should be created and you can proceed like with
 an ordinary instalation.
@@ -213,6 +215,7 @@ You can try to execute Speech Dispatcher by
 If Speech Dispatcher is running, you can test if it's working by:
  (on some other console)
  $ cd speech-dispatcher-[version]/src/tests
+ $ make check
  $ ./run_test basic.test
 (You can also try other tests, if you like.)
 
@@ -273,7 +276,7 @@ Copyright (C) 2010 Rui Batista <ruiandrebatista@gmail.com>
 Copyright (C) 2010 William Hubbs <w.d.hubbs@gmail.com>
 Copyright (C) 2010-2016 Andrei Kholodnyi <andrei.kholodnyi@gmail.com>
 Copyright (C) 2015 Luke Yelavich <themuso@themuso.com>
-Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software

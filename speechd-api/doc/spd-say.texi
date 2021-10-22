@@ -98,7 +98,7 @@ Set the synthesis voice.  The synthesis voice is an attribute of the
 chosen synthesizer.  Most users will probably not wish to set it, but
 this setting is provided for completeness.
 @item -m or --punctuation-mode
-Set the punctuation mode (none, some, all).  Default see below.
+Set the punctuation mode (none, some, most, all).  Default see below.
 @item -s or --spelling
 Spell the message.
 @item -x or --ssml

@@ -3,16 +3,1461 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+🏻	svijetla koža	none
+🏼	srednje svijetla koža	none
+🏽	ni svijetla ni tamna koža	none
+←	strelica koja pokazuje nalijevo	none
+↚	kosa crta sa strelicom nalijevo	none
+↓	strelica koja pokazuje nadolje	none
+↞	strelica nalijevo sa dva vrha	none
+↡	strelica nadolje sa dva vrha	none
+↰	strelica nagore sa vrhom nalijevo	none
+↲	strelica nadolje sa vrhom nalijevo	none
+↳	strelica nadolje sa vrhom nadesno	none
+⇄	strelica udesno iznad strelice nalijevo	none
+⇅	strelica nagore i strelica nadolje	none
+⇆	strelica nalijevo iznad strelice nadesno	none
+⇇	uparene strelice nalijevo	none
+⇊	uparene strelice nadolje	none
+⇐	dvostruka strelca nalijevo	none
+⇓	dvostruka strelica nadolje	none
+⇔	dvostruka strelica nalijevo i nadesno	none
+⇖	dvostruka strelica nagore i nalijevo	none
+⇘	dvostruka strelica nadolje i nadesno	none
+⇙	dvostruka strelica nadolje i nalijevo	none
+⇚	trostruka strelica nalijevo	none
+⇠	isprekidana crtica nalijevo	none
+⇣	isprekidana crtica nadolje	none
+√	kvadratni korijen	none
+∩	presjek	none
+▼	ispunjen trougao okrenut nadolje	none
+😀	lice sa širokim osmijehom	none
+😃	lice sa oduševljenim osmijehom	none
+😄	lice koje se slatko smije	none
+😆	lice sa zločestim osmijehom	none
+😅	lice sa nervoznim osmijehom	none
+🤣	valjanje od smijeha	none
+🙂	blago nasmijano lice	none
+😊	nasmijano lice sa nasmijanim očima	none
+😇	nasmijano lice sa oreolom	none
+😍	nasmijano lice sa očima u obliku srca	none
+🤩	pod srećnom zvijezdom	none
+☺	nasmijano lice	none
+😙	lice koje ljubi sa nasmijanim očima	none
+🥲	nasmijano lice sa suzom	none
+😏	lice koje se zlobno smješka	none
+🤒	lice sa toplomjerom	none
+😎	nasmijano lice sa naočarima za sunce	none
+🥱	lice zijeva	none
+😈	nasmijano lice sa rogovima	none
+😺	nasmijana mačka sa otvorenim ustima	none
+😸	mačka sa širokim osmijehom i nasmijanim očima	none
+😻	nasmijana mačka sa očima u obliku srca	none
+😼	mačka sa kiselim osmijehom	none
+💘	srce probodeno strijelom	none
+❤‍🩹	srce koje zacjeljuje	none
+🤍	bijelo srce	none
+💨	bježanje	none
+🗨	oblačić za govor usmjeren nalijevo	none
+🗯	oblačić za ljutiti govor usmjeren desno	none
+✌	znak pobjede	none
+👈	kažiprst koji pokazuje ulijevo	none
+👇	kažiprst koji pokazuje nadolje otpozadi	none
+👎	palac nadolje	none
+👊	usmjerena pesnica	none
+🤛	pesnica ulijevo	none
+🦿	mehanička noga	none
+🧒	dijete	none
+👦	dječak	none
+👧	djevojčica	none
+💁‍♂	muškarac otkriva namjere	none
+💁‍♀	žena otkriva namjere	none
+🧏‍♂	gluv čovjek	none
+🤷	slijeganje ramenima	none
+🤷‍♂	muškarac sliježe ramenima	none
+🤷‍♀	žena sliježe ramenima	none
+🧑‍🎓	student(kinja)	none
+🧑‍🎤	pjevač	none
+👨‍🎤	muškarac pjevač	none
+👩‍🎤	pjevačica	none
+🧑‍🎨	umjetnik	none
+👨‍🎨	muškarac umjetnik	none
+👩‍🎨	umjetnica	none
+🧑‍✈	pilot(kinja)	none
+👳‍♂	čovjek sa turbanom	none
+👲	čovjek sa kineskom kapom	none
+🤵	čovjek u smokingu	none
+👰	nevjesta sa velom	none
+🎅	Djed Mraz	none
+🦸	superheroj	none
+🦸‍♂	muškarac superheroj	none
+🦸‍♀	žena superheroj	none
+🚶	pješak	none
+🧍‍♂	čovjek stoji	none
+👨‍🦯	čovjek sa pomoćnim štapom	none
+👨‍🦼	čovjek u motornim kolicima	none
+👨‍🦽	čovjek u mehaničkim kolicima	none
+🕴	muškarac u poslovnom odijelu koji lebdi	none
+👤	silueta čovjeka	none
+🦳	sijeda kosa	none
+🐹	hrčak	none
+🐿	vjeverica	none
+🐻	medvjed	none
+🐻‍❄	polarni medvjed	none
+🦥	ljenjivac	none
+🐓	pijevac	none
+🐥	pile sprijeda	none
+🐛	gusjenica	none
+🌸	cvijet trešnje	none
+💮	bijeli cvijet	none
+🥀	uveli cvijet	none
+🌼	cvijet	none
+🌾	snop riže	none
+☘	djetelina	none
+🍀	djetelina sa četiri lista	none
+🍃	list koji leprša na vjetru	none
+🥕	mrkva	none
+🧄	bijeli luk	none
+🍞	hljeb	none
+🫓	pljosnat hljeb	none
+🍘	kreker od riže	none
+🍙	kuglica od riže	none
+🍚	kuvana riža	none
+🍛	riža sa karijem	none
+🥮	mjesečev kolač	none
+🥛	čaša mlijeka	none
+🍾	boca iz koje izlijeće čep	none
+🗺	mapa svijeta	none
+🏔	snježni vrh planine	none
+🏩	ljubav	none
+🏪	prodavnica mješovite robe	none
+💒	vjenčanje	none
+🌃	zvjezdana noć	none
+🚈	gradska željeznica	none
+🚞	planinska željeznica	none
+🚍	autobus sprijeda	none
+🚔	policijski automobil sprijeda	none
+🚘	automobil sprijeda	none
+🛺	auto-rikša	none
+🛣	auto-put	none
+🛤	željeznička pruga	none
+🛫	polijetanje aviona	none
+🛬	slijetanje aviona	none
+💺	sjedište	none
+🚟	viseća željeznica	none
+⌛	pješčani sat	none
+⏳	pješčani sat sa pijeskom koji teče	none
+🌑	mlad mjesec	none
+🌒	mjesečev srp u porastu	none
+🌓	mjesec u prvoj četvrti	none
+🌔	skoro pa pun mjesec	none
+🌕	pun mjesec	none
+🌖	mjesec poslije punog mjeseca	none
+🌗	mjesec u posljednjoj četvrti	none
+🌘	mjesečev srp u opadanju	none
+🌙	mjesečev srp	none
+🌚	mlad mjesec sa licem	none
+🌛	mjesec u prvoj četvrti sa licem	none
+🌜	mjesec u posljednjoj četvrti sa licem	none
+🌝	pun mjesec sa licem	none
+⭐	zvijezda	none
+🌟	zvijezda koja svijetli	none
+🌠	zvijezda padalica	none
+🌌	mliječni put	none
+🌨	oblak sa snijegom	none
+🌬	lice vjetra	none
+☃	snješko bijelić	none
+⛄	snješko bijelić bez snijega	none
+🎃	svjetiljka od bundeve	none
+🎏	vjetrokaz u obliku šarana	none
+🎑	ceremonija u čast mjeseca	none
+🪁	zmaj na vjetar	none
+🧩	dio slagalice	none
+🧸	medvjedić	none
+♟	šahovski pješak	none
+🎴	karte za igranje sa cvijetom	none
+🎭	scenska umjetnost	none
+🥼	bijeli mantil	none
+🩱	jednodijelni kupaći	none
+👚	ženska odjeća	none
+🪖	šljem	none
+⛑	kaciga sa bijelim krstom	none
+🔍	lupa usmjerena nalijevo	none
+🔎	lupa usmjerena nadesno	none
+🕯	svijeća	none
+📒	bilježnica	none
+📑	stranice sa bilješkama	none
+🔖	obilježivač stranica u knjizi	none
+🗂	razdjelnici za katalog kartica	none
+🗒	bilježnica sa spiralom	none
+🔓	otključano	none
+🪓	sjekira	none
+🏹	luk i strijela	none
+🦯	bijeli štap	none
+🚸	prelaz za djecu	none
+🚷	zabranjeno za pješake	none
+🔞	zabranjeno za maloljetne	none
+↘	strelica nadolje i nadesno	none
+⬇	strelica nadolje	none
+↙	strelica nadolje i nalijevo	none
+⬅	strelica nalijevo	none
+↖	strelica nagore i nalijevo	none
+↕	strelica nagore i nadolje	none
+↔	strelica nalijevo i nadesno	none
+↮	strelica sa vrhom nadesno i nalijevo i sa kosom crtom	none
+↪	strelica za polukružni okret ulijevo	none
+⤵	strelica koja skreće nadolje	none
+🔄	strelice koje se vrte ulijevo	none
+🛐	vjerski objekat	none
+✡	davidova zvijezda	none
+☪	zvijezda i polumjesec	none
+🔯	šestokraka zvijezda sa tačkom	none
+♍	djevica u horoskopu	none
+♐	strijelac u horoskopu	none
+🔂	dugme za ponavljanje jedne pjesme	none
+⏩	dugme za premotavanje unaprijed	none
+⏭	dugme za sljedeću pjesmu	none
+⏮	dugme za posljednju pjesmu	none
+🔽	dugme za kretanje nadolje	none
+⏬	dugme za brzo kretanje nadolje	none
+🔆	dugme za povećavanje osvijetljenosti	none
+➗	crni znak za dijeljenje	none
+❔	bijeli upitnik	none
+❕	bijeli uzvičnik	none
+✳	osmokraka zvijezda	none
+✴	osmokraka zvjezdica	none
+⚪	bijeli krug	none
+⬜	veliki bijeli kvadrat	none
+◻	bijeli kvadrat srednje veličine	none
+◽	srednjemali bijeli kvadrat	none
+▫	mali bijeli kvadrat	none
+🔻	crveni trougao okrenut nadolje	none
+🔳	bijelo kvadratno dugme	none
+🏳	bijela zastava	none
+🏳‍⚧	transrodna zastava	none
+👋🏻	ruka koja maše svijetla koža	none
+👋🏼	ruka koja maše srednje svijetla koža	none
+👋🏽	ruka koja maše ni svijetla ni tamna koža	none
+🤚🏻	podignut dlan svijetla koža	none
+🤚🏼	podignut dlan srednje svijetla koža	none
+🤚🏽	podignut dlan ni svijetla ni tamna koža	none
+🖐🏻	šaka sa raširenim prstima svijetla koža	none
+🖐🏼	šaka sa raširenim prstima srednje svijetla koža	none
+🖐🏽	šaka sa raširenim prstima ni svijetla ni tamna koža	none
+✋🏻	podignuta ruka svijetla koža	none
+✋🏼	podignuta ruka srednje svijetla koža	none
+✋🏽	podignuta ruka ni svijetla ni tamna koža	none
+🖖🏻	vulkanski pozdrav svijetla koža	none
+🖖🏼	vulkanski pozdrav srednje svijetla koža	none
+🖖🏽	vulkanski pozdrav ni svijetla ni tamna koža	none
+👌🏻	znak rukom „u redu“ svijetla koža	none
+👌🏼	znak rukom „u redu“ srednje svijetla koža	none
+👌🏽	znak rukom „u redu“ ni svijetla ni tamna koža	none
+🤌🏻	skupljeni prsti svijetla koža	none
+🤌🏼	skupljeni prsti srednje svijetla koža	none
+🤌🏽	skupljeni prsti ni svijetla ni tamna koža	none
+🤏🏻	ruka štipa svijetla koža	none
+🤏🏼	ruka štipa srednje svijetla koža	none
+🤏🏽	ruka štipa ni svijetla ni tamna koža	none
+✌🏻	znak pobjede svijetla koža	none
+✌🏼	znak pobjede srednje svijetla koža	none
+✌🏽	znak pobjede ni svijetla ni tamna koža	none
+✌🏾	znak pobjede srednje tamna koža	none
+✌🏿	znak pobjede tamna koža	none
+🤞🏻	prekršteni prsti svijetla koža	none
+🤞🏼	prekršteni prsti srednje svijetla koža	none
+🤞🏽	prekršteni prsti ni svijetla ni tamna koža	none
+🤟🏻	pokret volim te svijetla koža	none
+🤟🏼	pokret volim te srednje svijetla koža	none
+🤟🏽	pokret volim te ni svijetla ni tamna koža	none
+🤘🏻	znak rogova svijetla koža	none
+🤘🏼	znak rogova srednje svijetla koža	none
+🤘🏽	znak rogova ni svijetla ni tamna koža	none
+🤙🏻	znak rukom za telefon svijetla koža	none
+🤙🏼	znak rukom za telefon srednje svijetla koža	none
+🤙🏽	znak rukom za telefon ni svijetla ni tamna koža	none
+👈🏻	kažiprst koji pokazuje ulijevo svijetla koža	none
+👈🏼	kažiprst koji pokazuje ulijevo srednje svijetla koža	none
+👈🏽	kažiprst koji pokazuje ulijevo ni svijetla ni tamna koža	none
+👈🏾	kažiprst koji pokazuje ulijevo srednje tamna koža	none
+👈🏿	kažiprst koji pokazuje ulijevo tamna koža	none
+👉🏻	kažiprst koji pokazuje udesno svijetla koža	none
+👉🏼	kažiprst koji pokazuje udesno srednje svijetla koža	none
+👉🏽	kažiprst koji pokazuje udesno ni svijetla ni tamna koža	none
+👆🏻	kažiprst koji pokazuje nagore otpozadi svijetla koža	none
+👆🏼	kažiprst koji pokazuje nagore otpozadi srednje svijetla koža	none
+👆🏽	kažiprst koji pokazuje nagore otpozadi ni svijetla ni tamna koža	none
+🖕🏻	srednji prst svijetla koža	none
+🖕🏼	srednji prst srednje svijetla koža	none
+🖕🏽	srednji prst ni svijetla ni tamna koža	none
+👇🏻	kažiprst koji pokazuje nadolje otpozadi svijetla koža	none
+👇🏼	kažiprst koji pokazuje nadolje otpozadi srednje svijetla koža	none
+👇🏽	kažiprst koji pokazuje nadolje otpozadi ni svijetla ni tamna koža	none
+👇🏾	kažiprst koji pokazuje nadolje otpozadi srednje tamna koža	none
+👇🏿	kažiprst koji pokazuje nadolje otpozadi tamna koža	none
+☝🏻	kažiprst koji pokazuje nagore svijetla koža	none
+☝🏼	kažiprst koji pokazuje nagore srednje svijetla koža	none
+☝🏽	kažiprst koji pokazuje nagore ni svijetla ni tamna koža	none
+👍🏻	palac nagore svijetla koža	none
+👍🏼	palac nagore srednje svijetla koža	none
+👍🏽	palac nagore ni svijetla ni tamna koža	none
+👎🏻	palac nadolje svijetla koža	none
+👎🏼	palac nadolje srednje svijetla koža	none
+👎🏽	palac nadolje ni svijetla ni tamna koža	none
+👎🏾	palac nadolje srednje tamna koža	none
+👎🏿	palac nadolje tamna koža	none
+✊🏻	pesnica svijetla koža	none
+✊🏼	pesnica srednje svijetla koža	none
+✊🏽	pesnica ni svijetla ni tamna koža	none
+👊🏻	usmjerena pesnica svijetla koža	none
+👊🏼	usmjerena pesnica srednje svijetla koža	none
+👊🏽	usmjerena pesnica ni svijetla ni tamna koža	none
+👊🏾	usmjerena pesnica srednje tamna koža	none
+👊🏿	usmjerena pesnica tamna koža	none
+🤛🏻	pesnica ulijevo svijetla koža	none
+🤛🏼	pesnica ulijevo srednje svijetla koža	none
+🤛🏽	pesnica ulijevo ni svijetla ni tamna koža	none
+🤛🏾	pesnica ulijevo srednje tamna koža	none
+🤛🏿	pesnica ulijevo tamna koža	none
+🤜🏻	pesnica udesno svijetla koža	none
+🤜🏼	pesnica udesno srednje svijetla koža	none
+🤜🏽	pesnica udesno ni svijetla ni tamna koža	none
+👏🏻	ruke koje tapšu svijetla koža	none
+👏🏼	ruke koje tapšu srednje svijetla koža	none
+👏🏽	ruke koje tapšu ni svijetla ni tamna koža	none
+🙌🏻	podignute ruke svijetla koža	none
+🙌🏼	podignute ruke srednje svijetla koža	none
+🙌🏽	podignute ruke ni svijetla ni tamna koža	none
+👐🏻	rasklopljene šake svijetla koža	none
+👐🏼	rasklopljene šake srednje svijetla koža	none
+👐🏽	rasklopljene šake ni svijetla ni tamna koža	none
+🤲🏻	dlanovi nagore zajedno svijetla koža	none
+🤲🏼	dlanovi nagore zajedno srednje svijetla koža	none
+🤲🏽	dlanovi nagore zajedno ni svijetla ni tamna koža	none
+🙏🏻	spojeni dlanovi svijetla koža	none
+🙏🏼	spojeni dlanovi srednje svijetla koža	none
+🙏🏽	spojeni dlanovi ni svijetla ni tamna koža	none
+✍🏻	ruka koja piše svijetla koža	none
+✍🏼	ruka koja piše srednje svijetla koža	none
+✍🏽	ruka koja piše ni svijetla ni tamna koža	none
+💅🏻	lak za nokte svijetla koža	none
+💅🏼	lak za nokte srednje svijetla koža	none
+💅🏽	lak za nokte ni svijetla ni tamna koža	none
+🤳🏻	selfi svijetla koža	none
+🤳🏼	selfi srednje svijetla koža	none
+🤳🏽	selfi ni svijetla ni tamna koža	none
+💪🏻	stegnuti biceps svijetla koža	none
+💪🏼	stegnuti biceps srednje svijetla koža	none
+💪🏽	stegnuti biceps ni svijetla ni tamna koža	none
+🦵🏻	noga svijetla koža	none
+🦵🏼	noga srednje svijetla koža	none
+🦵🏽	noga ni svijetla ni tamna koža	none
+🦶🏻	stopalo svijetla koža	none
+🦶🏼	stopalo srednje svijetla koža	none
+🦶🏽	stopalo ni svijetla ni tamna koža	none
+👂🏻	uvo svijetla koža	none
+👂🏼	uvo srednje svijetla koža	none
+👂🏽	uvo ni svijetla ni tamna koža	none
+🦻🏻	uvo sa slušnim aparatom svijetla koža	none
+🦻🏼	uvo sa slušnim aparatom srednje svijetla koža	none
+🦻🏽	uvo sa slušnim aparatom ni svijetla ni tamna koža	none
+👃🏻	nos svijetla koža	none
+👃🏼	nos srednje svijetla koža	none
+👃🏽	nos ni svijetla ni tamna koža	none
+👶🏻	beba svijetla koža	none
+👶🏼	beba srednje svijetla koža	none
+👶🏽	beba ni svijetla ni tamna koža	none
+🧒🏻	dijete svijetla koža	none
+🧒🏼	dijete srednje svijetla koža	none
+🧒🏽	dijete ni svijetla ni tamna koža	none
+🧒🏾	dijete srednje tamna koža	none
+🧒🏿	dijete tamna koža	none
+👦🏻	dječak svijetla koža	none
+👦🏼	dječak srednje svijetla koža	none
+👦🏽	dječak ni svijetla ni tamna koža	none
+👦🏾	dječak srednje tamna koža	none
+👦🏿	dječak tamna koža	none
+👧🏻	djevojčica svijetla koža	none
+👧🏼	djevojčica srednje svijetla koža	none
+👧🏽	djevojčica ni svijetla ni tamna koža	none
+👧🏾	djevojčica srednje tamna koža	none
+👧🏿	djevojčica tamna koža	none
+🧑🏻	odrasla osoba svijetla koža	none
+🧑🏼	odrasla osoba srednje svijetla koža	none
+🧑🏽	odrasla osoba ni svijetla ni tamna koža	none
+👱🏻	osoba sa plavom kosom svijetla koža	none
+👱🏼	osoba sa plavom kosom srednje svijetla koža	none
+👱🏽	osoba sa plavom kosom ni svijetla ni tamna koža	none
+🧑🏻‍❤‍💋‍🧑🏼	poljubac odrasla osoba, odrasla osoba, svijetla koža i srednje svijetla koža	none
+🧑🏻‍❤‍💋‍🧑🏽	poljubac odrasla osoba, odrasla osoba, svijetla koža i ni svijetla ni tamna koža	none
+🧑🏻‍❤‍💋‍🧑🏾	poljubac odrasla osoba, odrasla osoba, svijetla koža i srednje tamna koža	none
+🧑🏻‍❤‍💋‍🧑🏿	poljubac odrasla osoba, odrasla osoba, svijetla koža i tamna koža	none
+🧑🏼‍❤‍💋‍🧑🏻	poljubac odrasla osoba, odrasla osoba, srednje svijetla koža i svijetla koža	none
+🧑🏼‍❤‍💋‍🧑🏽	poljubac odrasla osoba, odrasla osoba, srednje svijetla koža i ni svijetla ni tamna koža	none
+🧑🏼‍❤‍💋‍🧑🏾	poljubac odrasla osoba, odrasla osoba, srednje svijetla koža i srednje tamna koža	none
+🧑🏼‍❤‍💋‍🧑🏿	poljubac odrasla osoba, odrasla osoba, srednje svijetla koža i tamna koža	none
+🧑🏽‍❤‍💋‍🧑🏻	poljubac odrasla osoba, odrasla osoba, ni svijetla ni tamna koža i svijetla koža	none
+🧑🏽‍❤‍💋‍🧑🏼	poljubac odrasla osoba, odrasla osoba, ni svijetla ni tamna koža i srednje svijetla koža	none
+🧑🏽‍❤‍💋‍🧑🏾	poljubac odrasla osoba, odrasla osoba, ni svijetla ni tamna koža i srednje tamna koža	none
+🧑🏽‍❤‍💋‍🧑🏿	poljubac odrasla osoba, odrasla osoba, ni svijetla ni tamna koža i tamna koža	none
+🧑🏾‍❤‍💋‍🧑🏻	poljubac odrasla osoba, odrasla osoba, srednje tamna koža i svijetla koža	none
+🧑🏾‍❤‍💋‍🧑🏼	poljubac odrasla osoba, odrasla osoba, srednje tamna koža i srednje svijetla koža	none
+🧑🏾‍❤‍💋‍🧑🏽	poljubac odrasla osoba, odrasla osoba, srednje tamna koža i ni svijetla ni tamna koža	none
+🧑🏿‍❤‍💋‍🧑🏻	poljubac odrasla osoba, odrasla osoba, tamna koža i svijetla koža	none
+🧑🏿‍❤‍💋‍🧑🏼	poljubac odrasla osoba, odrasla osoba, tamna koža i srednje svijetla koža	none
+🧑🏿‍❤‍💋‍🧑🏽	poljubac odrasla osoba, odrasla osoba, tamna koža i ni svijetla ni tamna koža	none
+🧑🏻‍❤‍🧑🏼	par sa srcem odrasla osoba, odrasla osoba, svijetla koža i srednje svijetla koža	none
+🧑🏻‍❤‍🧑🏽	par sa srcem odrasla osoba, odrasla osoba, svijetla koža i ni svijetla ni tamna koža	none
+🧑🏻‍❤‍🧑🏾	par sa srcem odrasla osoba, odrasla osoba, svijetla koža i srednje tamna koža	none
+🧑🏻‍❤‍🧑🏿	par sa srcem odrasla osoba, odrasla osoba, svijetla koža i tamna koža	none
+🧑🏼‍❤‍🧑🏻	par sa srcem odrasla osoba, odrasla osoba, srednje svijetla koža i svijetla koža	none
+🧑🏼‍❤‍🧑🏽	par sa srcem odrasla osoba, odrasla osoba, srednje svijetla koža i ni svijetla ni tamna koža	none
+🧑🏼‍❤‍🧑🏾	par sa srcem odrasla osoba, odrasla osoba, srednje svijetla koža i srednje tamna koža	none
+🧑🏼‍❤‍🧑🏿	par sa srcem odrasla osoba, odrasla osoba, srednje svijetla koža i tamna koža	none
+🧑🏽‍❤‍🧑🏻	par sa srcem odrasla osoba, odrasla osoba, ni svijetla ni tamna koža i svijetla koža	none
+🧑🏽‍❤‍🧑🏼	par sa srcem odrasla osoba, odrasla osoba, ni svijetla ni tamna koža i srednje svijetla koža	none
+🧑🏽‍❤‍🧑🏾	par sa srcem odrasla osoba, odrasla osoba, ni svijetla ni tamna koža i srednje tamna koža	none
+🧑🏽‍❤‍🧑🏿	par sa srcem odrasla osoba, odrasla osoba, ni svijetla ni tamna koža i tamna koža	none
+🧑🏾‍❤‍🧑🏻	par sa srcem odrasla osoba, odrasla osoba, srednje tamna koža i svijetla koža	none
+🧑🏾‍❤‍🧑🏼	par sa srcem odrasla osoba, odrasla osoba, srednje tamna koža i srednje svijetla koža	none
+🧑🏾‍❤‍🧑🏽	par sa srcem odrasla osoba, odrasla osoba, srednje tamna koža i ni svijetla ni tamna koža	none
+🧑🏿‍❤‍🧑🏻	par sa srcem odrasla osoba, odrasla osoba, tamna koža i svijetla koža	none
+🧑🏿‍❤‍🧑🏼	par sa srcem odrasla osoba, odrasla osoba, tamna koža i srednje svijetla koža	none
+🧑🏿‍❤‍🧑🏽	par sa srcem odrasla osoba, odrasla osoba, tamna koža i ni svijetla ni tamna koža	none
+🧑🏻‍🦰	odrasla osoba svijetla koža i crvena kosa	none
+🧑🏼‍🦰	odrasla osoba srednje svijetla koža i crvena kosa	none
+🧑🏽‍🦰	odrasla osoba ni svijetla ni tamna koža i crvena kosa	none
+🧑🏻‍🦱	odrasla osoba svijetla koža i kovrdžava kosa	none
+🧑🏼‍🦱	odrasla osoba srednje svijetla koža i kovrdžava kosa	none
+🧑🏽‍🦱	odrasla osoba ni svijetla ni tamna koža i kovrdžava kosa	none
+🧑‍🦳	odrasla osoba sijeda kosa	none
+🧑🏻‍🦳	odrasla osoba svijetla koža i sijeda kosa	none
+🧑🏼‍🦳	odrasla osoba srednje svijetla koža i sijeda kosa	none
+🧑🏽‍🦳	odrasla osoba ni svijetla ni tamna koža i sijeda kosa	none
+🧑🏾‍🦳	odrasla osoba srednje tamna koža i sijeda kosa	none
+🧑🏿‍🦳	odrasla osoba tamna koža i sijeda kosa	none
+🧑🏻‍🦲	odrasla osoba svijetla koža i ćelav	none
+🧑🏼‍🦲	odrasla osoba srednje svijetla koža i ćelav	none
+🧑🏽‍🦲	odrasla osoba ni svijetla ni tamna koža i ćelav	none
+👨🏻	muškarac svijetla koža	none
+👨🏼	muškarac srednje svijetla koža	none
+👨🏽	muškarac ni svijetla ni tamna koža	none
+🧔🏻	osoba sa bradom svijetla koža	none
+🧔🏼	osoba sa bradom srednje svijetla koža	none
+🧔🏽	osoba sa bradom ni svijetla ni tamna koža	none
+🧔🏻‍♂	muškarac svijetla koža i brada	none
+🧔🏼‍♂	muškarac srednje svijetla koža i brada	none
+🧔🏽‍♂	muškarac ni svijetla ni tamna koža i brada	none
+👱🏻‍♂	plav muškarac svijetla koža	none
+👱🏼‍♂	plav muškarac srednje svijetla koža	none
+👱🏽‍♂	plav muškarac ni svijetla ni tamna koža	none
+👨🏻‍❤‍💋‍👨🏻	poljubac muškarac, muškarac i svijetla koža	none
+👨🏻‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, svijetla koža i srednje svijetla koža	none
+👨🏻‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, svijetla koža i ni svijetla ni tamna koža	none
+👨🏻‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, svijetla koža i srednje tamna koža	none
+👨🏻‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, svijetla koža i tamna koža	none
+👨🏼‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, srednje svijetla koža i svijetla koža	none
+👨🏼‍❤‍💋‍👨🏼	poljubac muškarac, muškarac i srednje svijetla koža	none
+👨🏼‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, srednje svijetla koža i ni svijetla ni tamna koža	none
+👨🏼‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, srednje svijetla koža i srednje tamna koža	none
+👨🏼‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, srednje svijetla koža i tamna koža	none
+👨🏽‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, ni svijetla ni tamna koža i svijetla koža	none
+👨🏽‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, ni svijetla ni tamna koža i srednje svijetla koža	none
+👨🏽‍❤‍💋‍👨🏽	poljubac muškarac, muškarac i ni svijetla ni tamna koža	none
+👨🏽‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, ni svijetla ni tamna koža i srednje tamna koža	none
+👨🏽‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, ni svijetla ni tamna koža i tamna koža	none
+👨🏾‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, srednje tamna koža i svijetla koža	none
+👨🏾‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, srednje tamna koža i srednje svijetla koža	none
+👨🏾‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, srednje tamna koža i ni svijetla ni tamna koža	none
+👨🏿‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, tamna koža i svijetla koža	none
+👨🏿‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, tamna koža i srednje svijetla koža	none
+👨🏿‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, tamna koža i ni svijetla ni tamna koža	none
+👨🏻‍❤‍👨🏻	par sa srcem muškarac, muškarac i svijetla koža	none
+👨🏻‍❤‍👨🏼	par sa srcem muškarac, muškarac, svijetla koža i srednje svijetla koža	none
+👨🏻‍❤‍👨🏽	par sa srcem muškarac, muškarac, svijetla koža i ni svijetla ni tamna koža	none
+👨🏻‍❤‍👨🏾	par sa srcem muškarac, muškarac, svijetla koža i srednje tamna koža	none
+👨🏻‍❤‍👨🏿	par sa srcem muškarac, muškarac, svijetla koža i tamna koža	none
+👨🏼‍❤‍👨🏻	par sa srcem muškarac, muškarac, srednje svijetla koža i svijetla koža	none
+👨🏼‍❤‍👨🏼	par sa srcem muškarac, muškarac i srednje svijetla koža	none
+👨🏼‍❤‍👨🏽	par sa srcem muškarac, muškarac, srednje svijetla koža i ni svijetla ni tamna koža	none
+👨🏼‍❤‍👨🏾	par sa srcem muškarac, muškarac, srednje svijetla koža i srednje tamna koža	none
+👨🏼‍❤‍👨🏿	par sa srcem muškarac, muškarac, srednje svijetla koža i tamna koža	none
+👨🏽‍❤‍👨🏻	par sa srcem muškarac, muškarac, ni svijetla ni tamna koža i svijetla koža	none
+👨🏽‍❤‍👨🏼	par sa srcem muškarac, muškarac, ni svijetla ni tamna koža i srednje svijetla koža	none
+👨🏽‍❤‍👨🏽	par sa srcem muškarac, muškarac i ni svijetla ni tamna koža	none
+👨🏽‍❤‍👨🏾	par sa srcem muškarac, muškarac, ni svijetla ni tamna koža i srednje tamna koža	none
+👨🏽‍❤‍👨🏿	par sa srcem muškarac, muškarac, ni svijetla ni tamna koža i tamna koža	none
+👨🏾‍❤‍👨🏻	par sa srcem muškarac, muškarac, srednje tamna koža i svijetla koža	none
+👨🏾‍❤‍👨🏼	par sa srcem muškarac, muškarac, srednje tamna koža i srednje svijetla koža	none
+👨🏾‍❤‍👨🏽	par sa srcem muškarac, muškarac, srednje tamna koža i ni svijetla ni tamna koža	none
+👨🏿‍❤‍👨🏻	par sa srcem muškarac, muškarac, tamna koža i svijetla koža	none
+👨🏿‍❤‍👨🏼	par sa srcem muškarac, muškarac, tamna koža i srednje svijetla koža	none
+👨🏿‍❤‍👨🏽	par sa srcem muškarac, muškarac, tamna koža i ni svijetla ni tamna koža	none
+👨🏻‍🦰	muškarac svijetla koža i crvena kosa	none
+👨🏼‍🦰	muškarac srednje svijetla koža i crvena kosa	none
+👨🏽‍🦰	muškarac ni svijetla ni tamna koža i crvena kosa	none
+👨🏻‍🦱	muškarac svijetla koža i kovrdžava kosa	none
+👨🏼‍🦱	muškarac srednje svijetla koža i kovrdžava kosa	none
+👨🏽‍🦱	muškarac ni svijetla ni tamna koža i kovrdžava kosa	none
+👨‍🦳	muškarac sijeda kosa	none
+👨🏻‍🦳	muškarac svijetla koža i sijeda kosa	none
+👨🏼‍🦳	muškarac srednje svijetla koža i sijeda kosa	none
+👨🏽‍🦳	muškarac ni svijetla ni tamna koža i sijeda kosa	none
+👨🏾‍🦳	muškarac srednje tamna koža i sijeda kosa	none
+👨🏿‍🦳	muškarac tamna koža i sijeda kosa	none
+👨🏻‍🦲	muškarac svijetla koža i ćelav	none
+👨🏼‍🦲	muškarac srednje svijetla koža i ćelav	none
+👨🏽‍🦲	muškarac ni svijetla ni tamna koža i ćelav	none
+👩🏻	žena svijetla koža	none
+👩🏼	žena srednje svijetla koža	none
+👩🏽	žena ni svijetla ni tamna koža	none
+🧔🏻‍♀	žena svijetla koža i brada	none
+🧔🏼‍♀	žena srednje svijetla koža i brada	none
+🧔🏽‍♀	žena ni svijetla ni tamna koža i brada	none
+👱🏻‍♀	plavuša svijetla koža	none
+👱🏼‍♀	plavuša srednje svijetla koža	none
+👱🏽‍♀	plavuša ni svijetla ni tamna koža	none
+👩🏻‍❤‍💋‍👨🏻	poljubac žena, muškarac i svijetla koža	none
+👩🏻‍❤‍💋‍👨🏼	poljubac žena, muškarac, svijetla koža i srednje svijetla koža	none
+👩🏻‍❤‍💋‍👨🏽	poljubac žena, muškarac, svijetla koža i ni svijetla ni tamna koža	none
+👩🏻‍❤‍💋‍👨🏾	poljubac žena, muškarac, svijetla koža i srednje tamna koža	none
+👩🏻‍❤‍💋‍👨🏿	poljubac žena, muškarac, svijetla koža i tamna koža	none
+👩🏼‍❤‍💋‍👨🏻	poljubac žena, muškarac, srednje svijetla koža i svijetla koža	none
+👩🏼‍❤‍💋‍👨🏼	poljubac žena, muškarac i srednje svijetla koža	none
+👩🏼‍❤‍💋‍👨🏽	poljubac žena, muškarac, srednje svijetla koža i ni svijetla ni tamna koža	none
+👩🏼‍❤‍💋‍👨🏾	poljubac žena, muškarac, srednje svijetla koža i srednje tamna koža	none
+👩🏼‍❤‍💋‍👨🏿	poljubac žena, muškarac, srednje svijetla koža i tamna koža	none
+👩🏽‍❤‍💋‍👨🏻	poljubac žena, muškarac, ni svijetla ni tamna koža i svijetla koža	none
+👩🏽‍❤‍💋‍👨🏼	poljubac žena, muškarac, ni svijetla ni tamna koža i srednje svijetla koža	none
+👩🏽‍❤‍💋‍👨🏽	poljubac žena, muškarac i ni svijetla ni tamna koža	none
+👩🏽‍❤‍💋‍👨🏾	poljubac žena, muškarac, ni svijetla ni tamna koža i srednje tamna koža	none
+👩🏽‍❤‍💋‍👨🏿	poljubac žena, muškarac, ni svijetla ni tamna koža i tamna koža	none
+👩🏾‍❤‍💋‍👨🏻	poljubac žena, muškarac, srednje tamna koža i svijetla koža	none
+👩🏾‍❤‍💋‍👨🏼	poljubac žena, muškarac, srednje tamna koža i srednje svijetla koža	none
+👩🏾‍❤‍💋‍👨🏽	poljubac žena, muškarac, srednje tamna koža i ni svijetla ni tamna koža	none
+👩🏿‍❤‍💋‍👨🏻	poljubac žena, muškarac, tamna koža i svijetla koža	none
+👩🏿‍❤‍💋‍👨🏼	poljubac žena, muškarac, tamna koža i srednje svijetla koža	none
+👩🏿‍❤‍💋‍👨🏽	poljubac žena, muškarac, tamna koža i ni svijetla ni tamna koža	none
+👩🏻‍❤‍💋‍👩🏻	poljubac žena, žena i svijetla koža	none
+👩🏻‍❤‍💋‍👩🏼	poljubac žena, žena, svijetla koža i srednje svijetla koža	none
+👩🏻‍❤‍💋‍👩🏽	poljubac žena, žena, svijetla koža i ni svijetla ni tamna koža	none
+👩🏻‍❤‍💋‍👩🏾	poljubac žena, žena, svijetla koža i srednje tamna koža	none
+👩🏻‍❤‍💋‍👩🏿	poljubac žena, žena, svijetla koža i tamna koža	none
+👩🏼‍❤‍💋‍👩🏻	poljubac žena, žena, srednje svijetla koža i svijetla koža	none
+👩🏼‍❤‍💋‍👩🏼	poljubac žena, žena i srednje svijetla koža	none
+👩🏼‍❤‍💋‍👩🏽	poljubac žena, žena, srednje svijetla koža i ni svijetla ni tamna koža	none
+👩🏼‍❤‍💋‍👩🏾	poljubac žena, žena, srednje svijetla koža i srednje tamna koža	none
+👩🏼‍❤‍💋‍👩🏿	poljubac žena, žena, srednje svijetla koža i tamna koža	none
+👩🏽‍❤‍💋‍👩🏻	poljubac žena, žena, ni svijetla ni tamna koža i svijetla koža	none
+👩🏽‍❤‍💋‍👩🏼	poljubac žena, žena, ni svijetla ni tamna koža i srednje svijetla koža	none
+👩🏽‍❤‍💋‍👩🏽	poljubac žena, žena i ni svijetla ni tamna koža	none
+👩🏽‍❤‍💋‍👩🏾	poljubac žena, žena, ni svijetla ni tamna koža i srednje tamna koža	none
+👩🏽‍❤‍💋‍👩🏿	poljubac žena, žena, ni svijetla ni tamna koža i tamna koža	none
+👩🏾‍❤‍💋‍👩🏻	poljubac žena, žena, srednje tamna koža i svijetla koža	none
+👩🏾‍❤‍💋‍👩🏼	poljubac žena, žena, srednje tamna koža i srednje svijetla koža	none
+👩🏾‍❤‍💋‍👩🏽	poljubac žena, žena, srednje tamna koža i ni svijetla ni tamna koža	none
+👩🏿‍❤‍💋‍👩🏻	poljubac žena, žena, tamna koža i svijetla koža	none
+👩🏿‍❤‍💋‍👩🏼	poljubac žena, žena, tamna koža i srednje svijetla koža	none
+👩🏿‍❤‍💋‍👩🏽	poljubac žena, žena, tamna koža i ni svijetla ni tamna koža	none
+👩🏻‍❤‍👨🏻	par sa srcem žena, muškarac i svijetla koža	none
+👩🏻‍❤‍👨🏼	par sa srcem žena, muškarac, svijetla koža i srednje svijetla koža	none
+👩🏻‍❤‍👨🏽	par sa srcem žena, muškarac, svijetla koža i ni svijetla ni tamna koža	none
+👩🏻‍❤‍👨🏾	par sa srcem žena, muškarac, svijetla koža i srednje tamna koža	none
+👩🏻‍❤‍👨🏿	par sa srcem žena, muškarac, svijetla koža i tamna koža	none
+👩🏼‍❤‍👨🏻	par sa srcem žena, muškarac, srednje svijetla koža i svijetla koža	none
+👩🏼‍❤‍👨🏼	par sa srcem žena, muškarac i srednje svijetla koža	none
+👩🏼‍❤‍👨🏽	par sa srcem žena, muškarac, srednje svijetla koža i ni svijetla ni tamna koža	none
+👩🏼‍❤‍👨🏾	par sa srcem žena, muškarac, srednje svijetla koža i srednje tamna koža	none
+👩🏼‍❤‍👨🏿	par sa srcem žena, muškarac, srednje svijetla koža i tamna koža	none
+👩🏽‍❤‍👨🏻	par sa srcem žena, muškarac, ni svijetla ni tamna koža i svijetla koža	none
+👩🏽‍❤‍👨🏼	par sa srcem žena, muškarac, ni svijetla ni tamna koža i srednje svijetla koža	none
+👩🏽‍❤‍👨🏽	par sa srcem žena, muškarac i ni svijetla ni tamna koža	none
+👩🏽‍❤‍👨🏾	par sa srcem žena, muškarac, ni svijetla ni tamna koža i srednje tamna koža	none
+👩🏽‍❤‍👨🏿	par sa srcem žena, muškarac, ni svijetla ni tamna koža i tamna koža	none
+👩🏾‍❤‍👨🏻	par sa srcem žena, muškarac, srednje tamna koža i svijetla koža	none
+👩🏾‍❤‍👨🏼	par sa srcem žena, muškarac, srednje tamna koža i srednje svijetla koža	none
+👩🏾‍❤‍👨🏽	par sa srcem žena, muškarac, srednje tamna koža i ni svijetla ni tamna koža	none
+👩🏿‍❤‍👨🏻	par sa srcem žena, muškarac, tamna koža i svijetla koža	none
+👩🏿‍❤‍👨🏼	par sa srcem žena, muškarac, tamna koža i srednje svijetla koža	none
+👩🏿‍❤‍👨🏽	par sa srcem žena, muškarac, tamna koža i ni svijetla ni tamna koža	none
+👩🏻‍❤‍👩🏻	par sa srcem žena, žena i svijetla koža	none
+👩🏻‍❤‍👩🏼	par sa srcem žena, žena, svijetla koža i srednje svijetla koža	none
+👩🏻‍❤‍👩🏽	par sa srcem žena, žena, svijetla koža i ni svijetla ni tamna koža	none
+👩🏻‍❤‍👩🏾	par sa srcem žena, žena, svijetla koža i srednje tamna koža	none
+👩🏻‍❤‍👩🏿	par sa srcem žena, žena, svijetla koža i tamna koža	none
+👩🏼‍❤‍👩🏻	par sa srcem žena, žena, srednje svijetla koža i svijetla koža	none
+👩🏼‍❤‍👩🏼	par sa srcem žena, žena i srednje svijetla koža	none
+👩🏼‍❤‍👩🏽	par sa srcem žena, žena, srednje svijetla koža i ni svijetla ni tamna koža	none
+👩🏼‍❤‍👩🏾	par sa srcem žena, žena, srednje svijetla koža i srednje tamna koža	none
+👩🏼‍❤‍👩🏿	par sa srcem žena, žena, srednje svijetla koža i tamna koža	none
+👩🏽‍❤‍👩🏻	par sa srcem žena, žena, ni svijetla ni tamna koža i svijetla koža	none
+👩🏽‍❤‍👩🏼	par sa srcem žena, žena, ni svijetla ni tamna koža i srednje svijetla koža	none
+👩🏽‍❤‍👩🏽	par sa srcem žena, žena i ni svijetla ni tamna koža	none
+👩🏽‍❤‍👩🏾	par sa srcem žena, žena, ni svijetla ni tamna koža i srednje tamna koža	none
+👩🏽‍❤‍👩🏿	par sa srcem žena, žena, ni svijetla ni tamna koža i tamna koža	none
+👩🏾‍❤‍👩🏻	par sa srcem žena, žena, srednje tamna koža i svijetla koža	none
+👩🏾‍❤‍👩🏼	par sa srcem žena, žena, srednje tamna koža i srednje svijetla koža	none
+👩🏾‍❤‍👩🏽	par sa srcem žena, žena, srednje tamna koža i ni svijetla ni tamna koža	none
+👩🏿‍❤‍👩🏻	par sa srcem žena, žena, tamna koža i svijetla koža	none
+👩🏿‍❤‍👩🏼	par sa srcem žena, žena, tamna koža i srednje svijetla koža	none
+👩🏿‍❤‍👩🏽	par sa srcem žena, žena, tamna koža i ni svijetla ni tamna koža	none
+👩🏻‍🦰	žena svijetla koža i crvena kosa	none
+👩🏼‍🦰	žena srednje svijetla koža i crvena kosa	none
+👩🏽‍🦰	žena ni svijetla ni tamna koža i crvena kosa	none
+👩🏻‍🦱	žena svijetla koža i kovrdžava kosa	none
+👩🏼‍🦱	žena srednje svijetla koža i kovrdžava kosa	none
+👩🏽‍🦱	žena ni svijetla ni tamna koža i kovrdžava kosa	none
+👩‍🦳	žena sijeda kosa	none
+👩🏻‍🦳	žena svijetla koža i sijeda kosa	none
+👩🏼‍🦳	žena srednje svijetla koža i sijeda kosa	none
+👩🏽‍🦳	žena ni svijetla ni tamna koža i sijeda kosa	none
+👩🏾‍🦳	žena srednje tamna koža i sijeda kosa	none
+👩🏿‍🦳	žena tamna koža i sijeda kosa	none
+👩🏻‍🦲	žena svijetla koža i ćelav	none
+👩🏼‍🦲	žena srednje svijetla koža i ćelav	none
+👩🏽‍🦲	žena ni svijetla ni tamna koža i ćelav	none
+🧓🏻	starija odrasla osoba svijetla koža	none
+🧓🏼	starija odrasla osoba srednje svijetla koža	none
+🧓🏽	starija odrasla osoba ni svijetla ni tamna koža	none
+👴🏻	starac svijetla koža	none
+👴🏼	starac srednje svijetla koža	none
+👴🏽	starac ni svijetla ni tamna koža	none
+👵🏻	starica svijetla koža	none
+👵🏼	starica srednje svijetla koža	none
+👵🏽	starica ni svijetla ni tamna koža	none
+🙍🏻	namrštena osoba svijetla koža	none
+🙍🏼	namrštena osoba srednje svijetla koža	none
+🙍🏽	namrštena osoba ni svijetla ni tamna koža	none
+🙍🏻‍♂	namršten muškarac svijetla koža	none
+🙍🏼‍♂	namršten muškarac srednje svijetla koža	none
+🙍🏽‍♂	namršten muškarac ni svijetla ni tamna koža	none
+🙍🏻‍♀	namrštena žena svijetla koža	none
+🙍🏼‍♀	namrštena žena srednje svijetla koža	none
+🙍🏽‍♀	namrštena žena ni svijetla ni tamna koža	none
+🙎🏻	nadurena osoba svijetla koža	none
+🙎🏼	nadurena osoba srednje svijetla koža	none
+🙎🏽	nadurena osoba ni svijetla ni tamna koža	none
+🙎🏻‍♂	naduren muškarac svijetla koža	none
+🙎🏼‍♂	naduren muškarac srednje svijetla koža	none
+🙎🏽‍♂	naduren muškarac ni svijetla ni tamna koža	none
+🙎🏻‍♀	nadurena žena svijetla koža	none
+🙎🏼‍♀	nadurena žena srednje svijetla koža	none
+🙎🏽‍♀	nadurena žena ni svijetla ni tamna koža	none
+🙅🏻	osoba koja pokazuje „ne“ svijetla koža	none
+🙅🏼	osoba koja pokazuje „ne“ srednje svijetla koža	none
+🙅🏽	osoba koja pokazuje „ne“ ni svijetla ni tamna koža	none
+🙅🏻‍♂	muškarac pokazuje „ne“ svijetla koža	none
+🙅🏼‍♂	muškarac pokazuje „ne“ srednje svijetla koža	none
+🙅🏽‍♂	muškarac pokazuje „ne“ ni svijetla ni tamna koža	none
+🙅🏻‍♀	žena pokazuje „ne“ svijetla koža	none
+🙅🏼‍♀	žena pokazuje „ne“ srednje svijetla koža	none
+🙅🏽‍♀	žena pokazuje „ne“ ni svijetla ni tamna koža	none
+🙆🏻	osoba koja pokazuje „u redu“ svijetla koža	none
+🙆🏼	osoba koja pokazuje „u redu“ srednje svijetla koža	none
+🙆🏽	osoba koja pokazuje „u redu“ ni svijetla ni tamna koža	none
+🙆🏻‍♂	muškarac pokazuje „ok“ svijetla koža	none
+🙆🏼‍♂	muškarac pokazuje „ok“ srednje svijetla koža	none
+🙆🏽‍♂	muškarac pokazuje „ok“ ni svijetla ni tamna koža	none
+🙆🏻‍♀	žena pokazuje „ok“ svijetla koža	none
+🙆🏼‍♀	žena pokazuje „ok“ srednje svijetla koža	none
+🙆🏽‍♀	žena pokazuje „ok“ ni svijetla ni tamna koža	none
+💁🏻	osoba koja daje informacije svijetla koža	none
+💁🏼	osoba koja daje informacije srednje svijetla koža	none
+💁🏽	osoba koja daje informacije ni svijetla ni tamna koža	none
+💁🏻‍♂	muškarac otkriva namjere svijetla koža	none
+💁🏼‍♂	muškarac otkriva namjere srednje svijetla koža	none
+💁🏽‍♂	muškarac otkriva namjere ni svijetla ni tamna koža	none
+💁🏾‍♂	muškarac otkriva namjere srednje tamna koža	none
+💁🏿‍♂	muškarac otkriva namjere tamna koža	none
+💁🏻‍♀	žena otkriva namjere svijetla koža	none
+💁🏼‍♀	žena otkriva namjere srednje svijetla koža	none
+💁🏽‍♀	žena otkriva namjere ni svijetla ni tamna koža	none
+💁🏾‍♀	žena otkriva namjere srednje tamna koža	none
+💁🏿‍♀	žena otkriva namjere tamna koža	none
+🙋🏻	srećna osoba sa podignutom rukom svijetla koža	none
+🙋🏼	srećna osoba sa podignutom rukom srednje svijetla koža	none
+🙋🏽	srećna osoba sa podignutom rukom ni svijetla ni tamna koža	none
+🙋🏻‍♂	muškarac podiže ruku svijetla koža	none
+🙋🏼‍♂	muškarac podiže ruku srednje svijetla koža	none
+🙋🏽‍♂	muškarac podiže ruku ni svijetla ni tamna koža	none
+🙋🏻‍♀	žena podiže ruku svijetla koža	none
+🙋🏼‍♀	žena podiže ruku srednje svijetla koža	none
+🙋🏽‍♀	žena podiže ruku ni svijetla ni tamna koža	none
+🧏🏻	gluva osoba svijetla koža	none
+🧏🏼	gluva osoba srednje svijetla koža	none
+🧏🏽	gluva osoba ni svijetla ni tamna koža	none
+🧏🏻‍♂	gluv čovjek svijetla koža	none
+🧏🏼‍♂	gluv čovjek srednje svijetla koža	none
+🧏🏽‍♂	gluv čovjek ni svijetla ni tamna koža	none
+🧏🏾‍♂	gluv čovjek srednje tamna koža	none
+🧏🏿‍♂	gluv čovjek tamna koža	none
+🧏🏻‍♀	gluva žena svijetla koža	none
+🧏🏼‍♀	gluva žena srednje svijetla koža	none
+🧏🏽‍♀	gluva žena ni svijetla ni tamna koža	none
+🙇🏻	osoba koja se klanja svijetla koža	none
+🙇🏼	osoba koja se klanja srednje svijetla koža	none
+🙇🏽	osoba koja se klanja ni svijetla ni tamna koža	none
+🙇🏻‍♂	muški duboki naklon svijetla koža	none
+🙇🏼‍♂	muški duboki naklon srednje svijetla koža	none
+🙇🏽‍♂	muški duboki naklon ni svijetla ni tamna koža	none
+🙇🏻‍♀	ženski duboki naklon svijetla koža	none
+🙇🏼‍♀	ženski duboki naklon srednje svijetla koža	none
+🙇🏽‍♀	ženski duboki naklon ni svijetla ni tamna koža	none
+🤦🏻	šaka o čelo svijetla koža	none
+🤦🏼	šaka o čelo srednje svijetla koža	none
+🤦🏽	šaka o čelo ni svijetla ni tamna koža	none
+🤦🏻‍♂	muškarac s rukom na čelu svijetla koža	none
+🤦🏼‍♂	muškarac s rukom na čelu srednje svijetla koža	none
+🤦🏽‍♂	muškarac s rukom na čelu ni svijetla ni tamna koža	none
+🤦🏻‍♀	žena s rukom na čelu svijetla koža	none
+🤦🏼‍♀	žena s rukom na čelu srednje svijetla koža	none
+🤦🏽‍♀	žena s rukom na čelu ni svijetla ni tamna koža	none
+🤷🏻	slijeganje ramenima svijetla koža	none
+🤷🏼	slijeganje ramenima srednje svijetla koža	none
+🤷🏽	slijeganje ramenima ni svijetla ni tamna koža	none
+🤷🏾	slijeganje ramenima srednje tamna koža	none
+🤷🏿	slijeganje ramenima tamna koža	none
+🤷🏻‍♂	muškarac sliježe ramenima svijetla koža	none
+🤷🏼‍♂	muškarac sliježe ramenima srednje svijetla koža	none
+🤷🏽‍♂	muškarac sliježe ramenima ni svijetla ni tamna koža	none
+🤷🏾‍♂	muškarac sliježe ramenima srednje tamna koža	none
+🤷🏿‍♂	muškarac sliježe ramenima tamna koža	none
+🤷🏻‍♀	žena sliježe ramenima svijetla koža	none
+🤷🏼‍♀	žena sliježe ramenima srednje svijetla koža	none
+🤷🏽‍♀	žena sliježe ramenima ni svijetla ni tamna koža	none
+🤷🏾‍♀	žena sliježe ramenima srednje tamna koža	none
+🤷🏿‍♀	žena sliježe ramenima tamna koža	none
+🧑🏻‍⚕	zdravstveni radnik svijetla koža	none
+🧑🏼‍⚕	zdravstveni radnik srednje svijetla koža	none
+🧑🏽‍⚕	zdravstveni radnik ni svijetla ni tamna koža	none
+👨🏻‍⚕	muškarac zdravstveni radnik svijetla koža	none
+👨🏼‍⚕	muškarac zdravstveni radnik srednje svijetla koža	none
+👨🏽‍⚕	muškarac zdravstveni radnik ni svijetla ni tamna koža	none
+👩🏻‍⚕	zdravstvena radnica svijetla koža	none
+👩🏼‍⚕	zdravstvena radnica srednje svijetla koža	none
+👩🏽‍⚕	zdravstvena radnica ni svijetla ni tamna koža	none
+🧑🏻‍🎓	student(kinja) svijetla koža	none
+🧑🏼‍🎓	student(kinja) srednje svijetla koža	none
+🧑🏽‍🎓	student(kinja) ni svijetla ni tamna koža	none
+🧑🏾‍🎓	student(kinja) srednje tamna koža	none
+🧑🏿‍🎓	student(kinja) tamna koža	none
+👨🏻‍🎓	student svijetla koža	none
+👨🏼‍🎓	student srednje svijetla koža	none
+👨🏽‍🎓	student ni svijetla ni tamna koža	none
+👩🏻‍🎓	studentkinja svijetla koža	none
+👩🏼‍🎓	studentkinja srednje svijetla koža	none
+👩🏽‍🎓	studentkinja ni svijetla ni tamna koža	none
+🧑🏻‍🏫	učitelj svijetla koža	none
+🧑🏼‍🏫	učitelj srednje svijetla koža	none
+🧑🏽‍🏫	učitelj ni svijetla ni tamna koža	none
+👨🏻‍🏫	profesor svijetla koža	none
+👨🏼‍🏫	profesor srednje svijetla koža	none
+👨🏽‍🏫	profesor ni svijetla ni tamna koža	none
+👩🏻‍🏫	profesorka svijetla koža	none
+👩🏼‍🏫	profesorka srednje svijetla koža	none
+👩🏽‍🏫	profesorka ni svijetla ni tamna koža	none
+🧑🏻‍⚖	sudija/nica svijetla koža	none
+🧑🏼‍⚖	sudija/nica srednje svijetla koža	none
+🧑🏽‍⚖	sudija/nica ni svijetla ni tamna koža	none
+👨🏻‍⚖	muškarac sudija svijetla koža	none
+👨🏼‍⚖	muškarac sudija srednje svijetla koža	none
+👨🏽‍⚖	muškarac sudija ni svijetla ni tamna koža	none
+👩🏻‍⚖	žena sudija svijetla koža	none
+👩🏼‍⚖	žena sudija srednje svijetla koža	none
+👩🏽‍⚖	žena sudija ni svijetla ni tamna koža	none
+🧑🏻‍🌾	poljoprivrednik svijetla koža	none
+🧑🏼‍🌾	poljoprivrednik srednje svijetla koža	none
+🧑🏽‍🌾	poljoprivrednik ni svijetla ni tamna koža	none
+👨🏻‍🌾	muškarac poljoprivrednik svijetla koža	none
+👨🏼‍🌾	muškarac poljoprivrednik srednje svijetla koža	none
+👨🏽‍🌾	muškarac poljoprivrednik ni svijetla ni tamna koža	none
+👩🏻‍🌾	poljoprivrednica svijetla koža	none
+👩🏼‍🌾	poljoprivrednica srednje svijetla koža	none
+👩🏽‍🌾	poljoprivrednica ni svijetla ni tamna koža	none
+🧑🏻‍🍳	kuvar svijetla koža	none
+🧑🏼‍🍳	kuvar srednje svijetla koža	none
+🧑🏽‍🍳	kuvar ni svijetla ni tamna koža	none
+👨🏻‍🍳	muškarac kuvar svijetla koža	none
+👨🏼‍🍳	muškarac kuvar srednje svijetla koža	none
+👨🏽‍🍳	muškarac kuvar ni svijetla ni tamna koža	none
+👩🏻‍🍳	kuvarica svijetla koža	none
+👩🏼‍🍳	kuvarica srednje svijetla koža	none
+👩🏽‍🍳	kuvarica ni svijetla ni tamna koža	none
+🧑🏻‍🔧	mehaničar svijetla koža	none
+🧑🏼‍🔧	mehaničar srednje svijetla koža	none
+🧑🏽‍🔧	mehaničar ni svijetla ni tamna koža	none
+👨🏻‍🔧	muškarac mehaničar svijetla koža	none
+👨🏼‍🔧	muškarac mehaničar srednje svijetla koža	none
+👨🏽‍🔧	muškarac mehaničar ni svijetla ni tamna koža	none
+👩🏻‍🔧	mehaničarka svijetla koža	none
+👩🏼‍🔧	mehaničarka srednje svijetla koža	none
+👩🏽‍🔧	mehaničarka ni svijetla ni tamna koža	none
+🧑🏻‍🏭	radnik u fabrici svijetla koža	none
+🧑🏼‍🏭	radnik u fabrici srednje svijetla koža	none
+🧑🏽‍🏭	radnik u fabrici ni svijetla ni tamna koža	none
+👨🏻‍🏭	radnik svijetla koža	none
+👨🏼‍🏭	radnik srednje svijetla koža	none
+👨🏽‍🏭	radnik ni svijetla ni tamna koža	none
+👩🏻‍🏭	radnica svijetla koža	none
+👩🏼‍🏭	radnica srednje svijetla koža	none
+👩🏽‍🏭	radnica ni svijetla ni tamna koža	none
+🧑🏻‍💼	kancelarijski radnik svijetla koža	none
+🧑🏼‍💼	kancelarijski radnik srednje svijetla koža	none
+🧑🏽‍💼	kancelarijski radnik ni svijetla ni tamna koža	none
+👨🏻‍💼	muškarac u kancelariji svijetla koža	none
+👨🏼‍💼	muškarac u kancelariji srednje svijetla koža	none
+👨🏽‍💼	muškarac u kancelariji ni svijetla ni tamna koža	none
+👩🏻‍💼	žena u kancelariji svijetla koža	none
+👩🏼‍💼	žena u kancelariji srednje svijetla koža	none
+👩🏽‍💼	žena u kancelariji ni svijetla ni tamna koža	none
+🧑🏻‍🔬	naučnik/ca svijetla koža	none
+🧑🏼‍🔬	naučnik/ca srednje svijetla koža	none
+🧑🏽‍🔬	naučnik/ca ni svijetla ni tamna koža	none
+👨🏻‍🔬	naučnik svijetla koža	none
+👨🏼‍🔬	naučnik srednje svijetla koža	none
+👨🏽‍🔬	naučnik ni svijetla ni tamna koža	none
+👩🏻‍🔬	naučnica svijetla koža	none
+👩🏼‍🔬	naučnica srednje svijetla koža	none
+👩🏽‍🔬	naučnica ni svijetla ni tamna koža	none
+🧑🏻‍💻	tehnolog svijetla koža	none
+🧑🏼‍💻	tehnolog srednje svijetla koža	none
+🧑🏽‍💻	tehnolog ni svijetla ni tamna koža	none
+👨🏻‍💻	muškarac tehnolog svijetla koža	none
+👨🏼‍💻	muškarac tehnolog srednje svijetla koža	none
+👨🏽‍💻	muškarac tehnolog ni svijetla ni tamna koža	none
+👩🏻‍💻	žena tehnolog svijetla koža	none
+👩🏼‍💻	žena tehnolog srednje svijetla koža	none
+👩🏽‍💻	žena tehnolog ni svijetla ni tamna koža	none
+🧑🏻‍🎤	pjevač svijetla koža	none
+🧑🏼‍🎤	pjevač srednje svijetla koža	none
+🧑🏽‍🎤	pjevač ni svijetla ni tamna koža	none
+🧑🏾‍🎤	pjevač srednje tamna koža	none
+🧑🏿‍🎤	pjevač tamna koža	none
+👨🏻‍🎤	muškarac pjevač svijetla koža	none
+👨🏼‍🎤	muškarac pjevač srednje svijetla koža	none
+👨🏽‍🎤	muškarac pjevač ni svijetla ni tamna koža	none
+👨🏾‍🎤	muškarac pjevač srednje tamna koža	none
+👨🏿‍🎤	muškarac pjevač tamna koža	none
+👩🏻‍🎤	pjevačica svijetla koža	none
+👩🏼‍🎤	pjevačica srednje svijetla koža	none
+👩🏽‍🎤	pjevačica ni svijetla ni tamna koža	none
+👩🏾‍🎤	pjevačica srednje tamna koža	none
+👩🏿‍🎤	pjevačica tamna koža	none
+🧑🏻‍🎨	umjetnik svijetla koža	none
+🧑🏼‍🎨	umjetnik srednje svijetla koža	none
+🧑🏽‍🎨	umjetnik ni svijetla ni tamna koža	none
+🧑🏾‍🎨	umjetnik srednje tamna koža	none
+🧑🏿‍🎨	umjetnik tamna koža	none
+👨🏻‍🎨	muškarac umjetnik svijetla koža	none
+👨🏼‍🎨	muškarac umjetnik srednje svijetla koža	none
+👨🏽‍🎨	muškarac umjetnik ni svijetla ni tamna koža	none
+👨🏾‍🎨	muškarac umjetnik srednje tamna koža	none
+👨🏿‍🎨	muškarac umjetnik tamna koža	none
+👩🏻‍🎨	umjetnica svijetla koža	none
+👩🏼‍🎨	umjetnica srednje svijetla koža	none
+👩🏽‍🎨	umjetnica ni svijetla ni tamna koža	none
+👩🏾‍🎨	umjetnica srednje tamna koža	none
+👩🏿‍🎨	umjetnica tamna koža	none
+🧑🏻‍✈	pilot(kinja) svijetla koža	none
+🧑🏼‍✈	pilot(kinja) srednje svijetla koža	none
+🧑🏽‍✈	pilot(kinja) ni svijetla ni tamna koža	none
+🧑🏾‍✈	pilot(kinja) srednje tamna koža	none
+🧑🏿‍✈	pilot(kinja) tamna koža	none
+👨🏻‍✈	pilot svijetla koža	none
+👨🏼‍✈	pilot srednje svijetla koža	none
+👨🏽‍✈	pilot ni svijetla ni tamna koža	none
+👩🏻‍✈	žena pilot svijetla koža	none
+👩🏼‍✈	žena pilot srednje svijetla koža	none
+👩🏽‍✈	žena pilot ni svijetla ni tamna koža	none
+🧑🏻‍🚀	astronaut svijetla koža	none
+🧑🏼‍🚀	astronaut srednje svijetla koža	none
+🧑🏽‍🚀	astronaut ni svijetla ni tamna koža	none
+👨🏻‍🚀	kosmonaut svijetla koža	none
+👨🏼‍🚀	kosmonaut srednje svijetla koža	none
+👨🏽‍🚀	kosmonaut ni svijetla ni tamna koža	none
+👩🏻‍🚀	kosmonautkinja svijetla koža	none
+👩🏼‍🚀	kosmonautkinja srednje svijetla koža	none
+👩🏽‍🚀	kosmonautkinja ni svijetla ni tamna koža	none
+🧑🏻‍🚒	vatrogasac / žena vatrogasac svijetla koža	none
+🧑🏼‍🚒	vatrogasac / žena vatrogasac srednje svijetla koža	none
+🧑🏽‍🚒	vatrogasac / žena vatrogasac ni svijetla ni tamna koža	none
+👨🏻‍🚒	vatrogasac svijetla koža	none
+👨🏼‍🚒	vatrogasac srednje svijetla koža	none
+👨🏽‍🚒	vatrogasac ni svijetla ni tamna koža	none
+👩🏻‍🚒	žena vatrogasac svijetla koža	none
+👩🏼‍🚒	žena vatrogasac srednje svijetla koža	none
+👩🏽‍🚒	žena vatrogasac ni svijetla ni tamna koža	none
+👮🏻	predstavnik policije svijetla koža	none
+👮🏼	predstavnik policije srednje svijetla koža	none
+👮🏽	predstavnik policije ni svijetla ni tamna koža	none
+👮🏻‍♂	policajac svijetla koža	none
+👮🏼‍♂	policajac srednje svijetla koža	none
+👮🏽‍♂	policajac ni svijetla ni tamna koža	none
+👮🏻‍♀	policajka svijetla koža	none
+👮🏼‍♀	policajka srednje svijetla koža	none
+👮🏽‍♀	policajka ni svijetla ni tamna koža	none
+🕵🏻	inspektor svijetla koža	none
+🕵🏼	inspektor srednje svijetla koža	none
+🕵🏽	inspektor ni svijetla ni tamna koža	none
+🕵🏻‍♂	detektiv svijetla koža	none
+🕵🏼‍♂	detektiv srednje svijetla koža	none
+🕵🏽‍♂	detektiv ni svijetla ni tamna koža	none
+🕵🏻‍♀	detektivka svijetla koža	none
+🕵🏼‍♀	detektivka srednje svijetla koža	none
+🕵🏽‍♀	detektivka ni svijetla ni tamna koža	none
+💂🏻	čuvar svijetla koža	none
+💂🏼	čuvar srednje svijetla koža	none
+💂🏽	čuvar ni svijetla ni tamna koža	none
+💂🏻‍♂	gardista svijetla koža	none
+💂🏼‍♂	gardista srednje svijetla koža	none
+💂🏽‍♂	gardista ni svijetla ni tamna koža	none
+💂🏻‍♀	gardistkinja svijetla koža	none
+💂🏼‍♀	gardistkinja srednje svijetla koža	none
+💂🏽‍♀	gardistkinja ni svijetla ni tamna koža	none
+🥷🏻	nindža svijetla koža	none
+🥷🏼	nindža srednje svijetla koža	none
+🥷🏽	nindža ni svijetla ni tamna koža	none
+👷🏻	građevinski radnik svijetla koža	none
+👷🏼	građevinski radnik srednje svijetla koža	none
+👷🏽	građevinski radnik ni svijetla ni tamna koža	none
+👷🏻‍♂	građevinar svijetla koža	none
+👷🏼‍♂	građevinar srednje svijetla koža	none
+👷🏽‍♂	građevinar ni svijetla ni tamna koža	none
+👷🏻‍♀	građevinarka svijetla koža	none
+👷🏼‍♀	građevinarka srednje svijetla koža	none
+👷🏽‍♀	građevinarka ni svijetla ni tamna koža	none
+🤴🏻	princ svijetla koža	none
+🤴🏼	princ srednje svijetla koža	none
+🤴🏽	princ ni svijetla ni tamna koža	none
+👸🏻	princeza svijetla koža	none
+👸🏼	princeza srednje svijetla koža	none
+👸🏽	princeza ni svijetla ni tamna koža	none
+👳🏻	osoba sa turbanom svijetla koža	none
+👳🏼	osoba sa turbanom srednje svijetla koža	none
+👳🏽	osoba sa turbanom ni svijetla ni tamna koža	none
+👳🏻‍♂	čovjek sa turbanom svijetla koža	none
+👳🏼‍♂	čovjek sa turbanom srednje svijetla koža	none
+👳🏽‍♂	čovjek sa turbanom ni svijetla ni tamna koža	none
+👳🏾‍♂	čovjek sa turbanom srednje tamna koža	none
+👳🏿‍♂	čovjek sa turbanom tamna koža	none
+👳🏻‍♀	žena sa turbanom svijetla koža	none
+👳🏼‍♀	žena sa turbanom srednje svijetla koža	none
+👳🏽‍♀	žena sa turbanom ni svijetla ni tamna koža	none
+👲🏻	čovjek sa kineskom kapom svijetla koža	none
+👲🏼	čovjek sa kineskom kapom srednje svijetla koža	none
+👲🏽	čovjek sa kineskom kapom ni svijetla ni tamna koža	none
+👲🏾	čovjek sa kineskom kapom srednje tamna koža	none
+👲🏿	čovjek sa kineskom kapom tamna koža	none
+🧕🏻	žena sa maramom na glavi svijetla koža	none
+🧕🏼	žena sa maramom na glavi srednje svijetla koža	none
+🧕🏽	žena sa maramom na glavi ni svijetla ni tamna koža	none
+🤵🏻	čovjek u smokingu svijetla koža	none
+🤵🏼	čovjek u smokingu srednje svijetla koža	none
+🤵🏽	čovjek u smokingu ni svijetla ni tamna koža	none
+🤵🏾	čovjek u smokingu srednje tamna koža	none
+🤵🏿	čovjek u smokingu tamna koža	none
+🤵🏻‍♂	muškarac u smokingu svijetla koža	none
+🤵🏼‍♂	muškarac u smokingu srednje svijetla koža	none
+🤵🏽‍♂	muškarac u smokingu ni svijetla ni tamna koža	none
+🤵🏻‍♀	žena u smokingu svijetla koža	none
+🤵🏼‍♀	žena u smokingu srednje svijetla koža	none
+🤵🏽‍♀	žena u smokingu ni svijetla ni tamna koža	none
+👰🏻	nevjesta sa velom svijetla koža	none
+👰🏼	nevjesta sa velom srednje svijetla koža	none
+👰🏽	nevjesta sa velom ni svijetla ni tamna koža	none
+👰🏾	nevjesta sa velom srednje tamna koža	none
+👰🏿	nevjesta sa velom tamna koža	none
+👰🏻‍♂	muškarac sa velom svijetla koža	none
+👰🏼‍♂	muškarac sa velom srednje svijetla koža	none
+👰🏽‍♂	muškarac sa velom ni svijetla ni tamna koža	none
+👰🏻‍♀	žena sa velom svijetla koža	none
+👰🏼‍♀	žena sa velom srednje svijetla koža	none
+👰🏽‍♀	žena sa velom ni svijetla ni tamna koža	none
+🤰🏻	trudnica svijetla koža	none
+🤰🏼	trudnica srednje svijetla koža	none
+🤰🏽	trudnica ni svijetla ni tamna koža	none
+🤱🏻	dojenje svijetla koža	none
+🤱🏼	dojenje srednje svijetla koža	none
+🤱🏽	dojenje ni svijetla ni tamna koža	none
+👩🏻‍🍼	žena hrani bebu svijetla koža	none
+👩🏼‍🍼	žena hrani bebu srednje svijetla koža	none
+👩🏽‍🍼	žena hrani bebu ni svijetla ni tamna koža	none
+👨🏻‍🍼	muškarac hrani bebu svijetla koža	none
+👨🏼‍🍼	muškarac hrani bebu srednje svijetla koža	none
+👨🏽‍🍼	muškarac hrani bebu ni svijetla ni tamna koža	none
+🧑🏻‍🍼	osoba hrani bebu svijetla koža	none
+🧑🏼‍🍼	osoba hrani bebu srednje svijetla koža	none
+🧑🏽‍🍼	osoba hrani bebu ni svijetla ni tamna koža	none
+👼🏻	beba anđeo svijetla koža	none
+👼🏼	beba anđeo srednje svijetla koža	none
+👼🏽	beba anđeo ni svijetla ni tamna koža	none
+🎅🏻	Djed Mraz svijetla koža	none
+🎅🏼	Djed Mraz srednje svijetla koža	none
+🎅🏽	Djed Mraz ni svijetla ni tamna koža	none
+🎅🏾	Djed Mraz srednje tamna koža	none
+🎅🏿	Djed Mraz tamna koža	none
+🤶🏻	baka Mraz svijetla koža	none
+🤶🏼	baka Mraz srednje svijetla koža	none
+🤶🏽	baka Mraz ni svijetla ni tamna koža	none
+🧑🏻‍🎄	osoba Mraz svijetla koža	none
+🧑🏼‍🎄	osoba Mraz srednje svijetla koža	none
+🧑🏽‍🎄	osoba Mraz ni svijetla ni tamna koža	none
+🦸🏻	superheroj svijetla koža	none
+🦸🏼	superheroj srednje svijetla koža	none
+🦸🏽	superheroj ni svijetla ni tamna koža	none
+🦸🏾	superheroj srednje tamna koža	none
+🦸🏿	superheroj tamna koža	none
+🦸🏻‍♂	muškarac superheroj svijetla koža	none
+🦸🏼‍♂	muškarac superheroj srednje svijetla koža	none
+🦸🏽‍♂	muškarac superheroj ni svijetla ni tamna koža	none
+🦸🏾‍♂	muškarac superheroj srednje tamna koža	none
+🦸🏿‍♂	muškarac superheroj tamna koža	none
+🦸🏻‍♀	žena superheroj svijetla koža	none
+🦸🏼‍♀	žena superheroj srednje svijetla koža	none
+🦸🏽‍♀	žena superheroj ni svijetla ni tamna koža	none
+🦸🏾‍♀	žena superheroj srednje tamna koža	none
+🦸🏿‍♀	žena superheroj tamna koža	none
+🦹🏻	negativac svijetla koža	none
+🦹🏼	negativac srednje svijetla koža	none
+🦹🏽	negativac ni svijetla ni tamna koža	none
+🦹🏻‍♂	muškarac negativac svijetla koža	none
+🦹🏼‍♂	muškarac negativac srednje svijetla koža	none
+🦹🏽‍♂	muškarac negativac ni svijetla ni tamna koža	none
+🦹🏻‍♀	žena negativac svijetla koža	none
+🦹🏼‍♀	žena negativac srednje svijetla koža	none
+🦹🏽‍♀	žena negativac ni svijetla ni tamna koža	none
+🧙🏻	mag svijetla koža	none
+🧙🏼	mag srednje svijetla koža	none
+🧙🏽	mag ni svijetla ni tamna koža	none
+🧙🏻‍♂	čarobnjak svijetla koža	none
+🧙🏼‍♂	čarobnjak srednje svijetla koža	none
+🧙🏽‍♂	čarobnjak ni svijetla ni tamna koža	none
+🧙🏻‍♀	čarobnica svijetla koža	none
+🧙🏼‍♀	čarobnica srednje svijetla koža	none
+🧙🏽‍♀	čarobnica ni svijetla ni tamna koža	none
+🧚🏻	vila svijetla koža	none
+🧚🏼	vila srednje svijetla koža	none
+🧚🏽	vila ni svijetla ni tamna koža	none
+🧚🏻‍♂	vilenjak svijetla koža	none
+🧚🏼‍♂	vilenjak srednje svijetla koža	none
+🧚🏽‍♂	vilenjak ni svijetla ni tamna koža	none
+🧚🏻‍♀	žena vila svijetla koža	none
+🧚🏼‍♀	žena vila srednje svijetla koža	none
+🧚🏽‍♀	žena vila ni svijetla ni tamna koža	none
+🧛🏻	vampir svijetla koža	none
+🧛🏼	vampir srednje svijetla koža	none
+🧛🏽	vampir ni svijetla ni tamna koža	none
+🧛🏻‍♂	muški vampir svijetla koža	none
+🧛🏼‍♂	muški vampir srednje svijetla koža	none
+🧛🏽‍♂	muški vampir ni svijetla ni tamna koža	none
+🧛🏻‍♀	ženski vampir svijetla koža	none
+🧛🏼‍♀	ženski vampir srednje svijetla koža	none
+🧛🏽‍♀	ženski vampir ni svijetla ni tamna koža	none
+🧜🏻	osoba iz mora svijetla koža	none
+🧜🏼	osoba iz mora srednje svijetla koža	none
+🧜🏽	osoba iz mora ni svijetla ni tamna koža	none
+🧜🏻‍♂	muškarac iz mora svijetla koža	none
+🧜🏼‍♂	muškarac iz mora srednje svijetla koža	none
+🧜🏽‍♂	muškarac iz mora ni svijetla ni tamna koža	none
+🧜🏻‍♀	sirena svijetla koža	none
+🧜🏼‍♀	sirena srednje svijetla koža	none
+🧜🏽‍♀	sirena ni svijetla ni tamna koža	none
+🧝🏻	vilovnjak svijetla koža	none
+🧝🏼	vilovnjak srednje svijetla koža	none
+🧝🏽	vilovnjak ni svijetla ni tamna koža	none
+🧝🏻‍♂	muškarac vilovnjak svijetla koža	none
+🧝🏼‍♂	muškarac vilovnjak srednje svijetla koža	none
+🧝🏽‍♂	muškarac vilovnjak ni svijetla ni tamna koža	none
+🧝🏻‍♀	žena vilovnjak svijetla koža	none
+🧝🏼‍♀	žena vilovnjak srednje svijetla koža	none
+🧝🏽‍♀	žena vilovnjak ni svijetla ni tamna koža	none
+💆🏻	masaža lica svijetla koža	none
+💆🏼	masaža lica srednje svijetla koža	none
+💆🏽	masaža lica ni svijetla ni tamna koža	none
+💆🏻‍♂	muška masaža lica svijetla koža	none
+💆🏼‍♂	muška masaža lica srednje svijetla koža	none
+💆🏽‍♂	muška masaža lica ni svijetla ni tamna koža	none
+💆🏻‍♀	ženska masaža lica svijetla koža	none
+💆🏼‍♀	ženska masaža lica srednje svijetla koža	none
+💆🏽‍♀	ženska masaža lica ni svijetla ni tamna koža	none
+💇🏻	šišanje svijetla koža	none
+💇🏼	šišanje srednje svijetla koža	none
+💇🏽	šišanje ni svijetla ni tamna koža	none
+💇🏻‍♂	muško šišanje svijetla koža	none
+💇🏼‍♂	muško šišanje srednje svijetla koža	none
+💇🏽‍♂	muško šišanje ni svijetla ni tamna koža	none
+💇🏻‍♀	žensko šišanje svijetla koža	none
+💇🏼‍♀	žensko šišanje srednje svijetla koža	none
+💇🏽‍♀	žensko šišanje ni svijetla ni tamna koža	none
+🚶🏻	pješak svijetla koža	none
+🚶🏼	pješak srednje svijetla koža	none
+🚶🏽	pješak ni svijetla ni tamna koža	none
+🚶🏾	pješak srednje tamna koža	none
+🚶🏿	pješak tamna koža	none
+🚶🏻‍♂	muškarac hoda svijetla koža	none
+🚶🏼‍♂	muškarac hoda srednje svijetla koža	none
+🚶🏽‍♂	muškarac hoda ni svijetla ni tamna koža	none
+🚶🏻‍♀	žena hoda svijetla koža	none
+🚶🏼‍♀	žena hoda srednje svijetla koža	none
+🚶🏽‍♀	žena hoda ni svijetla ni tamna koža	none
+🧍🏻	osoba stoji svijetla koža	none
+🧍🏼	osoba stoji srednje svijetla koža	none
+🧍🏽	osoba stoji ni svijetla ni tamna koža	none
+🧍🏻‍♂	čovjek stoji svijetla koža	none
+🧍🏼‍♂	čovjek stoji srednje svijetla koža	none
+🧍🏽‍♂	čovjek stoji ni svijetla ni tamna koža	none
+🧍🏾‍♂	čovjek stoji srednje tamna koža	none
+🧍🏿‍♂	čovjek stoji tamna koža	none
+🧍🏻‍♀	žena stoji svijetla koža	none
+🧍🏼‍♀	žena stoji srednje svijetla koža	none
+🧍🏽‍♀	žena stoji ni svijetla ni tamna koža	none
+🧎🏻	osoba kleči svijetla koža	none
+🧎🏼	osoba kleči srednje svijetla koža	none
+🧎🏽	osoba kleči ni svijetla ni tamna koža	none
+🧎🏻‍♂	čovek kleči svijetla koža	none
+🧎🏼‍♂	čovek kleči srednje svijetla koža	none
+🧎🏽‍♂	čovek kleči ni svijetla ni tamna koža	none
+🧎🏻‍♀	žena kleči svijetla koža	none
+🧎🏼‍♀	žena kleči srednje svijetla koža	none
+🧎🏽‍♀	žena kleči ni svijetla ni tamna koža	none
+🧑🏻‍🦯	osoba sa pomoćnim štapom svijetla koža	none
+🧑🏼‍🦯	osoba sa pomoćnim štapom srednje svijetla koža	none
+🧑🏽‍🦯	osoba sa pomoćnim štapom ni svijetla ni tamna koža	none
+👨🏻‍🦯	čovjek sa pomoćnim štapom svijetla koža	none
+👨🏼‍🦯	čovjek sa pomoćnim štapom srednje svijetla koža	none
+👨🏽‍🦯	čovjek sa pomoćnim štapom ni svijetla ni tamna koža	none
+👨🏾‍🦯	čovjek sa pomoćnim štapom srednje tamna koža	none
+👨🏿‍🦯	čovjek sa pomoćnim štapom tamna koža	none
+👩🏻‍🦯	žena sa pomoćnim štapom svijetla koža	none
+👩🏼‍🦯	žena sa pomoćnim štapom srednje svijetla koža	none
+👩🏽‍🦯	žena sa pomoćnim štapom ni svijetla ni tamna koža	none
+🧑🏻‍🦼	osoba u motornim kolicima svijetla koža	none
+🧑🏼‍🦼	osoba u motornim kolicima srednje svijetla koža	none
+🧑🏽‍🦼	osoba u motornim kolicima ni svijetla ni tamna koža	none
+👨🏻‍🦼	čovjek u motornim kolicima svijetla koža	none
+👨🏼‍🦼	čovjek u motornim kolicima srednje svijetla koža	none
+👨🏽‍🦼	čovjek u motornim kolicima ni svijetla ni tamna koža	none
+👨🏾‍🦼	čovjek u motornim kolicima srednje tamna koža	none
+👨🏿‍🦼	čovjek u motornim kolicima tamna koža	none
+👩🏻‍🦼	žena u motornim kolicima svijetla koža	none
+👩🏼‍🦼	žena u motornim kolicima srednje svijetla koža	none
+👩🏽‍🦼	žena u motornim kolicima ni svijetla ni tamna koža	none
+🧑🏻‍🦽	osoba u mehaničkim kolicima svijetla koža	none
+🧑🏼‍🦽	osoba u mehaničkim kolicima srednje svijetla koža	none
+🧑🏽‍🦽	osoba u mehaničkim kolicima ni svijetla ni tamna koža	none
+👨🏻‍🦽	čovjek u mehaničkim kolicima svijetla koža	none
+👨🏼‍🦽	čovjek u mehaničkim kolicima srednje svijetla koža	none
+👨🏽‍🦽	čovjek u mehaničkim kolicima ni svijetla ni tamna koža	none
+👨🏾‍🦽	čovjek u mehaničkim kolicima srednje tamna koža	none
+👨🏿‍🦽	čovjek u mehaničkim kolicima tamna koža	none
+👩🏻‍🦽	žena u mehaničkim kolicima svijetla koža	none
+👩🏼‍🦽	žena u mehaničkim kolicima srednje svijetla koža	none
+👩🏽‍🦽	žena u mehaničkim kolicima ni svijetla ni tamna koža	none
+🏃🏻	trkač svijetla koža	none
+🏃🏼	trkač srednje svijetla koža	none
+🏃🏽	trkač ni svijetla ni tamna koža	none
+🏃🏻‍♂	muškarac trči svijetla koža	none
+🏃🏼‍♂	muškarac trči srednje svijetla koža	none
+🏃🏽‍♂	muškarac trči ni svijetla ni tamna koža	none
+🏃🏻‍♀	žena trči svijetla koža	none
+🏃🏼‍♀	žena trči srednje svijetla koža	none
+🏃🏽‍♀	žena trči ni svijetla ni tamna koža	none
+💃🏻	plesačica svijetla koža	none
+💃🏼	plesačica srednje svijetla koža	none
+💃🏽	plesačica ni svijetla ni tamna koža	none
+🕺🏻	plesač svijetla koža	none
+🕺🏼	plesač srednje svijetla koža	none
+🕺🏽	plesač ni svijetla ni tamna koža	none
+🕴🏻	muškarac u poslovnom odijelu koji lebdi svijetla koža	none
+🕴🏼	muškarac u poslovnom odijelu koji lebdi srednje svijetla koža	none
+🕴🏽	muškarac u poslovnom odijelu koji lebdi ni svijetla ni tamna koža	none
+🕴🏾	muškarac u poslovnom odijelu koji lebdi srednje tamna koža	none
+🕴🏿	muškarac u poslovnom odijelu koji lebdi tamna koža	none
+🧖🏻	osoba u parnom kupatilu svijetla koža	none
+🧖🏼	osoba u parnom kupatilu srednje svijetla koža	none
+🧖🏽	osoba u parnom kupatilu ni svijetla ni tamna koža	none
+🧖🏻‍♂	muškarac u parnom kupatilu svijetla koža	none
+🧖🏼‍♂	muškarac u parnom kupatilu srednje svijetla koža	none
+🧖🏽‍♂	muškarac u parnom kupatilu ni svijetla ni tamna koža	none
+🧖🏻‍♀	žena u parnom kupatilu svijetla koža	none
+🧖🏼‍♀	žena u parnom kupatilu srednje svijetla koža	none
+🧖🏽‍♀	žena u parnom kupatilu ni svijetla ni tamna koža	none
+🧗🏻	penjanje svijetla koža	none
+🧗🏼	penjanje srednje svijetla koža	none
+🧗🏽	penjanje ni svijetla ni tamna koža	none
+🧗🏻‍♂	muškarac se penje svijetla koža	none
+🧗🏼‍♂	muškarac se penje srednje svijetla koža	none
+🧗🏽‍♂	muškarac se penje ni svijetla ni tamna koža	none
+🧗🏻‍♀	žena se penje svijetla koža	none
+🧗🏼‍♀	žena se penje srednje svijetla koža	none
+🧗🏽‍♀	žena se penje ni svijetla ni tamna koža	none
+🏇🏻	trke konja svijetla koža	none
+🏇🏼	trke konja srednje svijetla koža	none
+🏇🏽	trke konja ni svijetla ni tamna koža	none
+🏂🏻	vozač snouborda svijetla koža	none
+🏂🏼	vozač snouborda srednje svijetla koža	none
+🏂🏽	vozač snouborda ni svijetla ni tamna koža	none
+🏌🏻	osoba igra golf svijetla koža	none
+🏌🏼	osoba igra golf srednje svijetla koža	none
+🏌🏽	osoba igra golf ni svijetla ni tamna koža	none
+🏌🏻‍♂	golfer svijetla koža	none
+🏌🏼‍♂	golfer srednje svijetla koža	none
+🏌🏽‍♂	golfer ni svijetla ni tamna koža	none
+🏌🏻‍♀	golferka svijetla koža	none
+🏌🏼‍♀	golferka srednje svijetla koža	none
+🏌🏽‍♀	golferka ni svijetla ni tamna koža	none
+🏄🏻	osoba surfuje svijetla koža	none
+🏄🏼	osoba surfuje srednje svijetla koža	none
+🏄🏽	osoba surfuje ni svijetla ni tamna koža	none
+🏄🏻‍♂	surfer svijetla koža	none
+🏄🏼‍♂	surfer srednje svijetla koža	none
+🏄🏽‍♂	surfer ni svijetla ni tamna koža	none
+🏄🏻‍♀	surferka svijetla koža	none
+🏄🏼‍♀	surferka srednje svijetla koža	none
+🏄🏽‍♀	surferka ni svijetla ni tamna koža	none
+🚣🏻	čamac na vesla svijetla koža	none
+🚣🏼	čamac na vesla srednje svijetla koža	none
+🚣🏽	čamac na vesla ni svijetla ni tamna koža	none
+🚣🏻‍♂	veslač svijetla koža	none
+🚣🏼‍♂	veslač srednje svijetla koža	none
+🚣🏽‍♂	veslač ni svijetla ni tamna koža	none
+🚣🏻‍♀	veslačica svijetla koža	none
+🚣🏼‍♀	veslačica srednje svijetla koža	none
+🚣🏽‍♀	veslačica ni svijetla ni tamna koža	none
+🏊🏻	osoba pliva svijetla koža	none
+🏊🏼	osoba pliva srednje svijetla koža	none
+🏊🏽	osoba pliva ni svijetla ni tamna koža	none
+🏊🏻‍♂	plivač svijetla koža	none
+🏊🏼‍♂	plivač srednje svijetla koža	none
+🏊🏽‍♂	plivač ni svijetla ni tamna koža	none
+🏊🏻‍♀	plivačica svijetla koža	none
+🏊🏼‍♀	plivačica srednje svijetla koža	none
+🏊🏽‍♀	plivačica ni svijetla ni tamna koža	none
+⛹🏻	osoba sa loptom svijetla koža	none
+⛹🏼	osoba sa loptom srednje svijetla koža	none
+⛹🏽	osoba sa loptom ni svijetla ni tamna koža	none
+⛹🏻‍♂	muškarac sa loptom svijetla koža	none
+⛹🏼‍♂	muškarac sa loptom srednje svijetla koža	none
+⛹🏽‍♂	muškarac sa loptom ni svijetla ni tamna koža	none
+⛹🏻‍♀	žena sa loptom svijetla koža	none
+⛹🏼‍♀	žena sa loptom srednje svijetla koža	none
+⛹🏽‍♀	žena sa loptom ni svijetla ni tamna koža	none
+🏋🏻	osoba diže tegove svijetla koža	none
+🏋🏼	osoba diže tegove srednje svijetla koža	none
+🏋🏽	osoba diže tegove ni svijetla ni tamna koža	none
+🏋🏻‍♂	dizač tegova svijetla koža	none
+🏋🏼‍♂	dizač tegova srednje svijetla koža	none
+🏋🏽‍♂	dizač tegova ni svijetla ni tamna koža	none
+🏋🏻‍♀	dizačica tegova svijetla koža	none
+🏋🏼‍♀	dizačica tegova srednje svijetla koža	none
+🏋🏽‍♀	dizačica tegova ni svijetla ni tamna koža	none
+🚴🏻	osoba na biciklu svijetla koža	none
+🚴🏼	osoba na biciklu srednje svijetla koža	none
+🚴🏽	osoba na biciklu ni svijetla ni tamna koža	none
+🚴🏻‍♂	biciklista svijetla koža	none
+🚴🏼‍♂	biciklista srednje svijetla koža	none
+🚴🏽‍♂	biciklista ni svijetla ni tamna koža	none
+🚴🏻‍♀	biciklistkinja svijetla koža	none
+🚴🏼‍♀	biciklistkinja srednje svijetla koža	none
+🚴🏽‍♀	biciklistkinja ni svijetla ni tamna koža	none
+🚵🏻	osoba na brdskom biciklu svijetla koža	none
+🚵🏼	osoba na brdskom biciklu srednje svijetla koža	none
+🚵🏽	osoba na brdskom biciklu ni svijetla ni tamna koža	none
+🚵🏻‍♂	brdski biciklista svijetla koža	none
+🚵🏼‍♂	brdski biciklista srednje svijetla koža	none
+🚵🏽‍♂	brdski biciklista ni svijetla ni tamna koža	none
+🚵🏻‍♀	brdska biciklistkinja svijetla koža	none
+🚵🏼‍♀	brdska biciklistkinja srednje svijetla koža	none
+🚵🏽‍♀	brdska biciklistkinja ni svijetla ni tamna koža	none
+🤸🏻	gimnastičarska zvezda svijetla koža	none
+🤸🏼	gimnastičarska zvezda srednje svijetla koža	none
+🤸🏽	gimnastičarska zvezda ni svijetla ni tamna koža	none
+🤸🏻‍♂	gimnastičar svijetla koža	none
+🤸🏼‍♂	gimnastičar srednje svijetla koža	none
+🤸🏽‍♂	gimnastičar ni svijetla ni tamna koža	none
+🤸🏻‍♀	gimnastičarka svijetla koža	none
+🤸🏼‍♀	gimnastičarka srednje svijetla koža	none
+🤸🏽‍♀	gimnastičarka ni svijetla ni tamna koža	none
+🤽🏻	vaterpolo svijetla koža	none
+🤽🏼	vaterpolo srednje svijetla koža	none
+🤽🏽	vaterpolo ni svijetla ni tamna koža	none
+🤽🏻‍♂	vaterpolista svijetla koža	none
+🤽🏼‍♂	vaterpolista srednje svijetla koža	none
+🤽🏽‍♂	vaterpolista ni svijetla ni tamna koža	none
+🤽🏻‍♀	vaterpolistkinja svijetla koža	none
+🤽🏼‍♀	vaterpolistkinja srednje svijetla koža	none
+🤽🏽‍♀	vaterpolistkinja ni svijetla ni tamna koža	none
+🤾🏻	rukomet svijetla koža	none
+🤾🏼	rukomet srednje svijetla koža	none
+🤾🏽	rukomet ni svijetla ni tamna koža	none
+🤾🏻‍♂	rukometaš svijetla koža	none
+🤾🏼‍♂	rukometaš srednje svijetla koža	none
+🤾🏽‍♂	rukometaš ni svijetla ni tamna koža	none
+🤾🏻‍♀	rukometašica svijetla koža	none
+🤾🏼‍♀	rukometašica srednje svijetla koža	none
+🤾🏽‍♀	rukometašica ni svijetla ni tamna koža	none
+🤹🏻	osoba žonglira svijetla koža	none
+🤹🏼	osoba žonglira srednje svijetla koža	none
+🤹🏽	osoba žonglira ni svijetla ni tamna koža	none
+🤹🏻‍♂	žongler svijetla koža	none
+🤹🏼‍♂	žongler srednje svijetla koža	none
+🤹🏽‍♂	žongler ni svijetla ni tamna koža	none
+🤹🏻‍♀	žonglerka svijetla koža	none
+🤹🏼‍♀	žonglerka srednje svijetla koža	none
+🤹🏽‍♀	žonglerka ni svijetla ni tamna koža	none
+🧘🏻	lotos poza svijetla koža	none
+🧘🏼	lotos poza srednje svijetla koža	none
+🧘🏽	lotos poza ni svijetla ni tamna koža	none
+🧘🏻‍♂	muškarac u lotos pozi svijetla koža	none
+🧘🏼‍♂	muškarac u lotos pozi srednje svijetla koža	none
+🧘🏽‍♂	muškarac u lotos pozi ni svijetla ni tamna koža	none
+🧘🏻‍♀	žena u lotos pozi svijetla koža	none
+🧘🏼‍♀	žena u lotos pozi srednje svijetla koža	none
+🧘🏽‍♀	žena u lotos pozi ni svijetla ni tamna koža	none
+🛀🏻	osoba koja se kupa svijetla koža	none
+🛀🏼	osoba koja se kupa srednje svijetla koža	none
+🛀🏽	osoba koja se kupa ni svijetla ni tamna koža	none
+🛌🏻	osoba u krevetu svijetla koža	none
+🛌🏼	osoba u krevetu srednje svijetla koža	none
+🛌🏽	osoba u krevetu ni svijetla ni tamna koža	none
+🧑🏻‍🤝‍🧑🏻	osobe se drže za ruke svijetla koža	none
+🧑🏻‍🤝‍🧑🏼	osobe se drže za ruke svijetla koža i srednje svijetla koža	none
+🧑🏻‍🤝‍🧑🏽	osobe se drže za ruke svijetla koža i ni svijetla ni tamna koža	none
+🧑🏻‍🤝‍🧑🏾	osobe se drže za ruke svijetla koža i srednje tamna koža	none
+🧑🏻‍🤝‍🧑🏿	osobe se drže za ruke svijetla koža i tamna koža	none
+🧑🏼‍🤝‍🧑🏻	osobe se drže za ruke srednje svijetla koža i svijetla koža	none
+🧑🏼‍🤝‍🧑🏼	osobe se drže za ruke srednje svijetla koža	none
+🧑🏼‍🤝‍🧑🏽	osobe se drže za ruke srednje svijetla koža i ni svijetla ni tamna koža	none
+🧑🏼‍🤝‍🧑🏾	osobe se drže za ruke srednje svijetla koža i srednje tamna koža	none
+🧑🏼‍🤝‍🧑🏿	osobe se drže za ruke srednje svijetla koža i tamna koža	none
+🧑🏽‍🤝‍🧑🏻	osobe se drže za ruke ni svijetla ni tamna koža i svijetla koža	none
+🧑🏽‍🤝‍🧑🏼	osobe se drže za ruke ni svijetla ni tamna koža i srednje svijetla koža	none
+🧑🏽‍🤝‍🧑🏽	osobe se drže za ruke ni svijetla ni tamna koža	none
+🧑🏽‍🤝‍🧑🏾	osobe se drže za ruke ni svijetla ni tamna koža i srednje tamna koža	none
+🧑🏽‍🤝‍🧑🏿	osobe se drže za ruke ni svijetla ni tamna koža i tamna koža	none
+🧑🏾‍🤝‍🧑🏻	osobe se drže za ruke srednje tamna koža i svijetla koža	none
+🧑🏾‍🤝‍🧑🏼	osobe se drže za ruke srednje tamna koža i srednje svijetla koža	none
+🧑🏾‍🤝‍🧑🏽	osobe se drže za ruke srednje tamna koža i ni svijetla ni tamna koža	none
+🧑🏿‍🤝‍🧑🏻	osobe se drže za ruke tamna koža i svijetla koža	none
+🧑🏿‍🤝‍🧑🏼	osobe se drže za ruke tamna koža i srednje svijetla koža	none
+🧑🏿‍🤝‍🧑🏽	osobe se drže za ruke tamna koža i ni svijetla ni tamna koža	none
+👭🏻	žene se drže za ruke svijetla koža	none
+👩🏻‍🤝‍👩🏼	žene se drže za ruke svijetla koža i srednje svijetla koža	none
+👩🏻‍🤝‍👩🏽	žene se drže za ruke svijetla koža i ni svijetla ni tamna koža	none
+👩🏻‍🤝‍👩🏾	žene se drže za ruke svijetla koža i srednje tamna koža	none
+👩🏻‍🤝‍👩🏿	žene se drže za ruke svijetla koža i tamna koža	none
+👩🏼‍🤝‍👩🏻	žene se drže za ruke srednje svijetla koža i svijetla koža	none
+👭🏼	žene se drže za ruke srednje svijetla koža	none
+👩🏼‍🤝‍👩🏽	žene se drže za ruke srednje svijetla koža i ni svijetla ni tamna koža	none
+👩🏼‍🤝‍👩🏾	žene se drže za ruke srednje svijetla koža i srednje tamna koža	none
+👩🏼‍🤝‍👩🏿	žene se drže za ruke srednje svijetla koža i tamna koža	none
+👩🏽‍🤝‍👩🏻	žene se drže za ruke ni svijetla ni tamna koža i svijetla koža	none
+👩🏽‍🤝‍👩🏼	žene se drže za ruke ni svijetla ni tamna koža i srednje svijetla koža	none
+👭🏽	žene se drže za ruke ni svijetla ni tamna koža	none
+👩🏽‍🤝‍👩🏾	žene se drže za ruke ni svijetla ni tamna koža i srednje tamna koža	none
+👩🏽‍🤝‍👩🏿	žene se drže za ruke ni svijetla ni tamna koža i tamna koža	none
+👩🏾‍🤝‍👩🏻	žene se drže za ruke srednje tamna koža i svijetla koža	none
+👩🏾‍🤝‍👩🏼	žene se drže za ruke srednje tamna koža i srednje svijetla koža	none
+👩🏾‍🤝‍👩🏽	žene se drže za ruke srednje tamna koža i ni svijetla ni tamna koža	none
+👩🏿‍🤝‍👩🏻	žene se drže za ruke tamna koža i svijetla koža	none
+👩🏿‍🤝‍👩🏼	žene se drže za ruke tamna koža i srednje svijetla koža	none
+👩🏿‍🤝‍👩🏽	žene se drže za ruke tamna koža i ni svijetla ni tamna koža	none
+👫🏻	žena i muškarac se drže za ruke svijetla koža	none
+👩🏻‍🤝‍👨🏼	žena i muškarac se drže za ruke svijetla koža i srednje svijetla koža	none
+👩🏻‍🤝‍👨🏽	žena i muškarac se drže za ruke svijetla koža i ni svijetla ni tamna koža	none
+👩🏻‍🤝‍👨🏾	žena i muškarac se drže za ruke svijetla koža i srednje tamna koža	none
+👩🏻‍🤝‍👨🏿	žena i muškarac se drže za ruke svijetla koža i tamna koža	none
+👩🏼‍🤝‍👨🏻	žena i muškarac se drže za ruke srednje svijetla koža i svijetla koža	none
+👫🏼	žena i muškarac se drže za ruke srednje svijetla koža	none
+👩🏼‍🤝‍👨🏽	žena i muškarac se drže za ruke srednje svijetla koža i ni svijetla ni tamna koža	none
+👩🏼‍🤝‍👨🏾	žena i muškarac se drže za ruke srednje svijetla koža i srednje tamna koža	none
+👩🏼‍🤝‍👨🏿	žena i muškarac se drže za ruke srednje svijetla koža i tamna koža	none
+👩🏽‍🤝‍👨🏻	žena i muškarac se drže za ruke ni svijetla ni tamna koža i svijetla koža	none
+👩🏽‍🤝‍👨🏼	žena i muškarac se drže za ruke ni svijetla ni tamna koža i srednje svijetla koža	none
+👫🏽	žena i muškarac se drže za ruke ni svijetla ni tamna koža	none
+👩🏽‍🤝‍👨🏾	žena i muškarac se drže za ruke ni svijetla ni tamna koža i srednje tamna koža	none
+👩🏽‍🤝‍👨🏿	žena i muškarac se drže za ruke ni svijetla ni tamna koža i tamna koža	none
+👩🏾‍🤝‍👨🏻	žena i muškarac se drže za ruke srednje tamna koža i svijetla koža	none
+👩🏾‍🤝‍👨🏼	žena i muškarac se drže za ruke srednje tamna koža i srednje svijetla koža	none
+👩🏾‍🤝‍👨🏽	žena i muškarac se drže za ruke srednje tamna koža i ni svijetla ni tamna koža	none
+👩🏿‍🤝‍👨🏻	žena i muškarac se drže za ruke tamna koža i svijetla koža	none
+👩🏿‍🤝‍👨🏼	žena i muškarac se drže za ruke tamna koža i srednje svijetla koža	none
+👩🏿‍🤝‍👨🏽	žena i muškarac se drže za ruke tamna koža i ni svijetla ni tamna koža	none
+👬🏻	muškarci se drže za ruke svijetla koža	none
+👨🏻‍🤝‍👨🏼	muškarci se drže za ruke svijetla koža i srednje svijetla koža	none
+👨🏻‍🤝‍👨🏽	muškarci se drže za ruke svijetla koža i ni svijetla ni tamna koža	none
+👨🏻‍🤝‍👨🏾	muškarci se drže za ruke svijetla koža i srednje tamna koža	none
+👨🏻‍🤝‍👨🏿	muškarci se drže za ruke svijetla koža i tamna koža	none
+👨🏼‍🤝‍👨🏻	muškarci se drže za ruke srednje svijetla koža i svijetla koža	none
+👬🏼	muškarci se drže za ruke srednje svijetla koža	none
+👨🏼‍🤝‍👨🏽	muškarci se drže za ruke srednje svijetla koža i ni svijetla ni tamna koža	none
+👨🏼‍🤝‍👨🏾	muškarci se drže za ruke srednje svijetla koža i srednje tamna koža	none
+👨🏼‍🤝‍👨🏿	muškarci se drže za ruke srednje svijetla koža i tamna koža	none
+👨🏽‍🤝‍👨🏻	muškarci se drže za ruke ni svijetla ni tamna koža i svijetla koža	none
+👨🏽‍🤝‍👨🏼	muškarci se drže za ruke ni svijetla ni tamna koža i srednje svijetla koža	none
+👬🏽	muškarci se drže za ruke ni svijetla ni tamna koža	none
+👨🏽‍🤝‍👨🏾	muškarci se drže za ruke ni svijetla ni tamna koža i srednje tamna koža	none
+👨🏽‍🤝‍👨🏿	muškarci se drže za ruke ni svijetla ni tamna koža i tamna koža	none
+👨🏾‍🤝‍👨🏻	muškarci se drže za ruke srednje tamna koža i svijetla koža	none
+👨🏾‍🤝‍👨🏼	muškarci se drže za ruke srednje tamna koža i srednje svijetla koža	none
+👨🏾‍🤝‍👨🏽	muškarci se drže za ruke srednje tamna koža i ni svijetla ni tamna koža	none
+👨🏿‍🤝‍👨🏻	muškarci se drže za ruke tamna koža i svijetla koža	none
+👨🏿‍🤝‍👨🏼	muškarci se drže za ruke tamna koža i srednje svijetla koža	none
+👨🏿‍🤝‍👨🏽	muškarci se drže za ruke tamna koža i ni svijetla ni tamna koža	none
+💏🏻	poljubac svijetla koža	none
+💏🏼	poljubac srednje svijetla koža	none
+💏🏽	poljubac ni svijetla ni tamna koža	none
+💑🏻	par sa srcem svijetla koža	none
+💑🏼	par sa srcem srednje svijetla koža	none
+💑🏽	par sa srcem ni svijetla ni tamna koža	none
+👨‍👩‍👦	porodica muškarac, žena i dječak	none
+👨‍👩‍👧	porodica muškarac, žena i djevojčica	none
+👨‍👩‍👧‍👦	porodica muškarac, žena, djevojčica i dječak	none
+👨‍👩‍👦‍👦	porodica muškarac, žena, dječak i dječak	none
+👨‍👩‍👧‍👧	porodica muškarac, žena, djevojčica i djevojčica	none
+👨‍👨‍👦	porodica muškarac, muškarac i dječak	none
+👨‍👨‍👧	porodica muškarac, muškarac i djevojčica	none
+👨‍👨‍👧‍👦	porodica muškarac, muškarac, djevojčica i dječak	none
+👨‍👨‍👦‍👦	porodica muškarac, muškarac, dječak i dječak	none
+👨‍👨‍👧‍👧	porodica muškarac, muškarac, djevojčica i djevojčica	none
+👩‍👩‍👦	porodica žena, žena i dječak	none
+👩‍👩‍👧	porodica žena, žena i djevojčica	none
+👩‍👩‍👧‍👦	porodica žena, žena, djevojčica i dječak	none
+👩‍👩‍👦‍👦	porodica žena, žena, dječak i dječak	none
+👩‍👩‍👧‍👧	porodica žena, žena, djevojčica i djevojčica	none
+👨‍👦	porodica muškarac i dječak	none
+👨‍👦‍👦	porodica muškarac, dječak i dječak	none
+👨‍👧	porodica muškarac i djevojčica	none
+👨‍👧‍👦	porodica muškarac, djevojčica i dječak	none
+👨‍👧‍👧	porodica muškarac, djevojčica i djevojčica	none
+👩‍👦	porodica žena i dječak	none
+👩‍👦‍👦	porodica žena, dječak i dječak	none
+👩‍👧	porodica žena i djevojčica	none
+👩‍👧‍👦	porodica žena, djevojčica i dječak	none
+👩‍👧‍👧	porodica žena, djevojčica i djevojčica	none
+🇦🇨	zastava ostrvo Asension	none
 🇧🇾	zastava Bjelorusija	none
+🇨🇨	zastava Kokosova (Kiling) ostrva	none
 🇨🇬	zastava Kongo	none
+🇨🇵	zastava ostrvo Kliperton	none
 🇨🇻	zastava Kabo Verde	none
 🇨🇿	zastava Češka Republika	none
 🇩🇪	zastava Njemačka	none
+🇬🇸	zastava Južna Džordžija i Južna Sendvička ostrva	none
+🇬🇺	zastava Gvam	none
+🇭🇰	zastava Hongkong (SAO Kine)	none
+🇭🇲	zastava ostrvo Herd i ostrva Makdonald	none
 🇰🇳	zastava Sveti Kits i Nevis	none
+🇰🇵	zastava Sjeverna Koreja	none
+🇲🇰	zastava Sjeverna Makedonija	none
 🇲🇴	zastava SAR Makao	none
+🇲🇵	zastava Sjeverna Marijanska ostrva	none
+🇳🇫	zastava ostrvo Norfok	none
+🇳🇺	zastava Nijue	none
 🇵🇲	zastava Sveti Pjer i Mikelon	none
+🇵🇸	zastava palestinske teritorije	none
 🇷🇪	zastava Reunion	none
-🇺🇲	zastava Manja udaljena ostrva SAD	none
+🇺🇲	zastava Spoljna ostrva SAD	none
 🇻🇨	zastava Sveti Vinsent i Grenadini	none
 🇻🇬	zastava Britanska Djevičanska Ostrva	none
 🇻🇮	zastava Američka Djevičanska Ostrva	none

@@ -112,6 +112,7 @@ queue_message(TSpeechDMessage * new, int fd, int history_flag,
 		COPY_SET_STR(audio_alsa_device);
 		COPY_SET_STR(audio_nas_server);
 		COPY_SET_STR(audio_pulse_server);
+		COPY_SET_STR(audio_pulse_device);
 
 		/* And we set the global id (note that this is really global, not
 		 * depending on the particular client, but unique) */

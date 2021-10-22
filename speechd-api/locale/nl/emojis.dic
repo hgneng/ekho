@@ -8,7 +8,147 @@ symbols:
 🏽	getinte huidskleur	none
 🏾	donkergetinte huidskleur	none
 🏿	donkere huidskleur	none
-⚧	transgendersymbool	none
+℗	copyright geluidsopname	none
+←	naar links wijzende pijl	none
+↚	schuine streep met pijl naar links	none
+→	naar rechts wijzende pijl	none
+↛	schuine streep met pijl naar rechts	none
+↑	omhoog wijzende pijl	none
+↓	omlaag wijzende pijl	none
+↜	schuine streep met golvende pijl naar links	none
+↝	schuine streep met golvende pijl naar rechts	none
+↞	pijl met twee koppen naar links	none
+↟	pijl met twee koppen omhoog	none
+↠	pijl met twee koppen naar rechts	none
+↡	pijl met twee koppen omlaag	none
+↢	pijl met staart naar links	none
+↣	pijl met staart naar rechts	none
+↤	pijl naar links vanaf balk	none
+↥	pijl omhoog vanaf balk	none
+↦	pijl naar rechts vanaf balk	none
+↧	pijl omlaag vanaf balk	none
+↨	pijl omhoog/omlaag met basis	none
+↫	pijl met lus naar links	none
+↬	pijl met lus naar rechts	none
+↭	golvende pijl naar links/rechts	none
+↯	zigzagpijl omlaag	none
+↰	pijlpunt omhoog en naar links wijzend	none
+↱	pijlpunt omhoog en naar rechts wijzend	none
+↲	pijlpunt omlaag en naar links wijzend	none
+↳	pijlpunt omlaag en naar rechts wijzend	none
+↴	hoekpijl omlaag en naar rechts wijzend	none
+↵	hoekpijl omlaag en naar links wijzend	none
+↶	pijl omhoog tegen de klok in met halve cirkel	none
+↷	pijl omhoog met de klok mee met halve cirkel	none
+↸	pijl noordwest lange balk	none
+↹	pijl naar links naar balk boven pijl naar rechts naar balk	none
+↺	pijl met open cirkel tegen de klok in	none
+↻	pijl met open cirkel met de klok mee	none
+↼	harpoen naar links met weerhaak naar boven	none
+↽	harpoen naar links met weerhaak naar beneden	none
+↾	harpoen naar boven met weerhaak naar rechts	none
+↿	harpoen naar boven met weerhaak naar links	none
+⇀	harpoen naar rechts met weerhaak naar boven	none
+⇁	harpoen naar rechts met weerhaak naar beneden	none
+⇂	harpoen naar beneden met weerhaak naar rechts	none
+⇃	harpoen naar beneden met weerhaak naar links	none
+⇄	pijl naar rechts boven pijl naar links	none
+⇅	omhoog en omlaag wijzende pijlen	none
+⇆	naar links boven naar rechts wijzende pijlen	none
+⇇	twee pijlen naar links	none
+⇈	twee pijlen naar boven	none
+⇉	twee pijlen naar rechts	none
+⇊	twee pijlen naar beneden	none
+⇋	harpoen naar links boven harpoen naar rechts	none
+⇌	harpoen naar rechts boven harpoen naar links	none
+⇐	dubbele pijl naar links	none
+⇍	dubbele doorgestreepte pijl naar links	none
+⇑	dubbele pijl omhoog	none
+⇒	dubbele pijl naar rechts	none
+⇏	dubbele doorgestreepte pijl naar rechts	none
+⇓	dubbele pijl omlaag	none
+⇔	dubbele pijl links/rechts	none
+⇎	dubbele doorgestreepte pijl links/rechts	none
+⇖	dubbele pijl noordwest	none
+⇗	dubbele pijl noordoost	none
+⇘	dubbele pijl zuidoost	none
+⇙	dubbele pijl zuidwest	none
+⇚	driedubbele pijl naar links	none
+⇛	driedubbele pijl naar rechts	none
+⇜	kronkelpijl naar links	none
+⇝	kronkelpijl naar rechts	none
+⇞	pijl naar boven met twee strepen	none
+⇟	pijl naar beneden met twee strepen	none
+⇠	gestippelde pijl naar links	none
+⇡	gestippelde pijl naar boven	none
+⇢	gestippelde pijl naar rechts	none
+⇣	gestippelde pijl naar beneden	none
+⇤	pijl naar links naar balk	none
+⇥	pijl naar rechts naar balk	none
+⇦	doorzichtige pijl naar linkss	none
+⇧	doorzichtige pijl naar boven	none
+⇨	doorzichtige pijl naar rechts	none
+⇩	doorzichtige pijl naar beneden	none
+⇪	doorzichtige pijl naar boven vanaf balk	none
+⇵	pijl omlaag links van pijl omhoog	none
+∀	voor alles	none
+∂	partiële afgeleide	none
+∃	bestaat	none
+∅	lege verzameling	none
+∆	toename	none
+∇	nabla	none
+∈	element van	none
+∉	geen element van	none
+∋	bevat als lid	none
+∎	qed	none
+∏	cartesisch product	none
+∑	productverzameling	none
+≮	niet minder dan	none
+≠	niet-gelijkteken	none
+≯	niet groter dan	none
+−	minteken	none
+⁻	superscript min	none
+∓	min-of-plusteken	none
+∕	deelstreep	none
+∗	asterisk-teken	none
+∘	operator samenstelling	none
+√	vierkantswortel	none
+∝	evenredig	none
+∞	oneindig teken	none
+∟	rechte hoek	none
+∠	hoek	none
+∣	deler	none
+∥	parallel	none
+∧	logisch en	none
+∩	doorsnede	none
+∪	vereniging	none
+∫	integraal	none
+∬	dubbele integraal	none
+∮	kringintegraal	none
+∴	daarom	none
+∵	omdat	none
+∶	ratio	none
+∷	verhouding	none
+∼	tilde-teken	none
+∽	omgekeerde tilde	none
+∾	oneindigheid	none
+≃	asymptotisch gelijkwaardige	none
+≅	ongeveer gelijk	none
+≈	ongeveerteken	none
+≌	alles gelijk	none
+≡	is gelijk aan	none
+≤	kleiner dan of gelijk aan	none
+≥	groter dan of gelijk aan	none
+⊂	deelverzameling van	none
+▲	gevulde, omhoog wijzende driehoek	none
+▼	gevulde, omlaag wijzende driehoek	none
+◊	ruit	none
+○	holle cirkel	none
+●	gevulde cirkel	none
+◯	grote holle cirkel	none
+♪	achtste noot	none
+♭	mol	none
+♯	kruis	none
 😀	grijnzend gezicht	none
 😃	grijnzend gezicht met grote ogen	none
 😄	grijnzend gezicht met lachende ogen	none
@@ -30,6 +170,7 @@ symbols:
 ☺	lachend gezicht	none
 😚	kussend gezicht met gesloten ogen	none
 😙	kussend gezicht met lachende ogen	none
+🥲	lachend gezicht met traan	none
 😋	lachend gezicht dat lippen likt	none
 😛	gezicht met uitgestoken tong	none
 😜	knipoog met uitgestoken tong	none
@@ -45,10 +186,12 @@ symbols:
 😐	neutraal gezicht	none
 😑	uitdrukkingsloos gezicht	none
 😶	gezicht zonder mond	none
+😶‍🌫	gezicht in de wolken	none
 😏	gniffelend gezicht	none
 😒	chagrijnig gezicht	none
 🙄	gezicht met rollende ogen	none
 😬	gezicht met grimas	none
+😮‍💨	gezicht dat uitademt	none
 🤥	liegend gezicht	none
 😌	opgelucht gezicht	none
 😔	peinzend gezicht	none
@@ -65,9 +208,11 @@ symbols:
 🥶	koud gezicht	none
 🥴	wazig gezicht	none
 😵	duizelig gezicht	none
+😵‍💫	gezicht met spiraalvormige ogen	none
 🤯	ontploffend hoofd	none
 🤠	gezicht met cowboyhoed	none
 🥳	feestend gezicht	none
+🥸	vermomd gezicht	none
 😎	lachend gezicht met zonnebril	none
 🤓	nerdgezicht	none
 🧐	gezicht met monocle	none
@@ -135,6 +280,8 @@ symbols:
 💟	decoratief hart	none
 ❣	hart als uitroepteken	none
 💔	gebroken hart	none
+❤‍🔥	hart in vuur en vlam	none
+❤‍🩹	helend hart	none
 ❤	rood hart	none
 🧡	oranje hart	none
 💛	geel hart	none
@@ -164,6 +311,7 @@ symbols:
 ✋	opgeheven hand	none
 🖖	Vulcaanse groet	none
 👌	OK-handgebaar	none
+🤌	samengeknepen vingers	none
 🤏	hand met samengeknepen vingers	none
 ✌	winnende hand	none
 🤞	gekruiste vingers	none
@@ -200,6 +348,8 @@ symbols:
 🦻	oor met gehoorapparaat	none
 👃	neus	none
 🧠	brein	none
+🫀	hart	none
+🫁	longen	none
 🦷	tand	none
 🦴	bot	none
 👀	ogen	none
@@ -213,11 +363,13 @@ symbols:
 🧑	volwassene	none
 👱	persoon met blond haar	none
 👨	man	none
-🧔	man met baard	none
+🧔	persoon baard	none
+🧔‍♂	man baard	none
 👱‍♂	man met blond haar	none
 👩	vrouw	none
+🧔‍♀	vrouw baard	none
 👱‍♀	vrouw met blond haar	none
-🧓	oudere volwassene	none
+🧓	oudere persoon	none
 👴	oude man	none
 👵	oude vrouw	none
 🙍	fronsend persoon	none
@@ -307,6 +459,7 @@ symbols:
 💂	wachter	none
 💂‍♂	mannelijke wachter	none
 💂‍♀	vrouwelijke wachter	none
+🥷	ninja	none
 👷	bouwvakker	none
 👷‍♂	mannelijke bouwvakker	none
 👷‍♀	vrouwelijke bouwvakker	none
@@ -317,13 +470,21 @@ symbols:
 👳‍♀	vrouw met tulband	none
 👲	man met Chinees petje	none
 🧕	vrouw met hoofddoek	none
-🤵	man in smoking	none
-👰	gesluierde bruid	none
+🤵	persoon in smoking	none
+🤵‍♂	man in smoking	none
+🤵‍♀	vrouw in smoking	none
+👰	persoon met sluier	none
+👰‍♂	man met sluier	none
+👰‍♀	vrouw met sluier	none
 🤰	zwangere vrouw	none
 🤱	borstvoeding	none
+👩‍🍼	vrouw die een baby voedt	none
+👨‍🍼	man die een baby voedt	none
+🧑‍🍼	persoon die een baby voedt	none
 👼	baby-engel	none
 🎅	kerstman	none
 🤶	kerstvrouw	none
+🧑‍🎄	kersttransgender	none
 🦸	superheld	none
 🦸‍♂	mannelijke superheld	none
 🦸‍♀	vrouwelijke superheld	none
@@ -448,6 +609,7 @@ symbols:
 🗣	silhouet van sprekend hoofd	none
 👤	silhouet van persoon	none
 👥	silhouet van twee personen	none
+🫂	personen in een omhelzing	none
 👣	voetafdrukken	none
 🦰	rood haar	none
 🦱	krullend haar	none
@@ -467,6 +629,7 @@ symbols:
 🦝	wasbeer	none
 🐱	kattengezicht	none
 🐈	kat	none
+🐈‍⬛	zwarte kat	none
 🦁	leeuw	none
 🐯	tijgergezicht	none
 🐅	tijger	none
@@ -476,6 +639,7 @@ symbols:
 🦄	eenhoorn	none
 🦓	zebra	none
 🦌	hert	none
+🦬	bizon	none
 🐮	koeiengezicht	none
 🐂	os	none
 🐃	waterbuffel	none
@@ -492,6 +656,7 @@ symbols:
 🦙	lama	none
 🦒	giraffe	none
 🐘	olifant	none
+🦣	mammoet	none
 🦏	neushoorn	none
 🦛	nijlpaard	none
 🐭	muizengezicht	none
@@ -501,9 +666,11 @@ symbols:
 🐰	konijnengezicht	none
 🐇	konijn	none
 🐿	eekhoorn	none
+🦫	bever	none
 🦔	egel	none
 🦇	vleermuis	none
 🐻	beer	none
+🐻‍❄	ijsbeer	none
 🐨	koala	none
 🐼	panda	none
 🦥	luiaard	none
@@ -525,6 +692,8 @@ symbols:
 🦆	eend	none
 🦢	zwaan	none
 🦉	uil	none
+🦤	dodo	none
+🪶	veer	none
 🦩	flamingo	none
 🦚	pauw	none
 🦜	papegaai	none
@@ -540,6 +709,7 @@ symbols:
 🐳	spuitende walvis	none
 🐋	walvis	none
 🐬	dolfijn	none
+🦭	zeehond	none
 🐟	vis	none
 🐠	tropische vis	none
 🐡	kogelvis	none
@@ -551,12 +721,16 @@ symbols:
 🐛	insect	none
 🐜	mier	none
 🐝	honingbij	none
+🪲	kever	none
 🐞	lieveheersbeestje	none
 🦗	krekel	none
+🪳	kakkerlak	none
 🕷	spin	none
 🕸	spinnenweb	none
 🦂	schorpioen	none
 🦟	mug	none
+🪰	vlieg	none
+🪱	worm	none
 🦠	microbe	none
 💐	boeket	none
 🌸	kersenbloesem	none
@@ -569,6 +743,7 @@ symbols:
 🌼	bloesem	none
 🌷	tulp	none
 🌱	zaailing	none
+🪴	potplant	none
 🌲	naaldboom	none
 🌳	loofboom	none
 🌴	palmboom	none
@@ -594,8 +769,10 @@ symbols:
 🍑	perzik	none
 🍒	kersen	none
 🍓	aardbei	none
+🫐	bosbessen	none
 🥝	kiwi	none
 🍅	tomaat	none
+🫒	olijf	none
 🥥	kokosnoot	none
 🥑	avocado	none
 🍆	aubergine	none
@@ -603,6 +780,7 @@ symbols:
 🥕	wortel	none
 🌽	maïskolf	none
 🌶	hete peper	none
+🫑	paprika	none
 🥒	komkommer	none
 🥬	bladgroente	none
 🥦	broccoli	none
@@ -614,6 +792,7 @@ symbols:
 🍞	brood	none
 🥐	croissant	none
 🥖	stokbrood	none
+🫓	platbrood	none
 🥨	pretzel	none
 🥯	bagel	none
 🥞	pannenkoeken	none
@@ -630,12 +809,14 @@ symbols:
 🥪	boterham	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamale	none
 🥙	gevuld pitabroodje	none
 🧆	falafel	none
 🥚	ei	none
 🍳	koken	none
 🥘	paellapan	none
 🍲	stoofschotel	none
+🫕	fondue	none
 🥣	kom met lepel	none
 🥗	groene salade	none
 🍿	popcorn	none
@@ -681,6 +862,7 @@ symbols:
 🍼	babyflesje	none
 🥛	glas melk	none
 ☕	warme drank	none
+🫖	theepot	none
 🍵	theekopje zonder oor	none
 🍶	sake	none
 🍾	fles met knallende kurk	none
@@ -692,6 +874,7 @@ symbols:
 🥂	klinkende glazen	none
 🥃	tumblerglas	none
 🥤	beker met rietje	none
+🧋	bubbelthee	none
 🧃	pakje drinken	none
 🧉	maté	none
 🧊	ijsklontje	none
@@ -721,6 +904,9 @@ symbols:
 🏛	klassiek gebouw	none
 🏗	woningbouw	none
 🧱	baksteen	none
+🪨	rots	none
+🪵	hout	none
+🛖	hut	none
 🏘	huizen	none
 🏚	vervallen huis	none
 🏠	huis	none
@@ -788,6 +974,7 @@ symbols:
 🚗	auto	none
 🚘	naderende auto	none
 🚙	SUV	none
+🛻	pick-up	none
 🚚	bestelbus	none
 🚛	vrachtwagen	none
 🚜	tractor	none
@@ -800,6 +987,7 @@ symbols:
 🚲	fiets	none
 🛴	step	none
 🛹	skateboard	none
+🛼	rolschaats	none
 🚏	bushalte	none
 🛣	snelweg	none
 🛤	treinspoor	none
@@ -970,17 +1158,20 @@ symbols:
 🪁	vlieger	none
 🎱	biljart	none
 🔮	kristallen bol	none
+🪄	toverstok	none
 🧿	Nazar-amulet	none
 🎮	videogame	none
 🕹	joystick	none
 🎰	fruitautomaat	none
 🎲	dobbelsteen	none
-🧩	puzzel	none
+🧩	puzzelstukje	none
 🧸	teddybeer	none
+🪅	piñata	none
+🪆	matroesjka	none
 ♠	schoppen	none
 ♥	harten	none
 ♦	ruiten	none
-♣	klaver	none
+♣	klaveren	none
 ♟	pion	none
 🃏	Jokerkaart	none
 🀄	mahjong rode draak	none
@@ -989,7 +1180,9 @@ symbols:
 🖼	lijst met afbeelding	none
 🎨	schilderspalet	none
 🧵	garen	none
+🪡	naald	none
 🧶	wol	none
+🪢	knoop	none
 👓	bril	none
 🕶	zonnebril	none
 🥽	oogscherm	none
@@ -1015,6 +1208,7 @@ symbols:
 👝	tasje	none
 🛍	boodschappentassen	none
 🎒	schooltas	none
+🩴	teenslipper	none
 👞	herenschoen	none
 👟	sportschoen	none
 🥾	wandelschoen	none
@@ -1028,6 +1222,7 @@ symbols:
 🎩	hoge hoed	none
 🎓	academische baret	none
 🧢	pet	none
+🪖	legerhelm	none
 ⛑	helm van reddingswerker	none
 📿	gebedssnoer	none
 💄	lippenstift	none
@@ -1052,12 +1247,14 @@ symbols:
 🎧	hoofdtelefoon	none
 📻	radio	none
 🎷	saxofoon	none
+🪗	accordeon	none
 🎸	gitaar	none
 🎹	piano	none
 🎺	trompet	none
 🎻	viool	none
 🪕	banjo	none
 🥁	trommel	none
+🪘	hoge trom	none
 📱	mobiele telefoon	none
 📲	mobiel met pijl	none
 ☎	telefoon	none
@@ -1111,6 +1308,7 @@ symbols:
 🔖	bladwijzer	none
 🏷	label	none
 💰	zak met geld	none
+🪙	munt	none
 💴	yenbiljet	none
 💵	dollarbiljet	none
 💶	eurobiljet	none
@@ -1119,8 +1317,6 @@ symbols:
 💳	creditcard	none
 🧾	kassabon	none
 💹	stijgende grafiek met yenteken	none
-💱	geld wisselen	none
-💲	dollarteken	none
 ✉	envelop	none
 📧	e-mail	none
 📨	inkomende post	none
@@ -1177,10 +1373,13 @@ symbols:
 🛠	hamer en moersleutel	none
 🗡	dolk	none
 ⚔	gekruiste zwaarden	none
-🔫	pistool	none
+🔫	waterpistool	none
+🪃	boemerang	none
 🏹	pijl en boog	none
 🛡	schild	none
+🪚	houtzaag	none
 🔧	moersleutel	none
+🪛	schroevendraaier	none
 🔩	bout en moer	none
 ⚙	tandwiel	none
 🗜	lijmklem	none
@@ -1188,8 +1387,10 @@ symbols:
 🦯	taststok	none
 🔗	schakels	none
 ⛓	kettingen	none
+🪝	haak	none
 🧰	gereedschapskist	none
 🧲	magneet	none
+🪜	ladder	none
 ⚗	distilleerkolf	none
 🧪	reageerbuis	none
 🧫	petrischaal	none
@@ -1203,26 +1404,35 @@ symbols:
 🩹	pleister	none
 🩺	ste­tho­scoop	none
 🚪	deur	none
+🛗	lift	none
+🪞	spiegel	none
+🪟	raam	none
 🛏	bed	none
 🛋	bank en lamp	none
 🪑	hoge stoel	none
 🚽	toilet	none
+🪠	ontstopper	none
 🚿	douche	none
 🛁	badkuip	none
+🪤	muizenval	none
 🪒	scheermes	none
 🧴	lotionfles	none
 🧷	veiligheidsspeld	none
 🧹	bezem	none
 🧺	mand	none
 🧻	rol papier	none
+🪣	emmer	none
 🧼	zeep	none
+🪥	tandenborstel	none
 🧽	spons	none
 🧯	brandblusapparaat	none
 🛒	winkelwagen	none
-🚬	roken	none
+🚬	sigaret	none
 ⚰	doodskist	none
+🪦	grafsteen	none
 ⚱	urn	none
 🗿	moai-beeld	none
+🪧	plakkaat	none
 🏧	pinautomaat	none
 🚮	prullenbaksymbool	none
 🚰	drinkwater	none
@@ -1237,7 +1447,7 @@ symbols:
 🛄	bagage afhalen	none
 🛅	bagagekluis	none
 ⚠	waarschuwing	none
-🚸	kinderoversteek	none
+🚸	overstekende kinderen	none
 ⛔	geen toegang	none
 🚫	verboden	none
 🚳	geen fietsen	none
@@ -1259,6 +1469,7 @@ symbols:
 ↖	pijl linksomhoog	none
 ↕	pijl omhoog en omlaag	none
 ↔	pijl naar links en rechts	none
+↮	schuine streep met pijl naar links/rechts	none
 ↩	pijl naar rechts die naar links draait	none
 ↪	pijl naar links die naar rechts draait	none
 ⤴	pijl naar rechts die omhoog draait	none
@@ -1301,7 +1512,7 @@ symbols:
 ▶	knop voor afspelen	none
 ⏩	knop voor snel vooruitspoelen	none
 ⏭	knop voor volgende nummer	none
-⏯	knop voor afspelen of onderbreken	none
+⏯	knop voor afspelen of pauzeren	none
 ◀	knop voor terugspoelen	none
 ⏪	knop voor versneld terugspoelen	none
 ⏮	knop voor vorige nummer	none
@@ -1321,38 +1532,35 @@ symbols:
 📴	telefoon uit	none
 ♀	vrouwelijkheidssymbool	none
 ♂	mannelijkheidssymbool	none
-⚕	esculaap	none
+⚧	transgendersymbool	none
+✖	vermenigvuldigen	none
+➕	plus	none
+➖	min	none
+➗	delen	none
 ♾	oneindig	none
+❓	rood vraagteken	none
+❔	wit vraagteken	none
+❕	wit uitroepteken	none
+❗	rood uitroepteken	none
+💱	geld wisselen	none
+💲	dollarteken	none
+⚕	esculaap	none
 ♻	recycling-symbool	none
 ⚜	fleur de lis	none
 🔱	drietand-symbool	none
 📛	naamkaartje	none
-🔰	groen en geel blad	none
+🔰	Japans symbool voor beginner	none
 ⭕	lege rode cirkel	none
 ✅	knop voor vinkje	none
 ☑	vinkje in vak	none
 ✔	vinkje	none
-✖	vermenigvuldigingsteken	none
-❌	kruis	none
+❌	kruisteken	none
 ❎	knop voor kruis	none
-➕	plusteken	none
-➖	minteken	none
-➗	deelteken	none
 ➰	gekrulde lus	none
 ➿	dubbele gekrulde lus	none
-〽	rolwisselingsmarkering	none
 ✳	achtpuntige asterisk	none
 ✴	achtpuntige ster	none
 ❇	sprankeling	none
-‼	dubbel uitroepteken	none
-⁉	uitroepteken en vraagteken	none
-❓	vraagteken	none
-❔	wit vraagteken	none
-❕	wit uitroepteken	none
-❗	uitroepteken	none
-〰	golvend streepje	none
-©	copyright	none
-®	gedeponeerd	none
 ™	handelsmerksymbool	none
 🔠	hoofdletters	none
 🔡	kleine letters	none
@@ -1362,11 +1570,11 @@ symbols:
 🅰	bloedgroep A	none
 🆎	bloedgroep AB	none
 🅱	bloedgroep B	none
-🆑	wisknop	none
+🆑	CL-knop	none
 🆒	COOL-knop	none
 🆓	FREE-knop	none
 ℹ	informatie	none
-🆔	ID	none
+🆔	ID-knop	none
 Ⓜ	M in cirkel	none
 🆕	NEW-knop	none
 🆖	NG-knop	none
@@ -1376,23 +1584,6 @@ symbols:
 🆘	SOS-knop	none
 🆙	UP!-knop	none
 🆚	VS-knop	none
-🈁	Japans woordteken voor ‘hier’	none
-🈂	Japans teken voor ‘dienst’ of ‘dienstenheffing’	none
-🈷	Japans teken voor ‘maandelijks bedrag’	none
-🈶	Japans teken voor ‘niet gratis’	none
-🈯	Japans teken voor ‘gereserveerd’	none
-🉐	Japans teken voor ‘koopje’	none
-🈹	Japans teken voor ‘korting’	none
-🈚	Japans teken voor ‘gratis’	none
-🈲	Japans teken voor ‘verboden’	none
-🉑	Japans teken voor ‘acceptabel’	none
-🈸	Japans teken voor ‘toepassing’	none
-🈴	Japans teken voor ‘voldoende (cijfer)‘	none
-🈳	Japans teken voor ‘plaats vrij’	none
-㊗	Japans teken voor ‘gefeliciteerd’	none
-㊙	Japans teken voor ‘geheim’	none
-🈺	Japans teken voor ‘geopend’	none
-🈵	Japans teken voor ‘vol, geen plaats’	none
 🔴	rode cirkel	none
 🟠	oranje cirkel	none
 🟡	gele cirkel	none
@@ -1432,64 +1623,16 @@ symbols:
 🎌	gekruiste vlaggen	none
 🏴	zwarte vlag	none
 🏳	witte vlag	none
-🏳‍⚧	transgendervlag	none
 🏳‍🌈	regenboogvlag	none
+🏳‍⚧	transgendervlag	none
 🏴‍☠	piratenvlag	none
-🛖	hut	none
-🛗	lift	none
-🛻	pick-up	none
-🛼	rolschaats	none
-🤌	samengeknepen vingers	none
-🥲	lachend gezicht met traan	none
-🥷	ninja	none
-🥸	vermomd gezicht	none
-🦣	mammoet	none
-🦤	dodo	none
-🦫	bever	none
-🦬	bizon	none
-🦭	zeehond	none
-🧋	bubbelthee	none
-🩴	teenslipper	none
-🪃	boemerang	none
-🪄	toverstok	none
-🪅	piñata	none
-🪆	matroesjka	none
-🪖	legerhelm	none
-🪗	accordeon	none
-🪘	hoge trom	none
-🪙	munt	none
-🪚	houtzaag	none
-🪛	schroevendraaier	none
-🪜	ladder	none
-🪝	haak	none
-🪞	spiegel	none
-🪟	raam	none
-🪠	ontstopper	none
-🪡	naald	none
-🪢	knoop	none
-🪣	emmer	none
-🪤	muizenval	none
-🪥	tandenborstel	none
-🪦	grafsteen	none
-🪧	plakkaat	none
-🪨	rots	none
-🪰	vlieg	none
-🪱	worm	none
-🪲	kever	none
-🪳	kakkerlak	none
-🪴	potplant	none
-🪵	hout	none
-🪶	veer	none
-🫀	hart	none
-🫁	longen	none
-🫂	personen in een omhelzing	none
-🫐	bosbessen	none
-🫑	paprika	none
-🫒	olijf	none
-🫓	platbrood	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	theepot	none
+₥	mill	none
+₩	won	none
+€	euro	none
+₱	peso	none
+₹	Indiase roepie	none
+₽	roebel	none
+₿	bitcoin	none
 👋🏻	zwaaiende hand lichte huidskleur	none
 👋🏼	zwaaiende hand lichtgetinte huidskleur	none
 👋🏽	zwaaiende hand getinte huidskleur	none
@@ -1520,6 +1663,11 @@ symbols:
 👌🏽	OK-handgebaar getinte huidskleur	none
 👌🏾	OK-handgebaar donkergetinte huidskleur	none
 👌🏿	OK-handgebaar donkere huidskleur	none
+🤌🏻	samengeknepen vingers lichte huidskleur	none
+🤌🏼	samengeknepen vingers lichtgetinte huidskleur	none
+🤌🏽	samengeknepen vingers getinte huidskleur	none
+🤌🏾	samengeknepen vingers donkergetinte huidskleur	none
+🤌🏿	samengeknepen vingers donkere huidskleur	none
 🤏🏻	hand met samengeknepen vingers lichte huidskleur	none
 🤏🏼	hand met samengeknepen vingers lichtgetinte huidskleur	none
 🤏🏽	hand met samengeknepen vingers getinte huidskleur	none
@@ -1710,6 +1858,46 @@ symbols:
 👱🏽	persoon met blond haar getinte huidskleur	none
 👱🏾	persoon met blond haar donkergetinte huidskleur	none
 👱🏿	persoon met blond haar donkere huidskleur	none
+🧑🏻‍❤‍💋‍🧑🏼	kus volwassene, volwassene, lichte huidskleur, lichtgetinte huidskleur	none
+🧑🏻‍❤‍💋‍🧑🏽	kus volwassene, volwassene, lichte huidskleur, getinte huidskleur	none
+🧑🏻‍❤‍💋‍🧑🏾	kus volwassene, volwassene, lichte huidskleur, donkergetinte huidskleur	none
+🧑🏻‍❤‍💋‍🧑🏿	kus volwassene, volwassene, lichte huidskleur, donkere huidskleur	none
+🧑🏼‍❤‍💋‍🧑🏻	kus volwassene, volwassene, lichtgetinte huidskleur, lichte huidskleur	none
+🧑🏼‍❤‍💋‍🧑🏽	kus volwassene, volwassene, lichtgetinte huidskleur, getinte huidskleur	none
+🧑🏼‍❤‍💋‍🧑🏾	kus volwassene, volwassene, lichtgetinte huidskleur, donkergetinte huidskleur	none
+🧑🏼‍❤‍💋‍🧑🏿	kus volwassene, volwassene, lichtgetinte huidskleur, donkere huidskleur	none
+🧑🏽‍❤‍💋‍🧑🏻	kus volwassene, volwassene, getinte huidskleur, lichte huidskleur	none
+🧑🏽‍❤‍💋‍🧑🏼	kus volwassene, volwassene, getinte huidskleur, lichtgetinte huidskleur	none
+🧑🏽‍❤‍💋‍🧑🏾	kus volwassene, volwassene, getinte huidskleur, donkergetinte huidskleur	none
+🧑🏽‍❤‍💋‍🧑🏿	kus volwassene, volwassene, getinte huidskleur, donkere huidskleur	none
+🧑🏾‍❤‍💋‍🧑🏻	kus volwassene, volwassene, donkergetinte huidskleur, lichte huidskleur	none
+🧑🏾‍❤‍💋‍🧑🏼	kus volwassene, volwassene, donkergetinte huidskleur, lichtgetinte huidskleur	none
+🧑🏾‍❤‍💋‍🧑🏽	kus volwassene, volwassene, donkergetinte huidskleur, getinte huidskleur	none
+🧑🏾‍❤‍💋‍🧑🏿	kus volwassene, volwassene, donkergetinte huidskleur, donkere huidskleur	none
+🧑🏿‍❤‍💋‍🧑🏻	kus volwassene, volwassene, donkere huidskleur, lichte huidskleur	none
+🧑🏿‍❤‍💋‍🧑🏼	kus volwassene, volwassene, donkere huidskleur, lichtgetinte huidskleur	none
+🧑🏿‍❤‍💋‍🧑🏽	kus volwassene, volwassene, donkere huidskleur, getinte huidskleur	none
+🧑🏿‍❤‍💋‍🧑🏾	kus volwassene, volwassene, donkere huidskleur, donkergetinte huidskleur	none
+🧑🏻‍❤‍🧑🏼	stel met hart volwassene, volwassene, lichte huidskleur, lichtgetinte huidskleur	none
+🧑🏻‍❤‍🧑🏽	stel met hart volwassene, volwassene, lichte huidskleur, getinte huidskleur	none
+🧑🏻‍❤‍🧑🏾	stel met hart volwassene, volwassene, lichte huidskleur, donkergetinte huidskleur	none
+🧑🏻‍❤‍🧑🏿	stel met hart volwassene, volwassene, lichte huidskleur, donkere huidskleur	none
+🧑🏼‍❤‍🧑🏻	stel met hart volwassene, volwassene, lichtgetinte huidskleur, lichte huidskleur	none
+🧑🏼‍❤‍🧑🏽	stel met hart volwassene, volwassene, lichtgetinte huidskleur, getinte huidskleur	none
+🧑🏼‍❤‍🧑🏾	stel met hart volwassene, volwassene, lichtgetinte huidskleur, donkergetinte huidskleur	none
+🧑🏼‍❤‍🧑🏿	stel met hart volwassene, volwassene, lichtgetinte huidskleur, donkere huidskleur	none
+🧑🏽‍❤‍🧑🏻	stel met hart volwassene, volwassene, getinte huidskleur, lichte huidskleur	none
+🧑🏽‍❤‍🧑🏼	stel met hart volwassene, volwassene, getinte huidskleur, lichtgetinte huidskleur	none
+🧑🏽‍❤‍🧑🏾	stel met hart volwassene, volwassene, getinte huidskleur, donkergetinte huidskleur	none
+🧑🏽‍❤‍🧑🏿	stel met hart volwassene, volwassene, getinte huidskleur, donkere huidskleur	none
+🧑🏾‍❤‍🧑🏻	stel met hart volwassene, volwassene, donkergetinte huidskleur, lichte huidskleur	none
+🧑🏾‍❤‍🧑🏼	stel met hart volwassene, volwassene, donkergetinte huidskleur, lichtgetinte huidskleur	none
+🧑🏾‍❤‍🧑🏽	stel met hart volwassene, volwassene, donkergetinte huidskleur, getinte huidskleur	none
+🧑🏾‍❤‍🧑🏿	stel met hart volwassene, volwassene, donkergetinte huidskleur, donkere huidskleur	none
+🧑🏿‍❤‍🧑🏻	stel met hart volwassene, volwassene, donkere huidskleur, lichte huidskleur	none
+🧑🏿‍❤‍🧑🏼	stel met hart volwassene, volwassene, donkere huidskleur, lichtgetinte huidskleur	none
+🧑🏿‍❤‍🧑🏽	stel met hart volwassene, volwassene, donkere huidskleur, getinte huidskleur	none
+🧑🏿‍❤‍🧑🏾	stel met hart volwassene, volwassene, donkere huidskleur, donkergetinte huidskleur	none
 🧑‍🦰	volwassene rood haar	none
 🧑🏻‍🦰	volwassene lichte huidskleur, rood haar	none
 🧑🏼‍🦰	volwassene lichtgetinte huidskleur, rood haar	none
@@ -1739,16 +1927,71 @@ symbols:
 👨🏽	man getinte huidskleur	none
 👨🏾	man donkergetinte huidskleur	none
 👨🏿	man donkere huidskleur	none
-🧔🏻	man met baard lichte huidskleur	none
-🧔🏼	man met baard lichtgetinte huidskleur	none
-🧔🏽	man met baard getinte huidskleur	none
-🧔🏾	man met baard donkergetinte huidskleur	none
-🧔🏿	man met baard donkere huidskleur	none
+🧔🏻	persoon lichte huidskleur, baard	none
+🧔🏼	persoon lichtgetinte huidskleur, baard	none
+🧔🏽	persoon getinte huidskleur, baard	none
+🧔🏾	persoon donkergetinte huidskleur, baard	none
+🧔🏿	persoon donkere huidskleur, baard	none
+🧔🏻‍♂	man lichte huidskleur, baard	none
+🧔🏼‍♂	man lichtgetinte huidskleur, baard	none
+🧔🏽‍♂	man getinte huidskleur, baard	none
+🧔🏾‍♂	man donkergetinte huidskleur, baard	none
+🧔🏿‍♂	man donkere huidskleur, baard	none
 👱🏻‍♂	man met blond haar lichte huidskleur	none
 👱🏼‍♂	man met blond haar lichtgetinte huidskleur	none
 👱🏽‍♂	man met blond haar getinte huidskleur	none
 👱🏾‍♂	man met blond haar donkergetinte huidskleur	none
 👱🏿‍♂	man met blond haar donkere huidskleur	none
+👨🏻‍❤‍💋‍👨🏻	kus man, man, lichte huidskleur	none
+👨🏻‍❤‍💋‍👨🏼	kus man, man, lichte huidskleur, lichtgetinte huidskleur	none
+👨🏻‍❤‍💋‍👨🏽	kus man, man, lichte huidskleur, getinte huidskleur	none
+👨🏻‍❤‍💋‍👨🏾	kus man, man, lichte huidskleur, donkergetinte huidskleur	none
+👨🏻‍❤‍💋‍👨🏿	kus man, man, lichte huidskleur, donkere huidskleur	none
+👨🏼‍❤‍💋‍👨🏻	kus man, man, lichtgetinte huidskleur, lichte huidskleur	none
+👨🏼‍❤‍💋‍👨🏼	kus man, man, lichtgetinte huidskleur	none
+👨🏼‍❤‍💋‍👨🏽	kus man, man, lichtgetinte huidskleur, getinte huidskleur	none
+👨🏼‍❤‍💋‍👨🏾	kus man, man, lichtgetinte huidskleur, donkergetinte huidskleur	none
+👨🏼‍❤‍💋‍👨🏿	kus man, man, lichtgetinte huidskleur, donkere huidskleur	none
+👨🏽‍❤‍💋‍👨🏻	kus man, man, getinte huidskleur, lichte huidskleur	none
+👨🏽‍❤‍💋‍👨🏼	kus man, man, getinte huidskleur, lichtgetinte huidskleur	none
+👨🏽‍❤‍💋‍👨🏽	kus man, man, getinte huidskleur	none
+👨🏽‍❤‍💋‍👨🏾	kus man, man, getinte huidskleur, donkergetinte huidskleur	none
+👨🏽‍❤‍💋‍👨🏿	kus man, man, getinte huidskleur, donkere huidskleur	none
+👨🏾‍❤‍💋‍👨🏻	kus man, man, donkergetinte huidskleur, lichte huidskleur	none
+👨🏾‍❤‍💋‍👨🏼	kus man, man, donkergetinte huidskleur, lichtgetinte huidskleur	none
+👨🏾‍❤‍💋‍👨🏽	kus man, man, donkergetinte huidskleur, getinte huidskleur	none
+👨🏾‍❤‍💋‍👨🏾	kus man, man, donkergetinte huidskleur	none
+👨🏾‍❤‍💋‍👨🏿	kus man, man, donkergetinte huidskleur, donkere huidskleur	none
+👨🏿‍❤‍💋‍👨🏻	kus man, man, donkere huidskleur, lichte huidskleur	none
+👨🏿‍❤‍💋‍👨🏼	kus man, man, donkere huidskleur, lichtgetinte huidskleur	none
+👨🏿‍❤‍💋‍👨🏽	kus man, man, donkere huidskleur, getinte huidskleur	none
+👨🏿‍❤‍💋‍👨🏾	kus man, man, donkere huidskleur, donkergetinte huidskleur	none
+👨🏿‍❤‍💋‍👨🏿	kus man, man, donkere huidskleur	none
+👨🏻‍❤‍👨🏻	stel met hart man, man, lichte huidskleur	none
+👨🏻‍❤‍👨🏼	stel met hart man, man, lichte huidskleur, lichtgetinte huidskleur	none
+👨🏻‍❤‍👨🏽	stel met hart man, man, lichte huidskleur, getinte huidskleur	none
+👨🏻‍❤‍👨🏾	stel met hart man, man, lichte huidskleur, donkergetinte huidskleur	none
+👨🏻‍❤‍👨🏿	stel met hart man, man, lichte huidskleur, donkere huidskleur	none
+👨🏼‍❤‍👨🏻	stel met hart man, man, lichtgetinte huidskleur, lichte huidskleur	none
+👨🏼‍❤‍👨🏼	stel met hart man, man, lichtgetinte huidskleur	none
+👨🏼‍❤‍👨🏽	stel met hart man, man, lichtgetinte huidskleur, getinte huidskleur	none
+👨🏼‍❤‍👨🏾	stel met hart man, man, lichtgetinte huidskleur, donkergetinte huidskleur	none
+👨🏼‍❤‍👨🏿	stel met hart man, man, lichtgetinte huidskleur, donkere huidskleur	none
+👨🏽‍❤‍👨🏻	stel met hart man, man, getinte huidskleur, lichte huidskleur	none
+👨🏽‍❤‍👨🏼	stel met hart man, man, getinte huidskleur, lichtgetinte huidskleur	none
+👨🏽‍❤‍👨🏽	stel met hart man, man, getinte huidskleur	none
+👨🏽‍❤‍👨🏾	stel met hart man, man, getinte huidskleur, donkergetinte huidskleur	none
+👨🏽‍❤‍👨🏿	stel met hart man, man, getinte huidskleur, donkere huidskleur	none
+👨🏾‍❤‍👨🏻	stel met hart man, man, donkergetinte huidskleur, lichte huidskleur	none
+👨🏾‍❤‍👨🏼	stel met hart man, man, donkergetinte huidskleur, lichtgetinte huidskleur	none
+👨🏾‍❤‍👨🏽	stel met hart man, man, donkergetinte huidskleur, getinte huidskleur	none
+👨🏾‍❤‍👨🏾	stel met hart man, man, donkergetinte huidskleur	none
+👨🏾‍❤‍👨🏿	stel met hart man, man, donkergetinte huidskleur, donkere huidskleur	none
+👨🏿‍❤‍👨🏻	stel met hart man, man, donkere huidskleur, lichte huidskleur	none
+👨🏿‍❤‍👨🏼	stel met hart man, man, donkere huidskleur, lichtgetinte huidskleur	none
+👨🏿‍❤‍👨🏽	stel met hart man, man, donkere huidskleur, getinte huidskleur	none
+👨🏿‍❤‍👨🏾	stel met hart man, man, donkere huidskleur, donkergetinte huidskleur	none
+👨🏿‍❤‍👨🏿	stel met hart man, man, donkere huidskleur	none
 👨‍🦰	man rood haar	none
 👨🏻‍🦰	man lichte huidskleur, rood haar	none
 👨🏼‍🦰	man lichtgetinte huidskleur, rood haar	none
@@ -1778,11 +2021,116 @@ symbols:
 👩🏽	vrouw getinte huidskleur	none
 👩🏾	vrouw donkergetinte huidskleur	none
 👩🏿	vrouw donkere huidskleur	none
+🧔🏻‍♀	vrouw lichte huidskleur, baard	none
+🧔🏼‍♀	vrouw lichtgetinte huidskleur, baard	none
+🧔🏽‍♀	vrouw getinte huidskleur, baard	none
+🧔🏾‍♀	vrouw donkergetinte huidskleur, baard	none
+🧔🏿‍♀	vrouw donkere huidskleur, baard	none
 👱🏻‍♀	vrouw met blond haar lichte huidskleur	none
 👱🏼‍♀	vrouw met blond haar lichtgetinte huidskleur	none
 👱🏽‍♀	vrouw met blond haar getinte huidskleur	none
 👱🏾‍♀	vrouw met blond haar donkergetinte huidskleur	none
 👱🏿‍♀	vrouw met blond haar donkere huidskleur	none
+👩🏻‍❤‍💋‍👨🏻	kus vrouw, man, lichte huidskleur	none
+👩🏻‍❤‍💋‍👨🏼	kus vrouw, man, lichte huidskleur, lichtgetinte huidskleur	none
+👩🏻‍❤‍💋‍👨🏽	kus vrouw, man, lichte huidskleur, getinte huidskleur	none
+👩🏻‍❤‍💋‍👨🏾	kus vrouw, man, lichte huidskleur, donkergetinte huidskleur	none
+👩🏻‍❤‍💋‍👨🏿	kus vrouw, man, lichte huidskleur, donkere huidskleur	none
+👩🏼‍❤‍💋‍👨🏻	kus vrouw, man, lichtgetinte huidskleur, lichte huidskleur	none
+👩🏼‍❤‍💋‍👨🏼	kus vrouw, man, lichtgetinte huidskleur	none
+👩🏼‍❤‍💋‍👨🏽	kus vrouw, man, lichtgetinte huidskleur, getinte huidskleur	none
+👩🏼‍❤‍💋‍👨🏾	kus vrouw, man, lichtgetinte huidskleur, donkergetinte huidskleur	none
+👩🏼‍❤‍💋‍👨🏿	kus vrouw, man, lichtgetinte huidskleur, donkere huidskleur	none
+👩🏽‍❤‍💋‍👨🏻	kus vrouw, man, getinte huidskleur, lichte huidskleur	none
+👩🏽‍❤‍💋‍👨🏼	kus vrouw, man, getinte huidskleur, lichtgetinte huidskleur	none
+👩🏽‍❤‍💋‍👨🏽	kus vrouw, man, getinte huidskleur	none
+👩🏽‍❤‍💋‍👨🏾	kus vrouw, man, getinte huidskleur, donkergetinte huidskleur	none
+👩🏽‍❤‍💋‍👨🏿	kus vrouw, man, getinte huidskleur, donkere huidskleur	none
+👩🏾‍❤‍💋‍👨🏻	kus vrouw, man, donkergetinte huidskleur, lichte huidskleur	none
+👩🏾‍❤‍💋‍👨🏼	kus vrouw, man, donkergetinte huidskleur, lichtgetinte huidskleur	none
+👩🏾‍❤‍💋‍👨🏽	kus vrouw, man, donkergetinte huidskleur, getinte huidskleur	none
+👩🏾‍❤‍💋‍👨🏾	kus vrouw, man, donkergetinte huidskleur	none
+👩🏾‍❤‍💋‍👨🏿	kus vrouw, man, donkergetinte huidskleur, donkere huidskleur	none
+👩🏿‍❤‍💋‍👨🏻	kus vrouw, man, donkere huidskleur, lichte huidskleur	none
+👩🏿‍❤‍💋‍👨🏼	kus vrouw, man, donkere huidskleur, lichtgetinte huidskleur	none
+👩🏿‍❤‍💋‍👨🏽	kus vrouw, man, donkere huidskleur, getinte huidskleur	none
+👩🏿‍❤‍💋‍👨🏾	kus vrouw, man, donkere huidskleur, donkergetinte huidskleur	none
+👩🏿‍❤‍💋‍👨🏿	kus vrouw, man, donkere huidskleur	none
+👩🏻‍❤‍💋‍👩🏻	kus vrouw, vrouw, lichte huidskleur	none
+👩🏻‍❤‍💋‍👩🏼	kus vrouw, vrouw, lichte huidskleur, lichtgetinte huidskleur	none
+👩🏻‍❤‍💋‍👩🏽	kus vrouw, vrouw, lichte huidskleur, getinte huidskleur	none
+👩🏻‍❤‍💋‍👩🏾	kus vrouw, vrouw, lichte huidskleur, donkergetinte huidskleur	none
+👩🏻‍❤‍💋‍👩🏿	kus vrouw, vrouw, lichte huidskleur, donkere huidskleur	none
+👩🏼‍❤‍💋‍👩🏻	kus vrouw, vrouw, lichtgetinte huidskleur, lichte huidskleur	none
+👩🏼‍❤‍💋‍👩🏼	kus vrouw, vrouw, lichtgetinte huidskleur	none
+👩🏼‍❤‍💋‍👩🏽	kus vrouw, vrouw, lichtgetinte huidskleur, getinte huidskleur	none
+👩🏼‍❤‍💋‍👩🏾	kus vrouw, vrouw, lichtgetinte huidskleur, donkergetinte huidskleur	none
+👩🏼‍❤‍💋‍👩🏿	kus vrouw, vrouw, lichtgetinte huidskleur, donkere huidskleur	none
+👩🏽‍❤‍💋‍👩🏻	kus vrouw, vrouw, getinte huidskleur, lichte huidskleur	none
+👩🏽‍❤‍💋‍👩🏼	kus vrouw, vrouw, getinte huidskleur, lichtgetinte huidskleur	none
+👩🏽‍❤‍💋‍👩🏽	kus vrouw, vrouw, getinte huidskleur	none
+👩🏽‍❤‍💋‍👩🏾	kus vrouw, vrouw, getinte huidskleur, donkergetinte huidskleur	none
+👩🏽‍❤‍💋‍👩🏿	kus vrouw, vrouw, getinte huidskleur, donkere huidskleur	none
+👩🏾‍❤‍💋‍👩🏻	kus vrouw, vrouw, donkergetinte huidskleur, lichte huidskleur	none
+👩🏾‍❤‍💋‍👩🏼	kus vrouw, vrouw, donkergetinte huidskleur, lichtgetinte huidskleur	none
+👩🏾‍❤‍💋‍👩🏽	kus vrouw, vrouw, donkergetinte huidskleur, getinte huidskleur	none
+👩🏾‍❤‍💋‍👩🏾	kus vrouw, vrouw, donkergetinte huidskleur	none
+👩🏾‍❤‍💋‍👩🏿	kus vrouw, vrouw, donkergetinte huidskleur, donkere huidskleur	none
+👩🏿‍❤‍💋‍👩🏻	kus vrouw, vrouw, donkere huidskleur, lichte huidskleur	none
+👩🏿‍❤‍💋‍👩🏼	kus vrouw, vrouw, donkere huidskleur, lichtgetinte huidskleur	none
+👩🏿‍❤‍💋‍👩🏽	kus vrouw, vrouw, donkere huidskleur, getinte huidskleur	none
+👩🏿‍❤‍💋‍👩🏾	kus vrouw, vrouw, donkere huidskleur, donkergetinte huidskleur	none
+👩🏿‍❤‍💋‍👩🏿	kus vrouw, vrouw, donkere huidskleur	none
+👩🏻‍❤‍👨🏻	stel met hart vrouw, man, lichte huidskleur	none
+👩🏻‍❤‍👨🏼	stel met hart vrouw, man, lichte huidskleur, lichtgetinte huidskleur	none
+👩🏻‍❤‍👨🏽	stel met hart vrouw, man, lichte huidskleur, getinte huidskleur	none
+👩🏻‍❤‍👨🏾	stel met hart vrouw, man, lichte huidskleur, donkergetinte huidskleur	none
+👩🏻‍❤‍👨🏿	stel met hart vrouw, man, lichte huidskleur, donkere huidskleur	none
+👩🏼‍❤‍👨🏻	stel met hart vrouw, man, lichtgetinte huidskleur, lichte huidskleur	none
+👩🏼‍❤‍👨🏼	stel met hart vrouw, man, lichtgetinte huidskleur	none
+👩🏼‍❤‍👨🏽	stel met hart vrouw, man, lichtgetinte huidskleur, getinte huidskleur	none
+👩🏼‍❤‍👨🏾	stel met hart vrouw, man, lichtgetinte huidskleur, donkergetinte huidskleur	none
+👩🏼‍❤‍👨🏿	stel met hart vrouw, man, lichtgetinte huidskleur, donkere huidskleur	none
+👩🏽‍❤‍👨🏻	stel met hart vrouw, man, getinte huidskleur, lichte huidskleur	none
+👩🏽‍❤‍👨🏼	stel met hart vrouw, man, getinte huidskleur, lichtgetinte huidskleur	none
+👩🏽‍❤‍👨🏽	stel met hart vrouw, man, getinte huidskleur	none
+👩🏽‍❤‍👨🏾	stel met hart vrouw, man, getinte huidskleur, donkergetinte huidskleur	none
+👩🏽‍❤‍👨🏿	stel met hart vrouw, man, getinte huidskleur, donkere huidskleur	none
+👩🏾‍❤‍👨🏻	stel met hart vrouw, man, donkergetinte huidskleur, lichte huidskleur	none
+👩🏾‍❤‍👨🏼	stel met hart vrouw, man, donkergetinte huidskleur, lichtgetinte huidskleur	none
+👩🏾‍❤‍👨🏽	stel met hart vrouw, man, donkergetinte huidskleur, getinte huidskleur	none
+👩🏾‍❤‍👨🏾	stel met hart vrouw, man, donkergetinte huidskleur	none
+👩🏾‍❤‍👨🏿	stel met hart vrouw, man, donkergetinte huidskleur, donkere huidskleur	none
+👩🏿‍❤‍👨🏻	stel met hart vrouw, man, donkere huidskleur, lichte huidskleur	none
+👩🏿‍❤‍👨🏼	stel met hart vrouw, man, donkere huidskleur, lichtgetinte huidskleur	none
+👩🏿‍❤‍👨🏽	stel met hart vrouw, man, donkere huidskleur, getinte huidskleur	none
+👩🏿‍❤‍👨🏾	stel met hart vrouw, man, donkere huidskleur, donkergetinte huidskleur	none
+👩🏿‍❤‍👨🏿	stel met hart vrouw, man, donkere huidskleur	none
+👩🏻‍❤‍👩🏻	stel met hart vrouw, vrouw, lichte huidskleur	none
+👩🏻‍❤‍👩🏼	stel met hart vrouw, vrouw, lichte huidskleur, lichtgetinte huidskleur	none
+👩🏻‍❤‍👩🏽	stel met hart vrouw, vrouw, lichte huidskleur, getinte huidskleur	none
+👩🏻‍❤‍👩🏾	stel met hart vrouw, vrouw, lichte huidskleur, donkergetinte huidskleur	none
+👩🏻‍❤‍👩🏿	stel met hart vrouw, vrouw, lichte huidskleur, donkere huidskleur	none
+👩🏼‍❤‍👩🏻	stel met hart vrouw, vrouw, lichtgetinte huidskleur, lichte huidskleur	none
+👩🏼‍❤‍👩🏼	stel met hart vrouw, vrouw, lichtgetinte huidskleur	none
+👩🏼‍❤‍👩🏽	stel met hart vrouw, vrouw, lichtgetinte huidskleur, getinte huidskleur	none
+👩🏼‍❤‍👩🏾	stel met hart vrouw, vrouw, lichtgetinte huidskleur, donkergetinte huidskleur	none
+👩🏼‍❤‍👩🏿	stel met hart vrouw, vrouw, lichtgetinte huidskleur, donkere huidskleur	none
+👩🏽‍❤‍👩🏻	stel met hart vrouw, vrouw, getinte huidskleur, lichte huidskleur	none
+👩🏽‍❤‍👩🏼	stel met hart vrouw, vrouw, getinte huidskleur, lichtgetinte huidskleur	none
+👩🏽‍❤‍👩🏽	stel met hart vrouw, vrouw, getinte huidskleur	none
+👩🏽‍❤‍👩🏾	stel met hart vrouw, vrouw, getinte huidskleur, donkergetinte huidskleur	none
+👩🏽‍❤‍👩🏿	stel met hart vrouw, vrouw, getinte huidskleur, donkere huidskleur	none
+👩🏾‍❤‍👩🏻	stel met hart vrouw, vrouw, donkergetinte huidskleur, lichte huidskleur	none
+👩🏾‍❤‍👩🏼	stel met hart vrouw, vrouw, donkergetinte huidskleur, lichtgetinte huidskleur	none
+👩🏾‍❤‍👩🏽	stel met hart vrouw, vrouw, donkergetinte huidskleur, getinte huidskleur	none
+👩🏾‍❤‍👩🏾	stel met hart vrouw, vrouw, donkergetinte huidskleur	none
+👩🏾‍❤‍👩🏿	stel met hart vrouw, vrouw, donkergetinte huidskleur, donkere huidskleur	none
+👩🏿‍❤‍👩🏻	stel met hart vrouw, vrouw, donkere huidskleur, lichte huidskleur	none
+👩🏿‍❤‍👩🏼	stel met hart vrouw, vrouw, donkere huidskleur, lichtgetinte huidskleur	none
+👩🏿‍❤‍👩🏽	stel met hart vrouw, vrouw, donkere huidskleur, getinte huidskleur	none
+👩🏿‍❤‍👩🏾	stel met hart vrouw, vrouw, donkere huidskleur, donkergetinte huidskleur	none
+👩🏿‍❤‍👩🏿	stel met hart vrouw, vrouw, donkere huidskleur	none
 👩‍🦰	vrouw rood haar	none
 👩🏻‍🦰	vrouw lichte huidskleur, rood haar	none
 👩🏼‍🦰	vrouw lichtgetinte huidskleur, rood haar	none
@@ -1807,11 +2155,11 @@ symbols:
 👩🏽‍🦲	vrouw getinte huidskleur, kaal	none
 👩🏾‍🦲	vrouw donkergetinte huidskleur, kaal	none
 👩🏿‍🦲	vrouw donkere huidskleur, kaal	none
-🧓🏻	oudere volwassene lichte huidskleur	none
-🧓🏼	oudere volwassene lichtgetinte huidskleur	none
-🧓🏽	oudere volwassene getinte huidskleur	none
-🧓🏾	oudere volwassene donkergetinte huidskleur	none
-🧓🏿	oudere volwassene donkere huidskleur	none
+🧓🏻	oudere persoon lichte huidskleur	none
+🧓🏼	oudere persoon lichtgetinte huidskleur	none
+🧓🏽	oudere persoon getinte huidskleur	none
+🧓🏾	oudere persoon donkergetinte huidskleur	none
+🧓🏿	oudere persoon donkere huidskleur	none
 👴🏻	oude man lichte huidskleur	none
 👴🏼	oude man lichtgetinte huidskleur	none
 👴🏽	oude man getinte huidskleur	none
@@ -2257,6 +2605,11 @@ symbols:
 💂🏽‍♀	vrouwelijke wachter getinte huidskleur	none
 💂🏾‍♀	vrouwelijke wachter donkergetinte huidskleur	none
 💂🏿‍♀	vrouwelijke wachter donkere huidskleur	none
+🥷🏻	ninja lichte huidskleur	none
+🥷🏼	ninja lichtgetinte huidskleur	none
+🥷🏽	ninja getinte huidskleur	none
+🥷🏾	ninja donkergetinte huidskleur	none
+🥷🏿	ninja donkere huidskleur	none
 👷🏻	bouwvakker lichte huidskleur	none
 👷🏼	bouwvakker lichtgetinte huidskleur	none
 👷🏽	bouwvakker getinte huidskleur	none
@@ -2307,16 +2660,36 @@ symbols:
 🧕🏽	vrouw met hoofddoek getinte huidskleur	none
 🧕🏾	vrouw met hoofddoek donkergetinte huidskleur	none
 🧕🏿	vrouw met hoofddoek donkere huidskleur	none
-🤵🏻	man in smoking lichte huidskleur	none
-🤵🏼	man in smoking lichtgetinte huidskleur	none
-🤵🏽	man in smoking getinte huidskleur	none
-🤵🏾	man in smoking donkergetinte huidskleur	none
-🤵🏿	man in smoking donkere huidskleur	none
-👰🏻	gesluierde bruid lichte huidskleur	none
-👰🏼	gesluierde bruid lichtgetinte huidskleur	none
-👰🏽	gesluierde bruid getinte huidskleur	none
-👰🏾	gesluierde bruid donkergetinte huidskleur	none
-👰🏿	gesluierde bruid donkere huidskleur	none
+🤵🏻	persoon in smoking lichte huidskleur	none
+🤵🏼	persoon in smoking lichtgetinte huidskleur	none
+🤵🏽	persoon in smoking getinte huidskleur	none
+🤵🏾	persoon in smoking donkergetinte huidskleur	none
+🤵🏿	persoon in smoking donkere huidskleur	none
+🤵🏻‍♂	man in smoking lichte huidskleur	none
+🤵🏼‍♂	man in smoking lichtgetinte huidskleur	none
+🤵🏽‍♂	man in smoking getinte huidskleur	none
+🤵🏾‍♂	man in smoking donkergetinte huidskleur	none
+🤵🏿‍♂	man in smoking donkere huidskleur	none
+🤵🏻‍♀	vrouw in smoking lichte huidskleur	none
+🤵🏼‍♀	vrouw in smoking lichtgetinte huidskleur	none
+🤵🏽‍♀	vrouw in smoking getinte huidskleur	none
+🤵🏾‍♀	vrouw in smoking donkergetinte huidskleur	none
+🤵🏿‍♀	vrouw in smoking donkere huidskleur	none
+👰🏻	persoon met sluier lichte huidskleur	none
+👰🏼	persoon met sluier lichtgetinte huidskleur	none
+👰🏽	persoon met sluier getinte huidskleur	none
+👰🏾	persoon met sluier donkergetinte huidskleur	none
+👰🏿	persoon met sluier donkere huidskleur	none
+👰🏻‍♂	man met sluier lichte huidskleur	none
+👰🏼‍♂	man met sluier lichtgetinte huidskleur	none
+👰🏽‍♂	man met sluier getinte huidskleur	none
+👰🏾‍♂	man met sluier donkergetinte huidskleur	none
+👰🏿‍♂	man met sluier donkere huidskleur	none
+👰🏻‍♀	vrouw met sluier lichte huidskleur	none
+👰🏼‍♀	vrouw met sluier lichtgetinte huidskleur	none
+👰🏽‍♀	vrouw met sluier getinte huidskleur	none
+👰🏾‍♀	vrouw met sluier donkergetinte huidskleur	none
+👰🏿‍♀	vrouw met sluier donkere huidskleur	none
 🤰🏻	zwangere vrouw lichte huidskleur	none
 🤰🏼	zwangere vrouw lichtgetinte huidskleur	none
 🤰🏽	zwangere vrouw getinte huidskleur	none
@@ -2327,6 +2700,21 @@ symbols:
 🤱🏽	borstvoeding getinte huidskleur	none
 🤱🏾	borstvoeding donkergetinte huidskleur	none
 🤱🏿	borstvoeding donkere huidskleur	none
+👩🏻‍🍼	vrouw die een baby voedt lichte huidskleur	none
+👩🏼‍🍼	vrouw die een baby voedt lichtgetinte huidskleur	none
+👩🏽‍🍼	vrouw die een baby voedt getinte huidskleur	none
+👩🏾‍🍼	vrouw die een baby voedt donkergetinte huidskleur	none
+👩🏿‍🍼	vrouw die een baby voedt donkere huidskleur	none
+👨🏻‍🍼	man die een baby voedt lichte huidskleur	none
+👨🏼‍🍼	man die een baby voedt lichtgetinte huidskleur	none
+👨🏽‍🍼	man die een baby voedt getinte huidskleur	none
+👨🏾‍🍼	man die een baby voedt donkergetinte huidskleur	none
+👨🏿‍🍼	man die een baby voedt donkere huidskleur	none
+🧑🏻‍🍼	persoon die een baby voedt lichte huidskleur	none
+🧑🏼‍🍼	persoon die een baby voedt lichtgetinte huidskleur	none
+🧑🏽‍🍼	persoon die een baby voedt getinte huidskleur	none
+🧑🏾‍🍼	persoon die een baby voedt donkergetinte huidskleur	none
+🧑🏿‍🍼	persoon die een baby voedt donkere huidskleur	none
 👼🏻	baby-engel lichte huidskleur	none
 👼🏼	baby-engel lichtgetinte huidskleur	none
 👼🏽	baby-engel getinte huidskleur	none
@@ -2342,6 +2730,11 @@ symbols:
 🤶🏽	kerstvrouw getinte huidskleur	none
 🤶🏾	kerstvrouw donkergetinte huidskleur	none
 🤶🏿	kerstvrouw donkere huidskleur	none
+🧑🏻‍🎄	kersttransgender lichte huidskleur	none
+🧑🏼‍🎄	kersttransgender lichtgetinte huidskleur	none
+🧑🏽‍🎄	kersttransgender getinte huidskleur	none
+🧑🏾‍🎄	kersttransgender donkergetinte huidskleur	none
+🧑🏿‍🎄	kersttransgender donkere huidskleur	none
 🦸🏻	superheld lichte huidskleur	none
 🦸🏼	superheld lichtgetinte huidskleur	none
 🦸🏽	superheld getinte huidskleur	none
@@ -2843,30 +3236,50 @@ symbols:
 🛌🏾	persoon in bed donkergetinte huidskleur	none
 🛌🏿	persoon in bed donkere huidskleur	none
 🧑🏻‍🤝‍🧑🏻	personen hand in hand lichte huidskleur	none
+🧑🏻‍🤝‍🧑🏼	personen hand in hand lichte huidskleur, lichtgetinte huidskleur	none
+🧑🏻‍🤝‍🧑🏽	personen hand in hand lichte huidskleur, getinte huidskleur	none
+🧑🏻‍🤝‍🧑🏾	personen hand in hand lichte huidskleur, donkergetinte huidskleur	none
+🧑🏻‍🤝‍🧑🏿	personen hand in hand lichte huidskleur, donkere huidskleur	none
 🧑🏼‍🤝‍🧑🏻	personen hand in hand lichtgetinte huidskleur, lichte huidskleur	none
 🧑🏼‍🤝‍🧑🏼	personen hand in hand lichtgetinte huidskleur	none
+🧑🏼‍🤝‍🧑🏽	personen hand in hand lichtgetinte huidskleur, getinte huidskleur	none
+🧑🏼‍🤝‍🧑🏾	personen hand in hand lichtgetinte huidskleur, donkergetinte huidskleur	none
+🧑🏼‍🤝‍🧑🏿	personen hand in hand lichtgetinte huidskleur, donkere huidskleur	none
 🧑🏽‍🤝‍🧑🏻	personen hand in hand getinte huidskleur, lichte huidskleur	none
 🧑🏽‍🤝‍🧑🏼	personen hand in hand getinte huidskleur, lichtgetinte huidskleur	none
 🧑🏽‍🤝‍🧑🏽	personen hand in hand getinte huidskleur	none
+🧑🏽‍🤝‍🧑🏾	personen hand in hand getinte huidskleur, donkergetinte huidskleur	none
+🧑🏽‍🤝‍🧑🏿	personen hand in hand getinte huidskleur, donkere huidskleur	none
 🧑🏾‍🤝‍🧑🏻	personen hand in hand donkergetinte huidskleur, lichte huidskleur	none
 🧑🏾‍🤝‍🧑🏼	personen hand in hand donkergetinte huidskleur, lichtgetinte huidskleur	none
 🧑🏾‍🤝‍🧑🏽	personen hand in hand donkergetinte huidskleur, getinte huidskleur	none
 🧑🏾‍🤝‍🧑🏾	personen hand in hand donkergetinte huidskleur	none
+🧑🏾‍🤝‍🧑🏿	personen hand in hand donkergetinte huidskleur, donkere huidskleur	none
 🧑🏿‍🤝‍🧑🏻	personen hand in hand donkere huidskleur, lichte huidskleur	none
 🧑🏿‍🤝‍🧑🏼	personen hand in hand donkere huidskleur, lichtgetinte huidskleur	none
 🧑🏿‍🤝‍🧑🏽	personen hand in hand donkere huidskleur, getinte huidskleur	none
 🧑🏿‍🤝‍🧑🏾	personen hand in hand donkere huidskleur, donkergetinte huidskleur	none
 🧑🏿‍🤝‍🧑🏿	personen hand in hand donkere huidskleur	none
 👭🏻	vrouwen hand in hand lichte huidskleur	none
+👩🏻‍🤝‍👩🏼	vrouwen hand in hand lichte huidskleur, lichtgetinte huidskleur	none
+👩🏻‍🤝‍👩🏽	vrouwen hand in hand lichte huidskleur, getinte huidskleur	none
+👩🏻‍🤝‍👩🏾	vrouwen hand in hand lichte huidskleur, donkergetinte huidskleur	none
+👩🏻‍🤝‍👩🏿	vrouwen hand in hand lichte huidskleur, donkere huidskleur	none
 👩🏼‍🤝‍👩🏻	vrouwen hand in hand lichtgetinte huidskleur, lichte huidskleur	none
 👭🏼	vrouwen hand in hand lichtgetinte huidskleur	none
+👩🏼‍🤝‍👩🏽	vrouwen hand in hand lichtgetinte huidskleur, getinte huidskleur	none
+👩🏼‍🤝‍👩🏾	vrouwen hand in hand lichtgetinte huidskleur, donkergetinte huidskleur	none
+👩🏼‍🤝‍👩🏿	vrouwen hand in hand lichtgetinte huidskleur, donkere huidskleur	none
 👩🏽‍🤝‍👩🏻	vrouwen hand in hand getinte huidskleur, lichte huidskleur	none
 👩🏽‍🤝‍👩🏼	vrouwen hand in hand getinte huidskleur, lichtgetinte huidskleur	none
 👭🏽	vrouwen hand in hand getinte huidskleur	none
+👩🏽‍🤝‍👩🏾	vrouwen hand in hand getinte huidskleur, donkergetinte huidskleur	none
+👩🏽‍🤝‍👩🏿	vrouwen hand in hand getinte huidskleur, donkere huidskleur	none
 👩🏾‍🤝‍👩🏻	vrouwen hand in hand donkergetinte huidskleur, lichte huidskleur	none
 👩🏾‍🤝‍👩🏼	vrouwen hand in hand donkergetinte huidskleur, lichtgetinte huidskleur	none
 👩🏾‍🤝‍👩🏽	vrouwen hand in hand donkergetinte huidskleur, getinte huidskleur	none
 👭🏾	vrouwen hand in hand donkergetinte huidskleur	none
+👩🏾‍🤝‍👩🏿	vrouwen hand in hand donkergetinte huidskleur, donkere huidskleur	none
 👩🏿‍🤝‍👩🏻	vrouwen hand in hand donkere huidskleur, lichte huidskleur	none
 👩🏿‍🤝‍👩🏼	vrouwen hand in hand donkere huidskleur, lichtgetinte huidskleur	none
 👩🏿‍🤝‍👩🏽	vrouwen hand in hand donkere huidskleur, getinte huidskleur	none
@@ -2898,23 +3311,43 @@ symbols:
 👩🏿‍🤝‍👨🏾	man en vrouw hand in hand donkere huidskleur, donkergetinte huidskleur	none
 👫🏿	man en vrouw hand in hand donkere huidskleur	none
 👬🏻	mannen hand in hand lichte huidskleur	none
+👨🏻‍🤝‍👨🏼	mannen hand in hand lichte huidskleur, lichtgetinte huidskleur	none
+👨🏻‍🤝‍👨🏽	mannen hand in hand lichte huidskleur, getinte huidskleur	none
+👨🏻‍🤝‍👨🏾	mannen hand in hand lichte huidskleur, donkergetinte huidskleur	none
+👨🏻‍🤝‍👨🏿	mannen hand in hand lichte huidskleur, donkere huidskleur	none
 👨🏼‍🤝‍👨🏻	mannen hand in hand lichtgetinte huidskleur, lichte huidskleur	none
 👬🏼	mannen hand in hand lichtgetinte huidskleur	none
+👨🏼‍🤝‍👨🏽	mannen hand in hand lichtgetinte huidskleur, getinte huidskleur	none
+👨🏼‍🤝‍👨🏾	mannen hand in hand lichtgetinte huidskleur, donkergetinte huidskleur	none
+👨🏼‍🤝‍👨🏿	mannen hand in hand lichtgetinte huidskleur, donkere huidskleur	none
 👨🏽‍🤝‍👨🏻	mannen hand in hand getinte huidskleur, lichte huidskleur	none
 👨🏽‍🤝‍👨🏼	mannen hand in hand getinte huidskleur, lichtgetinte huidskleur	none
 👬🏽	mannen hand in hand getinte huidskleur	none
+👨🏽‍🤝‍👨🏾	mannen hand in hand getinte huidskleur, donkergetinte huidskleur	none
+👨🏽‍🤝‍👨🏿	mannen hand in hand getinte huidskleur, donkere huidskleur	none
 👨🏾‍🤝‍👨🏻	mannen hand in hand donkergetinte huidskleur, lichte huidskleur	none
 👨🏾‍🤝‍👨🏼	mannen hand in hand donkergetinte huidskleur, lichtgetinte huidskleur	none
 👨🏾‍🤝‍👨🏽	mannen hand in hand donkergetinte huidskleur, getinte huidskleur	none
 👬🏾	mannen hand in hand donkergetinte huidskleur	none
+👨🏾‍🤝‍👨🏿	mannen hand in hand donkergetinte huidskleur, donkere huidskleur	none
 👨🏿‍🤝‍👨🏻	mannen hand in hand donkere huidskleur, lichte huidskleur	none
 👨🏿‍🤝‍👨🏼	mannen hand in hand donkere huidskleur, lichtgetinte huidskleur	none
 👨🏿‍🤝‍👨🏽	mannen hand in hand donkere huidskleur, getinte huidskleur	none
 👨🏿‍🤝‍👨🏾	mannen hand in hand donkere huidskleur, donkergetinte huidskleur	none
 👬🏿	mannen hand in hand donkere huidskleur	none
+💏🏻	kus lichte huidskleur	none
+💏🏼	kus lichtgetinte huidskleur	none
+💏🏽	kus getinte huidskleur	none
+💏🏾	kus donkergetinte huidskleur	none
+💏🏿	kus donkere huidskleur	none
 👩‍❤‍💋‍👨	kus vrouw, man	none
 👨‍❤‍💋‍👨	kus man, man	none
 👩‍❤‍💋‍👩	kus vrouw, vrouw	none
+💑🏻	stel met hart lichte huidskleur	none
+💑🏼	stel met hart lichtgetinte huidskleur	none
+💑🏽	stel met hart getinte huidskleur	none
+💑🏾	stel met hart donkergetinte huidskleur	none
+💑🏿	stel met hart donkere huidskleur	none
 👩‍❤‍👨	stel met hart vrouw, man	none
 👨‍❤‍👨	stel met hart man, man	none
 👩‍❤‍👩	stel met hart vrouw, vrouw	none
@@ -2943,8 +3376,6 @@ symbols:
 👩‍👧	gezin vrouw, meisje	none
 👩‍👧‍👦	gezin vrouw, meisje, jongen	none
 👩‍👧‍👧	gezin vrouw, meisje, meisje	none
-#⃣	toets #	none
-*⃣	toets *	none
 🔟	toets 10	none
 🇦🇨	vlag Ascension	none
 🇦🇩	vlag Andorra	none
@@ -3164,7 +3595,7 @@ symbols:
 🇸🇻	vlag El Salvador	none
 🇸🇽	vlag Sint-Maarten	none
 🇸🇾	vlag Syrië	none
-🇸🇿	vlag eSwatini	none
+🇸🇿	vlag Eswatini	none
 🇹🇦	vlag Tristan da Cunha	none
 🇹🇨	vlag Turks- en Caicoseilanden	none
 🇹🇩	vlag Tsjaad	none
@@ -3207,13 +3638,17 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	vlag Engeland	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	vlag Schotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	vlag Wales	none
-0⃣	toets 0	none
-1⃣	toets 1	none
-2⃣	toets 2	none
-3⃣	toets 3	none
-4⃣	toets 4	none
-5⃣	toets 5	none
-6⃣	toets 6	none
-7⃣	toets 7	none
-8⃣	toets 8	none
-9⃣	toets 9	none
+₡	Costa Ricaanse colon	none
+₦	Nigeriaanse naira	none
+₧	Spaanse peseta	none
+₪	Israëlische nieuwe shekel	none
+₫	Vietnamese dong	none
+₭	Laotiaanse kip	none
+₮	Mongoolse tugrik	none
+₲	Paraguayaanse guarani	none
+₴	Oekraïense hryvnia	none
+₵	Ghanese cedi	none
+₸	Kazachse tenge	none
+₺	Turkse lira	none
+₼	Azerbeidzjaanse manat	none
+₾	Georgische lari	none

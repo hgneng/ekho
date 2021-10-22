@@ -235,7 +235,7 @@ to be able to use Festival with Speech Dispatcher."""))
             report(_("""Python can't find the Speech Dispatcher library.
 Is it installed? This won't prevent Speech Dispatcher to work, but no
 Python applications like Orca will be able to use it.
-Search for package like python-speechd, download and install it"""))
+Search for package like python-speechd, download and install it."""))
             return False
         return True
 
@@ -621,9 +621,9 @@ Do you want to keep it?"""), False)
         self.default_output_module = question_with_suggested_answers(
             "Default output module",
             "espeak-ng",
-            ["espeak-ng", "espeak", "ekho", "festival", "flite", "ivona", "pico", "espeak-generic",
+            ["espeak-ng", "espeak", "festival", "flite", "ivona", "pico",
              "espeak-ng-mbrola-generic", "espeak-mbrola-generic", "swift-generic",
-             "epos-generic", "dtk-generic", "pico-generic", "ibmtts", "cicero", "kali",
+             "epos-generic", "dtk-generic", "ibmtts", "cicero", "kali",
              "mary-generic", "baratinoo"])
 
         self.default_language = question(
@@ -727,7 +727,7 @@ you have to start it manually to continue."""))
         """Create a complete configuration, run diagnosis and if necessary, debugging"""
 
         speechd_type = question_with_required_answers(
-            _("Do you want to create/setup a 'user' or 'system' configuration"),
+            _("Do you want to create/setup a 'user' or 'system' configuration?"),
             'user', ['user', 'system'])
 
         if speechd_type == 'user':

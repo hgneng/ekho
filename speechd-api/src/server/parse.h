@@ -59,6 +59,6 @@ char *get_param(const char *buf, const int n, const int bytes,
 char *parse_general_event(const char *buf, const int bytes, const int fd,
 			  const TSpeechDSock * speechd_socket,
 			  SPDMessageType type);
-int spd_utf8_read_char(char *pointer, char *character);
+int spd_utf8_read_char(const char *pointer, char *character);
 
 #endif

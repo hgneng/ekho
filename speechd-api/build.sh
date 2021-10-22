@@ -22,7 +22,7 @@
 # keeping it, because people are used to it.
 rm -f ABOUT-NLS
 rm -f po/remove-potcdate.sin
-autoreconf -i
+autoreconf -fi
 
 # See https://savannah.gnu.org/bugs/index.php?54809
 rm -f \

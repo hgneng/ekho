@@ -139,12 +139,14 @@ am_speech_dispatcher_OBJECTS = speech_dispatcher-speechd.$(OBJEXT) \
 	speech_dispatcher-output.$(OBJEXT) \
 	speech_dispatcher-sem_functions.$(OBJEXT) \
 	speech_dispatcher-index_marking.$(OBJEXT) \
-	speech_dispatcher-symbols.$(OBJEXT)
+	speech_dispatcher-symbols.$(OBJEXT) \
+	speech_dispatcher-speak_queue.$(OBJEXT)
 speech_dispatcher_OBJECTS = $(am_speech_dispatcher_OBJECTS)
 am__DEPENDENCIES_1 =
 speech_dispatcher_DEPENDENCIES = $(lib_common) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -180,6 +182,7 @@ am__depfiles_remade = ./$(DEPDIR)/speech_dispatcher-alloc.Po \
 	./$(DEPDIR)/speech_dispatcher-sem_functions.Po \
 	./$(DEPDIR)/speech_dispatcher-server.Po \
 	./$(DEPDIR)/speech_dispatcher-set.Po \
+	./$(DEPDIR)/speech_dispatcher-speak_queue.Po \
 	./$(DEPDIR)/speech_dispatcher-speaking.Po \
 	./$(DEPDIR)/speech_dispatcher-speechd.Po \
 	./$(DEPDIR)/speech_dispatcher-symbols.Po
@@ -272,7 +275,6 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
-CFLAG_PULSEAUDIO = @CFLAG_PULSEAUDIO@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CSCOPE = @CSCOPE@
@@ -294,6 +296,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 ERROR_CFLAGS = @ERROR_CFLAGS@
+ESPEAK = @ESPEAK@
 ESPEAK_NG_CFLAGS = @ESPEAK_NG_CFLAGS@
 ESPEAK_NG_LIBS = @ESPEAK_NG_LIBS@
 ETAGS = @ETAGS@
@@ -301,6 +304,7 @@ EXEEXT = @EXEEXT@
 EXTRA_ESPEAK_LIBS = @EXTRA_ESPEAK_LIBS@
 EXTRA_SOCKET_LIBS = @EXTRA_SOCKET_LIBS@
 FGREP = @FGREP@
+FLITE = @FLITE@
 GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_CFLAGS = @GLIB_CFLAGS@
@@ -329,7 +333,6 @@ LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
-LIB_PULSEAUDIO = @LIB_PULSEAUDIO@
 LIB_SPD_AGE = @LIB_SPD_AGE@
 LIB_SPD_CURRENT = @LIB_SPD_CURRENT@
 LIB_SPD_REVISION = @LIB_SPD_REVISION@
@@ -400,6 +403,7 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+audio_dlopen = @audio_dlopen@
 audio_dlopen_modules = @audio_dlopen_modules@
 audiodir = @audiodir@
 bindir = @bindir@
@@ -440,6 +444,7 @@ modulebindir = @modulebindir@
 moduleconfdir = @moduleconfdir@
 moduleconforigdir = @moduleconforigdir@
 oldincludedir = @oldincludedir@
+oldmodulebindir = @oldmodulebindir@
 pdfdir = @pdfdir@
 pkgpyexecdir = @pkgpyexecdir@
 pkgpythondir = @pkgpythondir@
@@ -464,25 +469,28 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-inc_local = -I$(top_srcdir)/include/
+inc_local = -I$(top_srcdir)/include/ -I$(top_srcdir)/src/common
 lib_common = $(top_builddir)/src/common/libcommon.la
 speech_dispatcher_SOURCES = speechd.c speechd.h server.c server.h \
 	history.c history.h module.c module.h configuration.c configuration.h \
 	parse.c parse.h set.c set.h msg.h alloc.c alloc.h \
 	compare.c compare.h speaking.c speaking.h options.c options.h \
 	output.c output.h sem_functions.c sem_functions.h \
-	index_marking.c index_marking.h symbols.c symbols.h
+	index_marking.c index_marking.h symbols.c symbols.h \
+	speak_queue.c speak_queue.h
 
 speech_dispatcher_CFLAGS = $(ERROR_CFLAGS)
 speech_dispatcher_CPPFLAGS = $(inc_local) $(DOTCONF_CFLAGS) $(GLIB_CFLAGS) \
 	$(GMODULE_CFLAGS) $(GTHREAD_CFLAGS) -DSYS_CONF=\"$(spdconfdir)\" \
-	-DSND_DATA=\"$(snddatadir)\" -DMODULEBINDIR=\"$(modulebindir)\" \
+	-DSND_DATA=\"$(snddatadir)\" \
+	-DMODULEBINDIR=\"$(modulebindir)\" \
+	-DOLDMODULEBINDIR=\"$(oldmodulebindir)\" \
 	-DLOCALE_DATA=\"$(localedatadir)\" \
 	-D_GNU_SOURCE -DDEFAULT_AUDIO_METHOD=\"$(default_audio_method)\"
 
 speech_dispatcher_LDFLAGS = $(RDYNAMIC)
 speech_dispatcher_LDADD = $(lib_common) $(DOTCONF_LIBS) $(GLIB_LIBS) \
-	$(GMODULE_LIBS) $(GTHREAD_LIBS) $(EXTRA_SOCKET_LIBS)
+	$(SNDFILE_LIBS) $(GMODULE_LIBS) $(GTHREAD_LIBS) $(EXTRA_SOCKET_LIBS)
 
 @HAVE_HELP2MAN_TRUE@dist_man1_MANS = \
 @HAVE_HELP2MAN_TRUE@	speech-dispatcher.1
@@ -593,6 +601,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/speech_dispatcher-sem_functions.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/speech_dispatcher-server.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/speech_dispatcher-set.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/speech_dispatcher-speak_queue.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/speech_dispatcher-speaking.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/speech_dispatcher-speechd.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/speech_dispatcher-symbols.Po@am__quote@ # am--include-marker
@@ -834,6 +843,20 @@ speech_dispatcher-symbols.obj: symbols.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(speech_dispatcher_CPPFLAGS) $(CPPFLAGS) $(speech_dispatcher_CFLAGS) $(CFLAGS) -c -o speech_dispatcher-symbols.obj `if test -f 'symbols.c'; then $(CYGPATH_W) 'symbols.c'; else $(CYGPATH_W) '$(srcdir)/symbols.c'; fi`
 
+speech_dispatcher-speak_queue.o: speak_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(speech_dispatcher_CPPFLAGS) $(CPPFLAGS) $(speech_dispatcher_CFLAGS) $(CFLAGS) -MT speech_dispatcher-speak_queue.o -MD -MP -MF $(DEPDIR)/speech_dispatcher-speak_queue.Tpo -c -o speech_dispatcher-speak_queue.o `test -f 'speak_queue.c' || echo '$(srcdir)/'`speak_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/speech_dispatcher-speak_queue.Tpo $(DEPDIR)/speech_dispatcher-speak_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='speak_queue.c' object='speech_dispatcher-speak_queue.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(speech_dispatcher_CPPFLAGS) $(CPPFLAGS) $(speech_dispatcher_CFLAGS) $(CFLAGS) -c -o speech_dispatcher-speak_queue.o `test -f 'speak_queue.c' || echo '$(srcdir)/'`speak_queue.c
+
+speech_dispatcher-speak_queue.obj: speak_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(speech_dispatcher_CPPFLAGS) $(CPPFLAGS) $(speech_dispatcher_CFLAGS) $(CFLAGS) -MT speech_dispatcher-speak_queue.obj -MD -MP -MF $(DEPDIR)/speech_dispatcher-speak_queue.Tpo -c -o speech_dispatcher-speak_queue.obj `if test -f 'speak_queue.c'; then $(CYGPATH_W) 'speak_queue.c'; else $(CYGPATH_W) '$(srcdir)/speak_queue.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/speech_dispatcher-speak_queue.Tpo $(DEPDIR)/speech_dispatcher-speak_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='speak_queue.c' object='speech_dispatcher-speak_queue.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(speech_dispatcher_CPPFLAGS) $(CPPFLAGS) $(speech_dispatcher_CFLAGS) $(CFLAGS) -c -o speech_dispatcher-speak_queue.obj `if test -f 'speak_queue.c'; then $(CYGPATH_W) 'speak_queue.c'; else $(CYGPATH_W) '$(srcdir)/speak_queue.c'; fi`
+
 mostlyclean-libtool:
 	-rm -f *.lo
 
@@ -1020,6 +1043,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/speech_dispatcher-sem_functions.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-server.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-set.Po
+	-rm -f ./$(DEPDIR)/speech_dispatcher-speak_queue.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-speaking.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-speechd.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-symbols.Po
@@ -1080,6 +1104,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/speech_dispatcher-sem_functions.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-server.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-set.Po
+	-rm -f ./$(DEPDIR)/speech_dispatcher-speak_queue.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-speaking.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-speechd.Po
 	-rm -f ./$(DEPDIR)/speech_dispatcher-symbols.Po

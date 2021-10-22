@@ -8,7 +8,262 @@ symbols:
 🏽	medium skin tone	none
 🏾	medium-dark skin tone	none
 🏿	dark skin tone	none
-⚧	transgender symbol	none
+℗	sound recording copyright	none
+←	left-pointing arrow	none
+↚	leftwards arrow stroke	none
+→	right-pointing arrow	none
+↛	rightwards arrow stroke	none
+↑	up-pointing arrow	none
+↓	down-pointing arrow	none
+↜	leftwards wave arrow	none
+↝	rightwards wave arrow	none
+↞	leftwards two headed arrow	none
+↟	upwards two headed arrow	none
+↠	rightwards two headed arrow	none
+↡	downwards two headed arrow	none
+↢	leftwards arrow tail	none
+↣	rightwards arrow tail	none
+↤	leftwards arrow from bar	none
+↥	upwards arrow from bar	none
+↦	rightwards arrow from bar	none
+↧	downwards arrow from bar	none
+↨	up down arrow with base	none
+↫	leftwards arrow loop	none
+↬	rightwards arrow loop	none
+↭	left right wave arrow	none
+↯	downwards zigzag arrow	none
+↰	upwards arrow tip leftwards	none
+↱	upwards arrow tip rightwards	none
+↲	downwards arrow tip leftwards	none
+↳	downwards arrow tip rightwards	none
+↴	rightwards arrow corner downwards	none
+↵	downwards arrow corner leftwards	none
+↶	anticlockwise top semicircle arrow	none
+↷	clockwise top semicircle arrow	none
+↸	north west arrow long bar	none
+↹	leftwards arrow bar over rightwards arrow bar	none
+↺	anticlockwise open circle arrow	none
+↻	clockwise open circle arrow	none
+↼	leftwards harpoon barb upwards	none
+↽	leftwards harpoon barb downwards	none
+↾	upwards harpoon barb rightwards	none
+↿	upwards harpoon barb leftwards	none
+⇀	rightwards harpoon barb upwards	none
+⇁	rightwards harpoon barb downwards	none
+⇂	downwards harpoon barb rightwards	none
+⇃	downwards harpoon barb leftwards	none
+⇄	rightwards arrow over leftwards arrow	none
+⇅	up-pointing and down-pointing arrows	none
+⇆	left-pointing over right-pointing arrows	none
+⇇	leftwards paired arrows	none
+⇈	upwards paired arrows	none
+⇉	rightwards paired arrows	none
+⇊	downwards paired arrows	none
+⇋	leftwards harpoon over rightwards harpoon	none
+⇌	rightwards harpoon over leftwards harpoon	none
+⇐	leftwards double arrow	none
+⇍	leftwards double arrow stroke	none
+⇑	upwards double arrow	none
+⇒	rightwards double arrow	none
+⇏	rightwards double arrow stroke	none
+⇓	downwards double arrow	none
+⇔	left right double arrow	none
+⇎	left right double arrow stroke	none
+⇖	north west double arrow	none
+⇗	north east double arrow	none
+⇘	south east double arrow	none
+⇙	south west double arrow	none
+⇚	leftwards triple arrow	none
+⇛	rightwards triple arrow	none
+⇜	leftwards squiggle arrow	none
+⇝	rightwards squiggle arrow	none
+⇞	upwards arrow double stroke	none
+⇟	downwards arrow double stroke	none
+⇠	leftwards dashed arrow	none
+⇡	upwards dashed arrow	none
+⇢	rightwards dashed arrow	none
+⇣	downwards dashed arrow	none
+⇤	leftwards arrow bar	none
+⇥	rightwards arrow bar	none
+⇦	leftwards hollow arrow	none
+⇧	upwards hollow arrow	none
+⇨	rightwards hollow arrow	none
+⇩	downwards hollow arrow	none
+⇪	upwards hollow arrow from bar	none
+⇵	downwards arrow leftwards upwards arrow	none
+∀	for all	none
+∂	partial differential	none
+∃	there exists	none
+∅	empty set	none
+∆	increment	none
+∇	nabla	none
+∈	element of	none
+∉	not an element	none
+∋	contains as member	none
+∎	end proof	none
+∏	n-ary product	none
+∑	n-ary summation	none
+≮	not less-than	none
+≠	not equal	none
+≯	not greater-than	none
+−	minus sign	none
+⁻	superscript minus	none
+∓	minus-or-plus	none
+∕	division slash	none
+∗	asterisk operator	none
+∘	ring operator	none
+∙	bullet operator	none
+√	square root	none
+∝	proportional	none
+∞	infinity sign	none
+∟	right angle	none
+∠	angle	none
+∣	divides	none
+∥	parallel	none
+∧	logical and	none
+∩	intersection	none
+∪	union	none
+∫	integral	none
+∬	double integral	none
+∮	contour integral	none
+∴	therefore	none
+∵	because	none
+∶	ratio	none
+∷	proportion	none
+∼	tilde operator	none
+∽	reversed tilde	none
+∾	inverted lazy s	none
+≃	asymptotically equal	none
+≅	approximately equal	none
+≈	almost equal	none
+≌	all equal	none
+≒	approximately equal the image	none
+≖	ring in equal	none
+≡	identical to	none
+≣	strictly equivalent	none
+≤	less-than or equal	none
+≥	greater-than or equal	none
+≦	less-than over equal	none
+≧	greater-than over equal	none
+≪	much less-than	none
+≫	much greater-than	none
+≬	between	none
+≳	greater-than equivalent	none
+≺	precedes	none
+≻	succeeds	none
+⊁	does not succeed	none
+⊂	subset of	none
+⊃	superset	none
+⊆	subset equal	none
+⊇	superset equal	none
+⊕	circled plus	none
+⊖	circled minus	none
+⊗	circled times	none
+⊘	circled division slash	none
+⊙	circled dot operator	none
+⊚	circled ring operator	none
+⊛	circled asterisk operator	none
+⊞	squared plus	none
+⊟	squared minus	none
+⊥	up tack	none
+⊮	does not force	none
+⊰	precedes under relation	none
+⊱	succeeds under relation	none
+⋭	does not contain as normal subgroup equal	none
+⊶	original	none
+⊹	hermitian conjugate matrix	none
+⊿	right triangle	none
+⋁	n-ary logical or	none
+⋂	n-ary intersection	none
+⋃	n-ary union	none
+⋅	dot operator	none
+⋆	star operator	none
+⋈	natural join	none
+⋒	double intersection	none
+⋘	very much less-than	none
+⋙	very much greater-than	none
+⋮	vertical ellipsis	none
+⋯	midline horizontal ellipsis	none
+⋰	up right diagonal ellipsis	none
+⋱	down right diagonal ellipsis	none
+■	filled square	none
+□	hollow square	none
+▢	hollow square with rounded corners	none
+▣	hollow square containing filled square	none
+▤	square with horizontal fill	none
+▥	square with vertical fill	none
+▦	square orthogonal crosshatch fill	none
+▧	square upper left lower right fill	none
+▨	square upper right lower left fill	none
+▩	square diagonal crosshatch fill	none
+▬	filled rectangle	none
+▭	hollow rectangle	none
+▮	filled vertical rectangle	none
+▰	filled parallelogram	none
+▲	filled up-pointing triangle	none
+△	hollow up-pointing triangle	none
+▴	filled up-pointing small triangle	none
+▵	hollow up-pointing small triangle	none
+▷	hollow right-pointing triangle	none
+▸	filled right-pointing small triangle	none
+▹	hollow right-pointing small triangle	none
+►	filled right-pointing pointer	none
+▻	hollow right-pointing pointer	none
+▼	filled down-pointing triangle	none
+▽	hollow down-pointing triangle	none
+▾	filled down-pointing small triangle	none
+▿	hollow down-pointing small triangle	none
+◁	hollow left-pointing triangle	none
+◂	filled left-pointing small triangle	none
+◃	hollow left-pointing small triangle	none
+◄	filled left-pointing pointer	none
+◅	hollow left-pointing pointer	none
+◆	filled diamond	none
+◇	hollow diamond	none
+◈	hollow diamond containing filled diamond	none
+◉	hollow circle containing filled circle	none
+◊	lozenge	none
+○	hollow circle	none
+◌	dotted circle	none
+◍	circle with vertical fill	none
+◎	concentric circles	none
+●	filled circle	none
+◐	circle left half filled	none
+◑	circle right half filled	none
+◒	circle lower half filled	none
+◓	circle upper half filled	none
+◔	circle upper right quadrant filled	none
+◕	circle all but upper left quadrant filled	none
+◖	left half filled circle	none
+◗	right half filled circle	none
+◘	inverse bullet	none
+◙	filled square containing hollow circle	none
+◜	upper left quadrant circular arc	none
+◝	upper right quadrant circular arc	none
+◞	lower right quadrant circular arc	none
+◟	lower left quadrant circular arc	none
+◠	upper half circle	none
+◡	lower half circle	none
+◢	filled lower right triangle	none
+◣	filled lower left triangle	none
+◤	filled upper left triangle	none
+◥	filled upper right triangle	none
+◦	hollow bullet	none
+◯	large hollow circle	none
+◳	hollow square upper right quadrant	none
+◷	hollow circle with upper right quadrant	none
+◿	lower right triangle	none
+♪	eighth note	none
+⨧	plus subscript two	none
+⨯	vector cross product	none
+⨼	interior product	none
+⩣	logical or double underbar	none
+⩽	less-than slanted equal	none
+⪍	less-than above similar equal	none
+⪚	double-line equal greater-than	none
+⪺	succeeds above not almost equal	none
+♭	flat	none
+♯	sharp	none
 😀	grinning face	none
 😃	grinning face with big eyes	none
 😄	grinning face with smiling eyes	none
@@ -30,6 +285,7 @@ symbols:
 ☺	smiling face	none
 😚	kissing face with closed eyes	none
 😙	kissing face with smiling eyes	none
+🥲	smiling face with tear	none
 😋	face savoring food	none
 😛	face with tongue	none
 😜	winking face with tongue	none
@@ -45,10 +301,12 @@ symbols:
 😐	neutral face	none
 😑	expressionless face	none
 😶	face without mouth	none
+😶‍🌫	face in clouds	none
 😏	smirking face	none
 😒	unamused face	none
 🙄	face with rolling eyes	none
 😬	grimacing face	none
+😮‍💨	face exhaling	none
 🤥	lying face	none
 😌	relieved face	none
 😔	pensive face	none
@@ -64,10 +322,12 @@ symbols:
 🥵	hot face	none
 🥶	cold face	none
 🥴	woozy face	none
-😵	dizzy face	none
+😵	knocked-out face	none
+😵‍💫	face with spiral eyes	none
 🤯	exploding head	none
 🤠	cowboy hat face	none
 🥳	partying face	none
+🥸	disguised face	none
 😎	smiling face with sunglasses	none
 🤓	nerd face	none
 🧐	face with monocle	none
@@ -135,6 +395,8 @@ symbols:
 💟	heart decoration	none
 ❣	heart exclamation	none
 💔	broken heart	none
+❤‍🔥	heart on fire	none
+❤‍🩹	mending heart	none
 ❤	red heart	none
 🧡	orange heart	none
 💛	yellow heart	none
@@ -164,6 +426,7 @@ symbols:
 ✋	raised hand	none
 🖖	vulcan salute	none
 👌	OK hand	none
+🤌	pinched fingers	none
 🤏	pinching hand	none
 ✌	victory hand	none
 🤞	crossed fingers	none
@@ -200,6 +463,8 @@ symbols:
 🦻	ear with hearing aid	none
 👃	nose	none
 🧠	brain	none
+🫀	anatomical heart	none
+🫁	lungs	none
 🦷	tooth	none
 🦴	bone	none
 👀	eyes	none
@@ -213,9 +478,11 @@ symbols:
 🧑	person	none
 👱	person blond hair	none
 👨	man	none
-🧔	man beard	none
+🧔	person beard	none
+🧔‍♂	man beard	none
 👱‍♂	man blond hair	none
 👩	woman	none
+🧔‍♀	woman beard	none
 👱‍♀	woman blond hair	none
 🧓	older person	none
 👴	old man	none
@@ -307,6 +574,7 @@ symbols:
 💂	guard	none
 💂‍♂	man guard	none
 💂‍♀	woman guard	none
+🥷	ninja	none
 👷	construction worker	none
 👷‍♂	man construction worker	none
 👷‍♀	woman construction worker	none
@@ -315,15 +583,23 @@ symbols:
 👳	person wearing turban	none
 👳‍♂	man wearing turban	none
 👳‍♀	woman wearing turban	none
-👲	man with skullcap	none
+👲	person with skullcap	none
 🧕	woman with headscarf	none
-🤵	man in tuxedo	none
-👰	bride with veil	none
+🤵	person in tuxedo	none
+🤵‍♂	man in tuxedo	none
+🤵‍♀	woman in tuxedo	none
+👰	person with veil	none
+👰‍♂	man with veil	none
+👰‍♀	woman with veil	none
 🤰	pregnant woman	none
 🤱	breast-feeding	none
+👩‍🍼	woman feeding baby	none
+👨‍🍼	man feeding baby	none
+🧑‍🍼	person feeding baby	none
 👼	baby angel	none
 🎅	Santa Claus	none
 🤶	Mrs. Claus	none
+🧑‍🎄	mx claus	none
 🦸	superhero	none
 🦸‍♂	man superhero	none
 🦸‍♀	woman superhero	none
@@ -366,9 +642,9 @@ symbols:
 🧎	person kneeling	none
 🧎‍♂	man kneeling	none
 🧎‍♀	woman kneeling	none
-🧑‍🦯	person with probing cane	none
-👨‍🦯	man with probing cane	none
-👩‍🦯	woman with probing cane	none
+🧑‍🦯	person with white cane	none
+👨‍🦯	man with white cane	none
+👩‍🦯	woman with white cane	none
 🧑‍🦼	person in motorized wheelchair	none
 👨‍🦼	man in motorized wheelchair	none
 👩‍🦼	woman in motorized wheelchair	none
@@ -380,7 +656,7 @@ symbols:
 🏃‍♀	woman running	none
 💃	woman dancing	none
 🕺	man dancing	none
-🕴	man in suit levitating	none
+🕴	person in suit levitating	none
 👯	people with bunny ears	none
 👯‍♂	men with bunny ears	none
 👯‍♀	women with bunny ears	none
@@ -448,6 +724,7 @@ symbols:
 🗣	speaking head	none
 👤	bust in silhouette	none
 👥	busts in silhouette	none
+🫂	people hugging	none
 👣	footprints	none
 🦰	red hair	none
 🦱	curly hair	none
@@ -467,6 +744,7 @@ symbols:
 🦝	raccoon	none
 🐱	cat face	none
 🐈	cat	none
+🐈‍⬛	black cat	none
 🦁	lion	none
 🐯	tiger face	none
 🐅	tiger	none
@@ -476,6 +754,7 @@ symbols:
 🦄	unicorn	none
 🦓	zebra	none
 🦌	deer	none
+🦬	bison	none
 🐮	cow face	none
 🐂	ox	none
 🐃	water buffalo	none
@@ -492,6 +771,7 @@ symbols:
 🦙	llama	none
 🦒	giraffe	none
 🐘	elephant	none
+🦣	mammoth	none
 🦏	rhinoceros	none
 🦛	hippopotamus	none
 🐭	mouse face	none
@@ -501,9 +781,11 @@ symbols:
 🐰	rabbit face	none
 🐇	rabbit	none
 🐿	chipmunk	none
+🦫	beaver	none
 🦔	hedgehog	none
 🦇	bat	none
 🐻	bear	none
+🐻‍❄	polar bear	none
 🐨	koala	none
 🐼	panda	none
 🦥	sloth	none
@@ -525,6 +807,8 @@ symbols:
 🦆	duck	none
 🦢	swan	none
 🦉	owl	none
+🦤	dodo	none
+🪶	feather	none
 🦩	flamingo	none
 🦚	peacock	none
 🦜	parrot	none
@@ -540,6 +824,7 @@ symbols:
 🐳	spouting whale	none
 🐋	whale	none
 🐬	dolphin	none
+🦭	seal	none
 🐟	fish	none
 🐠	tropical fish	none
 🐡	blowfish	none
@@ -551,12 +836,16 @@ symbols:
 🐛	bug	none
 🐜	ant	none
 🐝	honeybee	none
+🪲	beetle	none
 🐞	lady beetle	none
 🦗	cricket	none
+🪳	cockroach	none
 🕷	spider	none
 🕸	spider web	none
 🦂	scorpion	none
 🦟	mosquito	none
+🪰	fly	none
+🪱	worm	none
 🦠	microbe	none
 💐	bouquet	none
 🌸	cherry blossom	none
@@ -569,6 +858,7 @@ symbols:
 🌼	blossom	none
 🌷	tulip	none
 🌱	seedling	none
+🪴	potted plant	none
 🌲	evergreen tree	none
 🌳	deciduous tree	none
 🌴	palm tree	none
@@ -594,8 +884,10 @@ symbols:
 🍑	peach	none
 🍒	cherries	none
 🍓	strawberry	none
+🫐	blueberries	none
 🥝	kiwi fruit	none
 🍅	tomato	none
+🫒	olive	none
 🥥	coconut	none
 🥑	avocado	none
 🍆	eggplant	none
@@ -603,6 +895,7 @@ symbols:
 🥕	carrot	none
 🌽	ear of corn	none
 🌶	hot pepper	none
+🫑	bell pepper	none
 🥒	cucumber	none
 🥬	leafy green	none
 🥦	broccoli	none
@@ -614,6 +907,7 @@ symbols:
 🍞	bread	none
 🥐	croissant	none
 🥖	baguette bread	none
+🫓	flatbread	none
 🥨	pretzel	none
 🥯	bagel	none
 🥞	pancakes	none
@@ -630,12 +924,14 @@ symbols:
 🥪	sandwich	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamale	none
 🥙	stuffed flatbread	none
 🧆	falafel	none
 🥚	egg	none
 🍳	cooking	none
 🥘	shallow pan of food	none
 🍲	pot of food	none
+🫕	fondue	none
 🥣	bowl with spoon	none
 🥗	green salad	none
 🍿	popcorn	none
@@ -681,6 +977,7 @@ symbols:
 🍼	baby bottle	none
 🥛	glass of milk	none
 ☕	hot beverage	none
+🫖	teapot	none
 🍵	teacup without handle	none
 🍶	sake	none
 🍾	bottle with popping cork	none
@@ -692,6 +989,7 @@ symbols:
 🥂	clinking glasses	none
 🥃	tumbler glass	none
 🥤	cup with straw	none
+🧋	bubble tea	none
 🧃	beverage box	none
 🧉	mate	none
 🧊	ice	none
@@ -721,6 +1019,9 @@ symbols:
 🏛	classical building	none
 🏗	building construction	none
 🧱	brick	none
+🪨	rock	none
+🪵	wood	none
+🛖	hut	none
 🏘	houses	none
 🏚	derelict house	none
 🏠	house	none
@@ -788,6 +1089,7 @@ symbols:
 🚗	automobile	none
 🚘	oncoming automobile	none
 🚙	sport utility vehicle	none
+🛻	pickup truck	none
 🚚	delivery truck	none
 🚛	articulated lorry	none
 🚜	tractor	none
@@ -800,6 +1102,7 @@ symbols:
 🚲	bicycle	none
 🛴	kick scooter	none
 🛹	skateboard	none
+🛼	roller skate	none
 🚏	bus stop	none
 🛣	motorway	none
 🛤	railway track	none
@@ -965,11 +1268,12 @@ symbols:
 🎿	skis	none
 🛷	sled	none
 🥌	curling stone	none
-🎯	direct hit	none
+🎯	bullseye	none
 🪀	yo-yo	none
 🪁	kite	none
 🎱	pool 8 ball	none
 🔮	crystal ball	none
+🪄	magic wand	none
 🧿	nazar amulet	none
 🎮	video game	none
 🕹	joystick	none
@@ -977,6 +1281,8 @@ symbols:
 🎲	game die	none
 🧩	puzzle piece	none
 🧸	teddy bear	none
+🪅	piñata	none
+🪆	nesting dolls	none
 ♠	spade suit	none
 ♥	heart suit	none
 ♦	diamond suit	none
@@ -989,7 +1295,9 @@ symbols:
 🖼	framed picture	none
 🎨	artist palette	none
 🧵	thread	none
+🪡	sewing needle	none
 🧶	yarn	none
+🪢	knot	none
 👓	glasses	none
 🕶	sunglasses	none
 🥽	goggles	none
@@ -1015,6 +1323,7 @@ symbols:
 👝	clutch bag	none
 🛍	shopping bags	none
 🎒	backpack	none
+🩴	thong sandal	none
 👞	man’s shoe	none
 👟	running shoe	none
 🥾	hiking boot	none
@@ -1028,6 +1337,7 @@ symbols:
 🎩	top hat	none
 🎓	graduation cap	none
 🧢	billed cap	none
+🪖	military helmet	none
 ⛑	rescue worker’s helmet	none
 📿	prayer beads	none
 💄	lipstick	none
@@ -1052,12 +1362,14 @@ symbols:
 🎧	headphone	none
 📻	radio	none
 🎷	saxophone	none
+🪗	accordion	none
 🎸	guitar	none
 🎹	musical keyboard	none
 🎺	trumpet	none
 🎻	violin	none
 🪕	banjo	none
 🥁	drum	none
+🪘	long drum	none
 📱	mobile phone	none
 📲	mobile phone with arrow	none
 ☎	telephone	none
@@ -1111,6 +1423,7 @@ symbols:
 🔖	bookmark	none
 🏷	label	none
 💰	money bag	none
+🪙	coin	none
 💴	yen banknote	none
 💵	dollar banknote	none
 💶	euro banknote	none
@@ -1119,8 +1432,6 @@ symbols:
 💳	credit card	none
 🧾	receipt	none
 💹	chart increasing with yen	none
-💱	currency exchange	none
-💲	heavy dollar sign	none
 ✉	envelope	none
 📧	e-mail	none
 📨	incoming envelope	none
@@ -1177,19 +1488,24 @@ symbols:
 🛠	hammer and wrench	none
 🗡	dagger	none
 ⚔	crossed swords	none
-🔫	pistol	none
+🔫	water pistol	none
+🪃	boomerang	none
 🏹	bow and arrow	none
 🛡	shield	none
+🪚	carpentry saw	none
 🔧	wrench	none
+🪛	screwdriver	none
 🔩	nut and bolt	none
 ⚙	gear	none
 🗜	clamp	none
 ⚖	balance scale	none
-🦯	probing cane	none
+🦯	white cane	none
 🔗	link	none
 ⛓	chains	none
+🪝	hook	none
 🧰	toolbox	none
 🧲	magnet	none
+🪜	ladder	none
 ⚗	alembic	none
 🧪	test tube	none
 🧫	petri dish	none
@@ -1203,26 +1519,35 @@ symbols:
 🩹	adhesive bandage	none
 🩺	stethoscope	none
 🚪	door	none
+🛗	elevator	none
+🪞	mirror	none
+🪟	window	none
 🛏	bed	none
 🛋	couch and lamp	none
 🪑	chair	none
 🚽	toilet	none
+🪠	plunger	none
 🚿	shower	none
 🛁	bathtub	none
+🪤	mouse trap	none
 🪒	razor	none
 🧴	lotion bottle	none
 🧷	safety pin	none
 🧹	broom	none
 🧺	basket	none
 🧻	roll of paper	none
+🪣	bucket	none
 🧼	soap	none
+🪥	toothbrush	none
 🧽	sponge	none
 🧯	fire extinguisher	none
 🛒	shopping cart	none
 🚬	cigarette	none
 ⚰	coffin	none
+🪦	headstone	none
 ⚱	funeral urn	none
 🗿	moai	none
+🪧	placard	none
 🏧	ATM sign	none
 🚮	litter in bin sign	none
 🚰	potable water	none
@@ -1259,6 +1584,7 @@ symbols:
 ↖	up-left arrow	none
 ↕	up-down arrow	none
 ↔	left-right arrow	none
+↮	left right arrow stroke	none
 ↩	right arrow curving left	none
 ↪	left arrow curving right	none
 ⤴	right arrow curving up	none
@@ -1321,8 +1647,19 @@ symbols:
 📴	mobile phone off	none
 ♀	female sign	none
 ♂	male sign	none
-⚕	medical symbol	none
+⚧	transgender symbol	none
+✖	multiply	none
+➕	plus	none
+➖	minus	none
+➗	divide	none
 ♾	infinity	none
+❓	red question mark	none
+❔	white question mark	none
+❕	white exclamation mark	none
+❗	red exclamation mark	none
+💱	currency exchange	none
+💲	heavy dollar sign	none
+⚕	medical symbol	none
 ♻	recycling symbol	none
 ⚜	fleur-de-lis	none
 🔱	trident emblem	none
@@ -1332,27 +1669,13 @@ symbols:
 ✅	check mark button	none
 ☑	check box with check	none
 ✔	check mark	none
-✖	multiplication sign	none
 ❌	cross mark	none
 ❎	cross mark button	none
-➕	plus sign	none
-➖	minus sign	none
-➗	division sign	none
 ➰	curly loop	none
 ➿	double curly loop	none
-〽	part alternation mark	none
 ✳	eight-spoked asterisk	none
 ✴	eight-pointed star	none
 ❇	sparkle	none
-‼	double exclamation mark	none
-⁉	exclamation question mark	none
-❓	question mark	none
-❔	white question mark	none
-❕	white exclamation mark	none
-❗	exclamation mark	none
-〰	wavy dash	none
-©	copyright	none
-®	registered	none
 ™	trade mark	none
 🔠	input latin uppercase	none
 🔡	input latin lowercase	none
@@ -1376,23 +1699,6 @@ symbols:
 🆘	SOS button	none
 🆙	UP! button	none
 🆚	VS button	none
-🈁	Japanese “here” button	none
-🈂	Japanese “service charge” button	none
-🈷	Japanese “monthly amount” button	none
-🈶	Japanese “not free of charge” button	none
-🈯	Japanese “reserved” button	none
-🉐	Japanese “bargain” button	none
-🈹	Japanese “discount” button	none
-🈚	Japanese “free of charge” button	none
-🈲	Japanese “prohibited” button	none
-🉑	Japanese “acceptable” button	none
-🈸	Japanese “application” button	none
-🈴	Japanese “passing grade” button	none
-🈳	Japanese “vacancy” button	none
-㊗	Japanese “congratulations” button	none
-㊙	Japanese “secret” button	none
-🈺	Japanese “open for business” button	none
-🈵	Japanese “no vacancy” button	none
 🔴	red circle	none
 🟠	orange circle	none
 🟡	yellow circle	none
@@ -1432,64 +1738,24 @@ symbols:
 🎌	crossed flags	none
 🏴	black flag	none
 🏳	white flag	none
-🏳‍⚧	transgender flag	none
 🏳‍🌈	rainbow flag	none
+🏳‍⚧	transgender flag	none
 🏴‍☠	pirate flag	none
-🛖	hut	none
-🛗	elevator	none
-🛻	pickup truck	none
-🛼	roller skate	none
-🤌	pinched fingers	none
-🥲	smiling face with tear	none
-🥷	ninja	none
-🥸	disguised face	none
-🦣	mammoth	none
-🦤	dodo	none
-🦫	beaver	none
-🦬	bison	none
-🦭	seal	none
-🧋	bubble tea	none
-🩴	thong sandal	none
-🪃	boomerang	none
-🪄	magic wand	none
-🪅	piñata	none
-🪆	nesting dolls	none
-🪖	military helmet	none
-🪗	accordion	none
-🪘	long drum	none
-🪙	coin	none
-🪚	carpentry saw	none
-🪛	screwdriver	none
-🪜	ladder	none
-🪝	hook	none
-🪞	mirror	none
-🪟	window	none
-🪠	plunger	none
-🪡	sewing needle	none
-🪢	knot	none
-🪣	bucket	none
-🪤	mouse trap	none
-🪥	toothbrush	none
-🪦	headstone	none
-🪧	placard	none
-🪨	rock	none
-🪰	fly	none
-🪱	worm	none
-🪲	beetle	none
-🪳	cockroach	none
-🪴	potted plant	none
-🪵	wood	none
-🪶	feather	none
-🫀	anatomical heart	none
-🫁	lungs	none
-🫂	people hugging	none
-🫐	blueberries	none
-🫑	bell pepper	none
-🫒	olive	none
-🫓	flatbread	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	teapot	none
+₢	cruzeiro	none
+₣	french franc	none
+₤	lira	none
+₥	mill	none
+₩	won	none
+€	euro	none
+₰	german penny	none
+₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
+₹	indian rupee	none
+₽	ruble	none
+₿	bitcoin	none
+₨	rupee	none
 👋🏻	waving hand light skin tone	none
 👋🏼	waving hand medium-light skin tone	none
 👋🏽	waving hand medium skin tone	none
@@ -1520,6 +1786,11 @@ symbols:
 👌🏽	OK hand medium skin tone	none
 👌🏾	OK hand medium-dark skin tone	none
 👌🏿	OK hand dark skin tone	none
+🤌🏻	pinched fingers light skin tone	none
+🤌🏼	pinched fingers medium-light skin tone	none
+🤌🏽	pinched fingers medium skin tone	none
+🤌🏾	pinched fingers medium-dark skin tone	none
+🤌🏿	pinched fingers dark skin tone	none
 🤏🏻	pinching hand light skin tone	none
 🤏🏼	pinching hand medium-light skin tone	none
 🤏🏽	pinching hand medium skin tone	none
@@ -1710,6 +1981,46 @@ symbols:
 👱🏽	person medium skin tone, blond hair	none
 👱🏾	person medium-dark skin tone, blond hair	none
 👱🏿	person dark skin tone, blond hair	none
+🧑🏻‍❤‍💋‍🧑🏼	kiss person, person, light skin tone, medium-light skin tone	none
+🧑🏻‍❤‍💋‍🧑🏽	kiss person, person, light skin tone, medium skin tone	none
+🧑🏻‍❤‍💋‍🧑🏾	kiss person, person, light skin tone, medium-dark skin tone	none
+🧑🏻‍❤‍💋‍🧑🏿	kiss person, person, light skin tone, dark skin tone	none
+🧑🏼‍❤‍💋‍🧑🏻	kiss person, person, medium-light skin tone, light skin tone	none
+🧑🏼‍❤‍💋‍🧑🏽	kiss person, person, medium-light skin tone, medium skin tone	none
+🧑🏼‍❤‍💋‍🧑🏾	kiss person, person, medium-light skin tone, medium-dark skin tone	none
+🧑🏼‍❤‍💋‍🧑🏿	kiss person, person, medium-light skin tone, dark skin tone	none
+🧑🏽‍❤‍💋‍🧑🏻	kiss person, person, medium skin tone, light skin tone	none
+🧑🏽‍❤‍💋‍🧑🏼	kiss person, person, medium skin tone, medium-light skin tone	none
+🧑🏽‍❤‍💋‍🧑🏾	kiss person, person, medium skin tone, medium-dark skin tone	none
+🧑🏽‍❤‍💋‍🧑🏿	kiss person, person, medium skin tone, dark skin tone	none
+🧑🏾‍❤‍💋‍🧑🏻	kiss person, person, medium-dark skin tone, light skin tone	none
+🧑🏾‍❤‍💋‍🧑🏼	kiss person, person, medium-dark skin tone, medium-light skin tone	none
+🧑🏾‍❤‍💋‍🧑🏽	kiss person, person, medium-dark skin tone, medium skin tone	none
+🧑🏾‍❤‍💋‍🧑🏿	kiss person, person, medium-dark skin tone, dark skin tone	none
+🧑🏿‍❤‍💋‍🧑🏻	kiss person, person, dark skin tone, light skin tone	none
+🧑🏿‍❤‍💋‍🧑🏼	kiss person, person, dark skin tone, medium-light skin tone	none
+🧑🏿‍❤‍💋‍🧑🏽	kiss person, person, dark skin tone, medium skin tone	none
+🧑🏿‍❤‍💋‍🧑🏾	kiss person, person, dark skin tone, medium-dark skin tone	none
+🧑🏻‍❤‍🧑🏼	couple with heart person, person, light skin tone, medium-light skin tone	none
+🧑🏻‍❤‍🧑🏽	couple with heart person, person, light skin tone, medium skin tone	none
+🧑🏻‍❤‍🧑🏾	couple with heart person, person, light skin tone, medium-dark skin tone	none
+🧑🏻‍❤‍🧑🏿	couple with heart person, person, light skin tone, dark skin tone	none
+🧑🏼‍❤‍🧑🏻	couple with heart person, person, medium-light skin tone, light skin tone	none
+🧑🏼‍❤‍🧑🏽	couple with heart person, person, medium-light skin tone, medium skin tone	none
+🧑🏼‍❤‍🧑🏾	couple with heart person, person, medium-light skin tone, medium-dark skin tone	none
+🧑🏼‍❤‍🧑🏿	couple with heart person, person, medium-light skin tone, dark skin tone	none
+🧑🏽‍❤‍🧑🏻	couple with heart person, person, medium skin tone, light skin tone	none
+🧑🏽‍❤‍🧑🏼	couple with heart person, person, medium skin tone, medium-light skin tone	none
+🧑🏽‍❤‍🧑🏾	couple with heart person, person, medium skin tone, medium-dark skin tone	none
+🧑🏽‍❤‍🧑🏿	couple with heart person, person, medium skin tone, dark skin tone	none
+🧑🏾‍❤‍🧑🏻	couple with heart person, person, medium-dark skin tone, light skin tone	none
+🧑🏾‍❤‍🧑🏼	couple with heart person, person, medium-dark skin tone, medium-light skin tone	none
+🧑🏾‍❤‍🧑🏽	couple with heart person, person, medium-dark skin tone, medium skin tone	none
+🧑🏾‍❤‍🧑🏿	couple with heart person, person, medium-dark skin tone, dark skin tone	none
+🧑🏿‍❤‍🧑🏻	couple with heart person, person, dark skin tone, light skin tone	none
+🧑🏿‍❤‍🧑🏼	couple with heart person, person, dark skin tone, medium-light skin tone	none
+🧑🏿‍❤‍🧑🏽	couple with heart person, person, dark skin tone, medium skin tone	none
+🧑🏿‍❤‍🧑🏾	couple with heart person, person, dark skin tone, medium-dark skin tone	none
 🧑‍🦰	person red hair	none
 🧑🏻‍🦰	person light skin tone, red hair	none
 🧑🏼‍🦰	person medium-light skin tone, red hair	none
@@ -1739,16 +2050,71 @@ symbols:
 👨🏽	man medium skin tone	none
 👨🏾	man medium-dark skin tone	none
 👨🏿	man dark skin tone	none
-🧔🏻	man light skin tone, beard	none
-🧔🏼	man medium-light skin tone, beard	none
-🧔🏽	man medium skin tone, beard	none
-🧔🏾	man medium-dark skin tone, beard	none
-🧔🏿	man dark skin tone, beard	none
+🧔🏻	person light skin tone, beard	none
+🧔🏼	person medium-light skin tone, beard	none
+🧔🏽	person medium skin tone, beard	none
+🧔🏾	person medium-dark skin tone, beard	none
+🧔🏿	person dark skin tone, beard	none
+🧔🏻‍♂	man light skin tone, beard	none
+🧔🏼‍♂	man medium-light skin tone, beard	none
+🧔🏽‍♂	man medium skin tone, beard	none
+🧔🏾‍♂	man medium-dark skin tone, beard	none
+🧔🏿‍♂	man dark skin tone, beard	none
 👱🏻‍♂	man light skin tone, blond hair	none
 👱🏼‍♂	man medium-light skin tone, blond hair	none
 👱🏽‍♂	man medium skin tone, blond hair	none
 👱🏾‍♂	man medium-dark skin tone, blond hair	none
 👱🏿‍♂	man dark skin tone, blond hair	none
+👨🏻‍❤‍💋‍👨🏻	kiss man, man, light skin tone	none
+👨🏻‍❤‍💋‍👨🏼	kiss man, man, light skin tone, medium-light skin tone	none
+👨🏻‍❤‍💋‍👨🏽	kiss man, man, light skin tone, medium skin tone	none
+👨🏻‍❤‍💋‍👨🏾	kiss man, man, light skin tone, medium-dark skin tone	none
+👨🏻‍❤‍💋‍👨🏿	kiss man, man, light skin tone, dark skin tone	none
+👨🏼‍❤‍💋‍👨🏻	kiss man, man, medium-light skin tone, light skin tone	none
+👨🏼‍❤‍💋‍👨🏼	kiss man, man, medium-light skin tone	none
+👨🏼‍❤‍💋‍👨🏽	kiss man, man, medium-light skin tone, medium skin tone	none
+👨🏼‍❤‍💋‍👨🏾	kiss man, man, medium-light skin tone, medium-dark skin tone	none
+👨🏼‍❤‍💋‍👨🏿	kiss man, man, medium-light skin tone, dark skin tone	none
+👨🏽‍❤‍💋‍👨🏻	kiss man, man, medium skin tone, light skin tone	none
+👨🏽‍❤‍💋‍👨🏼	kiss man, man, medium skin tone, medium-light skin tone	none
+👨🏽‍❤‍💋‍👨🏽	kiss man, man, medium skin tone	none
+👨🏽‍❤‍💋‍👨🏾	kiss man, man, medium skin tone, medium-dark skin tone	none
+👨🏽‍❤‍💋‍👨🏿	kiss man, man, medium skin tone, dark skin tone	none
+👨🏾‍❤‍💋‍👨🏻	kiss man, man, medium-dark skin tone, light skin tone	none
+👨🏾‍❤‍💋‍👨🏼	kiss man, man, medium-dark skin tone, medium-light skin tone	none
+👨🏾‍❤‍💋‍👨🏽	kiss man, man, medium-dark skin tone, medium skin tone	none
+👨🏾‍❤‍💋‍👨🏾	kiss man, man, medium-dark skin tone	none
+👨🏾‍❤‍💋‍👨🏿	kiss man, man, medium-dark skin tone, dark skin tone	none
+👨🏿‍❤‍💋‍👨🏻	kiss man, man, dark skin tone, light skin tone	none
+👨🏿‍❤‍💋‍👨🏼	kiss man, man, dark skin tone, medium-light skin tone	none
+👨🏿‍❤‍💋‍👨🏽	kiss man, man, dark skin tone, medium skin tone	none
+👨🏿‍❤‍💋‍👨🏾	kiss man, man, dark skin tone, medium-dark skin tone	none
+👨🏿‍❤‍💋‍👨🏿	kiss man, man, dark skin tone	none
+👨🏻‍❤‍👨🏻	couple with heart man, man, light skin tone	none
+👨🏻‍❤‍👨🏼	couple with heart man, man, light skin tone, medium-light skin tone	none
+👨🏻‍❤‍👨🏽	couple with heart man, man, light skin tone, medium skin tone	none
+👨🏻‍❤‍👨🏾	couple with heart man, man, light skin tone, medium-dark skin tone	none
+👨🏻‍❤‍👨🏿	couple with heart man, man, light skin tone, dark skin tone	none
+👨🏼‍❤‍👨🏻	couple with heart man, man, medium-light skin tone, light skin tone	none
+👨🏼‍❤‍👨🏼	couple with heart man, man, medium-light skin tone	none
+👨🏼‍❤‍👨🏽	couple with heart man, man, medium-light skin tone, medium skin tone	none
+👨🏼‍❤‍👨🏾	couple with heart man, man, medium-light skin tone, medium-dark skin tone	none
+👨🏼‍❤‍👨🏿	couple with heart man, man, medium-light skin tone, dark skin tone	none
+👨🏽‍❤‍👨🏻	couple with heart man, man, medium skin tone, light skin tone	none
+👨🏽‍❤‍👨🏼	couple with heart man, man, medium skin tone, medium-light skin tone	none
+👨🏽‍❤‍👨🏽	couple with heart man, man, medium skin tone	none
+👨🏽‍❤‍👨🏾	couple with heart man, man, medium skin tone, medium-dark skin tone	none
+👨🏽‍❤‍👨🏿	couple with heart man, man, medium skin tone, dark skin tone	none
+👨🏾‍❤‍👨🏻	couple with heart man, man, medium-dark skin tone, light skin tone	none
+👨🏾‍❤‍👨🏼	couple with heart man, man, medium-dark skin tone, medium-light skin tone	none
+👨🏾‍❤‍👨🏽	couple with heart man, man, medium-dark skin tone, medium skin tone	none
+👨🏾‍❤‍👨🏾	couple with heart man, man, medium-dark skin tone	none
+👨🏾‍❤‍👨🏿	couple with heart man, man, medium-dark skin tone, dark skin tone	none
+👨🏿‍❤‍👨🏻	couple with heart man, man, dark skin tone, light skin tone	none
+👨🏿‍❤‍👨🏼	couple with heart man, man, dark skin tone, medium-light skin tone	none
+👨🏿‍❤‍👨🏽	couple with heart man, man, dark skin tone, medium skin tone	none
+👨🏿‍❤‍👨🏾	couple with heart man, man, dark skin tone, medium-dark skin tone	none
+👨🏿‍❤‍👨🏿	couple with heart man, man, dark skin tone	none
 👨‍🦰	man red hair	none
 👨🏻‍🦰	man light skin tone, red hair	none
 👨🏼‍🦰	man medium-light skin tone, red hair	none
@@ -1778,11 +2144,116 @@ symbols:
 👩🏽	woman medium skin tone	none
 👩🏾	woman medium-dark skin tone	none
 👩🏿	woman dark skin tone	none
+🧔🏻‍♀	woman light skin tone, beard	none
+🧔🏼‍♀	woman medium-light skin tone, beard	none
+🧔🏽‍♀	woman medium skin tone, beard	none
+🧔🏾‍♀	woman medium-dark skin tone, beard	none
+🧔🏿‍♀	woman dark skin tone, beard	none
 👱🏻‍♀	woman light skin tone, blond hair	none
 👱🏼‍♀	woman medium-light skin tone, blond hair	none
 👱🏽‍♀	woman medium skin tone, blond hair	none
 👱🏾‍♀	woman medium-dark skin tone, blond hair	none
 👱🏿‍♀	woman dark skin tone, blond hair	none
+👩🏻‍❤‍💋‍👨🏻	kiss woman, man, light skin tone	none
+👩🏻‍❤‍💋‍👨🏼	kiss woman, man, light skin tone, medium-light skin tone	none
+👩🏻‍❤‍💋‍👨🏽	kiss woman, man, light skin tone, medium skin tone	none
+👩🏻‍❤‍💋‍👨🏾	kiss woman, man, light skin tone, medium-dark skin tone	none
+👩🏻‍❤‍💋‍👨🏿	kiss woman, man, light skin tone, dark skin tone	none
+👩🏼‍❤‍💋‍👨🏻	kiss woman, man, medium-light skin tone, light skin tone	none
+👩🏼‍❤‍💋‍👨🏼	kiss woman, man, medium-light skin tone	none
+👩🏼‍❤‍💋‍👨🏽	kiss woman, man, medium-light skin tone, medium skin tone	none
+👩🏼‍❤‍💋‍👨🏾	kiss woman, man, medium-light skin tone, medium-dark skin tone	none
+👩🏼‍❤‍💋‍👨🏿	kiss woman, man, medium-light skin tone, dark skin tone	none
+👩🏽‍❤‍💋‍👨🏻	kiss woman, man, medium skin tone, light skin tone	none
+👩🏽‍❤‍💋‍👨🏼	kiss woman, man, medium skin tone, medium-light skin tone	none
+👩🏽‍❤‍💋‍👨🏽	kiss woman, man, medium skin tone	none
+👩🏽‍❤‍💋‍👨🏾	kiss woman, man, medium skin tone, medium-dark skin tone	none
+👩🏽‍❤‍💋‍👨🏿	kiss woman, man, medium skin tone, dark skin tone	none
+👩🏾‍❤‍💋‍👨🏻	kiss woman, man, medium-dark skin tone, light skin tone	none
+👩🏾‍❤‍💋‍👨🏼	kiss woman, man, medium-dark skin tone, medium-light skin tone	none
+👩🏾‍❤‍💋‍👨🏽	kiss woman, man, medium-dark skin tone, medium skin tone	none
+👩🏾‍❤‍💋‍👨🏾	kiss woman, man, medium-dark skin tone	none
+👩🏾‍❤‍💋‍👨🏿	kiss woman, man, medium-dark skin tone, dark skin tone	none
+👩🏿‍❤‍💋‍👨🏻	kiss woman, man, dark skin tone, light skin tone	none
+👩🏿‍❤‍💋‍👨🏼	kiss woman, man, dark skin tone, medium-light skin tone	none
+👩🏿‍❤‍💋‍👨🏽	kiss woman, man, dark skin tone, medium skin tone	none
+👩🏿‍❤‍💋‍👨🏾	kiss woman, man, dark skin tone, medium-dark skin tone	none
+👩🏿‍❤‍💋‍👨🏿	kiss woman, man, dark skin tone	none
+👩🏻‍❤‍💋‍👩🏻	kiss woman, woman, light skin tone	none
+👩🏻‍❤‍💋‍👩🏼	kiss woman, woman, light skin tone, medium-light skin tone	none
+👩🏻‍❤‍💋‍👩🏽	kiss woman, woman, light skin tone, medium skin tone	none
+👩🏻‍❤‍💋‍👩🏾	kiss woman, woman, light skin tone, medium-dark skin tone	none
+👩🏻‍❤‍💋‍👩🏿	kiss woman, woman, light skin tone, dark skin tone	none
+👩🏼‍❤‍💋‍👩🏻	kiss woman, woman, medium-light skin tone, light skin tone	none
+👩🏼‍❤‍💋‍👩🏼	kiss woman, woman, medium-light skin tone	none
+👩🏼‍❤‍💋‍👩🏽	kiss woman, woman, medium-light skin tone, medium skin tone	none
+👩🏼‍❤‍💋‍👩🏾	kiss woman, woman, medium-light skin tone, medium-dark skin tone	none
+👩🏼‍❤‍💋‍👩🏿	kiss woman, woman, medium-light skin tone, dark skin tone	none
+👩🏽‍❤‍💋‍👩🏻	kiss woman, woman, medium skin tone, light skin tone	none
+👩🏽‍❤‍💋‍👩🏼	kiss woman, woman, medium skin tone, medium-light skin tone	none
+👩🏽‍❤‍💋‍👩🏽	kiss woman, woman, medium skin tone	none
+👩🏽‍❤‍💋‍👩🏾	kiss woman, woman, medium skin tone, medium-dark skin tone	none
+👩🏽‍❤‍💋‍👩🏿	kiss woman, woman, medium skin tone, dark skin tone	none
+👩🏾‍❤‍💋‍👩🏻	kiss woman, woman, medium-dark skin tone, light skin tone	none
+👩🏾‍❤‍💋‍👩🏼	kiss woman, woman, medium-dark skin tone, medium-light skin tone	none
+👩🏾‍❤‍💋‍👩🏽	kiss woman, woman, medium-dark skin tone, medium skin tone	none
+👩🏾‍❤‍💋‍👩🏾	kiss woman, woman, medium-dark skin tone	none
+👩🏾‍❤‍💋‍👩🏿	kiss woman, woman, medium-dark skin tone, dark skin tone	none
+👩🏿‍❤‍💋‍👩🏻	kiss woman, woman, dark skin tone, light skin tone	none
+👩🏿‍❤‍💋‍👩🏼	kiss woman, woman, dark skin tone, medium-light skin tone	none
+👩🏿‍❤‍💋‍👩🏽	kiss woman, woman, dark skin tone, medium skin tone	none
+👩🏿‍❤‍💋‍👩🏾	kiss woman, woman, dark skin tone, medium-dark skin tone	none
+👩🏿‍❤‍💋‍👩🏿	kiss woman, woman, dark skin tone	none
+👩🏻‍❤‍👨🏻	couple with heart woman, man, light skin tone	none
+👩🏻‍❤‍👨🏼	couple with heart woman, man, light skin tone, medium-light skin tone	none
+👩🏻‍❤‍👨🏽	couple with heart woman, man, light skin tone, medium skin tone	none
+👩🏻‍❤‍👨🏾	couple with heart woman, man, light skin tone, medium-dark skin tone	none
+👩🏻‍❤‍👨🏿	couple with heart woman, man, light skin tone, dark skin tone	none
+👩🏼‍❤‍👨🏻	couple with heart woman, man, medium-light skin tone, light skin tone	none
+👩🏼‍❤‍👨🏼	couple with heart woman, man, medium-light skin tone	none
+👩🏼‍❤‍👨🏽	couple with heart woman, man, medium-light skin tone, medium skin tone	none
+👩🏼‍❤‍👨🏾	couple with heart woman, man, medium-light skin tone, medium-dark skin tone	none
+👩🏼‍❤‍👨🏿	couple with heart woman, man, medium-light skin tone, dark skin tone	none
+👩🏽‍❤‍👨🏻	couple with heart woman, man, medium skin tone, light skin tone	none
+👩🏽‍❤‍👨🏼	couple with heart woman, man, medium skin tone, medium-light skin tone	none
+👩🏽‍❤‍👨🏽	couple with heart woman, man, medium skin tone	none
+👩🏽‍❤‍👨🏾	couple with heart woman, man, medium skin tone, medium-dark skin tone	none
+👩🏽‍❤‍👨🏿	couple with heart woman, man, medium skin tone, dark skin tone	none
+👩🏾‍❤‍👨🏻	couple with heart woman, man, medium-dark skin tone, light skin tone	none
+👩🏾‍❤‍👨🏼	couple with heart woman, man, medium-dark skin tone, medium-light skin tone	none
+👩🏾‍❤‍👨🏽	couple with heart woman, man, medium-dark skin tone, medium skin tone	none
+👩🏾‍❤‍👨🏾	couple with heart woman, man, medium-dark skin tone	none
+👩🏾‍❤‍👨🏿	couple with heart woman, man, medium-dark skin tone, dark skin tone	none
+👩🏿‍❤‍👨🏻	couple with heart woman, man, dark skin tone, light skin tone	none
+👩🏿‍❤‍👨🏼	couple with heart woman, man, dark skin tone, medium-light skin tone	none
+👩🏿‍❤‍👨🏽	couple with heart woman, man, dark skin tone, medium skin tone	none
+👩🏿‍❤‍👨🏾	couple with heart woman, man, dark skin tone, medium-dark skin tone	none
+👩🏿‍❤‍👨🏿	couple with heart woman, man, dark skin tone	none
+👩🏻‍❤‍👩🏻	couple with heart woman, woman, light skin tone	none
+👩🏻‍❤‍👩🏼	couple with heart woman, woman, light skin tone, medium-light skin tone	none
+👩🏻‍❤‍👩🏽	couple with heart woman, woman, light skin tone, medium skin tone	none
+👩🏻‍❤‍👩🏾	couple with heart woman, woman, light skin tone, medium-dark skin tone	none
+👩🏻‍❤‍👩🏿	couple with heart woman, woman, light skin tone, dark skin tone	none
+👩🏼‍❤‍👩🏻	couple with heart woman, woman, medium-light skin tone, light skin tone	none
+👩🏼‍❤‍👩🏼	couple with heart woman, woman, medium-light skin tone	none
+👩🏼‍❤‍👩🏽	couple with heart woman, woman, medium-light skin tone, medium skin tone	none
+👩🏼‍❤‍👩🏾	couple with heart woman, woman, medium-light skin tone, medium-dark skin tone	none
+👩🏼‍❤‍👩🏿	couple with heart woman, woman, medium-light skin tone, dark skin tone	none
+👩🏽‍❤‍👩🏻	couple with heart woman, woman, medium skin tone, light skin tone	none
+👩🏽‍❤‍👩🏼	couple with heart woman, woman, medium skin tone, medium-light skin tone	none
+👩🏽‍❤‍👩🏽	couple with heart woman, woman, medium skin tone	none
+👩🏽‍❤‍👩🏾	couple with heart woman, woman, medium skin tone, medium-dark skin tone	none
+👩🏽‍❤‍👩🏿	couple with heart woman, woman, medium skin tone, dark skin tone	none
+👩🏾‍❤‍👩🏻	couple with heart woman, woman, medium-dark skin tone, light skin tone	none
+👩🏾‍❤‍👩🏼	couple with heart woman, woman, medium-dark skin tone, medium-light skin tone	none
+👩🏾‍❤‍👩🏽	couple with heart woman, woman, medium-dark skin tone, medium skin tone	none
+👩🏾‍❤‍👩🏾	couple with heart woman, woman, medium-dark skin tone	none
+👩🏾‍❤‍👩🏿	couple with heart woman, woman, medium-dark skin tone, dark skin tone	none
+👩🏿‍❤‍👩🏻	couple with heart woman, woman, dark skin tone, light skin tone	none
+👩🏿‍❤‍👩🏼	couple with heart woman, woman, dark skin tone, medium-light skin tone	none
+👩🏿‍❤‍👩🏽	couple with heart woman, woman, dark skin tone, medium skin tone	none
+👩🏿‍❤‍👩🏾	couple with heart woman, woman, dark skin tone, medium-dark skin tone	none
+👩🏿‍❤‍👩🏿	couple with heart woman, woman, dark skin tone	none
 👩‍🦰	woman red hair	none
 👩🏻‍🦰	woman light skin tone, red hair	none
 👩🏼‍🦰	woman medium-light skin tone, red hair	none
@@ -2257,6 +2728,11 @@ symbols:
 💂🏽‍♀	woman guard medium skin tone	none
 💂🏾‍♀	woman guard medium-dark skin tone	none
 💂🏿‍♀	woman guard dark skin tone	none
+🥷🏻	ninja light skin tone	none
+🥷🏼	ninja medium-light skin tone	none
+🥷🏽	ninja medium skin tone	none
+🥷🏾	ninja medium-dark skin tone	none
+🥷🏿	ninja dark skin tone	none
 👷🏻	construction worker light skin tone	none
 👷🏼	construction worker medium-light skin tone	none
 👷🏽	construction worker medium skin tone	none
@@ -2297,26 +2773,46 @@ symbols:
 👳🏽‍♀	woman wearing turban medium skin tone	none
 👳🏾‍♀	woman wearing turban medium-dark skin tone	none
 👳🏿‍♀	woman wearing turban dark skin tone	none
-👲🏻	man with skullcap light skin tone	none
-👲🏼	man with skullcap medium-light skin tone	none
-👲🏽	man with skullcap medium skin tone	none
-👲🏾	man with skullcap medium-dark skin tone	none
-👲🏿	man with skullcap dark skin tone	none
+👲🏻	person with skullcap light skin tone	none
+👲🏼	person with skullcap medium-light skin tone	none
+👲🏽	person with skullcap medium skin tone	none
+👲🏾	person with skullcap medium-dark skin tone	none
+👲🏿	person with skullcap dark skin tone	none
 🧕🏻	woman with headscarf light skin tone	none
 🧕🏼	woman with headscarf medium-light skin tone	none
 🧕🏽	woman with headscarf medium skin tone	none
 🧕🏾	woman with headscarf medium-dark skin tone	none
 🧕🏿	woman with headscarf dark skin tone	none
-🤵🏻	man in tuxedo light skin tone	none
-🤵🏼	man in tuxedo medium-light skin tone	none
-🤵🏽	man in tuxedo medium skin tone	none
-🤵🏾	man in tuxedo medium-dark skin tone	none
-🤵🏿	man in tuxedo dark skin tone	none
-👰🏻	bride with veil light skin tone	none
-👰🏼	bride with veil medium-light skin tone	none
-👰🏽	bride with veil medium skin tone	none
-👰🏾	bride with veil medium-dark skin tone	none
-👰🏿	bride with veil dark skin tone	none
+🤵🏻	person in tuxedo light skin tone	none
+🤵🏼	person in tuxedo medium-light skin tone	none
+🤵🏽	person in tuxedo medium skin tone	none
+🤵🏾	person in tuxedo medium-dark skin tone	none
+🤵🏿	person in tuxedo dark skin tone	none
+🤵🏻‍♂	man in tuxedo light skin tone	none
+🤵🏼‍♂	man in tuxedo medium-light skin tone	none
+🤵🏽‍♂	man in tuxedo medium skin tone	none
+🤵🏾‍♂	man in tuxedo medium-dark skin tone	none
+🤵🏿‍♂	man in tuxedo dark skin tone	none
+🤵🏻‍♀	woman in tuxedo light skin tone	none
+🤵🏼‍♀	woman in tuxedo medium-light skin tone	none
+🤵🏽‍♀	woman in tuxedo medium skin tone	none
+🤵🏾‍♀	woman in tuxedo medium-dark skin tone	none
+🤵🏿‍♀	woman in tuxedo dark skin tone	none
+👰🏻	person with veil light skin tone	none
+👰🏼	person with veil medium-light skin tone	none
+👰🏽	person with veil medium skin tone	none
+👰🏾	person with veil medium-dark skin tone	none
+👰🏿	person with veil dark skin tone	none
+👰🏻‍♂	man with veil light skin tone	none
+👰🏼‍♂	man with veil medium-light skin tone	none
+👰🏽‍♂	man with veil medium skin tone	none
+👰🏾‍♂	man with veil medium-dark skin tone	none
+👰🏿‍♂	man with veil dark skin tone	none
+👰🏻‍♀	woman with veil light skin tone	none
+👰🏼‍♀	woman with veil medium-light skin tone	none
+👰🏽‍♀	woman with veil medium skin tone	none
+👰🏾‍♀	woman with veil medium-dark skin tone	none
+👰🏿‍♀	woman with veil dark skin tone	none
 🤰🏻	pregnant woman light skin tone	none
 🤰🏼	pregnant woman medium-light skin tone	none
 🤰🏽	pregnant woman medium skin tone	none
@@ -2327,6 +2823,21 @@ symbols:
 🤱🏽	breast-feeding medium skin tone	none
 🤱🏾	breast-feeding medium-dark skin tone	none
 🤱🏿	breast-feeding dark skin tone	none
+👩🏻‍🍼	woman feeding baby light skin tone	none
+👩🏼‍🍼	woman feeding baby medium-light skin tone	none
+👩🏽‍🍼	woman feeding baby medium skin tone	none
+👩🏾‍🍼	woman feeding baby medium-dark skin tone	none
+👩🏿‍🍼	woman feeding baby dark skin tone	none
+👨🏻‍🍼	man feeding baby light skin tone	none
+👨🏼‍🍼	man feeding baby medium-light skin tone	none
+👨🏽‍🍼	man feeding baby medium skin tone	none
+👨🏾‍🍼	man feeding baby medium-dark skin tone	none
+👨🏿‍🍼	man feeding baby dark skin tone	none
+🧑🏻‍🍼	person feeding baby light skin tone	none
+🧑🏼‍🍼	person feeding baby medium-light skin tone	none
+🧑🏽‍🍼	person feeding baby medium skin tone	none
+🧑🏾‍🍼	person feeding baby medium-dark skin tone	none
+🧑🏿‍🍼	person feeding baby dark skin tone	none
 👼🏻	baby angel light skin tone	none
 👼🏼	baby angel medium-light skin tone	none
 👼🏽	baby angel medium skin tone	none
@@ -2342,6 +2853,11 @@ symbols:
 🤶🏽	Mrs. Claus medium skin tone	none
 🤶🏾	Mrs. Claus medium-dark skin tone	none
 🤶🏿	Mrs. Claus dark skin tone	none
+🧑🏻‍🎄	mx claus light skin tone	none
+🧑🏼‍🎄	mx claus medium-light skin tone	none
+🧑🏽‍🎄	mx claus medium skin tone	none
+🧑🏾‍🎄	mx claus medium-dark skin tone	none
+🧑🏿‍🎄	mx claus dark skin tone	none
 🦸🏻	superhero light skin tone	none
 🦸🏼	superhero medium-light skin tone	none
 🦸🏽	superhero medium skin tone	none
@@ -2522,21 +3038,21 @@ symbols:
 🧎🏽‍♀	woman kneeling medium skin tone	none
 🧎🏾‍♀	woman kneeling medium-dark skin tone	none
 🧎🏿‍♀	woman kneeling dark skin tone	none
-🧑🏻‍🦯	person with probing cane light skin tone	none
-🧑🏼‍🦯	person with probing cane medium-light skin tone	none
-🧑🏽‍🦯	person with probing cane medium skin tone	none
-🧑🏾‍🦯	person with probing cane medium-dark skin tone	none
-🧑🏿‍🦯	person with probing cane dark skin tone	none
-👨🏻‍🦯	man with probing cane light skin tone	none
-👨🏼‍🦯	man with probing cane medium-light skin tone	none
-👨🏽‍🦯	man with probing cane medium skin tone	none
-👨🏾‍🦯	man with probing cane medium-dark skin tone	none
-👨🏿‍🦯	man with probing cane dark skin tone	none
-👩🏻‍🦯	woman with probing cane light skin tone	none
-👩🏼‍🦯	woman with probing cane medium-light skin tone	none
-👩🏽‍🦯	woman with probing cane medium skin tone	none
-👩🏾‍🦯	woman with probing cane medium-dark skin tone	none
-👩🏿‍🦯	woman with probing cane dark skin tone	none
+🧑🏻‍🦯	person with white cane light skin tone	none
+🧑🏼‍🦯	person with white cane medium-light skin tone	none
+🧑🏽‍🦯	person with white cane medium skin tone	none
+🧑🏾‍🦯	person with white cane medium-dark skin tone	none
+🧑🏿‍🦯	person with white cane dark skin tone	none
+👨🏻‍🦯	man with white cane light skin tone	none
+👨🏼‍🦯	man with white cane medium-light skin tone	none
+👨🏽‍🦯	man with white cane medium skin tone	none
+👨🏾‍🦯	man with white cane medium-dark skin tone	none
+👨🏿‍🦯	man with white cane dark skin tone	none
+👩🏻‍🦯	woman with white cane light skin tone	none
+👩🏼‍🦯	woman with white cane medium-light skin tone	none
+👩🏽‍🦯	woman with white cane medium skin tone	none
+👩🏾‍🦯	woman with white cane medium-dark skin tone	none
+👩🏿‍🦯	woman with white cane dark skin tone	none
 🧑🏻‍🦼	person in motorized wheelchair light skin tone	none
 🧑🏼‍🦼	person in motorized wheelchair medium-light skin tone	none
 🧑🏽‍🦼	person in motorized wheelchair medium skin tone	none
@@ -2592,11 +3108,11 @@ symbols:
 🕺🏽	man dancing medium skin tone	none
 🕺🏾	man dancing medium-dark skin tone	none
 🕺🏿	man dancing dark skin tone	none
-🕴🏻	man in suit levitating light skin tone	none
-🕴🏼	man in suit levitating medium-light skin tone	none
-🕴🏽	man in suit levitating medium skin tone	none
-🕴🏾	man in suit levitating medium-dark skin tone	none
-🕴🏿	man in suit levitating dark skin tone	none
+🕴🏻	person in suit levitating light skin tone	none
+🕴🏼	person in suit levitating medium-light skin tone	none
+🕴🏽	person in suit levitating medium skin tone	none
+🕴🏾	person in suit levitating medium-dark skin tone	none
+🕴🏿	person in suit levitating dark skin tone	none
 🧖🏻	person in steamy room light skin tone	none
 🧖🏼	person in steamy room medium-light skin tone	none
 🧖🏽	person in steamy room medium skin tone	none
@@ -2843,30 +3359,50 @@ symbols:
 🛌🏾	person in bed medium-dark skin tone	none
 🛌🏿	person in bed dark skin tone	none
 🧑🏻‍🤝‍🧑🏻	people holding hands light skin tone	none
+🧑🏻‍🤝‍🧑🏼	people holding hands light skin tone, medium-light skin tone	none
+🧑🏻‍🤝‍🧑🏽	people holding hands light skin tone, medium skin tone	none
+🧑🏻‍🤝‍🧑🏾	people holding hands light skin tone, medium-dark skin tone	none
+🧑🏻‍🤝‍🧑🏿	people holding hands light skin tone, dark skin tone	none
 🧑🏼‍🤝‍🧑🏻	people holding hands medium-light skin tone, light skin tone	none
 🧑🏼‍🤝‍🧑🏼	people holding hands medium-light skin tone	none
+🧑🏼‍🤝‍🧑🏽	people holding hands medium-light skin tone, medium skin tone	none
+🧑🏼‍🤝‍🧑🏾	people holding hands medium-light skin tone, medium-dark skin tone	none
+🧑🏼‍🤝‍🧑🏿	people holding hands medium-light skin tone, dark skin tone	none
 🧑🏽‍🤝‍🧑🏻	people holding hands medium skin tone, light skin tone	none
 🧑🏽‍🤝‍🧑🏼	people holding hands medium skin tone, medium-light skin tone	none
 🧑🏽‍🤝‍🧑🏽	people holding hands medium skin tone	none
+🧑🏽‍🤝‍🧑🏾	people holding hands medium skin tone, medium-dark skin tone	none
+🧑🏽‍🤝‍🧑🏿	people holding hands medium skin tone, dark skin tone	none
 🧑🏾‍🤝‍🧑🏻	people holding hands medium-dark skin tone, light skin tone	none
 🧑🏾‍🤝‍🧑🏼	people holding hands medium-dark skin tone, medium-light skin tone	none
 🧑🏾‍🤝‍🧑🏽	people holding hands medium-dark skin tone, medium skin tone	none
 🧑🏾‍🤝‍🧑🏾	people holding hands medium-dark skin tone	none
+🧑🏾‍🤝‍🧑🏿	people holding hands medium-dark skin tone, dark skin tone	none
 🧑🏿‍🤝‍🧑🏻	people holding hands dark skin tone, light skin tone	none
 🧑🏿‍🤝‍🧑🏼	people holding hands dark skin tone, medium-light skin tone	none
 🧑🏿‍🤝‍🧑🏽	people holding hands dark skin tone, medium skin tone	none
 🧑🏿‍🤝‍🧑🏾	people holding hands dark skin tone, medium-dark skin tone	none
 🧑🏿‍🤝‍🧑🏿	people holding hands dark skin tone	none
 👭🏻	women holding hands light skin tone	none
+👩🏻‍🤝‍👩🏼	women holding hands light skin tone, medium-light skin tone	none
+👩🏻‍🤝‍👩🏽	women holding hands light skin tone, medium skin tone	none
+👩🏻‍🤝‍👩🏾	women holding hands light skin tone, medium-dark skin tone	none
+👩🏻‍🤝‍👩🏿	women holding hands light skin tone, dark skin tone	none
 👩🏼‍🤝‍👩🏻	women holding hands medium-light skin tone, light skin tone	none
 👭🏼	women holding hands medium-light skin tone	none
+👩🏼‍🤝‍👩🏽	women holding hands medium-light skin tone, medium skin tone	none
+👩🏼‍🤝‍👩🏾	women holding hands medium-light skin tone, medium-dark skin tone	none
+👩🏼‍🤝‍👩🏿	women holding hands medium-light skin tone, dark skin tone	none
 👩🏽‍🤝‍👩🏻	women holding hands medium skin tone, light skin tone	none
 👩🏽‍🤝‍👩🏼	women holding hands medium skin tone, medium-light skin tone	none
 👭🏽	women holding hands medium skin tone	none
+👩🏽‍🤝‍👩🏾	women holding hands medium skin tone, medium-dark skin tone	none
+👩🏽‍🤝‍👩🏿	women holding hands medium skin tone, dark skin tone	none
 👩🏾‍🤝‍👩🏻	women holding hands medium-dark skin tone, light skin tone	none
 👩🏾‍🤝‍👩🏼	women holding hands medium-dark skin tone, medium-light skin tone	none
 👩🏾‍🤝‍👩🏽	women holding hands medium-dark skin tone, medium skin tone	none
 👭🏾	women holding hands medium-dark skin tone	none
+👩🏾‍🤝‍👩🏿	women holding hands medium-dark skin tone, dark skin tone	none
 👩🏿‍🤝‍👩🏻	women holding hands dark skin tone, light skin tone	none
 👩🏿‍🤝‍👩🏼	women holding hands dark skin tone, medium-light skin tone	none
 👩🏿‍🤝‍👩🏽	women holding hands dark skin tone, medium skin tone	none
@@ -2898,23 +3434,43 @@ symbols:
 👩🏿‍🤝‍👨🏾	woman and man holding hands dark skin tone, medium-dark skin tone	none
 👫🏿	woman and man holding hands dark skin tone	none
 👬🏻	men holding hands light skin tone	none
+👨🏻‍🤝‍👨🏼	men holding hands light skin tone, medium-light skin tone	none
+👨🏻‍🤝‍👨🏽	men holding hands light skin tone, medium skin tone	none
+👨🏻‍🤝‍👨🏾	men holding hands light skin tone, medium-dark skin tone	none
+👨🏻‍🤝‍👨🏿	men holding hands light skin tone, dark skin tone	none
 👨🏼‍🤝‍👨🏻	men holding hands medium-light skin tone, light skin tone	none
 👬🏼	men holding hands medium-light skin tone	none
+👨🏼‍🤝‍👨🏽	men holding hands medium-light skin tone, medium skin tone	none
+👨🏼‍🤝‍👨🏾	men holding hands medium-light skin tone, medium-dark skin tone	none
+👨🏼‍🤝‍👨🏿	men holding hands medium-light skin tone, dark skin tone	none
 👨🏽‍🤝‍👨🏻	men holding hands medium skin tone, light skin tone	none
 👨🏽‍🤝‍👨🏼	men holding hands medium skin tone, medium-light skin tone	none
 👬🏽	men holding hands medium skin tone	none
+👨🏽‍🤝‍👨🏾	men holding hands medium skin tone, medium-dark skin tone	none
+👨🏽‍🤝‍👨🏿	men holding hands medium skin tone, dark skin tone	none
 👨🏾‍🤝‍👨🏻	men holding hands medium-dark skin tone, light skin tone	none
 👨🏾‍🤝‍👨🏼	men holding hands medium-dark skin tone, medium-light skin tone	none
 👨🏾‍🤝‍👨🏽	men holding hands medium-dark skin tone, medium skin tone	none
 👬🏾	men holding hands medium-dark skin tone	none
+👨🏾‍🤝‍👨🏿	men holding hands medium-dark skin tone, dark skin tone	none
 👨🏿‍🤝‍👨🏻	men holding hands dark skin tone, light skin tone	none
 👨🏿‍🤝‍👨🏼	men holding hands dark skin tone, medium-light skin tone	none
 👨🏿‍🤝‍👨🏽	men holding hands dark skin tone, medium skin tone	none
 👨🏿‍🤝‍👨🏾	men holding hands dark skin tone, medium-dark skin tone	none
 👬🏿	men holding hands dark skin tone	none
+💏🏻	kiss light skin tone	none
+💏🏼	kiss medium-light skin tone	none
+💏🏽	kiss medium skin tone	none
+💏🏾	kiss medium-dark skin tone	none
+💏🏿	kiss dark skin tone	none
 👩‍❤‍💋‍👨	kiss woman, man	none
 👨‍❤‍💋‍👨	kiss man, man	none
 👩‍❤‍💋‍👩	kiss woman, woman	none
+💑🏻	couple with heart light skin tone	none
+💑🏼	couple with heart medium-light skin tone	none
+💑🏽	couple with heart medium skin tone	none
+💑🏾	couple with heart medium-dark skin tone	none
+💑🏿	couple with heart dark skin tone	none
 👩‍❤‍👨	couple with heart woman, man	none
 👨‍❤‍👨	couple with heart man, man	none
 👩‍❤‍👩	couple with heart woman, woman	none
@@ -2943,8 +3499,6 @@ symbols:
 👩‍👧	family woman, girl	none
 👩‍👧‍👦	family woman, girl, boy	none
 👩‍👧‍👧	family woman, girl, girl	none
-#⃣	keycap #	none
-*⃣	keycap *	none
 🔟	keycap 10	none
 🇦🇨	flag Ascension Island	none
 🇦🇩	flag Andorra	none
@@ -3207,13 +3761,17 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	flag England	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	flag Scotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flag Wales	none
-0⃣	keycap 0	none
-1⃣	keycap 1	none
-2⃣	keycap 2	none
-3⃣	keycap 3	none
-4⃣	keycap 4	none
-5⃣	keycap 5	none
-6⃣	keycap 6	none
-7⃣	keycap 7	none
-8⃣	keycap 8	none
-9⃣	keycap 9	none
+₡	Costa Rican Colón	none
+₦	Nigerian Naira	none
+₧	Spanish Peseta	none
+₪	Israeli New Shekel	none
+₫	Vietnamese Dong	none
+₭	Laotian Kip	none
+₮	Mongolian Tugrik	none
+₲	Paraguayan Guarani	none
+₴	Ukrainian Hryvnia	none
+₵	Ghanaian Cedi	none
+₸	Kazakhstani Tenge	none
+₺	Turkish Lira	none
+₼	Azerbaijani Manat	none
+₾	Georgian Lari	none

@@ -78,7 +78,7 @@ static void *spd_events_handler(void *);
 const int range_low = -100;
 const int range_high = 100;
 
-pthread_mutex_t spd_logging_mutex;
+pthread_mutex_t spd_logging_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 struct SPDConnection_threaddata {
 	pthread_t events_thread;
@@ -243,11 +243,6 @@ static void _init_debug(void)
 		if (spd_debug == NULL)
 			SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
 
-		if (pthread_mutex_init(&spd_logging_mutex, NULL)) {
-			fprintf(stderr, "Mutex initialization failed");
-			fflush(stderr);
-			exit(1);
-		}
 		SPD_DBG("Debugging started");
 	}
 #endif /* LIBSPEECHD_DEBUG */
@@ -339,6 +334,7 @@ spawn_server(SPDConnectionAddress * address, int is_localhost,
 	GError *gerror = NULL;
 	int exit_status;
 	int i;
+	const char *cmd;
 
 	if ((address->method == SPD_METHOD_INET_SOCKET) && (!is_localhost)) {
 		*spawn_error =
@@ -347,7 +343,10 @@ spawn_server(SPDConnectionAddress * address, int is_localhost,
 		return 1;
 	}
 
-	speechd_cmd[0] = g_strdup(SPD_SPAWN_CMD);
+	cmd = getenv("SPEECHD_CMD");
+	if (!cmd)
+		cmd = SPD_SPAWN_CMD;
+	speechd_cmd[0] = g_strdup(cmd);
 	speechd_cmd[1] = g_strdup("--spawn");
 	speechd_cmd[2] = g_strdup("--communication-method");
 	if (address->method == SPD_METHOD_INET_SOCKET) {
@@ -588,6 +587,18 @@ out:
 		pthread_mutex_unlock(&connection->ssip_mutex); \
 		return r; \
 	}
+
+/* Get the client id of the connection */
+int spd_get_client_id(SPDConnection * connection)
+{
+	int ret;
+	int err;
+	char *reply = NULL;
+	spd_execute_command_with_reply(connection, "HISTORY GET CLIENT_ID", &reply);
+	ret = get_param_int(reply, 1, &err);
+	free(reply);
+	return ret;
+}
 
 /* Close a Speech Dispatcher connection */
 void spd_close(SPDConnection * connection)
@@ -925,6 +936,8 @@ int spd_w_set_punctuation(SPDConnection * connection, SPDPunctuation type,
 		sprintf(command, "SET %s PUNCTUATION none", who);
 	if (type == SPD_PUNCT_SOME)
 		sprintf(command, "SET %s PUNCTUATION some", who);
+	if (type == SPD_PUNCT_MOST)
+		sprintf(command, "SET %s PUNCTUATION most", who);
 
 	ret = spd_execute_command(connection, command);
 
@@ -1491,7 +1504,7 @@ void free_spd_voices(SPDVoice ** voices)
 }
 
 char **spd_execute_command_with_list_reply(SPDConnection * connection,
-					   char *command)
+					   const char *command)
 {
 	char *reply = NULL;
 	char *line;
@@ -1563,7 +1576,7 @@ spd_get_message_list_fd(SPDConnection * connection, int target, int *msg_ids,
 #endif
 }
 
-int spd_execute_command(SPDConnection * connection, char *command)
+int spd_execute_command(SPDConnection * connection, const char *command)
 {
 	char *reply;
 	int ret;
@@ -1581,7 +1594,7 @@ int spd_execute_command(SPDConnection * connection, char *command)
 	return ret;
 }
 
-int spd_execute_command_wo_mutex(SPDConnection * connection, char *command)
+int spd_execute_command_wo_mutex(SPDConnection * connection, const char *command)
 {
 	char *reply;
 	int ret;
@@ -1598,7 +1611,7 @@ int spd_execute_command_wo_mutex(SPDConnection * connection, char *command)
 }
 
 int
-spd_execute_command_with_reply(SPDConnection * connection, char *command,
+spd_execute_command_with_reply(SPDConnection * connection, const char *command,
 			       char **reply)
 {
 	char *buf;

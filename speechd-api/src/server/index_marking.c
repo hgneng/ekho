@@ -151,15 +151,16 @@ char *find_index_mark(TSpeechDMessage * msg, int mark)
 }
 
 /* Deletes all index marks from the given text */
-char *strip_index_marks(char *buf, SPDDataMode ssml_mode)
+char *strip_index_marks(const char *buf, SPDDataMode ssml_mode)
 {
 	GString *str;
 	char *strret;
 
 	char str_mark[] = SD_MARK_HEAD;
 
-	char *p;
-	char *p_old;
+	const char *p;
+	const char *p_old;
+	char *p_str;
 
 	if (ssml_mode == SPD_DATA_SSML)
 		str = g_string_new("<speak>");
@@ -190,9 +191,9 @@ char *strip_index_marks(char *buf, SPDDataMode ssml_mode)
 	}
 
 	if (ssml_mode == SPD_DATA_TEXT) {
-		p = strstr(str->str, "</speak>");
-		if (p != NULL)
-			*p = 0;
+		p_str = strstr(str->str, "</speak>");
+		if (p_str != NULL)
+			*p_str = 0;
 	}
 
 	strret = str->str;

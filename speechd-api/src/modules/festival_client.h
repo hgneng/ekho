@@ -124,13 +124,13 @@ int festivalSpell(FT_Info * info, const char *text);
 
 FT_Wave *festivalStringToWaveGetData(FT_Info * info);
 
-FT_Info *festivalDefaultInfo();
+FT_Info *festivalDefaultInfo(void);
 void festivalEmptySocket(FT_Info * info);
 int save_FT_Wave_snd(FT_Wave * wave, const char *filename);
 FT_Wave *festivalGetDataMulti(FT_Info * info, char **callback, int *stop_flag,
 			      int stop_by_close);
 
-int festival_check_info(FT_Info * info, char *fnname);
-char **lisp_list_get_vect(char *expr);
+int festival_check_info(FT_Info * info, const char *fnname);
+char **lisp_list_get_vect(const char *expr);
 int festival_read_response(FT_Info * info, char **expr);
 #endif

@@ -88,7 +88,6 @@ static AudioID *nas_open(void **pars)
 {
 	spd_nas_id_t *nas_id;
 	int ret;
-	AuBool r;
 
 	nas_id = (spd_nas_id_t *) g_malloc(sizeof(spd_nas_id_t));
 

@@ -11,7 +11,7 @@
  * Copyright 2010 Christopher Brannon <cmbrannon79@gmail.com>
  * Copyright 2010-2011 William Hubbs <w.d.hubbs@gmail.com>
  * Copyright 2015 Jeremy Whiting <jpwhiting@kde.org>
- * Copyright 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * Copied from Luke Yelavich's libao.c driver, and merged with code from
  * Marco's ao_pulse.c driver, by Bill Cox, Dec 21, 2009.
@@ -33,6 +33,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
+
+#define _GNU_SOURCE
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -56,8 +58,9 @@ typedef struct {
 	AudioID id;
 	pa_simple *pa_simple;
 	char *pa_server;
+	char *pa_device;
 	char *pa_name;
-	int pa_min_audio_length;
+	int pa_min_audio_length;	// in ms
 	volatile int pa_stop_playback;
 	int pa_current_rate;	// Sample rate for currently PA connection
 	int pa_current_bps;	// Bits per sample rate for currently PA connection
@@ -67,10 +70,15 @@ typedef struct {
 /* send a packet of XXX bytes to the sound device */
 #define PULSE_SEND_BYTES 256
 
+/* Initial values, most often what synths will requests */
+#define DEF_RATE 44100
+#define DEF_CHANNELS 1
+#define DEF_BYTES_PER_SAMPLE 2
+
 /* This is the smallest audio sound we are expected to play immediately without buffering. */
 /* Changed to define on config file. Default is the same. */
-/* Default to 20 ms of latency (1764 = 44100 * 0.020 * 2) */
-#define DEFAULT_PA_MIN_AUDIO_LENGTH 1764
+/* Default to 10 ms of latency */
+#define DEFAULT_PA_MIN_AUDIO_LENGTH 10
 
 static int pulse_log_level;
 static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
@@ -135,7 +143,7 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 	/* Set prebuf to one sample so that keys are spoken as soon as typed rather than delayed until the next key pressed */
 	buffAttr.maxlength = (uint32_t) - 1;
 	//buffAttr.tlength = (uint32_t)-1; - this is the default, which causes key echo to not work properly.
-	buffAttr.tlength = id->pa_min_audio_length;
+	buffAttr.tlength = id->pa_min_audio_length * sample_rate * num_channels * bytes_per_sample / 1000;
 	buffAttr.prebuf = (uint32_t) - 1;
 	buffAttr.minreq = (uint32_t) - 1;
 	buffAttr.fragsize = (uint32_t) - 1;
@@ -148,7 +156,7 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 	if (!
 	    (id->pa_simple =
 	     pa_simple_new(id->pa_server, client_name,
-			   PA_STREAM_PLAYBACK, NULL, "playback",
+			   PA_STREAM_PLAYBACK, id->pa_device, "playback",
 			   &ss, NULL, &buffAttr, &error))) {
 		fprintf(stderr, __FILE__ ": pa_simple_new() failed: %s\n",
 			pa_strerror(error));
@@ -175,6 +183,11 @@ static AudioID *pulse_open(void **pars)
 	spd_pulse_id_t *pulse_id;
 	int ret;
 
+	if (pars[3] == NULL) {
+		ERR("Can't open Pulse sound output, missing parameters in argument.");
+		return NULL;
+	}
+
 	pulse_id = (spd_pulse_id_t *) g_malloc(sizeof(spd_pulse_id_t));
 
 	/* Select an Endianness for the initial connection. */
@@ -184,7 +197,8 @@ static AudioID *pulse_open(void **pars)
 	pulse_id->id.format = SPD_AUDIO_LE;
 #endif
 	pulse_id->pa_simple = NULL;
-	pulse_id->pa_server = (char *)pars[3];
+	pulse_id->pa_server = NULL;
+	pulse_id->pa_device = (char *)pars[3];
 	pulse_id->pa_name = (char *)pars[5];
 	pulse_id->pa_min_audio_length = DEFAULT_PA_MIN_AUDIO_LENGTH;
 
@@ -192,8 +206,8 @@ static AudioID *pulse_open(void **pars)
 	pulse_id->pa_current_bps = -1;
 	pulse_id->pa_current_channels = -1;
 
-	if (!strcmp(pulse_id->pa_server, "default")) {
-		pulse_id->pa_server = NULL;
+	if (!strcmp(pulse_id->pa_device, "default")) {
+		pulse_id->pa_device = NULL;
 	}
 
 	if (pars[4] != NULL && atoi(pars[4]) != 0)
@@ -201,7 +215,7 @@ static AudioID *pulse_open(void **pars)
 
 	pulse_id->pa_stop_playback = 0;
 
-	ret = _pulse_open(pulse_id, 44100, 1, 2);
+	ret = _pulse_open(pulse_id, DEF_RATE, DEF_CHANNELS, DEF_BYTES_PER_SAMPLE);
 	if (ret) {
 		g_free(pulse_id);
 		pulse_id = NULL;
@@ -248,8 +262,14 @@ static int pulse_play(AudioID * id, AudioTrack track)
 		/* Close old connection if any */
 		pulse_connection_close(pulse_id);
 		/* Open a new connection */
-		_pulse_open(pulse_id, track.sample_rate, track.num_channels,
+		error = _pulse_open(pulse_id, track.sample_rate, track.num_channels,
 			    bytes_per_sample);
+		if (error) {
+			pulse_id->pa_current_rate = -1;
+			pulse_id->pa_current_bps = -1;
+			pulse_id->pa_current_channels = -1;
+			return -1;
+		}
 		/* Keep track of current connection parameters */
 		pulse_id->pa_current_rate = track.sample_rate;
 		pulse_id->pa_current_bps = track.bits;

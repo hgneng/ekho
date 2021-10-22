@@ -8,7 +8,262 @@ symbols:
 🏽	umjerena boja kože	none
 🏾	umjereno tamna boja kože	none
 🏿	tamna boja kože	none
-⚧	simbol transrodnih osoba	none
+℗	autorsko pravo za zvučni snimak	none
+←	strelica prema lijevo	none
+↚	precrtana strelica ulijevo	none
+→	strelica prema desno	none
+↛	precrtana strelica udesno	none
+↑	strelica prema gore	none
+↓	strelica prema dolje	none
+↜	valovita strelica ulijevo	none
+↝	valovita strelica udesno	none
+↞	dvoglava strelica ulijevo	none
+↟	dvoglava strelica nagore	none
+↠	dvoglava strelica udesno	none
+↡	dvoglava strelica nadolje	none
+↢	strelica s repom ulijevo	none
+↣	strelica s repom udesno	none
+↤	strelica s crtom ulijevo	none
+↥	strelica s crtom nagore	none
+↦	strelica s crtom udesno	none
+↧	strelica s crtom nadolje	none
+↨	strelica nagore-nadolje s bazom	none
+↫	strelica s petljom ulijevo	none
+↬	strelica s petljom udesno	none
+↭	valovita strelica ulijevo-udesno	none
+↯	cikcak strelica nadolje	none
+↰	strelica nagore s vrhom ulijevo	none
+↱	strelica nagore s vrhom udesno	none
+↲	strelica nadolje s vrhom ulijevo	none
+↳	strelica nadolje s vrhom udesno	none
+↴	strelica udesno s uglom nadolje	none
+↵	strelica nadolje s uglom ulijevo	none
+↶	polukružna strelica suprotno od kazaljke na satu	none
+↷	polukružna strelica u smjeru kazalje na satu	none
+↸	strelica sjever-zapad s durgom trakom	none
+↹	strelica sa crtom ulijevo preko strelice sa crtom udesno	none
+↺	otvorena kružna strelica suprotno od kazaljke na satu	none
+↻	otvorena kružna strelica u smjeru kazaljke na satu	none
+↼	harpun strelica ulijevo s bodljom nagore	none
+↽	harpun strelica ulijevo s bodljom nadolje	none
+↾	harpun strelica nagore s bodljom udesno	none
+↿	harpun strelica nagore s bodljom ulijevo	none
+⇀	harpun strelica udesno s bodljom nagore	none
+⇁	harpun strelica udesno s bodljom nadolje	none
+⇂	harpun strelica nadolje s bodljom udesno	none
+⇃	harpun strelica nadolje s bodljom ulijevo	none
+⇄	strelica udesno preko strelice ulijevo	none
+⇅	strelice prema gore i prema dolje	none
+⇆	strelica gore preko strelice dolje	none
+⇇	uparene strelice ulijevo	none
+⇈	uparene strelice nagore	none
+⇉	uparene strelice udesno	none
+⇊	uparene strelice nadolje	none
+⇋	harpun strelica ulijevo preko harpun strelice udesno	none
+⇌	harpun strelica udesno preko harpun strelice ulijevo	none
+⇐	dvostruka strelica ulijevo	none
+⇍	precrtana dvostruka strelica ulijevo	none
+⇑	dvostruka strelica nagore	none
+⇒	dvostruka strelica udesno	none
+⇏	precrtana dvostruka strelica udesno	none
+⇓	dvostruka strelica nadolje	none
+⇔	dvostruka strelica ulijevo-udesno	none
+⇎	precrtana dvostruka strelica ulijevo-udesno	none
+⇖	dvostruka strelica sjever-zapad	none
+⇗	dvostruka strelica sjever-istok	none
+⇘	dvostruka strelica jug-istok	none
+⇙	dvostruka strelica jug-zapad	none
+⇚	trostruka strelica ulijevo	none
+⇛	trostruka strelica udesno	none
+⇜	vijugava strelica ulijevo	none
+⇝	vijugava strelica udesno	none
+⇞	dvostruko precrtana strelica nagore	none
+⇟	dvostruko precrtana strelica nadolje	none
+⇠	isprekidana strelica ulijevo	none
+⇡	isprekidana strelica nagore	none
+⇢	isprekidana strelica udesno	none
+⇣	isprekidana strelica nadolje	none
+⇤	strelica ulijevo s crtom	none
+⇥	strelica udesno s crtom	none
+⇦	šuplja strelica ulijevo	none
+⇧	šuplja strelica nagore	none
+⇨	šuplja strelica udesno	none
+⇩	šuplja strelica nadolje	none
+⇪	šuplja strelica nagore od crte	none
+⇵	strelica nadolje strelica nagore	none
+∀	za svaki	none
+∂	parcijalni diferencijal	none
+∃	postoji	none
+∅	prazan skup	none
+∆	inkrement	none
+∇	nabla	none
+∈	element od	none
+∉	nije element	none
+∋	sadrži kao član	none
+∎	kraj dokaza	none
+∏	Kartezijev prozvod	none
+∑	zbir neograničenog broja operanada	none
+≮	ne manje od	none
+≠	nije jednako	none
+≯	ne veće od	none
+−	minus	none
+⁻	eksponentni minus	none
+∓	minus ili plus	none
+∕	kosa crta za dijeljenje	none
+∗	zvjezdica operator	none
+∘	prstenasti operator	none
+∙	tačkasti operator	none
+√	kvadratni korijen	none
+∝	proporcionalno	none
+∞	znak za beskonačnost	none
+∟	desni ugao	none
+∠	ugao	none
+∣	dijeliti	none
+∥	paralelno	none
+∧	logičko "i"	none
+∩	presjek	none
+∪	unija	none
+∫	integral	none
+∬	dvostruki integral	none
+∮	konturni integral	none
+∴	zato	none
+∵	zbog toga	none
+∶	omjer	none
+∷	udio	none
+∼	tilda operator	none
+∽	obrnuta tilda	none
+∾	obrnuto lijeno s	none
+≃	asimptotski jednako	none
+≅	približno jednako	none
+≈	približno	none
+≌	sve jednako	none
+≒	otprilike jednako slici	none
+≖	prsten u jednakosti	none
+≡	identično	none
+≣	strogo jednako	none
+≤	manje od ili jednako	none
+≥	veće od ili jednako	none
+≦	manje od preko jednako	none
+≧	veće od preko jednako	none
+≪	mnogo manje od	none
+≫	mnogo veće od	none
+≬	između	none
+≳	veće od ekvivalenta	none
+≺	prethodi	none
+≻	slijedi	none
+⊁	ne slijedi	none
+⊂	podskup	none
+⊃	nadskup	none
+⊆	podskup jednak	none
+⊇	nadskup jednak	none
+⊕	zaokruženi plus	none
+⊖	zaokruženi minus	none
+⊗	zaokruženo puta	none
+⊘	zaokružena kosa crta za dijeljenje	none
+⊙	operator kao zaokružena tačka	none
+⊚	operator kao zaokruženi prsten	none
+⊛	operator kao zaokružena zvjezdica	none
+⊞	plus u kvadratu	none
+⊟	minus u kvadratu	none
+⊥	neistina	none
+⊮	ne forsira	none
+⊰	prethodi ispod relacije	none
+⊱	slijedi ispod relacije	none
+⋭	ne sadrži kao normalnu podgrupu jednaku	none
+⊶	original	none
+⊹	Ermitska matrica	none
+⊿	desni trougao	none
+⋁	logički simbol "ili"	none
+⋂	presjek neograničenog broja operanada	none
+⋃	unija neograničenog broja operanada	none
+⋅	operator kao tačka	none
+⋆	operator kao zvijezda	none
+⋈	prirodni spoj	none
+⋒	dvostruki presjek	none
+⋘	veoma mnogo manje od	none
+⋙	veoma mnogo veće od	none
+⋮	vertikalna elipsa	none
+⋯	srednja horizontalna elipsa	none
+⋰	dijagonalna elipsa nagore	none
+⋱	dijagonalna elipsa nadolje	none
+■	ispunjeni kvadrat	none
+□	šuplji kvadrat	none
+▢	šuplji kvadrat sa zaobljenim uglovima	none
+▣	šuplji kvadrat koji sadrži ispunjeni kvadrat	none
+▤	kvadrat s horizontalnim ispunom	none
+▥	kvadrat s vertikalnim ispunom	none
+▦	kvadrat s ortogonalnim ispresjecanim ispunom	none
+▧	kvadrat s ispunom od gore lijevo ka dole desno	none
+▨	kvadrat s ispunom od gore desno dole lijevo	none
+▩	kvadrat s dijagonalnim ispresjecanim ispunom	none
+▬	ispunjeni pravougaonik	none
+▭	šuplji pravougaonik	none
+▮	ispunjeni vertikalni pravougaonik	none
+▰	ispunjeni paralelogram	none
+▲	ispunjeni trougao prema gore	none
+△	šuplji trougao pokazuje nagore	none
+▴	ispunjeni mali trougao pokazuje nagore	none
+▵	šuplji mali trougao pokazuje nagore	none
+▷	šuplji trougao pokazuje udesno	none
+▸	ispunjeni mali trougao pokazuje udesno	none
+▹	šuplji mali trougao pokazuje udesno	none
+►	ispunjeni pokazivač pokazuje udesno	none
+▻	šuplji pokazivač pokazuje udesno	none
+▼	ispunjeni trougao prema dolje	none
+▽	šuplji trougao pokazuje nadolje	none
+▾	ispunjeni mali trougao pokazuje nadolje	none
+▿	šuplji mali trougao pokazuje nadolje	none
+◁	šuplji trougao pokazuje ulijevo	none
+◂	ispunjeni mali trougao pokazuje ulijevo	none
+◃	šuplji mali trougao pokazuje ulijevo	none
+◄	ispunjeni pokazivač pokazuje ulijevo	none
+◅	šuplji pokazivač pokazuje ulijevo	none
+◆	ispunjeni dijamant	none
+◇	šuplji dijamant	none
+◈	šuplji dijamant sadrži ispunjeni dijamant	none
+◉	šuplji krug sadrži ispunjeni krug	none
+◊	romb	none
+○	prazni krug	none
+◌	tačkasti krug	none
+◍	krug s vertikalnim ispunom	none
+◎	meta	none
+●	ispunjeni krug	none
+◐	krug s ispunjenom lijevom polovicom	none
+◑	krug s ispunjenom desnom polovicom	none
+◒	krug s ispunjenom donjom polovicom	none
+◓	krug s ispunjenom gornjom polovicom	none
+◔	krug s ispunjenim gornjim desnim kvadrantom	none
+◕	krug s ispunjenim svim kvadrantima osim gornjeg lijevog	none
+◖	lijeva ispunjena polovica kruga	none
+◗	desna ispunjena polovica kruga	none
+◘	obrnuta tačka	none
+◙	ispunjeni kvadrat sadrži šupllji krug	none
+◜	kružni luk gornjeg lijevog kvadanta	none
+◝	kružni luk gornjeg desnog kvadanta	none
+◞	kružni luk donjeg desnog kvadanta	none
+◟	kružni luk donjeg lijevog kvadanta	none
+◠	gornja polovica kruga	none
+◡	donja polovica kruga	none
+◢	ispunjeni donji desni trougao	none
+◣	ispunjeni donji lijevi trougao	none
+◤	ispunjeni gornji lijevi trougao	none
+◥	ispunjeni gornji desni trougao	none
+◦	šuplja tačka	none
+◯	veliki prazni krug	none
+◳	šuplji kvadrat s gornjim desnim kvadrantom	none
+◷	šuplji krug s gornjim desnim kvadrantom	none
+◿	donji desni trougao	none
+♪	osminka	none
+⨧	plus i broj dva napisan ispod	none
+⨯	vektorski proizvod	none
+⨼	interni proizvod	none
+⩣	logično "ili" s dvostrukom linijom ispod	none
+⩽	nakošeno manje od jednako	none
+⪍	manje od preko slično jednak	none
+⪚	dvostruka linija jednaka veće od	none
+⪺	slijedi preko nije gotovo jednako	none
+♭	snizilica	none
+♯	povisilica	none
 😀	cerenje	none
 😃	kez	none
 😄	kez sa škiljenjem	none
@@ -30,9 +285,10 @@ symbols:
 ☺	osmijeh	none
 😚	poljubac žmireći	none
 😙	poljubac sa škiljenjem	none
+🥲	nasmijano lice sa suzom	none
 😋	oblizivanje	none
 😛	ruganje	none
-😜	ruganje sa namigivanjem	none
+😜	ruganje s namigivanjem	none
 🤪	ludilo	none
 😝	ruganje žmireći	none
 🤑	lice s novčanicama	none
@@ -45,10 +301,12 @@ symbols:
 😐	indiferentnost	none
 😑	bezizražajnost	none
 😶	lice bez usta	none
+😶‍🌫	lice u oblacima	none
 😏	zlobno smješkanje	none
 😒	smorenost	none
 🙄	kolutanje očima	none
 😬	grimasa	none
+😮‍💨	lice izdiše	none
 🤥	laganje	none
 😌	olakšanje	none
 😔	zamišljenost	none
@@ -65,12 +323,14 @@ symbols:
 🥶	ledeno lice	none
 🥴	ošamućeno lice	none
 😵	vrtoglavica	none
+😵‍💫	lice sa sprialnim očima	none
 🤯	eksplodirajuća glava	none
-🤠	kauboj	none
+🤠	lice s kaubojskim šeširom	none
 🥳	lice koje se zabavlja	none
+🥸	prerušeno lice	none
 😎	osmijeh sa sunčanim naočalama	none
 🤓	štreber	none
-🧐	monokl	none
+🧐	lice s monoklom	none
 😕	zbunjenost	none
 😟	zabrinutost	none
 🙁	diskretna namrštenost	none
@@ -111,11 +371,11 @@ symbols:
 👽	vanzemaljac	none
 👾	vanzemaljsko čudovište	none
 🤖	robot	none
-😺	maca sa otvorenim ustima	none
+😺	maca s otvorenim ustima	none
 😸	maca koja se ceri	none
 😹	maca koja plače od smijeha	none
 😻	maca sa srcima u očima	none
-😼	maca sa kiselim osmijehom	none
+😼	maca s kiselim osmijehom	none
 😽	maca šalje poljubac zatvorenih očiju	none
 🙀	iscrpljena maca	none
 😿	maca plače	none
@@ -135,6 +395,8 @@ symbols:
 💟	srce ukras	none
 ❣	uzvičnik u obliku srca	none
 💔	slomljeno srce	none
+❤‍🔥	zapaljeno srce	none
+❤‍🩹	liječenje srca	none
 ❤	crveno srce	none
 🧡	narandžasto srce	none
 💛	žuto srce	none
@@ -142,7 +404,7 @@ symbols:
 💙	plavo srce	none
 💜	ljubičasto srce	none
 🤎	smeđe srce	none
-🖤	zlo	none
+🖤	crno srce	none
 🤍	bijelo srce	none
 💯	sto poena	none
 💢	simbol ljutnje	none
@@ -164,6 +426,7 @@ symbols:
 ✋	podignuta šaka	none
 🖖	vulkanski pozdrav	none
 👌	prsti pokazuju ok	none
+🤌	skupljeni prsti	none
 🤏	ruka koja štipa	none
 ✌	dva prsta u znaku pobjede	none
 🤞	držanje palčeva	none
@@ -200,6 +463,8 @@ symbols:
 🦻	uho sa slušnim aparatom	none
 👃	nos	none
 🧠	mozak	none
+🫀	srce organ	none
+🫁	pluća	none
 🦷	zub	none
 🦴	kost	none
 👀	oči	none
@@ -210,12 +475,14 @@ symbols:
 🧒	dijete	none
 👦	dječak	none
 👧	djevojčica	none
-🧑	odrasla osoba	none
+🧑	osoba	none
 👱	osoba s plavom kosom	none
 👨	muškarac	none
-🧔	muškarac s bradom	none
+🧔	osoba s bradom	none
+🧔‍♂	muškarac s bradom	none
 👱‍♂	muškarac s plavom kosom	none
 👩	žena	none
+🧔‍♀	žena brada	none
 👱‍♀	žena s plavom kosom	none
 🧓	starija odrasla osoba	none
 👴	starac	none
@@ -242,9 +509,9 @@ symbols:
 🧏‍♂	gluh muškarac	none
 🧏‍♀	gluha žena	none
 🙇	osoba se naklanja	none
-🙇‍♂	muškarac se duboko naklanja	none
-🙇‍♀	žena se duboko naklanja	none
-🤦	očaj	none
+🙇‍♂	muškarac se naklanja	none
+🙇‍♀	žena se naklanja	none
+🤦	osoba s rukom na čelu	none
 🤦‍♂	muškarac s rukom na čelu	none
 🤦‍♀	žena s rukom na čelu	none
 🤷	slijeganje ramenima	none
@@ -302,28 +569,37 @@ symbols:
 👮‍♂	policajac	none
 👮‍♀	žena policajac	none
 🕵	detektiv	none
-🕵‍♂	detektiv muško	none
+🕵‍♂	muškarac detektiv	none
 🕵‍♀	detektivka	none
 💂	stražar	none
 💂‍♂	muškarac stražar	none
 💂‍♀	stražarka	none
+🥷	nindža	none
 👷	građevinski radnik	none
 👷‍♂	građevinski radnik muško	none
 👷‍♀	građevinska radnica	none
 🤴	princ	none
 👸	princeza	none
-👳	osoba sa turbanom	none
-👳‍♂	čovjek sa turbanom	none
-👳‍♀	žena sa turbanom	none
+👳	osoba s turbanom	none
+👳‍♂	muškarac s turbanom	none
+👳‍♀	žena s turbanom	none
 👲	muškarac s kineskom kapom	none
 🧕	pokrivena žena	none
-🤵	odijelo	none
-👰	mlada s velom	none
+🤵	osoba u smokingu	none
+🤵‍♂	muškarac u smokingu	none
+🤵‍♀	žena u smokingu	none
+👰	osoba s velom	none
+👰‍♂	muškarac s velom	none
+👰‍♀	žena s velom	none
 🤰	trudnica	none
 🤱	dojenje	none
+👩‍🍼	žena doji bebu	none
+👨‍🍼	muškarac doji bebu	none
+🧑‍🍼	osoba doji bebu	none
 👼	anđelak	none
 🎅	djed mraz	none
 🤶	Baka Mraz	none
+🧑‍🎄	g. Mraz	none
 🦸	superheroj	none
 🦸‍♂	superheroj muškarac	none
 🦸‍♀	superheroj žena	none
@@ -364,10 +640,10 @@ symbols:
 🧍‍♂	čovjek stoji	none
 🧍‍♀	žena stoji	none
 🧎	osoba kleči	none
-🧎‍♂	čovjek kleči	none
+🧎‍♂	muškarac kleči	none
 🧎‍♀	žena kleči	none
 🧑‍🦯	osoba sa štapom za hodanje	none
-👨‍🦯	čovjek sa štapom za hodanje	none
+👨‍🦯	muškarac sa štapom za hodanje	none
 👩‍🦯	žena sa štapom za hodanje	none
 🧑‍🦼	osoba u motornim invalidskim kolicima	none
 👨‍🦼	muškarac u motornim invalidskim kolicima	none
@@ -380,13 +656,13 @@ symbols:
 🏃‍♀	žena trči	none
 💃	žena pleše	none
 🕺	plesanje	none
-🕴	muškarac u odijelu levitira	none
+🕴	osoba u odijelu levitira	none
 👯	osobe u provodu	none
-👯‍♂	muškarac u provodu	none
-👯‍♀	žena u provodu	none
-🧖	osoba u prostoriji sa parom	none
-🧖‍♂	muškarac u prostoriji sa parom	none
-🧖‍♀	žena u prostoriji sa parom	none
+👯‍♂	muškarci u provodu	none
+👯‍♀	žene u provodu	none
+🧖	osoba u prostoriji s parom	none
+🧖‍♂	muškarac u prostoriji s parom	none
+🧖‍♀	žena u prostoriji s parom	none
 🧗	osoba koja se penje	none
 🧗‍♂	muškarac koji se penje	none
 🧗‍♀	žena koja se penje	none
@@ -418,7 +694,7 @@ symbols:
 🚵	osoba u brdskom biciklizmu	none
 🚵‍♂	brdski bicklista	none
 🚵‍♀	brdska bicklistkinja	none
-🤸	zvijezda	none
+🤸	osoba pravi premet	none
 🤸‍♂	muškarac pravi premet	none
 🤸‍♀	žena pravi premet	none
 🤼	hrvanje	none
@@ -439,7 +715,7 @@ symbols:
 🛀	kupanje	none
 🛌	osoba u krevetu	none
 🧑‍🤝‍🧑	ljudi se drže za ruke	none
-👭	dvije žene se drže za ruke	none
+👭	žene se drže za ruke	none
 👫	muškarac i žena se drže za ruke	none
 👬	dva muškarca se drže za ruke	none
 💏	poljubac	none
@@ -448,6 +724,7 @@ symbols:
 🗣	silueta glave koja govori	none
 👤	silueta glave s ramenima	none
 👥	siluete glave s ramenima	none
+🫂	ljudi se grle	none
 👣	otisci stopala	none
 🦰	crvena kosa	none
 🦱	kovrdžava kosa	none
@@ -467,15 +744,17 @@ symbols:
 🦝	rakun	none
 🐱	glava mačke	none
 🐈	mačka	none
+🐈‍⬛	crna mačka	none
 🦁	glava lava	none
 🐯	glava tigra	none
 🐅	tigar	none
 🐆	leopard	none
 🐴	glava konja	none
 🐎	konj	none
-🦄	glava jednoroga	none
+🦄	jednorog	none
 🦓	zebra	none
 🦌	jelen	none
+🦬	bizon	none
 🐮	glava krave	none
 🐂	vo	none
 🐃	bivo	none
@@ -492,20 +771,23 @@ symbols:
 🦙	lama	none
 🦒	žirafa	none
 🐘	slon	none
+🦣	mamut	none
 🦏	nosorog	none
-🦛	hippopotamus	none
+🦛	nilski konj	none
 🐭	glava miša	none
 🐁	miš	none
 🐀	pacov	none
-🐹	glava hrčka	none
+🐹	hrčak	none
 🐰	glava zeca	none
 🐇	zec	none
 🐿	vjeverica	none
+🦫	dabar	none
 🦔	jež	none
 🦇	šišmiš	none
-🐻	glava medvjeda	none
+🐻	medvjed	none
+🐻‍❄	polarni medvjed	none
 🐨	koala	none
-🐼	glava pande	none
+🐼	panda	none
 🦥	ljenivac	none
 🦦	vidra	none
 🦨	tvor	none
@@ -525,10 +807,12 @@ symbols:
 🦆	patka	none
 🦢	labud	none
 🦉	sova	none
+🦤	dodo	none
+🪶	pero	none
 🦩	flamingo	none
 🦚	paun	none
 🦜	papagaj	none
-🐸	glava žabe	none
+🐸	žaba	none
 🐊	krokodil	none
 🐢	kornjača	none
 🦎	gušter	none
@@ -540,6 +824,7 @@ symbols:
 🐳	kit koji izdiše	none
 🐋	kit	none
 🐬	delfin	none
+🦭	foka	none
 🐟	riba	none
 🐠	tropska riba	none
 🐡	napuhača	none
@@ -551,12 +836,16 @@ symbols:
 🐛	buba	none
 🐜	mrav	none
 🐝	pčela	none
+🪲	tvrdokrilac	none
 🐞	bubamara	none
 🦗	cvrčak	none
+🪳	žohar	none
 🕷	pauk	none
 🕸	paukova mreža	none
 🦂	škorpion	none
 🦟	komarac	none
+🪰	muha	none
+🪱	crv	none
 🦠	mikrob	none
 💐	buket	none
 🌸	cvijet višnje	none
@@ -569,6 +858,7 @@ symbols:
 🌼	procvjetati	none
 🌷	tulipan	none
 🌱	rasad	none
+🪴	biljka u saksiji	none
 🌲	zimzelen	none
 🌳	bjelogorično drvo	none
 🌴	palma	none
@@ -576,7 +866,7 @@ symbols:
 🌾	snop riže	none
 🌿	ljekovita biljka	none
 ☘	djetelina	none
-🍀	djetelina sa četiri lista	none
+🍀	djetelina s četiri lista	none
 🍁	javorov list	none
 🍂	opao list	none
 🍃	list leprša	none
@@ -594,8 +884,10 @@ symbols:
 🍑	breskva	none
 🍒	trešnje	none
 🍓	jagoda	none
+🫐	borovnice	none
 🥝	kivi	none
 🍅	paradajz	none
+🫒	maslina	none
 🥥	kokos	none
 🥑	avokado	none
 🍆	patlidžan	none
@@ -603,9 +895,10 @@ symbols:
 🥕	mrkva	none
 🌽	klas	none
 🌶	ljuti feferon	none
+🫑	paprika babura	none
 🥒	krastavac	none
 🥬	lisnato povrće	none
-🥦	brokoli	none
+🥦	brokula	none
 🧄	bijeli luk	none
 🧅	luk	none
 🍄	gljiva	none
@@ -614,6 +907,7 @@ symbols:
 🍞	hljeb	none
 🥐	kroasan	none
 🥖	francuski hljeb	none
+🫓	lepinica	none
 🥨	perec	none
 🥯	đevrek	none
 🥞	palačinke	none
@@ -630,12 +924,14 @@ symbols:
 🥪	sendvič	none
 🌮	tortilja	none
 🌯	burito	none
+🫔	tamale	none
 🥙	kebab	none
 🧆	falafel	none
 🥚	jaje	none
 🍳	kuhanje	none
 🥘	tava s hranom	none
 🍲	lonac hrane	none
+🫕	fondue	none
 🥣	zdjela s kašikom	none
 🥗	zelena salata	none
 🍿	kokice	none
@@ -670,7 +966,7 @@ symbols:
 🍩	krofna	none
 🍪	kolačić	none
 🎂	rođendanska torta	none
-🍰	kolač sa biskvitom	none
+🍰	kolač s biskvitom	none
 🧁	mafin	none
 🥧	slatka pita	none
 🍫	čokolada	none
@@ -681,9 +977,10 @@ symbols:
 🍼	flašica za bebu	none
 🥛	mlijeko	none
 ☕	topli napitak	none
+🫖	čajnik	none
 🍵	šolja za čaj bez drške	none
 🍶	sake	none
-🍾	boca sa plutanim čepom koji iskače	none
+🍾	boca s plutanim čepom koji iskače	none
 🍷	čaša vina	none
 🍸	koktel	none
 🍹	tropsko piće	none
@@ -692,6 +989,7 @@ symbols:
 🥂	uzdravlje	none
 🥃	čašica za žestoko piće	none
 🥤	čaša sa slamkom	none
+🧋	boba čaj	none
 🧃	sok u tetrapaku	none
 🧉	mate čaj	none
 🧊	kocka leda	none
@@ -704,14 +1002,14 @@ symbols:
 🌍	globus prikazuje Evropu i Afriku	none
 🌎	globus prikazuje Sjevernu i Južnu Ameriku	none
 🌏	globus pokazuje Aziju i Australiju	none
-🌐	globus sa meridijanima	none
+🌐	globus s meridijanima	none
 🗺	karta svijeta	none
 🗾	karta Japana	none
 🧭	kompas	none
 🏔	sniježni planinski vrh	none
 ⛰	planina	none
 🌋	vulkan	none
-🗻	fudži planina	none
+🗻	planina fudži	none
 🏕	kampovanje	none
 🏖	plaža sa suncobranom	none
 🏜	pustinja	none
@@ -721,10 +1019,13 @@ symbols:
 🏛	klasična zgrada	none
 🏗	građevina	none
 🧱	cigla	none
+🪨	kamen	none
+🪵	drvo	none
+🛖	koliba	none
 🏘	kuće	none
 🏚	napuštena kuća	none
 🏠	kuća	none
-🏡	kuća sa okućnicom	none
+🏡	kuća s okućnicom	none
 🏢	poslovna zgrada	none
 🏣	japanska pošta	none
 🏤	pošta	none
@@ -772,7 +1073,7 @@ symbols:
 🚈	svjetlosna pruga	none
 🚉	stanica	none
 🚊	tramvaj	none
-🚝	pruga sa jednom tračnicom	none
+🚝	pruga s jednom tračnicom	none
 🚞	pruga kroz tunel	none
 🚋	tramvajska kola	none
 🚌	autobus	none
@@ -788,6 +1089,7 @@ symbols:
 🚗	automobil	none
 🚘	dolazeći automobil	none
 🚙	terensko vozilo	none
+🛻	kamionet	none
 🚚	dostavno vozilo	none
 🚛	teretni kamion	none
 🚜	traktor	none
@@ -800,6 +1102,7 @@ symbols:
 🚲	biciklo	none
 🛴	romobil	none
 🛹	skateboard	none
+🛼	rolšue	none
 🚏	autobuska stanica	none
 🛣	autoput	none
 🛤	pruga	none
@@ -834,7 +1137,7 @@ symbols:
 🛎	ručno zvono	none
 🧳	prtljag	none
 ⌛	pješčani sat	none
-⏳	pješčani sat sa tekućim pijeskom	none
+⏳	pješčani sat s tekućim pijeskom	none
 ⌚	ručni sat	none
 ⏰	budilnik	none
 ⏱	štoperica	none
@@ -875,13 +1178,13 @@ symbols:
 🌙	polumjesec	none
 🌚	mladi mjesec lice	none
 🌛	prva četvrtina lice	none
-🌜	zadnja četvrtina lice	none
+🌜	posljednja četvrtina lice	none
 🌡	termometar	none
 ☀	sunčano	none
 🌝	puni mjesec lice	none
 🌞	sunce lice	none
 🪐	planeta s prstenom	none
-⭐	svijetložuta zvijezda	none
+⭐	zvijezda	none
 🌟	sjajna zvijezda	none
 🌠	zvijezda padalica	none
 🌌	mliječni put	none
@@ -970,6 +1273,7 @@ symbols:
 🪁	zmaj od papira	none
 🎱	bilijar	none
 🔮	kristalna kugla	none
+🪄	čarobni štapić	none
 🧿	Fatimino oko	none
 🎮	video igre	none
 🕹	džojstik	none
@@ -977,6 +1281,8 @@ symbols:
 🎲	kockica za igru	none
 🧩	slagalica	none
 🧸	medo	none
+🪅	pinjata	none
+🪆	babuške	none
 ♠	pik	none
 ♥	srce	none
 ♦	karo	none
@@ -989,7 +1295,9 @@ symbols:
 🖼	uramljena slika	none
 🎨	slikarska paleta	none
 🧵	konac	none
+🪡	igla za šivenje	none
 🧶	predivo	none
+🪢	čvor	none
 👓	naočale	none
 🕶	sunčane naočale	none
 🥽	zaštitne naočale	none
@@ -1015,6 +1323,7 @@ symbols:
 👝	neseser	none
 🛍	vrećice za kupovinu	none
 🎒	ruksak	none
+🩴	japanke	none
 👞	muška cipela	none
 👟	patika	none
 🥾	gojzerica	none
@@ -1028,6 +1337,7 @@ symbols:
 🎩	cilindar	none
 🎓	maturska kapa	none
 🧢	kačket	none
+🪖	vojna kaciga	none
 ⛑	šljem s bijelim krstom	none
 📿	brojanica	none
 💄	karmin	none
@@ -1052,14 +1362,16 @@ symbols:
 🎧	slušalice	none
 📻	radio	none
 🎷	saksofon	none
+🪗	harmonika	none
 🎸	gitara	none
 🎹	klavijature	none
 🎺	truba	none
 🎻	violina	none
 🪕	bendžo	none
 🥁	bubanj	none
+🪘	kongo bubnjevo	none
 📱	mobitel	none
-📲	strjelica pokazuje mobitel	none
+📲	strelica pokazuje mobitel	none
 ☎	telefon	none
 📞	slušalica	none
 📟	pejdžer	none
@@ -1111,6 +1423,7 @@ symbols:
 🔖	marker	none
 🏷	etiketa	none
 💰	vreća novca	none
+🪙	novčić	none
 💴	novčanica jena	none
 💵	novčanica dolara	none
 💶	novčanica eura	none
@@ -1119,12 +1432,10 @@ symbols:
 💳	kreditna kartica	none
 🧾	račun	none
 💹	grafikon sa jenom koji prikazuje rast	none
-💱	mjenjačnica	none
-💲	podebljani znak dolara	none
 ✉	koverta	none
 📧	e-pošta	none
 📨	pristigla koverta	none
-📩	koverta sa strjelicom	none
+📩	koverta sa strelicom	none
 📤	ladica za slanje pošiljke	none
 📥	ladica za dolaznu pošiljku	none
 📦	paket	none
@@ -1147,7 +1458,7 @@ symbols:
 🗂	fascikla s odjeljcima	none
 📅	kalendar	none
 📆	kalendar na kidanje	none
-🗒	spiralni blokčić	none
+🗒	spiralni blokić	none
 🗓	spiralni kalendar	none
 📇	rotirajući stalak za vizit kartice	none
 📈	dijagram rasta	none
@@ -1178,9 +1489,12 @@ symbols:
 🗡	bodež	none
 ⚔	ukršteni mačevi	none
 🔫	pištolj	none
+🪃	bumerang	none
 🏹	luk i strijela	none
 🛡	štit	none
+🪚	stolaraska pila	none
 🔧	ključ viljuškasti	none
+🪛	šrafciger	none
 🔩	šaraf i matica	none
 ⚙	zupčanik	none
 🗜	kompresija	none
@@ -1188,8 +1502,10 @@ symbols:
 🦯	štap za slabovidne i slijepe	none
 🔗	karika	none
 ⛓	lanci	none
+🪝	udica	none
 🧰	kutija za alat	none
 🧲	magnet	none
+🪜	ljestve	none
 ⚗	alembik	none
 🧪	epruveta	none
 🧫	petri jelo	none
@@ -1200,29 +1516,38 @@ symbols:
 💉	šprica	none
 🩸	kapljica krvi	none
 💊	pilula	none
-🩹	adhezivni flaster	none
+🩹	ljepljivi flaster	none
 🩺	stetoskop	none
 🚪	vrata	none
+🛗	lift	none
+🪞	ogledalo	none
+🪟	prozor	none
 🛏	krevet	none
 🛋	kauč i lampa	none
 🪑	stolica	none
 🚽	wc šolja	none
+🪠	pumpa za odčepljivanje odvoda	none
 🚿	tuš	none
 🛁	kada	none
+🪤	klopka za miševe	none
 🪒	čakija	none
 🧴	losion	none
 🧷	bašlija	none
 🧹	metla	none
 🧺	korpa	none
 🧻	papirni ubrusi	none
+🪣	kanta	none
 🧼	sapun	none
+🪥	četkica za zube	none
 🧽	spužva	none
 🧯	aparat za gašenje požara	none
 🛒	šoping	none
 🚬	pušenje	none
 ⚰	tabut	none
+🪦	nadgrobni spomenik	none
 ⚱	urna	none
 🗿	moai	none
+🪧	natpis	none
 🏧	oznaka bankomata	none
 🚮	znak za odlaganje otpada	none
 🚰	pitka voda	none
@@ -1237,7 +1562,7 @@ symbols:
 🛄	preuzimanje prtljaga	none
 🛅	garderoba	none
 ⚠	upozorenje	none
-🚸	dječji prijelaz	none
+🚸	dječiji prijelaz	none
 ⛔	zabranjen ulaz	none
 🚫	zabrana	none
 🚳	zabranjeno za bicikliste	none
@@ -1249,34 +1574,35 @@ symbols:
 🔞	zabranjen pristup maloljetnima	none
 ☢	radioaktivno	none
 ☣	biološka opasnost	none
-⬆	strjelica gore	none
-↗	strjelica gore-desno	none
-➡	strjelica desno	none
-↘	strjelica dolje-desno	none
-⬇	strjelica dolje	none
-↙	strjelica dolje-lijevo	none
-⬅	strjelica lijevo	none
-↖	strjelica gore-lijevo	none
-↕	strjelica gore-dolje	none
-↔	strjelica lijevo-desno	none
-↩	strjelica desno zakrivljena nalijevo	none
-↪	strjelica lijevo zakrivljena nadesno	none
-⤴	strjelica desno zakrivljena prema gore	none
-⤵	strjelica desno zakrivljena prema dolje	none
-🔃	strjelice vertikalno kretanje kazaljki na satu	none
-🔄	strjelice suprotno od smjera kretanja sata	none
-🔙	strjelica za nazad	none
-🔚	strjelica za kraj	none
-🔛	strjelica za uključeno	none
-🔜	strjelica za uskoro	none
-🔝	strjelica za gore	none
+⬆	strelica nagore	none
+↗	strelica gore-desno	none
+➡	strelica nadesno	none
+↘	strelica dolje-desno	none
+⬇	strelica nadolje	none
+↙	strelica dolje-lijevo	none
+⬅	strelica nalijevo	none
+↖	strelica gore-lijevo	none
+↕	strelica gore-dolje	none
+↔	strelica lijevo-desno	none
+↮	precrtana strelica ulijevo i udesno	none
+↩	strelica desno zakrivljena nalijevo	none
+↪	strelica lijevo zakrivljena nadesno	none
+⤴	strelica desno zakrivljena prema gore	none
+⤵	strelica desno zakrivljena prema dolje	none
+🔃	strelice vertikalno kretanje kazaljki na satu	none
+🔄	strelice suprotno od smjera kretanja sata	none
+🔙	strelica za nazad	none
+🔚	strelica za kraj	none
+🔛	strelica za uključeno	none
+🔜	strelica za uskoro	none
+🔝	strelica za gore	none
 🛐	bogomolja	none
 ⚛	simbol atoma	none
 🕉	simbol om	none
 ✡	davidova zvijezda	none
 ☸	točak dharme	none
 ☯	jin jang	none
-✝	latinski križ	none
+✝	latinski krst	none
 ☦	pravoslavni krst	none
 ☪	polumjesec i zvijezda	none
 ☮	simbol za mir	none
@@ -1289,7 +1615,7 @@ symbols:
 ♌	lav	none
 ♍	djevica	none
 ♎	znak vaga	none
-♏	znak škorpion	none
+♏	škorpija	none
 ♐	strijelac	none
 ♑	jarac	none
 ♒	vodolija	none
@@ -1321,38 +1647,35 @@ symbols:
 📴	mobilni isključen	none
 ♀	žensko	none
 ♂	muško	none
+⚧	simbol transrodnih osoba	none
+✖	znak množenja	none
+➕	znak plus	none
+➖	znak minus	none
+➗	znak dijeljenja	none
+♾	beskonačnost	none
+❓	crveni upitnik	none
+❔	bijeli upitnik	none
+❕	bijeli uzvičnik	none
+❗	crveni uzvičnik	none
+💱	mjenjačnica	none
+💲	podebljani znak dolara	none
 ⚕	medicinski simbol	none
-♾	beskonačno	none
 ♻	simbol za reciklažu	none
 ⚜	ljiljan	none
 🔱	trozubac amblem	none
 📛	značka za ime	none
 🔰	japanski simbol za početnike	none
-⭕	podebljani veliki krug	none
-✅	podebljana bijela kvačica	none
+⭕	podebljani veliki crveni krug	none
+✅	podebljana kvačica	none
 ☑	polje za potvrdu s kvačicom	none
 ✔	kvačica	none
-✖	podebljan križić	none
 ❌	križić	none
 ❎	dugme križić	none
-➕	znak plus	none
-➖	znak minus	none
-➗	podebljani znak dijeljenja	none
 ➰	uvrnuta petlja	none
 ➿	dupla uvrnuta petlja	none
-〽	oznaka djelimične alteracije	none
 ✳	osmerokraka zvjezdica	none
 ✴	osmerokraka zvijezda	none
 ❇	iskra	none
-‼	dupli uzvičnik	none
-⁉	uzvičnik upitnik	none
-❓	upitnik	none
-❔	bijeli upitnik	none
-❕	bijeli uzvičnik	none
-❗	uzvičnik	none
-〰	talasasta crta	none
-©	autorsko pravo	none
-®	registriran	none
 ™	zaštitni znak	none
 🔠	unos latinica veliko slovo	none
 🔡	unos latinica malo slovo	none
@@ -1376,23 +1699,6 @@ symbols:
 🆘	sos kvadrat	none
 🆙	up dugme	none
 🆚	vs dugme	none
-🈁	Dugme "ovdje" na jap.	none
-🈂	Dugme "usluga se naplaćuje" na jap.	none
-🈷	Dugme "mjesečni iznos" na jap.	none
-🈶	Dugme "nije besplatno" na jap.	none
-🈯	Dugme "rezervirano" na jap.	none
-🉐	Dugme "vrlo povoljno" na jap.	none
-🈹	Dugme "popust" na jap.	none
-🈚	Dugme "besplatno" na jap.	none
-🈲	Dugme "zabranjeno" na jap.	none
-🉑	Dugme "prihvatljivo" na jap.	none
-🈸	Dugme "prijava" na jap.	none
-🈴	Dugme "prolazna ocjena" na jap.	none
-🈳	Dugme "upražnjeno mjesto" na jap.	none
-㊗	Dugme "čestitamo" na jap.	none
-㊙	Dugme "tajna" na jap.	none
-🈺	Dugme "otvoreno" na jap.	none
-🈵	Dugme "nema upražnjenih mjesta" na jap.	none
 🔴	crveni krug	none
 🟠	narandžasti krug	none
 🟡	žuti krug	none
@@ -1427,69 +1733,29 @@ symbols:
 🔘	radio dugme	none
 🔳	bijeli kvadrat dugme	none
 🔲	crni kvadrat dugme	none
-🏁	zastavica	none
+🏁	karirana zastavica	none
 🚩	trokutasta zastava	none
 🎌	ukrštene zastave	none
 🏴	crna zastava	none
 🏳	bijela zastava	none
-🏳‍⚧	zastava pokreta transrodnih osoba	none
 🏳‍🌈	zastava duginih boja	none
+🏳‍⚧	zastava pokreta transrodnih osoba	none
 🏴‍☠	piratska zastava	none
-🛖	koliba	none
-🛗	lift	none
-🛻	kamionet	none
-🛼	rolšue	none
-🤌	skupljeni prsti	none
-🥲	nasmijano lice sa suzom	none
-🥷	nindža	none
-🥸	prerušeno lice	none
-🦣	mamut	none
-🦤	dodo	none
-🦫	dabar	none
-🦬	bizon	none
-🦭	foka	none
-🧋	boba čaj	none
-🩴	japanke	none
-🪃	bumerang	none
-🪄	čarobni štapić	none
-🪅	pinjata	none
-🪆	babuške	none
-🪖	vojna kaciga	none
-🪗	harmonika	none
-🪘	kongo bubnjevo	none
-🪙	novčić	none
-🪚	stolaraska pila	none
-🪛	šrafciger	none
-🪜	ljestve	none
-🪝	udica	none
-🪞	ogledalo	none
-🪟	prozor	none
-🪠	pumpa za odčepljivanje odvoda	none
-🪡	igla za šivenje	none
-🪢	čvor	none
-🪣	kanta	none
-🪤	klopka za miševe	none
-🪥	četkica za zube	none
-🪦	nadgrobni spomenik	none
-🪧	natpis	none
-🪨	kamen	none
-🪰	muha	none
-🪱	crv	none
-🪲	tvrdokrilac	none
-🪳	žohar	none
-🪴	biljka u saksiji	none
-🪵	drvo	none
-🪶	pero	none
-🫀	srce organ	none
-🫁	pluća	none
-🫂	ljudi se grle	none
-🫐	borovnice	none
-🫑	paprika babura	none
-🫒	maslina	none
-🫓	lepinica	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	čajnik	none
+₢	cruzeiro	none
+₣	francuski franak	none
+₤	lira	none
+₥	mil	none
+₩	von	none
+€	euro	none
+₰	njemački pfening	none
+₱	pezo	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
+₹	Indijska rupija	none
+₽	rublja	none
+₿	bitcoin	none
+₨	rupi	none
 👋🏻	mahanje rukom svijetla boja kože	none
 👋🏼	mahanje rukom umjereno svijetla boja kože	none
 👋🏽	mahanje rukom umjerena boja kože	none
@@ -1520,6 +1786,11 @@ symbols:
 👌🏽	prsti pokazuju ok umjerena boja kože	none
 👌🏾	prsti pokazuju ok umjereno tamna boja kože	none
 👌🏿	prsti pokazuju ok tamna boja kože	none
+🤌🏻	skupljeni prsti svijetla boja kože	none
+🤌🏼	skupljeni prsti umjereno svijetla boja kože	none
+🤌🏽	skupljeni prsti umjerena boja kože	none
+🤌🏾	skupljeni prsti umjereno tamna boja kože	none
+🤌🏿	skupljeni prsti tamna boja kože	none
 🤏🏻	ruka koja štipa svijetla boja kože	none
 🤏🏼	ruka koja štipa umjereno svijetla boja kože	none
 🤏🏽	ruka koja štipa umjerena boja kože	none
@@ -1700,55 +1971,150 @@ symbols:
 👧🏽	djevojčica umjerena boja kože	none
 👧🏾	djevojčica umjereno tamna boja kože	none
 👧🏿	djevojčica tamna boja kože	none
-🧑🏻	odrasla osoba svijetla boja kože	none
-🧑🏼	odrasla osoba umjereno svijetla boja kože	none
-🧑🏽	odrasla osoba umjerena boja kože	none
-🧑🏾	odrasla osoba umjereno tamna boja kože	none
-🧑🏿	odrasla osoba tamna boja kože	none
+🧑🏻	osoba svijetla boja kože	none
+🧑🏼	osoba umjereno svijetla boja kože	none
+🧑🏽	osoba umjerena boja kože	none
+🧑🏾	osoba umjereno tamna boja kože	none
+🧑🏿	osoba tamna boja kože	none
 👱🏻	osoba s plavom kosom svijetla boja kože	none
 👱🏼	osoba s plavom kosom umjereno svijetla boja kože	none
 👱🏽	osoba s plavom kosom umjerena boja kože	none
 👱🏾	osoba s plavom kosom umjereno tamna boja kože	none
 👱🏿	osoba s plavom kosom tamna boja kože	none
-🧑‍🦰	odrasla osoba crvena kosa	none
-🧑🏻‍🦰	odrasla osoba svijetla boja kože i crvena kosa	none
-🧑🏼‍🦰	odrasla osoba umjereno svijetla boja kože i crvena kosa	none
-🧑🏽‍🦰	odrasla osoba umjerena boja kože i crvena kosa	none
-🧑🏾‍🦰	odrasla osoba umjereno tamna boja kože i crvena kosa	none
-🧑🏿‍🦰	odrasla osoba tamna boja kože i crvena kosa	none
-🧑‍🦱	odrasla osoba kovrdžava kosa	none
-🧑🏻‍🦱	odrasla osoba svijetla boja kože i kovrdžava kosa	none
-🧑🏼‍🦱	odrasla osoba umjereno svijetla boja kože i kovrdžava kosa	none
-🧑🏽‍🦱	odrasla osoba umjerena boja kože i kovrdžava kosa	none
-🧑🏾‍🦱	odrasla osoba umjereno tamna boja kože i kovrdžava kosa	none
-🧑🏿‍🦱	odrasla osoba tamna boja kože i kovrdžava kosa	none
-🧑‍🦳	odrasla osoba sijeda kosa	none
-🧑🏻‍🦳	odrasla osoba svijetla boja kože i sijeda kosa	none
-🧑🏼‍🦳	odrasla osoba umjereno svijetla boja kože i sijeda kosa	none
-🧑🏽‍🦳	odrasla osoba umjerena boja kože i sijeda kosa	none
-🧑🏾‍🦳	odrasla osoba umjereno tamna boja kože i sijeda kosa	none
-🧑🏿‍🦳	odrasla osoba tamna boja kože i sijeda kosa	none
-🧑‍🦲	odrasla osoba ćelavo	none
-🧑🏻‍🦲	odrasla osoba svijetla boja kože i ćelavo	none
-🧑🏼‍🦲	odrasla osoba umjereno svijetla boja kože i ćelavo	none
-🧑🏽‍🦲	odrasla osoba umjerena boja kože i ćelavo	none
-🧑🏾‍🦲	odrasla osoba umjereno tamna boja kože i ćelavo	none
-🧑🏿‍🦲	odrasla osoba tamna boja kože i ćelavo	none
+🧑🏻‍❤‍💋‍🧑🏼	poljubac osoba, osoba, svijetla boja kože i umjereno svijetla boja kože	none
+🧑🏻‍❤‍💋‍🧑🏽	poljubac osoba, osoba, svijetla boja kože i umjerena boja kože	none
+🧑🏻‍❤‍💋‍🧑🏾	poljubac osoba, osoba, svijetla boja kože i umjereno tamna boja kože	none
+🧑🏻‍❤‍💋‍🧑🏿	poljubac osoba, osoba, svijetla boja kože i tamna boja kože	none
+🧑🏼‍❤‍💋‍🧑🏻	poljubac osoba, osoba, umjereno svijetla boja kože i svijetla boja kože	none
+🧑🏼‍❤‍💋‍🧑🏽	poljubac osoba, osoba, umjereno svijetla boja kože i umjerena boja kože	none
+🧑🏼‍❤‍💋‍🧑🏾	poljubac osoba, osoba, umjereno svijetla boja kože i umjereno tamna boja kože	none
+🧑🏼‍❤‍💋‍🧑🏿	poljubac osoba, osoba, umjereno svijetla boja kože i tamna boja kože	none
+🧑🏽‍❤‍💋‍🧑🏻	poljubac osoba, osoba, umjerena boja kože i svijetla boja kože	none
+🧑🏽‍❤‍💋‍🧑🏼	poljubac osoba, osoba, umjerena boja kože i umjereno svijetla boja kože	none
+🧑🏽‍❤‍💋‍🧑🏾	poljubac osoba, osoba, umjerena boja kože i umjereno tamna boja kože	none
+🧑🏽‍❤‍💋‍🧑🏿	poljubac osoba, osoba, umjerena boja kože i tamna boja kože	none
+🧑🏾‍❤‍💋‍🧑🏻	poljubac osoba, osoba, umjereno tamna boja kože i svijetla boja kože	none
+🧑🏾‍❤‍💋‍🧑🏼	poljubac osoba, osoba, umjereno tamna boja kože i umjereno svijetla boja kože	none
+🧑🏾‍❤‍💋‍🧑🏽	poljubac osoba, osoba, umjereno tamna boja kože i umjerena boja kože	none
+🧑🏾‍❤‍💋‍🧑🏿	poljubac osoba, osoba, umjereno tamna boja kože i tamna boja kože	none
+🧑🏿‍❤‍💋‍🧑🏻	poljubac osoba, osoba, tamna boja kože i svijetla boja kože	none
+🧑🏿‍❤‍💋‍🧑🏼	poljubac osoba, osoba, tamna boja kože i umjereno svijetla boja kože	none
+🧑🏿‍❤‍💋‍🧑🏽	poljubac osoba, osoba, tamna boja kože i umjerena boja kože	none
+🧑🏿‍❤‍💋‍🧑🏾	poljubac osoba, osoba, tamna boja kože i umjereno tamna boja kože	none
+🧑🏻‍❤‍🧑🏼	par i srce osoba, osoba, svijetla boja kože i umjereno svijetla boja kože	none
+🧑🏻‍❤‍🧑🏽	par i srce osoba, osoba, svijetla boja kože i umjerena boja kože	none
+🧑🏻‍❤‍🧑🏾	par i srce osoba, osoba, svijetla boja kože i umjereno tamna boja kože	none
+🧑🏻‍❤‍🧑🏿	par i srce osoba, osoba, svijetla boja kože i tamna boja kože	none
+🧑🏼‍❤‍🧑🏻	par i srce osoba, osoba, umjereno svijetla boja kože i svijetla boja kože	none
+🧑🏼‍❤‍🧑🏽	par i srce osoba, osoba, umjereno svijetla boja kože i umjerena boja kože	none
+🧑🏼‍❤‍🧑🏾	par i srce osoba, osoba, umjereno svijetla boja kože i umjereno tamna boja kože	none
+🧑🏼‍❤‍🧑🏿	par i srce osoba, osoba, umjereno svijetla boja kože i tamna boja kože	none
+🧑🏽‍❤‍🧑🏻	par i srce osoba, osoba, umjerena boja kože i svijetla boja kože	none
+🧑🏽‍❤‍🧑🏼	par i srce osoba, osoba, umjerena boja kože i umjereno svijetla boja kože	none
+🧑🏽‍❤‍🧑🏾	par i srce osoba, osoba, umjerena boja kože i umjereno tamna boja kože	none
+🧑🏽‍❤‍🧑🏿	par i srce osoba, osoba, umjerena boja kože i tamna boja kože	none
+🧑🏾‍❤‍🧑🏻	par i srce osoba, osoba, umjereno tamna boja kože i svijetla boja kože	none
+🧑🏾‍❤‍🧑🏼	par i srce osoba, osoba, umjereno tamna boja kože i umjereno svijetla boja kože	none
+🧑🏾‍❤‍🧑🏽	par i srce osoba, osoba, umjereno tamna boja kože i umjerena boja kože	none
+🧑🏾‍❤‍🧑🏿	par i srce osoba, osoba, umjereno tamna boja kože i tamna boja kože	none
+🧑🏿‍❤‍🧑🏻	par i srce osoba, osoba, tamna boja kože i svijetla boja kože	none
+🧑🏿‍❤‍🧑🏼	par i srce osoba, osoba, tamna boja kože i umjereno svijetla boja kože	none
+🧑🏿‍❤‍🧑🏽	par i srce osoba, osoba, tamna boja kože i umjerena boja kože	none
+🧑🏿‍❤‍🧑🏾	par i srce osoba, osoba, tamna boja kože i umjereno tamna boja kože	none
+🧑‍🦰	osoba crvena kosa	none
+🧑🏻‍🦰	osoba svijetla boja kože i crvena kosa	none
+🧑🏼‍🦰	osoba umjereno svijetla boja kože i crvena kosa	none
+🧑🏽‍🦰	osoba umjerena boja kože i crvena kosa	none
+🧑🏾‍🦰	osoba umjereno tamna boja kože i crvena kosa	none
+🧑🏿‍🦰	osoba tamna boja kože i crvena kosa	none
+🧑‍🦱	osoba kovrdžava kosa	none
+🧑🏻‍🦱	osoba svijetla boja kože i kovrdžava kosa	none
+🧑🏼‍🦱	osoba umjereno svijetla boja kože i kovrdžava kosa	none
+🧑🏽‍🦱	osoba umjerena boja kože i kovrdžava kosa	none
+🧑🏾‍🦱	osoba umjereno tamna boja kože i kovrdžava kosa	none
+🧑🏿‍🦱	osoba tamna boja kože i kovrdžava kosa	none
+🧑‍🦳	osoba sijeda kosa	none
+🧑🏻‍🦳	osoba svijetla boja kože i sijeda kosa	none
+🧑🏼‍🦳	osoba umjereno svijetla boja kože i sijeda kosa	none
+🧑🏽‍🦳	osoba umjerena boja kože i sijeda kosa	none
+🧑🏾‍🦳	osoba umjereno tamna boja kože i sijeda kosa	none
+🧑🏿‍🦳	osoba tamna boja kože i sijeda kosa	none
+🧑‍🦲	osoba ćelavo	none
+🧑🏻‍🦲	osoba svijetla boja kože i ćelavo	none
+🧑🏼‍🦲	osoba umjereno svijetla boja kože i ćelavo	none
+🧑🏽‍🦲	osoba umjerena boja kože i ćelavo	none
+🧑🏾‍🦲	osoba umjereno tamna boja kože i ćelavo	none
+🧑🏿‍🦲	osoba tamna boja kože i ćelavo	none
 👨🏻	muškarac svijetla boja kože	none
 👨🏼	muškarac umjereno svijetla boja kože	none
 👨🏽	muškarac umjerena boja kože	none
 👨🏾	muškarac umjereno tamna boja kože	none
 👨🏿	muškarac tamna boja kože	none
-🧔🏻	muškarac s bradom svijetla boja kože	none
-🧔🏼	muškarac s bradom umjereno svijetla boja kože	none
-🧔🏽	muškarac s bradom umjerena boja kože	none
-🧔🏾	muškarac s bradom umjereno tamna boja kože	none
-🧔🏿	muškarac s bradom tamna boja kože	none
+🧔🏻	osoba s bradom svijetla boja kože	none
+🧔🏼	osoba s bradom umjereno svijetla boja kože	none
+🧔🏽	osoba s bradom umjerena boja kože	none
+🧔🏾	osoba s bradom umjereno tamna boja kože	none
+🧔🏿	osoba s bradom tamna boja kože	none
+🧔🏻‍♂	muškarac s bradom svijetla boja kože	none
+🧔🏼‍♂	muškarac s bradom umjereno svijetla boja kože	none
+🧔🏽‍♂	muškarac s bradom umjerena boja kože	none
+🧔🏾‍♂	muškarac s bradom umjereno tamna boja kože	none
+🧔🏿‍♂	muškarac s bradom tamna boja kože	none
 👱🏻‍♂	muškarac s plavom kosom svijetla boja kože	none
 👱🏼‍♂	muškarac s plavom kosom umjereno svijetla boja kože	none
 👱🏽‍♂	muškarac s plavom kosom umjerena boja kože	none
 👱🏾‍♂	muškarac s plavom kosom umjereno tamna boja kože	none
 👱🏿‍♂	muškarac s plavom kosom tamna boja kože	none
+👨🏻‍❤‍💋‍👨🏻	poljubac muškarac, muškarac i svijetla boja kože	none
+👨🏻‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, svijetla boja kože i umjereno svijetla boja kože	none
+👨🏻‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, svijetla boja kože i umjerena boja kože	none
+👨🏻‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, svijetla boja kože i umjereno tamna boja kože	none
+👨🏻‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, svijetla boja kože i tamna boja kože	none
+👨🏼‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, umjereno svijetla boja kože i svijetla boja kože	none
+👨🏼‍❤‍💋‍👨🏼	poljubac muškarac, muškarac i umjereno svijetla boja kože	none
+👨🏼‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, umjereno svijetla boja kože i umjerena boja kože	none
+👨🏼‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, umjereno svijetla boja kože i umjereno tamna boja kože	none
+👨🏼‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, umjereno svijetla boja kože i tamna boja kože	none
+👨🏽‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, umjerena boja kože i svijetla boja kože	none
+👨🏽‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, umjerena boja kože i umjereno svijetla boja kože	none
+👨🏽‍❤‍💋‍👨🏽	poljubac muškarac, muškarac i umjerena boja kože	none
+👨🏽‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, umjerena boja kože i umjereno tamna boja kože	none
+👨🏽‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, umjerena boja kože i tamna boja kože	none
+👨🏾‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, umjereno tamna boja kože i svijetla boja kože	none
+👨🏾‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, umjereno tamna boja kože i umjereno svijetla boja kože	none
+👨🏾‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, umjereno tamna boja kože i umjerena boja kože	none
+👨🏾‍❤‍💋‍👨🏾	poljubac muškarac, muškarac i umjereno tamna boja kože	none
+👨🏾‍❤‍💋‍👨🏿	poljubac muškarac, muškarac, umjereno tamna boja kože i tamna boja kože	none
+👨🏿‍❤‍💋‍👨🏻	poljubac muškarac, muškarac, tamna boja kože i svijetla boja kože	none
+👨🏿‍❤‍💋‍👨🏼	poljubac muškarac, muškarac, tamna boja kože i umjereno svijetla boja kože	none
+👨🏿‍❤‍💋‍👨🏽	poljubac muškarac, muškarac, tamna boja kože i umjerena boja kože	none
+👨🏿‍❤‍💋‍👨🏾	poljubac muškarac, muškarac, tamna boja kože i umjereno tamna boja kože	none
+👨🏿‍❤‍💋‍👨🏿	poljubac muškarac, muškarac i tamna boja kože	none
+👨🏻‍❤‍👨🏻	par i srce muškarac, muškarac i svijetla boja kože	none
+👨🏻‍❤‍👨🏼	par i srce muškarac, muškarac, svijetla boja kože i umjereno svijetla boja kože	none
+👨🏻‍❤‍👨🏽	par i srce muškarac, muškarac, svijetla boja kože i umjerena boja kože	none
+👨🏻‍❤‍👨🏾	par i srce muškarac, muškarac, svijetla boja kože i umjereno tamna boja kože	none
+👨🏻‍❤‍👨🏿	par i srce muškarac, muškarac, svijetla boja kože i tamna boja kože	none
+👨🏼‍❤‍👨🏻	par i srce muškarac, muškarac, umjereno svijetla boja kože i svijetla boja kože	none
+👨🏼‍❤‍👨🏼	par i srce muškarac, muškarac i umjereno svijetla boja kože	none
+👨🏼‍❤‍👨🏽	par i srce muškarac, muškarac, umjereno svijetla boja kože i umjerena boja kože	none
+👨🏼‍❤‍👨🏾	par i srce muškarac, muškarac, umjereno svijetla boja kože i umjereno tamna boja kože	none
+👨🏼‍❤‍👨🏿	par i srce muškarac, muškarac, umjereno svijetla boja kože i tamna boja kože	none
+👨🏽‍❤‍👨🏻	par i srce muškarac, muškarac, umjerena boja kože i svijetla boja kože	none
+👨🏽‍❤‍👨🏼	par i srce muškarac, muškarac, umjerena boja kože i umjereno svijetla boja kože	none
+👨🏽‍❤‍👨🏽	par i srce muškarac, muškarac i umjerena boja kože	none
+👨🏽‍❤‍👨🏾	par i srce muškarac, muškarac, umjerena boja kože i umjereno tamna boja kože	none
+👨🏽‍❤‍👨🏿	par i srce muškarac, muškarac, umjerena boja kože i tamna boja kože	none
+👨🏾‍❤‍👨🏻	par i srce muškarac, muškarac, umjereno tamna boja kože i svijetla boja kože	none
+👨🏾‍❤‍👨🏼	par i srce muškarac, muškarac, umjereno tamna boja kože i umjereno svijetla boja kože	none
+👨🏾‍❤‍👨🏽	par i srce muškarac, muškarac, umjereno tamna boja kože i umjerena boja kože	none
+👨🏾‍❤‍👨🏾	par i srce muškarac, muškarac i umjereno tamna boja kože	none
+👨🏾‍❤‍👨🏿	par i srce muškarac, muškarac, umjereno tamna boja kože i tamna boja kože	none
+👨🏿‍❤‍👨🏻	par i srce muškarac, muškarac, tamna boja kože i svijetla boja kože	none
+👨🏿‍❤‍👨🏼	par i srce muškarac, muškarac, tamna boja kože i umjereno svijetla boja kože	none
+👨🏿‍❤‍👨🏽	par i srce muškarac, muškarac, tamna boja kože i umjerena boja kože	none
+👨🏿‍❤‍👨🏾	par i srce muškarac, muškarac, tamna boja kože i umjereno tamna boja kože	none
+👨🏿‍❤‍👨🏿	par i srce muškarac, muškarac i tamna boja kože	none
 👨‍🦰	muškarac crvena kosa	none
 👨🏻‍🦰	muškarac svijetla boja kože i crvena kosa	none
 👨🏼‍🦰	muškarac umjereno svijetla boja kože i crvena kosa	none
@@ -1778,11 +2144,116 @@ symbols:
 👩🏽	žena umjerena boja kože	none
 👩🏾	žena umjereno tamna boja kože	none
 👩🏿	žena tamna boja kože	none
+🧔🏻‍♀	žena svijetla boja kože i brada	none
+🧔🏼‍♀	žena umjereno svijetla boja kože i brada	none
+🧔🏽‍♀	žena umjerena boja kože i brada	none
+🧔🏾‍♀	žena umjereno tamna boja kože i brada	none
+🧔🏿‍♀	žena tamna boja kože i brada	none
 👱🏻‍♀	žena s plavom kosom svijetla boja kože	none
 👱🏼‍♀	žena s plavom kosom umjereno svijetla boja kože	none
 👱🏽‍♀	žena s plavom kosom umjerena boja kože	none
 👱🏾‍♀	žena s plavom kosom umjereno tamna boja kože	none
 👱🏿‍♀	žena s plavom kosom tamna boja kože	none
+👩🏻‍❤‍💋‍👨🏻	poljubac žena, muškarac i svijetla boja kože	none
+👩🏻‍❤‍💋‍👨🏼	poljubac žena, muškarac, svijetla boja kože i umjereno svijetla boja kože	none
+👩🏻‍❤‍💋‍👨🏽	poljubac žena, muškarac, svijetla boja kože i umjerena boja kože	none
+👩🏻‍❤‍💋‍👨🏾	poljubac žena, muškarac, svijetla boja kože i umjereno tamna boja kože	none
+👩🏻‍❤‍💋‍👨🏿	poljubac žena, muškarac, svijetla boja kože i tamna boja kože	none
+👩🏼‍❤‍💋‍👨🏻	poljubac žena, muškarac, umjereno svijetla boja kože i svijetla boja kože	none
+👩🏼‍❤‍💋‍👨🏼	poljubac žena, muškarac i umjereno svijetla boja kože	none
+👩🏼‍❤‍💋‍👨🏽	poljubac žena, muškarac, umjereno svijetla boja kože i umjerena boja kože	none
+👩🏼‍❤‍💋‍👨🏾	poljubac žena, muškarac, umjereno svijetla boja kože i umjereno tamna boja kože	none
+👩🏼‍❤‍💋‍👨🏿	poljubac žena, muškarac, umjereno svijetla boja kože i tamna boja kože	none
+👩🏽‍❤‍💋‍👨🏻	poljubac žena, muškarac, umjerena boja kože i svijetla boja kože	none
+👩🏽‍❤‍💋‍👨🏼	poljubac žena, muškarac, umjerena boja kože i umjereno svijetla boja kože	none
+👩🏽‍❤‍💋‍👨🏽	poljubac žena, muškarac i umjerena boja kože	none
+👩🏽‍❤‍💋‍👨🏾	poljubac žena, muškarac, umjerena boja kože i umjereno tamna boja kože	none
+👩🏽‍❤‍💋‍👨🏿	poljubac žena, muškarac, umjerena boja kože i tamna boja kože	none
+👩🏾‍❤‍💋‍👨🏻	poljubac žena, muškarac, umjereno tamna boja kože i svijetla boja kože	none
+👩🏾‍❤‍💋‍👨🏼	poljubac žena, muškarac, umjereno tamna boja kože i umjereno svijetla boja kože	none
+👩🏾‍❤‍💋‍👨🏽	poljubac žena, muškarac, umjereno tamna boja kože i umjerena boja kože	none
+👩🏾‍❤‍💋‍👨🏾	poljubac žena, muškarac i umjereno tamna boja kože	none
+👩🏾‍❤‍💋‍👨🏿	poljubac žena, muškarac, umjereno tamna boja kože i tamna boja kože	none
+👩🏿‍❤‍💋‍👨🏻	poljubac žena, muškarac, tamna boja kože i svijetla boja kože	none
+👩🏿‍❤‍💋‍👨🏼	poljubac žena, muškarac, tamna boja kože i umjereno svijetla boja kože	none
+👩🏿‍❤‍💋‍👨🏽	poljubac žena, muškarac, tamna boja kože i umjerena boja kože	none
+👩🏿‍❤‍💋‍👨🏾	poljubac žena, muškarac, tamna boja kože i umjereno tamna boja kože	none
+👩🏿‍❤‍💋‍👨🏿	poljubac žena, muškarac i tamna boja kože	none
+👩🏻‍❤‍💋‍👩🏻	poljubac žena, žena i svijetla boja kože	none
+👩🏻‍❤‍💋‍👩🏼	poljubac žena, žena, svijetla boja kože i umjereno svijetla boja kože	none
+👩🏻‍❤‍💋‍👩🏽	poljubac žena, žena, svijetla boja kože i umjerena boja kože	none
+👩🏻‍❤‍💋‍👩🏾	poljubac žena, žena, svijetla boja kože i umjereno tamna boja kože	none
+👩🏻‍❤‍💋‍👩🏿	poljubac žena, žena, svijetla boja kože i tamna boja kože	none
+👩🏼‍❤‍💋‍👩🏻	poljubac žena, žena, umjereno svijetla boja kože i svijetla boja kože	none
+👩🏼‍❤‍💋‍👩🏼	poljubac žena, žena i umjereno svijetla boja kože	none
+👩🏼‍❤‍💋‍👩🏽	poljubac žena, žena, umjereno svijetla boja kože i umjerena boja kože	none
+👩🏼‍❤‍💋‍👩🏾	poljubac žena, žena, umjereno svijetla boja kože i umjereno tamna boja kože	none
+👩🏼‍❤‍💋‍👩🏿	poljubac žena, žena, umjereno svijetla boja kože i tamna boja kože	none
+👩🏽‍❤‍💋‍👩🏻	poljubac žena, žena, umjerena boja kože i svijetla boja kože	none
+👩🏽‍❤‍💋‍👩🏼	poljubac žena, žena, umjerena boja kože i umjereno svijetla boja kože	none
+👩🏽‍❤‍💋‍👩🏽	poljubac žena, žena i umjerena boja kože	none
+👩🏽‍❤‍💋‍👩🏾	poljubac žena, žena, umjerena boja kože i umjereno tamna boja kože	none
+👩🏽‍❤‍💋‍👩🏿	poljubac žena, žena, umjerena boja kože i tamna boja kože	none
+👩🏾‍❤‍💋‍👩🏻	poljubac žena, žena, umjereno tamna boja kože i svijetla boja kože	none
+👩🏾‍❤‍💋‍👩🏼	poljubac žena, žena, umjereno tamna boja kože i umjereno svijetla boja kože	none
+👩🏾‍❤‍💋‍👩🏽	poljubac žena, žena, umjereno tamna boja kože i umjerena boja kože	none
+👩🏾‍❤‍💋‍👩🏾	poljubac žena, žena i umjereno tamna boja kože	none
+👩🏾‍❤‍💋‍👩🏿	poljubac žena, žena, umjereno tamna boja kože i tamna boja kože	none
+👩🏿‍❤‍💋‍👩🏻	poljubac žena, žena, tamna boja kože i svijetla boja kože	none
+👩🏿‍❤‍💋‍👩🏼	poljubac žena, žena, tamna boja kože i umjereno svijetla boja kože	none
+👩🏿‍❤‍💋‍👩🏽	poljubac žena, žena, tamna boja kože i umjerena boja kože	none
+👩🏿‍❤‍💋‍👩🏾	poljubac žena, žena, tamna boja kože i umjereno tamna boja kože	none
+👩🏿‍❤‍💋‍👩🏿	poljubac žena, žena i tamna boja kože	none
+👩🏻‍❤‍👨🏻	par i srce žena, muškarac i svijetla boja kože	none
+👩🏻‍❤‍👨🏼	par i srce žena, muškarac, svijetla boja kože i umjereno svijetla boja kože	none
+👩🏻‍❤‍👨🏽	par i srce žena, muškarac, svijetla boja kože i umjerena boja kože	none
+👩🏻‍❤‍👨🏾	par i srce žena, muškarac, svijetla boja kože i umjereno tamna boja kože	none
+👩🏻‍❤‍👨🏿	par i srce žena, muškarac, svijetla boja kože i tamna boja kože	none
+👩🏼‍❤‍👨🏻	par i srce žena, muškarac, umjereno svijetla boja kože i svijetla boja kože	none
+👩🏼‍❤‍👨🏼	par i srce žena, muškarac i umjereno svijetla boja kože	none
+👩🏼‍❤‍👨🏽	par i srce žena, muškarac, umjereno svijetla boja kože i umjerena boja kože	none
+👩🏼‍❤‍👨🏾	par i srce žena, muškarac, umjereno svijetla boja kože i umjereno tamna boja kože	none
+👩🏼‍❤‍👨🏿	par i srce žena, muškarac, umjereno svijetla boja kože i tamna boja kože	none
+👩🏽‍❤‍👨🏻	par i srce žena, muškarac, umjerena boja kože i svijetla boja kože	none
+👩🏽‍❤‍👨🏼	par i srce žena, muškarac, umjerena boja kože i umjereno svijetla boja kože	none
+👩🏽‍❤‍👨🏽	par i srce žena, muškarac i umjerena boja kože	none
+👩🏽‍❤‍👨🏾	par i srce žena, muškarac, umjerena boja kože i umjereno tamna boja kože	none
+👩🏽‍❤‍👨🏿	par i srce žena, muškarac, umjerena boja kože i tamna boja kože	none
+👩🏾‍❤‍👨🏻	par i srce žena, muškarac, umjereno tamna boja kože i svijetla boja kože	none
+👩🏾‍❤‍👨🏼	par i srce žena, muškarac, umjereno tamna boja kože i umjereno svijetla boja kože	none
+👩🏾‍❤‍👨🏽	par i srce žena, muškarac, umjereno tamna boja kože i umjerena boja kože	none
+👩🏾‍❤‍👨🏾	par i srce žena, muškarac i umjereno tamna boja kože	none
+👩🏾‍❤‍👨🏿	par i srce žena, muškarac, umjereno tamna boja kože i tamna boja kože	none
+👩🏿‍❤‍👨🏻	par i srce žena, muškarac, tamna boja kože i svijetla boja kože	none
+👩🏿‍❤‍👨🏼	par i srce žena, muškarac, tamna boja kože i umjereno svijetla boja kože	none
+👩🏿‍❤‍👨🏽	par i srce žena, muškarac, tamna boja kože i umjerena boja kože	none
+👩🏿‍❤‍👨🏾	par i srce žena, muškarac, tamna boja kože i umjereno tamna boja kože	none
+👩🏿‍❤‍👨🏿	par i srce žena, muškarac i tamna boja kože	none
+👩🏻‍❤‍👩🏻	par i srce žena, žena i svijetla boja kože	none
+👩🏻‍❤‍👩🏼	par i srce žena, žena, svijetla boja kože i umjereno svijetla boja kože	none
+👩🏻‍❤‍👩🏽	par i srce žena, žena, svijetla boja kože i umjerena boja kože	none
+👩🏻‍❤‍👩🏾	par i srce žena, žena, svijetla boja kože i umjereno tamna boja kože	none
+👩🏻‍❤‍👩🏿	par i srce žena, žena, svijetla boja kože i tamna boja kože	none
+👩🏼‍❤‍👩🏻	par i srce žena, žena, umjereno svijetla boja kože i svijetla boja kože	none
+👩🏼‍❤‍👩🏼	par i srce žena, žena i umjereno svijetla boja kože	none
+👩🏼‍❤‍👩🏽	par i srce žena, žena, umjereno svijetla boja kože i umjerena boja kože	none
+👩🏼‍❤‍👩🏾	par i srce žena, žena, umjereno svijetla boja kože i umjereno tamna boja kože	none
+👩🏼‍❤‍👩🏿	par i srce žena, žena, umjereno svijetla boja kože i tamna boja kože	none
+👩🏽‍❤‍👩🏻	par i srce žena, žena, umjerena boja kože i svijetla boja kože	none
+👩🏽‍❤‍👩🏼	par i srce žena, žena, umjerena boja kože i umjereno svijetla boja kože	none
+👩🏽‍❤‍👩🏽	par i srce žena, žena i umjerena boja kože	none
+👩🏽‍❤‍👩🏾	par i srce žena, žena, umjerena boja kože i umjereno tamna boja kože	none
+👩🏽‍❤‍👩🏿	par i srce žena, žena, umjerena boja kože i tamna boja kože	none
+👩🏾‍❤‍👩🏻	par i srce žena, žena, umjereno tamna boja kože i svijetla boja kože	none
+👩🏾‍❤‍👩🏼	par i srce žena, žena, umjereno tamna boja kože i umjereno svijetla boja kože	none
+👩🏾‍❤‍👩🏽	par i srce žena, žena, umjereno tamna boja kože i umjerena boja kože	none
+👩🏾‍❤‍👩🏾	par i srce žena, žena i umjereno tamna boja kože	none
+👩🏾‍❤‍👩🏿	par i srce žena, žena, umjereno tamna boja kože i tamna boja kože	none
+👩🏿‍❤‍👩🏻	par i srce žena, žena, tamna boja kože i svijetla boja kože	none
+👩🏿‍❤‍👩🏼	par i srce žena, žena, tamna boja kože i umjereno svijetla boja kože	none
+👩🏿‍❤‍👩🏽	par i srce žena, žena, tamna boja kože i umjerena boja kože	none
+👩🏿‍❤‍👩🏾	par i srce žena, žena, tamna boja kože i umjereno tamna boja kože	none
+👩🏿‍❤‍👩🏿	par i srce žena, žena i tamna boja kože	none
 👩‍🦰	žena crvena kosa	none
 👩🏻‍🦰	žena svijetla boja kože i crvena kosa	none
 👩🏼‍🦰	žena umjereno svijetla boja kože i crvena kosa	none
@@ -1932,21 +2403,21 @@ symbols:
 🙇🏽	osoba se naklanja umjerena boja kože	none
 🙇🏾	osoba se naklanja umjereno tamna boja kože	none
 🙇🏿	osoba se naklanja tamna boja kože	none
-🙇🏻‍♂	muškarac se duboko naklanja svijetla boja kože	none
-🙇🏼‍♂	muškarac se duboko naklanja umjereno svijetla boja kože	none
-🙇🏽‍♂	muškarac se duboko naklanja umjerena boja kože	none
-🙇🏾‍♂	muškarac se duboko naklanja umjereno tamna boja kože	none
-🙇🏿‍♂	muškarac se duboko naklanja tamna boja kože	none
-🙇🏻‍♀	žena se duboko naklanja svijetla boja kože	none
-🙇🏼‍♀	žena se duboko naklanja umjereno svijetla boja kože	none
-🙇🏽‍♀	žena se duboko naklanja umjerena boja kože	none
-🙇🏾‍♀	žena se duboko naklanja umjereno tamna boja kože	none
-🙇🏿‍♀	žena se duboko naklanja tamna boja kože	none
-🤦🏻	očaj svijetla boja kože	none
-🤦🏼	očaj umjereno svijetla boja kože	none
-🤦🏽	očaj umjerena boja kože	none
-🤦🏾	očaj umjereno tamna boja kože	none
-🤦🏿	očaj tamna boja kože	none
+🙇🏻‍♂	muškarac se naklanja svijetla boja kože	none
+🙇🏼‍♂	muškarac se naklanja umjereno svijetla boja kože	none
+🙇🏽‍♂	muškarac se naklanja umjerena boja kože	none
+🙇🏾‍♂	muškarac se naklanja umjereno tamna boja kože	none
+🙇🏿‍♂	muškarac se naklanja tamna boja kože	none
+🙇🏻‍♀	žena se naklanja svijetla boja kože	none
+🙇🏼‍♀	žena se naklanja umjereno svijetla boja kože	none
+🙇🏽‍♀	žena se naklanja umjerena boja kože	none
+🙇🏾‍♀	žena se naklanja umjereno tamna boja kože	none
+🙇🏿‍♀	žena se naklanja tamna boja kože	none
+🤦🏻	osoba s rukom na čelu svijetla boja kože	none
+🤦🏼	osoba s rukom na čelu umjereno svijetla boja kože	none
+🤦🏽	osoba s rukom na čelu umjerena boja kože	none
+🤦🏾	osoba s rukom na čelu umjereno tamna boja kože	none
+🤦🏿	osoba s rukom na čelu tamna boja kože	none
 🤦🏻‍♂	muškarac s rukom na čelu svijetla boja kože	none
 🤦🏼‍♂	muškarac s rukom na čelu umjereno svijetla boja kože	none
 🤦🏽‍♂	muškarac s rukom na čelu umjerena boja kože	none
@@ -2232,11 +2703,11 @@ symbols:
 🕵🏽	detektiv umjerena boja kože	none
 🕵🏾	detektiv umjereno tamna boja kože	none
 🕵🏿	detektiv tamna boja kože	none
-🕵🏻‍♂	detektiv muško svijetla boja kože	none
-🕵🏼‍♂	detektiv muško umjereno svijetla boja kože	none
-🕵🏽‍♂	detektiv muško umjerena boja kože	none
-🕵🏾‍♂	detektiv muško umjereno tamna boja kože	none
-🕵🏿‍♂	detektiv muško tamna boja kože	none
+🕵🏻‍♂	muškarac detektiv svijetla boja kože	none
+🕵🏼‍♂	muškarac detektiv umjereno svijetla boja kože	none
+🕵🏽‍♂	muškarac detektiv umjerena boja kože	none
+🕵🏾‍♂	muškarac detektiv umjereno tamna boja kože	none
+🕵🏿‍♂	muškarac detektiv tamna boja kože	none
 🕵🏻‍♀	detektivka svijetla boja kože	none
 🕵🏼‍♀	detektivka umjereno svijetla boja kože	none
 🕵🏽‍♀	detektivka umjerena boja kože	none
@@ -2257,6 +2728,11 @@ symbols:
 💂🏽‍♀	stražarka umjerena boja kože	none
 💂🏾‍♀	stražarka umjereno tamna boja kože	none
 💂🏿‍♀	stražarka tamna boja kože	none
+🥷🏻	nindža svijetla boja kože	none
+🥷🏼	nindža umjereno svijetla boja kože	none
+🥷🏽	nindža umjerena boja kože	none
+🥷🏾	nindža umjereno tamna boja kože	none
+🥷🏿	nindža tamna boja kože	none
 👷🏻	građevinski radnik svijetla boja kože	none
 👷🏼	građevinski radnik umjereno svijetla boja kože	none
 👷🏽	građevinski radnik umjerena boja kože	none
@@ -2282,21 +2758,21 @@ symbols:
 👸🏽	princeza umjerena boja kože	none
 👸🏾	princeza umjereno tamna boja kože	none
 👸🏿	princeza tamna boja kože	none
-👳🏻	osoba sa turbanom svijetla boja kože	none
-👳🏼	osoba sa turbanom umjereno svijetla boja kože	none
-👳🏽	osoba sa turbanom umjerena boja kože	none
-👳🏾	osoba sa turbanom umjereno tamna boja kože	none
-👳🏿	osoba sa turbanom tamna boja kože	none
-👳🏻‍♂	čovjek sa turbanom svijetla boja kože	none
-👳🏼‍♂	čovjek sa turbanom umjereno svijetla boja kože	none
-👳🏽‍♂	čovjek sa turbanom umjerena boja kože	none
-👳🏾‍♂	čovjek sa turbanom umjereno tamna boja kože	none
-👳🏿‍♂	čovjek sa turbanom tamna boja kože	none
-👳🏻‍♀	žena sa turbanom svijetla boja kože	none
-👳🏼‍♀	žena sa turbanom umjereno svijetla boja kože	none
-👳🏽‍♀	žena sa turbanom umjerena boja kože	none
-👳🏾‍♀	žena sa turbanom umjereno tamna boja kože	none
-👳🏿‍♀	žena sa turbanom tamna boja kože	none
+👳🏻	osoba s turbanom svijetla boja kože	none
+👳🏼	osoba s turbanom umjereno svijetla boja kože	none
+👳🏽	osoba s turbanom umjerena boja kože	none
+👳🏾	osoba s turbanom umjereno tamna boja kože	none
+👳🏿	osoba s turbanom tamna boja kože	none
+👳🏻‍♂	muškarac s turbanom svijetla boja kože	none
+👳🏼‍♂	muškarac s turbanom umjereno svijetla boja kože	none
+👳🏽‍♂	muškarac s turbanom umjerena boja kože	none
+👳🏾‍♂	muškarac s turbanom umjereno tamna boja kože	none
+👳🏿‍♂	muškarac s turbanom tamna boja kože	none
+👳🏻‍♀	žena s turbanom svijetla boja kože	none
+👳🏼‍♀	žena s turbanom umjereno svijetla boja kože	none
+👳🏽‍♀	žena s turbanom umjerena boja kože	none
+👳🏾‍♀	žena s turbanom umjereno tamna boja kože	none
+👳🏿‍♀	žena s turbanom tamna boja kože	none
 👲🏻	muškarac s kineskom kapom svijetla boja kože	none
 👲🏼	muškarac s kineskom kapom umjereno svijetla boja kože	none
 👲🏽	muškarac s kineskom kapom umjerena boja kože	none
@@ -2307,16 +2783,36 @@ symbols:
 🧕🏽	pokrivena žena umjerena boja kože	none
 🧕🏾	pokrivena žena umjereno tamna boja kože	none
 🧕🏿	pokrivena žena tamna boja kože	none
-🤵🏻	odijelo svijetla boja kože	none
-🤵🏼	odijelo umjereno svijetla boja kože	none
-🤵🏽	odijelo umjerena boja kože	none
-🤵🏾	odijelo umjereno tamna boja kože	none
-🤵🏿	odijelo tamna boja kože	none
-👰🏻	mlada s velom svijetla boja kože	none
-👰🏼	mlada s velom umjereno svijetla boja kože	none
-👰🏽	mlada s velom umjerena boja kože	none
-👰🏾	mlada s velom umjereno tamna boja kože	none
-👰🏿	mlada s velom tamna boja kože	none
+🤵🏻	osoba u smokingu svijetla boja kože	none
+🤵🏼	osoba u smokingu umjereno svijetla boja kože	none
+🤵🏽	osoba u smokingu umjerena boja kože	none
+🤵🏾	osoba u smokingu umjereno tamna boja kože	none
+🤵🏿	osoba u smokingu tamna boja kože	none
+🤵🏻‍♂	muškarac u smokingu svijetla boja kože	none
+🤵🏼‍♂	muškarac u smokingu umjereno svijetla boja kože	none
+🤵🏽‍♂	muškarac u smokingu umjerena boja kože	none
+🤵🏾‍♂	muškarac u smokingu umjereno tamna boja kože	none
+🤵🏿‍♂	muškarac u smokingu tamna boja kože	none
+🤵🏻‍♀	žena u smokingu svijetla boja kože	none
+🤵🏼‍♀	žena u smokingu umjereno svijetla boja kože	none
+🤵🏽‍♀	žena u smokingu umjerena boja kože	none
+🤵🏾‍♀	žena u smokingu umjereno tamna boja kože	none
+🤵🏿‍♀	žena u smokingu tamna boja kože	none
+👰🏻	osoba s velom svijetla boja kože	none
+👰🏼	osoba s velom umjereno svijetla boja kože	none
+👰🏽	osoba s velom umjerena boja kože	none
+👰🏾	osoba s velom umjereno tamna boja kože	none
+👰🏿	osoba s velom tamna boja kože	none
+👰🏻‍♂	muškarac s velom svijetla boja kože	none
+👰🏼‍♂	muškarac s velom umjereno svijetla boja kože	none
+👰🏽‍♂	muškarac s velom umjerena boja kože	none
+👰🏾‍♂	muškarac s velom umjereno tamna boja kože	none
+👰🏿‍♂	muškarac s velom tamna boja kože	none
+👰🏻‍♀	žena s velom svijetla boja kože	none
+👰🏼‍♀	žena s velom umjereno svijetla boja kože	none
+👰🏽‍♀	žena s velom umjerena boja kože	none
+👰🏾‍♀	žena s velom umjereno tamna boja kože	none
+👰🏿‍♀	žena s velom tamna boja kože	none
 🤰🏻	trudnica svijetla boja kože	none
 🤰🏼	trudnica umjereno svijetla boja kože	none
 🤰🏽	trudnica umjerena boja kože	none
@@ -2327,6 +2823,21 @@ symbols:
 🤱🏽	dojenje umjerena boja kože	none
 🤱🏾	dojenje umjereno tamna boja kože	none
 🤱🏿	dojenje tamna boja kože	none
+👩🏻‍🍼	žena doji bebu svijetla boja kože	none
+👩🏼‍🍼	žena doji bebu umjereno svijetla boja kože	none
+👩🏽‍🍼	žena doji bebu umjerena boja kože	none
+👩🏾‍🍼	žena doji bebu umjereno tamna boja kože	none
+👩🏿‍🍼	žena doji bebu tamna boja kože	none
+👨🏻‍🍼	muškarac doji bebu svijetla boja kože	none
+👨🏼‍🍼	muškarac doji bebu umjereno svijetla boja kože	none
+👨🏽‍🍼	muškarac doji bebu umjerena boja kože	none
+👨🏾‍🍼	muškarac doji bebu umjereno tamna boja kože	none
+👨🏿‍🍼	muškarac doji bebu tamna boja kože	none
+🧑🏻‍🍼	osoba doji bebu svijetla boja kože	none
+🧑🏼‍🍼	osoba doji bebu umjereno svijetla boja kože	none
+🧑🏽‍🍼	osoba doji bebu umjerena boja kože	none
+🧑🏾‍🍼	osoba doji bebu umjereno tamna boja kože	none
+🧑🏿‍🍼	osoba doji bebu tamna boja kože	none
 👼🏻	anđelak svijetla boja kože	none
 👼🏼	anđelak umjereno svijetla boja kože	none
 👼🏽	anđelak umjerena boja kože	none
@@ -2342,6 +2853,11 @@ symbols:
 🤶🏽	Baka Mraz umjerena boja kože	none
 🤶🏾	Baka Mraz umjereno tamna boja kože	none
 🤶🏿	Baka Mraz tamna boja kože	none
+🧑🏻‍🎄	g. Mraz svijetla boja kože	none
+🧑🏼‍🎄	g. Mraz umjereno svijetla boja kože	none
+🧑🏽‍🎄	g. Mraz umjerena boja kože	none
+🧑🏾‍🎄	g. Mraz umjereno tamna boja kože	none
+🧑🏿‍🎄	g. Mraz tamna boja kože	none
 🦸🏻	superheroj svijetla boja kože	none
 🦸🏼	superheroj umjereno svijetla boja kože	none
 🦸🏽	superheroj umjerena boja kože	none
@@ -2512,11 +3028,11 @@ symbols:
 🧎🏽	osoba kleči umjerena boja kože	none
 🧎🏾	osoba kleči umjereno tamna boja kože	none
 🧎🏿	osoba kleči tamna boja kože	none
-🧎🏻‍♂	čovjek kleči svijetla boja kože	none
-🧎🏼‍♂	čovjek kleči umjereno svijetla boja kože	none
-🧎🏽‍♂	čovjek kleči umjerena boja kože	none
-🧎🏾‍♂	čovjek kleči umjereno tamna boja kože	none
-🧎🏿‍♂	čovjek kleči tamna boja kože	none
+🧎🏻‍♂	muškarac kleči svijetla boja kože	none
+🧎🏼‍♂	muškarac kleči umjereno svijetla boja kože	none
+🧎🏽‍♂	muškarac kleči umjerena boja kože	none
+🧎🏾‍♂	muškarac kleči umjereno tamna boja kože	none
+🧎🏿‍♂	muškarac kleči tamna boja kože	none
 🧎🏻‍♀	žena kleči svijetla boja kože	none
 🧎🏼‍♀	žena kleči umjereno svijetla boja kože	none
 🧎🏽‍♀	žena kleči umjerena boja kože	none
@@ -2527,11 +3043,11 @@ symbols:
 🧑🏽‍🦯	osoba sa štapom za hodanje umjerena boja kože	none
 🧑🏾‍🦯	osoba sa štapom za hodanje umjereno tamna boja kože	none
 🧑🏿‍🦯	osoba sa štapom za hodanje tamna boja kože	none
-👨🏻‍🦯	čovjek sa štapom za hodanje svijetla boja kože	none
-👨🏼‍🦯	čovjek sa štapom za hodanje umjereno svijetla boja kože	none
-👨🏽‍🦯	čovjek sa štapom za hodanje umjerena boja kože	none
-👨🏾‍🦯	čovjek sa štapom za hodanje umjereno tamna boja kože	none
-👨🏿‍🦯	čovjek sa štapom za hodanje tamna boja kože	none
+👨🏻‍🦯	muškarac sa štapom za hodanje svijetla boja kože	none
+👨🏼‍🦯	muškarac sa štapom za hodanje umjereno svijetla boja kože	none
+👨🏽‍🦯	muškarac sa štapom za hodanje umjerena boja kože	none
+👨🏾‍🦯	muškarac sa štapom za hodanje umjereno tamna boja kože	none
+👨🏿‍🦯	muškarac sa štapom za hodanje tamna boja kože	none
 👩🏻‍🦯	žena sa štapom za hodanje svijetla boja kože	none
 👩🏼‍🦯	žena sa štapom za hodanje umjereno svijetla boja kože	none
 👩🏽‍🦯	žena sa štapom za hodanje umjerena boja kože	none
@@ -2592,26 +3108,26 @@ symbols:
 🕺🏽	plesanje umjerena boja kože	none
 🕺🏾	plesanje umjereno tamna boja kože	none
 🕺🏿	plesanje tamna boja kože	none
-🕴🏻	muškarac u odijelu levitira svijetla boja kože	none
-🕴🏼	muškarac u odijelu levitira umjereno svijetla boja kože	none
-🕴🏽	muškarac u odijelu levitira umjerena boja kože	none
-🕴🏾	muškarac u odijelu levitira umjereno tamna boja kože	none
-🕴🏿	muškarac u odijelu levitira tamna boja kože	none
-🧖🏻	osoba u prostoriji sa parom svijetla boja kože	none
-🧖🏼	osoba u prostoriji sa parom umjereno svijetla boja kože	none
-🧖🏽	osoba u prostoriji sa parom umjerena boja kože	none
-🧖🏾	osoba u prostoriji sa parom umjereno tamna boja kože	none
-🧖🏿	osoba u prostoriji sa parom tamna boja kože	none
-🧖🏻‍♂	muškarac u prostoriji sa parom svijetla boja kože	none
-🧖🏼‍♂	muškarac u prostoriji sa parom umjereno svijetla boja kože	none
-🧖🏽‍♂	muškarac u prostoriji sa parom umjerena boja kože	none
-🧖🏾‍♂	muškarac u prostoriji sa parom umjereno tamna boja kože	none
-🧖🏿‍♂	muškarac u prostoriji sa parom tamna boja kože	none
-🧖🏻‍♀	žena u prostoriji sa parom svijetla boja kože	none
-🧖🏼‍♀	žena u prostoriji sa parom umjereno svijetla boja kože	none
-🧖🏽‍♀	žena u prostoriji sa parom umjerena boja kože	none
-🧖🏾‍♀	žena u prostoriji sa parom umjereno tamna boja kože	none
-🧖🏿‍♀	žena u prostoriji sa parom tamna boja kože	none
+🕴🏻	osoba u odijelu levitira svijetla boja kože	none
+🕴🏼	osoba u odijelu levitira umjereno svijetla boja kože	none
+🕴🏽	osoba u odijelu levitira umjerena boja kože	none
+🕴🏾	osoba u odijelu levitira umjereno tamna boja kože	none
+🕴🏿	osoba u odijelu levitira tamna boja kože	none
+🧖🏻	osoba u prostoriji s parom svijetla boja kože	none
+🧖🏼	osoba u prostoriji s parom umjereno svijetla boja kože	none
+🧖🏽	osoba u prostoriji s parom umjerena boja kože	none
+🧖🏾	osoba u prostoriji s parom umjereno tamna boja kože	none
+🧖🏿	osoba u prostoriji s parom tamna boja kože	none
+🧖🏻‍♂	muškarac u prostoriji s parom svijetla boja kože	none
+🧖🏼‍♂	muškarac u prostoriji s parom umjereno svijetla boja kože	none
+🧖🏽‍♂	muškarac u prostoriji s parom umjerena boja kože	none
+🧖🏾‍♂	muškarac u prostoriji s parom umjereno tamna boja kože	none
+🧖🏿‍♂	muškarac u prostoriji s parom tamna boja kože	none
+🧖🏻‍♀	žena u prostoriji s parom svijetla boja kože	none
+🧖🏼‍♀	žena u prostoriji s parom umjereno svijetla boja kože	none
+🧖🏽‍♀	žena u prostoriji s parom umjerena boja kože	none
+🧖🏾‍♀	žena u prostoriji s parom umjereno tamna boja kože	none
+🧖🏿‍♀	žena u prostoriji s parom tamna boja kože	none
 🧗🏻	osoba koja se penje svijetla boja kože	none
 🧗🏼	osoba koja se penje umjereno svijetla boja kože	none
 🧗🏽	osoba koja se penje umjerena boja kože	none
@@ -2757,11 +3273,11 @@ symbols:
 🚵🏽‍♀	brdska bicklistkinja umjerena boja kože	none
 🚵🏾‍♀	brdska bicklistkinja umjereno tamna boja kože	none
 🚵🏿‍♀	brdska bicklistkinja tamna boja kože	none
-🤸🏻	zvijezda svijetla boja kože	none
-🤸🏼	zvijezda umjereno svijetla boja kože	none
-🤸🏽	zvijezda umjerena boja kože	none
-🤸🏾	zvijezda umjereno tamna boja kože	none
-🤸🏿	zvijezda tamna boja kože	none
+🤸🏻	osoba pravi premet svijetla boja kože	none
+🤸🏼	osoba pravi premet umjereno svijetla boja kože	none
+🤸🏽	osoba pravi premet umjerena boja kože	none
+🤸🏾	osoba pravi premet umjereno tamna boja kože	none
+🤸🏿	osoba pravi premet tamna boja kože	none
 🤸🏻‍♂	muškarac pravi premet svijetla boja kože	none
 🤸🏼‍♂	muškarac pravi premet umjereno svijetla boja kože	none
 🤸🏽‍♂	muškarac pravi premet umjerena boja kože	none
@@ -2843,35 +3359,55 @@ symbols:
 🛌🏾	osoba u krevetu umjereno tamna boja kože	none
 🛌🏿	osoba u krevetu tamna boja kože	none
 🧑🏻‍🤝‍🧑🏻	ljudi se drže za ruke svijetla boja kože	none
+🧑🏻‍🤝‍🧑🏼	ljudi se drže za ruke svijetla boja kože i umjereno svijetla boja kože	none
+🧑🏻‍🤝‍🧑🏽	ljudi se drže za ruke svijetla boja kože i umjerena boja kože	none
+🧑🏻‍🤝‍🧑🏾	ljudi se drže za ruke svijetla boja kože i umjereno tamna boja kože	none
+🧑🏻‍🤝‍🧑🏿	ljudi se drže za ruke svijetla boja kože i tamna boja kože	none
 🧑🏼‍🤝‍🧑🏻	ljudi se drže za ruke umjereno svijetla boja kože i svijetla boja kože	none
 🧑🏼‍🤝‍🧑🏼	ljudi se drže za ruke umjereno svijetla boja kože	none
+🧑🏼‍🤝‍🧑🏽	ljudi se drže za ruke umjereno svijetla boja kože i umjerena boja kože	none
+🧑🏼‍🤝‍🧑🏾	ljudi se drže za ruke umjereno svijetla boja kože i umjereno tamna boja kože	none
+🧑🏼‍🤝‍🧑🏿	ljudi se drže za ruke umjereno svijetla boja kože i tamna boja kože	none
 🧑🏽‍🤝‍🧑🏻	ljudi se drže za ruke umjerena boja kože i svijetla boja kože	none
 🧑🏽‍🤝‍🧑🏼	ljudi se drže za ruke umjerena boja kože i umjereno svijetla boja kože	none
 🧑🏽‍🤝‍🧑🏽	ljudi se drže za ruke umjerena boja kože	none
+🧑🏽‍🤝‍🧑🏾	ljudi se drže za ruke umjerena boja kože i umjereno tamna boja kože	none
+🧑🏽‍🤝‍🧑🏿	ljudi se drže za ruke umjerena boja kože i tamna boja kože	none
 🧑🏾‍🤝‍🧑🏻	ljudi se drže za ruke umjereno tamna boja kože i svijetla boja kože	none
 🧑🏾‍🤝‍🧑🏼	ljudi se drže za ruke umjereno tamna boja kože i umjereno svijetla boja kože	none
 🧑🏾‍🤝‍🧑🏽	ljudi se drže za ruke umjereno tamna boja kože i umjerena boja kože	none
 🧑🏾‍🤝‍🧑🏾	ljudi se drže za ruke umjereno tamna boja kože	none
+🧑🏾‍🤝‍🧑🏿	ljudi se drže za ruke umjereno tamna boja kože i tamna boja kože	none
 🧑🏿‍🤝‍🧑🏻	ljudi se drže za ruke tamna boja kože i svijetla boja kože	none
 🧑🏿‍🤝‍🧑🏼	ljudi se drže za ruke tamna boja kože i umjereno svijetla boja kože	none
 🧑🏿‍🤝‍🧑🏽	ljudi se drže za ruke tamna boja kože i umjerena boja kože	none
 🧑🏿‍🤝‍🧑🏾	ljudi se drže za ruke tamna boja kože i umjereno tamna boja kože	none
 🧑🏿‍🤝‍🧑🏿	ljudi se drže za ruke tamna boja kože	none
-👭🏻	dvije žene se drže za ruke svijetla boja kože	none
-👩🏼‍🤝‍👩🏻	dvije žene se drže za ruke umjereno svijetla boja kože i svijetla boja kože	none
-👭🏼	dvije žene se drže za ruke umjereno svijetla boja kože	none
-👩🏽‍🤝‍👩🏻	dvije žene se drže za ruke umjerena boja kože i svijetla boja kože	none
-👩🏽‍🤝‍👩🏼	dvije žene se drže za ruke umjerena boja kože i umjereno svijetla boja kože	none
-👭🏽	dvije žene se drže za ruke umjerena boja kože	none
-👩🏾‍🤝‍👩🏻	dvije žene se drže za ruke umjereno tamna boja kože i svijetla boja kože	none
-👩🏾‍🤝‍👩🏼	dvije žene se drže za ruke umjereno tamna boja kože i umjereno svijetla boja kože	none
-👩🏾‍🤝‍👩🏽	dvije žene se drže za ruke umjereno tamna boja kože i umjerena boja kože	none
-👭🏾	dvije žene se drže za ruke umjereno tamna boja kože	none
-👩🏿‍🤝‍👩🏻	dvije žene se drže za ruke tamna boja kože i svijetla boja kože	none
-👩🏿‍🤝‍👩🏼	dvije žene se drže za ruke tamna boja kože i umjereno svijetla boja kože	none
-👩🏿‍🤝‍👩🏽	dvije žene se drže za ruke tamna boja kože i umjerena boja kože	none
-👩🏿‍🤝‍👩🏾	dvije žene se drže za ruke tamna boja kože i umjereno tamna boja kože	none
-👭🏿	dvije žene se drže za ruke tamna boja kože	none
+👭🏻	žene se drže za ruke svijetla boja kože	none
+👩🏻‍🤝‍👩🏼	žene se drže za ruke svijetla boja kože i umjereno svijetla boja kože	none
+👩🏻‍🤝‍👩🏽	žene se drže za ruke svijetla boja kože i umjerena boja kože	none
+👩🏻‍🤝‍👩🏾	žene se drže za ruke svijetla boja kože i umjereno tamna boja kože	none
+👩🏻‍🤝‍👩🏿	žene se drže za ruke svijetla boja kože i tamna boja kože	none
+👩🏼‍🤝‍👩🏻	žene se drže za ruke umjereno svijetla boja kože i svijetla boja kože	none
+👭🏼	žene se drže za ruke umjereno svijetla boja kože	none
+👩🏼‍🤝‍👩🏽	žene se drže za ruke umjereno svijetla boja kože i umjerena boja kože	none
+👩🏼‍🤝‍👩🏾	žene se drže za ruke umjereno svijetla boja kože i umjereno tamna boja kože	none
+👩🏼‍🤝‍👩🏿	žene se drže za ruke umjereno svijetla boja kože i tamna boja kože	none
+👩🏽‍🤝‍👩🏻	žene se drže za ruke umjerena boja kože i svijetla boja kože	none
+👩🏽‍🤝‍👩🏼	žene se drže za ruke umjerena boja kože i umjereno svijetla boja kože	none
+👭🏽	žene se drže za ruke umjerena boja kože	none
+👩🏽‍🤝‍👩🏾	žene se drže za ruke umjerena boja kože i umjereno tamna boja kože	none
+👩🏽‍🤝‍👩🏿	žene se drže za ruke umjerena boja kože i tamna boja kože	none
+👩🏾‍🤝‍👩🏻	žene se drže za ruke umjereno tamna boja kože i svijetla boja kože	none
+👩🏾‍🤝‍👩🏼	žene se drže za ruke umjereno tamna boja kože i umjereno svijetla boja kože	none
+👩🏾‍🤝‍👩🏽	žene se drže za ruke umjereno tamna boja kože i umjerena boja kože	none
+👭🏾	žene se drže za ruke umjereno tamna boja kože	none
+👩🏾‍🤝‍👩🏿	žene se drže za ruke umjereno tamna boja kože i tamna boja kože	none
+👩🏿‍🤝‍👩🏻	žene se drže za ruke tamna boja kože i svijetla boja kože	none
+👩🏿‍🤝‍👩🏼	žene se drže za ruke tamna boja kože i umjereno svijetla boja kože	none
+👩🏿‍🤝‍👩🏽	žene se drže za ruke tamna boja kože i umjerena boja kože	none
+👩🏿‍🤝‍👩🏾	žene se drže za ruke tamna boja kože i umjereno tamna boja kože	none
+👭🏿	žene se drže za ruke tamna boja kože	none
 👫🏻	muškarac i žena se drže za ruke svijetla boja kože	none
 👩🏻‍🤝‍👨🏼	muškarac i žena se drže za ruke svijetla boja kože i umjereno svijetla boja kože	none
 👩🏻‍🤝‍👨🏽	muškarac i žena se drže za ruke svijetla boja kože i umjerena boja kože	none
@@ -2898,23 +3434,43 @@ symbols:
 👩🏿‍🤝‍👨🏾	muškarac i žena se drže za ruke tamna boja kože i umjereno tamna boja kože	none
 👫🏿	muškarac i žena se drže za ruke tamna boja kože	none
 👬🏻	dva muškarca se drže za ruke svijetla boja kože	none
+👨🏻‍🤝‍👨🏼	dva muškarca se drže za ruke svijetla boja kože i umjereno svijetla boja kože	none
+👨🏻‍🤝‍👨🏽	dva muškarca se drže za ruke svijetla boja kože i umjerena boja kože	none
+👨🏻‍🤝‍👨🏾	dva muškarca se drže za ruke svijetla boja kože i umjereno tamna boja kože	none
+👨🏻‍🤝‍👨🏿	dva muškarca se drže za ruke svijetla boja kože i tamna boja kože	none
 👨🏼‍🤝‍👨🏻	dva muškarca se drže za ruke umjereno svijetla boja kože i svijetla boja kože	none
 👬🏼	dva muškarca se drže za ruke umjereno svijetla boja kože	none
+👨🏼‍🤝‍👨🏽	dva muškarca se drže za ruke umjereno svijetla boja kože i umjerena boja kože	none
+👨🏼‍🤝‍👨🏾	dva muškarca se drže za ruke umjereno svijetla boja kože i umjereno tamna boja kože	none
+👨🏼‍🤝‍👨🏿	dva muškarca se drže za ruke umjereno svijetla boja kože i tamna boja kože	none
 👨🏽‍🤝‍👨🏻	dva muškarca se drže za ruke umjerena boja kože i svijetla boja kože	none
 👨🏽‍🤝‍👨🏼	dva muškarca se drže za ruke umjerena boja kože i umjereno svijetla boja kože	none
 👬🏽	dva muškarca se drže za ruke umjerena boja kože	none
+👨🏽‍🤝‍👨🏾	dva muškarca se drže za ruke umjerena boja kože i umjereno tamna boja kože	none
+👨🏽‍🤝‍👨🏿	dva muškarca se drže za ruke umjerena boja kože i tamna boja kože	none
 👨🏾‍🤝‍👨🏻	dva muškarca se drže za ruke umjereno tamna boja kože i svijetla boja kože	none
 👨🏾‍🤝‍👨🏼	dva muškarca se drže za ruke umjereno tamna boja kože i umjereno svijetla boja kože	none
 👨🏾‍🤝‍👨🏽	dva muškarca se drže za ruke umjereno tamna boja kože i umjerena boja kože	none
 👬🏾	dva muškarca se drže za ruke umjereno tamna boja kože	none
+👨🏾‍🤝‍👨🏿	dva muškarca se drže za ruke umjereno tamna boja kože i tamna boja kože	none
 👨🏿‍🤝‍👨🏻	dva muškarca se drže za ruke tamna boja kože i svijetla boja kože	none
 👨🏿‍🤝‍👨🏼	dva muškarca se drže za ruke tamna boja kože i umjereno svijetla boja kože	none
 👨🏿‍🤝‍👨🏽	dva muškarca se drže za ruke tamna boja kože i umjerena boja kože	none
 👨🏿‍🤝‍👨🏾	dva muškarca se drže za ruke tamna boja kože i umjereno tamna boja kože	none
 👬🏿	dva muškarca se drže za ruke tamna boja kože	none
+💏🏻	poljubac svijetla boja kože	none
+💏🏼	poljubac umjereno svijetla boja kože	none
+💏🏽	poljubac umjerena boja kože	none
+💏🏾	poljubac umjereno tamna boja kože	none
+💏🏿	poljubac tamna boja kože	none
 👩‍❤‍💋‍👨	poljubac žena i muškarac	none
 👨‍❤‍💋‍👨	poljubac muškarac i muškarac	none
 👩‍❤‍💋‍👩	poljubac žena i žena	none
+💑🏻	par i srce svijetla boja kože	none
+💑🏼	par i srce umjereno svijetla boja kože	none
+💑🏽	par i srce umjerena boja kože	none
+💑🏾	par i srce umjereno tamna boja kože	none
+💑🏿	par i srce tamna boja kože	none
 👩‍❤‍👨	par i srce žena i muškarac	none
 👨‍❤‍👨	par i srce muškarac i muškarac	none
 👩‍❤‍👩	par i srce žena i žena	none
@@ -2943,277 +3499,279 @@ symbols:
 👩‍👧	porodica žena i djevojčica	none
 👩‍👧‍👦	porodica žena, djevojčica i dječak	none
 👩‍👧‍👧	porodica žena, djevojčica i djevojčica	none
-#⃣	Kapica za tipku #	none
-*⃣	Kapica za tipku *	none
 🔟	Kapica za tipku 10	none
-🇦🇨	Zastava Ostrvo Ascension	none
-🇦🇩	Zastava Andora	none
-🇦🇪	Zastava Ujedinjeni Arapski Emirati	none
-🇦🇫	Zastava Afganistan	none
-🇦🇬	Zastava Antigva i Barbuda	none
-🇦🇮	Zastava Angvila	none
-🇦🇱	Zastava Albanija	none
-🇦🇲	Zastava Armenija	none
-🇦🇴	Zastava Angola	none
-🇦🇶	Zastava Antarktika	none
-🇦🇷	Zastava Argentina	none
-🇦🇸	Zastava Američka Samoa	none
-🇦🇹	Zastava Austrija	none
-🇦🇺	Zastava Australija	none
-🇦🇼	Zastava Aruba	none
-🇦🇽	Zastava Olandska ostrva	none
-🇦🇿	Zastava Azerbejdžan	none
-🇧🇦	Zastava Bosna i Hercegovina	none
-🇧🇧	Zastava Barbados	none
-🇧🇩	Zastava Bangladeš	none
-🇧🇪	Zastava Belgija	none
-🇧🇫	Zastava Burkina Faso	none
-🇧🇬	Zastava Bugarska	none
-🇧🇭	Zastava Bahrein	none
-🇧🇮	Zastava Burundi	none
-🇧🇯	Zastava Benin	none
-🇧🇱	Zastava Sveti Bartolomej	none
-🇧🇲	Zastava Bermuda	none
-🇧🇳	Zastava Brunej	none
-🇧🇴	Zastava Bolivija	none
-🇧🇶	Zastava Karipska Holandija	none
-🇧🇷	Zastava Brazil	none
-🇧🇸	Zastava Bahami	none
-🇧🇹	Zastava Butan	none
-🇧🇻	Zastava Ostrvo Buve	none
-🇧🇼	Zastava Bocvana	none
-🇧🇾	Zastava Bjelorusija	none
-🇧🇿	Zastava Belize	none
-🇨🇦	Zastava Kanada	none
-🇨🇨	Zastava Kokosova (Keelingova) ostrva	none
-🇨🇩	Zastava Demokratska Republika Kongo	none
-🇨🇫	Zastava Centralnoafrička Republika	none
-🇨🇬	Zastava Kongo	none
-🇨🇭	Zastava Švicarska	none
-🇨🇮	Zastava Obala Slonovače	none
-🇨🇰	Zastava Kukova ostrva	none
-🇨🇱	Zastava Čile	none
-🇨🇲	Zastava Kamerun	none
-🇨🇳	Zastava Kina	none
-🇨🇴	Zastava Kolumbija	none
-🇨🇵	Zastava Ostrvo Kliperton	none
-🇨🇷	Zastava Kostarika	none
-🇨🇺	Zastava Kuba	none
-🇨🇻	Zastava Kape Verde	none
-🇨🇼	Zastava Kurasao	none
-🇨🇽	Zastava Božićno ostrvo	none
-🇨🇾	Zastava Kipar	none
-🇨🇿	Zastava Češka	none
-🇩🇪	Zastava Njemačka	none
-🇩🇬	Zastava Dijego Garsija	none
-🇩🇯	Zastava Džibuti	none
-🇩🇰	Zastava Danska	none
-🇩🇲	Zastava Dominika	none
-🇩🇴	Zastava Dominikanska Republika	none
-🇩🇿	Zastava Alžir	none
-🇪🇦	Zastava Seuta i Melilja	none
-🇪🇨	Zastava Ekvador	none
-🇪🇪	Zastava Estonija	none
-🇪🇬	Zastava Egipat	none
-🇪🇭	Zastava Zapadna Sahara	none
-🇪🇷	Zastava Eritreja	none
-🇪🇸	Zastava Španija	none
-🇪🇹	Zastava Etiopija	none
-🇪🇺	Zastava Evropska unija	none
-🇫🇮	Zastava Finska	none
-🇫🇯	Zastava Fidži	none
-🇫🇰	Zastava Folklandska ostrva	none
-🇫🇲	Zastava Mikronezija	none
-🇫🇴	Zastava Farska ostrva	none
-🇫🇷	Zastava Francuska	none
-🇬🇦	Zastava Gabon	none
-🇬🇧	Zastava Ujedinjeno Kraljevstvo	none
-🇬🇩	Zastava Grenada	none
-🇬🇪	Zastava Gruzija	none
-🇬🇫	Zastava Francuska Gvajana	none
-🇬🇬	Zastava Gernzi	none
-🇬🇭	Zastava Gana	none
-🇬🇮	Zastava Gibraltar	none
-🇬🇱	Zastava Grenland	none
-🇬🇲	Zastava Gambija	none
-🇬🇳	Zastava Gvineja	none
-🇬🇵	Zastava Gvadalupe	none
-🇬🇶	Zastava Ekvatorijalna Gvineja	none
-🇬🇷	Zastava Grčka	none
-🇬🇸	Zastava Južna Džordžija i Južna Sendvič ostrva	none
-🇬🇹	Zastava Gvatemala	none
-🇬🇺	Zastava Guam	none
-🇬🇼	Zastava Gvineja-Bisao	none
-🇬🇾	Zastava Gvajana	none
-🇭🇰	Zastava Hong Kong (SAR Kina)	none
-🇭🇲	Zastava Herd i arhipelag MekDonald	none
-🇭🇳	Zastava Honduras	none
-🇭🇷	Zastava Hrvatska	none
-🇭🇹	Zastava Haiti	none
-🇭🇺	Zastava Mađarska	none
-🇮🇨	Zastava Kanarska ostrva	none
-🇮🇩	Zastava Indonezija	none
-🇮🇪	Zastava Irska	none
-🇮🇱	Zastava Izrael	none
-🇮🇲	Zastava Ostrvo Man	none
-🇮🇳	Zastava Indija	none
-🇮🇴	Zastava Britanska Teritorija u Indijskom Okeanu	none
-🇮🇶	Zastava Irak	none
-🇮🇷	Zastava Iran	none
-🇮🇸	Zastava Island	none
-🇮🇹	Zastava Italija	none
-🇯🇪	Zastava Jersey	none
-🇯🇲	Zastava Jamajka	none
-🇯🇴	Zastava Jordan	none
-🇯🇵	Zastava Japan	none
-🇰🇪	Zastava Kenija	none
-🇰🇬	Zastava Kirgistan	none
-🇰🇭	Zastava Kambodža	none
-🇰🇮	Zastava Kiribati	none
-🇰🇲	Zastava Komori	none
-🇰🇳	Zastava Sveti Kits i Nevis	none
-🇰🇵	Zastava Sjeverna Koreja	none
-🇰🇷	Zastava Južna Koreja	none
-🇰🇼	Zastava Kuvajt	none
-🇰🇾	Zastava Kajmanska ostrva	none
-🇰🇿	Zastava Kazahstan	none
-🇱🇦	Zastava Laos	none
-🇱🇧	Zastava Liban	none
-🇱🇨	Zastava Sveta Lucija	none
-🇱🇮	Zastava Lihtenštajn	none
-🇱🇰	Zastava Šri Lanka	none
-🇱🇷	Zastava Liberija	none
-🇱🇸	Zastava Lesoto	none
-🇱🇹	Zastava Litvanija	none
-🇱🇺	Zastava Luksemburg	none
-🇱🇻	Zastava Latvija	none
-🇱🇾	Zastava Libija	none
-🇲🇦	Zastava Maroko	none
-🇲🇨	Zastava Monako	none
-🇲🇩	Zastava Moldavija	none
-🇲🇪	Zastava Crna Gora	none
-🇲🇫	Zastava Sveti Martin	none
-🇲🇬	Zastava Madagaskar	none
-🇲🇭	Zastava Maršalova ostrva	none
-🇲🇰	Zastava Sjeverna Makedonija	none
-🇲🇱	Zastava Mali	none
-🇲🇲	Zastava Mjanmar	none
-🇲🇳	Zastava Mongolija	none
-🇲🇴	Zastava Makao (SAR Kina)	none
-🇲🇵	Zastava Sjeverna Marijanska ostrva	none
-🇲🇶	Zastava Martinik	none
-🇲🇷	Zastava Mauritanija	none
-🇲🇸	Zastava Monserat	none
-🇲🇹	Zastava Malta	none
-🇲🇺	Zastava Mauricijus	none
-🇲🇻	Zastava Maldivi	none
-🇲🇼	Zastava Malavi	none
-🇲🇽	Zastava Meksiko	none
-🇲🇾	Zastava Malezija	none
-🇲🇿	Zastava Mozambik	none
-🇳🇦	Zastava Namibija	none
-🇳🇨	Zastava Nova Kaledonija	none
-🇳🇪	Zastava Niger	none
-🇳🇫	Zastava Ostrvo Norfolk	none
-🇳🇬	Zastava Nigerija	none
-🇳🇮	Zastava Nikaragva	none
-🇳🇱	Zastava Holandija	none
-🇳🇴	Zastava Norveška	none
-🇳🇵	Zastava Nepal	none
-🇳🇷	Zastava Nauru	none
-🇳🇺	Zastava Niue	none
-🇳🇿	Zastava Novi Zeland	none
-🇴🇲	Zastava Oman	none
-🇵🇦	Zastava Panama	none
-🇵🇪	Zastava Peru	none
-🇵🇫	Zastava Francuska Polinezija	none
-🇵🇬	Zastava Papua Nova Gvineja	none
-🇵🇭	Zastava Filipini	none
-🇵🇰	Zastava Pakistan	none
-🇵🇱	Zastava Poljska	none
-🇵🇲	Zastava Sveti Petar i Mikelon	none
-🇵🇳	Zastava Pitkernska Ostrva	none
-🇵🇷	Zastava Porto Riko	none
-🇵🇸	Zastava Palestinska Teritorija	none
-🇵🇹	Zastava Portugal	none
-🇵🇼	Zastava Palau	none
-🇵🇾	Zastava Paragvaj	none
-🇶🇦	Zastava Katar	none
-🇷🇪	Zastava Reunion	none
-🇷🇴	Zastava Rumunija	none
-🇷🇸	Zastava Srbija	none
-🇷🇺	Zastava Rusija	none
-🇷🇼	Zastava Ruanda	none
-🇸🇦	Zastava Saudijska Arabija	none
-🇸🇧	Zastava Solomonska Ostrva	none
-🇸🇨	Zastava Sejšeli	none
-🇸🇩	Zastava Sudan	none
-🇸🇪	Zastava Švedska	none
-🇸🇬	Zastava Singapur	none
-🇸🇭	Zastava Sveta Helena	none
-🇸🇮	Zastava Slovenija	none
-🇸🇯	Zastava Svalbard i Jan Majen	none
-🇸🇰	Zastava Slovačka	none
-🇸🇱	Zastava Sijera Leone	none
-🇸🇲	Zastava San Marino	none
-🇸🇳	Zastava Senegal	none
-🇸🇴	Zastava Somalija	none
-🇸🇷	Zastava Surinam	none
-🇸🇸	Zastava Južni Sudan	none
-🇸🇹	Zastava Sao Tome i Principe	none
-🇸🇻	Zastava Salvador	none
-🇸🇽	Zastava Sint Marten	none
-🇸🇾	Zastava Sirija	none
-🇸🇿	Zastava Esvatini	none
-🇹🇦	Zastava Tristan da Cunha	none
-🇹🇨	Zastava Ostrva Turks i Kaikos	none
-🇹🇩	Zastava Čad	none
-🇹🇫	Zastava Francuske Južne Teritorije	none
-🇹🇬	Zastava Togo	none
-🇹🇭	Zastava Tajland	none
-🇹🇯	Zastava Tadžikistan	none
-🇹🇰	Zastava Tokelau	none
-🇹🇱	Zastava Istočni Timor	none
-🇹🇲	Zastava Turkmenistan	none
-🇹🇳	Zastava Tunis	none
-🇹🇴	Zastava Tonga	none
-🇹🇷	Zastava Turska	none
-🇹🇹	Zastava Trinidad i Tobago	none
-🇹🇻	Zastava Tuvalu	none
-🇹🇼	Zastava Tajvan	none
-🇹🇿	Zastava Tanzanija	none
-🇺🇦	Zastava Ukrajina	none
-🇺🇬	Zastava Uganda	none
-🇺🇲	Zastava Američka Vanjska Ostrva	none
-🇺🇳	Zastava Ujedinjene Nacije	none
-🇺🇸	Zastava Sjedinjene Države	none
-🇺🇾	Zastava Urugvaj	none
-🇺🇿	Zastava Uzbekistan	none
-🇻🇦	Zastava Vatikan	none
-🇻🇨	Zastava Sveti Vinsent i Grenadin	none
-🇻🇪	Zastava Venecuela	none
-🇻🇬	Zastava Britanska Djevičanska ostrva	none
-🇻🇮	Zastava Američka Djevičanska ostrva	none
-🇻🇳	Zastava Vijetnam	none
-🇻🇺	Zastava Vanuatu	none
-🇼🇫	Zastava Ostrva Valis i Futuna	none
-🇼🇸	Zastava Samoa	none
-🇽🇰	Zastava Kosovo	none
-🇾🇪	Zastava Jemen	none
-🇾🇹	Zastava Majote	none
-🇿🇦	Zastava Južnoafrička Republika	none
-🇿🇲	Zastava Zambija	none
-🇿🇼	Zastava Zimbabve	none
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	Zastava Engleska	none
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	Zastava Škotska	none
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	Zastava Vels	none
-0⃣	Kapica za tipku 0	none
-1⃣	Kapica za tipku 1	none
-2⃣	Kapica za tipku 2	none
-3⃣	Kapica za tipku 3	none
-4⃣	Kapica za tipku 4	none
-5⃣	Kapica za tipku 5	none
-6⃣	Kapica za tipku 6	none
-7⃣	Kapica za tipku 7	none
-8⃣	Kapica za tipku 8	none
-9⃣	Kapica za tipku 9	none
+🇦🇨	zastava Ostrvo Ascension	none
+🇦🇩	zastava Andora	none
+🇦🇪	zastava Ujedinjeni Arapski Emirati	none
+🇦🇫	zastava Afganistan	none
+🇦🇬	zastava Antigva i Barbuda	none
+🇦🇮	zastava Angvila	none
+🇦🇱	zastava Albanija	none
+🇦🇲	zastava Armenija	none
+🇦🇴	zastava Angola	none
+🇦🇶	zastava Antarktika	none
+🇦🇷	zastava Argentina	none
+🇦🇸	zastava Američka Samoa	none
+🇦🇹	zastava Austrija	none
+🇦🇺	zastava Australija	none
+🇦🇼	zastava Aruba	none
+🇦🇽	zastava Olandska ostrva	none
+🇦🇿	zastava Azerbejdžan	none
+🇧🇦	zastava Bosna i Hercegovina	none
+🇧🇧	zastava Barbados	none
+🇧🇩	zastava Bangladeš	none
+🇧🇪	zastava Belgija	none
+🇧🇫	zastava Burkina Faso	none
+🇧🇬	zastava Bugarska	none
+🇧🇭	zastava Bahrein	none
+🇧🇮	zastava Burundi	none
+🇧🇯	zastava Benin	none
+🇧🇱	zastava Sveti Bartolomej	none
+🇧🇲	zastava Bermuda	none
+🇧🇳	zastava Brunej	none
+🇧🇴	zastava Bolivija	none
+🇧🇶	zastava Karipska Holandija	none
+🇧🇷	zastava Brazil	none
+🇧🇸	zastava Bahami	none
+🇧🇹	zastava Butan	none
+🇧🇻	zastava Ostrvo Buve	none
+🇧🇼	zastava Bocvana	none
+🇧🇾	zastava Bjelorusija	none
+🇧🇿	zastava Belize	none
+🇨🇦	zastava Kanada	none
+🇨🇨	zastava Kokosova (Keelingova) ostrva	none
+🇨🇩	zastava Demokratska Republika Kongo	none
+🇨🇫	zastava Centralnoafrička Republika	none
+🇨🇬	zastava Kongo	none
+🇨🇭	zastava Švicarska	none
+🇨🇮	zastava Obala Slonovače	none
+🇨🇰	zastava Kukova ostrva	none
+🇨🇱	zastava Čile	none
+🇨🇲	zastava Kamerun	none
+🇨🇳	zastava Kina	none
+🇨🇴	zastava Kolumbija	none
+🇨🇵	zastava Ostrvo Clipperton	none
+🇨🇷	zastava Kostarika	none
+🇨🇺	zastava Kuba	none
+🇨🇻	zastava Zelenortska Ostrva	none
+🇨🇼	zastava Kurasao	none
+🇨🇽	zastava Božićno ostrvo	none
+🇨🇾	zastava Kipar	none
+🇨🇿	zastava Češka	none
+🇩🇪	zastava Njemačka	none
+🇩🇬	zastava Dijego Garsija	none
+🇩🇯	zastava Džibuti	none
+🇩🇰	zastava Danska	none
+🇩🇲	zastava Dominika	none
+🇩🇴	zastava Dominikanska Republika	none
+🇩🇿	zastava Alžir	none
+🇪🇦	zastava Seuta i Melilja	none
+🇪🇨	zastava Ekvador	none
+🇪🇪	zastava Estonija	none
+🇪🇬	zastava Egipat	none
+🇪🇭	zastava Zapadna Sahara	none
+🇪🇷	zastava Eritreja	none
+🇪🇸	zastava Španija	none
+🇪🇹	zastava Etiopija	none
+🇪🇺	zastava Evropska unija	none
+🇫🇮	zastava Finska	none
+🇫🇯	zastava Fidži	none
+🇫🇰	zastava Folklandska ostrva	none
+🇫🇲	zastava Mikronezija	none
+🇫🇴	zastava Farska ostrva	none
+🇫🇷	zastava Francuska	none
+🇬🇦	zastava Gabon	none
+🇬🇧	zastava Ujedinjeno Kraljevstvo	none
+🇬🇩	zastava Grenada	none
+🇬🇪	zastava Gruzija	none
+🇬🇫	zastava Francuska Gvajana	none
+🇬🇬	zastava Guernsey	none
+🇬🇭	zastava Gana	none
+🇬🇮	zastava Gibraltar	none
+🇬🇱	zastava Grenland	none
+🇬🇲	zastava Gambija	none
+🇬🇳	zastava Gvineja	none
+🇬🇵	zastava Gvadalupe	none
+🇬🇶	zastava Ekvatorijalna Gvineja	none
+🇬🇷	zastava Grčka	none
+🇬🇸	zastava Južna Džordžija i Južna Sendvič ostrva	none
+🇬🇹	zastava Gvatemala	none
+🇬🇺	zastava Guam	none
+🇬🇼	zastava Gvineja-Bisao	none
+🇬🇾	zastava Gvajana	none
+🇭🇰	zastava Hong Kong (SAR Kina)	none
+🇭🇲	zastava Ostrvo Heard i arhipelag McDonald	none
+🇭🇳	zastava Honduras	none
+🇭🇷	zastava Hrvatska	none
+🇭🇹	zastava Haiti	none
+🇭🇺	zastava Mađarska	none
+🇮🇨	zastava Kanarska ostrva	none
+🇮🇩	zastava Indonezija	none
+🇮🇪	zastava Irska	none
+🇮🇱	zastava Izrael	none
+🇮🇲	zastava Ostrvo Man	none
+🇮🇳	zastava Indija	none
+🇮🇴	zastava Britanska Teritorija u Indijskom Okeanu	none
+🇮🇶	zastava Irak	none
+🇮🇷	zastava Iran	none
+🇮🇸	zastava Island	none
+🇮🇹	zastava Italija	none
+🇯🇪	zastava Jersey	none
+🇯🇲	zastava Jamajka	none
+🇯🇴	zastava Jordan	none
+🇯🇵	zastava Japan	none
+🇰🇪	zastava Kenija	none
+🇰🇬	zastava Kirgistan	none
+🇰🇭	zastava Kambodža	none
+🇰🇮	zastava Kiribati	none
+🇰🇲	zastava Komori	none
+🇰🇳	zastava Sveti Kits i Nevis	none
+🇰🇵	zastava Sjeverna Koreja	none
+🇰🇷	zastava Južna Koreja	none
+🇰🇼	zastava Kuvajt	none
+🇰🇾	zastava Kajmanska ostrva	none
+🇰🇿	zastava Kazahstan	none
+🇱🇦	zastava Laos	none
+🇱🇧	zastava Liban	none
+🇱🇨	zastava Sveta Lucija	none
+🇱🇮	zastava Lihtenštajn	none
+🇱🇰	zastava Šri Lanka	none
+🇱🇷	zastava Liberija	none
+🇱🇸	zastava Lesoto	none
+🇱🇹	zastava Litvanija	none
+🇱🇺	zastava Luksemburg	none
+🇱🇻	zastava Latvija	none
+🇱🇾	zastava Libija	none
+🇲🇦	zastava Maroko	none
+🇲🇨	zastava Monako	none
+🇲🇩	zastava Moldavija	none
+🇲🇪	zastava Crna Gora	none
+🇲🇫	zastava Sveti Martin	none
+🇲🇬	zastava Madagaskar	none
+🇲🇭	zastava Maršalova ostrva	none
+🇲🇰	zastava Sjeverna Makedonija	none
+🇲🇱	zastava Mali	none
+🇲🇲	zastava Mjanmar	none
+🇲🇳	zastava Mongolija	none
+🇲🇴	zastava Makao (SAR Kina)	none
+🇲🇵	zastava Sjeverna Marijanska ostrva	none
+🇲🇶	zastava Martinik	none
+🇲🇷	zastava Mauritanija	none
+🇲🇸	zastava Monserat	none
+🇲🇹	zastava Malta	none
+🇲🇺	zastava Mauricijus	none
+🇲🇻	zastava Maldivi	none
+🇲🇼	zastava Malavi	none
+🇲🇽	zastava Meksiko	none
+🇲🇾	zastava Malezija	none
+🇲🇿	zastava Mozambik	none
+🇳🇦	zastava Namibija	none
+🇳🇨	zastava Nova Kaledonija	none
+🇳🇪	zastava Niger	none
+🇳🇫	zastava Ostrvo Norfolk	none
+🇳🇬	zastava Nigerija	none
+🇳🇮	zastava Nikaragva	none
+🇳🇱	zastava Holandija	none
+🇳🇴	zastava Norveška	none
+🇳🇵	zastava Nepal	none
+🇳🇷	zastava Nauru	none
+🇳🇺	zastava Niue	none
+🇳🇿	zastava Novi Zeland	none
+🇴🇲	zastava Oman	none
+🇵🇦	zastava Panama	none
+🇵🇪	zastava Peru	none
+🇵🇫	zastava Francuska Polinezija	none
+🇵🇬	zastava Papua Nova Gvineja	none
+🇵🇭	zastava Filipini	none
+🇵🇰	zastava Pakistan	none
+🇵🇱	zastava Poljska	none
+🇵🇲	zastava Sveti Petar i Mikelon	none
+🇵🇳	zastava Pitkernska Ostrva	none
+🇵🇷	zastava Porto Riko	none
+🇵🇸	zastava Palestinska Teritorija	none
+🇵🇹	zastava Portugal	none
+🇵🇼	zastava Palau	none
+🇵🇾	zastava Paragvaj	none
+🇶🇦	zastava Katar	none
+🇷🇪	zastava Reunion	none
+🇷🇴	zastava Rumunija	none
+🇷🇸	zastava Srbija	none
+🇷🇺	zastava Rusija	none
+🇷🇼	zastava Ruanda	none
+🇸🇦	zastava Saudijska Arabija	none
+🇸🇧	zastava Solomonska Ostrva	none
+🇸🇨	zastava Sejšeli	none
+🇸🇩	zastava Sudan	none
+🇸🇪	zastava Švedska	none
+🇸🇬	zastava Singapur	none
+🇸🇭	zastava Sveta Helena	none
+🇸🇮	zastava Slovenija	none
+🇸🇯	zastava Svalbard i Jan Majen	none
+🇸🇰	zastava Slovačka	none
+🇸🇱	zastava Sijera Leone	none
+🇸🇲	zastava San Marino	none
+🇸🇳	zastava Senegal	none
+🇸🇴	zastava Somalija	none
+🇸🇷	zastava Surinam	none
+🇸🇸	zastava Južni Sudan	none
+🇸🇹	zastava Sao Tome i Principe	none
+🇸🇻	zastava Salvador	none
+🇸🇽	zastava Sint Marten	none
+🇸🇾	zastava Sirija	none
+🇸🇿	zastava Esvatini	none
+🇹🇦	zastava Tristan da Cunha	none
+🇹🇨	zastava Ostrva Turks i Kaikos	none
+🇹🇩	zastava Čad	none
+🇹🇫	zastava Francuske Južne Teritorije	none
+🇹🇬	zastava Togo	none
+🇹🇭	zastava Tajland	none
+🇹🇯	zastava Tadžikistan	none
+🇹🇰	zastava Tokelau	none
+🇹🇱	zastava Istočni Timor	none
+🇹🇲	zastava Turkmenistan	none
+🇹🇳	zastava Tunis	none
+🇹🇴	zastava Tonga	none
+🇹🇷	zastava Turska	none
+🇹🇹	zastava Trinidad i Tobago	none
+🇹🇻	zastava Tuvalu	none
+🇹🇼	zastava Tajvan	none
+🇹🇿	zastava Tanzanija	none
+🇺🇦	zastava Ukrajina	none
+🇺🇬	zastava Uganda	none
+🇺🇲	zastava Američka Vanjska Ostrva	none
+🇺🇳	zastava Ujedinjene Nacije	none
+🇺🇸	zastava Sjedinjene Države	none
+🇺🇾	zastava Urugvaj	none
+🇺🇿	zastava Uzbekistan	none
+🇻🇦	zastava Vatikan	none
+🇻🇨	zastava Sveti Vinsent i Grenadin	none
+🇻🇪	zastava Venecuela	none
+🇻🇬	zastava Britanska Djevičanska ostrva	none
+🇻🇮	zastava Američka Djevičanska ostrva	none
+🇻🇳	zastava Vijetnam	none
+🇻🇺	zastava Vanuatu	none
+🇼🇫	zastava Ostrva Valis i Futuna	none
+🇼🇸	zastava Samoa	none
+🇽🇰	zastava Kosovo	none
+🇾🇪	zastava Jemen	none
+🇾🇹	zastava Majote	none
+🇿🇦	zastava Južnoafrička Republika	none
+🇿🇲	zastava Zambija	none
+🇿🇼	zastava Zimbabve	none
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	zastava Engleska	none
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	zastava Škotska	none
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	zastava Vels	none
+₡	Kostarikanski kolon	none
+₦	Nigerijska naira	none
+₧	Španska pezeta	none
+₪	Izraelski novi šekel	none
+₫	Vijetnamski dong	none
+₭	Laoski kip	none
+₮	Mongolski tugrik	none
+₲	Paragvajski gvarani	none
+₴	Ukrajinska hrivnja	none
+₵	Ganski cedi	none
+₸	Kazahstanski tenge	none
+₺	Turska lira	none
+₼	Azerbejdžanski manat	none
+₾	Gruzijski lari	none

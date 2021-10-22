@@ -7,24 +7,21 @@ based on demand from users, and difficulty of the work involved.
  * Add pitch as an option for capitalization presentation
    see https://github.com/brailcom/speechd/issues/24
  * Allow setting a synthesis voice in the user config using spd-conf.
- * Pronunciation dictionaries
-   see https://github.com/brailcom/speechd/issues/57
- * Emoji support (from CLDR)
-   see https://github.com/brailcom/speechd/issues/49
  * Add support for Mimic
    see https://github.com/brailcom/speechd/issues/19
- (0.10) Migrate to GSettings.
- (0.10) Synthesizer specific settings API.
- (0.10) Use more GLib in the server.
- (0.10) Move audio into server.
- (0.10) Client audio retrieval API.
- (0.10) Server to module protocol documentation.
- (0.11) Server to module protocol improvements.
+ * Drop getting information from other clients
+   see https://github.com/brailcom/speechd/issues/335
+ (0.11) Migrate to GSettings.
+ (0.11) Synthesizer specific settings API.
+ (0.11) Use more GLib in the server.
+ (0.11) Client audio retrieval API.
+ (0.11) Server to module protocol documentation.
+ (0.12) Server to module protocol improvements.
  * Move synth modules to plugin architecture with plugin host.
  * Synth plugin API.
  * Allow for building synth plugins out of tree.
- (0.10) Integrate with logind/consolekit.
- (0.10) Properly support system-wide mode.
+ (0.11) Integrate with logind/consolekit.
+ (0.11) Properly support system-wide mode.
  * Support spawning the server via Systemd socket activation.
 
 
@@ -116,30 +113,15 @@ Use more GLib in the server
 Move audio into server
 ----------------------
 
- * Extend the server to module protocol to receive audio from modules.
  * Consider using a separate socket for audio transfer, however this may be 
    difficult when attempting to synchronise with index marks. An alternative is 
    to send index mark data via the audio socket as well.
- * Implement a playback queue supporting the following types:
-   (The Espeak module is a good reference)
-   - Begin event
-   - End event
-   - Index mark event
-   - Audio event
-   - Sound icon event
  * Rework modules supporting audio output to not use any advanced internal 
    playback queueing, and simply send the audio in relatively small buffers to 
    the server. Smaller buffers to allow the server to stop/pause the audio more 
    responsively.
- * Implement a mechanism to allow modules to signal that they do not support 
-   audio output.
- * Support multiple clients using different audio output devices on the one 
-   backend.
  * Extend priority system to be either global priority, or priority per audio 
    output device.
- * Run audio in separate thread, possibly using 2 threads, a controller 
-   thread, and a playback thread, one playback thread per audio device. Again, 
-   the espeak module does something similar.
  * Rework pulseaudio output to use a GLib event loop.
  * Rework other audio output modules to better work within an event loop.
 
@@ -215,7 +197,7 @@ Support spawning the server via Systemd socket activation
 
 Copyright (C) 2001 Brailcom, o.p.s
 Copyright (C) 2016 Luke Yelavich <themuso@themuso.com>
-Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software

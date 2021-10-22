@@ -15,8 +15,6 @@ symbols:
 👪	familia	none
 💍	aniellu	none
 💎	piedra preciosa	none
-#⃣	tecles #	none
-*⃣	tecles *	none
 🔟	tecles 10	none
 🇦🇨	bandera Islla Ascensión	none
 🇦🇩	bandera Andorra	none
@@ -275,13 +273,17 @@ symbols:
 🇿🇦	bandera Sudáfrica	none
 🇿🇲	bandera Zambia	none
 🇿🇼	bandera Zimbabue	none
-0⃣	tecles 0	none
-1⃣	tecles 1	none
-2⃣	tecles 2	none
-3⃣	tecles 3	none
-4⃣	tecles 4	none
-5⃣	tecles 5	none
-6⃣	tecles 6	none
-7⃣	tecles 7	none
-8⃣	tecles 8	none
-9⃣	tecles 9	none
+₡	Colón costarricanu	none
+₦	naira nixeriana	none
+₧	Peseta española	none
+₪	Xequel nuevu israelín	none
+₫	dong vietnamín	none
+₭	kip laosianu	none
+₮	Tugrik mongol	none
+₲	guaraní paraguayu	none
+₴	Grivna ucraína	none
+₵	cedi ghanianu	none
+₸	Tenge kazaquistanín	none
+₺	Llira turca	none
+₼	Manat azerbaixanu	none
+₾	Lari xeorxanu	none

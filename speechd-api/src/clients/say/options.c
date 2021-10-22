@@ -46,6 +46,8 @@ char *voice_type;
 char *punctuation_mode;
 char *priority;
 int pipe_mode;
+int character;
+int key;
 SPDDataMode ssml_mode;
 int spelling;
 int wait_till_end;
@@ -109,8 +111,14 @@ void options_print_help(char *argv[])
 	printf("  -y, --synthesis-voice           ");
 	printf(_("Set the synthesis voice\n"));
 
+	printf("  -c, --character                 ");
+	printf(_("Speak the character\n"));
+
+	printf("  -k, --key                       ");
+	printf(_("Speak the key\n"));
+
 	printf("  -m, --punctuation-mode          ");
-	printf(_("Set the punctuation mode %s\n"), "(none, some, all)");
+	printf(_("Set the punctuation mode %s\n"), "(none, some, most, all)");
 
 	printf("  -s, --spelling                  ");
 	printf(_("Spell the message\n"));
@@ -247,6 +255,12 @@ int options_parse(int argc, char *argv[])
 		case 'y':
 			OPT_SET_STR(synthesis_voice);
 			break;
+		case 'c':
+			character = 1;
+			break;
+		case 'k':
+			key = 1;
+			break;
 		case 'm':
 			OPT_SET_STR(punctuation_mode);
 			break;
@@ -278,7 +292,7 @@ int options_parse(int argc, char *argv[])
 			cancel_previous = 1;
 			break;
 		case 'v':
-			options_print_version(argv);
+			options_print_version();
 			exit(0);
 			break;
 		case 'h':

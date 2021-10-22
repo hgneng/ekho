@@ -8,7 +8,88 @@ symbols:
 🏽	peau légèrement mate	none
 🏾	peau mate	none
 🏿	peau foncée	none
-⚧	symbole de la communauté transgenre	none
+℗	copyright phonographique	none
+←	flèche vers la gauche	none
+→	flèche vers la droite	none
+↑	flèche vers le haut	none
+↓	flèche vers le bas	none
+⇅	flèches vers le haut et vers le bas	none
+⇆	flèche gauche au-dessus de flèche droite	none
+⇐	flèche double vers la gauche	none
+⇑	flèche double vers le haut	none
+⇒	flèche double vers la droite	none
+⇓	flèche double vers le bas	none
+⇔	flèche double vers la gauche et la droite	none
+⇖	flèche double vers le nord-ouest	none
+⇗	flèche double vers le nord-est	none
+⇘	flèche double vers le sud-est	none
+⇙	flèche double vers le sud-ouest	none
+⇚	flèche triple vers la gauche	none
+⇛	flèche triple vers la droite	none
+⇜	flèche vers la gauche en tire-bouchon	none
+⇝	flèche vers la droite en tire-bouchon	none
+⇦	flèche creuse vers la gauche	none
+⇧	flèche creuse vers le haut	none
+⇨	flèche creuse vers la droite	none
+⇩	flèche creuse vers le bas	none
+∆	incrément	none
+∇	nabla	none
+∈	élément de	none
+≠	non égal	none
+−	signe moins	none
+⁻	exposant moins	none
+√	racine carrée	none
+∞	symbole de l’infini	none
+∩	intersection	none
+∪	union	none
+≅	approximativement égal à	none
+≈	presque égal	none
+≡	identique à	none
+≣	strictement équivalent à	none
+≤	inférieur ou égal	none
+≥	supérieur ou égal	none
+≦	inférieur à sur égal à	none
+≧	supérieur à sur égal à	none
+≪	très inférieur à	none
+≫	très supérieur à	none
+≬	entre	none
+≺	précède	none
+≻	suit	none
+⊁	ne suit pas	none
+⊂	sous-ensemble de	none
+⊃	sur-ensemble de	none
+⊆	sous-ensemble égal à	none
+⊇	sur-ensemble égal à	none
+⊕	plus cerclé	none
+⊖	moins cerclé	none
+⊗	fois cerclé	none
+▲	triangle plein vers le haut	none
+▼	triangle plein vers le bas	none
+◊	losange	none
+○	cercle vide	none
+●	cercle plein	none
+◠	demi-cercle supérieur	none
+◡	demi-cercle inférieur	none
+◢	triangle rectangle inférieur droit plein	none
+◣	triangle rectangle inférieur gauche plein	none
+◤	triangle rectangle supérieur gauche plein	none
+◥	triangle rectangle supérieur droit plein	none
+◦	puce creuse	none
+◯	grand cercle vide	none
+◳	carré creux avec quadrant supérieur droit	none
+◷	cercle creux avec quadrant supérieur droit	none
+◿	triangle rectangle inférieur droit	none
+♪	croche	none
+⨧	signe plus avec indice deux	none
+⨯	produit vectoriel	none
+⨼	produit intérieur	none
+⩣	ou logique à deux barres souscrites	none
+⩽	inférieur à ou égal à incliné	none
+⪍	inférieur à sur similaire ou égal à	none
+⪚	égal en deux lignes ou supérieur à	none
+⪺	suit sur non presque égal à	none
+♭	bémol	none
+♯	dièse	none
 😀	visage rieur	none
 😃	visage souriant avec de grands yeux	none
 😄	visage très souriant aux yeux rieurs	none
@@ -30,6 +111,7 @@ symbols:
 ☺	visage souriant	none
 😚	visage faisant un bisou avec les yeux fermés	none
 😙	visage aux yeux rieurs faisant un bisou	none
+🥲	visage souriant avec une larme	none
 😋	miam	none
 😛	visage qui tire la langue	none
 😜	visage qui tire la langue et fait un clin d’œil	none
@@ -45,10 +127,12 @@ symbols:
 😐	visage neutre	none
 😑	visage sans expression	none
 😶	visage sans bouche	none
+😶‍🌫	visage dans les nuages	none
 😏	visage avec un sourire malin	none
 😒	visage blasé	none
 🙄	visage roulant des yeux	none
 😬	visage grimaçant	none
+😮‍💨	visage expirant	none
 🤥	visage de menteur	none
 😌	visage soulagé	none
 😔	visage pensif	none
@@ -65,9 +149,11 @@ symbols:
 🥶	visage bleu et froid	none
 🥴	visage éméché	none
 😵	visage étourdi	none
+😵‍💫	visage aux yeux en spirales	none
 🤯	tête qui explose	none
 🤠	visage avec chapeau de cowboy	none
 🥳	visage festif	none
+🥸	visage déguisé	none
 😎	visage avec lunettes de soleil	none
 🤓	visage de geek	none
 🧐	visage avec un monocle	none
@@ -135,6 +221,8 @@ symbols:
 💟	décoration avec cœur	none
 ❣	cœur point d’exclamation	none
 💔	cœur brisé	none
+❤‍🔥	cœur enflammé	none
+❤‍🩹	cœur avec bandages	none
 ❤	cœur rouge	none
 🧡	cœur orange	none
 💛	cœur jaune	none
@@ -164,6 +252,7 @@ symbols:
 ✋	main levée	none
 🖖	salut vulcain	none
 👌	ok	none
+🤌	bout des doigts joints	none
 🤏	pouce et index rapprochés	none
 ✌	V de la victoire	none
 🤞	doigts croisés	none
@@ -200,6 +289,8 @@ symbols:
 🦻	oreille appareillée	none
 👃	nez	none
 🧠	cerveau	none
+🫀	cœur	none
+🫁	poumons	none
 🦷	dent	none
 🦴	os	none
 👀	yeux	none
@@ -213,9 +304,11 @@ symbols:
 🧑	adulte	none
 👱	personne blonde	none
 👨	homme	none
-🧔	homme barbu	none
+🧔	personne barbue	none
+🧔‍♂	homme barbu	none
 👱‍♂	homme blond	none
 👩	femme	none
+🧔‍♀	femme barbue	none
 👱‍♀	femme blonde	none
 🧓	personne âgée	none
 👴	homme âgé	none
@@ -307,6 +400,7 @@ symbols:
 💂	garde	none
 💂‍♂	garde homme	none
 💂‍♀	garde femme	none
+🥷	ninja	none
 👷	personnel du bâtiment	none
 👷‍♂	ouvrier du bâtiment	none
 👷‍♀	ouvrière du bâtiment	none
@@ -317,13 +411,21 @@ symbols:
 👳‍♀	femme en turban	none
 👲	homme avec casquette chinoise	none
 🧕	femme avec foulard	none
-🤵	homme en smoking	none
-👰	mariée avec voile	none
+🤵	personne en smoking	none
+🤵‍♂	homme en smoking	none
+🤵‍♀	femme en smoking	none
+👰	personne mariée avec voile	none
+👰‍♂	homme avec voile	none
+👰‍♀	femme avec voile	none
 🤰	femme enceinte	none
 🤱	allaitement	none
+👩‍🍼	femme allaitant un bébé	none
+👨‍🍼	homme allaitant un bébé	none
+🧑‍🍼	personne allaitant un bébé	none
 👼	bébé ange	none
 🎅	père Noël	none
 🤶	mère Noël	none
+🧑‍🎄	santa	none
 🦸	super-héros	none
 🦸‍♂	super-héros homme	none
 🦸‍♀	super-héroïne	none
@@ -448,6 +550,7 @@ symbols:
 🗣	tête qui parle	none
 👤	silhouette de buste	none
 👥	silhouettes de bustes	none
+🫂	étreinte	none
 👣	traces de pas	none
 🦰	cheveux roux	none
 🦱	cheveux bouclés	none
@@ -467,6 +570,7 @@ symbols:
 🦝	raton laveur	none
 🐱	tête de chat	none
 🐈	chat	none
+🐈‍⬛	chat noir	none
 🦁	tête de lion	none
 🐯	tête de tigre	none
 🐅	tigre	none
@@ -476,6 +580,7 @@ symbols:
 🦄	licorne	none
 🦓	zèbre	none
 🦌	cerf	none
+🦬	bison	none
 🐮	tête de vache	none
 🐂	bœuf	none
 🐃	buffle	none
@@ -492,6 +597,7 @@ symbols:
 🦙	lama	none
 🦒	girafe	none
 🐘	éléphant	none
+🦣	mammouth	none
 🦏	rhinocéros	none
 🦛	hippopotame	none
 🐭	tête de souris	none
@@ -501,9 +607,11 @@ symbols:
 🐰	tête de lapin	none
 🐇	lapin	none
 🐿	écureuil	none
+🦫	castor	none
 🦔	hérisson	none
 🦇	chauve-souris	none
 🐻	ours	none
+🐻‍❄	ours polaire	none
 🐨	koala	none
 🐼	panda	none
 🦥	paresseux	none
@@ -525,6 +633,8 @@ symbols:
 🦆	canard	none
 🦢	cygne	none
 🦉	chouette	none
+🦤	dodo	none
+🪶	plume	none
 🦩	flamant	none
 🦚	paon	none
 🦜	perroquet	none
@@ -540,6 +650,7 @@ symbols:
 🐳	baleine soufflant par son évent	none
 🐋	baleine	none
 🐬	dauphin	none
+🦭	phoque	none
 🐟	poisson	none
 🐠	poisson tropical	none
 🐡	poisson-lune	none
@@ -551,12 +662,16 @@ symbols:
 🐛	chenille	none
 🐜	fourmi	none
 🐝	abeille	none
+🪲	scarabée	none
 🐞	coccinelle	none
 🦗	criquet	none
+🪳	cafard	none
 🕷	araignée	none
 🕸	toile d’araignée	none
 🦂	scorpion	none
 🦟	moustique	none
+🪰	mouche	none
+🪱	lombric	none
 🦠	microbe	none
 💐	bouquet	none
 🌸	fleur de cerisier	none
@@ -569,6 +684,7 @@ symbols:
 🌼	bourgeon	none
 🌷	tulipe	none
 🌱	jeune pousse	none
+🪴	plante en pot	none
 🌲	conifère	none
 🌳	arbre à feuilles caduques	none
 🌴	palmier	none
@@ -594,8 +710,10 @@ symbols:
 🍑	pêche	none
 🍒	cerises	none
 🍓	fraise	none
+🫐	myrtilles	none
 🥝	kiwi	none
 🍅	tomate	none
+🫒	olive	none
 🥥	noix de coco	none
 🥑	avocat	none
 🍆	aubergine	none
@@ -603,9 +721,10 @@ symbols:
 🥕	carotte	none
 🌽	épi de maïs	none
 🌶	piment rouge	none
+🫑	poivron	none
 🥒	concombre	none
 🥬	légume à feuilles vertes	none
-🥦	broccoli	none
+🥦	brocoli	none
 🧄	ail	none
 🧅	oignon	none
 🍄	champignon	none
@@ -614,6 +733,7 @@ symbols:
 🍞	pain	none
 🥐	croissant	none
 🥖	baguette	none
+🫓	galette	none
 🥨	bretzel	none
 🥯	bagel	none
 🥞	pancakes	none
@@ -630,12 +750,14 @@ symbols:
 🥪	sandwich	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamal	none
 🥙	kebab	none
 🧆	falafels	none
 🥚	œuf	none
 🍳	œuf au plat	none
 🥘	plat mitonné	none
 🍲	marmite	none
+🫕	fondue	none
 🥣	bol avec cuillère	none
 🥗	salade verte	none
 🍿	pop-corn	none
@@ -681,6 +803,7 @@ symbols:
 🍼	biberon	none
 🥛	verre de lait	none
 ☕	boisson chaude	none
+🫖	théière	none
 🍵	tasse	none
 🍶	saké	none
 🍾	bouteille de champagne	none
@@ -692,6 +815,7 @@ symbols:
 🥂	trinquer	none
 🥃	verre tumbler	none
 🥤	gobelet avec paille	none
+🧋	thé aux perles	none
 🧃	briquette de jus	none
 🧉	maté	none
 🧊	glaçon	none
@@ -721,9 +845,12 @@ symbols:
 🏛	monument classique	none
 🏗	construction d’un bâtiment	none
 🧱	brique	none
+🪨	rocher	none
+🪵	bois	none
+🛖	hutte	none
 🏘	maisons	none
 🏚	maison abandonnée	none
-🏠	pavillon	none
+🏠	maison	none
 🏡	maison avec jardin	none
 🏢	immeuble de bureaux	none
 🏣	bureau de poste japonais	none
@@ -788,6 +915,7 @@ symbols:
 🚗	voiture	none
 🚘	voiture de face	none
 🚙	véhicule utilitaire sport	none
+🛻	pick-up	none
 🚚	camion de livraison	none
 🚛	semi-remorque	none
 🚜	tracteur	none
@@ -800,6 +928,7 @@ symbols:
 🚲	vélo	none
 🛴	trottinette	none
 🛹	planche à roulettes	none
+🛼	patin à roulettes	none
 🚏	arrêt de bus	none
 🛣	autoroute	none
 🛤	voie ferrée	none
@@ -903,7 +1032,7 @@ symbols:
 ☂	parapluie ouvert	none
 ☔	parapluie avec gouttes de pluie	none
 ⛱	parasol sur le sol	none
-⚡	symbole de haute tension	none
+⚡	haute tension	none
 ❄	flocon	none
 ☃	bonhomme de neige	none
 ⛄	bonhomme de neige sans neige	none
@@ -946,7 +1075,7 @@ symbols:
 🏈	football américain	none
 🏉	rugby	none
 🎾	tennis	none
-🥏	disque-volant	none
+🥏	disque volant	none
 🎳	bowling	none
 🏏	cricket	none
 🏑	hockey sur gazon	none
@@ -968,8 +1097,9 @@ symbols:
 🎯	dans le mille	none
 🪀	yoyo	none
 🪁	cerf-volant	none
-🎱	billard	none
+🎱	boule de billard	none
 🔮	boule de cristal	none
+🪄	baguette magique	none
 🧿	mauvais œil	none
 🎮	jeu vidéo	none
 🕹	manette de jeu	none
@@ -977,6 +1107,8 @@ symbols:
 🎲	dés	none
 🧩	pièce de puzzle	none
 🧸	ours en peluche	none
+🪅	piñata	none
+🪆	poupées russes	none
 ♠	pique	none
 ♥	cœur cartes	none
 ♦	carreau	none
@@ -989,7 +1121,9 @@ symbols:
 🖼	cadre avec image	none
 🎨	palette de peinture	none
 🧵	bobine de fil	none
+🪡	aiguille à coudre	none
 🧶	fil	none
+🪢	nœud	none
 👓	lunettes de vue	none
 🕶	lunettes de soleil	none
 🥽	lunettes	none
@@ -1015,6 +1149,7 @@ symbols:
 👝	pochette	none
 🛍	sacs de shopping	none
 🎒	cartable	none
+🩴	tong	none
 👞	chaussure d’homme	none
 👟	chaussure de sport	none
 🥾	chaussure de randonnée	none
@@ -1028,6 +1163,7 @@ symbols:
 🎩	haut de forme	none
 🎓	toque universitaire	none
 🧢	casquette américaine	none
+🪖	casque militaire	none
 ⛑	casque de secouriste	none
 📿	chapelet	none
 💄	rouge à lèvres	none
@@ -1052,12 +1188,14 @@ symbols:
 🎧	casque	none
 📻	radio	none
 🎷	saxophone	none
+🪗	accordéon	none
 🎸	guitare	none
 🎹	piano	none
 🎺	trompette	none
 🎻	violon	none
 🪕	banjo	none
 🥁	batterie	none
+🪘	djembé	none
 📱	téléphone portable	none
 📲	appel entrant	none
 ☎	téléphone	none
@@ -1111,6 +1249,7 @@ symbols:
 🔖	marque-page	none
 🏷	étiquette	none
 💰	sac plein d’argent	none
+🪙	pièce	none
 💴	billet en yens	none
 💵	billet en dollars	none
 💶	billet en euros	none
@@ -1119,8 +1258,6 @@ symbols:
 💳	carte bancaire	none
 🧾	reçu	none
 💹	courbe avec yen en hausse	none
-💱	conversion de devise	none
-💲	dollar	none
 ✉	enveloppe	none
 📧	e-mail	none
 📨	message reçu	none
@@ -1177,10 +1314,13 @@ symbols:
 🛠	marteau et clé à molette	none
 🗡	dague	none
 ⚔	épées croisées	none
-🔫	pistolet	none
+🔫	pistolet à eau	none
+🪃	boomerang	none
 🏹	arc et flèche	none
 🛡	bouclier	none
+🪚	scie	none
 🔧	clé à molette	none
+🪛	tournevis	none
 🔩	vis et écrou	none
 ⚙	roue dentée	none
 🗜	serre-joint	none
@@ -1188,8 +1328,10 @@ symbols:
 🦯	canne blanche	none
 🔗	chaînons	none
 ⛓	chaînes	none
+🪝	crochet	none
 🧰	boîte à outils	none
 🧲	aimant	none
+🪜	échelle	none
 ⚗	alambic	none
 🧪	tube à essai	none
 🧫	boîte de pétri	none
@@ -1203,26 +1345,35 @@ symbols:
 🩹	sparadrap	none
 🩺	stéthoscope	none
 🚪	porte	none
+🛗	ascenseur	none
+🪞	miroir	none
+🪟	fenêtre	none
 🛏	lit	none
 🛋	canapé et lampe	none
 🪑	chaise	none
 🚽	toilettes	none
+🪠	ventouse	none
 🚿	douche	none
 🛁	baignoire	none
+🪤	tapette à souris	none
 🪒	rasoir	none
 🧴	bouteille de lotion	none
 🧷	épingle de sûreté	none
 🧹	balai	none
 🧺	panier	none
 🧻	rouleau de papier	none
+🪣	seau	none
 🧼	savon	none
+🪥	brosse à dents	none
 🧽	éponge	none
 🧯	extincteur	none
 🛒	chariot	none
 🚬	cigarette	none
 ⚰	cercueil	none
+🪦	pierre tombale	none
 ⚱	urne funéraire	none
 🗿	moai	none
+🪧	pancarte	none
 🏧	distributeur de billets	none
 🚮	icône Poubelle	none
 🚰	eau potable	none
@@ -1306,9 +1457,9 @@ symbols:
 ⏪	bouton retour rapide	none
 ⏮	bouton piste précédente	none
 🔼	petit triangle haut	none
-⏫	flèche vers le haut	none
+⏫	double flèche vers le haut	none
 🔽	petit triangle bas	none
-⏬	flèche vers le bas	none
+⏬	double flèche vers le bas	none
 ⏸	bouton pause	none
 ⏹	bouton stop	none
 ⏺	bouton enregistrer	none
@@ -1321,8 +1472,19 @@ symbols:
 📴	téléphone éteint	none
 ♀	symbole de la femme	none
 ♂	symbole de l’homme	none
-⚕	caducée	none
+⚧	symbole de la communauté transgenre	none
+✖	signe multiplier	none
+➕	plus	none
+➖	moins	none
+➗	signe diviser	none
 ♾	infini	none
+❓	point d’interrogation rouge	none
+❔	point d’interrogation blanc	none
+❕	point d’exclamation blanc	none
+❗	point d’exclamation rouge	none
+💱	conversion de devise	none
+💲	symbole dollar	none
+⚕	caducée	none
 ♻	symbole Recyclage	none
 ⚜	fleur de lys	none
 🔱	trident	none
@@ -1332,27 +1494,13 @@ symbols:
 ✅	bouton coché	none
 ☑	case cochée	none
 ✔	coche	none
-✖	signe multiplier	none
 ❌	croix	none
 ❎	bouton croix	none
-➕	signe plus	none
-➖	signe moins	none
-➗	signe diviser	none
 ➰	boucle	none
 ➿	double boucle	none
-〽	alternance	none
 ✳	astérisque huit branches	none
 ✴	étoile huit branches	none
 ❇	éclat	none
-‼	double point d’exclamation	none
-⁉	points d’exclamation et d’interrogation	none
-❓	point d’interrogation	none
-❔	point d’interrogation blanc	none
-❕	point d’exclamation blanc	none
-❗	point d’exclamation	none
-〰	ligne ondulée	none
-©	symbole copyright	none
-®	marque déposée	none
 ™	marque commerciale déposée	none
 🔠	majuscules	none
 🔡	minuscules	none
@@ -1376,23 +1524,6 @@ symbols:
 🆘	bouton SOS	none
 🆙	bouton Vers le haut	none
 🆚	bouton VS	none
-🈁	bouton ici en japonais	none
-🈂	bouton frais de service en japonais	none
-🈷	bouton montant mensuel en japonais	none
-🈶	bouton pas gratuit en japonais	none
-🈯	bouton réservé en japonais	none
-🉐	bouton bonne affaire en japonais	none
-🈹	bouton réduction en japonais	none
-🈚	bouton gratuit en japonais	none
-🈲	bouton interdit en japonais	none
-🉑	bouton accepter en japonais	none
-🈸	bouton application en japonais	none
-🈴	bouton note pour réussir en japonais	none
-🈳	bouton chambres disponibles en japonais	none
-㊗	bouton félicitations en japonais	none
-㊙	bouton secret en japonais	none
-🈺	bouton ouvert pour affaires en japonais	none
-🈵	bouton complet en japonais	none
 🔴	disque rouge	none
 🟠	disque orange	none
 🟡	disque jaune	none
@@ -1432,64 +1563,24 @@ symbols:
 🎌	drapeaux croisés	none
 🏴	drapeau noir	none
 🏳	drapeau blanc	none
-🏳‍⚧	drapeau transgenre	none
 🏳‍🌈	drapeau arc-en-ciel	none
+🏳‍⚧	drapeau transgenre	none
 🏴‍☠	drapeau de pirate	none
-🛖	hutte	none
-🛗	ascenseur	none
-🛻	pick-up	none
-🛼	patin à roulettes	none
-🤌	bout des doigts joints	none
-🥲	Visage souriant avec une larme	none
-🥷	ninja	none
-🥸	visage déguisé	none
-🦣	mammouth	none
-🦤	dodo	none
-🦫	castor	none
-🦬	bison	none
-🦭	phoque	none
-🧋	thé aux perles	none
-🩴	tong	none
-🪃	boomerang	none
-🪄	baguette magique	none
-🪅	piñata	none
-🪆	poupées russes	none
-🪖	casque militaire	none
-🪗	accordéon	none
-🪘	djembé	none
-🪙	pièce	none
-🪚	scie	none
-🪛	tournevis	none
-🪜	échelle	none
-🪝	crochet	none
-🪞	miroir	none
-🪟	fenêtre	none
-🪠	ventouse	none
-🪡	aiguille à coudre	none
-🪢	nœud	none
-🪣	seau	none
-🪤	tapette à souris	none
-🪥	brosse à dents	none
-🪦	pierre tombale	none
-🪧	pancarte	none
-🪨	rocher	none
-🪰	mouche	none
-🪱	lombric	none
-🪲	scarabée	none
-🪳	cafard	none
-🪴	plante en pot	none
-🪵	bois	none
-🪶	plume	none
-🫀	cœur	none
-🫁	poumons	none
-🫂	étreinte	none
-🫐	myrtilles	none
-🫑	poivron	none
-🫒	olive	none
-🫓	galette	none
-🫔	tamal	none
-🫕	fondue	none
-🫖	théière	none
+₢	cruzeiro	none
+₣	franc français	none
+₤	lire	none
+₥	mill	none
+₩	won	none
+€	euro	none
+₰	penny allemand	none
+₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
+₹	roupie indienne	none
+₽	rouble	none
+₿	bitcoin	none
+₨	roupie	none
 👋🏻	signe de la main  peau claire	none
 👋🏼	signe de la main  peau moyennement claire	none
 👋🏽	signe de la main  peau légèrement mate	none
@@ -1520,6 +1611,11 @@ symbols:
 👌🏽	ok  peau légèrement mate	none
 👌🏾	ok  peau mate	none
 👌🏿	ok  peau foncée	none
+🤌🏻	bout des doigts joints  peau claire	none
+🤌🏼	bout des doigts joints  peau moyennement claire	none
+🤌🏽	bout des doigts joints  peau légèrement mate	none
+🤌🏾	bout des doigts joints  peau mate	none
+🤌🏿	bout des doigts joints  peau foncée	none
 🤏🏻	pouce et index rapprochés  peau claire	none
 🤏🏼	pouce et index rapprochés  peau moyennement claire	none
 🤏🏽	pouce et index rapprochés  peau légèrement mate	none
@@ -1710,6 +1806,46 @@ symbols:
 👱🏽	personne blonde  peau légèrement mate	none
 👱🏾	personne blonde  peau mate	none
 👱🏿	personne blonde  peau foncée	none
+🧑🏻‍❤‍💋‍🧑🏼	bisou  adulte, adulte, peau claire et peau moyennement claire	none
+🧑🏻‍❤‍💋‍🧑🏽	bisou  adulte, adulte, peau claire et peau légèrement mate	none
+🧑🏻‍❤‍💋‍🧑🏾	bisou  adulte, adulte, peau claire et peau mate	none
+🧑🏻‍❤‍💋‍🧑🏿	bisou  adulte, adulte, peau claire et peau foncée	none
+🧑🏼‍❤‍💋‍🧑🏻	bisou  adulte, adulte, peau moyennement claire et peau claire	none
+🧑🏼‍❤‍💋‍🧑🏽	bisou  adulte, adulte, peau moyennement claire et peau légèrement mate	none
+🧑🏼‍❤‍💋‍🧑🏾	bisou  adulte, adulte, peau moyennement claire et peau mate	none
+🧑🏼‍❤‍💋‍🧑🏿	bisou  adulte, adulte, peau moyennement claire et peau foncée	none
+🧑🏽‍❤‍💋‍🧑🏻	bisou  adulte, adulte, peau légèrement mate et peau claire	none
+🧑🏽‍❤‍💋‍🧑🏼	bisou  adulte, adulte, peau légèrement mate et peau moyennement claire	none
+🧑🏽‍❤‍💋‍🧑🏾	bisou  adulte, adulte, peau légèrement mate et peau mate	none
+🧑🏽‍❤‍💋‍🧑🏿	bisou  adulte, adulte, peau légèrement mate et peau foncée	none
+🧑🏾‍❤‍💋‍🧑🏻	bisou  adulte, adulte, peau mate et peau claire	none
+🧑🏾‍❤‍💋‍🧑🏼	bisou  adulte, adulte, peau mate et peau moyennement claire	none
+🧑🏾‍❤‍💋‍🧑🏽	bisou  adulte, adulte, peau mate et peau légèrement mate	none
+🧑🏾‍❤‍💋‍🧑🏿	bisou  adulte, adulte, peau mate et peau foncée	none
+🧑🏿‍❤‍💋‍🧑🏻	bisou  adulte, adulte, peau foncée et peau claire	none
+🧑🏿‍❤‍💋‍🧑🏼	bisou  adulte, adulte, peau foncée et peau moyennement claire	none
+🧑🏿‍❤‍💋‍🧑🏽	bisou  adulte, adulte, peau foncée et peau légèrement mate	none
+🧑🏿‍❤‍💋‍🧑🏾	bisou  adulte, adulte, peau foncée et peau mate	none
+🧑🏻‍❤‍🧑🏼	couple avec cœur  adulte, adulte, peau claire et peau moyennement claire	none
+🧑🏻‍❤‍🧑🏽	couple avec cœur  adulte, adulte, peau claire et peau légèrement mate	none
+🧑🏻‍❤‍🧑🏾	couple avec cœur  adulte, adulte, peau claire et peau mate	none
+🧑🏻‍❤‍🧑🏿	couple avec cœur  adulte, adulte, peau claire et peau foncée	none
+🧑🏼‍❤‍🧑🏻	couple avec cœur  adulte, adulte, peau moyennement claire et peau claire	none
+🧑🏼‍❤‍🧑🏽	couple avec cœur  adulte, adulte, peau moyennement claire et peau légèrement mate	none
+🧑🏼‍❤‍🧑🏾	couple avec cœur  adulte, adulte, peau moyennement claire et peau mate	none
+🧑🏼‍❤‍🧑🏿	couple avec cœur  adulte, adulte, peau moyennement claire et peau foncée	none
+🧑🏽‍❤‍🧑🏻	couple avec cœur  adulte, adulte, peau légèrement mate et peau claire	none
+🧑🏽‍❤‍🧑🏼	couple avec cœur  adulte, adulte, peau légèrement mate et peau moyennement claire	none
+🧑🏽‍❤‍🧑🏾	couple avec cœur  adulte, adulte, peau légèrement mate et peau mate	none
+🧑🏽‍❤‍🧑🏿	couple avec cœur  adulte, adulte, peau légèrement mate et peau foncée	none
+🧑🏾‍❤‍🧑🏻	couple avec cœur  adulte, adulte, peau mate et peau claire	none
+🧑🏾‍❤‍🧑🏼	couple avec cœur  adulte, adulte, peau mate et peau moyennement claire	none
+🧑🏾‍❤‍🧑🏽	couple avec cœur  adulte, adulte, peau mate et peau légèrement mate	none
+🧑🏾‍❤‍🧑🏿	couple avec cœur  adulte, adulte, peau mate et peau foncée	none
+🧑🏿‍❤‍🧑🏻	couple avec cœur  adulte, adulte, peau foncée et peau claire	none
+🧑🏿‍❤‍🧑🏼	couple avec cœur  adulte, adulte, peau foncée et peau moyennement claire	none
+🧑🏿‍❤‍🧑🏽	couple avec cœur  adulte, adulte, peau foncée et peau légèrement mate	none
+🧑🏿‍❤‍🧑🏾	couple avec cœur  adulte, adulte, peau foncée et peau mate	none
 🧑‍🦰	adulte  cheveux roux	none
 🧑🏻‍🦰	adulte  peau claire et cheveux roux	none
 🧑🏼‍🦰	adulte  peau moyennement claire et cheveux roux	none
@@ -1739,16 +1875,71 @@ symbols:
 👨🏽	homme  peau légèrement mate	none
 👨🏾	homme  peau mate	none
 👨🏿	homme  peau foncée	none
-🧔🏻	homme barbu  peau claire	none
-🧔🏼	homme barbu  peau moyennement claire	none
-🧔🏽	homme barbu  peau légèrement mate	none
-🧔🏾	homme barbu  peau mate	none
-🧔🏿	homme barbu  peau foncée	none
+🧔🏻	personne barbue  peau claire	none
+🧔🏼	personne barbue  peau moyennement claire	none
+🧔🏽	personne barbue  peau légèrement mate	none
+🧔🏾	personne barbue  peau mate	none
+🧔🏿	personne barbue  peau foncée	none
+🧔🏻‍♂	homme barbu  peau claire	none
+🧔🏼‍♂	homme barbu  peau moyennement claire	none
+🧔🏽‍♂	homme barbu  peau légèrement mate	none
+🧔🏾‍♂	homme barbu  peau mate	none
+🧔🏿‍♂	homme barbu  peau foncée	none
 👱🏻‍♂	homme blond  peau claire	none
 👱🏼‍♂	homme blond  peau moyennement claire	none
 👱🏽‍♂	homme blond  peau légèrement mate	none
 👱🏾‍♂	homme blond  peau mate	none
 👱🏿‍♂	homme blond  peau foncée	none
+👨🏻‍❤‍💋‍👨🏻	bisou  homme, homme et peau claire	none
+👨🏻‍❤‍💋‍👨🏼	bisou  homme, homme, peau claire et peau moyennement claire	none
+👨🏻‍❤‍💋‍👨🏽	bisou  homme, homme, peau claire et peau légèrement mate	none
+👨🏻‍❤‍💋‍👨🏾	bisou  homme, homme, peau claire et peau mate	none
+👨🏻‍❤‍💋‍👨🏿	bisou  homme, homme, peau claire et peau foncée	none
+👨🏼‍❤‍💋‍👨🏻	bisou  homme, homme, peau moyennement claire et peau claire	none
+👨🏼‍❤‍💋‍👨🏼	bisou  homme, homme et peau moyennement claire	none
+👨🏼‍❤‍💋‍👨🏽	bisou  homme, homme, peau moyennement claire et peau légèrement mate	none
+👨🏼‍❤‍💋‍👨🏾	bisou  homme, homme, peau moyennement claire et peau mate	none
+👨🏼‍❤‍💋‍👨🏿	bisou  homme, homme, peau moyennement claire et peau foncée	none
+👨🏽‍❤‍💋‍👨🏻	bisou  homme, homme, peau légèrement mate et peau claire	none
+👨🏽‍❤‍💋‍👨🏼	bisou  homme, homme, peau légèrement mate et peau moyennement claire	none
+👨🏽‍❤‍💋‍👨🏽	bisou  homme, homme et peau légèrement mate	none
+👨🏽‍❤‍💋‍👨🏾	bisou  homme, homme, peau légèrement mate et peau mate	none
+👨🏽‍❤‍💋‍👨🏿	bisou  homme, homme, peau légèrement mate et peau foncée	none
+👨🏾‍❤‍💋‍👨🏻	bisou  homme, homme, peau mate et peau claire	none
+👨🏾‍❤‍💋‍👨🏼	bisou  homme, homme, peau mate et peau moyennement claire	none
+👨🏾‍❤‍💋‍👨🏽	bisou  homme, homme, peau mate et peau légèrement mate	none
+👨🏾‍❤‍💋‍👨🏾	bisou  homme, homme et peau mate	none
+👨🏾‍❤‍💋‍👨🏿	bisou  homme, homme, peau mate et peau foncée	none
+👨🏿‍❤‍💋‍👨🏻	bisou  homme, homme, peau foncée et peau claire	none
+👨🏿‍❤‍💋‍👨🏼	bisou  homme, homme, peau foncée et peau moyennement claire	none
+👨🏿‍❤‍💋‍👨🏽	bisou  homme, homme, peau foncée et peau légèrement mate	none
+👨🏿‍❤‍💋‍👨🏾	bisou  homme, homme, peau foncée et peau mate	none
+👨🏿‍❤‍💋‍👨🏿	bisou  homme, homme et peau foncée	none
+👨🏻‍❤‍👨🏻	couple avec cœur  homme, homme et peau claire	none
+👨🏻‍❤‍👨🏼	couple avec cœur  homme, homme, peau claire et peau moyennement claire	none
+👨🏻‍❤‍👨🏽	couple avec cœur  homme, homme, peau claire et peau légèrement mate	none
+👨🏻‍❤‍👨🏾	couple avec cœur  homme, homme, peau claire et peau mate	none
+👨🏻‍❤‍👨🏿	couple avec cœur  homme, homme, peau claire et peau foncée	none
+👨🏼‍❤‍👨🏻	couple avec cœur  homme, homme, peau moyennement claire et peau claire	none
+👨🏼‍❤‍👨🏼	couple avec cœur  homme, homme et peau moyennement claire	none
+👨🏼‍❤‍👨🏽	couple avec cœur  homme, homme, peau moyennement claire et peau légèrement mate	none
+👨🏼‍❤‍👨🏾	couple avec cœur  homme, homme, peau moyennement claire et peau mate	none
+👨🏼‍❤‍👨🏿	couple avec cœur  homme, homme, peau moyennement claire et peau foncée	none
+👨🏽‍❤‍👨🏻	couple avec cœur  homme, homme, peau légèrement mate et peau claire	none
+👨🏽‍❤‍👨🏼	couple avec cœur  homme, homme, peau légèrement mate et peau moyennement claire	none
+👨🏽‍❤‍👨🏽	couple avec cœur  homme, homme et peau légèrement mate	none
+👨🏽‍❤‍👨🏾	couple avec cœur  homme, homme, peau légèrement mate et peau mate	none
+👨🏽‍❤‍👨🏿	couple avec cœur  homme, homme, peau légèrement mate et peau foncée	none
+👨🏾‍❤‍👨🏻	couple avec cœur  homme, homme, peau mate et peau claire	none
+👨🏾‍❤‍👨🏼	couple avec cœur  homme, homme, peau mate et peau moyennement claire	none
+👨🏾‍❤‍👨🏽	couple avec cœur  homme, homme, peau mate et peau légèrement mate	none
+👨🏾‍❤‍👨🏾	couple avec cœur  homme, homme et peau mate	none
+👨🏾‍❤‍👨🏿	couple avec cœur  homme, homme, peau mate et peau foncée	none
+👨🏿‍❤‍👨🏻	couple avec cœur  homme, homme, peau foncée et peau claire	none
+👨🏿‍❤‍👨🏼	couple avec cœur  homme, homme, peau foncée et peau moyennement claire	none
+👨🏿‍❤‍👨🏽	couple avec cœur  homme, homme, peau foncée et peau légèrement mate	none
+👨🏿‍❤‍👨🏾	couple avec cœur  homme, homme, peau foncée et peau mate	none
+👨🏿‍❤‍👨🏿	couple avec cœur  homme, homme et peau foncée	none
 👨‍🦰	homme  cheveux roux	none
 👨🏻‍🦰	homme  peau claire et cheveux roux	none
 👨🏼‍🦰	homme  peau moyennement claire et cheveux roux	none
@@ -1778,11 +1969,116 @@ symbols:
 👩🏽	femme  peau légèrement mate	none
 👩🏾	femme  peau mate	none
 👩🏿	femme  peau foncée	none
+🧔🏻‍♀	femme barbue  peau claire	none
+🧔🏼‍♀	femme barbue  peau moyennement claire	none
+🧔🏽‍♀	femme barbue  peau légèrement mate	none
+🧔🏾‍♀	femme barbue  peau mate	none
+🧔🏿‍♀	femme barbue  peau foncée	none
 👱🏻‍♀	femme blonde  peau claire	none
 👱🏼‍♀	femme blonde  peau moyennement claire	none
 👱🏽‍♀	femme blonde  peau légèrement mate	none
 👱🏾‍♀	femme blonde  peau mate	none
 👱🏿‍♀	femme blonde  peau foncée	none
+👩🏻‍❤‍💋‍👨🏻	bisou  femme, homme et peau claire	none
+👩🏻‍❤‍💋‍👨🏼	bisou  femme, homme, peau claire et peau moyennement claire	none
+👩🏻‍❤‍💋‍👨🏽	bisou  femme, homme, peau claire et peau légèrement mate	none
+👩🏻‍❤‍💋‍👨🏾	bisou  femme, homme, peau claire et peau mate	none
+👩🏻‍❤‍💋‍👨🏿	bisou  femme, homme, peau claire et peau foncée	none
+👩🏼‍❤‍💋‍👨🏻	bisou  femme, homme, peau moyennement claire et peau claire	none
+👩🏼‍❤‍💋‍👨🏼	bisou  femme, homme et peau moyennement claire	none
+👩🏼‍❤‍💋‍👨🏽	bisou  femme, homme, peau moyennement claire et peau légèrement mate	none
+👩🏼‍❤‍💋‍👨🏾	bisou  femme, homme, peau moyennement claire et peau mate	none
+👩🏼‍❤‍💋‍👨🏿	bisou  femme, homme, peau moyennement claire et peau foncée	none
+👩🏽‍❤‍💋‍👨🏻	bisou  femme, homme, peau légèrement mate et peau claire	none
+👩🏽‍❤‍💋‍👨🏼	bisou  femme, homme, peau légèrement mate et peau moyennement claire	none
+👩🏽‍❤‍💋‍👨🏽	bisou  femme, homme et peau légèrement mate	none
+👩🏽‍❤‍💋‍👨🏾	bisou  femme, homme, peau légèrement mate et peau mate	none
+👩🏽‍❤‍💋‍👨🏿	bisou  femme, homme, peau légèrement mate et peau foncée	none
+👩🏾‍❤‍💋‍👨🏻	bisou  femme, homme, peau mate et peau claire	none
+👩🏾‍❤‍💋‍👨🏼	bisou  femme, homme, peau mate et peau moyennement claire	none
+👩🏾‍❤‍💋‍👨🏽	bisou  femme, homme, peau mate et peau légèrement mate	none
+👩🏾‍❤‍💋‍👨🏾	bisou  femme, homme et peau mate	none
+👩🏾‍❤‍💋‍👨🏿	bisou  femme, homme, peau mate et peau foncée	none
+👩🏿‍❤‍💋‍👨🏻	bisou  femme, homme, peau foncée et peau claire	none
+👩🏿‍❤‍💋‍👨🏼	bisou  femme, homme, peau foncée et peau moyennement claire	none
+👩🏿‍❤‍💋‍👨🏽	bisou  femme, homme, peau foncée et peau légèrement mate	none
+👩🏿‍❤‍💋‍👨🏾	bisou  femme, homme, peau foncée et peau mate	none
+👩🏿‍❤‍💋‍👨🏿	bisou  femme, homme et peau foncée	none
+👩🏻‍❤‍💋‍👩🏻	bisou  femme, femme et peau claire	none
+👩🏻‍❤‍💋‍👩🏼	bisou  femme, femme, peau claire et peau moyennement claire	none
+👩🏻‍❤‍💋‍👩🏽	bisou  femme, femme, peau claire et peau légèrement mate	none
+👩🏻‍❤‍💋‍👩🏾	bisou  femme, femme, peau claire et peau mate	none
+👩🏻‍❤‍💋‍👩🏿	bisou  femme, femme, peau claire et peau foncée	none
+👩🏼‍❤‍💋‍👩🏻	bisou  femme, femme, peau moyennement claire et peau claire	none
+👩🏼‍❤‍💋‍👩🏼	bisou  femme, femme et peau moyennement claire	none
+👩🏼‍❤‍💋‍👩🏽	bisou  femme, femme, peau moyennement claire et peau légèrement mate	none
+👩🏼‍❤‍💋‍👩🏾	bisou  femme, femme, peau moyennement claire et peau mate	none
+👩🏼‍❤‍💋‍👩🏿	bisou  femme, femme, peau moyennement claire et peau foncée	none
+👩🏽‍❤‍💋‍👩🏻	bisou  femme, femme, peau légèrement mate et peau claire	none
+👩🏽‍❤‍💋‍👩🏼	bisou  femme, femme, peau légèrement mate et peau moyennement claire	none
+👩🏽‍❤‍💋‍👩🏽	bisou  femme, femme et peau légèrement mate	none
+👩🏽‍❤‍💋‍👩🏾	bisou  femme, femme, peau légèrement mate et peau mate	none
+👩🏽‍❤‍💋‍👩🏿	bisou  femme, femme, peau légèrement mate et peau foncée	none
+👩🏾‍❤‍💋‍👩🏻	bisou  femme, femme, peau mate et peau claire	none
+👩🏾‍❤‍💋‍👩🏼	bisou  femme, femme, peau mate et peau moyennement claire	none
+👩🏾‍❤‍💋‍👩🏽	bisou  femme, femme, peau mate et peau légèrement mate	none
+👩🏾‍❤‍💋‍👩🏾	bisou  femme, femme et peau mate	none
+👩🏾‍❤‍💋‍👩🏿	bisou  femme, femme, peau mate et peau foncée	none
+👩🏿‍❤‍💋‍👩🏻	bisou  femme, femme, peau foncée et peau claire	none
+👩🏿‍❤‍💋‍👩🏼	bisou  femme, femme, peau foncée et peau moyennement claire	none
+👩🏿‍❤‍💋‍👩🏽	bisou  femme, femme, peau foncée et peau légèrement mate	none
+👩🏿‍❤‍💋‍👩🏾	bisou  femme, femme, peau foncée et peau mate	none
+👩🏿‍❤‍💋‍👩🏿	bisou  femme, femme et peau foncée	none
+👩🏻‍❤‍👨🏻	couple avec cœur  femme, homme et peau claire	none
+👩🏻‍❤‍👨🏼	couple avec cœur  femme, homme, peau claire et peau moyennement claire	none
+👩🏻‍❤‍👨🏽	couple avec cœur  femme, homme, peau claire et peau légèrement mate	none
+👩🏻‍❤‍👨🏾	couple avec cœur  femme, homme, peau claire et peau mate	none
+👩🏻‍❤‍👨🏿	couple avec cœur  femme, homme, peau claire et peau foncée	none
+👩🏼‍❤‍👨🏻	couple avec cœur  femme, homme, peau moyennement claire et peau claire	none
+👩🏼‍❤‍👨🏼	couple avec cœur  femme, homme et peau moyennement claire	none
+👩🏼‍❤‍👨🏽	couple avec cœur  femme, homme, peau moyennement claire et peau légèrement mate	none
+👩🏼‍❤‍👨🏾	couple avec cœur  femme, homme, peau moyennement claire et peau mate	none
+👩🏼‍❤‍👨🏿	couple avec cœur  femme, homme, peau moyennement claire et peau foncée	none
+👩🏽‍❤‍👨🏻	couple avec cœur  femme, homme, peau légèrement mate et peau claire	none
+👩🏽‍❤‍👨🏼	couple avec cœur  femme, homme, peau légèrement mate et peau moyennement claire	none
+👩🏽‍❤‍👨🏽	couple avec cœur  femme, homme et peau légèrement mate	none
+👩🏽‍❤‍👨🏾	couple avec cœur  femme, homme, peau légèrement mate et peau mate	none
+👩🏽‍❤‍👨🏿	couple avec cœur  femme, homme, peau légèrement mate et peau foncée	none
+👩🏾‍❤‍👨🏻	couple avec cœur  femme, homme, peau mate et peau claire	none
+👩🏾‍❤‍👨🏼	couple avec cœur  femme, homme, peau mate et peau moyennement claire	none
+👩🏾‍❤‍👨🏽	couple avec cœur  femme, homme, peau mate et peau légèrement mate	none
+👩🏾‍❤‍👨🏾	couple avec cœur  femme, homme et peau mate	none
+👩🏾‍❤‍👨🏿	couple avec cœur  femme, homme, peau mate et peau foncée	none
+👩🏿‍❤‍👨🏻	couple avec cœur  femme, homme, peau foncée et peau claire	none
+👩🏿‍❤‍👨🏼	couple avec cœur  femme, homme, peau foncée et peau moyennement claire	none
+👩🏿‍❤‍👨🏽	couple avec cœur  femme, homme, peau foncée et peau légèrement mate	none
+👩🏿‍❤‍👨🏾	couple avec cœur  femme, homme, peau foncée et peau mate	none
+👩🏿‍❤‍👨🏿	couple avec cœur  femme, homme et peau foncée	none
+👩🏻‍❤‍👩🏻	couple avec cœur  femme, femme et peau claire	none
+👩🏻‍❤‍👩🏼	couple avec cœur  femme, femme, peau claire et peau moyennement claire	none
+👩🏻‍❤‍👩🏽	couple avec cœur  femme, femme, peau claire et peau légèrement mate	none
+👩🏻‍❤‍👩🏾	couple avec cœur  femme, femme, peau claire et peau mate	none
+👩🏻‍❤‍👩🏿	couple avec cœur  femme, femme, peau claire et peau foncée	none
+👩🏼‍❤‍👩🏻	couple avec cœur  femme, femme, peau moyennement claire et peau claire	none
+👩🏼‍❤‍👩🏼	couple avec cœur  femme, femme et peau moyennement claire	none
+👩🏼‍❤‍👩🏽	couple avec cœur  femme, femme, peau moyennement claire et peau légèrement mate	none
+👩🏼‍❤‍👩🏾	couple avec cœur  femme, femme, peau moyennement claire et peau mate	none
+👩🏼‍❤‍👩🏿	couple avec cœur  femme, femme, peau moyennement claire et peau foncée	none
+👩🏽‍❤‍👩🏻	couple avec cœur  femme, femme, peau légèrement mate et peau claire	none
+👩🏽‍❤‍👩🏼	couple avec cœur  femme, femme, peau légèrement mate et peau moyennement claire	none
+👩🏽‍❤‍👩🏽	couple avec cœur  femme, femme et peau légèrement mate	none
+👩🏽‍❤‍👩🏾	couple avec cœur  femme, femme, peau légèrement mate et peau mate	none
+👩🏽‍❤‍👩🏿	couple avec cœur  femme, femme, peau légèrement mate et peau foncée	none
+👩🏾‍❤‍👩🏻	couple avec cœur  femme, femme, peau mate et peau claire	none
+👩🏾‍❤‍👩🏼	couple avec cœur  femme, femme, peau mate et peau moyennement claire	none
+👩🏾‍❤‍👩🏽	couple avec cœur  femme, femme, peau mate et peau légèrement mate	none
+👩🏾‍❤‍👩🏾	couple avec cœur  femme, femme et peau mate	none
+👩🏾‍❤‍👩🏿	couple avec cœur  femme, femme, peau mate et peau foncée	none
+👩🏿‍❤‍👩🏻	couple avec cœur  femme, femme, peau foncée et peau claire	none
+👩🏿‍❤‍👩🏼	couple avec cœur  femme, femme, peau foncée et peau moyennement claire	none
+👩🏿‍❤‍👩🏽	couple avec cœur  femme, femme, peau foncée et peau légèrement mate	none
+👩🏿‍❤‍👩🏾	couple avec cœur  femme, femme, peau foncée et peau mate	none
+👩🏿‍❤‍👩🏿	couple avec cœur  femme, femme et peau foncée	none
 👩‍🦰	femme  cheveux roux	none
 👩🏻‍🦰	femme  peau claire et cheveux roux	none
 👩🏼‍🦰	femme  peau moyennement claire et cheveux roux	none
@@ -2257,6 +2553,11 @@ symbols:
 💂🏽‍♀	garde femme  peau légèrement mate	none
 💂🏾‍♀	garde femme  peau mate	none
 💂🏿‍♀	garde femme  peau foncée	none
+🥷🏻	ninja  peau claire	none
+🥷🏼	ninja  peau moyennement claire	none
+🥷🏽	ninja  peau légèrement mate	none
+🥷🏾	ninja  peau mate	none
+🥷🏿	ninja  peau foncée	none
 👷🏻	personnel du bâtiment  peau claire	none
 👷🏼	personnel du bâtiment  peau moyennement claire	none
 👷🏽	personnel du bâtiment  peau légèrement mate	none
@@ -2307,16 +2608,36 @@ symbols:
 🧕🏽	femme avec foulard  peau légèrement mate	none
 🧕🏾	femme avec foulard  peau mate	none
 🧕🏿	femme avec foulard  peau foncée	none
-🤵🏻	homme en smoking  peau claire	none
-🤵🏼	homme en smoking  peau moyennement claire	none
-🤵🏽	homme en smoking  peau légèrement mate	none
-🤵🏾	homme en smoking  peau mate	none
-🤵🏿	homme en smoking  peau foncée	none
-👰🏻	mariée avec voile  peau claire	none
-👰🏼	mariée avec voile  peau moyennement claire	none
-👰🏽	mariée avec voile  peau légèrement mate	none
-👰🏾	mariée avec voile  peau mate	none
-👰🏿	mariée avec voile  peau foncée	none
+🤵🏻	personne en smoking  peau claire	none
+🤵🏼	personne en smoking  peau moyennement claire	none
+🤵🏽	personne en smoking  peau légèrement mate	none
+🤵🏾	personne en smoking  peau mate	none
+🤵🏿	personne en smoking  peau foncée	none
+🤵🏻‍♂	homme en smoking  peau claire	none
+🤵🏼‍♂	homme en smoking  peau moyennement claire	none
+🤵🏽‍♂	homme en smoking  peau légèrement mate	none
+🤵🏾‍♂	homme en smoking  peau mate	none
+🤵🏿‍♂	homme en smoking  peau foncée	none
+🤵🏻‍♀	femme en smoking  peau claire	none
+🤵🏼‍♀	femme en smoking  peau moyennement claire	none
+🤵🏽‍♀	femme en smoking  peau légèrement mate	none
+🤵🏾‍♀	femme en smoking  peau mate	none
+🤵🏿‍♀	femme en smoking  peau foncée	none
+👰🏻	personne mariée avec voile  peau claire	none
+👰🏼	personne mariée avec voile  peau moyennement claire	none
+👰🏽	personne mariée avec voile  peau légèrement mate	none
+👰🏾	personne mariée avec voile  peau mate	none
+👰🏿	personne mariée avec voile  peau foncée	none
+👰🏻‍♂	homme avec voile  peau claire	none
+👰🏼‍♂	homme avec voile  peau moyennement claire	none
+👰🏽‍♂	homme avec voile  peau légèrement mate	none
+👰🏾‍♂	homme avec voile  peau mate	none
+👰🏿‍♂	homme avec voile  peau foncée	none
+👰🏻‍♀	femme avec voile  peau claire	none
+👰🏼‍♀	femme avec voile  peau moyennement claire	none
+👰🏽‍♀	femme avec voile  peau légèrement mate	none
+👰🏾‍♀	femme avec voile  peau mate	none
+👰🏿‍♀	femme avec voile  peau foncée	none
 🤰🏻	femme enceinte  peau claire	none
 🤰🏼	femme enceinte  peau moyennement claire	none
 🤰🏽	femme enceinte  peau légèrement mate	none
@@ -2327,6 +2648,21 @@ symbols:
 🤱🏽	allaitement  peau légèrement mate	none
 🤱🏾	allaitement  peau mate	none
 🤱🏿	allaitement  peau foncée	none
+👩🏻‍🍼	femme allaitant un bébé  peau claire	none
+👩🏼‍🍼	femme allaitant un bébé  peau moyennement claire	none
+👩🏽‍🍼	femme allaitant un bébé  peau légèrement mate	none
+👩🏾‍🍼	femme allaitant un bébé  peau mate	none
+👩🏿‍🍼	femme allaitant un bébé  peau foncée	none
+👨🏻‍🍼	homme allaitant un bébé  peau claire	none
+👨🏼‍🍼	homme allaitant un bébé  peau moyennement claire	none
+👨🏽‍🍼	homme allaitant un bébé  peau légèrement mate	none
+👨🏾‍🍼	homme allaitant un bébé  peau mate	none
+👨🏿‍🍼	homme allaitant un bébé  peau foncée	none
+🧑🏻‍🍼	personne allaitant un bébé  peau claire	none
+🧑🏼‍🍼	personne allaitant un bébé  peau moyennement claire	none
+🧑🏽‍🍼	personne allaitant un bébé  peau légèrement mate	none
+🧑🏾‍🍼	personne allaitant un bébé  peau mate	none
+🧑🏿‍🍼	personne allaitant un bébé  peau foncée	none
 👼🏻	bébé ange  peau claire	none
 👼🏼	bébé ange  peau moyennement claire	none
 👼🏽	bébé ange  peau légèrement mate	none
@@ -2342,6 +2678,11 @@ symbols:
 🤶🏽	mère Noël  peau légèrement mate	none
 🤶🏾	mère Noël  peau mate	none
 🤶🏿	mère Noël  peau foncée	none
+🧑🏻‍🎄	santa  peau claire	none
+🧑🏼‍🎄	santa  peau moyennement claire	none
+🧑🏽‍🎄	santa  peau légèrement mate	none
+🧑🏾‍🎄	santa  peau mate	none
+🧑🏿‍🎄	santa  peau foncée	none
 🦸🏻	super-héros  peau claire	none
 🦸🏼	super-héros  peau moyennement claire	none
 🦸🏽	super-héros  peau légèrement mate	none
@@ -2843,30 +3184,50 @@ symbols:
 🛌🏾	personne au lit  peau mate	none
 🛌🏿	personne au lit  peau foncée	none
 🧑🏻‍🤝‍🧑🏻	deux personnes se tenant la main  peau claire	none
+🧑🏻‍🤝‍🧑🏼	deux personnes se tenant la main  peau claire et peau moyennement claire	none
+🧑🏻‍🤝‍🧑🏽	deux personnes se tenant la main  peau claire et peau légèrement mate	none
+🧑🏻‍🤝‍🧑🏾	deux personnes se tenant la main  peau claire et peau mate	none
+🧑🏻‍🤝‍🧑🏿	deux personnes se tenant la main  peau claire et peau foncée	none
 🧑🏼‍🤝‍🧑🏻	deux personnes se tenant la main  peau moyennement claire et peau claire	none
 🧑🏼‍🤝‍🧑🏼	deux personnes se tenant la main  peau moyennement claire	none
+🧑🏼‍🤝‍🧑🏽	deux personnes se tenant la main  peau moyennement claire et peau légèrement mate	none
+🧑🏼‍🤝‍🧑🏾	deux personnes se tenant la main  peau moyennement claire et peau mate	none
+🧑🏼‍🤝‍🧑🏿	deux personnes se tenant la main  peau moyennement claire et peau foncée	none
 🧑🏽‍🤝‍🧑🏻	deux personnes se tenant la main  peau légèrement mate et peau claire	none
 🧑🏽‍🤝‍🧑🏼	deux personnes se tenant la main  peau légèrement mate et peau moyennement claire	none
 🧑🏽‍🤝‍🧑🏽	deux personnes se tenant la main  peau légèrement mate	none
+🧑🏽‍🤝‍🧑🏾	deux personnes se tenant la main  peau légèrement mate et peau mate	none
+🧑🏽‍🤝‍🧑🏿	deux personnes se tenant la main  peau légèrement mate et peau foncée	none
 🧑🏾‍🤝‍🧑🏻	deux personnes se tenant la main  peau mate et peau claire	none
 🧑🏾‍🤝‍🧑🏼	deux personnes se tenant la main  peau mate et peau moyennement claire	none
 🧑🏾‍🤝‍🧑🏽	deux personnes se tenant la main  peau mate et peau légèrement mate	none
 🧑🏾‍🤝‍🧑🏾	deux personnes se tenant la main  peau mate	none
+🧑🏾‍🤝‍🧑🏿	deux personnes se tenant la main  peau mate et peau foncée	none
 🧑🏿‍🤝‍🧑🏻	deux personnes se tenant la main  peau foncée et peau claire	none
 🧑🏿‍🤝‍🧑🏼	deux personnes se tenant la main  peau foncée et peau moyennement claire	none
 🧑🏿‍🤝‍🧑🏽	deux personnes se tenant la main  peau foncée et peau légèrement mate	none
 🧑🏿‍🤝‍🧑🏾	deux personnes se tenant la main  peau foncée et peau mate	none
 🧑🏿‍🤝‍🧑🏿	deux personnes se tenant la main  peau foncée	none
 👭🏻	deux femmes se tenant la main  peau claire	none
+👩🏻‍🤝‍👩🏼	deux femmes se tenant la main  peau claire et peau moyennement claire	none
+👩🏻‍🤝‍👩🏽	deux femmes se tenant la main  peau claire et peau légèrement mate	none
+👩🏻‍🤝‍👩🏾	deux femmes se tenant la main  peau claire et peau mate	none
+👩🏻‍🤝‍👩🏿	deux femmes se tenant la main  peau claire et peau foncée	none
 👩🏼‍🤝‍👩🏻	deux femmes se tenant la main  peau moyennement claire et peau claire	none
 👭🏼	deux femmes se tenant la main  peau moyennement claire	none
+👩🏼‍🤝‍👩🏽	deux femmes se tenant la main  peau moyennement claire et peau légèrement mate	none
+👩🏼‍🤝‍👩🏾	deux femmes se tenant la main  peau moyennement claire et peau mate	none
+👩🏼‍🤝‍👩🏿	deux femmes se tenant la main  peau moyennement claire et peau foncée	none
 👩🏽‍🤝‍👩🏻	deux femmes se tenant la main  peau légèrement mate et peau claire	none
 👩🏽‍🤝‍👩🏼	deux femmes se tenant la main  peau légèrement mate et peau moyennement claire	none
 👭🏽	deux femmes se tenant la main  peau légèrement mate	none
+👩🏽‍🤝‍👩🏾	deux femmes se tenant la main  peau légèrement mate et peau mate	none
+👩🏽‍🤝‍👩🏿	deux femmes se tenant la main  peau légèrement mate et peau foncée	none
 👩🏾‍🤝‍👩🏻	deux femmes se tenant la main  peau mate et peau claire	none
 👩🏾‍🤝‍👩🏼	deux femmes se tenant la main  peau mate et peau moyennement claire	none
 👩🏾‍🤝‍👩🏽	deux femmes se tenant la main  peau mate et peau légèrement mate	none
 👭🏾	deux femmes se tenant la main  peau mate	none
+👩🏾‍🤝‍👩🏿	deux femmes se tenant la main  peau mate et peau foncée	none
 👩🏿‍🤝‍👩🏻	deux femmes se tenant la main  peau foncée et peau claire	none
 👩🏿‍🤝‍👩🏼	deux femmes se tenant la main  peau foncée et peau moyennement claire	none
 👩🏿‍🤝‍👩🏽	deux femmes se tenant la main  peau foncée et peau légèrement mate	none
@@ -2898,23 +3259,43 @@ symbols:
 👩🏿‍🤝‍👨🏾	femme et homme se tenant la main  peau foncée et peau mate	none
 👫🏿	femme et homme se tenant la main  peau foncée	none
 👬🏻	deux hommes se tenant la main  peau claire	none
+👨🏻‍🤝‍👨🏼	deux hommes se tenant la main  peau claire et peau moyennement claire	none
+👨🏻‍🤝‍👨🏽	deux hommes se tenant la main  peau claire et peau légèrement mate	none
+👨🏻‍🤝‍👨🏾	deux hommes se tenant la main  peau claire et peau mate	none
+👨🏻‍🤝‍👨🏿	deux hommes se tenant la main  peau claire et peau foncée	none
 👨🏼‍🤝‍👨🏻	deux hommes se tenant la main  peau moyennement claire et peau claire	none
 👬🏼	deux hommes se tenant la main  peau moyennement claire	none
+👨🏼‍🤝‍👨🏽	deux hommes se tenant la main  peau moyennement claire et peau légèrement mate	none
+👨🏼‍🤝‍👨🏾	deux hommes se tenant la main  peau moyennement claire et peau mate	none
+👨🏼‍🤝‍👨🏿	deux hommes se tenant la main  peau moyennement claire et peau foncée	none
 👨🏽‍🤝‍👨🏻	deux hommes se tenant la main  peau légèrement mate et peau claire	none
 👨🏽‍🤝‍👨🏼	deux hommes se tenant la main  peau légèrement mate et peau moyennement claire	none
 👬🏽	deux hommes se tenant la main  peau légèrement mate	none
+👨🏽‍🤝‍👨🏾	deux hommes se tenant la main  peau légèrement mate et peau mate	none
+👨🏽‍🤝‍👨🏿	deux hommes se tenant la main  peau légèrement mate et peau foncée	none
 👨🏾‍🤝‍👨🏻	deux hommes se tenant la main  peau mate et peau claire	none
 👨🏾‍🤝‍👨🏼	deux hommes se tenant la main  peau mate et peau moyennement claire	none
 👨🏾‍🤝‍👨🏽	deux hommes se tenant la main  peau mate et peau légèrement mate	none
 👬🏾	deux hommes se tenant la main  peau mate	none
+👨🏾‍🤝‍👨🏿	deux hommes se tenant la main  peau mate et peau foncée	none
 👨🏿‍🤝‍👨🏻	deux hommes se tenant la main  peau foncée et peau claire	none
 👨🏿‍🤝‍👨🏼	deux hommes se tenant la main  peau foncée et peau moyennement claire	none
 👨🏿‍🤝‍👨🏽	deux hommes se tenant la main  peau foncée et peau légèrement mate	none
 👨🏿‍🤝‍👨🏾	deux hommes se tenant la main  peau foncée et peau mate	none
 👬🏿	deux hommes se tenant la main  peau foncée	none
+💏🏻	bisou  peau claire	none
+💏🏼	bisou  peau moyennement claire	none
+💏🏽	bisou  peau légèrement mate	none
+💏🏾	bisou  peau mate	none
+💏🏿	bisou  peau foncée	none
 👩‍❤‍💋‍👨	bisou  femme et homme	none
 👨‍❤‍💋‍👨	bisou  homme et homme	none
 👩‍❤‍💋‍👩	bisou  femme et femme	none
+💑🏻	couple avec cœur  peau claire	none
+💑🏼	couple avec cœur  peau moyennement claire	none
+💑🏽	couple avec cœur  peau légèrement mate	none
+💑🏾	couple avec cœur  peau mate	none
+💑🏿	couple avec cœur  peau foncée	none
 👩‍❤‍👨	couple avec cœur  femme et homme	none
 👨‍❤‍👨	couple avec cœur  homme et homme	none
 👩‍❤‍👩	couple avec cœur  femme et femme	none
@@ -2943,8 +3324,6 @@ symbols:
 👩‍👧	famille  femme et fille	none
 👩‍👧‍👦	famille  femme, fille et garçon	none
 👩‍👧‍👧	famille  femme, fille et fille	none
-#⃣	touches  #	none
-*⃣	touches  *	none
 🔟	touches  10	none
 🇦🇨	drapeau  Île de l’Ascension	none
 🇦🇩	drapeau  Andorre	none
@@ -2974,7 +3353,7 @@ symbols:
 🇧🇯	drapeau  Bénin	none
 🇧🇱	drapeau  Saint-Barthélemy	none
 🇧🇲	drapeau  Bermudes	none
-🇧🇳	drapeau  Brunéi Darussalam	none
+🇧🇳	drapeau  Brunei	none
 🇧🇴	drapeau  Bolivie	none
 🇧🇶	drapeau  Pays-Bas caribéens	none
 🇧🇷	drapeau  Brésil	none
@@ -3023,7 +3402,7 @@ symbols:
 🇫🇮	drapeau  Finlande	none
 🇫🇯	drapeau  Fidji	none
 🇫🇰	drapeau  Îles Malouines	none
-🇫🇲	drapeau  États fédérés de Micronésie	none
+🇫🇲	drapeau  Micronésie	none
 🇫🇴	drapeau  Îles Féroé	none
 🇫🇷	drapeau  France	none
 🇬🇦	drapeau  Gabon	none
@@ -3040,13 +3419,13 @@ symbols:
 🇬🇵	drapeau  Guadeloupe	none
 🇬🇶	drapeau  Guinée équatoriale	none
 🇬🇷	drapeau  Grèce	none
-🇬🇸	drapeau  Géorgie du Sud et îles Sandwich du Sud	none
+🇬🇸	drapeau  Géorgie du Sud-et-les Îles Sandwich du Sud	none
 🇬🇹	drapeau  Guatemala	none
 🇬🇺	drapeau  Guam	none
 🇬🇼	drapeau  Guinée-Bissau	none
 🇬🇾	drapeau  Guyana	none
 🇭🇰	drapeau  R.A.S. chinoise de Hong Kong	none
-🇭🇲	drapeau  Îles Heard et McDonald	none
+🇭🇲	drapeau  Îles Heard-et-MacDonald	none
 🇭🇳	drapeau  Honduras	none
 🇭🇷	drapeau  Croatie	none
 🇭🇹	drapeau  Haïti	none
@@ -3067,7 +3446,7 @@ symbols:
 🇯🇴	drapeau  Jordanie	none
 🇯🇵	drapeau  Japon	none
 🇰🇪	drapeau  Kenya	none
-🇰🇬	drapeau  Kirghizistan	none
+🇰🇬	drapeau  Kirghizstan	none
 🇰🇭	drapeau  Cambodge	none
 🇰🇮	drapeau  Kiribati	none
 🇰🇲	drapeau  Comores	none
@@ -3082,7 +3461,7 @@ symbols:
 🇱🇨	drapeau  Sainte-Lucie	none
 🇱🇮	drapeau  Liechtenstein	none
 🇱🇰	drapeau  Sri Lanka	none
-🇱🇷	drapeau  Libéria	none
+🇱🇷	drapeau  Liberia	none
 🇱🇸	drapeau  Lesotho	none
 🇱🇹	drapeau  Lituanie	none
 🇱🇺	drapeau  Luxembourg	none
@@ -3115,7 +3494,7 @@ symbols:
 🇳🇨	drapeau  Nouvelle-Calédonie	none
 🇳🇪	drapeau  Niger	none
 🇳🇫	drapeau  Île Norfolk	none
-🇳🇬	drapeau  Nigéria	none
+🇳🇬	drapeau  Nigeria	none
 🇳🇮	drapeau  Nicaragua	none
 🇳🇱	drapeau  Pays-Bas	none
 🇳🇴	drapeau  Norvège	none
@@ -3190,11 +3569,11 @@ symbols:
 🇺🇾	drapeau  Uruguay	none
 🇺🇿	drapeau  Ouzbékistan	none
 🇻🇦	drapeau  État de la Cité du Vatican	none
-🇻🇨	drapeau  Saint-Vincent-et-les-Grenadines	none
+🇻🇨	drapeau  Saint-Vincent-et-les Grenadines	none
 🇻🇪	drapeau  Venezuela	none
 🇻🇬	drapeau  Îles Vierges britanniques	none
 🇻🇮	drapeau  Îles Vierges des États-Unis	none
-🇻🇳	drapeau  Vietnam	none
+🇻🇳	drapeau  Viêt Nam	none
 🇻🇺	drapeau  Vanuatu	none
 🇼🇫	drapeau  Wallis-et-Futuna	none
 🇼🇸	drapeau  Samoa	none
@@ -3207,13 +3586,17 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	drapeau  Angleterre	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	drapeau  Écosse	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	drapeau  Pays de Galles	none
-0⃣	touches  0	none
-1⃣	touches  1	none
-2⃣	touches  2	none
-3⃣	touches  3	none
-4⃣	touches  4	none
-5⃣	touches  5	none
-6⃣	touches  6	none
-7⃣	touches  7	none
-8⃣	touches  8	none
-9⃣	touches  9	none
+₡	colón costaricain	none
+₦	naira nigérian	none
+₧	peseta espagnole	none
+₪	nouveau shekel israélien	none
+₫	dông vietnamien	none
+₭	kip loatien	none
+₮	tugrik mongol	none
+₲	guaraní paraguayen	none
+₴	hryvnia ukrainienne	none
+₵	cédi ghanéen	none
+₸	tenge kazakh	none
+₺	livre turque	none
+₼	manat azéri	none
+₾	lari géorgien	none

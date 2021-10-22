@@ -23,17 +23,11 @@
 #include <config.h>
 #endif
 
-#include <sndfile.h>
-
 #include <fdsetconv.h>
-#include <spd_utils.h>
 #include "module_utils.h"
+#include "module_main.h"
 
 static char *module_audio_pars[10];
-
-extern char *module_index_mark;
-
-pthread_mutex_t module_stdout_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 int log_level;
 
@@ -41,8 +35,6 @@ AudioID *module_audio_id;
 
 SPDMsgSettings msg_settings;
 SPDMsgSettings msg_settings_old;
-
-int current_index_mark;
 
 int Debug;
 FILE *CustomDebugFile;
@@ -53,124 +45,43 @@ int module_num_dc_options;
 
 const char *module_name;
 
-char *module_index_mark;
-
-char *do_message(SPDMessageType msgtype)
-{
-	int ret;
-	char *cur_line;
-	GString *msg;
-	size_t n;
-	int nlines = 0;
-
-	msg = g_string_new("");
-
-	printf("202 OK RECEIVING MESSAGE\n");
-	fflush(stdout);
-
-	while (1) {
-		cur_line = NULL;
-		n = 0;
-		ret = spd_getline(&cur_line, &n, stdin);
-		nlines++;
-		if (ret == -1)
-			return g_strdup("401 ERROR INTERNAL");
-
-		if (!strcmp(cur_line, "..\n")) {
-			g_free(cur_line);
-			cur_line = g_strdup(".\n");
-		} else if (!strcmp(cur_line, ".\n")) {
-			/* Strip the trailing \n */
-			msg->str[strlen(msg->str) - 1] = 0;
-			g_free(cur_line);
-			break;
+void MSG(int level, const char *format, ...) {
+	if (level < 4 || Debug) {
+		va_list ap;
+		time_t t;
+		struct timeval tv;
+		char *tstr;
+		t = time(NULL);
+		tstr = g_strdup(ctime(&t));
+		tstr[strlen(tstr)-1] = 0;
+		gettimeofday(&tv,NULL);
+		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec);
+		fprintf(stderr, ": ");
+		va_start(ap, format);
+		vfprintf(stderr, format, ap);
+		va_end(ap);
+		fprintf(stderr, "\n");
+		fflush(stderr);
+		if ((Debug==2) || (Debug==3)) {
+			fprintf(CustomDebugFile," %s [%d]",tstr, (int) tv.tv_usec);
+			fprintf(CustomDebugFile, ": ");
+			va_start(ap, format);
+			vfprintf(CustomDebugFile, format, ap);
+			va_end(ap);
+			fprintf(CustomDebugFile, "\n");
+			fflush(CustomDebugFile);
 		}
-		g_string_append(msg, cur_line);
-		g_free(cur_line);
+		g_free(tstr);
 	}
-
-	if ((msgtype != SPD_MSGTYPE_TEXT) && (nlines > 2)) {
-		return g_strdup("305 DATA MORE THAN ONE LINE");
-	}
-
-	if ((msgtype == SPD_MSGTYPE_CHAR) && (!strcmp(msg->str, "space"))) {
-		g_string_free(msg, 1);
-		msg = g_string_new(" ");
-	}
-
-	/* no sure we need this check here at all */
-	if (msg->str == NULL || msg->str[0] == 0) {
-		DBG("requested data NULL or empty\n");
-		g_string_free(msg, TRUE);
-		return g_strdup("301 ERROR CANT SPEAK");
-	}
-
-	/* check voice and synthesis_voice settings for consistency */
-	if (msg_settings.voice.name == NULL
-	    && msg_settings_old.voice.name != NULL
-	    && msg_settings.voice_type == msg_settings_old.voice_type) {
-		/* force to set voice again, since synthesis_voice changed to NULL */
-		msg_settings_old.voice_type = -1;
-	}
-
-	/* Volume is controlled by the synthesizer. Always play at normal on audio device. */
-	if (spd_audio_set_volume(module_audio_id, 85) < 0) {
-		DBG("Can't set volume. audio not initialized?");
-	}
-
-	ret = module_speak(msg->str, strlen(msg->str), msgtype);
-
-	g_string_free(msg, 1);
-	if (ret <= 0)
-		return g_strdup("301 ERROR CANT SPEAK");
-
-	return g_strdup("200 OK SPEAKING");
-}
-
-char *do_speak(void)
-{
-	return do_message(SPD_MSGTYPE_TEXT);
-}
-
-char *do_sound_icon(void)
-{
-	return do_message(SPD_MSGTYPE_SOUND_ICON);
-}
-
-char *do_char(void)
-{
-	return do_message(SPD_MSGTYPE_CHAR);
-}
-
-char *do_key(void)
-{
-	return do_message(SPD_MSGTYPE_KEY);
-}
-
-void do_stop(void)
-{
-	module_stop();
-	return;
-}
-
-void do_pause(void)
-{
-	int ret;
-
-	ret = module_pause();
-	if (ret) {
-		DBG("WARNING: Can't pause");
-		return;
-	}
-
-	return;
 }
 
 #define SET_PARAM_NUM(name, cond) \
 	if(!strcmp(cur_item, #name)){ \
+		char *tptr; \
+		int number; \
 		number = strtol(cur_value, &tptr, 10); \
-		if(!(cond)){ err = 2; continue; } \
-		if (tptr == cur_value){ err = 2; continue; } \
+		if(!(cond)){ return -1; } \
+		if (tptr == cur_value){ return -1; } \
 		msg_settings.name = number; \
 	}
 
@@ -183,106 +94,64 @@ void do_pause(void)
 
 #define SET_PARAM_STR_C(name, fconv) \
 	if(!strcmp(cur_item, #name)){ \
-		ret = fconv(cur_value); \
+		int ret = fconv(cur_value); \
 		if (ret != -1) msg_settings.name = ret; \
-		else err = 2; \
+		else return -1; \
 	}
 
-char *do_set(void)
+int module_set(const char *cur_item, const char *cur_value)
 {
-	char *cur_item = NULL;
-	char *cur_value = NULL;
-	char *line = NULL;
-	int ret;
-	size_t n;
-	int number;
-	char *tptr;
-	int err = 0;		/* Error status */
-
-	printf("203 OK RECEIVING SETTINGS\n");
-	fflush(stdout);
-
-	while (1) {
-		line = NULL;
-		n = 0;
-		ret = spd_getline(&line, &n, stdin);
-		if (ret == -1) {
-			err = 1;
-			break;
-		}
-		if (!strcmp(line, ".\n")) {
-			g_free(line);
-			break;
-		}
-		if (!err) {
-			cur_item = strtok(line, "=");
-			if (cur_item == NULL) {
-				err = 1;
-				continue;
+	SET_PARAM_NUM(rate,
+		      ((number >= -100) && (number <= 100)))
+	    else
+	SET_PARAM_NUM(pitch,
+		      ((number >= -100)
+		       && (number <= 100)))
+	    else
+	SET_PARAM_NUM(pitch_range,
+		      ((number >= -100)
+		       && (number <= 100)))
+	    else
+	SET_PARAM_NUM(volume,
+		      ((number >= -100)
+		       && (number <= 100)))
+	    else
+	SET_PARAM_STR_C(punctuation_mode,
+			str2EPunctMode)
+	    else
+	SET_PARAM_STR_C(spelling_mode, str2ESpellMode)
+	    else
+	SET_PARAM_STR_C(cap_let_recogn,
+			str2ECapLetRecogn)
+	    else
+	if (!strcmp(cur_item, "voice")) {
+		int ret = str2EVoice(cur_value);
+		if (ret != -1)
+			msg_settings.voice_type = ret;
+		else
+			return -1;
+	} else if (!strcmp(cur_item, "synthesis_voice")) {
+		g_free(msg_settings.voice.name);
+		if (!strcmp(cur_value, "NULL")) {
+			if (msg_settings.voice.name) {
+				/* Force to set voice again. */
+				msg_settings.voice_type = -1;
 			}
-			cur_value = strtok(NULL, "\n");
-			if (cur_value == NULL) {
-				err = 1;
-				continue;
-			}
+			msg_settings.voice.name = NULL;
+		} else
+			msg_settings.voice.name =
+			    g_strdup(cur_value);
+	} else if (!strcmp(cur_item, "language")) {
+		g_free(msg_settings.voice.language);
+		if (!strcmp(cur_value, "NULL"))
+			msg_settings.voice.language = NULL;
+		else
+			msg_settings.voice.language =
+			    g_strdup(cur_value);
+	} else
+		return -1;	/* Unknown parameter */
 
-			SET_PARAM_NUM(rate,
-				      ((number >= -100) && (number <= 100)))
-			    else
-				SET_PARAM_NUM(pitch,
-					      ((number >= -100)
-					       && (number <= 100)))
-				    else
-				SET_PARAM_NUM(pitch_range,
-					      ((number >= -100)
-					       && (number <= 100)))
-				    else
-				SET_PARAM_NUM(volume,
-					      ((number >= -100)
-					       && (number <= 100)))
-				    else
-				SET_PARAM_STR_C(punctuation_mode,
-						str2EPunctMode)
-				    else
-				SET_PARAM_STR_C(spelling_mode, str2ESpellMode)
-				    else
-				SET_PARAM_STR_C(cap_let_recogn,
-						str2ECapLetRecogn)
-				    else
-			if (!strcmp(cur_item, "voice")) {
-				ret = str2EVoice(cur_value);
-				if (ret != -1)
-					msg_settings.voice_type = ret;
-				else
-					err = 2;
-			} else if (!strcmp(cur_item, "synthesis_voice")) {
-				g_free(msg_settings.voice.name);
-				if (!strcmp(cur_value, "NULL"))
-					msg_settings.voice.name = NULL;
-				else
-					msg_settings.voice.name =
-					    g_strdup(cur_value);
-			} else if (!strcmp(cur_item, "language")) {
-				g_free(msg_settings.voice.language);
-				if (!strcmp(cur_value, "NULL"))
-					msg_settings.voice.language = NULL;
-				else
-					msg_settings.voice.language =
-					    g_strdup(cur_value);
-			} else
-				err = 2;	/* Unknown parameter */
-		}
-		g_free(line);
-	}
-
-	if (err == 0)
-		return g_strdup("203 OK SETTINGS RECEIVED");
-	if (err == 1)
-		return g_strdup("302 ERROR BAD SYNTAX");
-	if (err == 2)
-		return g_strdup("303 ERROR INVALID PARAMETER OR VALUE");
-
-	return g_strdup("401 ERROR INTERNAL");	/* Can't be reached */
+	return 0;
 }
 
 #define SET_AUDIO_STR(name,idx) \
@@ -292,170 +161,56 @@ char *do_set(void)
 		else module_audio_pars[idx] = g_strdup(cur_value); \
 	}
 
-char *do_audio(void)
-{
-	char *cur_item = NULL;
-	char *cur_value = NULL;
-	char *line = NULL;
-	int ret;
-	size_t n;
-	int err = 0;		/* Error status */
-	char *status = NULL;
-	char *msg;
-
-	printf("207 OK RECEIVING AUDIO SETTINGS\n");
-	fflush(stdout);
-
-	while (1) {
-		line = NULL;
-		n = 0;
-		ret = spd_getline(&line, &n, stdin);
-		if (ret == -1) {
-			err = 1;
-			break;
-		}
-		if (!strcmp(line, ".\n")) {
-			g_free(line);
-			break;
-		}
-		if (!err) {
-			cur_item = strtok(line, "=");
-			if (cur_item == NULL) {
-				err = 1;
-				continue;
-			}
-			cur_value = strtok(NULL, "\n");
-			if (cur_value == NULL) {
-				err = 1;
-				continue;
-			}
-
-			SET_AUDIO_STR(audio_output_method, 0)
-			    else
-				SET_AUDIO_STR(audio_oss_device, 1)
-				    else
-				SET_AUDIO_STR(audio_alsa_device, 2)
-				    else
-				SET_AUDIO_STR(audio_nas_server, 3)
-				    else
-				SET_AUDIO_STR(audio_pulse_server, 4)
-				    else
-				SET_AUDIO_STR(audio_pulse_min_length, 5)
-				    else
-				/* 6 reserved for speech-dispatcher module name */
-				err = 2;	/* Unknown parameter */
-		}
-		g_free(line);
-	}
-
-	if (err == 1)
-		return g_strdup("302 ERROR BAD SYNTAX");
-	if (err == 2)
-		return g_strdup("303 ERROR INVALID PARAMETER OR VALUE");
-
-	err = module_audio_init(&status);
-
-	if (err == 0)
-		msg = g_strdup_printf("203 OK AUDIO INITIALIZED");
-	else
-		msg = g_strdup_printf("300-%s\n300 UNKNOWN ERROR", status);
-
-	g_free(status);
-	return msg;
+int module_audio_set(const char *cur_item, const char *cur_value) {
+	SET_AUDIO_STR(audio_output_method, 0)
+	    else
+	SET_AUDIO_STR(audio_oss_device, 1)
+	    else
+	SET_AUDIO_STR(audio_alsa_device, 2)
+	    else
+	SET_AUDIO_STR(audio_nas_server, 3)
+	    else
+	      /* TODO: restore AudioPulseServer option
+	SET_AUDIO_STR(audio_pulse_server, 4)
+	    else
+	    */
+	SET_AUDIO_STR(audio_pulse_device, 4)
+	    else
+	SET_AUDIO_STR(audio_pulse_min_length, 5)
+	    else
+	/* 6 reserved for speech-dispatcher module name */
+		return -1;	/* Unknown parameter */
+	return 0;
 }
 
 #define SET_LOGLEVEL_NUM(name, cond) \
 	if(!strcmp(cur_item, #name)){ \
+		char *tptr; \
+		int number; \
 		number = strtol(cur_value, &tptr, 10); \
-		if(!(cond)){ err = 2; continue; } \
-		if (tptr == cur_value){ err = 2; continue; } \
+		if(!(cond)){ return -1; } \
+		if (tptr == cur_value){ return -1; } \
 		log_level = number; \
 		spd_audio_set_loglevel(module_audio_id, number); \
 	}
 
-char *do_loglevel(void)
+int module_loglevel_set(const char *cur_item, const char *cur_value)
 {
-	char *cur_item = NULL;
-	char *cur_value = NULL;
-	char *line = NULL;
-	int ret;
-	size_t n;
-	int number;
-	char *tptr;
-	int err = 0;		/* Error status */
-	char *msg;
-
-	printf("207 OK RECEIVING LOGLEVEL SETTINGS\n");
-	fflush(stdout);
-
-	while (1) {
-		line = NULL;
-		n = 0;
-		ret = spd_getline(&line, &n, stdin);
-		if (ret == -1) {
-			err = 1;
-			break;
-		}
-		if (!strcmp(line, ".\n")) {
-			g_free(line);
-			break;
-		}
-		if (!err) {
-			cur_item = strtok(line, "=");
-			if (cur_item == NULL) {
-				err = 1;
-				continue;
-			}
-			cur_value = strtok(NULL, "\n");
-			if (cur_value == NULL) {
-				err = 1;
-				continue;
-			}
-
-			SET_LOGLEVEL_NUM(log_level, 1)
-			    else
-				err = 2;	/* Unknown parameter */
-		}
-		g_free(line);
-	}
-
-	if (err == 1)
-		return g_strdup("302 ERROR BAD SYNTAX");
-	if (err == 2)
-		return g_strdup("303 ERROR INVALID PARAMETER OR VALUE");
-
-	msg = g_strdup_printf("203 OK LOG LEVEL SET");
-
-	return msg;
+	SET_LOGLEVEL_NUM(log_level, 1)
+	    else
+		return -1;	/* Unknown parameter */
+	return 0;
 }
 
-char *do_debug(char *cmd_buf)
+int module_debug(int enable, const char *filename)
 {
-	/* TODO: Develop the full on/off logic etc. */
-
-	char **cmd;
-	char *filename;
-
-	cmd = g_strsplit(cmd_buf, " ", -1);
-
-	if (!cmd[1]) {
-		g_strfreev(cmd);
-		return g_strdup("302 ERROR BAD SYNTAX");
-	}
-
-	if (!strcmp(cmd[1], "ON")) {
-		if (!cmd[2]) {
-			g_strfreev(cmd);
-			return g_strdup("302 ERROR BAD SYNTAX");
-		}
-
-		filename = cmd[2];
+	if (enable) {
 		DBG("Additional logging into specific path %s requested",
 		    filename);
 		FILE *new_CustomDebugFile = fopen(filename, "w+");
 		if (new_CustomDebugFile == NULL) {
 			DBG("ERROR: Can't open custom debug file for logging: %d (%s)", errno, strerror(errno));
-			return g_strdup("303 CANT OPEN CUSTOM DEBUG FILE");
+			return -1;
 		}
 		if (CustomDebugFile != NULL)
 			fclose(CustomDebugFile);
@@ -466,7 +221,7 @@ char *do_debug(char *cmd_buf)
 			Debug = 2;
 
 		DBG("Additional logging initialized");
-	} else if (!strcmp(cmd[1], "OFF")) {
+	} else {
 		if (Debug == 3)
 			Debug = 1;
 		else
@@ -476,73 +231,22 @@ char *do_debug(char *cmd_buf)
 			fclose(CustomDebugFile);
 		CustomDebugFile = NULL;
 		DBG("Additional logging into specific path terminated");
-	} else {
-		return g_strdup("302 ERROR BAD SYNTAX");
 	}
 
-	g_strfreev(cmd);
-	return g_strdup("200 OK DEBUGGING ON");
-}
-
-char *do_list_voices(void)
-{
-	SPDVoice **voices;
-	int i;
-	char *lang, *variant;
-	GString *voice_list;
-
-	voices = module_list_voices();
-	if (voices == NULL) {
-		return g_strdup("304 CANT LIST VOICES");
-	}
-
-	voice_list = g_string_new("");
-	for (i = 0; voices[i] != NULL; i++) {
-		if (voices[i]->name == NULL) {	/* Shouldn't happen! */
-			DBG("Unnamed voice found; ignoring it.");
-			continue;
-		}
-		if (voices[i]->language == NULL)
-			lang = "none";
-		else
-			lang = voices[i]->language;
-		if (voices[i]->variant == NULL)
-			variant = "none";
-		else
-			variant = voices[i]->variant;
-		g_string_append_printf(voice_list, "200-%s\t%s\t%s\n",
-				       voices[i]->name, lang, variant);
-	}
-
-	/* check whether we found at least one voice */
-	if (voice_list->len == 0) {
-		g_string_free(voice_list, TRUE);
-		return g_strdup("304 CANT LIST VOICES");
-	}
-
-	g_string_append(voice_list, "200 OK VOICE LIST SENT");
-
-	DBG("Voice prepared to  send to speechd");
-
-	return g_string_free(voice_list, FALSE);
+	return 0;
 }
 
 #undef SET_PARAM_NUM
 #undef SET_PARAM_STR
 
-/* This has to return int (although it doesn't return at all) so that we could
- * call it from PROCESS_CMD() macro like the other commands that return
- * something */
-void do_quit(void)
+int module_loop(void)
 {
-	printf("210 OK QUIT\n");
-	fflush(stdout);
+	int ret = module_process(STDIN_FILENO, 1);
 
-	module_close();
+	if (ret != 0)
+		DBG("Broken pipe, exiting...\n");
 
-	spd_audio_close(module_audio_id);
-	module_audio_id = NULL;
-	return;
+	return ret;
 }
 
 int
@@ -580,7 +284,7 @@ module_get_message_part(const char *message, char *part, unsigned int *pos,
 			    || (message[*pos + 1] == '\n')
 			    || (message[*pos + 1] == '\r')) {
 				for (n = 0; n <= num_dividers - 1; n++) {
-					if ((part[i] == dividers[n])) {
+					if (part[i] == dividers[n]) {
 						part[i + 1] = 0;
 						(*pos)++;
 						return i + 1;
@@ -634,7 +338,7 @@ void module_strip_punctuation_some(char *message, char *punct_chars)
 	}
 }
 
-char *module_strip_ssml(char *message)
+char *module_strip_ssml(const char *message)
 {
 
 	int len;
@@ -873,24 +577,6 @@ void module_sigblockusr(sigset_t * some_signals)
 
 }
 
-void set_speaking_thread_parameters()
-{
-	int ret;
-	sigset_t all_signals;
-
-	ret = sigfillset(&all_signals);
-	if (ret == 0) {
-		ret = pthread_sigmask(SIG_BLOCK, &all_signals, NULL);
-		if (ret != 0)
-			DBG("Can't set signal set, expect problems when terminating!\n");
-	} else {
-		DBG("Can't fill signal set, expect problems when terminating!\n");
-	}
-
-	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
-}
-
 int module_terminate_thread(pthread_t thread)
 {
 	int ret;
@@ -909,8 +595,8 @@ int module_terminate_thread(pthread_t thread)
 	return 0;
 }
 
-char *module_recode_to_iso(char *data, int bytes, char *language,
-			   char *fallback)
+char *module_recode_to_iso(const char *data, int bytes, const char *language,
+			   const char *fallback)
 {
 	char *recoded;
 
@@ -931,50 +617,6 @@ char *module_recode_to_iso(char *data, int bytes, char *language,
 		DBG("festival: Conversion to ISO coding failed\n");
 
 	return recoded;
-}
-
-void module_send_asynchronous(char *text)
-{
-	pthread_mutex_lock(&module_stdout_mutex);
-	DBG("Printing reply: %s", text);
-	fputs(text, stdout);
-	fflush(stdout);
-	DBG("Printed");
-	pthread_mutex_unlock(&module_stdout_mutex);
-}
-
-void module_report_index_mark(char *mark)
-{
-	char *reply;
-	DBG("Event: Index mark %s", mark);
-	if (mark != NULL)
-		reply = g_strdup_printf("700-%s\n700 INDEX MARK\n", mark);
-	else
-		return;
-
-	module_send_asynchronous(reply);
-
-	g_free(reply);
-}
-
-void module_report_event_begin(void)
-{
-	module_send_asynchronous("701 BEGIN\n");
-}
-
-void module_report_event_end(void)
-{
-	module_send_asynchronous("702 END\n");
-}
-
-void module_report_event_stop(void)
-{
-	module_send_asynchronous("703 STOP\n");
-}
-
-void module_report_event_pause(void)
-{
-	module_send_asynchronous("704 PAUSE\n");
 }
 
 /* --- CONFIGURATION --- */
@@ -1029,6 +671,12 @@ int module_audio_init(char **status_info)
 		if (module_audio_id) {
 			DBG("Using %s audio output method", outputs[i]);
 			g_strfreev(outputs);
+
+			/* Volume is controlled by the synthesizer. Always play at normal on audio device. */
+			if (spd_audio_set_volume(module_audio_id, 85) < 0) {
+				DBG("Can't set volume. audio not initialized?");
+			}
+
 			*status_info =
 			    g_strdup("audio initialized successfully.");
 			return 0;
@@ -1055,74 +703,6 @@ int module_tts_output(AudioTrack track, AudioFormat format)
 	return 0;
 }
 
-/* Plays the specified audio file. */
-int module_play_file(const char *filename)
-{
-	int result = 0;
-	int subformat;
-	sf_count_t items;
-	sf_count_t readcount;
-	SNDFILE *sf;
-	SF_INFO sfinfo;
-
-	DBG("Playing |%s|", filename);
-	memset(&sfinfo, 0, sizeof(sfinfo));
-	sf = sf_open(filename, SFM_READ, &sfinfo);
-	if (NULL == sf) {
-		DBG("%s", sf_strerror(NULL));
-		return -1;
-	}
-	if (sfinfo.channels < 1 || sfinfo.channels > 2) {
-		DBG("ERROR: channels = %d.\n", sfinfo.channels);
-		result = FALSE;
-		goto cleanup1;
-	}
-	if (sfinfo.frames > 0x7FFFFFFF || sfinfo.frames == 0) {
-		DBG("ERROR: Unknown number of frames.");
-		result = FALSE;
-		goto cleanup1;
-	}
-
-	subformat = sfinfo.format & SF_FORMAT_SUBMASK;
-	items = sfinfo.channels * sfinfo.frames;
-	DBG("Frames = %jd, channels = %ld", sfinfo.frames,
-	    (long)sfinfo.channels);
-	DBG("Samplerate = %i, items = %lld", sfinfo.samplerate,
-	    (long long)items);
-	DBG("Major format = 0x%08X, subformat = 0x%08X, endian = 0x%08X",
-	    sfinfo.format & SF_FORMAT_TYPEMASK, subformat,
-	    sfinfo.format & SF_FORMAT_ENDMASK);
-
-	if (subformat == SF_FORMAT_FLOAT || subformat == SF_FORMAT_DOUBLE) {
-		/* Set scaling for float to integer conversion. */
-		sf_command(sf, SFC_SET_SCALE_FLOAT_INT_READ, NULL, SF_TRUE);
-	}
-	AudioTrack track;
-	track.num_samples = sfinfo.frames;
-	track.num_channels = sfinfo.channels;
-	track.sample_rate = sfinfo.samplerate;
-	track.bits = 16;
-	track.samples = g_malloc(items * sizeof(short));
-	readcount = sf_read_short(sf, (short *)track.samples, items);
-	DBG("Read %lld items from audio file.", (long long)readcount);
-
-	if (readcount > 0) {
-		track.num_samples = readcount / sfinfo.channels;
-		DBG("Sending %i samples to audio.", track.num_samples);
-		int ret = module_tts_output(track, SPD_AUDIO_LE);
-		if (ret < 0) {
-			DBG("ERROR: Can't play track for unknown reason.");
-			result = -1;
-			goto cleanup2;
-		}
-		DBG("Sent to audio.");
-	}
-cleanup2:
-	g_free(track.samples);
-cleanup1:
-	sf_close(sf);
-	return result;
-}
 int module_marks_init(SPDMarks *marks)
 {
 	marks->num = 0;
@@ -1165,6 +745,44 @@ int module_marks_clear(SPDMarks *marks)
 	marks->stop = 0;
 
 	return 0;
+}
+
+/* Strip silence at head of audio track */
+void module_strip_head_silence(AudioTrack * track)
+{
+	assert(track->bits == 16);
+	unsigned i;
+	float silence_limit = 0.01;
+
+	while (track->num_samples >= track->num_channels) {
+		for (i = 0; i < track->num_channels; i++)
+			if (abs(track->samples[i])
+			    >= silence_limit * (1L<<(track->bits-1)))
+				return;
+		track->samples += track->num_channels;
+		track->num_samples -= track->num_channels;
+	}
+}
+/* Strip silence at tail of audio track */
+void module_strip_tail_silence(AudioTrack * track)
+{
+	assert(track->bits == 16);
+	unsigned i;
+	float silence_limit = 0.01;
+
+	while (track->num_samples >= track->num_channels) {
+		for (i = 0; i < track->num_channels; i++)
+			if (abs(track->samples[track->num_samples - i - 1])
+			    >= silence_limit * (1L<<(track->bits-1)))
+				return;
+		track->num_samples -= track->num_channels;
+	}
+}
+
+void module_strip_silence(AudioTrack * track)
+{
+	module_strip_head_silence(track);
+	module_strip_tail_silence(track);
 }
 
 int module_tts_output_marks(AudioTrack track, AudioFormat format, SPDMarks *marks)

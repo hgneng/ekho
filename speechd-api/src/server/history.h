@@ -25,7 +25,7 @@
 
 #include "speechd.h"
 
-char *history_get_client_list();
+char *history_get_client_list(void);
 char *history_get_message_list(guint client_id, int from, int num);
 char *history_get_last(int fd);
 char *history_cursor_set_last(int fd, guint client_id);

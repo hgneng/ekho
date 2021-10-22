@@ -3,15 +3,65 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+∇	nabla	none
+√	gwrizienn garrez	none
+∞	arouezenn anfin	none
+◊	romb	none
+○	kelcʼh goullo	none
+●	kelcʼh leun	none
+◯	kelcʼh ledan goullo	none
+💀	klopenn	none
+💩	bern kaocʼh	none
+🤡	penn furlukin	none
+👹	roñfl	none
 👺	gobilin	none
+👻	tasmant	none
+👽	ezdouarad	none
+👾	euzhvil an egor	none
+🤖	robot	none
+💕	div galon	none
+💔	kalon rannet	none
+❤	kalon ruz	none
+🧡	kalon orañjez	none
+💛	kalon velen	none
+💚	kalon wer	none
+💙	kalon cʼhlas	none
+💜	kalon limestra	none
+🤎	kalon cʼhell	none
+🖤	kalon zu	none
+🤍	kalon wenn	none
+💯	kant poent	none
+💥	tarzhadenn	none
 🕳	toull	none
+💣	bombezenn	none
+💤	zzz	none
+🤳	emboltred	none
+💪	kigenn daoubennek argrezet	none
+🦾	brecʼh mekanikel	none
+🦿	gar mekanikel	none
+🦵	gar	none
+🦶	troad	none
+👂	skouarn	none
+👃	fri	none
+🧠	empenn	none
+🫀	kalon	none
+🫁	skevent	none
+🦷	dant	none
+🦴	askorn	none
+👀	daoulagad	none
+👁	lagad	none
+👅	teod	none
 👶	babig	none
 🧒	bugel	none
 👦	paotr	none
 👧	placʼh	none
 🧑	den deuet	none
+👱	den melegan	none
 👨	gwaz	none
+👱‍♂	melegan	none
 👩	maouez	none
+👱‍♀	meleganez	none
+🧓	den kozh	none
 👴	gwaz kozh	none
 👵	maouez kozh	none
 👨‍🎓	studier	none
@@ -32,6 +82,7 @@ symbols:
 👩‍🔬	skiantourez	none
 👨‍💻	stlennegour	none
 👩‍💻	stlennegourez	none
+🧑‍🎤	den a gan	none
 👨‍🎤	kaner	none
 👩‍🎤	kanerez	none
 👨‍🎨	arzour	none
@@ -48,17 +99,32 @@ symbols:
 🕵	igoun	none
 🕵‍♂	igounier	none
 🕵‍♀	igounierez	none
+💂	gward	none
+🥷	ninja	none
 🤴	priñs	none
 👸	priñsez	none
+👼	babig ael	none
 🎅	Tad Nedeleg	none
 🤶	Mamm Nedeleg	none
+🦸	gourharoz	none
 🧙	maj	none
 🧙‍♂	hudour	none
 🧙‍♀	hudourez	none
+🧚	boudig	none
+🧛	suner/ez-gwad	none
 🧛‍♂	suner-gwad	none
 🧛‍♀	sunerez-gwad	none
+🧜‍♂	morgan	none
+🧜‍♀	morganez	none
+🧝‍♂	elf	none
+🧝‍♀	elfez	none
 🧟‍♂	zombi	none
 🧟‍♀	zombiez	none
+👪	familh	none
+🦰	blev ruz	none
+🦱	blev rodellek	none
+🦳	blev gwenn	none
+🦲	moal	none
 🐵	penn marmouz	none
 🐒	marmouz	none
 🦍	gorilh	none
@@ -72,6 +138,7 @@ symbols:
 🦝	rakoun	none
 🐱	penn kazh	none
 🐈	kazh	none
+🐈‍⬛	kazh du	none
 🦁	leon	none
 🐯	penn tigr	none
 🐅	tigr	none
@@ -81,19 +148,26 @@ symbols:
 🦄	unkorneg	none
 🦓	roudenneg	none
 🦌	karv	none
+🦬	bizon	none
 🐮	penn buocʼh	none
 🐂	ejen	none
 🐃	bual	none
 🐄	buocʼh	none
+🐷	penn mocʼh	none
+🐖	pemocʼh	none
 🐗	hocʼh gouez	none
+🐽	moj	none
 🐏	tourz	none
 🐑	dañvad	none
 🐐	gavr	none
 🐪	dremedal	none
 🐫	kañval	none
+🦙	lama	none
 🦒	jirafenn	none
 🐘	olifant	none
+🦣	mamout	none
 🦏	frikorneg	none
+🦛	dourvarc’h	none
 🐭	penn logodenn	none
 🐁	logodenn	none
 🐀	razh	none
@@ -101,12 +175,19 @@ symbols:
 🐰	penn lapin	none
 🐇	lapin	none
 🐿	gwiñver	none
+🦫	avank	none
 🦔	heureuchin	none
+🦇	logodenn-zall	none
 🐻	penn arzh	none
+🐻‍❄	arzh gwenn	none
 🐨	koala	none
 🐼	panda	none
+🦥	lezireg	none
+🦦	dourgi	none
 🦨	skoñs	none
+🦘	kangourou	none
 🦡	brocʼh	none
+🐾	loucʼhadoù pavioù	none
 🦃	kog-Spagn	none
 🐔	yar	none
 🐓	kilhog	none
@@ -118,6 +199,8 @@ symbols:
 🦆	houad	none
 🦢	alarcʼh	none
 🦉	kaouenn	none
+🦤	dodo	none
+🪶	pluenn	none
 🦩	flammeg	none
 🦚	paun	none
 🦜	peroked	none
@@ -128,35 +211,56 @@ symbols:
 🐍	naer	none
 🐲	penn dragon	none
 🐉	dragon	none
+🦕	saoropod	none
 🦖	tiranosaor roue	none
 🐋	balum	none
 🐬	delfin	none
+🦭	reunig	none
 🐟	pesk	none
+🐠	pesk trovanel	none
 🐡	loar-vor	none
 🦈	rinkin	none
 🐙	morgazh	none
+🐚	krogenn droellennek	none
 🐌	maligorn	none
 🦋	balafenn	none
 🐛	biskoulenn	none
 🐜	merienenn	none
 🐝	gwenanenn	none
+🪲	cʼhwil	none
 🐞	buocʼhan	none
 🦗	krank-raden	none
+🪳	cʼhwil-du	none
 🕷	kevnidenn	none
+🕸	gwiad-kevnid	none
 🦂	krug	none
 🦟	moustik	none
+🪰	kelienenn	none
+🪱	buzhugenn	none
 🦠	mikrob	none
 💐	boked bleunioù	none
+🌸	bleunienn gerez	none
+💮	bleunienn wenn	none
+🏵	rozetenn	none
 🌹	rozenn	none
+🥀	boked goeñvet	none
 🌺	hibiskuz	none
 🌻	tro-heol	none
 🌼	broñs	none
 🌷	tulipezenn	none
+🌱	strujenn yaouank	none
+🪴	plantenn podet	none
 🌲	avalpineg	none
 🌳	deliaoueg	none
 🌴	gwez-palmez	none
 🌵	kaktuz	none
+🌾	plant riz	none
+🌿	louzaouenn	none
 ☘	melchon	none
+🍀	melchon peder	none
+🍁	delienn skav-gwracʼh	none
+🍂	delioù secʼh	none
+🍃	delienn en avel	none
 🍇	rezin	none
 🍈	meloñs	none
 🍉	pastekez	none
@@ -164,72 +268,157 @@ symbols:
 🍋	sitroñs	none
 🍌	bananez	none
 🍍	ananaz	none
+🥭	mangez	none
 🍎	aval ruz	none
 🍏	aval glas	none
 🍐	per	none
 🍑	pechez	none
 🍒	kerez	none
 🍓	sivi	none
+🫐	lus	none
 🥝	kiwi	none
 🍅	tomatez	none
+🫒	olivez	none
 🥥	kraoñ-kokoz	none
 🥑	avoukez	none
 🍆	berjinez	none
 🥔	aval-douar	none
 🥕	karotez	none
+🌽	penn-maiz	none
+🌶	pimant ruz	none
+🫑	skilbebr	none
 🥒	kokombrez	none
+🥬	legumaj glas	none
 🥦	brikoli	none
+🧄	kignen	none
+🧅	ognon	none
+🍄	kabell-touseg	none
 🥜	kakaouetez	none
 🌰	kistin	none
 🍞	bara	none
 🥐	kornegenn	none
 🥖	baget	none
+🫓	galetez	none
+🥨	bretzel	none
+🥯	bagel	none
 🥞	krampouezh	none
+🧇	galfrez	none
+🧀	tamm formaj-laezh	none
+🍖	kig war askorn	none
+🍗	morzhed yar	none
+🥩	tamm kig	none
+🥓	bacon	none
 🍔	hamburger	none
 🍟	fritez	none
 🍕	pizza	none
 🌭	hot-dog	none
 🥪	sandwich	none
+🌮	tako	none
+🌯	burrito	none
+🫔	tamal	none
+🥙	kebab	none
+🧆	falafel	none
 🥚	vi	none
 🍳	vi war ar plad	none
+🥘	meuz mitonet	none
+🍲	pothouarnad	none
+🫕	teuzadell	none
+🥣	bolennad gant loa	none
+🥗	saladenn	none
+🍿	popcorn	none
+🧈	amann	none
+🧂	holen	none
+🥫	boued-mir	none
+🍱	bento	none
+🍘	galetez riz	none
+🍙	boulig riz	none
+🍚	bolennad riz	none
+🍛	riz dre gari	none
+🍜	bolennad tomm	none
+🍝	spaghetti	none
+🍠	patatez dous rostet	none
+🍢	beriad pesked	none
+🍣	sushi	none
+🍤	bignez chevr	none
+🍥	krokedenn besked	none
+🥮	gwastell-loar	none
+🍡	beriad madigoù	none
+🥟	pouloud	none
 🦀	krank	none
+🦞	legestr	none
 🦐	chevr	none
 🦑	stivell	none
+🦪	istr	none
+🍦	dienn-skorn mod Italia	none
 🍧	greunitad	none
 🍨	dienn-skorn	none
+🍩	donut	none
 🍪	cookie	none
 🎂	gwastell deiz-ha-bloaz	none
 🍰	sablegenn	none
+🧁	gwastellig	none
 🥧	tartezenn	none
+🍫	barrenn chokolad	none
 🍬	madig	none
 🍭	sunig	none
+🍮	dienn war e cʼhenoù	none
 🍯	podad mel	none
 🍼	bured	none
 🥛	gwerennad laezh	none
 ☕	evaj tomm	none
+🫖	pod-te	none
+🍵	tasenn	none
 🍶	sake	none
+🍾	boutailhad champagn	none
 🍷	gwerennad gwin	none
-🍺	chop bier	none
+🍸	koktel	none
+🍹	koktel trovanel	none
+🍺	chopad bier	none
 🍻	chopadoù bier	none
+🥤	gobeled gant plouzenn	none
+🧃	brikennigad evaj	none
+🧉	mate	none
+🧊	skornenn	none
+🥢	bizhier	none
+🍽	kontell ha fourchetez gant asied	none
 🍴	kontell ha fourchetez	none
 🥄	loa	none
 🔪	kontell-gegin	none
 🏺	añforenn	none
+🌍	boul douar o tiskouez Europa hag Afrika	none
+🌎	boul douar o tiskouez Amerika	none
+🌏	boul douar o tiskouez Azia hag Aostralia	none
+🌐	boul douar gant hedredennoù	none
 🗺	kartenn ar bed	none
 🗾	kartenn Japan	none
+🧭	nadoz-vor	none
+🏔	menez ercʼhek	none
 ⛰	menez	none
 🌋	menez-tan	none
+🗻	menez Fuji	none
+🏕	kampiñ	none
+🏖	traezhenn gant disheolier	none
 🏜	dezerzh	none
 🏝	enezenn didud	none
 🏞	park broadel	none
 🏟	stad	none
 🏛	savadur klasel	none
+🏗	savadur war sevel	none
+🧱	brikenn	none
+🪨	rocʼh	none
+🪵	koad	none
+🛖	foukenn	none
 🏘	tiez	none
+🏚	ti dilezet	none
 🏠	ti	none
+🏡	ti ha liorzh	none
+🏢	savadur burevioù	none
+🏣	ti-post japanat	none
 🏤	ti-post	none
 🏥	ospital	none
 🏦	bank	none
 🏨	leti	none
+🏩	love hotel	none
 🏪	gourstalig	none
 🏫	skol	none
 🏬	stal vras	none
@@ -237,47 +426,93 @@ symbols:
 🏯	kastell japanat	none
 🏰	kastell	none
 💒	eured	none
+🗼	tour Tokyo	none
+🗽	delwenn ar Frankiz	none
 ⛪	iliz	none
 🕌	moskeenn	none
+🛕	templ hindou	none
 🕍	sinagogenn	none
 ⛩	santual shinto	none
 🕋	kaaba	none
 ⛲	feunteun	none
 ⛺	teltenn	none
-🎪	pabell	none
+🌁	brumennek	none
+🌃	stergann	none
+🏙	gweledva kêr	none
+🌄	sav-heol war ar menezioù	none
+🌅	sav-heol	none
+🌆	gweledva kêr da serr-noz	none
+🌇	kuzh-heol	none
+🌉	pont en noz	none
+♨	andon tomm	none
+🎠	kazeg-vezevenn	none
+🎡	rod vras	none
+🎢	sav-diskenn	none
+💈	barr-ti barver	none
+🎪	pabell sirk	none
 🚂	stlejerez	none
 🚃	bagon	none
 🚄	TTB	none
 🚅	tren tizh bras	none
 🚆	tren	none
 🚇	metro	none
+🚈	metro skañv	none
+🚉	porzh-houarn	none
 🚊	tramgarr	none
 🚝	unroudenn	none
+🚞	tren ar menezioù	none
 🚋	bagon tramgarr	none
+🚌	bus	none
 🚎	trollebus	none
 🚐	minibus	none
 🚑	ambulañs	none
+🚒	sammgarr pomperien	none
 🚓	karr polis	none
 🚕	taksi	none
 🚗	karr-tan	none
 🚚	karr-samm degas	none
+🚛	sammgarr-ramoker	none
 🚜	traktor	none
+🏍	marcʼh-tan	none
+🛵	skouter	none
+🛴	troterez	none
+🛹	plankenn-ruilh	none
+🛼	botez-ruilh	none
+🚏	arsav bus	none
+🛣	gourhent	none
+🛤	hent-houarn	none
 🛢	barilhad tireoul	none
+⛽	plomenn strilheoul	none
+🚨	letern-tro	none
 ⚓	eor	none
+⛵	gouelier	none
 🛶	kanoe	none
+🚤	bag herrek	none
+🛳	mordreizher	none
+⛴	lestr-treizh	none
+🛥	bag-a-dan	none
 🚢	lestr	none
+✈	karr-nij	none
+🛩	karr-nij bihan	none
+🪂	harz-lamm	none
+💺	azezenn	none
 🚁	biñsaskell	none
 🚟	fundren	none
 🚠	fungarr	none
+🚡	fundramgarr	none
 🛰	loarell	none
 🚀	fuzeenn	none
 🛸	pladenn-nij	none
+🛎	sonerez kontouer	none
+🧳	bagaj	none
 ⌛	eurier-traezh	none
 ⌚	montr	none
 ⏰	dihuner	none
 ⏱	kronometr	none
 ⏲	horolaj	none
 🕰	pandulenn	none
+🕛	kreisteiz/hanternoz	none
+🕧	kreisteiz/hanternoz hanter	none
 🕐	un eur	none
 🕜	un eur hanter	none
 🕑	div eur	none
@@ -301,27 +536,72 @@ symbols:
 🕚	unnek eur	none
 🕦	unnek eur hanter	none
 🌑	loar nevez	none
+🌒	loar vihan ar cʼhresk	none
 🌓	hanterloar ar cʼhresk	none
 🌔	loar vras ar c’hresk	none
 🌕	loargann	none
 🌖	loar vras an digresk	none
 🌗	hanterloar an digresk	none
+🌘	loar vihan an digresk	none
 🌙	kreskenn loar	none
+🌚	penn loar nevez	none
+🌛	penn loar vihan ar cʼhresk	none
+🌜	penn loar vihan an digresk	none
+🌡	gwerzverker	none
 ☀	heol	none
+🌝	penn loargann	none
+🌞	penn heol	none
+🪐	planedenn gant gwalennoù	none
+⭐	steredenn	none
+🌟	steredenn skedus	none
+🌠	steredenn-dared	none
+🌌	Hent-sant-Jakez	none
+☁	koumoulenn	none
+⛅	heol a-dreñv dʼar cʼhoumoul	none
+⛈	koumoulenn gant lucʼhedenn ha glav	none
+🌤	heol a-dreñv dʼur goumoulennig	none
+🌥	heol a-dreñv dʼur goumoulenn vras	none
+🌦	heol a-dreñv dʼur goumoulenn cʼhlav	none
+🌧	koumoulenn gant glav	none
+🌨	koumoulenn gant ercʼh	none
+🌩	koumoulenn gant lucʼhedenn	none
 🌪	tornadenn	none
+🌫	latar	none
 🌀	kelcʼhwidenn	none
+🌈	kanevedenn	none
+🌂	disglavier serr	none
+☂	disglavier	none
+☔	disglavier gant glav	none
+⛱	disheolier	none
 ⚡	tredanvarr uhel	none
 ❄	malzenn ercʼh	none
+☃	boulom ercʼh gant ercʼh	none
+⛄	boulom ercʼh hep ercʼh	none
 ☄	kometenn	none
 🔥	tan	none
+💧	takenn	none
+🌊	gwagenn	none
+🎃	jack-oʼ-lantern	none
 🎄	gwezenn Nedeleg	none
 🎆	tan-arvest	none
+🎇	piled-hud	none
+🧨	strakerez	none
+✨	fulennoù	none
 🎈	cʼhwezigell	none
 🎉	kotilhon	none
 🎊	koñfeti	none
 🎋	gwez-hetoù	none
+🎍	kadomatsu	none
+🎎	poupinelloù japanat	none
+🎏	koinobori	none
+🎐	karilhon-avel	none
+🎑	lid al loar	none
+🧧	golo ruz	none
 🎀	seizenn	none
 🎁	prof	none
+🎗	seizenn-goun	none
+🎟	bilhed mont e-barzh	none
+🎫	bilhed	none
 🎖	medalenn vilourel	none
 🏆	trofe	none
 🏅	medalenn sport	none
@@ -329,32 +609,66 @@ symbols:
 🥈	medalenn arcʼhant	none
 🥉	medalenn arem	none
 ⚽	mell fobal	none
+⚾	baseball	none
+🥎	softball	none
 🏀	basket-ball	none
 🏐	volley-ball	none
+🏈	fobal amerikan	none
 🏉	rugbi	none
 🎾	tennis	none
+🥏	frizbi	none
 🎳	bowling	none
+🏏	kriked	none
 🏑	hoke war leton	none
 🏒	hoke war skorn	none
+🥍	cʼhoari-horell	none
 🏓	ping pong	none
 🏸	badminton	none
 🥊	maneg boks	none
+🥋	dilhad arzoù-emgannañ	none
+🥅	kaoued-pal	none
+⛳	bannielig golf	none
 ⛸	botez-ruzikat	none
 🎣	lazheta	none
+🤿	maskl-splujañ	none
+🎽	krez redek	none
 🎿	ski	none
 🛷	luj	none
-🎱	bilhard	none
+🥌	maen curling	none
+🎯	ober mil	none
+🪀	pun-dibun	none
+🪁	sarpant-nij	none
+🎱	bilhard saoz	none
 🔮	boulenn strink	none
+🪄	gwialenn-hud	none
+🧿	amuzetez nazar	none
 🎮	cʼhoari video	none
+🕹	lanker cʼhoari	none
 🎲	diñs	none
+🧩	miltamm	none
+🧸	arzh-feur	none
+🪅	piñata	none
+🪆	matriochka	none
 ♠	pikez	none
 ♥	keur	none
 ♦	karo	none
 ♣	treflez	none
+♟	pezh echedoù	none
 🃏	joker	none
-👓	lunedoù	none
+🎭	arvestoù bev	none
+🖼	skeudenn sterniet	none
+🎨	pladennad livioù	none
+🧵	kanellad neud	none
+🪡	nadoz da wriat	none
+🧶	pellenn neud	none
+🪢	skoulm	none
+👓	lunedoù gwelet	none
 🕶	lunedoù-heol	none
+🥽	lunedoù-kouronkañ	none
+🥼	flotantenn wenn	none
+🦺	jiletenn surentez	none
 👔	kravatenn	none
+👕	tee-shirt	none
 👖	jeanʼs	none
 🧣	skerb	none
 🧤	manegoù	none
@@ -362,57 +676,87 @@ symbols:
 🧦	loeroù	none
 👗	sae	none
 👘	kimono	none
+🥻	sari	none
+🩱	sae-gouronkañ unpezh	none
+🩲	slip	none
+🩳	bragoù-berr	none
 👙	bikini	none
+👚	dilhad mercʼhed	none
 👛	doug-moneiz	none
 👜	sacʼh-dorn	none
-🎒	sacʼh-skol	none
+👝	godellig	none
+🛍	seier kabas	none
+🎒	sacʼh-kein	none
+🩴	tong	none
 👟	botez sport	none
+🥾	botez bale	none
+👠	skarpin	none
 👑	kurunenn	none
 🎩	tog moull uhel	none
+🎓	tok skol-veur	none
+🧢	kasketenn amerikan	none
+🪖	tokarn soudard	none
+⛑	tokarn sikourer	none
 📿	chapeled	none
 💄	ruz-muzelloù	none
 💍	gwalenn	none
 💎	maen prizius	none
+🔇	mut	none
 📢	uhelgomzer	none
-📣	megafon	none
+📣	korn-mouezh	none
 📯	korn ar paotr-marc’h	none
 🔔	kloc’h	none
 🎼	skrid-sonerezh	none
 🎵	notenn sonerezh	none
 🎶	notennoù sonerezh	none
+🎙	mikrofon studio	none
 🎤	mikrofon	none
+🎧	selaouelloù	none
 📻	skingomzer	none
 🎷	saksofon	none
+🪗	akordeoñs	none
 🎸	gitar	none
 🎹	klavier sonerezh	none
 🎺	trompilh	none
 🎻	violoñs	none
-🥁	toumperezh	none
+🪕	banjo	none
+🥁	taboulin	none
+🪘	djembe	none
 📱	pellgomzer hezoug	none
+📲	pellgomzer hezoug gant bir	none
 ☎	pellgomzer	none
+📞	yevenn bellgomz	none
+📟	galver	none
 📠	pelleiler	none
 🔋	pil	none
-🔌	lugell dredan	none
+🔌	sankell dredan	none
 💻	urzhiataer hezoug	none
 🖥	urzhiataer burev	none
 🖨	moullerez	none
 ⌨	klavier	none
 🖱	logodenn urzhiataer	none
-💽	pladenn galet	none
+💽	pladenn urzhiater	none
 💾	pladennig	none
 💿	CD	none
 📀	DVD	none
+🧮	boulaoueg	none
 🎥	kamera	none
 🎞	kocʼhenn	none
 📽	lucʼhvanner	none
+🎬	klek	none
 📺	skinwel	none
 📷	lucʼhskeudennerez	none
+📸	lucʼhskeudennerez gant lucʼheder	none
 📹	kamenroller	none
 📼	kasedig-video	none
+🔍	gwerenn-greskiñ a-gleiz	none
+🔎	gwerenn-greskiñ a-zehoù	none
 🕯	goulaouenn	none
 💡	klogorenn	none
 🔦	etev-goulaouiñ	none
 🏮	lampig ruz	none
+🪔	diya	none
+📔	karned gant golo kinklet	none
 📕	levr serr	none
 📖	levr digor	none
 📗	levr gwer	none
@@ -420,55 +764,572 @@ symbols:
 📙	levr orañjez	none
 📚	levrioù	none
 📓	karned	none
-📒	renkell	none
+📒	marilh	none
+📃	pajenn rollet	none
+📜	parchenn	none
+📄	pajenn	none
 📰	kazetenn	none
+🗞	kazetenn rollet	none
+📑	sinedoù	none
+🔖	merk-pajenn	none
 🏷	tikedenn	none
+💰	sacʼhad moneiz	none
+🪙	pezh moneiz	none
+💴	bilhed e yenoù	none
+💵	bilhed e dollaroù	none
+💶	bilhed en euroioù	none
+💷	bilhed e lurioù	none
+💸	moneiz o nijal	none
+💳	kartenn-vank	none
+🧾	skrid-degemer	none
+💹	krommenn kreskiñ ar yen	none
 ✉	golo-lizher	none
 📧	postel	none
 📦	pakad	none
+📮	boest-lizheroù ar post	none
+🗳	mouezharcʼh	none
 ✏	kreion	none
+✒	stilo pluenn du	none
 🖋	stilo pluenn	none
 🖊	stilo	none
 🖌	barr-livañ	none
-📁	goloenn	none
+🖍	kreion pastel	none
+📝	notennoù personel	none
+💼	sakochenn	none
+📁	kleurenn	none
+📂	kleurenn digor	none
 🗂	dispartier	none
+📅	deiziadur	none
+📆	deiziadur efemerid	none
+🗒	blocʼh-notennoù gant troellennoù	none
+🗓	deiziadur gant troellennoù	none
+📇	karned chomlecʼhioù	none
+📈	krommenn kreskiñ	none
+📉	krommenn digreskiñ	none
+📊	diagramm barrennoù	none
+📌	tach-meud	none
+📍	tach-meud ront	none
+📎	strobell	none
+🖇	strobelloù	none
+📏	reolenn	none
+📐	skouer	none
+✂	sizailhoù	none
+🗑	kest ar paper	none
+🔒	kadranas serr	none
+🔓	kadranas digor	none
+🔏	kadranas serr gant stilo	none
+🔐	kadranas serr gant alcʼhwez	none
+🔑	alcʼhwez	none
+🗝	alcʼhwez kozh	none
 🔨	morzhol	none
+🪓	boucʼhal	none
+⛏	pigell	none
+⚒	morzhol ha pig	none
+🛠	morzhol hag alcʼhwez plat	none
 🗡	badalenn	none
+⚔	klezeier kroaziet	none
 🔫	pistolenn	none
+🪃	boumerang	none
+🏹	gwareg ha saezh	none
 🛡	skoed	none
-🔧	alcʼhwez rodig	none
+🪚	heskenn	none
+🔧	alcʼhwez plat	none
+🪛	troer-biñsoù	none
+🔩	biñs ha kraouenn	none
 ⚙	rod dantek	none
 🗜	serjant	none
+⚖	balañs	none
+🔗	mailh	none
+⛓	chadennoù	none
+🪝	krog	none
+🧰	boest-ostilhoù	none
+🧲	gwarell	none
+🪜	skeul	none
 ⚗	lambig	none
+🧪	pibenn amprou	none
+🧫	boest Petri	none
+🧬	TDN	none
 🔬	mikroskop	none
 🔭	teleskop	none
 📡	stign loarell	none
 💉	strinkell	none
+🩸	takenn wad	none
 💊	pilulenn	none
+🩹	lienad-peg	none
+🩺	stetoskop	none
 🚪	dor	none
+🛗	pignerez	none
+🪞	melezour	none
+🪟	prenestr	none
 🛏	gwele	none
+🛋	gourvezvank ha lamp	none
+🪑	kador	none
 🚽	privezioù	none
+🪠	mandoz	none
+🚿	strinkerez	none
 🛁	kibell	none
+🪤	logotouer	none
+🪒	aotenn	none
+🧴	boutailhad golcʼhad	none
+🧷	spilhenn-alcʼhwez	none
+🧹	skubellenn	none
+🧺	paner	none
+🧻	roll paper	none
+🪣	sailh	none
+🧼	soavon	none
+🪥	broust-dent	none
+🧽	spoueenn	none
+🧯	mouger-tan	none
+🛒	karrigell	none
 🚬	sigaretenn	none
 ⚰	charke	none
+🪦	maen-bez	none
 ⚱	jarl-kañv	none
+🗿	moai	none
+🏧	arlun bilhedaouer	none
+🚮	arlun pod-lastez	none
+🚰	dour mat da evañ	none
+♿	arouez kador-ruilh	none
+🚹	privezioù paotred	none
+🚺	privezioù mercʼhed	none
+🚻	golcʼhiri	none
+🚼	arouez babig	none
+🚾	WC	none
+🛂	kontroll paseporzhioù	none
+🛃	maltouterezh	none
+🛄	adtapout bagajoù	none
+🛅	fizlecʼh	none
+⚠	diwall	none
+🚸	bugale o treuziñ	none
+⛔	tu berzet	none
+🚫	berzet	none
+🚳	beloioù difennet	none
+🚭	arabat butunat	none
+🚯	arabat lakaat lastez	none
+🚱	dour fall da evañ	none
+🚷	difennet dʼar gerzhourien	none
+☢	skinoberiek	none
+☣	riskl bevoniel	none
+🛐	lec’h azeuliñ	none
+⚛	arouez an atom	none
+🕉	om	none
+✡	steredenn David	none
+☸	rod an dharma	none
+☯	yin yang	none
+✝	kroaz latin	none
+☦	kroaz ortodoks	none
+☪	steredenn ha kreskenn	none
+☮	arouez ar peocʼh	none
+🕎	menorah	none
+🔯	steredenn cʼhwecʼh brecʼh	none
 ♈	an Tourz	none
 ♉	an Tarv	none
 ♊	ar Gevelled	none
-♋	ar Krank	none
+♋	ar Cʼhrank	none
 ♌	al Leon	none
-♍	ar Gwercʼhez	none
+♍	ar Wercʼhez	none
 ♎	ar Balañsoù	none
-♏	ar Krug	none
+♏	ar Grug	none
 ♐	ar Saezhataer	none
-♑	ar Gavr	none
+♑	ar Cʼhavr	none
 ♒	ar Skuilher-dour	none
 ♓	ar Pesked	none
 ⛎	Naeretaer	none
-🦤	dodo	none
-🦬	bizon	none
-🪰	kelienenn	none
-🪱	buzhugenn	none
-🪲	cʼhwil	none
-🪳	cʼhwil-du	none
-🪶	pluenn	none
+🔀	bouton lenn mell-divell	none
+🔁	bouton lenn en-dro	none
+▶	bouton lenn	none
+🎦	sinema	none
+📳	mod froumer	none
+📴	pellgomzer lazhet	none
+♀	arouez ar mercʼhed	none
+♂	arouez ar paotred	none
+⚧	arouez treuzjener	none
+✖	liesaat	none
+➕	mui	none
+➖	nemet	none
+➗	rannañ	none
+♾	anfin	none
+❓	pik-goulenn ruz	none
+❔	pik-goulenn gwenn	none
+❕	pik-estlamm gwenn	none
+❗	pik-estlamm ruz	none
+⚕	naerwialenn	none
+♻	arouez adaozañ	none
+⚜	flourdiliz	none
+🔱	tridant	none
+📛	badj-anv	none
+🔰	arouez japanat evit an deraouidi	none
+⭕	kelcʼh ruz	none
+✅	bouton askañ	none
+☑	log asket	none
+✔	ask	none
+❌	kroaz	none
+❎	bouton kroaz	none
+➰	boukl	none
+➿	boukl doubl	none
+✳	steredennig eizh brecʼh	none
+✴	steredenn eizh brecʼh	none
+❇	strinkad	none
+™	merk kenwerzhel marilhet	none
+🔠	bizskriv pennlizherennoù latin	none
+🔡	bizskriv lizherennoù bihan latin	none
+🔢	bizskriv niveroù	none
+🔣	bizskriv arouezioù	none
+🔤	bizskriv lizherennoù latin	none
+🅰	bouton A (rumm-gwad)	none
+🆎	bouton AB (rumm-gwad)	none
+🅱	bouton B (rumm-gwad)	none
+🆑	bouton Diverkañ	none
+🆒	bouton Cool	none
+🆓	bouton Digoust	none
+ℹ	titouroù	none
+🆔	bouton Anaouder	none
+Ⓜ	M kelcʼhiet	none
+🆕	bouton Nevez	none
+🅾	bouton O (rumm-gwad)	none
+🆗	bouton OK	none
+🅿	bouton P	none
+🆘	bouton SOS	none
+🆚	bouton VS	none
+🟥	karrez ruz	none
+🟧	karrez orañjez	none
+🟨	karrez melen	none
+🟩	karrez gwer	none
+🟦	karrez glas	none
+🟪	karrez limestra	none
+🟫	karrez gell	none
+⬛	karrez bras du	none
+⬜	karrez bras gwenn	none
+◼	karrez etre du	none
+◻	karrez etre gwenn	none
+▪	karrez bihan du	none
+▫	karrez bihan gwenn	none
+🔶	romb bras orañjez	none
+🔷	romb bras glas	none
+🔸	romb bihan orañjez	none
+🔹	romb bihan glas	none
+🔘	bouton radio	none
+🚩	banniel tricʼhornek	none
+🎌	bannieloù kroaziet	none
+🏴	banniel du	none
+🏳	banniel gwenn	none
+🏳‍🌈	banniel kanevedenn	none
+🏳‍⚧	banniel treuzjener	none
+🏴‍☠	banniel ar vorlaeron	none
+₩	won	none
+€	euro	none
+₱	peso	none
+₹	roupi	none
+₽	roubl	none
+🧑‍🦰	den deuet  blev ruz	none
+🧑‍🦱	den deuet  blev rodellek	none
+🧑‍🦳	den deuet  blev gwenn	none
+🧑‍🦲	den deuet  moal	none
+👨‍🦰	gwaz  blev ruz	none
+👨‍🦱	gwaz  blev rodellek	none
+👨‍🦳	gwaz  blev gwenn	none
+👨‍🦲	gwaz  moal	none
+👩‍🦰	maouez  blev ruz	none
+👩‍🦱	maouez  blev rodellek	none
+👩‍🦳	maouez  blev gwenn	none
+👩‍🦲	maouez  moal	none
+👨‍👩‍👦	familh  gwaz, maouez, paotr	none
+👨‍👩‍👧	familh  gwaz, maouez, placʼh	none
+👨‍👩‍👧‍👦	familh  gwaz, maouez, placʼh, paotr	none
+👨‍👩‍👦‍👦	familh  gwaz, maouez, paotr, paotr	none
+👨‍👩‍👧‍👧	familh  gwaz, maouez, placʼh, placʼh	none
+👨‍👨‍👦	familh  gwaz, gwaz, paotr	none
+👨‍👨‍👧	familh  gwaz, gwaz, placʼh	none
+👨‍👨‍👧‍👦	familh  gwaz, gwaz, placʼh, paotr	none
+👨‍👨‍👦‍👦	familh  gwaz, gwaz, paotr, paotr	none
+👨‍👨‍👧‍👧	familh  gwaz, gwaz, placʼh, placʼh	none
+👩‍👩‍👦	familh  maouez, maouez, paotr	none
+👩‍👩‍👧	familh  maouez, maouez, placʼh	none
+👩‍👩‍👧‍👦	familh  maouez, maouez, placʼh, paotr	none
+👩‍👩‍👦‍👦	familh  maouez, maouez, paotr, paotr	none
+👩‍👩‍👧‍👧	familh  maouez, maouez, placʼh, placʼh	none
+👨‍👦	familh  gwaz, paotr	none
+👨‍👦‍👦	familh  gwaz, paotr, paotr	none
+👨‍👧	familh  gwaz, placʼh	none
+👨‍👧‍👦	familh  gwaz, placʼh, paotr	none
+👨‍👧‍👧	familh  gwaz, placʼh, placʼh	none
+👩‍👦	familh  maouez, paotr	none
+👩‍👦‍👦	familh  maouez, paotr, paotr	none
+👩‍👧	familh  maouez, placʼh	none
+👩‍👧‍👦	familh  maouez, placʼh, paotr	none
+👩‍👧‍👧	familh  maouez, placʼh, placʼh	none
+🇦🇨	banniel  Enez Ascension	none
+🇦🇩	banniel  Andorra	none
+🇦🇪	banniel  Emirelezhioù Arab Unanet	none
+🇦🇫	banniel  Afghanistan	none
+🇦🇬	banniel  Antigua ha Barbuda	none
+🇦🇮	banniel  Anguilla	none
+🇦🇱	banniel  Albania	none
+🇦🇲	banniel  Armenia	none
+🇦🇴	banniel  Angola	none
+🇦🇶	banniel  Antarktika	none
+🇦🇷	banniel  Arcʼhantina	none
+🇦🇸	banniel  Samoa Amerikan	none
+🇦🇹	banniel  Aostria	none
+🇦🇺	banniel  Aostralia	none
+🇦🇼	banniel  Aruba	none
+🇦🇽	banniel  Inizi Åland	none
+🇦🇿	banniel  Azerbaidjan	none
+🇧🇦	banniel  Bosnia ha Herzegovina	none
+🇧🇧	banniel  Barbados	none
+🇧🇩	banniel  Bangladesh	none
+🇧🇪	banniel  Belgia	none
+🇧🇫	banniel  Burkina Faso	none
+🇧🇬	banniel  Bulgaria	none
+🇧🇭	banniel  Bahrein	none
+🇧🇮	banniel  Burundi	none
+🇧🇯	banniel  Benin	none
+🇧🇱	banniel  Saint Barthélemy	none
+🇧🇲	banniel  Bermuda	none
+🇧🇳	banniel  Brunei	none
+🇧🇴	banniel  Bolivia	none
+🇧🇶	banniel  Karib Nederlandat	none
+🇧🇷	banniel  Brazil	none
+🇧🇸	banniel  Bahamas	none
+🇧🇹	banniel  Bhoutan	none
+🇧🇻	banniel  Enez Bouvet	none
+🇧🇼	banniel  Botswana	none
+🇧🇾	banniel  Belarus	none
+🇧🇿	banniel  Belize	none
+🇨🇦	banniel  Kanada	none
+🇨🇨	banniel  Inizi Kokoz	none
+🇨🇩	banniel  Kongo - Kinshasa	none
+🇨🇫	banniel  Republik Kreizafrikan	none
+🇨🇬	banniel  Kongo - Brazzaville	none
+🇨🇭	banniel  Suis	none
+🇨🇮	banniel  Aod an Olifant	none
+🇨🇰	banniel  Inizi Cook	none
+🇨🇱	banniel  Chile	none
+🇨🇲	banniel  Kameroun	none
+🇨🇳	banniel  Sina	none
+🇨🇴	banniel  Kolombia	none
+🇨🇵	banniel  Enez Clipperton	none
+🇨🇷	banniel  Costa Rica	none
+🇨🇺	banniel  Kuba	none
+🇨🇻	banniel  Kab-Glas	none
+🇨🇼	banniel  Curaçao	none
+🇨🇽	banniel  Enez Christmas	none
+🇨🇾	banniel  Kiprenez	none
+🇨🇿	banniel  Tchekia	none
+🇩🇪	banniel  Alamagn	none
+🇩🇬	banniel  Diego Garcia	none
+🇩🇯	banniel  Djibouti	none
+🇩🇰	banniel  Danmark	none
+🇩🇲	banniel  Dominica	none
+🇩🇴	banniel  Republik Dominikan	none
+🇩🇿	banniel  Aljeria	none
+🇪🇦	banniel  Ceuta ha Melilla	none
+🇪🇨	banniel  Ecuador	none
+🇪🇪	banniel  Estonia	none
+🇪🇬	banniel  Egipt	none
+🇪🇭	banniel  Sahara ar Cʼhornôg	none
+🇪🇷	banniel  Eritrea	none
+🇪🇸	banniel  Spagn	none
+🇪🇹	banniel  Etiopia	none
+🇪🇺	banniel  Unaniezh Europa	none
+🇫🇮	banniel  Finland	none
+🇫🇯	banniel  Fidji	none
+🇫🇰	banniel  Inizi Falkland	none
+🇫🇲	banniel  Mikronezia	none
+🇫🇴	banniel  Inizi Faero	none
+🇫🇷	banniel  Frañs	none
+🇬🇦	banniel  Gabon	none
+🇬🇧	banniel  Rouantelezh-Unanet	none
+🇬🇩	banniel  Grenada	none
+🇬🇪	banniel  Jorjia	none
+🇬🇫	banniel  Gwiana cʼhall	none
+🇬🇬	banniel  Gwernenez	none
+🇬🇭	banniel  Ghana	none
+🇬🇮	banniel  Jibraltar	none
+🇬🇱	banniel  Greunland	none
+🇬🇲	banniel  Gambia	none
+🇬🇳	banniel  Ginea	none
+🇬🇵	banniel  Gwadeloup	none
+🇬🇶	banniel  Ginea ar Cʼheheder	none
+🇬🇷	banniel  Gres	none
+🇬🇸	banniel  Inizi Georgia ar Su hag Inizi Sandwich ar Su	none
+🇬🇹	banniel  Guatemala	none
+🇬🇺	banniel  Guam	none
+🇬🇼	banniel  Ginea-Bissau	none
+🇬🇾	banniel  Guyana	none
+🇭🇰	banniel  Hong Kong RMD Sina	none
+🇭🇲	banniel  Inizi Heard ha McDonald	none
+🇭🇳	banniel  Honduras	none
+🇭🇷	banniel  Kroatia	none
+🇭🇹	banniel  Haiti	none
+🇭🇺	banniel  Hungaria	none
+🇮🇨	banniel  Inizi Kanariez	none
+🇮🇩	banniel  Indonezia	none
+🇮🇪	banniel  Iwerzhon	none
+🇮🇱	banniel  Israel	none
+🇮🇲	banniel  Enez Vanav	none
+🇮🇳	banniel  India	none
+🇮🇴	banniel  Tiriad breizhveurat Meurvor Indez	none
+🇮🇶	banniel  Iraq	none
+🇮🇷	banniel  Iran	none
+🇮🇸	banniel  Island	none
+🇮🇹	banniel  Italia	none
+🇯🇪	banniel  Jerzenez	none
+🇯🇲	banniel  Jamaika	none
+🇯🇴	banniel  Jordania	none
+🇯🇵	banniel  Japan	none
+🇰🇪	banniel  Kenya	none
+🇰🇬	banniel  Kyrgyzstan	none
+🇰🇭	banniel  Kambodja	none
+🇰🇮	banniel  Kiribati	none
+🇰🇲	banniel  Komorez	none
+🇰🇳	banniel  Saint Kitts ha Nevis	none
+🇰🇵	banniel  Korea an Norzh	none
+🇰🇷	banniel  Korea ar Su	none
+🇰🇼	banniel  Koweit	none
+🇰🇾	banniel  Inizi Cayman	none
+🇰🇿	banniel  Kazakstan	none
+🇱🇦	banniel  Laos	none
+🇱🇧	banniel  Liban	none
+🇱🇨	banniel  Saint Lucia	none
+🇱🇮	banniel  Liechtenstein	none
+🇱🇰	banniel  Sri Lanka	none
+🇱🇷	banniel  Liberia	none
+🇱🇸	banniel  Lesotho	none
+🇱🇹	banniel  Lituania	none
+🇱🇺	banniel  Luksembourg	none
+🇱🇻	banniel  Latvia	none
+🇱🇾	banniel  Libia	none
+🇲🇦	banniel  Maroko	none
+🇲🇨	banniel  Monaco	none
+🇲🇩	banniel  Moldova	none
+🇲🇪	banniel  Montenegro	none
+🇲🇫	banniel  Saint Martin	none
+🇲🇬	banniel  Madagaskar	none
+🇲🇭	banniel  Inizi Marshall	none
+🇲🇰	banniel  Makedonia an Norzh	none
+🇲🇱	banniel  Mali	none
+🇲🇲	banniel  Myanmar (Birmania)	none
+🇲🇳	banniel  Mongolia	none
+🇲🇴	banniel  Macau RMD Sina	none
+🇲🇵	banniel  Inizi Mariana an Norzh	none
+🇲🇶	banniel  Martinik	none
+🇲🇷	banniel  Maouritania	none
+🇲🇸	banniel  Montserrat	none
+🇲🇹	banniel  Malta	none
+🇲🇺	banniel  Moris	none
+🇲🇻	banniel  Maldivez	none
+🇲🇼	banniel  Malawi	none
+🇲🇽	banniel  Mecʼhiko	none
+🇲🇾	banniel  Malaysia	none
+🇲🇿	banniel  Mozambik	none
+🇳🇦	banniel  Namibia	none
+🇳🇨	banniel  Kaledonia Nevez	none
+🇳🇪	banniel  Niger	none
+🇳🇫	banniel  Enez Norfolk	none
+🇳🇬	banniel  Nigeria	none
+🇳🇮	banniel  Nicaragua	none
+🇳🇱	banniel  Izelvroioù	none
+🇳🇴	banniel  Norvegia	none
+🇳🇵	banniel  Nepal	none
+🇳🇷	banniel  Nauru	none
+🇳🇺	banniel  Niue	none
+🇳🇿	banniel  Zeland-Nevez	none
+🇴🇲	banniel  Oman	none
+🇵🇦	banniel  Panamá	none
+🇵🇪	banniel  Perou	none
+🇵🇫	banniel  Polinezia Cʼhall	none
+🇵🇬	banniel  Papoua Ginea-Nevez	none
+🇵🇭	banniel  Filipinez	none
+🇵🇰	banniel  Pakistan	none
+🇵🇱	banniel  Polonia	none
+🇵🇲	banniel  Sant-Pêr-ha-Mikelon	none
+🇵🇳	banniel  Enez Pitcairn	none
+🇵🇷	banniel  Puerto Rico	none
+🇵🇸	banniel  Tiriadoù Palestina	none
+🇵🇹	banniel  Portugal	none
+🇵🇼	banniel  Palau	none
+🇵🇾	banniel  Paraguay	none
+🇶🇦	banniel  Qatar	none
+🇷🇪	banniel  Ar Reünion	none
+🇷🇴	banniel  Roumania	none
+🇷🇸	banniel  Serbia	none
+🇷🇺	banniel  Rusia	none
+🇷🇼	banniel  Rwanda	none
+🇸🇦	banniel  Arabia Saoudat	none
+🇸🇧	banniel  Inizi Salomon	none
+🇸🇨	banniel  Sechelez	none
+🇸🇩	banniel  Soudan	none
+🇸🇪	banniel  Sveden	none
+🇸🇬	banniel  Singapour	none
+🇸🇭	banniel  Saint-Helena	none
+🇸🇮	banniel  Slovenia	none
+🇸🇯	banniel  Svalbard	none
+🇸🇰	banniel  Slovakia	none
+🇸🇱	banniel  Sierra Leone	none
+🇸🇲	banniel  San Marino	none
+🇸🇳	banniel  Senegal	none
+🇸🇴	banniel  Somalia	none
+🇸🇷	banniel  Surinam	none
+🇸🇸	banniel  Susoudan	none
+🇸🇹	banniel  São Tomé ha Príncipe	none
+🇸🇻	banniel  Salvador	none
+🇸🇽	banniel  Sint Maarten	none
+🇸🇾	banniel  Siria	none
+🇸🇿	banniel  Eswatini	none
+🇹🇦	banniel  Tristan da Cunha	none
+🇹🇨	banniel  Inizi Turks ha Caicos	none
+🇹🇩	banniel  Tchad	none
+🇹🇫	banniel  Douaroù aostral Frañs	none
+🇹🇬	banniel  Togo	none
+🇹🇭	banniel  Thailand	none
+🇹🇯	banniel  Tadjikistan	none
+🇹🇰	banniel  Tokelau	none
+🇹🇱	banniel  Timor-Leste	none
+🇹🇲	banniel  Turkmenistan	none
+🇹🇳	banniel  Tunizia	none
+🇹🇴	banniel  Tonga	none
+🇹🇷	banniel  Turkia	none
+🇹🇹	banniel  Trinidad ha Tobago	none
+🇹🇻	banniel  Tuvalu	none
+🇹🇼	banniel  Taiwan	none
+🇹🇿	banniel  Tanzania	none
+🇺🇦	banniel  Ukraina	none
+🇺🇬	banniel  Ouganda	none
+🇺🇲	banniel  Inizi diabell ar Stadoù-Unanet	none
+🇺🇳	banniel  Broadoù unanet	none
+🇺🇸	banniel  Stadoù-Unanet	none
+🇺🇾	banniel  Uruguay	none
+🇺🇿	banniel  Ouzbekistan	none
+🇻🇦	banniel  Vatikan	none
+🇻🇨	banniel  Sant Visant hag ar Grenadinez	none
+🇻🇪	banniel  Venezuela	none
+🇻🇬	banniel  Inizi Gwercʼh Breizh-Veur	none
+🇻🇮	banniel  Inizi Gwercʼh ar Stadoù-Unanet	none
+🇻🇳	banniel  Viêt Nam	none
+🇻🇺	banniel  Vanuatu	none
+🇼🇫	banniel  Wallis ha Futuna	none
+🇼🇸	banniel  Samoa	none
+🇽🇰	banniel  Kosovo	none
+🇾🇪	banniel  Yemen	none
+🇾🇹	banniel  Mayotte	none
+🇿🇦	banniel  Suafrika	none
+🇿🇲	banniel  Zambia	none
+🇿🇼	banniel  Zimbabwe	none
+🏴󠁧󠁢󠁥󠁮󠁧󠁿	banniel  Bro-Saoz	none
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	banniel  Skos	none
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	banniel  Kembre	none
+₡	colón Costa Rica	none
+₦	naira Nigeria	none
+₧	peseta Spagn	none
+₪	shekel nevez Israel	none
+₫	dong Viêt Nam	none
+₭	kip Laos	none
+₮	tugrik Mongolia	none
+₲	guarani Paraguay	none
+₴	hryvnia Ukraina	none
+₵	cedi Ghana	none
+₸	tenge Kazakstan	none
+₺	lur Turkia	none
+₼	manat Azerbaidjan	none
+₾	lari Jorjia	none

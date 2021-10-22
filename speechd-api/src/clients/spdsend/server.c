@@ -422,9 +422,6 @@ static void init_connections()
 		for (i = CONNECTION_ID_MIN; i < CONNECTION_ID_MAX; i++)
 			connections[i] = NONE;
 	}
-#if USE_THREADS
-	pthread_mutex_init(&connections_mutex, NULL);
-#endif
 }
 
 static void start_server()

@@ -71,7 +71,7 @@ int module_init(char **status_info)
 
 	DBG("Dummy: creating new thread for dummy_speak\n");
 	dummy_speaking = 0;
-	ret = pthread_create(&dummy_speak_thread, NULL, _dummy_speak, NULL);
+	ret = spd_pthread_create(&dummy_speak_thread, NULL, _dummy_speak, NULL);
 	if (ret != 0) {
 		DBG("Dummy: thread failed\n");
 		*status_info = g_strdup("The module couldn't initialize threads"
@@ -93,7 +93,7 @@ SPDVoice **module_list_voices(void)
 	return NULL;
 }
 
-int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
+int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 
 	DBG("speak()\n");
@@ -166,6 +166,7 @@ void *_dummy_speak(void *nothing)
 
 	DBG("dummy: speaking thread starting.......\n");
 
+	/* Make interruptible */
 	set_speaking_thread_parameters();
 
 	while (1) {

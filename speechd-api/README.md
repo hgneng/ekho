@@ -18,12 +18,17 @@ interface.
 Documentation
 -------------
 
-Complete documentation may be found in doc directory. Read
-[doc/README](doc/README) for more information. This [documentation is also
-available online](https://devel.freebsoft.org/doc/speechd/speech-dispatcher.html).
+Complete documentation may be found in doc directory:
+the speech dispatcher documentation: doc/speech-dispatcher.html,
+the spd-say documentation: doc/spd-say.html,
+and the SSIP protocol documentation: doc/ssip.html.
 
-The [SSIP communication protocol is also
-documented](https://devel.freebsoft.org/doc/speechd/ssip.html).
+Read [doc/README](doc/README) for more information.
+
+This documentation is also available online:
+the [speech dispatcher documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/speech-dispatcher.html),
+the [spd-say documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/spd-say.html),
+and the [SSIP protocol documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/ssip.html).
 
 The key features and the supported TTS engines, output subsystems, client
 interfaces and client applications known to work with Speech Dispatcher are
@@ -98,7 +103,7 @@ License
 -------
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 
 This program is free software; you can redistribute it and/or modify it under

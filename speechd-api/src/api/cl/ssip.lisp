@@ -98,6 +98,7 @@ Useful only for diagnosing problems.")
     (punctuation-mode
      (:none . "none")
      (:some . "some")
+     (:most . "most")
      (:all .  "all"))
     (capital-character-mode
      (:none . "none")
@@ -111,6 +112,7 @@ Useful only for diagnosing problems.")
 
 (defparameter +punctuation-modes+ '(("none" . none)
                                     ("some" . some)
+                                    ("most" . most)
                                     ("all" .  all)))
 
 (defparameter +capital-character-modes+ '(("none" .  none)

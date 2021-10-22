@@ -105,12 +105,18 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@pico_support_TRUE@am__append_1 = pico.conf
-@pico_support_TRUE@am__append_2 = pico.conf
-@baratinoo_support_TRUE@am__append_3 = baratinoo.conf
-@baratinoo_support_TRUE@am__append_4 = baratinoo.conf
-@kali_support_TRUE@am__append_5 = kali.conf
-@kali_support_TRUE@am__append_6 = kali.conf
+@ivona_support_TRUE@am__append_1 = ivona.conf
+@ivona_support_TRUE@am__append_2 = ivona.conf
+@pico_support_TRUE@am__append_3 = pico.conf
+@pico_support_TRUE@am__append_4 = pico.conf
+@baratinoo_support_TRUE@am__append_5 = baratinoo.conf
+@baratinoo_support_TRUE@am__append_6 = baratinoo.conf
+@kali_support_TRUE@am__append_7 = kali.conf
+@kali_support_TRUE@am__append_8 = kali.conf
+@ibmtts_support_TRUE@am__append_9 = ibmtts.conf
+@ibmtts_support_TRUE@am__append_10 = ibmtts.conf
+@voxin_support_TRUE@am__append_11 = voxin.conf
+@voxin_support_TRUE@am__append_12 = voxin.conf
 subdir = config/modules
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
@@ -149,11 +155,11 @@ am__can_run_installinfo = \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
 am__dist_moduleconf_DATA_DIST = cicero.conf espeak.conf espeak-ng.conf \
-	festival.conf flite.conf ibmtts.conf ivona.conf \
-	dtk-generic.conf epos-generic.conf espeak-generic.conf \
+	festival.conf flite.conf dtk-generic.conf epos-generic.conf \
 	espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
-	llia_phon-generic.conf pico-generic.conf swift-generic.conf \
-	mary-generic.conf pico.conf baratinoo.conf kali.conf
+	llia_phon-generic.conf swift-generic.conf mary-generic.conf \
+	ivona.conf pico.conf baratinoo.conf kali.conf ibmtts.conf \
+	voxin.conf
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -184,8 +190,8 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(moduleconfdir)" \
 	"$(DESTDIR)$(moduleconforigdir)"
 am__dist_moduleconforig_DATA_DIST = cicero.conf espeak.conf \
-	festival.conf espeak-ng.conf pico.conf baratinoo.conf \
-	kali.conf
+	festival.conf espeak-ng.conf ivona.conf pico.conf \
+	baratinoo.conf kali.conf ibmtts.conf voxin.conf
 DATA = $(dist_moduleconf_DATA) $(dist_moduleconforig_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 am__DIST_COMMON = $(srcdir)/Makefile.in
@@ -203,7 +209,6 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
-CFLAG_PULSEAUDIO = @CFLAG_PULSEAUDIO@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CSCOPE = @CSCOPE@
@@ -225,6 +230,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 ERROR_CFLAGS = @ERROR_CFLAGS@
+ESPEAK = @ESPEAK@
 ESPEAK_NG_CFLAGS = @ESPEAK_NG_CFLAGS@
 ESPEAK_NG_LIBS = @ESPEAK_NG_LIBS@
 ETAGS = @ETAGS@
@@ -232,6 +238,7 @@ EXEEXT = @EXEEXT@
 EXTRA_ESPEAK_LIBS = @EXTRA_ESPEAK_LIBS@
 EXTRA_SOCKET_LIBS = @EXTRA_SOCKET_LIBS@
 FGREP = @FGREP@
+FLITE = @FLITE@
 GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_CFLAGS = @GLIB_CFLAGS@
@@ -260,7 +267,6 @@ LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
-LIB_PULSEAUDIO = @LIB_PULSEAUDIO@
 LIB_SPD_AGE = @LIB_SPD_AGE@
 LIB_SPD_CURRENT = @LIB_SPD_CURRENT@
 LIB_SPD_REVISION = @LIB_SPD_REVISION@
@@ -331,6 +337,7 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+audio_dlopen = @audio_dlopen@
 audio_dlopen_modules = @audio_dlopen_modules@
 audiodir = @audiodir@
 bindir = @bindir@
@@ -371,6 +378,7 @@ modulebindir = @modulebindir@
 moduleconfdir = @moduleconfdir@
 moduleconforigdir = @moduleconforigdir@
 oldincludedir = @oldincludedir@
+oldmodulebindir = @oldmodulebindir@
 pdfdir = @pdfdir@
 pkgpyexecdir = @pkgpyexecdir@
 pkgpythondir = @pkgpythondir@
@@ -396,14 +404,14 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 dist_moduleconf_DATA = cicero.conf espeak.conf espeak-ng.conf \
-	festival.conf flite.conf ibmtts.conf ivona.conf \
-	dtk-generic.conf epos-generic.conf espeak-generic.conf \
+	festival.conf flite.conf dtk-generic.conf epos-generic.conf \
 	espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
-	llia_phon-generic.conf pico-generic.conf swift-generic.conf \
-	mary-generic.conf $(am__append_1) $(am__append_3) \
-	$(am__append_5)
+	llia_phon-generic.conf swift-generic.conf mary-generic.conf \
+	$(am__append_1) $(am__append_3) $(am__append_5) \
+	$(am__append_7) $(am__append_9) $(am__append_11)
 dist_moduleconforig_DATA = cicero.conf espeak.conf festival.conf \
-	espeak-ng.conf $(am__append_2) $(am__append_4) $(am__append_6)
+	espeak-ng.conf $(am__append_2) $(am__append_4) $(am__append_6) \
+	$(am__append_8) $(am__append_10) $(am__append_12)
 all: all-am
 
 .SUFFIXES:
@@ -647,11 +655,11 @@ uninstall-am: uninstall-dist_moduleconfDATA \
 
 .PRECIOUS: Makefile
 
-	                   flite.conf ibmtts.conf ivona.conf dtk-generic.conf \
-                           epos-generic.conf espeak-generic.conf \
+	                   flite.conf dtk-generic.conf \
+                           epos-generic.conf \
                            espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
                            llia_phon-generic.conf \
-                           pico-generic.conf swift-generic.conf mary-generic.conf
+                           swift-generic.conf mary-generic.conf
 
 -include $(top_srcdir)/git.mk
 

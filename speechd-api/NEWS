@@ -1,16 +1,68 @@
+Version 0.11
+* Support playing audio through the server.
+* Simplify modules thanks to this.
+* modules: Add support for loading from user's .local/libexec/speech-dispatcher.
+* symbols: Process symbols.dic before emojis.dic.
+* symbols: Enable speechd symbols processing by default.
+* modules: Moved speech dispatcher modules to /usr/libexec/speech-dispatcher-modules
+  (but keep compatibility with old /usr/lib/speech-dispatcher-modules path).
+* espeak-ng: Add support for mbrola voices.
+* ibmtts/voxin: Improve language selection.
+* ibmtts/voxin: Add option to disable punctuation commands.
+* ibmtts: Fix library load.
+* ibmtts: Do not build by default on other systems than 32bit PC.
+* mary: Add auto-detection.
+* mary: Add newer voices.
+* mary: Add volume, pitch, and rate support.
+* ivona: Add auto-detection.
+* festival: Strip head silence.
+* generic: Add DefaultVoice option.
+* es_ES: Add some gender neutral rules.
+* Add SPEECHD_CMD environment variable.
+* modules: Rewrite main functions with BSD licence, to let proprietary modules easily reuse this as a basis.
+* modules: Add skeletons ready for use as a basis for new modules.
+* Add script to run speechd from the build tree.
+* Update CLDR to version 39, symbols from NVDA and orca.
+* Add Esperanto translation.
+
+Version 0.10.2
+* generic: Add support for sound icons
+* Add French, Norwegian Bokmål, Portuguese, Brazilian Portuguese, and Russian translations.
+* Add voxin module variant.
+* Factorize espeak module with espeak-ng module.
+* Make ibmtts and voxin use the common queue helpers.
+* Fix python bindings against python 3.9.
+* Reference the golang bindings.
+* Add spd_get_client_id.
+* Make key, char and sound_icon commands return message id.
+* Expose modulebindir in speech-dispatcher.pc.
+* Remove generic modules for synths that have a non-generic module.
+
 Version 0.10
+* Add punctuation level "most".
 * Rework thread synchronization.
 * Move espeak/espeak-ng audio queuing to shared file, rework it.
 * Make baratinoo use this audio queueing, enable marks, and support
 responsiveness parameter.
+* Add support for Baratinoo engine 8.6
 * Show mark progression in spd-say.
+* Add --character option to spd-say.
 * Put country/region in language instead of variant.
 * pico, generic: fix setting voice by language.
 * generic: Add fallback voices for generic languages.
 * symbols: Add support for SSML.
-* symbols: Add SymbolPreprocessingFile directive.
+* symbols: Add SymbolPreprocFile directive to load several symbol files.
+* symbols: Replace DefaultSymbolsPreproc directive with SymbolsPreproc directive
+to have more fine-grained control over server preprocessing.
 * symbols: Import emojis and unicode font variants support from NVDA and Unicode
 CLDR and UnicodeData.
+* symbols: Import some symbols from Orca.
+* symbols: Add rules to drop gender-neutral forms.
+* symbols: Add support for group references.
+* Disable Mary-TTS module by default.
+* Replace AudioPulseServer option with AudioPulseDevice.
+* Fix default pulse latency to 10ms to avoid pulseaudio distorted output.
+* Made client isolation stronger for Snap/Flatpak support.
 
 Version 0.9.1
 * Add module for the non-free IBM TTS (voxin) speech synthesis.
@@ -338,7 +390,7 @@ Version 0.0.1
 
 Copyright (C) 2002-2012 Brailcom, o.p.s
 Copyright (C) 2002-2012 Brailcom, o.p.s
-Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Florian Steinhardt <no.known.email@example.com>
 
 This program is free software; you can redistribute it and/or modify it under

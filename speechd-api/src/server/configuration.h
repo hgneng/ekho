@@ -39,6 +39,6 @@ configoption_t *add_config_option(configoption_t * options,
 				  dotconf_callback_t callback, info_t * info,
 				  unsigned long context);
 
-void load_default_global_set_options();
+void load_default_global_set_options(void);
 
 #endif

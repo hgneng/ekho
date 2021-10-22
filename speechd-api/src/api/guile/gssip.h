@@ -24,6 +24,6 @@
 
 #define __GSSIP_H
 
-void init_gssip();
+void init_gssip(void);
 
 #endif

@@ -44,6 +44,7 @@
 #include "alloc.h"
 #include "sem_functions.h"
 #include "speaking.h"
+#include "speak_queue.h"
 #include "set.h"
 #include "options.h"
 #include "server.h"
@@ -61,7 +62,7 @@ void destroy_pid_file();
 int server_socket;
 
 GMainLoop *main_loop = NULL;
-gint server_timeout_source = 0;
+gint server_timeout_source = -1;
 
 int client_count = 0;
 
@@ -69,10 +70,10 @@ struct SpeechdOptions SpeechdOptions;
 struct SpeechdStatus SpeechdStatus;
 
 pthread_t speak_thread;
-pthread_mutex_t logging_mutex;
-pthread_mutex_t element_free_mutex;
-pthread_mutex_t output_layer_mutex;
-pthread_mutex_t socket_com_mutex;
+pthread_mutex_t logging_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t element_free_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t output_layer_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t socket_com_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 GHashTable *fd_settings;
 GHashTable *language_default_modules;
@@ -162,7 +163,7 @@ void fatal_error(void)
 
 /* Logging messages, level of verbosity is defined between 1 and 5,
  * see documentation */
-void MSG2(int level, char *kind, char *format, ...)
+void MSG2(int level, const char *kind, const char *format, ...)
 {
 	int std_log = level <= SpeechdOptions.log_level;
 	int custom_log = (kind != NULL && custom_log_kind != NULL &&
@@ -247,7 +248,7 @@ void MSG2(int level, char *kind, char *format, ...)
    documentation */
 /* TODO: Define this in terms of MSG somehow. I don't
    know how to pass '...' arguments to another C function */
-void MSG(int level, char *format, ...)
+void MSG(int level, const char *format, ...)
 {
 
 	if ((level <= SpeechdOptions.log_level)
@@ -583,8 +584,11 @@ void speechd_options_init(void)
 	SpeechdOptions.localhost_access_only_set = 0;
 	SpeechdOptions.pid_file = NULL;
 	SpeechdOptions.conf_file = NULL;
-	SpeechdOptions.module_dir = MODULEBINDIR;
+	SpeechdOptions.conf_dir = NULL;
+	SpeechdOptions.user_conf_dir = NULL;
 	SpeechdOptions.runtime_speechd_dir = NULL;
+	SpeechdOptions.module_dir = MODULEBINDIR;
+	SpeechdOptions.user_module_dir = NULL;
 	SpeechdOptions.log_dir = NULL;
 	SpeechdOptions.log_dir_set = 0;
 	SpeechdOptions.debug = 0;
@@ -595,8 +599,6 @@ void speechd_options_init(void)
 
 void speechd_init()
 {
-	int ret;
-
 	SpeechdStatus.max_uid = 0;
 	SpeechdStatus.max_gid = 0;
 
@@ -644,19 +646,6 @@ void speechd_init()
 
 	/* Initialize list of different client specific settings entries */
 	client_specific_settings = NULL;
-
-	/* Initialize mutexes, semaphores and synchronization */
-	ret = pthread_mutex_init(&element_free_mutex, NULL);
-	if (ret != 0)
-		DIE("Mutex initialization failed");
-
-	ret = pthread_mutex_init(&output_layer_mutex, NULL);
-	if (ret != 0)
-		DIE("Mutex initialization failed");
-
-	ret = pthread_mutex_init(&socket_com_mutex, NULL);
-	if (ret != 0)
-		DIE("Mutex initialization failed");
 
 	if (SpeechdOptions.log_dir == NULL) {
 		SpeechdOptions.log_dir =
@@ -719,6 +708,7 @@ static gboolean speechd_load_configuration(gpointer user_data)
 	    dotconf_create(SpeechdOptions.conf_file, spd_options, 0,
 			   CASE_INSENSITIVE);
 	if (configfile) {
+		free(configfile->includepath);
 		configfile->includepath = g_strdup(SpeechdOptions.conf_dir);
 		MSG(5, "Config file include path is: %s",
 		    configfile->includepath);
@@ -731,14 +721,26 @@ static gboolean speechd_load_configuration(gpointer user_data)
 		/* We need to load modules here, since this is called both by speechd_init
 		 * and to handle SIGHUP. */
 		if (module_number_of_requested_modules() < 1) {
-			detected_modules = detect_output_modules(SpeechdOptions.module_dir,
+			detected_modules = detect_output_modules(NULL,
+								 SpeechdOptions.user_module_dir,
+								 SpeechdOptions.user_conf_dir,
+								 SpeechdOptions.conf_dir);
+			detected_modules = detect_output_modules(detected_modules,
+								 SpeechdOptions.module_dir,
+								 SpeechdOptions.user_conf_dir,
+								 SpeechdOptions.conf_dir);
+			detected_modules = detect_output_modules(detected_modules,
+								 OLDMODULEBINDIR,
+								 SpeechdOptions.user_conf_dir,
 								 SpeechdOptions.conf_dir);
 			while (detected_modules != NULL) {
 				char **parameters = detected_modules->data;
 				module_add_load_request(parameters[0],
 							parameters[1],
 							parameters[2],
-							parameters[3]);
+							parameters[3],
+							parameters[4],
+							parameters[5]);
 				g_free(detected_modules->data);
 				detected_modules->data = NULL;
 				detected_modules =
@@ -982,13 +984,15 @@ void check_client_count(void)
 	if (client_count <= 0
 	    && SpeechdOptions.server_timeout > 0) {
 		MSG(4, "Currently no clients connected, enabling shutdown timer.");
-		server_timeout_source = 
-		                        g_timeout_add_seconds(
+		server_timeout_source = g_timeout_add_seconds(
 		                        SpeechdOptions.server_timeout,
 		                        speechd_quit, NULL);
 	} else {
-	MSG(4, "Clients connected, disabling shutdown timer.");
-		g_source_remove(server_timeout_source);
+		if (server_timeout_source >= 0) {
+			MSG(4, "Clients connected, disabling shutdown timer.");
+			g_source_remove(server_timeout_source);
+			server_timeout_source = -1;
+		}
 	}
 }
 
@@ -1047,10 +1051,11 @@ int main(int argc, char *argv[])
 	{
 		const char *user_runtime_dir;
 		const char *user_config_dir;
-		char *test_speechd_conf_file = NULL;
+		const char *user_data_dir;
 
 		user_runtime_dir = g_get_user_runtime_dir();
 		user_config_dir = g_get_user_config_dir();
+		user_data_dir = g_get_user_data_dir();
 
 		/* Setup a speechd-dispatcher directory or create a new one */
 		SpeechdOptions.runtime_speechd_dir =
@@ -1066,32 +1071,41 @@ int main(int argc, char *argv[])
 			SpeechdOptions.pid_file =
 			    g_strdup_printf("%s/pid/speech-dispatcher.pid",
 					    SpeechdOptions.runtime_speechd_dir);
-			g_mkdir(g_path_get_dirname(SpeechdOptions.pid_file),
-				S_IRWXU);
+			gchar *dirname = g_path_get_dirname(SpeechdOptions.pid_file);
+			g_mkdir(dirname, S_IRWXU);
+			g_free(dirname);
 		}
 		/* Config file */
-		if (SpeechdOptions.conf_dir == NULL) {
+		if (SpeechdOptions.conf_dir) {
+			SpeechdOptions.conf_file =
+			    g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);
+		} else {
 			/* If no conf_dir was specified on command line, try default local config dir */
-			SpeechdOptions.conf_dir =
+			if (strcmp(SYS_CONF, ""))
+				SpeechdOptions.conf_dir =
+				    g_strdup(SYS_CONF);
+			else
+				SpeechdOptions.conf_dir =
+				    g_strdup("/etc/speech-dispatcher/");
+			SpeechdOptions.user_conf_dir =
 			    g_build_filename(user_config_dir,
 					     "speech-dispatcher", NULL);
-			test_speechd_conf_file =
-			    g_build_filename(SpeechdOptions.conf_dir,
-					     "speechd.conf", NULL);
+
+			MSG(4, "Looking for configuration in %s", SpeechdOptions.user_conf_dir);
+			SpeechdOptions.conf_file =
+			    g_strdup_printf("%s/speechd.conf", SpeechdOptions.user_conf_dir);
 			if (!g_file_test
-			    (test_speechd_conf_file, G_FILE_TEST_IS_REGULAR)) {
+			    (SpeechdOptions.conf_file, G_FILE_TEST_IS_REGULAR)) {
 				/* If the local configuration file doesn't exist, read the global configuration */
-				if (strcmp(SYS_CONF, ""))
-					SpeechdOptions.conf_dir =
-					    g_strdup(SYS_CONF);
-				else
-					SpeechdOptions.conf_dir =
-					    g_strdup("/etc/speech-dispatcher/");
+				g_free(SpeechdOptions.conf_file);
+				SpeechdOptions.conf_file =
+				    g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);
 			}
-			g_free(test_speechd_conf_file);
 		}
-		SpeechdOptions.conf_file =
-		    g_strdup_printf("%s/speechd.conf", SpeechdOptions.conf_dir);
+
+		SpeechdOptions.user_module_dir =
+			g_strdup_printf("%s/../libexec/speech-dispatcher-modules", user_data_dir);
+		MSG(4, "User module dir is %s", SpeechdOptions.user_module_dir);
 	}
 
 	/* Check for PID file or create a new one or exit if Speech Dispatcher
@@ -1126,14 +1140,6 @@ int main(int argc, char *argv[])
 		g_free(config_contents);
 		g_regex_unref(regexp);
 		MSG(2, "Starting Speech Dispatcher due to auto-spawn");
-	}
-
-	/* Initialize logging mutex to workaround ctime threading bug */
-	/* Must be done no later than here */
-	ret = pthread_mutex_init(&logging_mutex, NULL);
-	if (ret != 0) {
-		fprintf(stderr, "Mutex initialization failed");
-		exit(1);
 	}
 
 	speechd_init();
@@ -1262,6 +1268,11 @@ int main(int argc, char *argv[])
 	if (ret != 0)
 		FATAL("Speak thread failed!\n");
 
+	char *status;
+	ret = module_speak_queue_init(SpeechdOptions.max_queue_size, &status);
+	if (ret != 0)
+		FATAL("Speak queue thread failed: %s!\n", status);
+
 	SpeechdStatus.max_fd = server_socket;
 
 	g_unix_fd_add(server_socket, G_IO_IN,
@@ -1290,6 +1301,9 @@ int main(int argc, char *argv[])
 	ret = pthread_join(speak_thread, NULL);
 	if (ret != 0)
 		FATAL("Speak thread failed to join!\n");
+
+	MSG(4, "Closing play() thread...");
+	module_speak_queue_terminate();
 
 	MSG(2, "Closing open output modules...");
 	/*  Call the close() function of each registered output module. */

@@ -21,15 +21,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.8\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2019-12-17 00:23+0100\n"
-"PO-Revision-Date: 2012-07-13 12:45+0100\n"
+"POT-Creation-Date: 2021-10-18 01:05+0200\n"
+"PO-Revision-Date: 2020-09-08 07:42+0000\n"
 "Last-Translator: Hynek Hanke <hanke@brailcom.org>\n"
-"Language-Team: Hungarian\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/speech-"
+"dispatcher/po/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -63,9 +65,7 @@ msgstr "Futtatás önálló alkalmazásként\n"
 #: src/server/options.c:75
 #, c-format
 msgid "Start only if autospawn is not disabled\n"
-msgstr ""
-"Indítás csak akkor, ha az autospawn beállítás nincs \n"
-" letiltva\n"
+msgstr "Indítás csak akkor, ha az autospawn beállítás nincs letiltva\n"
 
 #: src/server/options.c:77
 #, c-format
@@ -109,47 +109,50 @@ msgstr ""
 
 #: src/server/options.c:95
 #, c-format
-msgid "shuts down, if it has no clients connected\n"
+msgid "shuts down, if it has no clients connected. Setting to\n"
 msgstr ""
 
 #: src/server/options.c:97
 #, c-format
+msgid "0 disables such shutdown\n"
+msgstr ""
+
+#: src/server/options.c:99
+#, c-format
 msgid "Set path to pid file\n"
 msgstr "A pid fájl elérési útjának megadása\n"
 
-#: src/server/options.c:99
+#: src/server/options.c:101
 #, c-format
 msgid "Set path to configuration\n"
 msgstr "A konfigurációs fájlok elérési útjának megadása\n"
 
-#: src/server/options.c:101
+#: src/server/options.c:103
 #, fuzzy, c-format
 msgid "Set path to modules\n"
 msgstr "A pid fájl elérési útjának megadása\n"
 
-#: src/server/options.c:103
+#: src/server/options.c:105
 #, c-format
 msgid "Report version of this program\n"
 msgstr "Kiírja a program verziószámát\n"
 
-#: src/server/options.c:105
+#: src/server/options.c:107
 #, c-format
 msgid "Output debugging information into $TMPDIR/%s\n"
-msgstr ""
-"A hibakövető információk mentése a \n"
-"$TMPDIR/%s könyvtárba\n"
+msgstr "A hibakövető információk mentése a $TMPDIR/%s könyvtárba\n"
 
-#: src/server/options.c:108
+#: src/server/options.c:110
 #, c-format
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
 msgstr ""
 
-#: src/server/options.c:111 src/clients/say/options.c:161
+#: src/server/options.c:113 src/clients/say/options.c:169
 #, c-format
 msgid "Print this info\n"
 msgstr "Megjeleníti az opciók leírását\n"
 
-#: src/server/options.c:113 src/clients/say/options.c:164
+#: src/server/options.c:115 src/clients/say/options.c:172
 #, c-format
 msgid ""
 "Please report bugs to %s\n"
@@ -158,7 +161,7 @@ msgstr ""
 "Ha hibát talált, jelezze a következő címen: %s.\n"
 "\n"
 
-#: src/server/options.c:119 src/clients/say/options.c:171
+#: src/server/options.c:121 src/clients/say/options.c:179
 #: src/api/python/speechd_config/config.py.in:174
 #, c-format, python-format
 msgid ""
@@ -176,14 +179,14 @@ msgstr ""
 "A részletekért nézze meg a COPYING fájlt.\n"
 "\n"
 
-#: src/clients/say/options.c:65
+#: src/clients/say/options.c:67
 #, c-format
 msgid ""
 "send text-to-speech output request to speech-dispatcher\n"
 "\n"
 msgstr ""
 
-#: src/clients/say/options.c:66
+#: src/clients/say/options.c:68
 #, c-format
 msgid ""
 "Usage: %s [options] \"some text\"\n"
@@ -192,111 +195,121 @@ msgstr ""
 "Használat: %s [opciók] \"kimondandó szöveg\"\n"
 "\n"
 
-#: src/clients/say/options.c:68
+#: src/clients/say/options.c:70
 #, c-format
 msgid "Options:\n"
 msgstr ""
 
-#: src/clients/say/options.c:70
+#: src/clients/say/options.c:72
 #, c-format
 msgid "Set the rate of the speech\n"
 msgstr "A beszédsebesség beállítása\n"
 
-#: src/clients/say/options.c:72 src/clients/say/options.c:77
-#: src/clients/say/options.c:82 src/clients/say/options.c:87
+#: src/clients/say/options.c:74 src/clients/say/options.c:79
+#: src/clients/say/options.c:84 src/clients/say/options.c:89
 #, c-format
 msgid "(between %+d and %+d, default: %d)\n"
 msgstr "(%+d és %+d között, az alapértelmezett érték %d)\n"
 
-#: src/clients/say/options.c:75
+#: src/clients/say/options.c:77
 #, c-format
 msgid "Set the pitch of the speech\n"
 msgstr "A hangmagasság beállítása\n"
 
-#: src/clients/say/options.c:80
+#: src/clients/say/options.c:82
 #, fuzzy, c-format
 msgid "Set the pitch range of the speech\n"
 msgstr "A hangmagasság beállítása\n"
 
-#: src/clients/say/options.c:85
+#: src/clients/say/options.c:87
 #, c-format
 msgid "Set the volume (intensity) of the speech\n"
 msgstr "A hangerő beállítása\n"
 
-#: src/clients/say/options.c:90
+#: src/clients/say/options.c:92
 #, c-format
 msgid "Set the output module\n"
 msgstr "A kimeneti modul beállítása\n"
 
-#: src/clients/say/options.c:93
+#: src/clients/say/options.c:95
 #, c-format
 msgid "Get the list of output modules\n"
 msgstr "A kimeneti modulok listájának megjelenítése\n"
 
-#: src/clients/say/options.c:96
+#: src/clients/say/options.c:98
 #, c-format
 msgid "Play the sound icon\n"
 msgstr "A hangikon lejátszása\n"
 
-#: src/clients/say/options.c:99
+#: src/clients/say/options.c:101
 #, c-format
 msgid "Set the language (ISO code)\n"
 msgstr "A nyelv beállítása (ISO kód alapján)\n"
 
-#: src/clients/say/options.c:102
+#: src/clients/say/options.c:104
 #, c-format
 msgid "Set the preferred voice type\n"
 msgstr "a preferált hangkarakter-típus beállítása\n"
 
-#: src/clients/say/options.c:107
+#: src/clients/say/options.c:109
 #, c-format
 msgid "Get the list of synthesis voices\n"
 msgstr ""
 "A beszédszintetizátor által támogatott\n"
 "hangkarakterek lekérdezése\n"
 
-#: src/clients/say/options.c:110
+#: src/clients/say/options.c:112
 #, c-format
 msgid "Set the synthesis voice\n"
 msgstr ""
 "A beszédszintetizátor által használt\n"
 "hangkarakter beállítása\n"
 
-#: src/clients/say/options.c:113
+#: src/clients/say/options.c:115
+#, c-format
+msgid "Speak the character\n"
+msgstr ""
+
+#: src/clients/say/options.c:118
+#, fuzzy, c-format
+msgid "Speak the key\n"
+msgstr "A kimondandó szöveg betűztetése\n"
+
+#: src/clients/say/options.c:121
 #, c-format
 msgid "Set the punctuation mode %s\n"
 msgstr "A központozási szint beállítása %s\n"
 
-#: src/clients/say/options.c:116
+#: src/clients/say/options.c:124
 #, c-format
 msgid "Spell the message\n"
 msgstr "A kimondandó szöveg betűztetése\n"
 
-#: src/clients/say/options.c:119
+#: src/clients/say/options.c:127
 #, c-format
 msgid "Set SSML mode on (default: off)\n"
 msgstr ""
 "Az SSML mód bekapcsolása (alapértelmezetten ez a\n"
 "mód ki van kapcsolva)\n"
 
-#: src/clients/say/options.c:123
+#: src/clients/say/options.c:131
 #, c-format
 msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
 msgstr ""
 "a kimondandó szöveg átadása a csővezetéken\n"
 "keresztül a speech-dispatchernek\n"
 
-#: src/clients/say/options.c:126
+#: src/clients/say/options.c:134
 #, c-format
 msgid "Set priority of the message "
-msgstr "A kimondandó üzenet prioritásának beállítása"
+msgstr "A kimondandó üzenet prioritásának beállítása "
 
-#: src/clients/say/options.c:130
+#: src/clients/say/options.c:138
 #, c-format
 msgid "default: %s)\n"
 msgstr "Alapértelmezett érték: %s)\n"
 
-#: src/clients/say/options.c:133
+#: src/clients/say/options.c:141
 #, c-format
 msgid ""
 "Set the application name used to establish\n"
@@ -306,53 +319,53 @@ msgstr ""
 " kapcsolatot felépíti\n"
 "a(z) %s karakterlánccal.\n"
 
-#: src/clients/say/options.c:137 src/clients/say/options.c:144
+#: src/clients/say/options.c:145 src/clients/say/options.c:152
 #, c-format
 msgid "(default: %s)\n"
 msgstr "(Alapértelmezett érték: %s)\n"
 
-#: src/clients/say/options.c:140
+#: src/clients/say/options.c:148
 #, c-format
 msgid ""
 "Set the connection name used to establish\n"
 "%sthe connection to specified string value\n"
 msgstr "A kapcsolat nevének megadása a(z) %s karakterlánccal\n"
 
-#: src/clients/say/options.c:148
+#: src/clients/say/options.c:156
 #, c-format
 msgid "Wait till the message is spoken or discarded\n"
 msgstr ""
 "Várakozás addig, amíg a kimondandó szöveg\n"
 "kimondásra került, vagy a beszéd meg nem lett szakítva\n"
 
-#: src/clients/say/options.c:151
+#: src/clients/say/options.c:159
 #, c-format
 msgid "Stop speaking the message being spoken\n"
 msgstr "A szöveg kimondásának megállítása\n"
 
-#: src/clients/say/options.c:154
+#: src/clients/say/options.c:162
 #, c-format
 msgid "Cancel all messages\n"
 msgstr "Minden üzenet kimondásának megszakítása\n"
 
-#: src/clients/say/options.c:158
+#: src/clients/say/options.c:166
 #, c-format
 msgid "Print version and copyright info\n"
 msgstr ""
 "A verziószám és a szerzői jogi\n"
 "információk kiírása\n"
 
-#: src/clients/say/options.c:183
+#: src/clients/say/options.c:191
 #, c-format
 msgid "Syntax error or bad parameter!\n"
 msgstr "Szintaktikai hiba, vagy rosszul megadott paraméter!\n"
 
-#: src/clients/say/options.c:194
+#: src/clients/say/options.c:202
 #, c-format
 msgid "Missing argument!\n"
 msgstr "Hiányzó argumentum!\n"
 
-#: src/clients/say/options.c:289
+#: src/clients/say/options.c:303
 #, c-format
 msgid "Unrecognized option\n"
 msgstr "Ismeretlen kapcsoló\n"
@@ -444,7 +457,7 @@ msgstr ""
 msgid "Print version and copyright info"
 msgstr ""
 "A verziószám és a szerzői jogi\n"
-"információk kiírása\n"
+"információk kiírása"
 
 #: src/api/python/speechd_config/config.py.in:203
 #, python-format
@@ -480,7 +493,7 @@ msgid ""
 "Python can't find the Speech Dispatcher library.\n"
 "Is it installed? This won't prevent Speech Dispatcher to work, but no\n"
 "Python applications like Orca will be able to use it.\n"
-"Search for package like python-speechd, download and install it"
+"Search for package like python-speechd, download and install it."
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:257
@@ -819,7 +832,7 @@ msgstr ""
 msgid "Can't start Speech Dispatcher"
 msgstr ""
 "a kimondandó szöveg átadása a csővezetéken\n"
-"keresztül a speech-dispatchernek\n"
+"keresztül a speech-dispatchernek"
 
 #: src/api/python/speechd_config/config.py.in:705
 msgid "Starting Speech Dispatcher in system-mode"
@@ -848,7 +861,7 @@ msgid "Have you started Speech Dispatcher now?"
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:730
-msgid "Do you want to create/setup a 'user' or 'system' configuration"
+msgid "Do you want to create/setup a 'user' or 'system' configuration?"
 msgstr ""
 
 #: src/api/python/speechd_config/config.py.in:741
@@ -874,7 +887,9 @@ msgstr ""
 msgid ""
 "\n"
 "Speech Dispatcher configuration tool\n"
-msgstr "A konfigurációs fájlok elérési útjának megadása\n"
+msgstr ""
+"\n"
+"A konfigurációs fájlok elérési útjának megadása\n"
 
 #: src/api/python/speechd_config/config.py.in:781
 msgid "Do you want to continue with basic settings?"

@@ -282,7 +282,8 @@ information.
 
 We also provide a shared C library, a Python library, a Java, Guile
 and a Common Lisp libraries that implement the SSIP functions of
-Speech Dispatcher in higher level interfaces. Writing client
+Speech Dispatcher in higher level interfaces. A golang interface is also
+available on @uref{https://github.com/ilyapashuk/go-speechd}. Writing client
 applications in these languages should be quite easy.
 
 On the synthesis side, there is good support for Festival, eSpeak,
@@ -733,7 +734,8 @@ module can have its own configuration file.
 
 The audio output is handled by the output modules themselves, so this
 can be switched in their own configuration files under
-@code{etc/speech-dispatcher/modules/}.
+@code{etc/speech-dispatcher/modules/}. Users can also set their own
+configuration files in @code{~/.config/speech-dispatcher/modules/}.
 
 @menu
 * Loading Modules in speechd.conf::
@@ -759,7 +761,7 @@ AddModule "@var{module_name}" "@var{module_binary}" "@var{module_config}"
 
 @var{module_binary} is the name of the binary executable
 of this output module. It can be either absolute or relative
-to @file{bin/speechd-modules/}.
+to @file{libexec/speech-dispatcher-modules/}.
 
 @var{module_config} is the file where the configuration for
 this output module is stored. It can be either absolute or relative
@@ -806,6 +808,16 @@ this:
         AddVoice        "cs"  "male1"   "kadlec"
         AddVoice        "sk"  "male1"   "bob"
 @end example
+
+@item DefaultVoice "@var{name}"
+@anchor{DefaultVoice}
+
+If the client does not request for a particular voice, we should be still using
+some voice so that the user at least gets some feedback, even if in the wrong
+language. @code{DefaultVoice} can be used to specify which voice should be used
+in such a case. If not specified, the @code{no_voice} string is passed instead.
+
+@var{name} is a name specific for the given output module.
 
 @item ModuleDelimiters "@var{delimiters}", ModuleMaxChunkLength @var{length}
 
@@ -904,16 +916,18 @@ GenericExecuteSynth \
 @xref{AddVoice}.
 @end defvr
 
-@defvr {GenericModuleConfiguration} GenericLanguage "iso-code" "string-subst"
+@defvr {GenericModuleConfiguration} GenericLanguage "iso-code" "string-subst" "character-set"
 
 Defines which string @code{string-subst} should be substituted for @code{$LANG}
-given an @code{iso-code} language code.
+given an @code{iso-code} language code. Optionally, the character set in which
+the text will be passed to the module can be specified. If unset, it will
+default to iso-8859-1.
 
 Another example from Epos generic:
 @example
 GenericLanguage "en-US" "english-US"
-GenericLanguage "cs" "czech"
-GenericLanguage "sk" "slovak"
+GenericLanguage "cs" "czech" "iso-8859-2"
+GenericLanguage "sk" "slovak" "iso-8859-2"
 @end example
 @end defvr
 
@@ -1388,6 +1402,7 @@ about current external client libraries.
 * Python API::                  Python module.
 * Guile API::
 * Common Lisp API::
+* Golang API::
 * Autospawning::                How server is started from clients
 @end menu
 
@@ -1483,6 +1498,17 @@ should try to autospawn (autostart) the Speech Dispatcher server
 process if it is not running already. This is set to 1 by default, so
 this function should normally not fail even if the server is not yet
 running.
+
+@end deffn
+
+@deffn {C API function}  int spd_get_client_id(SPDConnection *connection)
+@findex spd_get_client_id()
+
+Get the client ID.
+
+@code{connection} is the SPDConnection* connection created by spd_open().
+
+It returns the client ID of the connection.
 
 @end deffn
 
@@ -1874,9 +1900,9 @@ Dispatcher in its configuration (``flite'', ``festival'',  ``espeak''... )
 @findex spd_set_punctuation()
 
 Set punctuation mode to the given value.  `all' means speak all
-punctuation characters, `none' menas speak no punctuation characters,
-`some' means speak only punctuation characters given in the server
-configuration or defined by the client's last spd_set_punctuation_important().
+punctuation characters, `none' means speak no punctuation characters,
+`some' and `most' mean speak intermediate sets of punctuation characters as
+set in symbols tables or output modules.
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
@@ -2230,7 +2256,7 @@ main(int argc, char **argv)
    spd_set_notification_on(conn, SPD_CANCEL);
 
    /* Say our message. */
-   spd_sayf(conn, SPD_MESSAGE, (char*) argv[1]);
+   spd_sayf(conn, SPD_MESSAGE, "%s", argv[1]);
 
    /* Wait for 'end' or 'cancel' of the sent message.
       By SSIP specifications, we are guaranteed to get
@@ -2303,7 +2329,7 @@ terminating sequence @code{\r\n}.
 This specifies if you expect to get a reply on the sent data according to SSIP.
 For example, if you are sending ordinary text inside a @code{SPEAK} command,
 you don't expect to get a reply, but you expect a reply after sending the final
-sequence @code{\r\n.\r\n}.
+sequence @code{\r\n.\r\n} of the multi-line command.
 
 For example (simplified by not checking and freeing the returned strings):
 @example
@@ -2404,12 +2430,18 @@ The Guile API can be found @file{src/guile/} in
 the source tree, however it's still considered to be
 at the experimental stage. Please read @file{src/guile/README}.
 
-@node Common Lisp API, Autospawning, Guile API, Client Programming
+@node Common Lisp API, Golang API, Guile API, Client Programming
 @section Common Lisp API
 
 The Common Lisp API can be found @file{src/cl/} in
 the source tree, however it's still considered to be
 at the experimental stage. Please read @file{src/cl/README}.
+
+@node Golang API, Autospawning, Common Lisp API, Client Programming
+@section Golang API
+
+A golang interface is also available on
+@uref{https://github.com/ilyapashuk/go-speechd}.
 
 @node Autospawning,  , Common Lisp API, Client Programming
 @section Autospawning
@@ -2437,6 +2469,11 @@ check) b) the server doesn't have autospawn disabled in its
 configuration c) no other error preventing the start
 occurs. Otherwise, Speech Dispatcher is not started and the error code
 of 1 is returned.
+
+The location of the @code{speech-dispatcher} command should be obtained
+from the @code{SPEECHD_CMD} environment variable if defined, and otherwise
+fallback to the @code{SPD_SPAWN_CMD} compile-time constant, i.e.
+@code{$bindir/speech-dispatcher}.
 
 The client library should redirect its stdout and stderr outputs
 either to nowhere or to its logging system. It should subsequently
@@ -2535,6 +2572,7 @@ interface defined in @file{src/server/output.c}.
 * Basic Structure::             The definition of an output module.
 * Communication Protocol for Output Modules::
 * How to Write New Output Module::  How to include support for new synthesizers
+* The Skeleton of a Bare Output Module::
 * The Skeleton of an Output Module::
 * Output Module Functions::
 * Module Utils Functions and Macros::
@@ -2554,7 +2592,9 @@ of the communication protocol. Additionally, standard error output
 is used for logging of the modules.
 
 Output module binaries are usually located in
-@file{bin/speechd-modules/} and are loaded automatically when Speech
+@file{libexec/speech-dispatcher-modules/} or in user's
+@file{~/.local/libexec/speech-dispatcher-modules}
+and are loaded automatically when Speech
 Dispatcher starts, according to configuration.  Their standard
 input/output/error output is redirected to a pipe to Speech Dispatcher
 and this way both sides can communicate.
@@ -2600,6 +2640,8 @@ The return values are:
 @item 702         EVENT END
 @item 703         EVENT STOP
 @item 704         EVENT PAUSE
+@item 705         AUDIO
+@item 706         ICON
 @end itemize
 
 @table @code
@@ -2880,20 +2922,66 @@ a message. It is preceeded by the code @code{700} and takes the form
 where @code{name} is the value of the SSML attribute @code{name} in
 the tag @code{<mark/>}.
 
+@item AUDIO
+
+This event should be issued by the output module to produce audio through the
+server. It is preceeded by the code @code{705} and takes the form
+
+@example
+705-bits=16
+705-num_channels=1
+705-sample_rate=16000
+705-num_samples=1234
+705-AUDIO\0data...
+705 AUDIO
+@end example
+
+The first lines provide the exact encoding of the data being passed.
+
+To avoid confusion with the @code{\n} character, an HDLC encoding is used, with
+the @code{0x7D} escape character: whenever @code{\n} or @code{0x7D} appears in
+the data, its 5th bit is inverted and it is prefixed with @code{0x7D}.
+
+@item ICON
+
+This event should be issued by the output module to emit a sound icon through
+the server. It is preceeded by the code @code{706} and takes the form
+
+@example
+706-name
+706 ICON
+@end example
+
+where @code{name} is the sound icon name.
+
 @end table
 
 @node How to Write New Output Module, The Skeleton of an Output Module, Communication Protocol for Output Modules, Output Modules
 @subsection How to Write New Output Module
 
-If you want to write your own output module, there are basically two
-ways to do it. Either you can program it all yourself, which is fine
-as long as you stick to the definition of an output module and its
-communication protocol, or you can use our @file{module_*.c} tools.
-If you use these tools, you will only have to write the core functions
-like module_speak() and module_stop etc. and you will not have to
-worry about the communication protocol and other formal things that
-are common for all modules. Here is how you can do it using the
-provided tools.
+If you want to write your own output module, there are basically three
+ways to do it.
+
+Either you can program it all yourself, which is fine as long as you stick to
+the definition of an output module and its communication protocol.
+
+You can also use our @file{module_main.c}, @file{module_readline.c},
+@file{module_process.c}, and @file{module_main.h}, which deal with the
+communication protocol and other formal things that are common for all modules.
+They are provided under a BSD licence and thus allow to integrate them along
+proprietary software. You will have to provide a series of functions, an example
+is provided in @code{src/modules/skeleton0.c}, which can freely serve as a basic
+for your module. You can also read @code{src/modules/skeleton0_espeak-ng*.c},
+which show the various ways to plug a synthesizer, depending whether the
+synthesizer works in synchronous mode (@code{-sync} variants) or asynchronously
+in a separate thread (@code{-async} variants), and whether the synthesizer emits
+audio itself or can produce wave files to be sent to the server (@code{-server}
+variants).
+
+The nicest way, recommended for all modules shipped along speech-dispatcher, is
+to make use of all of our our @file{module_*.c} tools. This will handle for you
+all configuration file parsing, option setting etc. Here is how you can do it
+using the provided tools.
 
 We will recommend here a basic structure of the code for an output
 module you should follow, although it's perfectly ok to establish your
@@ -2918,6 +3006,73 @@ and the sources will be freed automatically.
 We will be happy if all the copyrights are assigned to Brailcom, o.p.s.
 in order for us to be in a better legal position against possible intruders.
 @end itemize
+
+@node The Skeleton of a Bare Output Module
+@subsection The Skeleton of a Bare Output Module
+
+If you go for the BSD-provided skeleton way, you can start
+with @code{skeleton0.c}. Add the synthesis initialization call
+with default parameters to @code{module_init}, the synchronous
+synthesizing call to @code{module_speak_sync}, and the synthesis
+shutdown call to @code{module_close}. Compile this along
+@file{module_main.c}, @file{module_readline.c}, @file{module_process.c}, and
+@file{module_main.h}. Install this along other modules, and create an empty
+configuration file for it. This should already provide you with a working
+module, though with very limited support.
+
+The next step would be to add support for selecting the voice. Fix
+@code{module_list_voices} to return a proper list of voices. In
+@code{module_set}, when @code{var} is @code{voice}, @code{synthesis_voice}, or
+@code{language}, select a voice according to @code{val}.
+
+This stage of development is examplified in @file{src/modules/skeleton0_espeak-ng0.c}.
+
+A most useful next step is to support stopping the synthesis. This can be
+supported two ways. Either the synthesis can call a callback from times to
+times, in which case you can call @code{module_process(STDIN_FILE, 0)} to poll
+for messages from the server. Or the synthesis can run asynchronously in a
+separate thread, in which case you need to use
+@code{module_speak} instead of @code{module_speak_sync}: it should return
+immediately after starting the production of synthesis. Then
+@code{module_speak_begin()} should be called when it actually
+starts emitting audio, and @code{module_speak_end()} should be called when it is
+finished emitting audio. In either cases, if @code{module_stop}
+is getting called, the synthesis should stop as soon as possible and
+@code{module_speak_stop()} be called instead of @code{module_speak_end()}.
+Similarly, if @code{module_pause} is getting called, the synthesis should stop
+on next mark whose name starts with @code{__spd_}, and
+@code{module_speak_pause()} be called instead of @code{module_speak_end()}.
+As a first step, @code{module_pause} can be made to behave just like
+@code{module_stop}.
+
+This asynchronous support is examplified in
+@file{src/modules/skeleton0_espeak-ng-async.c}. It is already quite nice for a lot of
+use cases: the user is now able to interrupt the synthesis e.g. through a screen
+reader action.
+
+It is then useful to make @code{module_set} recognize other useful
+voice parameters to improve the synthesis: @code{rate}, @code{pitch},
+@code{pitch_range}, @code{volume}, @code{punctuation_mode},
+@code{spelling_mode}, @code{cap_let_recogn}.
+
+If the synthesis permits it, it is better to support server-side audio
+rendering: instead of playing audio itself, the synthesis should provide pieces
+of wave files, to be sent to the server with @code{module_tts_output_server}.
+Examples are available in @code{src/modules/skeleton0_espeak-ng-async-server.c}
+and @code{src/modules/skeleton0_espeak-ng-sync-server.c}. The
+@code{module_audio_set} function should in that case recognize only the
+@code{server} audio method.
+
+If the synthesis does not permit server-side audio rendering, optionally
+@code{module_audio_set} can be made to recognize precise audio settings to be
+used by the synthesis-side audio rendering.
+
+For easier debugging, @code{module_loglevel_set} and @code{module_debug} can be
+implemented.
+
+A useful step is probably to add support for the configuration file, by making
+@code{module_config} parse the configuration file and set synthesis parameters
+accordingly.
 
 @node The Skeleton of an Output Module, Output Module Functions, How to Write New Output Module, Output Modules
 @subsection The Skeleton of an Output Module
@@ -3135,7 +3290,7 @@ wrong, fix it and then warn others in this manual.
 @node Output Module Functions, Module Utils Functions and Macros, The Skeleton of an Output Module, Output Modules
 @subsection Output Module Functions
 
-@deffn {Output Module Functions} int module_speak (char *data, size_t bytes, EMessageType msgtype)
+@deffn {Output Module Functions} void module_speak_sync (char *data, size_t bytes, EMessageType msgtype)
 @findex module_speak()
 
 This is the function where the actual speech output is produced. It is
@@ -3174,19 +3329,43 @@ Example from festival:
     UPDATE_PARAMETER(cap_let_recogn, festival_set_cap_let_recogn);
 @end example
 
-This function should return 0 if it fails and 1 if the delivery
+Once this function has checked that everything is OK, it must call
+@code{module_speak_ok()} to let the server know that the speak was
+accepted. From then on, the server may send stop requests, so reseting the stop
+state must be done before calling this.
+On errors, @code{module_speak_error()} has to be called instead.
+
+When actual synthesis starts, @code{module_speak_begin()} must be called to let
+the server know of this. On synthesis termination, @code{module_speak_end()}
+should be called (or @code{module_speak_pause()}, @code{module_speak_stopped()}
+if the synthesis was interrupted through @code{module_pause()} or @code{module_stop()}).
+
+This function should return only when it is finished with synthesizing.  It
+should however call @code{module_process(STDIN_FILENO, 0)} periodically so as
+to promptly process messages coming from the server, notably speech stopping
+requests.
+@end deffn
+
+@deffn {Output Module Functions} int module_speak (char *data, size_t bytes, EMessageType msgtype)
+@findex module_speak()
+
+This is the same as @code{module_speak_sync}, except that it proceeds
+asynchronously, it can be used when the synthesis works asynchronously.
+
+Instead of calling @code{module_speak_ok()} or @code{module_speak_error()},
+this function should return 0 if it fails and 1 if the delivery
 to the synthesizer is successful. It should return immediately,
 because otherwise, it would block stopping, priority handling
 and other important things in Speech Dispatcher.
 
-If there is a need to stay longer, you should create a separate thread
-or process. This is for example the case of some software synthesizers
-which use a blocking function (eg. spd_audio_play) or hardware devices
-that have to send data to output modules at some particular
-speed. Note that if you use threads for this purpose, you have to set
-them to ignore all signals. The simplest way to do this is to call
-@code{set_speaking_thread_parameters()} which is defined in
-module_utils.c.  Call it at the beginning of the thread code.
+If there is a need to stay longer, it can call
+@code{module_process(STDIN_FILENO, 0)} to process messages coming from the
+server, but in that case @code{module_speak_sync} could as well be used.
+
+Note: if the synthesis creates separate threads, you have to set
+them to ignore all signals. The simplest way to do this is to use
+@code{spd_pthread_create()} (which is defined in
+module_utils.c) instead of @code{pthread_create()}.
 @end deffn
 
 @deffn {Output module function}  {int module_stop} (void)
@@ -3212,7 +3391,7 @@ data to soundcard) just after sending an @code{__spd_} index
 mark so that Speech Dispatcher knows the position of stop.
 
 The pause can wait for a short time until
-an index mark is reached. However, if it's not possible to determine
+such index mark is reached. However, if it's not possible to determine
 the exact position, this function should have the same effect
 as @code{module_stop}.
 

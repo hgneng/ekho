@@ -8,7 +8,262 @@ symbols:
 🏽	medium velkleur	none
 🏾	medium-donker velkleur	none
 🏿	donker velkleur	none
-⚧	transgendersimbool	none
+℗	kopiereg vir klankopname	none
+←	linkswysende pyltjie	none
+↚	pyl na links met streep	none
+→	regswysende pyltjie	none
+↛	pyl na regs met streep	none
+↑	opwysende pyltjie	none
+↓	afwysende pyltjie	none
+↜	golwende pyl na links	none
+↝	golwende pyl na regs	none
+↞	dubbelkoppyl na links	none
+↟	dubbelkoppyl na bo	none
+↠	dubbelkoppyl na regs	none
+↡	dubbelkoppyl na onder	none
+↢	pyl met stert na links	none
+↣	pyl met stert na regs	none
+↤	pyl na links vanaf balk	none
+↥	pyl na bo vanaf balk	none
+↦	pyl na regs vanaf balk	none
+↧	pyl na onder vanaf balk	none
+↨	pyl op en af met basis	none
+↫	pyl na links met lus	none
+↬	pyl na regs met lus	none
+↭	golwende pyl links en regs	none
+↯	sigsag pyl na onder	none
+↰	opwaartse pylpunt na links	none
+↱	opwaartse pylpunt na regs	none
+↲	afwaartse pylpunt na links	none
+↳	afwaartse pylpunt na regs	none
+↴	pylhoek na regs ondertoe	none
+↵	pylhoek na links ondertoe	none
+↶	teenkloksgewyse boonste halfsirkelpyl	none
+↷	kloksgewyse boonste halfsirkelpyl	none
+↸	noordwes-pyl met lang balk	none
+↹	pylbalk na links bo-op pylbalk na regs	none
+↺	teenkloksgewyse oopsirkelpyl	none
+↻	kloksgewyse oopsirkelpyl	none
+↼	linkswaartse harpoenhoek na bo	none
+↽	linkswaartse harpoenhoek na onder	none
+↾	opwaartse harpoenhoek na regs	none
+↿	opwaartse harpoenhoek na links	none
+⇀	regswaartse harpoenhoek na bo	none
+⇁	regswaartse harpoenhoek na onder	none
+⇂	afwaartse harpoenhoek na regs	none
+⇃	afwaartse harpoenhoek na links	none
+⇄	pyl na regs bo-op pyl na links	none
+⇅	opwysende en afwysende pyltjies	none
+⇆	linkswysende oor regswysende pyltjies	none
+⇇	gepaarde pyle na links	none
+⇈	gepaarde pyle na bo	none
+⇉	gepaarde pyle na regs	none
+⇊	gepaarde pyle na onder	none
+⇋	harpoen na links bo-op harpoen na regs	none
+⇌	harpoen na regs bo-op harpoen na links	none
+⇐	dubbelpyl na links	none
+⇍	dubbelpyl na links met streep	none
+⇑	dubbelpyl na bo	none
+⇒	dubbelpyl na regs	none
+⇏	dubbelpyl na regs met streep	none
+⇓	dubbelpyl na onder	none
+⇔	dubbelpyl links en regs	none
+⇎	dubbelpyl links en regs met streep	none
+⇖	noordwes-dubbelpyl	none
+⇗	noordoos-dubbelpyl	none
+⇘	suidoos-dubbelpyl	none
+⇙	suidwes-dubbelpyl	none
+⇚	driedubbele pyl na links	none
+⇛	driedubbele pyl na regs	none
+⇜	opgewende pyl na links	none
+⇝	opgewende pyl na regs	none
+⇞	pyl na bo met twee strepe	none
+⇟	pyl na onder met twee strepe	none
+⇠	gestippelde pyl na links	none
+⇡	gestippelde pyl na bo	none
+⇢	gestippelde pyl na regs	none
+⇣	gestippelde pyl na onder	none
+⇤	pylbalk na links	none
+⇥	pylbalk na regs	none
+⇦	hol pyl na links	none
+⇧	hol pyl na bo	none
+⇨	hol pyl na regs	none
+⇩	hol pyl na onder	none
+⇪	hol pyl na bo vanaf balk	none
+⇵	pyl na onder en linkswaartse pyl na bo	none
+∀	vir alles	none
+∂	gedeeltelik differensiaal	none
+∃	daar bestaan	none
+∅	leë stel	none
+∆	vermeerdering	none
+∇	nabla	none
+∈	element van	none
+∉	nie ‘n element nie	none
+∋	bevat as ‘n lid	none
+∎	eindbewys	none
+∏	n-êre produk	none
+∑	n-êre opsomming	none
+≮	nie kleiner-as nie	none
+≠	nie gelyk	none
+≯	nie groter-as nie	none
+−	minusteken	none
+⁻	boskrifminus	none
+∓	minus-of-plus	none
+∕	deelteken-skuinsstreep	none
+∗	asteriskoperator	none
+∘	ringoperator	none
+∙	koeëlpuntoperator	none
+√	vierkantswortel	none
+∝	proporsioneel	none
+∞	oneindigheidsteken	none
+∟	regte hoek	none
+∠	hoekpunt	none
+∣	verdeel	none
+∥	parallel	none
+∧	logika en	none
+∩	interseksie	none
+∪	unie	none
+∫	integraal	none
+∬	dubbele integraal	none
+∮	kontoerintegraal	none
+∴	dus	none
+∵	omdat	none
+∶	verhouding	none
+∷	proporsie	none
+∼	tilde-operator	none
+∽	omgekeerde tilde	none
+∾	omgekeerde lui -s	none
+≃	asimptotiese gelykheid	none
+≅	ongeveer gelyk	none
+≈	amper gelyk	none
+≌	alles gelyk	none
+≒	beeld is ongeveer gelykvormig	none
+≖	gelykvormige ring	none
+≡	identies aan	none
+≣	streng ekwivalent	none
+≤	kleiner as of gelyk aan	none
+≥	groter as of gelyk aan	none
+≦	kleiner-as bo-op gelyk aan	none
+≧	groter-as bo-op gelyk aan	none
+≪	baie kleiner as	none
+≫	baie groter as	none
+≬	tussen	none
+≳	groter-as-ekwivalent	none
+≺	voorafgaan	none
+≻	volg op	none
+⊁	volg nie daarop nie	none
+⊂	substel van	none
+⊃	superstel	none
+⊆	gelyk aan substel	none
+⊇	gelyk aan superstel	none
+⊕	omsirkelde plus	none
+⊖	omsirkelde minus	none
+⊗	omsirkelde maalteken	none
+⊘	omsirkelde deelskuinsstreep	none
+⊙	omsirkelde kolletjieoperator	none
+⊚	omsirkelde ringoperator	none
+⊛	omsirkelde asteriskoperator	none
+⊞	plusteken in vierkant	none
+⊟	minusteken in vierkant	none
+⊥	valse logika	none
+⊮	ongedwonge	none
+⊰	voorafgegaan onder verhouding	none
+⊱	daaropvolgend onder verhouding	none
+⋭	bevat nie soos normale subgroepgelykvormigheid nie	none
+⊶	oorspronklike	none
+⊹	hermitiese gekonjugeerde matriks	none
+⊿	reghoekige driehoek	none
+⋁	n-êre logika	none
+⋂	n-êre-aansluiting	none
+⋃	n-êre vereniging	none
+⋅	kolletjie-operator	none
+⋆	sterretjie-operator	none
+⋈	natuurlike vereniging	none
+⋒	dubbele aansluiting	none
+⋘	veel meer kleiner as	none
+⋙	veel meer groter as	none
+⋮	vertikale ellips	none
+⋯	middellyn horisontale ellips	none
+⋰	diagonale ellips na regs bo	none
+⋱	diagonale ellips na regs onder	none
+■	gevulde vierkant	none
+□	hol vierkant	none
+▢	hol vierkant met ronde hoeke	none
+▣	gevulde vierkant binne hol vierkant	none
+▤	vierkant met horisontale strepies	none
+▥	vierkant met vertikale strepies	none
+▦	vierkant met ortogonale arsering	none
+▧	vierkant met linksbo-regsonder-vulsel	none
+▨	vierkant met regsbo-linksonder-vulsel	none
+▩	vierkant met diagonale arsering	none
+▬	gevulde reghoek	none
+▭	hol reghoek	none
+▮	gevulde vertikale reghoek	none
+▰	gevulde parallelogram	none
+▲	gevulde opwysende driehoek	none
+△	hol driehoek wat na bo wys	none
+▴	gevulde klein driehoek wat na bo wys	none
+▵	hol klein driehoek wat na bo wys	none
+▷	hol driehoek wat regs wys	none
+▸	gevulde klein driehoek wat regs wys	none
+▹	hol klein driehoek wat regs wys	none
+►	gevulde aanwyser wat regs wys	none
+▻	hol aanwyser wat regs weys	none
+▼	gevulde afwysende driehoek	none
+▽	hol driehoek wat af wys	none
+▾	gevulde klein driehoek wat af wys	none
+▿	hol klein driehoek wat af wys	none
+◁	hol driehoek wat links wys	none
+◂	gevulde klein driehoek wat links wys	none
+◃	hol klein driehoek wat links wys	none
+◄	gevulde aanwyser wat links wys	none
+◅	hol aanwyser wat links wys	none
+◆	gevulde diamant	none
+◇	hol diamant	none
+◈	gevulde diamant binne hol diamant	none
+◉	gevulde sirkel binne hol sirkel	none
+◊	ruit	none
+○	leë sirkel	none
+◌	gestippelde sirkel	none
+◍	sirkel met vertikale vulsel	none
+◎	volskoot	none
+●	gevulde sirkel	none
+◐	sirkel met linkerhelfte gevul	none
+◑	sirkel met regterhelfte gevul	none
+◒	sirkel met onderste helfte gevul	none
+◓	sirkel met boonste helfte gevul	none
+◔	sirkel met boonste regterkwadrant gevul	none
+◕	sirkel met alles behalwe boonste linkerkwadrant gevul	none
+◖	linkergevulde sirkelhelfte	none
+◗	regtergevulde sirkelhelfte	none
+◘	inverse koeëlpunt	none
+◙	hol sirkel binne gevulde vierkant	none
+◜	links bo sirkelkwadrantboog	none
+◝	regs bo sirkelkwadrantboog	none
+◞	regs onder sirkelkwadrantboog	none
+◟	links onder sirkelkwadrantboog	none
+◠	boonste helfte van sirkel	none
+◡	onderste helfte van sirkel	none
+◢	gevulde regsonder-driehoek	none
+◣	gevulde linksonder-driehoek	none
+◤	gevulde linksbo-driehoek	none
+◥	gevulde regsbo-driehoek	none
+◦	hol koeëlpunt	none
+◯	groot leë sirkel	none
+◳	boonste regterkwadrant van hol vierkant	none
+◷	hol sirkel met boonste regterkwadrant	none
+◿	regsonder-driehoek	none
+♪	agstenoot	none
+⨧	plusteken met onderskrif twee	none
+⨯	vektor kruisproduk	none
+⨼	interiorproduk	none
+⩣	logiese of dubbele onderbalk	none
+⩽	kleiner-as skuins gelyk aan	none
+⪍	kleiner-as bo-op soortgelyke gelyk aan	none
+⪚	dubbellyn gelyk aan groter as	none
+⪺	volg daarop bo-op nie amper gelyk nie	none
+♭	mol	none
+♯	kruis	none
 😀	grinnikende gesig	none
 😃	glimlaggende gesig met oop mond	none
 😄	gesig en oë glimlag	none
@@ -30,6 +285,7 @@ symbols:
 ☺	glimlaggende gesig	none
 😚	gesig wat soen met toe oë	none
 😙	gesig wat soen met glimlaggende oë	none
+🥲	glimlaggende gesig met traan	none
 😋	gesig wat heerlike kos geniet	none
 😛	gesig met tong wat uitsteek	none
 😜	gesig met tong wat uitsteek en wat knipoog	none
@@ -45,10 +301,12 @@ symbols:
 😐	neutrale gesig	none
 😑	uitdrukkinglose gesig	none
 😶	gesig sonder mond	none
+😶‍🌫	gesig in wolke	none
 😏	gesig wat grynslag	none
 😒	ontevrede gesig	none
 🙄	gesig met oë wat rol	none
 😬	grynsende gesig	none
+😮‍💨	gesig asem uit	none
 🤥	gesig wat jok	none
 😌	verligte gesig	none
 😔	peinsende gesig	none
@@ -65,9 +323,11 @@ symbols:
 🥶	koue gesig	none
 🥴	dronk gesig	none
 😵	duiselig gesig	none
+😵‍💫	gesig met spiraaloë	none
 🤯	kop wat ontplof	none
 🤠	gesig met cowboy-hoed	none
 🥳	partytjie gesig	none
+🥸	vermomde gesig	none
 😎	glimlaggende gesig met sonbril	none
 🤓	bleeksielgesig	none
 🧐	gesig met oogglas	none
@@ -135,6 +395,8 @@ symbols:
 💟	hartversiering	none
 ❣	dik hartuitroepteken	none
 💔	gebroke hartjie	none
+❤‍🔥	hart wat brand	none
+❤‍🩹	helende hart	none
 ❤	rooi hartjie	none
 🧡	oranje hartjie	none
 💛	geel hartjie	none
@@ -164,6 +426,7 @@ symbols:
 ✋	hand in die lug	none
 🖖	vulkansaluut	none
 👌	ok-handteken	none
+🤌	vingerpunte saamgedruk	none
 🤏	knypende hand	none
 ✌	oorwinninghandteken	none
 🤞	duim vashou	none
@@ -200,6 +463,8 @@ symbols:
 🦻	oor met gehoorapparaat	none
 👃	neus	none
 🧠	brein	none
+🫀	orgaanhart	none
+🫁	longe	none
 🦷	tand	none
 🦴	vleislose been	none
 👀	oë	none
@@ -214,8 +479,10 @@ symbols:
 👱	persoon met blonde hare	none
 👨	man	none
 🧔	bebaarde persoon	none
+🧔‍♂	man baard	none
 👱‍♂	blonde man	none
 👩	vrou	none
+🧔‍♀	vrou baard	none
 👱‍♀	blondine	none
 🧓	ouer volwassene	none
 👴	ou man	none
@@ -304,26 +571,35 @@ symbols:
 🕵	speurder	none
 🕵‍♂	manlike speurder	none
 🕵‍♀	vroulike speurder	none
-💂	gardesoldaat	none
+💂	gardeoffisier	none
 💂‍♂	manlike wag	none
 💂‍♀	vroulike wag	none
+🥷	ninja	none
 👷	konstruksiewerker	none
 👷‍♂	manlike bouer	none
 👷‍♀	vroulike bouer	none
 🤴	prins	none
 👸	prinses	none
-👳	met met tulband	none
+👳	persoon met tulband	none
 👳‍♂	man met tulband	none
 👳‍♀	vrou met tulband	none
-👲	man met chinese mus	none
+👲	man met mus	none
 🧕	vrou met kopdoek	none
-🤵	man in pak	none
-👰	bruid met sluier	none
+🤵	persoon in pak	none
+🤵‍♂	man in pak	none
+🤵‍♀	vrou in pak	none
+👰	persoon met sluier	none
+👰‍♂	man met sluier	none
+👰‍♀	vrou met sluier	none
 🤰	swanger vrou	none
 🤱	borsvoed	none
+👩‍🍼	vrou wat baba voed	none
+👨‍🍼	man wat baba voed	none
+🧑‍🍼	persoon wat baba voed	none
 👼	baba-engel	none
 🎅	Kersvader	none
 🤶	Moeder Kersfees	none
+🧑‍🎄	mx claus	none
 🦸	superheld	none
 🦸‍♂	manlike superheld	none
 🦸‍♀	vroulike superheld	none
@@ -351,7 +627,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	manlike zombie	none
 🧟‍♀	vroulike zombie	none
-💆	gesigmassering	none
+💆	persoon kry massering	none
 💆‍♂	man kry massering	none
 💆‍♀	vrou kry massering	none
 💇	haarsny	none
@@ -366,10 +642,10 @@ symbols:
 🧎	persoon wat kniel	none
 🧎‍♂	man wat kniel	none
 🧎‍♀	vrou wat kniel	none
-🧑‍🦯	persoon met stapstok	none
+🧑‍🦯	persoon met gidsstok	none
 👨‍🦯	man met gidsstok	none
 👩‍🦯	vrou met gidsstok	none
-🧑‍🦼	persoon in motoraangedrewe roltoel	none
+🧑‍🦼	persoon in motoraangedrewe rolstoel	none
 👨‍🦼	man in motoraangedrewe rolstoel	none
 👩‍🦼	vrou in motoraangedrewe rolstoel	none
 🧑‍🦽	persoon in handgedrewe rolstoel	none
@@ -390,7 +666,7 @@ symbols:
 🧗	persoon wat rotsklim	none
 🧗‍♂	manlike rotsklimmer	none
 🧗‍♀	vroulike rotsklimmer	none
-🤺	skerm	none
+🤺	skermvegter	none
 🏇	perdewedrenne	none
 ⛷	skiër	none
 🏂	sneeuplankryer	none
@@ -400,7 +676,7 @@ symbols:
 🏄	branderplankryer	none
 🏄‍♂	manlike branderplankryer	none
 🏄‍♀	vroulike branderplankryer	none
-🚣	roeiboot	none
+🚣	persoon in roeiboot	none
 🚣‍♂	man wat roei	none
 🚣‍♀	vrou wat roei	none
 🏊	swemmer	none
@@ -420,7 +696,7 @@ symbols:
 🚵‍♀	vroulike bergfietsryer	none
 🤸	persoon wat ‘n wawiel doen	none
 🤸‍♂	man doen wawiel	none
-🤸‍♀	vvrou doen wawiel	none
+🤸‍♀	vrou doen wawiel	none
 🤼	stoeiers	none
 🤼‍♂	manlike stoeiers	none
 🤼‍♀	vroulike stoeiers	none
@@ -430,12 +706,12 @@ symbols:
 🤾	persoon wat handbal speel	none
 🤾‍♂	manlike handbalspeler	none
 🤾‍♀	vroulike handbalspeler	none
-🤹	jongleer	none
+🤹	jongleur	none
 🤹‍♂	manlike jongleur	none
 🤹‍♀	vroulike jongleur	none
-🧘	persoon in die lotus-posisie	none
-🧘‍♂	man in lotus-posisie	none
-🧘‍♀	vrou in lotus-posisie	none
+🧘	persoon in die lotusposisie	none
+🧘‍♂	man in lotusposisie	none
+🧘‍♀	vrou in lotusposisie	none
 🛀	persoon wat bad	none
 🛌	persoon in bed	none
 🧑‍🤝‍🧑	mense wat hande vashou	none
@@ -448,6 +724,7 @@ symbols:
 🗣	kop wat praat	none
 👤	borssilhoeët	none
 👥	borssilhoeëtte	none
+🫂	mense wat mekaar druk	none
 👣	voetspore	none
 🦰	rooi hare	none
 🦱	krulhare	none
@@ -462,11 +739,12 @@ symbols:
 🦮	gidshond	none
 🐕‍🦺	dienshond	none
 🐩	poedel	none
-🐺	wolfgesig	none
+🐺	wolf	none
 🦊	jakkals	none
 🦝	wasbeer	none
 🐱	katgesig	none
 🐈	kat	none
+🐈‍⬛	swart kat	none
 🦁	leeugesig	none
 🐯	tiergesig	none
 🐅	tier	none
@@ -474,8 +752,9 @@ symbols:
 🐴	perdgesig	none
 🐎	perd	none
 🦄	eenhoringgesig	none
-🦓	zebra	none
+🦓	sebra	none
 🦌	wildsbok	none
+🦬	Amerikaanse buffel	none
 🐮	koeigesig	none
 🐂	os	none
 🐃	waterbuffel	none
@@ -483,15 +762,16 @@ symbols:
 🐷	varkgesig	none
 🐖	vark	none
 🐗	varkbeer	none
-🐽	varkneus	none
+🐽	varksnoet	none
 🐏	ram	none
-🐑	skaap	none
-🐐	boerbok	none
+🐑	skaapooi	none
+🐐	bok	none
 🐪	kameel	none
 🐫	kameel met twee boggels	none
 🦙	lama	none
 🦒	kameelperd	none
 🐘	olifant	none
+🦣	mammoet	none
 🦏	renoster	none
 🦛	seekoei	none
 🐭	muisgesig	none
@@ -501,9 +781,11 @@ symbols:
 🐰	haasgesig	none
 🐇	haas	none
 🐿	grondeekhoring	none
+🦫	bewer	none
 🦔	krimpvarkie	none
 🦇	vlermuis	none
 🐻	beergesig	none
+🐻‍❄	ysbeer	none
 🐨	koala	none
 🐼	pandagesig	none
 🦥	luidier	none
@@ -525,6 +807,8 @@ symbols:
 🦆	eend	none
 🦢	swaan	none
 🦉	uil	none
+🦤	dodo	none
+🪶	veer	none
 🦩	flamink	none
 🦚	pou	none
 🦜	papegaai	none
@@ -540,6 +824,7 @@ symbols:
 🐳	walvis wat spuit	none
 🐋	walvis	none
 🐬	dolfyn	none
+🦭	rob	none
 🐟	vis	none
 🐠	tropiese vis	none
 🐡	blaasoppie	none
@@ -548,15 +833,19 @@ symbols:
 🐚	spiraalskulp	none
 🐌	slak	none
 🦋	skoenlapper	none
-🐛	ruspe	none
+🐛	gogga	none
 🐜	mier	none
 🐝	heuningby	none
+🪲	kewer	none
 🐞	liewenheersbesie	none
 🦗	kriek	none
+🪳	kakkerlak	none
 🕷	spinnekop	none
 🕸	spinnerak	none
 🦂	skerpioen	none
 🦟	muskiet	none
+🪰	vlieg	none
+🪱	wurm	none
 🦠	mikrobe	none
 💐	ruiker	none
 🌸	kersiebloeisel	none
@@ -569,6 +858,7 @@ symbols:
 🌼	bloeisel	none
 🌷	tulp	none
 🌱	saailing	none
+🪴	potplant	none
 🌲	immergroen boom	none
 🌳	bladwisselende boom	none
 🌴	palmboom	none
@@ -594,8 +884,10 @@ symbols:
 🍑	perske	none
 🍒	kersies	none
 🍓	aarbei	none
+🫐	bloubessies	none
 🥝	kiwivrug	none
 🍅	tamatie	none
+🫒	olyf	none
 🥥	kokosneut	none
 🥑	avokado	none
 🍆	eiervrug	none
@@ -603,6 +895,7 @@ symbols:
 🥕	wortel	none
 🌽	mielie	none
 🌶	brandrissie	none
+🫑	soetrissie	none
 🥒	komkommer	none
 🥬	groen blare	none
 🥦	broccoli	none
@@ -614,11 +907,12 @@ symbols:
 🍞	brood	none
 🥐	croissant	none
 🥖	baguette	none
+🫓	platbrood	none
 🥨	pretzel	none
 🥯	bagel	none
-🥞	plaatkoekies	none
+🥞	pannekoeke	none
 🧇	wafel	none
-🧀	kaswig	none
+🧀	kaaswiggie	none
 🍖	vleis aan been	none
 🍗	pluimveeboudjie	none
 🥩	vleissnit	none
@@ -630,12 +924,14 @@ symbols:
 🥪	toebroodjie	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamale	none
 🥙	wrap	none
 🧆	falafel	none
 🥚	eier	none
 🍳	gebakte eier in pan	none
-🥘	paella	none
-🍲	bak kos	none
+🥘	vlak pan met kos	none
+🍲	‘n pot kos	none
+🫕	fondue	none
 🥣	bakkie met lepel	none
 🥗	groenslaai	none
 🍿	springmielies	none
@@ -681,6 +977,7 @@ symbols:
 🍼	bababottel	none
 🥛	glas melk	none
 ☕	warm drankie	none
+🫖	teepot	none
 🍵	teekoppie sonder handvatsel	none
 🍶	sake	none
 🍾	bottel met prop wat uitskiet	none
@@ -692,6 +989,7 @@ symbols:
 🥂	gesondheid	none
 🥃	whiskeyglas	none
 🥤	beker met strooitjie	none
+🧋	borreltee	none
 🧃	koeldrankboksie	none
 🧉	maté	none
 🧊	ysblokkie	none
@@ -721,6 +1019,9 @@ symbols:
 🏛	klassieke gebou	none
 🏗	konstruksie	none
 🧱	baksteenmuur	none
+🪨	rots	none
+🪵	hout	none
+🛖	hut	none
 🏘	huise	none
 🏚	vervalle huis	none
 🏠	huis	none
@@ -751,10 +1052,10 @@ symbols:
 ⛺	tent	none
 🌁	mistig	none
 🌃	nag met sterre	none
-🏙	stad	none
+🏙	stadslandskap	none
 🌄	sonsopkoms oor berge	none
 🌅	sonsopkoms	none
-🌆	stad teen skemer	none
+🌆	skemer stadslandskap	none
 🌇	sonsondergang	none
 🌉	brug in die aand	none
 ♨	warmbron	none
@@ -788,6 +1089,7 @@ symbols:
 🚗	motor	none
 🚘	aankomende motor	none
 🚙	ontspanningvoertuig	none
+🛻	bakkie	none
 🚚	afleweringswa	none
 🚛	gelede voertuig	none
 🚜	trekker	none
@@ -800,6 +1102,7 @@ symbols:
 🚲	fiets	none
 🛴	skopfiets	none
 🛹	skaatsplank	none
+🛼	Rolskaats	none
 🚏	bushalte	none
 🛣	snelweg	none
 🛤	treinspoor	none
@@ -833,20 +1136,20 @@ symbols:
 🛸	vlieënde piering	none
 🛎	klokkie vir hoteljoggie	none
 🧳	bagasie	none
-⌛	uurglas	none
+⌛	leë uurglas	none
 ⏳	uurglas met sand wat uitloop	none
 ⌚	horlosie	none
 ⏰	wekker	none
 ⏱	stophorlosie	none
 ⏲	afteller	none
-🕰	kaggelrakklok	none
+🕰	kaggelklok	none
 🕛	twaalfuur	none
 🕧	halfeen	none
 🕐	eenuur	none
 🕜	halftwee	none
-🕑	twee-uur	none
+🕑	tweeuur	none
 🕝	halfdrie	none
-🕒	drie-uur	none
+🕒	drieuur	none
 🕞	halfvier	none
 🕓	vieruur	none
 🕟	halfvyf	none
@@ -854,11 +1157,11 @@ symbols:
 🕠	halfses	none
 🕕	sesuur	none
 🕡	halfsewe	none
-🕖	sewe-uur	none
+🕖	seweuur	none
 🕢	halfagt	none
 🕗	agtuur	none
 🕣	halfnege	none
-🕘	nege-uur	none
+🕘	negeuur	none
 🕤	halftien	none
 🕙	tienuur	none
 🕥	halfelf	none
@@ -881,7 +1184,7 @@ symbols:
 🌝	volmaan met gesig	none
 🌞	son met gesig	none
 🪐	planeet met ring om	none
-⭐	wit mediumster	none
+⭐	ster	none
 🌟	gloeiende ster	none
 🌠	verskietende ster	none
 🌌	melkweg	none
@@ -929,7 +1232,7 @@ symbols:
 🧧	rooi koevert	none
 🎀	lint	none
 🎁	toegedraaide geskenk	none
-🎗	herinneringlint	none
+🎗	herinneringslint	none
 🎟	toegangskaartjie	none
 🎫	kaartjie	none
 🎖	militêre medalje	none
@@ -950,7 +1253,7 @@ symbols:
 🎳	kegelbal	none
 🏏	krieket	none
 🏑	hokkie	none
-🏒	yshokkiestok en -skyf	none
+🏒	yshokkie	none
 🥍	lacrosse	none
 🏓	tafeltennis	none
 🏸	pluimbal	none
@@ -970,6 +1273,7 @@ symbols:
 🪁	vlieër	none
 🎱	biljart	none
 🔮	kristalbal	none
+🪄	towerstaf	none
 🧿	nazar-gelukbringer	none
 🎮	videospeletjie	none
 🕹	speelstok	none
@@ -977,6 +1281,8 @@ symbols:
 🎲	dobbelsteen	none
 🧩	legkaartstuk	none
 🧸	teddiebeer	none
+🪅	piñata	none
+🪆	ineenpassende poppe	none
 ♠	skoppens	none
 ♥	harte	none
 ♦	diamante	none
@@ -989,7 +1295,9 @@ symbols:
 🖼	raam met prent	none
 🎨	kunstenaarpalet	none
 🧵	garing	none
+🪡	naaldwerknaald	none
 🧶	wol	none
+🪢	knoop	none
 👓	bril	none
 🕶	sonbril	none
 🥽	skermbril	none
@@ -1007,14 +1315,15 @@ symbols:
 🥻	sari	none
 🩱	eenstukswembroek	none
 🩲	mansportswembroek	none
-🩳	mansswembroek	none
+🩳	manswembroek	none
 👙	bikini	none
 👚	vroueklere	none
 👛	beursie	none
 👜	handsak	none
-👝	sak	none
+👝	palmtassie	none
 🛍	winkelsakke	none
-🎒	skoolrugsak	none
+🎒	rugsak	none
+🩴	tussentoonplakkie	none
 👞	manskoen	none
 👟	hardloopskoen	none
 🥾	stapskoen	none
@@ -1026,18 +1335,19 @@ symbols:
 👑	kroon	none
 👒	vrouehoed	none
 🎩	keil	none
-🎓	gradeplegtigheidmus	none
+🎓	gradeplegtigheidsmus	none
 🧢	hardepuntpet	none
+🪖	militêre helm	none
 ⛑	helm met wit kruis	none
 📿	bidkrale	none
 💄	lipstiffie	none
 💍	ring	none
 💎	edelsteen	none
 🔇	luidspreker af	none
-🔈	luidspreker	none
-🔉	luidspreker aan	none
+🔈	luidspreker sag	none
+🔉	luidspreker medium volume	none
 🔊	luidspreker hard	none
-📢	aankondigingluidspreker	none
+📢	aankondigingsluidspreker	none
 📣	megafoon	none
 📯	poshoring	none
 🔔	klokkie	none
@@ -1052,12 +1362,14 @@ symbols:
 🎧	oorfoon	none
 📻	radio	none
 🎷	saxofoon	none
+🪗	trekklavier	none
 🎸	kitaar	none
 🎹	klawerbord	none
 🎺	trompet	none
 🎻	viool	none
 🪕	banjo	none
 🥁	trom	none
+🪘	lang drom	none
 📱	selfoon	none
 📲	selfoon met pyl	none
 ☎	telefoon	none
@@ -1111,6 +1423,7 @@ symbols:
 🔖	boekmerk	none
 🏷	etiket	none
 💰	geldsak	none
+🪙	muntstuk	none
 💴	jenbanknoot	none
 💵	dollarbanknoot	none
 💶	eurobanknoot	none
@@ -1119,8 +1432,6 @@ symbols:
 💳	kredietkaart	none
 🧾	kwitansie	none
 💹	grafiek met stygende jen	none
-💱	wisselkoers	none
-💲	dik dollarteken	none
 ✉	koevert	none
 📧	e-pos	none
 📨	inkomende koevert	none
@@ -1178,18 +1489,23 @@ symbols:
 🗡	dolk	none
 ⚔	gekruiste swaarde	none
 🔫	rewolwer	none
+🪃	boemerang	none
 🏹	pyl en boog	none
 🛡	skild	none
+🪚	houtsaag	none
 🔧	moersleutel	none
+🪛	skroewedraaier	none
 🔩	bout en moer	none
 ⚙	rat	none
-🗜	samepersing	none
+🗜	klamp	none
 ⚖	weegskaal	none
 🦯	gidsstok	none
 🔗	skakel	none
 ⛓	kettings	none
+🪝	hoek	none
 🧰	gereedskaptrommel	none
 🧲	magneet	none
+🪜	leer	none
 ⚗	alembiek	none
 🧪	proefbuis	none
 🧫	petribakkie	none
@@ -1203,26 +1519,35 @@ symbols:
 🩹	plakpleister	none
 🩺	stetoskoop	none
 🚪	deur	none
+🛗	hysbak	none
+🪞	spieël	none
+🪟	venster	none
 🛏	bed	none
 🛋	rusbank en lamp	none
 🪑	stoel	none
 🚽	toilet	none
+🪠	druksuier	none
 🚿	stort	none
 🛁	bad	none
+🪤	muisvalletjie	none
 🪒	skeermes	none
 🧴	lyfroombottel	none
 🧷	haakspeld	none
 🧹	besem	none
 🧺	mandjie	none
 🧻	papierrol	none
+🪣	emmer	none
 🧼	seep	none
+🪥	tandeborsel	none
 🧽	spons	none
 🧯	vuurblusser	none
 🛒	winkeltrollie	none
 🚬	rook	none
-⚰	kis	none
+⚰	doodskis	none
+🪦	grafsteen	none
 ⚱	begrafniskruik	none
 🗿	moai	none
+🪧	plakkaat	none
 🏧	ATM-teken	none
 🚮	"vullis in drom"-teken	none
 🚰	drinkbare water	none
@@ -1259,12 +1584,13 @@ symbols:
 ↖	pyl na links bo	none
 ↕	pyl op en af	none
 ↔	pyl links en regs	none
+↮	linksregspyl met streep	none
 ↩	pyl na regs buig na links	none
 ↪	pyl na links buig na regs	none
 ⤴	pyl na regs buig op	none
 ⤵	pyl na regs buig af	none
 🔃	kloksgewyse vertikale pyle	none
-🔄	teenkloksgewyse pyle	none
+🔄	knoppie vir teenkloksgewyse pyle	none
 🔙	terugpyl	none
 🔚	eindpyl	none
 🔛	aan!-pyl	none
@@ -1295,34 +1621,45 @@ symbols:
 ♒	Waterdraer-sterrebeeld	none
 ♓	Visse-sterrebeeld	none
 ⛎	Slangdraer-sterrebeeld	none
-🔀	skommel snitte-knoppie	none
+🔀	skommelsnitteknoppie	none
 🔁	herhaalknoppie	none
-🔂	herhaal snit-knoppie	none
+🔂	herhaalsnitknoppie	none
 ▶	speelknoppie	none
-⏩	spoel vorentoe-knoppie	none
-⏭	volgende snit-knoppie	none
-⏯	speel of onderbreek-knoppie	none
-◀	speel terug-knoppie	none
-⏪	spoel terug-knoppie	none
-⏮	vorige snit-knoppie	none
+⏩	spoelvorentoe-knoppie	none
+⏭	volgendesnit-knoppie	none
+⏯	speel-of-onderbreekknoppie	none
+◀	speelterug-knoppie	none
+⏪	spoelterug-knoppie	none
+⏮	vorigesnit-knoppie	none
 🔼	opknoppie	none
-⏫	vinnig op-knoppie	none
+⏫	vinnig-op-knoppie	none
 🔽	afknoppie	none
-⏬	vinnigknoppie	none
+⏬	vinnig-af-knoppie	none
 ⏸	onderbreekknoppie	none
 ⏹	stopknoppie	none
-⏺	neem op-knoppie	none
+⏺	opneemknoppie	none
 ⏏	uitskietknoppie	none
 🎦	bioskoop	none
-🔅	dofknoppie	none
+🔅	verdofknoppie	none
 🔆	helderknoppie	none
 📶	antennastawe	none
 📳	vibrasiemodus	none
 📴	selfoon af	none
 ♀	vroulik-teken	none
 ♂	manlik-teken	none
-⚕	mediese simbool	none
+⚧	transgendersimbool	none
+✖	maal	none
+➕	plus	none
+➖	minus	none
+➗	deel	none
 ♾	oneindigheid	none
+❓	rooi vraagteken	none
+❔	wit vraagteken	none
+❕	wit uitroepteken	none
+❗	rooi uitroepteken	none
+💱	wisselkoers	none
+💲	dik dollarteken	none
+⚕	mediese simbool	none
 ♻	herwinningsimbool	none
 ⚜	fleur de lis	none
 🔱	drietandvurkembleem	none
@@ -1332,27 +1669,13 @@ symbols:
 ✅	regmerkknoppie	none
 ☑	merkblokkie met regmerk	none
 ✔	regmerk	none
-✖	dik maalteken	none
-❌	kuismerk	none
-❎	kruimerkknoppie	none
-➕	dik plusteken	none
-➖	dik minusteken	none
-➗	dik deelteken	none
+❌	kruismerkie	none
+❎	kruismerkknoppie	none
 ➰	krullus	none
 ➿	dubbelkrullus	none
-〽	stembeginteken	none
 ✳	agtspeekasterisk	none
 ✴	agtpuntster	none
 ❇	vonkster	none
-‼	dubbeluitroepteken	none
-⁉	uitroep-vraagteken	none
-❓	vraagteken	none
-❔	wit vraagteken	none
-❕	wit uitroepteken	none
-❗	uitroepteken	none
-〰	golfstreep	none
-©	kopieregmerk	none
-®	registrasiemerk	none
 ™	handelmerk	none
 🔠	invoer- Latynse bokas	none
 🔡	invoer- Latynse onderkas	none
@@ -1376,23 +1699,6 @@ symbols:
 🆘	SOS-knopie	none
 🆙	UP!-knopie	none
 🆚	VS-knopie	none
-🈁	Japannese “hier”-knopie	none
-🈂	Japannese “diensfooi”-knopie	none
-🈷	Japannese “maandrekening”-knopie	none
-🈶	Japannese “nie gratis nie”-knopie	none
-🈯	Japannese “gereserveer”-knopie	none
-🉐	Japannese “winskopie”-knopie	none
-🈹	Japannese “afslag”-knopie	none
-🈚	Japannese “gratis”-knopie	none
-🈲	Japannese “verbode”-knopie	none
-🉑	Japannese “aanvaarbaar”-knopie	none
-🈸	Japannese "aansoek"-knopie	none
-🈴	Japannese "slaagsyfer"-knopie	none
-🈳	Japannese "vakant"-knopie	none
-㊗	Japannese "veels geluk"-knopie	none
-㊙	Japannese "geheim"-knopie	none
-🈺	Japannese "oop vir besigheid"-knopie	none
-🈵	Japannese "geen vakant"-knopie	none
 🔴	rooi sirkel	none
 🟠	oranje sirkel	none
 🟡	geel sirkel	none
@@ -1432,64 +1738,24 @@ symbols:
 🎌	gekruiste vlae	none
 🏴	wapperende swart vlag	none
 🏳	wapperende wit vlag	none
-🏳‍⚧	transgendervlag	none
 🏳‍🌈	reënboogvlag	none
+🏳‍⚧	transgendervlag	none
 🏴‍☠	seerowervlag	none
-🛖	hut	none
-🛗	hysbak	none
-🛻	bakkie	none
-🛼	Rolskaats	none
-🤌	vingerpunte saamgedruk	none
-🥲	glimlaggende gesig met traan	none
-🥷	ninja	none
-🥸	vermomde gesig	none
-🦣	mammoet	none
-🦤	dodo	none
-🦫	bewer	none
-🦬	Amerikaanse buffel	none
-🦭	rob	none
-🧋	borreltee	none
-🩴	tussentoonplakkie	none
-🪃	boemerang	none
-🪄	towerstaf	none
-🪅	piñata	none
-🪆	ineenpassende poppe	none
-🪖	militêre helm	none
-🪗	trekklavier	none
-🪘	lang drom	none
-🪙	muntstuk	none
-🪚	houtsaag	none
-🪛	skroewedraaier	none
-🪜	leer	none
-🪝	hoek	none
-🪞	spieël	none
-🪟	venster	none
-🪠	dompelaar	none
-🪡	naaldwerknaald	none
-🪢	knoop	none
-🪣	emmer	none
-🪤	muisvalletjie	none
-🪥	tandeborsel	none
-🪦	grafsteen	none
-🪧	plakkaat	none
-🪨	rots	none
-🪰	vlieg	none
-🪱	wurm	none
-🪲	kewer	none
-🪳	kakkerlak	none
-🪴	potplant	none
-🪵	hout	none
-🪶	veer	none
-🫀	orgaanhart	none
-🫁	longe	none
-🫂	mense wat mekaar druk	none
-🫐	bloubessies	none
-🫑	soetrissie	none
-🫒	olyf	none
-🫓	platbrood	none
-🫔	tamale	none
-🫕	fondue	none
-🫖	teepot	none
+₢	cruzeiro	none
+₣	Franse frank	none
+₤	lier	none
+₥	mill	none
+₩	won	none
+€	euro	none
+₰	Duitse pennie	none
+₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
+₹	indiese roepee	none
+₽	roebel	none
+₿	bitcoin	none
+₨	roepee	none
 👋🏻	wuiwende hand ligte velkleur	none
 👋🏼	wuiwende hand medium-ligte velkleur	none
 👋🏽	wuiwende hand medium velkleur	none
@@ -1520,6 +1786,11 @@ symbols:
 👌🏽	ok-handteken medium velkleur	none
 👌🏾	ok-handteken medium-donker velkleur	none
 👌🏿	ok-handteken donker velkleur	none
+🤌🏻	vingerpunte saamgedruk ligte velkleur	none
+🤌🏼	vingerpunte saamgedruk medium-ligte velkleur	none
+🤌🏽	vingerpunte saamgedruk medium velkleur	none
+🤌🏾	vingerpunte saamgedruk medium-donker velkleur	none
+🤌🏿	vingerpunte saamgedruk donker velkleur	none
 🤏🏻	knypende hand ligte velkleur	none
 🤏🏼	knypende hand medium-ligte velkleur	none
 🤏🏽	knypende hand medium velkleur	none
@@ -1710,6 +1981,46 @@ symbols:
 👱🏽	persoon met blonde hare medium velkleur	none
 👱🏾	persoon met blonde hare medium-donker velkleur	none
 👱🏿	persoon met blonde hare donker velkleur	none
+🧑🏻‍❤‍💋‍🧑🏼	soen volwassene, volwassene, ligte velkleur en medium-ligte velkleur	none
+🧑🏻‍❤‍💋‍🧑🏽	soen volwassene, volwassene, ligte velkleur en medium velkleur	none
+🧑🏻‍❤‍💋‍🧑🏾	soen volwassene, volwassene, ligte velkleur en medium-donker velkleur	none
+🧑🏻‍❤‍💋‍🧑🏿	soen volwassene, volwassene, ligte velkleur en donker velkleur	none
+🧑🏼‍❤‍💋‍🧑🏻	soen volwassene, volwassene, medium-ligte velkleur en ligte velkleur	none
+🧑🏼‍❤‍💋‍🧑🏽	soen volwassene, volwassene, medium-ligte velkleur en medium velkleur	none
+🧑🏼‍❤‍💋‍🧑🏾	soen volwassene, volwassene, medium-ligte velkleur en medium-donker velkleur	none
+🧑🏼‍❤‍💋‍🧑🏿	soen volwassene, volwassene, medium-ligte velkleur en donker velkleur	none
+🧑🏽‍❤‍💋‍🧑🏻	soen volwassene, volwassene, medium velkleur en ligte velkleur	none
+🧑🏽‍❤‍💋‍🧑🏼	soen volwassene, volwassene, medium velkleur en medium-ligte velkleur	none
+🧑🏽‍❤‍💋‍🧑🏾	soen volwassene, volwassene, medium velkleur en medium-donker velkleur	none
+🧑🏽‍❤‍💋‍🧑🏿	soen volwassene, volwassene, medium velkleur en donker velkleur	none
+🧑🏾‍❤‍💋‍🧑🏻	soen volwassene, volwassene, medium-donker velkleur en ligte velkleur	none
+🧑🏾‍❤‍💋‍🧑🏼	soen volwassene, volwassene, medium-donker velkleur en medium-ligte velkleur	none
+🧑🏾‍❤‍💋‍🧑🏽	soen volwassene, volwassene, medium-donker velkleur en medium velkleur	none
+🧑🏾‍❤‍💋‍🧑🏿	soen volwassene, volwassene, medium-donker velkleur en donker velkleur	none
+🧑🏿‍❤‍💋‍🧑🏻	soen volwassene, volwassene, donker velkleur en ligte velkleur	none
+🧑🏿‍❤‍💋‍🧑🏼	soen volwassene, volwassene, donker velkleur en medium-ligte velkleur	none
+🧑🏿‍❤‍💋‍🧑🏽	soen volwassene, volwassene, donker velkleur en medium velkleur	none
+🧑🏿‍❤‍💋‍🧑🏾	soen volwassene, volwassene, donker velkleur en medium-donker velkleur	none
+🧑🏻‍❤‍🧑🏼	paartjie met hartjie volwassene, volwassene, ligte velkleur en medium-ligte velkleur	none
+🧑🏻‍❤‍🧑🏽	paartjie met hartjie volwassene, volwassene, ligte velkleur en medium velkleur	none
+🧑🏻‍❤‍🧑🏾	paartjie met hartjie volwassene, volwassene, ligte velkleur en medium-donker velkleur	none
+🧑🏻‍❤‍🧑🏿	paartjie met hartjie volwassene, volwassene, ligte velkleur en donker velkleur	none
+🧑🏼‍❤‍🧑🏻	paartjie met hartjie volwassene, volwassene, medium-ligte velkleur en ligte velkleur	none
+🧑🏼‍❤‍🧑🏽	paartjie met hartjie volwassene, volwassene, medium-ligte velkleur en medium velkleur	none
+🧑🏼‍❤‍🧑🏾	paartjie met hartjie volwassene, volwassene, medium-ligte velkleur en medium-donker velkleur	none
+🧑🏼‍❤‍🧑🏿	paartjie met hartjie volwassene, volwassene, medium-ligte velkleur en donker velkleur	none
+🧑🏽‍❤‍🧑🏻	paartjie met hartjie volwassene, volwassene, medium velkleur en ligte velkleur	none
+🧑🏽‍❤‍🧑🏼	paartjie met hartjie volwassene, volwassene, medium velkleur en medium-ligte velkleur	none
+🧑🏽‍❤‍🧑🏾	paartjie met hartjie volwassene, volwassene, medium velkleur en medium-donker velkleur	none
+🧑🏽‍❤‍🧑🏿	paartjie met hartjie volwassene, volwassene, medium velkleur en donker velkleur	none
+🧑🏾‍❤‍🧑🏻	paartjie met hartjie volwassene, volwassene, medium-donker velkleur en ligte velkleur	none
+🧑🏾‍❤‍🧑🏼	paartjie met hartjie volwassene, volwassene, medium-donker velkleur en medium-ligte velkleur	none
+🧑🏾‍❤‍🧑🏽	paartjie met hartjie volwassene, volwassene, medium-donker velkleur en medium velkleur	none
+🧑🏾‍❤‍🧑🏿	paartjie met hartjie volwassene, volwassene, medium-donker velkleur en donker velkleur	none
+🧑🏿‍❤‍🧑🏻	paartjie met hartjie volwassene, volwassene, donker velkleur en ligte velkleur	none
+🧑🏿‍❤‍🧑🏼	paartjie met hartjie volwassene, volwassene, donker velkleur en medium-ligte velkleur	none
+🧑🏿‍❤‍🧑🏽	paartjie met hartjie volwassene, volwassene, donker velkleur en medium velkleur	none
+🧑🏿‍❤‍🧑🏾	paartjie met hartjie volwassene, volwassene, donker velkleur en medium-donker velkleur	none
 🧑‍🦰	volwassene rooi hare	none
 🧑🏻‍🦰	volwassene ligte velkleur en rooi hare	none
 🧑🏼‍🦰	volwassene medium-ligte velkleur en rooi hare	none
@@ -1744,11 +2055,66 @@ symbols:
 🧔🏽	bebaarde persoon medium velkleur	none
 🧔🏾	bebaarde persoon medium-donker velkleur	none
 🧔🏿	bebaarde persoon donker velkleur	none
+🧔🏻‍♂	man ligte velkleur en baard	none
+🧔🏼‍♂	man medium-ligte velkleur en baard	none
+🧔🏽‍♂	man medium velkleur en baard	none
+🧔🏾‍♂	man medium-donker velkleur en baard	none
+🧔🏿‍♂	man donker velkleur en baard	none
 👱🏻‍♂	blonde man ligte velkleur	none
 👱🏼‍♂	blonde man medium-ligte velkleur	none
 👱🏽‍♂	blonde man medium velkleur	none
 👱🏾‍♂	blonde man medium-donker velkleur	none
 👱🏿‍♂	blonde man donker velkleur	none
+👨🏻‍❤‍💋‍👨🏻	soen man, man en ligte velkleur	none
+👨🏻‍❤‍💋‍👨🏼	soen man, man, ligte velkleur en medium-ligte velkleur	none
+👨🏻‍❤‍💋‍👨🏽	soen man, man, ligte velkleur en medium velkleur	none
+👨🏻‍❤‍💋‍👨🏾	soen man, man, ligte velkleur en medium-donker velkleur	none
+👨🏻‍❤‍💋‍👨🏿	soen man, man, ligte velkleur en donker velkleur	none
+👨🏼‍❤‍💋‍👨🏻	soen man, man, medium-ligte velkleur en ligte velkleur	none
+👨🏼‍❤‍💋‍👨🏼	soen man, man en medium-ligte velkleur	none
+👨🏼‍❤‍💋‍👨🏽	soen man, man, medium-ligte velkleur en medium velkleur	none
+👨🏼‍❤‍💋‍👨🏾	soen man, man, medium-ligte velkleur en medium-donker velkleur	none
+👨🏼‍❤‍💋‍👨🏿	soen man, man, medium-ligte velkleur en donker velkleur	none
+👨🏽‍❤‍💋‍👨🏻	soen man, man, medium velkleur en ligte velkleur	none
+👨🏽‍❤‍💋‍👨🏼	soen man, man, medium velkleur en medium-ligte velkleur	none
+👨🏽‍❤‍💋‍👨🏽	soen man, man en medium velkleur	none
+👨🏽‍❤‍💋‍👨🏾	soen man, man, medium velkleur en medium-donker velkleur	none
+👨🏽‍❤‍💋‍👨🏿	soen man, man, medium velkleur en donker velkleur	none
+👨🏾‍❤‍💋‍👨🏻	soen man, man, medium-donker velkleur en ligte velkleur	none
+👨🏾‍❤‍💋‍👨🏼	soen man, man, medium-donker velkleur en medium-ligte velkleur	none
+👨🏾‍❤‍💋‍👨🏽	soen man, man, medium-donker velkleur en medium velkleur	none
+👨🏾‍❤‍💋‍👨🏾	soen man, man en medium-donker velkleur	none
+👨🏾‍❤‍💋‍👨🏿	soen man, man, medium-donker velkleur en donker velkleur	none
+👨🏿‍❤‍💋‍👨🏻	soen man, man, donker velkleur en ligte velkleur	none
+👨🏿‍❤‍💋‍👨🏼	soen man, man, donker velkleur en medium-ligte velkleur	none
+👨🏿‍❤‍💋‍👨🏽	soen man, man, donker velkleur en medium velkleur	none
+👨🏿‍❤‍💋‍👨🏾	soen man, man, donker velkleur en medium-donker velkleur	none
+👨🏿‍❤‍💋‍👨🏿	soen man, man en donker velkleur	none
+👨🏻‍❤‍👨🏻	paartjie met hartjie man, man en ligte velkleur	none
+👨🏻‍❤‍👨🏼	paartjie met hartjie man, man, ligte velkleur en medium-ligte velkleur	none
+👨🏻‍❤‍👨🏽	paartjie met hartjie man, man, ligte velkleur en medium velkleur	none
+👨🏻‍❤‍👨🏾	paartjie met hartjie man, man, ligte velkleur en medium-donker velkleur	none
+👨🏻‍❤‍👨🏿	paartjie met hartjie man, man, ligte velkleur en donker velkleur	none
+👨🏼‍❤‍👨🏻	paartjie met hartjie man, man, medium-ligte velkleur en ligte velkleur	none
+👨🏼‍❤‍👨🏼	paartjie met hartjie man, man en medium-ligte velkleur	none
+👨🏼‍❤‍👨🏽	paartjie met hartjie man, man, medium-ligte velkleur en medium velkleur	none
+👨🏼‍❤‍👨🏾	paartjie met hartjie man, man, medium-ligte velkleur en medium-donker velkleur	none
+👨🏼‍❤‍👨🏿	paartjie met hartjie man, man, medium-ligte velkleur en donker velkleur	none
+👨🏽‍❤‍👨🏻	paartjie met hartjie man, man, medium velkleur en ligte velkleur	none
+👨🏽‍❤‍👨🏼	paartjie met hartjie man, man, medium velkleur en medium-ligte velkleur	none
+👨🏽‍❤‍👨🏽	paartjie met hartjie man, man en medium velkleur	none
+👨🏽‍❤‍👨🏾	paartjie met hartjie man, man, medium velkleur en medium-donker velkleur	none
+👨🏽‍❤‍👨🏿	paartjie met hartjie man, man, medium velkleur en donker velkleur	none
+👨🏾‍❤‍👨🏻	paartjie met hartjie man, man, medium-donker velkleur en ligte velkleur	none
+👨🏾‍❤‍👨🏼	paartjie met hartjie man, man, medium-donker velkleur en medium-ligte velkleur	none
+👨🏾‍❤‍👨🏽	paartjie met hartjie man, man, medium-donker velkleur en medium velkleur	none
+👨🏾‍❤‍👨🏾	paartjie met hartjie man, man en medium-donker velkleur	none
+👨🏾‍❤‍👨🏿	paartjie met hartjie man, man, medium-donker velkleur en donker velkleur	none
+👨🏿‍❤‍👨🏻	paartjie met hartjie man, man, donker velkleur en ligte velkleur	none
+👨🏿‍❤‍👨🏼	paartjie met hartjie man, man, donker velkleur en medium-ligte velkleur	none
+👨🏿‍❤‍👨🏽	paartjie met hartjie man, man, donker velkleur en medium velkleur	none
+👨🏿‍❤‍👨🏾	paartjie met hartjie man, man, donker velkleur en medium-donker velkleur	none
+👨🏿‍❤‍👨🏿	paartjie met hartjie man, man en donker velkleur	none
 👨‍🦰	man rooi hare	none
 👨🏻‍🦰	man ligte velkleur en rooi hare	none
 👨🏼‍🦰	man medium-ligte velkleur en rooi hare	none
@@ -1778,11 +2144,116 @@ symbols:
 👩🏽	vrou medium velkleur	none
 👩🏾	vrou medium-donker velkleur	none
 👩🏿	vrou donker velkleur	none
+🧔🏻‍♀	vrou ligte velkleur en baard	none
+🧔🏼‍♀	vrou medium-ligte velkleur en baard	none
+🧔🏽‍♀	vrou medium velkleur en baard	none
+🧔🏾‍♀	vrou medium-donker velkleur en baard	none
+🧔🏿‍♀	vrou donker velkleur en baard	none
 👱🏻‍♀	blondine ligte velkleur	none
 👱🏼‍♀	blondine medium-ligte velkleur	none
 👱🏽‍♀	blondine medium velkleur	none
 👱🏾‍♀	blondine medium-donker velkleur	none
 👱🏿‍♀	blondine donker velkleur	none
+👩🏻‍❤‍💋‍👨🏻	soen vrou, man en ligte velkleur	none
+👩🏻‍❤‍💋‍👨🏼	soen vrou, man, ligte velkleur en medium-ligte velkleur	none
+👩🏻‍❤‍💋‍👨🏽	soen vrou, man, ligte velkleur en medium velkleur	none
+👩🏻‍❤‍💋‍👨🏾	soen vrou, man, ligte velkleur en medium-donker velkleur	none
+👩🏻‍❤‍💋‍👨🏿	soen vrou, man, ligte velkleur en donker velkleur	none
+👩🏼‍❤‍💋‍👨🏻	soen vrou, man, medium-ligte velkleur en ligte velkleur	none
+👩🏼‍❤‍💋‍👨🏼	soen vrou, man en medium-ligte velkleur	none
+👩🏼‍❤‍💋‍👨🏽	soen vrou, man, medium-ligte velkleur en medium velkleur	none
+👩🏼‍❤‍💋‍👨🏾	soen vrou, man, medium-ligte velkleur en medium-donker velkleur	none
+👩🏼‍❤‍💋‍👨🏿	soen vrou, man, medium-ligte velkleur en donker velkleur	none
+👩🏽‍❤‍💋‍👨🏻	soen vrou, man, medium velkleur en ligte velkleur	none
+👩🏽‍❤‍💋‍👨🏼	soen vrou, man, medium velkleur en medium-ligte velkleur	none
+👩🏽‍❤‍💋‍👨🏽	soen vrou, man en medium velkleur	none
+👩🏽‍❤‍💋‍👨🏾	soen vrou, man, medium velkleur en medium-donker velkleur	none
+👩🏽‍❤‍💋‍👨🏿	soen vrou, man, medium velkleur en donker velkleur	none
+👩🏾‍❤‍💋‍👨🏻	soen vrou, man, medium-donker velkleur en ligte velkleur	none
+👩🏾‍❤‍💋‍👨🏼	soen vrou, man, medium-donker velkleur en medium-ligte velkleur	none
+👩🏾‍❤‍💋‍👨🏽	soen vrou, man, medium-donker velkleur en medium velkleur	none
+👩🏾‍❤‍💋‍👨🏾	soen vrou, man en medium-donker velkleur	none
+👩🏾‍❤‍💋‍👨🏿	soen vrou, man, medium-donker velkleur en donker velkleur	none
+👩🏿‍❤‍💋‍👨🏻	soen vrou, man, donker velkleur en ligte velkleur	none
+👩🏿‍❤‍💋‍👨🏼	soen vrou, man, donker velkleur en medium-ligte velkleur	none
+👩🏿‍❤‍💋‍👨🏽	soen vrou, man, donker velkleur en medium velkleur	none
+👩🏿‍❤‍💋‍👨🏾	soen vrou, man, donker velkleur en medium-donker velkleur	none
+👩🏿‍❤‍💋‍👨🏿	soen vrou, man en donker velkleur	none
+👩🏻‍❤‍💋‍👩🏻	soen vrou, vrou en ligte velkleur	none
+👩🏻‍❤‍💋‍👩🏼	soen vrou, vrou, ligte velkleur en medium-ligte velkleur	none
+👩🏻‍❤‍💋‍👩🏽	soen vrou, vrou, ligte velkleur en medium velkleur	none
+👩🏻‍❤‍💋‍👩🏾	soen vrou, vrou, ligte velkleur en medium-donker velkleur	none
+👩🏻‍❤‍💋‍👩🏿	soen vrou, vrou, ligte velkleur en donker velkleur	none
+👩🏼‍❤‍💋‍👩🏻	soen vrou, vrou, medium-ligte velkleur en ligte velkleur	none
+👩🏼‍❤‍💋‍👩🏼	soen vrou, vrou en medium-ligte velkleur	none
+👩🏼‍❤‍💋‍👩🏽	soen vrou, vrou, medium-ligte velkleur en medium velkleur	none
+👩🏼‍❤‍💋‍👩🏾	soen vrou, vrou, medium-ligte velkleur en medium-donker velkleur	none
+👩🏼‍❤‍💋‍👩🏿	soen vrou, vrou, medium-ligte velkleur en donker velkleur	none
+👩🏽‍❤‍💋‍👩🏻	soen vrou, vrou, medium velkleur en ligte velkleur	none
+👩🏽‍❤‍💋‍👩🏼	soen vrou, vrou, medium velkleur en medium-ligte velkleur	none
+👩🏽‍❤‍💋‍👩🏽	soen vrou, vrou en medium velkleur	none
+👩🏽‍❤‍💋‍👩🏾	soen vrou, vrou, medium velkleur en medium-donker velkleur	none
+👩🏽‍❤‍💋‍👩🏿	soen vrou, vrou, medium velkleur en donker velkleur	none
+👩🏾‍❤‍💋‍👩🏻	soen vrou, vrou, medium-donker velkleur en ligte velkleur	none
+👩🏾‍❤‍💋‍👩🏼	soen vrou, vrou, medium-donker velkleur en medium-ligte velkleur	none
+👩🏾‍❤‍💋‍👩🏽	soen vrou, vrou, medium-donker velkleur en medium velkleur	none
+👩🏾‍❤‍💋‍👩🏾	soen vrou, vrou en medium-donker velkleur	none
+👩🏾‍❤‍💋‍👩🏿	soen vrou, vrou, medium-donker velkleur en donker velkleur	none
+👩🏿‍❤‍💋‍👩🏻	soen vrou, vrou, donker velkleur en ligte velkleur	none
+👩🏿‍❤‍💋‍👩🏼	soen vrou, vrou, donker velkleur en medium-ligte velkleur	none
+👩🏿‍❤‍💋‍👩🏽	soen vrou, vrou, donker velkleur en medium velkleur	none
+👩🏿‍❤‍💋‍👩🏾	soen vrou, vrou, donker velkleur en medium-donker velkleur	none
+👩🏿‍❤‍💋‍👩🏿	soen vrou, vrou en donker velkleur	none
+👩🏻‍❤‍👨🏻	paartjie met hartjie vrou, man en ligte velkleur	none
+👩🏻‍❤‍👨🏼	paartjie met hartjie vrou, man, ligte velkleur en medium-ligte velkleur	none
+👩🏻‍❤‍👨🏽	paartjie met hartjie vrou, man, ligte velkleur en medium velkleur	none
+👩🏻‍❤‍👨🏾	paartjie met hartjie vrou, man, ligte velkleur en medium-donker velkleur	none
+👩🏻‍❤‍👨🏿	paartjie met hartjie vrou, man, ligte velkleur en donker velkleur	none
+👩🏼‍❤‍👨🏻	paartjie met hartjie vrou, man, medium-ligte velkleur en ligte velkleur	none
+👩🏼‍❤‍👨🏼	paartjie met hartjie vrou, man en medium-ligte velkleur	none
+👩🏼‍❤‍👨🏽	paartjie met hartjie vrou, man, medium-ligte velkleur en medium velkleur	none
+👩🏼‍❤‍👨🏾	paartjie met hartjie vrou, man, medium-ligte velkleur en medium-donker velkleur	none
+👩🏼‍❤‍👨🏿	paartjie met hartjie vrou, man, medium-ligte velkleur en donker velkleur	none
+👩🏽‍❤‍👨🏻	paartjie met hartjie vrou, man, medium velkleur en ligte velkleur	none
+👩🏽‍❤‍👨🏼	paartjie met hartjie vrou, man, medium velkleur en medium-ligte velkleur	none
+👩🏽‍❤‍👨🏽	paartjie met hartjie vrou, man en medium velkleur	none
+👩🏽‍❤‍👨🏾	paartjie met hartjie vrou, man, medium velkleur en medium-donker velkleur	none
+👩🏽‍❤‍👨🏿	paartjie met hartjie vrou, man, medium velkleur en donker velkleur	none
+👩🏾‍❤‍👨🏻	paartjie met hartjie vrou, man, medium-donker velkleur en ligte velkleur	none
+👩🏾‍❤‍👨🏼	paartjie met hartjie vrou, man, medium-donker velkleur en medium-ligte velkleur	none
+👩🏾‍❤‍👨🏽	paartjie met hartjie vrou, man, medium-donker velkleur en medium velkleur	none
+👩🏾‍❤‍👨🏾	paartjie met hartjie vrou, man en medium-donker velkleur	none
+👩🏾‍❤‍👨🏿	paartjie met hartjie vrou, man, medium-donker velkleur en donker velkleur	none
+👩🏿‍❤‍👨🏻	paartjie met hartjie vrou, man, donker velkleur en ligte velkleur	none
+👩🏿‍❤‍👨🏼	paartjie met hartjie vrou, man, donker velkleur en medium-ligte velkleur	none
+👩🏿‍❤‍👨🏽	paartjie met hartjie vrou, man, donker velkleur en medium velkleur	none
+👩🏿‍❤‍👨🏾	paartjie met hartjie vrou, man, donker velkleur en medium-donker velkleur	none
+👩🏿‍❤‍👨🏿	paartjie met hartjie vrou, man en donker velkleur	none
+👩🏻‍❤‍👩🏻	paartjie met hartjie vrou, vrou en ligte velkleur	none
+👩🏻‍❤‍👩🏼	paartjie met hartjie vrou, vrou, ligte velkleur en medium-ligte velkleur	none
+👩🏻‍❤‍👩🏽	paartjie met hartjie vrou, vrou, ligte velkleur en medium velkleur	none
+👩🏻‍❤‍👩🏾	paartjie met hartjie vrou, vrou, ligte velkleur en medium-donker velkleur	none
+👩🏻‍❤‍👩🏿	paartjie met hartjie vrou, vrou, ligte velkleur en donker velkleur	none
+👩🏼‍❤‍👩🏻	paartjie met hartjie vrou, vrou, medium-ligte velkleur en ligte velkleur	none
+👩🏼‍❤‍👩🏼	paartjie met hartjie vrou, vrou en medium-ligte velkleur	none
+👩🏼‍❤‍👩🏽	paartjie met hartjie vrou, vrou, medium-ligte velkleur en medium velkleur	none
+👩🏼‍❤‍👩🏾	paartjie met hartjie vrou, vrou, medium-ligte velkleur en medium-donker velkleur	none
+👩🏼‍❤‍👩🏿	paartjie met hartjie vrou, vrou, medium-ligte velkleur en donker velkleur	none
+👩🏽‍❤‍👩🏻	paartjie met hartjie vrou, vrou, medium velkleur en ligte velkleur	none
+👩🏽‍❤‍👩🏼	paartjie met hartjie vrou, vrou, medium velkleur en medium-ligte velkleur	none
+👩🏽‍❤‍👩🏽	paartjie met hartjie vrou, vrou en medium velkleur	none
+👩🏽‍❤‍👩🏾	paartjie met hartjie vrou, vrou, medium velkleur en medium-donker velkleur	none
+👩🏽‍❤‍👩🏿	paartjie met hartjie vrou, vrou, medium velkleur en donker velkleur	none
+👩🏾‍❤‍👩🏻	paartjie met hartjie vrou, vrou, medium-donker velkleur en ligte velkleur	none
+👩🏾‍❤‍👩🏼	paartjie met hartjie vrou, vrou, medium-donker velkleur en medium-ligte velkleur	none
+👩🏾‍❤‍👩🏽	paartjie met hartjie vrou, vrou, medium-donker velkleur en medium velkleur	none
+👩🏾‍❤‍👩🏾	paartjie met hartjie vrou, vrou en medium-donker velkleur	none
+👩🏾‍❤‍👩🏿	paartjie met hartjie vrou, vrou, medium-donker velkleur en donker velkleur	none
+👩🏿‍❤‍👩🏻	paartjie met hartjie vrou, vrou, donker velkleur en ligte velkleur	none
+👩🏿‍❤‍👩🏼	paartjie met hartjie vrou, vrou, donker velkleur en medium-ligte velkleur	none
+👩🏿‍❤‍👩🏽	paartjie met hartjie vrou, vrou, donker velkleur en medium velkleur	none
+👩🏿‍❤‍👩🏾	paartjie met hartjie vrou, vrou, donker velkleur en medium-donker velkleur	none
+👩🏿‍❤‍👩🏿	paartjie met hartjie vrou, vrou en donker velkleur	none
 👩‍🦰	vrou rooi hare	none
 👩🏻‍🦰	vrou ligte velkleur en rooi hare	none
 👩🏼‍🦰	vrou medium-ligte velkleur en rooi hare	none
@@ -2242,11 +2713,11 @@ symbols:
 🕵🏽‍♀	vroulike speurder medium velkleur	none
 🕵🏾‍♀	vroulike speurder medium-donker velkleur	none
 🕵🏿‍♀	vroulike speurder donker velkleur	none
-💂🏻	gardesoldaat ligte velkleur	none
-💂🏼	gardesoldaat medium-ligte velkleur	none
-💂🏽	gardesoldaat medium velkleur	none
-💂🏾	gardesoldaat medium-donker velkleur	none
-💂🏿	gardesoldaat donker velkleur	none
+💂🏻	gardeoffisier ligte velkleur	none
+💂🏼	gardeoffisier medium-ligte velkleur	none
+💂🏽	gardeoffisier medium velkleur	none
+💂🏾	gardeoffisier medium-donker velkleur	none
+💂🏿	gardeoffisier donker velkleur	none
 💂🏻‍♂	manlike wag ligte velkleur	none
 💂🏼‍♂	manlike wag medium-ligte velkleur	none
 💂🏽‍♂	manlike wag medium velkleur	none
@@ -2257,6 +2728,11 @@ symbols:
 💂🏽‍♀	vroulike wag medium velkleur	none
 💂🏾‍♀	vroulike wag medium-donker velkleur	none
 💂🏿‍♀	vroulike wag donker velkleur	none
+🥷🏻	ninja ligte velkleur	none
+🥷🏼	ninja medium-ligte velkleur	none
+🥷🏽	ninja medium velkleur	none
+🥷🏾	ninja medium-donker velkleur	none
+🥷🏿	ninja donker velkleur	none
 👷🏻	konstruksiewerker ligte velkleur	none
 👷🏼	konstruksiewerker medium-ligte velkleur	none
 👷🏽	konstruksiewerker medium velkleur	none
@@ -2282,11 +2758,11 @@ symbols:
 👸🏽	prinses medium velkleur	none
 👸🏾	prinses medium-donker velkleur	none
 👸🏿	prinses donker velkleur	none
-👳🏻	met met tulband ligte velkleur	none
-👳🏼	met met tulband medium-ligte velkleur	none
-👳🏽	met met tulband medium velkleur	none
-👳🏾	met met tulband medium-donker velkleur	none
-👳🏿	met met tulband donker velkleur	none
+👳🏻	persoon met tulband ligte velkleur	none
+👳🏼	persoon met tulband medium-ligte velkleur	none
+👳🏽	persoon met tulband medium velkleur	none
+👳🏾	persoon met tulband medium-donker velkleur	none
+👳🏿	persoon met tulband donker velkleur	none
 👳🏻‍♂	man met tulband ligte velkleur	none
 👳🏼‍♂	man met tulband medium-ligte velkleur	none
 👳🏽‍♂	man met tulband medium velkleur	none
@@ -2297,26 +2773,46 @@ symbols:
 👳🏽‍♀	vrou met tulband medium velkleur	none
 👳🏾‍♀	vrou met tulband medium-donker velkleur	none
 👳🏿‍♀	vrou met tulband donker velkleur	none
-👲🏻	man met chinese mus ligte velkleur	none
-👲🏼	man met chinese mus medium-ligte velkleur	none
-👲🏽	man met chinese mus medium velkleur	none
-👲🏾	man met chinese mus medium-donker velkleur	none
-👲🏿	man met chinese mus donker velkleur	none
+👲🏻	man met mus ligte velkleur	none
+👲🏼	man met mus medium-ligte velkleur	none
+👲🏽	man met mus medium velkleur	none
+👲🏾	man met mus medium-donker velkleur	none
+👲🏿	man met mus donker velkleur	none
 🧕🏻	vrou met kopdoek ligte velkleur	none
 🧕🏼	vrou met kopdoek medium-ligte velkleur	none
 🧕🏽	vrou met kopdoek medium velkleur	none
 🧕🏾	vrou met kopdoek medium-donker velkleur	none
 🧕🏿	vrou met kopdoek donker velkleur	none
-🤵🏻	man in pak ligte velkleur	none
-🤵🏼	man in pak medium-ligte velkleur	none
-🤵🏽	man in pak medium velkleur	none
-🤵🏾	man in pak medium-donker velkleur	none
-🤵🏿	man in pak donker velkleur	none
-👰🏻	bruid met sluier ligte velkleur	none
-👰🏼	bruid met sluier medium-ligte velkleur	none
-👰🏽	bruid met sluier medium velkleur	none
-👰🏾	bruid met sluier medium-donker velkleur	none
-👰🏿	bruid met sluier donker velkleur	none
+🤵🏻	persoon in pak ligte velkleur	none
+🤵🏼	persoon in pak medium-ligte velkleur	none
+🤵🏽	persoon in pak medium velkleur	none
+🤵🏾	persoon in pak medium-donker velkleur	none
+🤵🏿	persoon in pak donker velkleur	none
+🤵🏻‍♂	man in pak ligte velkleur	none
+🤵🏼‍♂	man in pak medium-ligte velkleur	none
+🤵🏽‍♂	man in pak medium velkleur	none
+🤵🏾‍♂	man in pak medium-donker velkleur	none
+🤵🏿‍♂	man in pak donker velkleur	none
+🤵🏻‍♀	vrou in pak ligte velkleur	none
+🤵🏼‍♀	vrou in pak medium-ligte velkleur	none
+🤵🏽‍♀	vrou in pak medium velkleur	none
+🤵🏾‍♀	vrou in pak medium-donker velkleur	none
+🤵🏿‍♀	vrou in pak donker velkleur	none
+👰🏻	persoon met sluier ligte velkleur	none
+👰🏼	persoon met sluier medium-ligte velkleur	none
+👰🏽	persoon met sluier medium velkleur	none
+👰🏾	persoon met sluier medium-donker velkleur	none
+👰🏿	persoon met sluier donker velkleur	none
+👰🏻‍♂	man met sluier ligte velkleur	none
+👰🏼‍♂	man met sluier medium-ligte velkleur	none
+👰🏽‍♂	man met sluier medium velkleur	none
+👰🏾‍♂	man met sluier medium-donker velkleur	none
+👰🏿‍♂	man met sluier donker velkleur	none
+👰🏻‍♀	vrou met sluier ligte velkleur	none
+👰🏼‍♀	vrou met sluier medium-ligte velkleur	none
+👰🏽‍♀	vrou met sluier medium velkleur	none
+👰🏾‍♀	vrou met sluier medium-donker velkleur	none
+👰🏿‍♀	vrou met sluier donker velkleur	none
 🤰🏻	swanger vrou ligte velkleur	none
 🤰🏼	swanger vrou medium-ligte velkleur	none
 🤰🏽	swanger vrou medium velkleur	none
@@ -2327,6 +2823,21 @@ symbols:
 🤱🏽	borsvoed medium velkleur	none
 🤱🏾	borsvoed medium-donker velkleur	none
 🤱🏿	borsvoed donker velkleur	none
+👩🏻‍🍼	vrou wat baba voed ligte velkleur	none
+👩🏼‍🍼	vrou wat baba voed medium-ligte velkleur	none
+👩🏽‍🍼	vrou wat baba voed medium velkleur	none
+👩🏾‍🍼	vrou wat baba voed medium-donker velkleur	none
+👩🏿‍🍼	vrou wat baba voed donker velkleur	none
+👨🏻‍🍼	man wat baba voed ligte velkleur	none
+👨🏼‍🍼	man wat baba voed medium-ligte velkleur	none
+👨🏽‍🍼	man wat baba voed medium velkleur	none
+👨🏾‍🍼	man wat baba voed medium-donker velkleur	none
+👨🏿‍🍼	man wat baba voed donker velkleur	none
+🧑🏻‍🍼	persoon wat baba voed ligte velkleur	none
+🧑🏼‍🍼	persoon wat baba voed medium-ligte velkleur	none
+🧑🏽‍🍼	persoon wat baba voed medium velkleur	none
+🧑🏾‍🍼	persoon wat baba voed medium-donker velkleur	none
+🧑🏿‍🍼	persoon wat baba voed donker velkleur	none
 👼🏻	baba-engel ligte velkleur	none
 👼🏼	baba-engel medium-ligte velkleur	none
 👼🏽	baba-engel medium velkleur	none
@@ -2342,6 +2853,11 @@ symbols:
 🤶🏽	Moeder Kersfees medium velkleur	none
 🤶🏾	Moeder Kersfees medium-donker velkleur	none
 🤶🏿	Moeder Kersfees donker velkleur	none
+🧑🏻‍🎄	mx claus ligte velkleur	none
+🧑🏼‍🎄	mx claus medium-ligte velkleur	none
+🧑🏽‍🎄	mx claus medium velkleur	none
+🧑🏾‍🎄	mx claus medium-donker velkleur	none
+🧑🏿‍🎄	mx claus donker velkleur	none
 🦸🏻	superheld ligte velkleur	none
 🦸🏼	superheld medium-ligte velkleur	none
 🦸🏽	superheld medium velkleur	none
@@ -2447,11 +2963,11 @@ symbols:
 🧝🏽‍♀	vroulike elf medium velkleur	none
 🧝🏾‍♀	vroulike elf medium-donker velkleur	none
 🧝🏿‍♀	vroulike elf donker velkleur	none
-💆🏻	gesigmassering ligte velkleur	none
-💆🏼	gesigmassering medium-ligte velkleur	none
-💆🏽	gesigmassering medium velkleur	none
-💆🏾	gesigmassering medium-donker velkleur	none
-💆🏿	gesigmassering donker velkleur	none
+💆🏻	persoon kry massering ligte velkleur	none
+💆🏼	persoon kry massering medium-ligte velkleur	none
+💆🏽	persoon kry massering medium velkleur	none
+💆🏾	persoon kry massering medium-donker velkleur	none
+💆🏿	persoon kry massering donker velkleur	none
 💆🏻‍♂	man kry massering ligte velkleur	none
 💆🏼‍♂	man kry massering medium-ligte velkleur	none
 💆🏽‍♂	man kry massering medium velkleur	none
@@ -2522,11 +3038,11 @@ symbols:
 🧎🏽‍♀	vrou wat kniel medium velkleur	none
 🧎🏾‍♀	vrou wat kniel medium-donker velkleur	none
 🧎🏿‍♀	vrou wat kniel donker velkleur	none
-🧑🏻‍🦯	persoon met stapstok ligte velkleur	none
-🧑🏼‍🦯	persoon met stapstok medium-ligte velkleur	none
-🧑🏽‍🦯	persoon met stapstok medium velkleur	none
-🧑🏾‍🦯	persoon met stapstok medium-donker velkleur	none
-🧑🏿‍🦯	persoon met stapstok donker velkleur	none
+🧑🏻‍🦯	persoon met gidsstok ligte velkleur	none
+🧑🏼‍🦯	persoon met gidsstok medium-ligte velkleur	none
+🧑🏽‍🦯	persoon met gidsstok medium velkleur	none
+🧑🏾‍🦯	persoon met gidsstok medium-donker velkleur	none
+🧑🏿‍🦯	persoon met gidsstok donker velkleur	none
 👨🏻‍🦯	man met gidsstok ligte velkleur	none
 👨🏼‍🦯	man met gidsstok medium-ligte velkleur	none
 👨🏽‍🦯	man met gidsstok medium velkleur	none
@@ -2537,11 +3053,11 @@ symbols:
 👩🏽‍🦯	vrou met gidsstok medium velkleur	none
 👩🏾‍🦯	vrou met gidsstok medium-donker velkleur	none
 👩🏿‍🦯	vrou met gidsstok donker velkleur	none
-🧑🏻‍🦼	persoon in motoraangedrewe roltoel ligte velkleur	none
-🧑🏼‍🦼	persoon in motoraangedrewe roltoel medium-ligte velkleur	none
-🧑🏽‍🦼	persoon in motoraangedrewe roltoel medium velkleur	none
-🧑🏾‍🦼	persoon in motoraangedrewe roltoel medium-donker velkleur	none
-🧑🏿‍🦼	persoon in motoraangedrewe roltoel donker velkleur	none
+🧑🏻‍🦼	persoon in motoraangedrewe rolstoel ligte velkleur	none
+🧑🏼‍🦼	persoon in motoraangedrewe rolstoel medium-ligte velkleur	none
+🧑🏽‍🦼	persoon in motoraangedrewe rolstoel medium velkleur	none
+🧑🏾‍🦼	persoon in motoraangedrewe rolstoel medium-donker velkleur	none
+🧑🏿‍🦼	persoon in motoraangedrewe rolstoel donker velkleur	none
 👨🏻‍🦼	man in motoraangedrewe rolstoel ligte velkleur	none
 👨🏼‍🦼	man in motoraangedrewe rolstoel medium-ligte velkleur	none
 👨🏽‍🦼	man in motoraangedrewe rolstoel medium velkleur	none
@@ -2667,11 +3183,11 @@ symbols:
 🏄🏽‍♀	vroulike branderplankryer medium velkleur	none
 🏄🏾‍♀	vroulike branderplankryer medium-donker velkleur	none
 🏄🏿‍♀	vroulike branderplankryer donker velkleur	none
-🚣🏻	roeiboot ligte velkleur	none
-🚣🏼	roeiboot medium-ligte velkleur	none
-🚣🏽	roeiboot medium velkleur	none
-🚣🏾	roeiboot medium-donker velkleur	none
-🚣🏿	roeiboot donker velkleur	none
+🚣🏻	persoon in roeiboot ligte velkleur	none
+🚣🏼	persoon in roeiboot medium-ligte velkleur	none
+🚣🏽	persoon in roeiboot medium velkleur	none
+🚣🏾	persoon in roeiboot medium-donker velkleur	none
+🚣🏿	persoon in roeiboot donker velkleur	none
 🚣🏻‍♂	man wat roei ligte velkleur	none
 🚣🏼‍♂	man wat roei medium-ligte velkleur	none
 🚣🏽‍♂	man wat roei medium velkleur	none
@@ -2767,11 +3283,11 @@ symbols:
 🤸🏽‍♂	man doen wawiel medium velkleur	none
 🤸🏾‍♂	man doen wawiel medium-donker velkleur	none
 🤸🏿‍♂	man doen wawiel donker velkleur	none
-🤸🏻‍♀	vvrou doen wawiel ligte velkleur	none
-🤸🏼‍♀	vvrou doen wawiel medium-ligte velkleur	none
-🤸🏽‍♀	vvrou doen wawiel medium velkleur	none
-🤸🏾‍♀	vvrou doen wawiel medium-donker velkleur	none
-🤸🏿‍♀	vvrou doen wawiel donker velkleur	none
+🤸🏻‍♀	vrou doen wawiel ligte velkleur	none
+🤸🏼‍♀	vrou doen wawiel medium-ligte velkleur	none
+🤸🏽‍♀	vrou doen wawiel medium velkleur	none
+🤸🏾‍♀	vrou doen wawiel medium-donker velkleur	none
+🤸🏿‍♀	vrou doen wawiel donker velkleur	none
 🤽🏻	waterpolo ligte velkleur	none
 🤽🏼	waterpolo medium-ligte velkleur	none
 🤽🏽	waterpolo medium velkleur	none
@@ -2802,11 +3318,11 @@ symbols:
 🤾🏽‍♀	vroulike handbalspeler medium velkleur	none
 🤾🏾‍♀	vroulike handbalspeler medium-donker velkleur	none
 🤾🏿‍♀	vroulike handbalspeler donker velkleur	none
-🤹🏻	jongleer ligte velkleur	none
-🤹🏼	jongleer medium-ligte velkleur	none
-🤹🏽	jongleer medium velkleur	none
-🤹🏾	jongleer medium-donker velkleur	none
-🤹🏿	jongleer donker velkleur	none
+🤹🏻	jongleur ligte velkleur	none
+🤹🏼	jongleur medium-ligte velkleur	none
+🤹🏽	jongleur medium velkleur	none
+🤹🏾	jongleur medium-donker velkleur	none
+🤹🏿	jongleur donker velkleur	none
 🤹🏻‍♂	manlike jongleur ligte velkleur	none
 🤹🏼‍♂	manlike jongleur medium-ligte velkleur	none
 🤹🏽‍♂	manlike jongleur medium velkleur	none
@@ -2817,21 +3333,21 @@ symbols:
 🤹🏽‍♀	vroulike jongleur medium velkleur	none
 🤹🏾‍♀	vroulike jongleur medium-donker velkleur	none
 🤹🏿‍♀	vroulike jongleur donker velkleur	none
-🧘🏻	persoon in die lotus-posisie ligte velkleur	none
-🧘🏼	persoon in die lotus-posisie medium-ligte velkleur	none
-🧘🏽	persoon in die lotus-posisie medium velkleur	none
-🧘🏾	persoon in die lotus-posisie medium-donker velkleur	none
-🧘🏿	persoon in die lotus-posisie donker velkleur	none
-🧘🏻‍♂	man in lotus-posisie ligte velkleur	none
-🧘🏼‍♂	man in lotus-posisie medium-ligte velkleur	none
-🧘🏽‍♂	man in lotus-posisie medium velkleur	none
-🧘🏾‍♂	man in lotus-posisie medium-donker velkleur	none
-🧘🏿‍♂	man in lotus-posisie donker velkleur	none
-🧘🏻‍♀	vrou in lotus-posisie ligte velkleur	none
-🧘🏼‍♀	vrou in lotus-posisie medium-ligte velkleur	none
-🧘🏽‍♀	vrou in lotus-posisie medium velkleur	none
-🧘🏾‍♀	vrou in lotus-posisie medium-donker velkleur	none
-🧘🏿‍♀	vrou in lotus-posisie donker velkleur	none
+🧘🏻	persoon in die lotusposisie ligte velkleur	none
+🧘🏼	persoon in die lotusposisie medium-ligte velkleur	none
+🧘🏽	persoon in die lotusposisie medium velkleur	none
+🧘🏾	persoon in die lotusposisie medium-donker velkleur	none
+🧘🏿	persoon in die lotusposisie donker velkleur	none
+🧘🏻‍♂	man in lotusposisie ligte velkleur	none
+🧘🏼‍♂	man in lotusposisie medium-ligte velkleur	none
+🧘🏽‍♂	man in lotusposisie medium velkleur	none
+🧘🏾‍♂	man in lotusposisie medium-donker velkleur	none
+🧘🏿‍♂	man in lotusposisie donker velkleur	none
+🧘🏻‍♀	vrou in lotusposisie ligte velkleur	none
+🧘🏼‍♀	vrou in lotusposisie medium-ligte velkleur	none
+🧘🏽‍♀	vrou in lotusposisie medium velkleur	none
+🧘🏾‍♀	vrou in lotusposisie medium-donker velkleur	none
+🧘🏿‍♀	vrou in lotusposisie donker velkleur	none
 🛀🏻	persoon wat bad ligte velkleur	none
 🛀🏼	persoon wat bad medium-ligte velkleur	none
 🛀🏽	persoon wat bad medium velkleur	none
@@ -2843,30 +3359,50 @@ symbols:
 🛌🏾	persoon in bed medium-donker velkleur	none
 🛌🏿	persoon in bed donker velkleur	none
 🧑🏻‍🤝‍🧑🏻	mense wat hande vashou ligte velkleur	none
+🧑🏻‍🤝‍🧑🏼	mense wat hande vashou ligte velkleur en medium-ligte velkleur	none
+🧑🏻‍🤝‍🧑🏽	mense wat hande vashou ligte velkleur en medium velkleur	none
+🧑🏻‍🤝‍🧑🏾	mense wat hande vashou ligte velkleur en medium-donker velkleur	none
+🧑🏻‍🤝‍🧑🏿	mense wat hande vashou ligte velkleur en donker velkleur	none
 🧑🏼‍🤝‍🧑🏻	mense wat hande vashou medium-ligte velkleur en ligte velkleur	none
 🧑🏼‍🤝‍🧑🏼	mense wat hande vashou medium-ligte velkleur	none
+🧑🏼‍🤝‍🧑🏽	mense wat hande vashou medium-ligte velkleur en medium velkleur	none
+🧑🏼‍🤝‍🧑🏾	mense wat hande vashou medium-ligte velkleur en medium-donker velkleur	none
+🧑🏼‍🤝‍🧑🏿	mense wat hande vashou medium-ligte velkleur en donker velkleur	none
 🧑🏽‍🤝‍🧑🏻	mense wat hande vashou medium velkleur en ligte velkleur	none
 🧑🏽‍🤝‍🧑🏼	mense wat hande vashou medium velkleur en medium-ligte velkleur	none
 🧑🏽‍🤝‍🧑🏽	mense wat hande vashou medium velkleur	none
+🧑🏽‍🤝‍🧑🏾	mense wat hande vashou medium velkleur en medium-donker velkleur	none
+🧑🏽‍🤝‍🧑🏿	mense wat hande vashou medium velkleur en donker velkleur	none
 🧑🏾‍🤝‍🧑🏻	mense wat hande vashou medium-donker velkleur en ligte velkleur	none
 🧑🏾‍🤝‍🧑🏼	mense wat hande vashou medium-donker velkleur en medium-ligte velkleur	none
 🧑🏾‍🤝‍🧑🏽	mense wat hande vashou medium-donker velkleur en medium velkleur	none
 🧑🏾‍🤝‍🧑🏾	mense wat hande vashou medium-donker velkleur	none
+🧑🏾‍🤝‍🧑🏿	mense wat hande vashou medium-donker velkleur en donker velkleur	none
 🧑🏿‍🤝‍🧑🏻	mense wat hande vashou donker velkleur en ligte velkleur	none
 🧑🏿‍🤝‍🧑🏼	mense wat hande vashou donker velkleur en medium-ligte velkleur	none
 🧑🏿‍🤝‍🧑🏽	mense wat hande vashou donker velkleur en medium velkleur	none
 🧑🏿‍🤝‍🧑🏾	mense wat hande vashou donker velkleur en medium-donker velkleur	none
 🧑🏿‍🤝‍🧑🏿	mense wat hande vashou donker velkleur	none
 👭🏻	twee vroue wat hande vashou ligte velkleur	none
+👩🏻‍🤝‍👩🏼	twee vroue wat hande vashou ligte velkleur en medium-ligte velkleur	none
+👩🏻‍🤝‍👩🏽	twee vroue wat hande vashou ligte velkleur en medium velkleur	none
+👩🏻‍🤝‍👩🏾	twee vroue wat hande vashou ligte velkleur en medium-donker velkleur	none
+👩🏻‍🤝‍👩🏿	twee vroue wat hande vashou ligte velkleur en donker velkleur	none
 👩🏼‍🤝‍👩🏻	twee vroue wat hande vashou medium-ligte velkleur en ligte velkleur	none
 👭🏼	twee vroue wat hande vashou medium-ligte velkleur	none
+👩🏼‍🤝‍👩🏽	twee vroue wat hande vashou medium-ligte velkleur en medium velkleur	none
+👩🏼‍🤝‍👩🏾	twee vroue wat hande vashou medium-ligte velkleur en medium-donker velkleur	none
+👩🏼‍🤝‍👩🏿	twee vroue wat hande vashou medium-ligte velkleur en donker velkleur	none
 👩🏽‍🤝‍👩🏻	twee vroue wat hande vashou medium velkleur en ligte velkleur	none
 👩🏽‍🤝‍👩🏼	twee vroue wat hande vashou medium velkleur en medium-ligte velkleur	none
 👭🏽	twee vroue wat hande vashou medium velkleur	none
+👩🏽‍🤝‍👩🏾	twee vroue wat hande vashou medium velkleur en medium-donker velkleur	none
+👩🏽‍🤝‍👩🏿	twee vroue wat hande vashou medium velkleur en donker velkleur	none
 👩🏾‍🤝‍👩🏻	twee vroue wat hande vashou medium-donker velkleur en ligte velkleur	none
 👩🏾‍🤝‍👩🏼	twee vroue wat hande vashou medium-donker velkleur en medium-ligte velkleur	none
 👩🏾‍🤝‍👩🏽	twee vroue wat hande vashou medium-donker velkleur en medium velkleur	none
 👭🏾	twee vroue wat hande vashou medium-donker velkleur	none
+👩🏾‍🤝‍👩🏿	twee vroue wat hande vashou medium-donker velkleur en donker velkleur	none
 👩🏿‍🤝‍👩🏻	twee vroue wat hande vashou donker velkleur en ligte velkleur	none
 👩🏿‍🤝‍👩🏼	twee vroue wat hande vashou donker velkleur en medium-ligte velkleur	none
 👩🏿‍🤝‍👩🏽	twee vroue wat hande vashou donker velkleur en medium velkleur	none
@@ -2898,23 +3434,43 @@ symbols:
 👩🏿‍🤝‍👨🏾	man en vrou wat hande vashou donker velkleur en medium-donker velkleur	none
 👫🏿	man en vrou wat hande vashou donker velkleur	none
 👬🏻	twee mans wat hande vashou ligte velkleur	none
+👨🏻‍🤝‍👨🏼	twee mans wat hande vashou ligte velkleur en medium-ligte velkleur	none
+👨🏻‍🤝‍👨🏽	twee mans wat hande vashou ligte velkleur en medium velkleur	none
+👨🏻‍🤝‍👨🏾	twee mans wat hande vashou ligte velkleur en medium-donker velkleur	none
+👨🏻‍🤝‍👨🏿	twee mans wat hande vashou ligte velkleur en donker velkleur	none
 👨🏼‍🤝‍👨🏻	twee mans wat hande vashou medium-ligte velkleur en ligte velkleur	none
 👬🏼	twee mans wat hande vashou medium-ligte velkleur	none
+👨🏼‍🤝‍👨🏽	twee mans wat hande vashou medium-ligte velkleur en medium velkleur	none
+👨🏼‍🤝‍👨🏾	twee mans wat hande vashou medium-ligte velkleur en medium-donker velkleur	none
+👨🏼‍🤝‍👨🏿	twee mans wat hande vashou medium-ligte velkleur en donker velkleur	none
 👨🏽‍🤝‍👨🏻	twee mans wat hande vashou medium velkleur en ligte velkleur	none
 👨🏽‍🤝‍👨🏼	twee mans wat hande vashou medium velkleur en medium-ligte velkleur	none
 👬🏽	twee mans wat hande vashou medium velkleur	none
+👨🏽‍🤝‍👨🏾	twee mans wat hande vashou medium velkleur en medium-donker velkleur	none
+👨🏽‍🤝‍👨🏿	twee mans wat hande vashou medium velkleur en donker velkleur	none
 👨🏾‍🤝‍👨🏻	twee mans wat hande vashou medium-donker velkleur en ligte velkleur	none
 👨🏾‍🤝‍👨🏼	twee mans wat hande vashou medium-donker velkleur en medium-ligte velkleur	none
 👨🏾‍🤝‍👨🏽	twee mans wat hande vashou medium-donker velkleur en medium velkleur	none
 👬🏾	twee mans wat hande vashou medium-donker velkleur	none
+👨🏾‍🤝‍👨🏿	twee mans wat hande vashou medium-donker velkleur en donker velkleur	none
 👨🏿‍🤝‍👨🏻	twee mans wat hande vashou donker velkleur en ligte velkleur	none
 👨🏿‍🤝‍👨🏼	twee mans wat hande vashou donker velkleur en medium-ligte velkleur	none
 👨🏿‍🤝‍👨🏽	twee mans wat hande vashou donker velkleur en medium velkleur	none
 👨🏿‍🤝‍👨🏾	twee mans wat hande vashou donker velkleur en medium-donker velkleur	none
 👬🏿	twee mans wat hande vashou donker velkleur	none
+💏🏻	soen ligte velkleur	none
+💏🏼	soen medium-ligte velkleur	none
+💏🏽	soen medium velkleur	none
+💏🏾	soen medium-donker velkleur	none
+💏🏿	soen donker velkleur	none
 👩‍❤‍💋‍👨	soen vrou en man	none
 👨‍❤‍💋‍👨	soen man en man	none
 👩‍❤‍💋‍👩	soen vrou en vrou	none
+💑🏻	paartjie met hartjie ligte velkleur	none
+💑🏼	paartjie met hartjie medium-ligte velkleur	none
+💑🏽	paartjie met hartjie medium velkleur	none
+💑🏾	paartjie met hartjie medium-donker velkleur	none
+💑🏿	paartjie met hartjie donker velkleur	none
 👩‍❤‍👨	paartjie met hartjie vrou en man	none
 👨‍❤‍👨	paartjie met hartjie man en man	none
 👩‍❤‍👩	paartjie met hartjie vrou en vrou	none
@@ -2943,8 +3499,6 @@ symbols:
 👩‍👧	gesin vrou en meisie	none
 👩‍👧‍👦	gesin vrou, meisie en seun	none
 👩‍👧‍👧	gesin vrou, meisie en meisie	none
-#⃣	knoppiesimbool #	none
-*⃣	knoppiesimbool *	none
 🔟	knoppiesimbool 10	none
 🇦🇨	vlag Ascensioneiland	none
 🇦🇩	vlag Andorra	none
@@ -2994,7 +3548,7 @@ symbols:
 🇨🇰	vlag Cookeilande	none
 🇨🇱	vlag Chili	none
 🇨🇲	vlag Kameroen	none
-🇨🇳	vlag Sjina	none
+🇨🇳	vlag China	none
 🇨🇴	vlag Colombië	none
 🇨🇵	vlag Clippertoneiland	none
 🇨🇷	vlag Costa Rica	none
@@ -3045,7 +3599,7 @@ symbols:
 🇬🇺	vlag Guam	none
 🇬🇼	vlag Guinee-Bissau	none
 🇬🇾	vlag Guyana	none
-🇭🇰	vlag Hongkong SAS Sjina	none
+🇭🇰	vlag Hongkong SAS China	none
 🇭🇲	vlag Heardeiland en McDonaldeilande	none
 🇭🇳	vlag Honduras	none
 🇭🇷	vlag Kroasië	none
@@ -3099,7 +3653,7 @@ symbols:
 🇲🇱	vlag Mali	none
 🇲🇲	vlag Mianmar (Birma)	none
 🇲🇳	vlag Mongolië	none
-🇲🇴	vlag Macau SAS Sjina	none
+🇲🇴	vlag Macau SAS China	none
 🇲🇵	vlag Noord-Mariane-eilande	none
 🇲🇶	vlag Martinique	none
 🇲🇷	vlag Mauritanië	none
@@ -3134,7 +3688,7 @@ symbols:
 🇵🇲	vlag Sint Pierre en Miquelon	none
 🇵🇳	vlag Pitcairneilande	none
 🇵🇷	vlag Puerto Rico	none
-🇵🇸	vlag Palestynse gebiede	none
+🇵🇸	vlag Palestynse Grondgebiede	none
 🇵🇹	vlag Portugal	none
 🇵🇼	vlag Palau	none
 🇵🇾	vlag Paraguay	none
@@ -3152,7 +3706,7 @@ symbols:
 🇸🇬	vlag Singapoer	none
 🇸🇭	vlag Sint Helena	none
 🇸🇮	vlag Slowenië	none
-🇸🇯	vlag Svalbard en Jan Mayen	none
+🇸🇯	vlag Spitsbergen en Jan Mayen	none
 🇸🇰	vlag Slowakye	none
 🇸🇱	vlag Sierra Leone	none
 🇸🇲	vlag San Marino	none
@@ -3207,13 +3761,16 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	vlag Engeland	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	vlag Skotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	vlag Wallis	none
-0⃣	knoppiesimbool 0	none
-1⃣	knoppiesimbool 1	none
-2⃣	knoppiesimbool 2	none
-3⃣	knoppiesimbool 3	none
-4⃣	knoppiesimbool 4	none
-5⃣	knoppiesimbool 5	none
-6⃣	knoppiesimbool 6	none
-7⃣	knoppiesimbool 7	none
-8⃣	knoppiesimbool 8	none
-9⃣	knoppiesimbool 9	none
+₡	Costa Ricaanse colón	none
+₦	Nigeriese naira	none
+₪	Israeliese nuwe sikkel	none
+₫	Viëtnamese dong	none
+₭	Laosiaanse kip	none
+₮	Mongoolse toegrik	none
+₲	Paraguaanse guarani	none
+₴	Oekraïnse hriwna	none
+₵	Ghanese cedi	none
+₸	Kazakse tenge	none
+₺	Turkse lira	none
+₼	Azerbeidjaanse manat	none
+₾	Georgiese lari	none

@@ -20,9 +20,10 @@
 noinst_LTLIBRARIES = libcommon.la
 libcommon_la_CFLAGS = $(ERROR_CFLAGS) $(GLIB_CFLAGS) \
 -DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" -DLOCALEDIR=\"$(localedir)\"
-libcommon_la_CPPFLAGS = "-I$(top_srcdir)/include/" $(GLIB_CFLAGS)
+libcommon_la_CPPFLAGS = "-I$(top_srcdir)/include/" $(GLIB_CFLAGS) \
+	-DPLUGIN_DIR="\"$(audiodir)\""
 libcommon_la_LIBADD = $(GLIB_LIBS)
-libcommon_la_SOURCES = fdsetconv.c spd_getline.c i18n.c
+libcommon_la_SOURCES = common.c common.h fdsetconv.c i18n.c spd_audio.c spd_audio.h
 
 
 -include $(top_srcdir)/git.mk

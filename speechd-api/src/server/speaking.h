@@ -47,25 +47,25 @@ int reload_message(TSpeechDMessage * msg);
 
 /* Speech flow control functions */
 void speaking_stop(int uid);
-void speaking_stop_all();
+void speaking_stop_all(void);
 
 void speaking_cancel(int uid);
-void speaking_cancel_all();
+void speaking_cancel_all(void);
 
 int speaking_pause(int fd, int uid);
 int speaking_pause_all(int fd);
 
 int speaking_resume(int uid);
-int speaking_resume_all();
+int speaking_resume_all(void);
 
 /* Internal speech flow control functions */
 
 /* If there is someone speaking on some output
  * module, return 1, otherwise 0. */
-int is_sb_speaking();
+int is_sb_speaking(void);
 
 /* Stops speaking and cancels currently spoken message.*/
-void stop_speaking_active_module();
+void stop_speaking_active_module(void);
 
 int stop_priority(SPDPriority priority);
 
@@ -74,13 +74,13 @@ void stop_from_uid(int uid);
 /* Decides if the message should (not) be spoken now */
 gint message_nto_speak(gconstpointer, gconstpointer);
 
-void set_speak_thread_attributes();
+void set_speak_thread_attributes(void);
 
 /* Do priority interaction */
 void resolve_priorities(SPDPriority priority);
 
 /* Queue interaction helper functions */
-TSpeechDMessage *get_message_from_queues();
+TSpeechDMessage *get_message_from_queues(void);
 GList *speaking_get_queue(SPDPriority priority);
 void speaking_set_queue(SPDPriority priority, GList * queue);
 gint sortbyuid(gconstpointer a, gconstpointer b);
@@ -88,10 +88,10 @@ int client_has_messages(int uid);
 
 /* Get the unique id of the client who is speaking
  * on some output module */
-int get_speaking_client_uid();
+int get_speaking_client_uid(void);
 
-int socket_send_msg(int fd, char *msg);
-int report_index_mark(TSpeechDMessage * msg, char *index_mark);
+int socket_send_msg(int fd, const char *msg);
+int report_index_mark(TSpeechDMessage * msg, const char *index_mark);
 int report_begin(TSpeechDMessage * msg);
 int report_end(TSpeechDMessage * msg);
 int report_pause(TSpeechDMessage * msg);

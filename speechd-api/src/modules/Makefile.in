@@ -107,26 +107,37 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
+noinst_PROGRAMS = sd_skeleton0$(EXEEXT) sd_skeleton_config$(EXEEXT) \
+	$(am__EXEEXT_10)
 modulebin_PROGRAMS = sd_dummy$(EXEEXT) sd_generic$(EXEEXT) \
-	sd_festival$(EXEEXT) sd_cicero$(EXEEXT) sd_ekho$(EXEEXT) \
-	$(am__EXEEXT_1) $(am__EXEEXT_2) $(am__EXEEXT_3) \
-	$(am__EXEEXT_4) $(am__EXEEXT_5) $(am__EXEEXT_6) \
-	$(am__EXEEXT_7) $(am__EXEEXT_8)
+	sd_festival$(EXEEXT) sd_cicero$(EXEEXT) $(am__EXEEXT_1) \
+	$(am__EXEEXT_2) $(am__EXEEXT_3) $(am__EXEEXT_4) \
+	$(am__EXEEXT_5) $(am__EXEEXT_6) $(am__EXEEXT_7) \
+	$(am__EXEEXT_8) $(am__EXEEXT_9)
 @flite_support_TRUE@am__append_1 = sd_flite
 @ibmtts_support_TRUE@am__append_2 = sd_ibmtts
 @ibmtts_shim_TRUE@@ibmtts_support_TRUE@am__append_3 = -L.
 @ibmtts_shim_TRUE@@ibmtts_support_TRUE@am__append_4 = $(EXTRA_sd_ibmtts_DEPENDENCIES)
 @espeak_support_TRUE@am__append_5 = sd_espeak
 @espeak_ng_support_TRUE@am__append_6 = sd_espeak-ng
-@ivona_support_TRUE@am__append_7 = sd_ivona
-@pico_support_TRUE@am__append_8 = sd_pico
-@baratinoo_support_TRUE@am__append_9 = sd_baratinoo
-@baratinoo_shim_TRUE@@baratinoo_support_TRUE@am__append_10 = -L.
-@baratinoo_shim_TRUE@@baratinoo_support_TRUE@am__append_11 = $(EXTRA_sd_baratinoo_DEPENDENCIES)
-@kali_support_TRUE@am__append_12 = sd_kali
-@kali_shim_TRUE@@kali_support_TRUE@am__append_13 = -L.
-@kali_shim_TRUE@@kali_support_TRUE@am__append_14 = -I$(srcdir)/kali_shim
-@kali_shim_TRUE@@kali_support_TRUE@am__append_15 = $(EXTRA_sd_kali_DEPENDENCIES)
+@espeak_ng_support_TRUE@am__append_7 = sd_skeleton0_espeak-ng-sync \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-sync-server \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-async-server \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-async \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-sync-server \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-async-server
+@ivona_support_TRUE@am__append_8 = sd_ivona
+@pico_support_TRUE@am__append_9 = sd_pico
+@baratinoo_support_TRUE@am__append_10 = sd_baratinoo
+@baratinoo_shim_TRUE@@baratinoo_support_TRUE@am__append_11 = -L.
+@baratinoo_shim_TRUE@@baratinoo_support_TRUE@am__append_12 = $(EXTRA_sd_baratinoo_DEPENDENCIES)
+@kali_support_TRUE@am__append_13 = sd_kali
+@kali_shim_TRUE@@kali_support_TRUE@am__append_14 = -L.
+@kali_shim_TRUE@@kali_support_TRUE@am__append_15 = -I$(srcdir)/kali_shim
+@kali_shim_TRUE@@kali_support_TRUE@am__append_16 = $(EXTRA_sd_kali_DEPENDENCIES)
+@voxin_support_TRUE@am__append_17 = sd_voxin
+@voxin_shim_TRUE@@voxin_support_TRUE@am__append_18 = -L.
+@voxin_shim_TRUE@@voxin_support_TRUE@am__append_19 = $(EXTRA_sd_voxin_DEPENDENCIES)
 subdir = src/modules
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
@@ -153,75 +164,67 @@ CONFIG_CLEAN_VPATH_FILES =
 @pico_support_TRUE@am__EXEEXT_6 = sd_pico$(EXEEXT)
 @baratinoo_support_TRUE@am__EXEEXT_7 = sd_baratinoo$(EXEEXT)
 @kali_support_TRUE@am__EXEEXT_8 = sd_kali$(EXEEXT)
+@voxin_support_TRUE@am__EXEEXT_9 = sd_voxin$(EXEEXT)
 am__installdirs = "$(DESTDIR)$(modulebindir)" \
 	"$(DESTDIR)$(snddatadir)"
-PROGRAMS = $(modulebin_PROGRAMS)
+@espeak_ng_support_TRUE@am__EXEEXT_10 =  \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-sync$(EXEEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-sync-server$(EXEEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-async-server$(EXEEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-async$(EXEEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-sync-server$(EXEEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak-ng-async-server$(EXEEXT)
+PROGRAMS = $(modulebin_PROGRAMS) $(noinst_PROGRAMS)
 am__sd_baratinoo_SOURCES_DIST = baratinoo.c baratinoo_compat.h \
-	spd_audio.c spd_audio.h module_main.c module_utils.c \
-	module_utils.h module_utils_speak_queue.c
-am__objects_1 = spd_audio.$(OBJEXT)
-am__objects_2 = module_main.$(OBJEXT) module_utils.$(OBJEXT)
+	module_main.c module_readline.c module_process.c \
+	module_config.c module_utils.c module_utils.h
+am__objects_1 = module_main.$(OBJEXT) module_readline.$(OBJEXT) \
+	module_process.$(OBJEXT) module_config.$(OBJEXT) \
+	module_utils.$(OBJEXT)
 @baratinoo_support_TRUE@am_sd_baratinoo_OBJECTS = baratinoo.$(OBJEXT) \
-@baratinoo_support_TRUE@	$(am__objects_1) $(am__objects_2) \
-@baratinoo_support_TRUE@	module_utils_speak_queue.$(OBJEXT)
+@baratinoo_support_TRUE@	$(am__objects_1)
 sd_baratinoo_OBJECTS = $(am_sd_baratinoo_OBJECTS)
 am__DEPENDENCIES_1 =
 am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1)
 @baratinoo_support_TRUE@sd_baratinoo_DEPENDENCIES = $(top_builddir)/src/common/libcommon.la \
-@baratinoo_support_TRUE@	$(am__DEPENDENCIES_1) \
 @baratinoo_support_TRUE@	$(am__DEPENDENCIES_2) \
 @baratinoo_support_TRUE@	$(am__DEPENDENCIES_1)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-am_sd_cicero_OBJECTS = cicero.$(OBJEXT) $(am__objects_1) \
-	$(am__objects_2)
+am_sd_cicero_OBJECTS = cicero.$(OBJEXT) $(am__objects_1)
 sd_cicero_OBJECTS = $(am_sd_cicero_OBJECTS)
 sd_cicero_DEPENDENCIES = $(top_builddir)/src/common/libcommon.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2)
 am_sd_dummy_OBJECTS = dummy.$(OBJEXT) $(am__objects_1) \
-	$(am__objects_2) module_utils_addvoice.$(OBJEXT)
+	module_utils_addvoice.$(OBJEXT)
 sd_dummy_OBJECTS = $(am_sd_dummy_OBJECTS)
 sd_dummy_DEPENDENCIES = $(top_builddir)/src/common/libcommon.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2)
-am_sd_ekho_OBJECTS = sd_ekho-ekho.$(OBJEXT) $(am__objects_1) \
-	$(am__objects_2) module_utils_speak_queue.$(OBJEXT)
-sd_ekho_OBJECTS = $(am_sd_ekho_OBJECTS)
-sd_ekho_DEPENDENCIES = $(EKHO_ROOT)/libekho.a \
-	$(EKHO_ROOT)/libmusicxml/libmusicxml2.a \
-	$(top_builddir)/src/common/libcommon.la $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_2)
-sd_ekho_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(sd_ekho_CXXFLAGS) \
-	$(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-am__sd_espeak_SOURCES_DIST = espeak.c spd_audio.c spd_audio.h \
-	module_main.c module_utils.c module_utils.h \
-	module_utils_speak_queue.c
+am__sd_espeak_SOURCES_DIST = espeak.c module_main.c module_readline.c \
+	module_process.c module_config.c module_utils.c module_utils.h
 @espeak_support_TRUE@am_sd_espeak_OBJECTS = espeak.$(OBJEXT) \
-@espeak_support_TRUE@	$(am__objects_1) $(am__objects_2) \
-@espeak_support_TRUE@	module_utils_speak_queue.$(OBJEXT)
+@espeak_support_TRUE@	$(am__objects_1)
 sd_espeak_OBJECTS = $(am_sd_espeak_OBJECTS)
 @espeak_support_TRUE@sd_espeak_DEPENDENCIES =  \
 @espeak_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
 @espeak_support_TRUE@	$(am__DEPENDENCIES_1) \
-@espeak_support_TRUE@	$(am__DEPENDENCIES_1) \
 @espeak_support_TRUE@	$(am__DEPENDENCIES_2)
-am__sd_espeak_ng_SOURCES_DIST = espeak-ng.c spd_audio.c spd_audio.h \
-	module_main.c module_utils.c module_utils.h \
-	module_utils_speak_queue.c
-am__objects_3 = sd_espeak_ng-spd_audio.$(OBJEXT)
-am__objects_4 = sd_espeak_ng-module_main.$(OBJEXT) \
+am__sd_espeak_ng_SOURCES_DIST = espeak.c module_main.c \
+	module_readline.c module_process.c module_config.c \
+	module_utils.c module_utils.h
+am__objects_2 = sd_espeak_ng-module_main.$(OBJEXT) \
+	sd_espeak_ng-module_readline.$(OBJEXT) \
+	sd_espeak_ng-module_process.$(OBJEXT) \
+	sd_espeak_ng-module_config.$(OBJEXT) \
 	sd_espeak_ng-module_utils.$(OBJEXT)
 @espeak_ng_support_TRUE@am_sd_espeak_ng_OBJECTS =  \
-@espeak_ng_support_TRUE@	sd_espeak_ng-espeak-ng.$(OBJEXT) \
-@espeak_ng_support_TRUE@	$(am__objects_3) $(am__objects_4) \
-@espeak_ng_support_TRUE@	sd_espeak_ng-module_utils_speak_queue.$(OBJEXT)
+@espeak_ng_support_TRUE@	sd_espeak_ng-espeak.$(OBJEXT) \
+@espeak_ng_support_TRUE@	$(am__objects_2)
 sd_espeak_ng_OBJECTS = $(am_sd_espeak_ng_OBJECTS)
 @espeak_ng_support_TRUE@sd_espeak_ng_DEPENDENCIES = $(top_builddir)/src/common/libcommon.la \
-@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1) \
 @espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1) \
 @espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1) \
 @espeak_ng_support_TRUE@	$(am__DEPENDENCIES_2)
@@ -229,32 +232,30 @@ sd_espeak_ng_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(sd_espeak_ng_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_sd_festival_OBJECTS = festival.$(OBJEXT) festival_client.$(OBJEXT) \
-	$(am__objects_1) $(am__objects_2)
+	$(am__objects_1)
 sd_festival_OBJECTS = $(am_sd_festival_OBJECTS)
 sd_festival_DEPENDENCIES = $(top_builddir)/src/common/libcommon.la \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2) \
-	$(am__DEPENDENCIES_1)
-am__sd_flite_SOURCES_DIST = flite.c spd_audio.c spd_audio.h \
-	module_main.c module_utils.c module_utils.h
+	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
+am__sd_flite_SOURCES_DIST = flite.c module_main.c module_readline.c \
+	module_process.c module_config.c module_utils.c module_utils.h
 @flite_support_TRUE@am_sd_flite_OBJECTS = flite.$(OBJEXT) \
-@flite_support_TRUE@	$(am__objects_1) $(am__objects_2)
+@flite_support_TRUE@	$(am__objects_1)
 sd_flite_OBJECTS = $(am_sd_flite_OBJECTS)
 @flite_support_TRUE@sd_flite_DEPENDENCIES =  \
 @flite_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
 @flite_support_TRUE@	$(am__DEPENDENCIES_1) \
 @flite_support_TRUE@	$(am__DEPENDENCIES_1) \
-@flite_support_TRUE@	$(am__DEPENDENCIES_1) \
 @flite_support_TRUE@	$(am__DEPENDENCIES_2)
 am_sd_generic_OBJECTS = generic.$(OBJEXT) $(am__objects_1) \
-	$(am__objects_2) module_utils_addvoice.$(OBJEXT)
+	module_utils_addvoice.$(OBJEXT)
 sd_generic_OBJECTS = $(am_sd_generic_OBJECTS)
 sd_generic_DEPENDENCIES = $(top_builddir)/src/common/libcommon.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2)
-am__sd_ibmtts_SOURCES_DIST = ibmtts.c spd_audio.c spd_audio.h \
-	module_main.c module_utils.c module_utils.h \
+am__sd_ibmtts_SOURCES_DIST = ibmtts.c module_main.c module_readline.c \
+	module_process.c module_config.c module_utils.c module_utils.h \
 	module_utils_addvoice.c
 @ibmtts_support_TRUE@am_sd_ibmtts_OBJECTS = ibmtts.$(OBJEXT) \
-@ibmtts_support_TRUE@	$(am__objects_1) $(am__objects_2) \
+@ibmtts_support_TRUE@	$(am__objects_1) \
 @ibmtts_support_TRUE@	module_utils_addvoice.$(OBJEXT)
 sd_ibmtts_OBJECTS = $(am_sd_ibmtts_OBJECTS)
 @ibmtts_support_TRUE@sd_ibmtts_DEPENDENCIES =  \
@@ -262,37 +263,132 @@ sd_ibmtts_OBJECTS = $(am_sd_ibmtts_OBJECTS)
 @ibmtts_support_TRUE@	$(am__DEPENDENCIES_1) \
 @ibmtts_support_TRUE@	$(am__DEPENDENCIES_2) \
 @ibmtts_support_TRUE@	$(am__DEPENDENCIES_1)
+sd_ibmtts_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(sd_ibmtts_LDFLAGS) $(LDFLAGS) -o $@
 am__sd_ivona_SOURCES_DIST = ivona.c ivona_client.c ivona_client.h \
-	spd_audio.c spd_audio.h module_main.c module_utils.c \
-	module_utils.h
+	module_main.c module_readline.c module_process.c \
+	module_config.c module_utils.c module_utils.h \
+	module_utils_play.c
 @ivona_support_TRUE@am_sd_ivona_OBJECTS = ivona.$(OBJEXT) \
 @ivona_support_TRUE@	ivona_client.$(OBJEXT) $(am__objects_1) \
-@ivona_support_TRUE@	$(am__objects_2)
+@ivona_support_TRUE@	module_utils_play.$(OBJEXT)
 sd_ivona_OBJECTS = $(am_sd_ivona_OBJECTS)
 @ivona_support_TRUE@sd_ivona_DEPENDENCIES =  \
 @ivona_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
 @ivona_support_TRUE@	$(am__DEPENDENCIES_1) \
+@ivona_support_TRUE@	$(am__DEPENDENCIES_1) \
 @ivona_support_TRUE@	$(am__DEPENDENCIES_2)
-am__sd_kali_SOURCES_DIST = kali.cpp spd_audio.c spd_audio.h \
-	module_main.c module_utils.c module_utils.h
-am__objects_5 = sd_kali-spd_audio.$(OBJEXT)
-am__objects_6 = sd_kali-module_main.$(OBJEXT) \
-	sd_kali-module_utils.$(OBJEXT)
+am__sd_kali_SOURCES_DIST = kali.cpp module_main.c module_readline.c \
+	module_process.c module_config.c module_utils.c module_utils.h
+am__objects_3 = sd_kali-module_main.$(OBJEXT) \
+	sd_kali-module_readline.$(OBJEXT) \
+	sd_kali-module_process.$(OBJEXT) \
+	sd_kali-module_config.$(OBJEXT) sd_kali-module_utils.$(OBJEXT)
 @kali_support_TRUE@am_sd_kali_OBJECTS = sd_kali-kali.$(OBJEXT) \
-@kali_support_TRUE@	$(am__objects_5) $(am__objects_6)
+@kali_support_TRUE@	$(am__objects_3)
 sd_kali_OBJECTS = $(am_sd_kali_OBJECTS)
 @kali_support_TRUE@sd_kali_DEPENDENCIES =  \
 @kali_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
-@kali_support_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2) \
-@kali_support_TRUE@	$(am__DEPENDENCIES_1)
-am__sd_pico_SOURCES_DIST = pico.c spd_audio.c spd_audio.h \
-	module_main.c module_utils.c module_utils.h
+@kali_support_TRUE@	$(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
+am__sd_pico_SOURCES_DIST = pico.c module_main.c module_readline.c \
+	module_process.c module_config.c module_utils.c module_utils.h
 @pico_support_TRUE@am_sd_pico_OBJECTS = pico.$(OBJEXT) \
-@pico_support_TRUE@	$(am__objects_1) $(am__objects_2)
+@pico_support_TRUE@	$(am__objects_1)
 sd_pico_OBJECTS = $(am_sd_pico_OBJECTS)
 @pico_support_TRUE@sd_pico_DEPENDENCIES =  \
 @pico_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
-@pico_support_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2)
+@pico_support_TRUE@	$(am__DEPENDENCIES_2)
+am_sd_skeleton0_OBJECTS = skeleton0.$(OBJEXT) module_main.$(OBJEXT) \
+	module_readline.$(OBJEXT) module_process.$(OBJEXT)
+sd_skeleton0_OBJECTS = $(am_sd_skeleton0_OBJECTS)
+sd_skeleton0_LDADD = $(LDADD)
+am__sd_skeleton0_espeak_ng_async_SOURCES_DIST =  \
+	skeleton0_espeak-ng-async.c module_main.c module_readline.c \
+	module_process.c
+@espeak_ng_support_TRUE@am_sd_skeleton0_espeak_ng_async_OBJECTS = sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_async-module_main.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_async-module_readline.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_async-module_process.$(OBJEXT)
+sd_skeleton0_espeak_ng_async_OBJECTS =  \
+	$(am_sd_skeleton0_espeak_ng_async_OBJECTS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_async_DEPENDENCIES =  \
+@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1) \
+@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1)
+sd_skeleton0_espeak_ng_async_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+am__sd_skeleton0_espeak_ng_async_server_SOURCES_DIST =  \
+	skeleton0_espeak-ng-async-server.c module_main.c \
+	module_readline.c module_process.c
+@espeak_ng_support_TRUE@am_sd_skeleton0_espeak_ng_async_server_OBJECTS = sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_async_server-module_main.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_async_server-module_readline.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_async_server-module_process.$(OBJEXT)
+sd_skeleton0_espeak_ng_async_server_OBJECTS =  \
+	$(am_sd_skeleton0_espeak_ng_async_server_OBJECTS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_async_server_DEPENDENCIES =  \
+@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1) \
+@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1)
+sd_skeleton0_espeak_ng_async_server_LINK = $(LIBTOOL) $(AM_V_lt) \
+	--tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link \
+	$(CCLD) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) \
+	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am__sd_skeleton0_espeak_ng_sync_SOURCES_DIST =  \
+	skeleton0_espeak-ng-sync.c module_main.c module_readline.c \
+	module_process.c
+@espeak_ng_support_TRUE@am_sd_skeleton0_espeak_ng_sync_OBJECTS = sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_sync-module_main.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_sync-module_readline.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_sync-module_process.$(OBJEXT)
+sd_skeleton0_espeak_ng_sync_OBJECTS =  \
+	$(am_sd_skeleton0_espeak_ng_sync_OBJECTS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_sync_DEPENDENCIES =  \
+@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1) \
+@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1)
+sd_skeleton0_espeak_ng_sync_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+am__sd_skeleton0_espeak_ng_sync_server_SOURCES_DIST =  \
+	skeleton0_espeak-ng-sync-server.c module_main.c \
+	module_readline.c module_process.c
+@espeak_ng_support_TRUE@am_sd_skeleton0_espeak_ng_sync_server_OBJECTS = sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_sync_server-module_main.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_sync_server-module_readline.$(OBJEXT) \
+@espeak_ng_support_TRUE@	sd_skeleton0_espeak_ng_sync_server-module_process.$(OBJEXT)
+sd_skeleton0_espeak_ng_sync_server_OBJECTS =  \
+	$(am_sd_skeleton0_espeak_ng_sync_server_OBJECTS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_sync_server_DEPENDENCIES =  \
+@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1) \
+@espeak_ng_support_TRUE@	$(am__DEPENDENCIES_1)
+sd_skeleton0_espeak_ng_sync_server_LINK = $(LIBTOOL) $(AM_V_lt) \
+	--tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link \
+	$(CCLD) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
+am_sd_skeleton_config_OBJECTS = skeleton_config.$(OBJEXT) \
+	$(am__objects_1)
+sd_skeleton_config_OBJECTS = $(am_sd_skeleton_config_OBJECTS)
+sd_skeleton_config_DEPENDENCIES =  \
+	$(top_builddir)/src/common/libcommon.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_2)
+am__sd_voxin_SOURCES_DIST = ibmtts.c module_main.c module_readline.c \
+	module_process.c module_config.c module_utils.c module_utils.h \
+	module_utils_addvoice.c
+am__objects_4 = sd_voxin-module_main.$(OBJEXT) \
+	sd_voxin-module_readline.$(OBJEXT) \
+	sd_voxin-module_process.$(OBJEXT) \
+	sd_voxin-module_config.$(OBJEXT) \
+	sd_voxin-module_utils.$(OBJEXT)
+@voxin_support_TRUE@am_sd_voxin_OBJECTS = sd_voxin-ibmtts.$(OBJEXT) \
+@voxin_support_TRUE@	$(am__objects_4) \
+@voxin_support_TRUE@	sd_voxin-module_utils_addvoice.$(OBJEXT)
+sd_voxin_OBJECTS = $(am_sd_voxin_OBJECTS)
+@voxin_support_TRUE@sd_voxin_DEPENDENCIES =  \
+@voxin_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
+@voxin_support_TRUE@	$(am__DEPENDENCIES_2) \
+@voxin_support_TRUE@	$(am__DEPENDENCIES_1)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -313,19 +409,47 @@ am__depfiles_remade = ./$(DEPDIR)/baratinoo.Po ./$(DEPDIR)/cicero.Po \
 	./$(DEPDIR)/festival.Po ./$(DEPDIR)/festival_client.Po \
 	./$(DEPDIR)/flite.Po ./$(DEPDIR)/generic.Po \
 	./$(DEPDIR)/ibmtts.Po ./$(DEPDIR)/ivona.Po \
-	./$(DEPDIR)/ivona_client.Po ./$(DEPDIR)/module_main.Po \
-	./$(DEPDIR)/module_utils.Po \
+	./$(DEPDIR)/ivona_client.Po ./$(DEPDIR)/module_config.Po \
+	./$(DEPDIR)/module_main.Po ./$(DEPDIR)/module_process.Po \
+	./$(DEPDIR)/module_readline.Po ./$(DEPDIR)/module_utils.Po \
 	./$(DEPDIR)/module_utils_addvoice.Po \
-	./$(DEPDIR)/module_utils_speak_queue.Po ./$(DEPDIR)/pico.Po \
-	./$(DEPDIR)/sd_ekho-ekho.Po \
-	./$(DEPDIR)/sd_espeak_ng-espeak-ng.Po \
+	./$(DEPDIR)/module_utils_play.Po ./$(DEPDIR)/pico.Po \
+	./$(DEPDIR)/sd_espeak_ng-espeak.Po \
+	./$(DEPDIR)/sd_espeak_ng-module_config.Po \
 	./$(DEPDIR)/sd_espeak_ng-module_main.Po \
+	./$(DEPDIR)/sd_espeak_ng-module_process.Po \
+	./$(DEPDIR)/sd_espeak_ng-module_readline.Po \
 	./$(DEPDIR)/sd_espeak_ng-module_utils.Po \
-	./$(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Po \
-	./$(DEPDIR)/sd_espeak_ng-spd_audio.Po \
-	./$(DEPDIR)/sd_kali-kali.Po ./$(DEPDIR)/sd_kali-module_main.Po \
+	./$(DEPDIR)/sd_kali-kali.Po \
+	./$(DEPDIR)/sd_kali-module_config.Po \
+	./$(DEPDIR)/sd_kali-module_main.Po \
+	./$(DEPDIR)/sd_kali-module_process.Po \
+	./$(DEPDIR)/sd_kali-module_readline.Po \
 	./$(DEPDIR)/sd_kali-module_utils.Po \
-	./$(DEPDIR)/sd_kali-spd_audio.Po ./$(DEPDIR)/spd_audio.Po
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Po \
+	./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Po \
+	./$(DEPDIR)/sd_voxin-ibmtts.Po \
+	./$(DEPDIR)/sd_voxin-module_config.Po \
+	./$(DEPDIR)/sd_voxin-module_main.Po \
+	./$(DEPDIR)/sd_voxin-module_process.Po \
+	./$(DEPDIR)/sd_voxin-module_readline.Po \
+	./$(DEPDIR)/sd_voxin-module_utils.Po \
+	./$(DEPDIR)/sd_voxin-module_utils_addvoice.Po \
+	./$(DEPDIR)/skeleton0.Po ./$(DEPDIR)/skeleton_config.Po
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -364,17 +488,28 @@ am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
 SOURCES = $(sd_baratinoo_SOURCES) $(sd_cicero_SOURCES) \
-	$(sd_dummy_SOURCES) $(sd_ekho_SOURCES) $(sd_espeak_SOURCES) \
+	$(sd_dummy_SOURCES) $(sd_espeak_SOURCES) \
 	$(sd_espeak_ng_SOURCES) $(sd_festival_SOURCES) \
 	$(sd_flite_SOURCES) $(sd_generic_SOURCES) $(sd_ibmtts_SOURCES) \
-	$(sd_ivona_SOURCES) $(sd_kali_SOURCES) $(sd_pico_SOURCES)
+	$(sd_ivona_SOURCES) $(sd_kali_SOURCES) $(sd_pico_SOURCES) \
+	$(sd_skeleton0_SOURCES) \
+	$(sd_skeleton0_espeak_ng_async_SOURCES) \
+	$(sd_skeleton0_espeak_ng_async_server_SOURCES) \
+	$(sd_skeleton0_espeak_ng_sync_SOURCES) \
+	$(sd_skeleton0_espeak_ng_sync_server_SOURCES) \
+	$(sd_skeleton_config_SOURCES) $(sd_voxin_SOURCES)
 DIST_SOURCES = $(am__sd_baratinoo_SOURCES_DIST) $(sd_cicero_SOURCES) \
-	$(sd_dummy_SOURCES) $(sd_ekho_SOURCES) \
-	$(am__sd_espeak_SOURCES_DIST) $(am__sd_espeak_ng_SOURCES_DIST) \
-	$(sd_festival_SOURCES) $(am__sd_flite_SOURCES_DIST) \
-	$(sd_generic_SOURCES) $(am__sd_ibmtts_SOURCES_DIST) \
-	$(am__sd_ivona_SOURCES_DIST) $(am__sd_kali_SOURCES_DIST) \
-	$(am__sd_pico_SOURCES_DIST)
+	$(sd_dummy_SOURCES) $(am__sd_espeak_SOURCES_DIST) \
+	$(am__sd_espeak_ng_SOURCES_DIST) $(sd_festival_SOURCES) \
+	$(am__sd_flite_SOURCES_DIST) $(sd_generic_SOURCES) \
+	$(am__sd_ibmtts_SOURCES_DIST) $(am__sd_ivona_SOURCES_DIST) \
+	$(am__sd_kali_SOURCES_DIST) $(am__sd_pico_SOURCES_DIST) \
+	$(sd_skeleton0_SOURCES) \
+	$(am__sd_skeleton0_espeak_ng_async_SOURCES_DIST) \
+	$(am__sd_skeleton0_espeak_ng_async_server_SOURCES_DIST) \
+	$(am__sd_skeleton0_espeak_ng_sync_SOURCES_DIST) \
+	$(am__sd_skeleton0_espeak_ng_sync_server_SOURCES_DIST) \
+	$(sd_skeleton_config_SOURCES) $(am__sd_voxin_SOURCES_DIST)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -408,8 +543,7 @@ am__uninstall_files_from_dir = { \
          $(am__cd) "$$dir" && rm -f $$files; }; \
   }
 DATA = $(dist_snddata_DATA)
-am__noinst_HEADERS_DIST = kali_shim/kali/Kali/kali.h \
-	module_utils_speak_queue.h
+am__noinst_HEADERS_DIST = kali_shim/kali/Kali/kali.h
 HEADERS = $(noinst_HEADERS)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 # Read a list of newline-separated strings from the standard input,
@@ -443,7 +577,6 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
-CFLAG_PULSEAUDIO = @CFLAG_PULSEAUDIO@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CSCOPE = @CSCOPE@
@@ -465,6 +598,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 ERROR_CFLAGS = @ERROR_CFLAGS@
+ESPEAK = @ESPEAK@
 ESPEAK_NG_CFLAGS = @ESPEAK_NG_CFLAGS@
 ESPEAK_NG_LIBS = @ESPEAK_NG_LIBS@
 ETAGS = @ETAGS@
@@ -472,6 +606,7 @@ EXEEXT = @EXEEXT@
 EXTRA_ESPEAK_LIBS = @EXTRA_ESPEAK_LIBS@
 EXTRA_SOCKET_LIBS = @EXTRA_SOCKET_LIBS@
 FGREP = @FGREP@
+FLITE = @FLITE@
 GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_CFLAGS = @GLIB_CFLAGS@
@@ -500,7 +635,6 @@ LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
-LIB_PULSEAUDIO = @LIB_PULSEAUDIO@
 LIB_SPD_AGE = @LIB_SPD_AGE@
 LIB_SPD_CURRENT = @LIB_SPD_CURRENT@
 LIB_SPD_REVISION = @LIB_SPD_REVISION@
@@ -571,6 +705,7 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+audio_dlopen = @audio_dlopen@
 audio_dlopen_modules = @audio_dlopen_modules@
 audiodir = @audiodir@
 bindir = @bindir@
@@ -611,6 +746,7 @@ modulebindir = @modulebindir@
 moduleconfdir = @moduleconfdir@
 moduleconforigdir = @moduleconforigdir@
 oldincludedir = @oldincludedir@
+oldmodulebindir = @oldmodulebindir@
 pdfdir = @pdfdir@
 pkgpyexecdir = @pkgpyexecdir@
 pkgpythondir = @pkgpythondir@
@@ -638,29 +774,29 @@ top_srcdir = @top_srcdir@
 EXTRA_DIST = baratinoo_shim.c README.baratinoo kali_Kali_shim.cpp \
 	kali_KGlobal_shim.cpp kali_KTrans_shim.cpp \
 	kali_KParle_shim.cpp kali_KAnalyse_shim.cpp ibmtts_shim.c \
-	eci.h mluvitko.c
-CLEANFILES = $(am__append_4) $(am__append_11) $(am__append_15)
-inc_local = -I$(top_srcdir)/include
-audio_SOURCES = spd_audio.c spd_audio.h
-common_SOURCES = module_main.c module_utils.c module_utils.h
-common_LDADD = $(SNDFILE_LIBS) $(DOTCONF_LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS)
+	eci.h voxin_shim.c voxin.h module_main.h module_utils.h \
+	dummy-message-default.wav dummy-message.txt
+CLEANFILES = dummy-message.wav $(am__append_4) $(am__append_12) \
+	$(am__append_16) $(am__append_19)
+inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
+common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
+common_LDADD = $(DOTCONF_LIBS) $(GLIB_LIBS) $(audio_dlopen)
 AM_CFLAGS = $(ERROR_CFLAGS)
-AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE \
-	-DPLUGIN_DIR="\"$(audiodir)\"" \
-	$(DOTCONF_CFLAGS) $(GLIB_CFLAGS) $(GTHREAD_CFLAGS) \
-	$(ibmtts_include) $(SNDFILE_CFLAGS)
+AM_CXXFLAGS = $(ERROR_CFLAGS)
+AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE $(GLIB_CFLAGS)
+module_utils_CPPFLAGS = $(AM_CPPFLAGS) \
+	$(DOTCONF_CFLAGS)
 
-EKHO_ROOT = ../../..
-sd_ekho_SOURCES = ekho.cc $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
-sd_ekho_CXXFLAGS = -g -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS) -I$(EKHO_ROOT)/src -I$(EKHO_ROOT)/utfcpp/source -I$(EKHO_ROOT)/sonic 
-sd_ekho_LDADD = $(EKHO_ROOT)/libekho.a $(EKHO_ROOT)/libmusicxml/libmusicxml2.a -lvorbisenc -lvorbis -lm -logg \
-	@LIB_PULSEAUDIO@  $(MP3LAME_LIBS) \
-	$(top_builddir)/src/common/libcommon.la \
+module_utils_play_CPPFLAGS = $(AM_CPPFLAGS) \
+	$(SNDFILE_CFLAGS)
+
+sd_skeleton0_SOURCES = skeleton0.c module_main.c module_readline.c module_process.c
+sd_skeleton_config_SOURCES = skeleton_config.c $(common_SOURCES)
+sd_skeleton_config_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
-	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
 	$(common_LDADD)
 
-sd_dummy_SOURCES = dummy.c $(audio_SOURCES) $(common_SOURCES) \
+sd_dummy_SOURCES = dummy.c $(common_SOURCES) \
 	module_utils_addvoice.c
 
 sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la \
@@ -669,85 +805,108 @@ sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la \
 
 dist_snddata_DATA = dummy-message.wav
 sd_festival_SOURCES = festival.c festival_client.c festival_client.h \
-	$(audio_SOURCES) $(common_SOURCES)
+	$(common_SOURCES)
 
 sd_festival_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(audio_dlopen_modules) \
 	$(common_LDADD) $(EXTRA_SOCKET_LIBS)
 
-sd_generic_SOURCES = generic.c $(audio_SOURCES) $(common_SOURCES) \
+sd_generic_SOURCES = generic.c $(common_SOURCES) \
 	module_utils_addvoice.c
 
 sd_generic_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
 
-sd_cicero_SOURCES = cicero.c $(audio_SOURCES) $(common_SOURCES)
+sd_cicero_SOURCES = cicero.c $(common_SOURCES)
 sd_cicero_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
 
-@flite_support_TRUE@sd_flite_SOURCES = flite.c $(audio_SOURCES) $(common_SOURCES)
+@flite_support_TRUE@sd_flite_SOURCES = flite.c $(common_SOURCES)
 @flite_support_TRUE@sd_flite_LDADD = $(top_builddir)/src/common/libcommon.la \
-@flite_support_TRUE@	$(audio_dlopen_modules) \
 @flite_support_TRUE@	$(flite_kal) $(flite_basic) \
 @flite_support_TRUE@	$(common_LDADD)
 
-@ibmtts_support_TRUE@sd_ibmtts_SOURCES = ibmtts.c $(audio_SOURCES) $(common_SOURCES) \
+@ibmtts_support_TRUE@sd_ibmtts_SOURCES = ibmtts.c $(common_SOURCES) \
 @ibmtts_support_TRUE@	module_utils_addvoice.c
 
 @ibmtts_support_TRUE@sd_ibmtts_LDADD =  \
 @ibmtts_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
-@ibmtts_support_TRUE@	$(audio_dlopen_modules) -libmeci \
+@ibmtts_support_TRUE@	-libmeci $(audio_dlopen_modules) \
 @ibmtts_support_TRUE@	$(common_LDADD) $(am__append_3)
+@ibmtts_support_TRUE@ibmtts_CPPFLAGS = $(AM_CPPFLAGS) \
+@ibmtts_support_TRUE@	$(DOTCONF_CFLAGS) \
+@ibmtts_support_TRUE@	$(ibmtts_include)
+
+@ibmtts_shim_TRUE@@ibmtts_support_TRUE@sd_ibmtts_LDFLAGS = -Wl,--disable-new-dtags -Wl,-rpath=/opt/IBM/ibmtts/lib
 @ibmtts_shim_TRUE@@ibmtts_support_TRUE@EXTRA_sd_ibmtts_DEPENDENCIES = libibmeci.so
-@espeak_support_TRUE@sd_espeak_SOURCES = espeak.c $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
+@espeak_support_TRUE@sd_espeak_SOURCES = espeak.c $(common_SOURCES)
 @espeak_support_TRUE@sd_espeak_LDADD = $(top_builddir)/src/common/libcommon.la \
-@espeak_support_TRUE@	$(audio_dlopen_modules) \
 @espeak_support_TRUE@	-lespeak $(EXTRA_ESPEAK_LIBS) \
 @espeak_support_TRUE@	$(common_LDADD)
 
-@espeak_ng_support_TRUE@sd_espeak_ng_SOURCES = espeak-ng.c $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
+@espeak_ng_support_TRUE@sd_espeak_ng_SOURCES = espeak.c $(common_SOURCES)
 @espeak_ng_support_TRUE@sd_espeak_ng_CFLAGS = -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS)
 @espeak_ng_support_TRUE@sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
-@espeak_ng_support_TRUE@	$(audio_dlopen_modules) \
 @espeak_ng_support_TRUE@	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
 @espeak_ng_support_TRUE@	$(common_LDADD)
 
-@ivona_support_TRUE@sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h $(audio_SOURCES) \
-@ivona_support_TRUE@	$(common_SOURCES)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_sync_SOURCES = skeleton0_espeak-ng-sync.c module_main.c module_readline.c module_process.c
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_sync_CFLAGS = $(ESPEAK_NG_CFLAGS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_sync_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_async_SOURCES = skeleton0_espeak-ng-async.c module_main.c module_readline.c module_process.c
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_async_CFLAGS = $(ESPEAK_NG_CFLAGS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_async_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_sync_server_SOURCES = skeleton0_espeak-ng-sync-server.c module_main.c module_readline.c module_process.c
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_sync_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_sync_server_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_async_server_SOURCES = skeleton0_espeak-ng-async-server.c module_main.c module_readline.c module_process.c
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_async_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
+@espeak_ng_support_TRUE@sd_skeleton0_espeak_ng_async_server_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+@ivona_support_TRUE@sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h \
+@ivona_support_TRUE@	$(common_SOURCES) module_utils_play.c
 
 @ivona_support_TRUE@sd_ivona_LDADD = $(top_builddir)/src/common/libcommon.la \
 @ivona_support_TRUE@	$(audio_dlopen_modules) \
 @ivona_support_TRUE@	-ldumbtts \
+@ivona_support_TRUE@	$(SNDFILE_LIBS) \
 @ivona_support_TRUE@	$(common_LDADD)
 
-@pico_support_TRUE@sd_pico_SOURCES = pico.c $(audio_SOURCES) $(common_SOURCES)
+@pico_support_TRUE@sd_pico_SOURCES = pico.c $(common_SOURCES)
 @pico_support_TRUE@sd_pico_LDADD = $(top_builddir)/src/common/libcommon.la \
-@pico_support_TRUE@	$(audio_dlopen_modules) -lttspico \
+@pico_support_TRUE@	-lttspico \
 @pico_support_TRUE@	$(common_LDADD)
 
-@baratinoo_support_TRUE@sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(audio_SOURCES) $(common_SOURCES) module_utils_speak_queue.c
+@baratinoo_support_TRUE@sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(common_SOURCES)
 @baratinoo_support_TRUE@sd_baratinoo_LDADD = $(top_builddir)/src/common/libcommon.la \
-@baratinoo_support_TRUE@	$(audio_dlopen_modules) -lbaratinoo \
-@baratinoo_support_TRUE@	-lpthread -ldl $(common_LDADD) \
-@baratinoo_support_TRUE@	$(am__append_10)
+@baratinoo_support_TRUE@	-lbaratinoo $(common_LDADD) \
+@baratinoo_support_TRUE@	$(am__append_11)
 @baratinoo_shim_TRUE@@baratinoo_support_TRUE@EXTRA_sd_baratinoo_DEPENDENCIES = libbaratinoo.so
 @kali_support_TRUE@KALI_DIR = /usr/lib/kali
-@kali_support_TRUE@sd_kali_SOURCES = kali.cpp $(audio_SOURCES) $(common_SOURCES)
+@kali_support_TRUE@sd_kali_SOURCES = kali.cpp $(common_SOURCES)
 @kali_support_TRUE@sd_kali_LDADD =  \
 @kali_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
-@kali_support_TRUE@	$(audio_dlopen_modules) -lKali -lKGlobal \
-@kali_support_TRUE@	-lKTrans -lKParle -lKAnalyse \
-@kali_support_TRUE@	$(common_LDADD) $(am__append_13)
+@kali_support_TRUE@	-lKali -lKGlobal -lKTrans -lKParle \
+@kali_support_TRUE@	-lKAnalyse $(common_LDADD) $(am__append_14)
 @kali_support_TRUE@sd_kali_CPPFLAGS = -DLINUX $(AM_CPPFLAGS) \
-@kali_support_TRUE@	$(am__append_14)
-@kali_shim_TRUE@@kali_support_TRUE@noinst_HEADERS = kali_shim/kali/Kali/kali.h module_utils_speak_queue.h
+@kali_support_TRUE@	$(am__append_15)
+@kali_shim_TRUE@@kali_support_TRUE@noinst_HEADERS = kali_shim/kali/Kali/kali.h
 @kali_shim_TRUE@@kali_support_TRUE@EXTRA_sd_kali_DEPENDENCIES = libKali.so libKGlobal.so libKTrans.so libKParle.so libKAnalyse.so
+@voxin_support_TRUE@sd_voxin_SOURCES = ibmtts.c $(common_SOURCES) \
+@voxin_support_TRUE@	module_utils_addvoice.c
+
+@voxin_support_TRUE@sd_voxin_LDADD =  \
+@voxin_support_TRUE@	$(top_builddir)/src/common/libcommon.la \
+@voxin_support_TRUE@	-lvoxin $(common_LDADD) $(am__append_18)
+@voxin_support_TRUE@sd_voxin_CPPFLAGS = -DVOXIN $(AM_CPPFLAGS) \
+@voxin_support_TRUE@	$(DOTCONF_CFLAGS) \
+@voxin_support_TRUE@	$(ibmtts_include)
+
+@voxin_shim_TRUE@@voxin_support_TRUE@EXTRA_sd_voxin_DEPENDENCIES = libvoxin.so
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .cc .cpp .lo .o .obj
+.SUFFIXES: .c .cpp .lo .o .obj
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -827,6 +986,15 @@ clean-modulebinPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
+clean-noinstPROGRAMS:
+	@list='$(noinst_PROGRAMS)'; test -n "$$list" || exit 0; \
+	echo " rm -f" $$list; \
+	rm -f $$list || exit $$?; \
+	test -n "$(EXEEXT)" || exit 0; \
+	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
+	echo " rm -f" $$list; \
+	rm -f $$list
+
 sd_baratinoo$(EXEEXT): $(sd_baratinoo_OBJECTS) $(sd_baratinoo_DEPENDENCIES) $(EXTRA_sd_baratinoo_DEPENDENCIES) 
 	@rm -f sd_baratinoo$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(sd_baratinoo_OBJECTS) $(sd_baratinoo_LDADD) $(LIBS)
@@ -838,10 +1006,6 @@ sd_cicero$(EXEEXT): $(sd_cicero_OBJECTS) $(sd_cicero_DEPENDENCIES) $(EXTRA_sd_ci
 sd_dummy$(EXEEXT): $(sd_dummy_OBJECTS) $(sd_dummy_DEPENDENCIES) $(EXTRA_sd_dummy_DEPENDENCIES) 
 	@rm -f sd_dummy$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(sd_dummy_OBJECTS) $(sd_dummy_LDADD) $(LIBS)
-
-sd_ekho$(EXEEXT): $(sd_ekho_OBJECTS) $(sd_ekho_DEPENDENCIES) $(EXTRA_sd_ekho_DEPENDENCIES) 
-	@rm -f sd_ekho$(EXEEXT)
-	$(AM_V_CXXLD)$(sd_ekho_LINK) $(sd_ekho_OBJECTS) $(sd_ekho_LDADD) $(LIBS)
 
 sd_espeak$(EXEEXT): $(sd_espeak_OBJECTS) $(sd_espeak_DEPENDENCIES) $(EXTRA_sd_espeak_DEPENDENCIES) 
 	@rm -f sd_espeak$(EXEEXT)
@@ -865,7 +1029,7 @@ sd_generic$(EXEEXT): $(sd_generic_OBJECTS) $(sd_generic_DEPENDENCIES) $(EXTRA_sd
 
 sd_ibmtts$(EXEEXT): $(sd_ibmtts_OBJECTS) $(sd_ibmtts_DEPENDENCIES) $(EXTRA_sd_ibmtts_DEPENDENCIES) 
 	@rm -f sd_ibmtts$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(sd_ibmtts_OBJECTS) $(sd_ibmtts_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(sd_ibmtts_LINK) $(sd_ibmtts_OBJECTS) $(sd_ibmtts_LDADD) $(LIBS)
 
 sd_ivona$(EXEEXT): $(sd_ivona_OBJECTS) $(sd_ivona_DEPENDENCIES) $(EXTRA_sd_ivona_DEPENDENCIES) 
 	@rm -f sd_ivona$(EXEEXT)
@@ -878,6 +1042,34 @@ sd_kali$(EXEEXT): $(sd_kali_OBJECTS) $(sd_kali_DEPENDENCIES) $(EXTRA_sd_kali_DEP
 sd_pico$(EXEEXT): $(sd_pico_OBJECTS) $(sd_pico_DEPENDENCIES) $(EXTRA_sd_pico_DEPENDENCIES) 
 	@rm -f sd_pico$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(sd_pico_OBJECTS) $(sd_pico_LDADD) $(LIBS)
+
+sd_skeleton0$(EXEEXT): $(sd_skeleton0_OBJECTS) $(sd_skeleton0_DEPENDENCIES) $(EXTRA_sd_skeleton0_DEPENDENCIES) 
+	@rm -f sd_skeleton0$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(sd_skeleton0_OBJECTS) $(sd_skeleton0_LDADD) $(LIBS)
+
+sd_skeleton0_espeak-ng-async$(EXEEXT): $(sd_skeleton0_espeak_ng_async_OBJECTS) $(sd_skeleton0_espeak_ng_async_DEPENDENCIES) $(EXTRA_sd_skeleton0_espeak_ng_async_DEPENDENCIES) 
+	@rm -f sd_skeleton0_espeak-ng-async$(EXEEXT)
+	$(AM_V_CCLD)$(sd_skeleton0_espeak_ng_async_LINK) $(sd_skeleton0_espeak_ng_async_OBJECTS) $(sd_skeleton0_espeak_ng_async_LDADD) $(LIBS)
+
+sd_skeleton0_espeak-ng-async-server$(EXEEXT): $(sd_skeleton0_espeak_ng_async_server_OBJECTS) $(sd_skeleton0_espeak_ng_async_server_DEPENDENCIES) $(EXTRA_sd_skeleton0_espeak_ng_async_server_DEPENDENCIES) 
+	@rm -f sd_skeleton0_espeak-ng-async-server$(EXEEXT)
+	$(AM_V_CCLD)$(sd_skeleton0_espeak_ng_async_server_LINK) $(sd_skeleton0_espeak_ng_async_server_OBJECTS) $(sd_skeleton0_espeak_ng_async_server_LDADD) $(LIBS)
+
+sd_skeleton0_espeak-ng-sync$(EXEEXT): $(sd_skeleton0_espeak_ng_sync_OBJECTS) $(sd_skeleton0_espeak_ng_sync_DEPENDENCIES) $(EXTRA_sd_skeleton0_espeak_ng_sync_DEPENDENCIES) 
+	@rm -f sd_skeleton0_espeak-ng-sync$(EXEEXT)
+	$(AM_V_CCLD)$(sd_skeleton0_espeak_ng_sync_LINK) $(sd_skeleton0_espeak_ng_sync_OBJECTS) $(sd_skeleton0_espeak_ng_sync_LDADD) $(LIBS)
+
+sd_skeleton0_espeak-ng-sync-server$(EXEEXT): $(sd_skeleton0_espeak_ng_sync_server_OBJECTS) $(sd_skeleton0_espeak_ng_sync_server_DEPENDENCIES) $(EXTRA_sd_skeleton0_espeak_ng_sync_server_DEPENDENCIES) 
+	@rm -f sd_skeleton0_espeak-ng-sync-server$(EXEEXT)
+	$(AM_V_CCLD)$(sd_skeleton0_espeak_ng_sync_server_LINK) $(sd_skeleton0_espeak_ng_sync_server_OBJECTS) $(sd_skeleton0_espeak_ng_sync_server_LDADD) $(LIBS)
+
+sd_skeleton_config$(EXEEXT): $(sd_skeleton_config_OBJECTS) $(sd_skeleton_config_DEPENDENCIES) $(EXTRA_sd_skeleton_config_DEPENDENCIES) 
+	@rm -f sd_skeleton_config$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(sd_skeleton_config_OBJECTS) $(sd_skeleton_config_LDADD) $(LIBS)
+
+sd_voxin$(EXEEXT): $(sd_voxin_OBJECTS) $(sd_voxin_DEPENDENCIES) $(EXTRA_sd_voxin_DEPENDENCIES) 
+	@rm -f sd_voxin$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(sd_voxin_OBJECTS) $(sd_voxin_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -896,22 +1088,51 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ibmtts.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ivona.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ivona_client.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_config.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_process.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_readline.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_utils.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_utils_addvoice.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_utils_speak_queue.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_utils_play.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pico.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_ekho-ekho.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-espeak-ng.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-espeak.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-module_config.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-module_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-module_process.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-module_readline.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-module_utils.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-spd_audio.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_kali-kali.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_kali-module_config.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_kali-module_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_kali-module_process.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_kali-module_readline.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_kali-module_utils.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_kali-spd_audio.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/spd_audio.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_voxin-ibmtts.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_voxin-module_config.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_voxin-module_main.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_voxin-module_process.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_voxin-module_readline.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_voxin-module_utils.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_voxin-module_utils_addvoice.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/skeleton0.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/skeleton_config.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -940,33 +1161,19 @@ am--depfiles: $(am__depfiles_remade)
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
-sd_espeak_ng-espeak-ng.o: espeak-ng.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-espeak-ng.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-espeak-ng.Tpo -c -o sd_espeak_ng-espeak-ng.o `test -f 'espeak-ng.c' || echo '$(srcdir)/'`espeak-ng.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-espeak-ng.Tpo $(DEPDIR)/sd_espeak_ng-espeak-ng.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='espeak-ng.c' object='sd_espeak_ng-espeak-ng.o' libtool=no @AMDEPBACKSLASH@
+sd_espeak_ng-espeak.o: espeak.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-espeak.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-espeak.Tpo -c -o sd_espeak_ng-espeak.o `test -f 'espeak.c' || echo '$(srcdir)/'`espeak.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-espeak.Tpo $(DEPDIR)/sd_espeak_ng-espeak.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='espeak.c' object='sd_espeak_ng-espeak.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-espeak-ng.o `test -f 'espeak-ng.c' || echo '$(srcdir)/'`espeak-ng.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-espeak.o `test -f 'espeak.c' || echo '$(srcdir)/'`espeak.c
 
-sd_espeak_ng-espeak-ng.obj: espeak-ng.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-espeak-ng.obj -MD -MP -MF $(DEPDIR)/sd_espeak_ng-espeak-ng.Tpo -c -o sd_espeak_ng-espeak-ng.obj `if test -f 'espeak-ng.c'; then $(CYGPATH_W) 'espeak-ng.c'; else $(CYGPATH_W) '$(srcdir)/espeak-ng.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-espeak-ng.Tpo $(DEPDIR)/sd_espeak_ng-espeak-ng.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='espeak-ng.c' object='sd_espeak_ng-espeak-ng.obj' libtool=no @AMDEPBACKSLASH@
+sd_espeak_ng-espeak.obj: espeak.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-espeak.obj -MD -MP -MF $(DEPDIR)/sd_espeak_ng-espeak.Tpo -c -o sd_espeak_ng-espeak.obj `if test -f 'espeak.c'; then $(CYGPATH_W) 'espeak.c'; else $(CYGPATH_W) '$(srcdir)/espeak.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-espeak.Tpo $(DEPDIR)/sd_espeak_ng-espeak.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='espeak.c' object='sd_espeak_ng-espeak.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-espeak-ng.obj `if test -f 'espeak-ng.c'; then $(CYGPATH_W) 'espeak-ng.c'; else $(CYGPATH_W) '$(srcdir)/espeak-ng.c'; fi`
-
-sd_espeak_ng-spd_audio.o: spd_audio.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-spd_audio.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-spd_audio.Tpo -c -o sd_espeak_ng-spd_audio.o `test -f 'spd_audio.c' || echo '$(srcdir)/'`spd_audio.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-spd_audio.Tpo $(DEPDIR)/sd_espeak_ng-spd_audio.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spd_audio.c' object='sd_espeak_ng-spd_audio.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-spd_audio.o `test -f 'spd_audio.c' || echo '$(srcdir)/'`spd_audio.c
-
-sd_espeak_ng-spd_audio.obj: spd_audio.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-spd_audio.obj -MD -MP -MF $(DEPDIR)/sd_espeak_ng-spd_audio.Tpo -c -o sd_espeak_ng-spd_audio.obj `if test -f 'spd_audio.c'; then $(CYGPATH_W) 'spd_audio.c'; else $(CYGPATH_W) '$(srcdir)/spd_audio.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-spd_audio.Tpo $(DEPDIR)/sd_espeak_ng-spd_audio.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spd_audio.c' object='sd_espeak_ng-spd_audio.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-spd_audio.obj `if test -f 'spd_audio.c'; then $(CYGPATH_W) 'spd_audio.c'; else $(CYGPATH_W) '$(srcdir)/spd_audio.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-espeak.obj `if test -f 'espeak.c'; then $(CYGPATH_W) 'espeak.c'; else $(CYGPATH_W) '$(srcdir)/espeak.c'; fi`
 
 sd_espeak_ng-module_main.o: module_main.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_main.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_main.Tpo -c -o sd_espeak_ng-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
@@ -982,6 +1189,48 @@ sd_espeak_ng-module_main.obj: module_main.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
 
+sd_espeak_ng-module_readline.o: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_readline.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_readline.Tpo -c -o sd_espeak_ng-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_readline.Tpo $(DEPDIR)/sd_espeak_ng-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_espeak_ng-module_readline.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+
+sd_espeak_ng-module_readline.obj: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_readline.obj -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_readline.Tpo -c -o sd_espeak_ng-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_readline.Tpo $(DEPDIR)/sd_espeak_ng-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_espeak_ng-module_readline.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+
+sd_espeak_ng-module_process.o: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_process.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_process.Tpo -c -o sd_espeak_ng-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_process.Tpo $(DEPDIR)/sd_espeak_ng-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_espeak_ng-module_process.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+
+sd_espeak_ng-module_process.obj: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_process.obj -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_process.Tpo -c -o sd_espeak_ng-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_process.Tpo $(DEPDIR)/sd_espeak_ng-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_espeak_ng-module_process.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+
+sd_espeak_ng-module_config.o: module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_config.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_config.Tpo -c -o sd_espeak_ng-module_config.o `test -f 'module_config.c' || echo '$(srcdir)/'`module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_config.Tpo $(DEPDIR)/sd_espeak_ng-module_config.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_config.c' object='sd_espeak_ng-module_config.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_config.o `test -f 'module_config.c' || echo '$(srcdir)/'`module_config.c
+
+sd_espeak_ng-module_config.obj: module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_config.obj -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_config.Tpo -c -o sd_espeak_ng-module_config.obj `if test -f 'module_config.c'; then $(CYGPATH_W) 'module_config.c'; else $(CYGPATH_W) '$(srcdir)/module_config.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_config.Tpo $(DEPDIR)/sd_espeak_ng-module_config.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_config.c' object='sd_espeak_ng-module_config.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_config.obj `if test -f 'module_config.c'; then $(CYGPATH_W) 'module_config.c'; else $(CYGPATH_W) '$(srcdir)/module_config.c'; fi`
+
 sd_espeak_ng-module_utils.o: module_utils.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_utils.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_utils.Tpo -c -o sd_espeak_ng-module_utils.o `test -f 'module_utils.c' || echo '$(srcdir)/'`module_utils.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_utils.Tpo $(DEPDIR)/sd_espeak_ng-module_utils.Po
@@ -995,34 +1244,6 @@ sd_espeak_ng-module_utils.obj: module_utils.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_utils.c' object='sd_espeak_ng-module_utils.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_utils.obj `if test -f 'module_utils.c'; then $(CYGPATH_W) 'module_utils.c'; else $(CYGPATH_W) '$(srcdir)/module_utils.c'; fi`
-
-sd_espeak_ng-module_utils_speak_queue.o: module_utils_speak_queue.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_utils_speak_queue.o -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Tpo -c -o sd_espeak_ng-module_utils_speak_queue.o `test -f 'module_utils_speak_queue.c' || echo '$(srcdir)/'`module_utils_speak_queue.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Tpo $(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_utils_speak_queue.c' object='sd_espeak_ng-module_utils_speak_queue.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_utils_speak_queue.o `test -f 'module_utils_speak_queue.c' || echo '$(srcdir)/'`module_utils_speak_queue.c
-
-sd_espeak_ng-module_utils_speak_queue.obj: module_utils_speak_queue.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -MT sd_espeak_ng-module_utils_speak_queue.obj -MD -MP -MF $(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Tpo -c -o sd_espeak_ng-module_utils_speak_queue.obj `if test -f 'module_utils_speak_queue.c'; then $(CYGPATH_W) 'module_utils_speak_queue.c'; else $(CYGPATH_W) '$(srcdir)/module_utils_speak_queue.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Tpo $(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_utils_speak_queue.c' object='sd_espeak_ng-module_utils_speak_queue.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_espeak_ng_CFLAGS) $(CFLAGS) -c -o sd_espeak_ng-module_utils_speak_queue.obj `if test -f 'module_utils_speak_queue.c'; then $(CYGPATH_W) 'module_utils_speak_queue.c'; else $(CYGPATH_W) '$(srcdir)/module_utils_speak_queue.c'; fi`
-
-sd_kali-spd_audio.o: spd_audio.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-spd_audio.o -MD -MP -MF $(DEPDIR)/sd_kali-spd_audio.Tpo -c -o sd_kali-spd_audio.o `test -f 'spd_audio.c' || echo '$(srcdir)/'`spd_audio.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-spd_audio.Tpo $(DEPDIR)/sd_kali-spd_audio.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spd_audio.c' object='sd_kali-spd_audio.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-spd_audio.o `test -f 'spd_audio.c' || echo '$(srcdir)/'`spd_audio.c
-
-sd_kali-spd_audio.obj: spd_audio.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-spd_audio.obj -MD -MP -MF $(DEPDIR)/sd_kali-spd_audio.Tpo -c -o sd_kali-spd_audio.obj `if test -f 'spd_audio.c'; then $(CYGPATH_W) 'spd_audio.c'; else $(CYGPATH_W) '$(srcdir)/spd_audio.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-spd_audio.Tpo $(DEPDIR)/sd_kali-spd_audio.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spd_audio.c' object='sd_kali-spd_audio.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-spd_audio.obj `if test -f 'spd_audio.c'; then $(CYGPATH_W) 'spd_audio.c'; else $(CYGPATH_W) '$(srcdir)/spd_audio.c'; fi`
 
 sd_kali-module_main.o: module_main.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-module_main.o -MD -MP -MF $(DEPDIR)/sd_kali-module_main.Tpo -c -o sd_kali-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
@@ -1038,6 +1259,48 @@ sd_kali-module_main.obj: module_main.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
 
+sd_kali-module_readline.o: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-module_readline.o -MD -MP -MF $(DEPDIR)/sd_kali-module_readline.Tpo -c -o sd_kali-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-module_readline.Tpo $(DEPDIR)/sd_kali-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_kali-module_readline.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+
+sd_kali-module_readline.obj: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-module_readline.obj -MD -MP -MF $(DEPDIR)/sd_kali-module_readline.Tpo -c -o sd_kali-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-module_readline.Tpo $(DEPDIR)/sd_kali-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_kali-module_readline.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+
+sd_kali-module_process.o: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-module_process.o -MD -MP -MF $(DEPDIR)/sd_kali-module_process.Tpo -c -o sd_kali-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-module_process.Tpo $(DEPDIR)/sd_kali-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_kali-module_process.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+
+sd_kali-module_process.obj: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-module_process.obj -MD -MP -MF $(DEPDIR)/sd_kali-module_process.Tpo -c -o sd_kali-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-module_process.Tpo $(DEPDIR)/sd_kali-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_kali-module_process.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+
+sd_kali-module_config.o: module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-module_config.o -MD -MP -MF $(DEPDIR)/sd_kali-module_config.Tpo -c -o sd_kali-module_config.o `test -f 'module_config.c' || echo '$(srcdir)/'`module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-module_config.Tpo $(DEPDIR)/sd_kali-module_config.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_config.c' object='sd_kali-module_config.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-module_config.o `test -f 'module_config.c' || echo '$(srcdir)/'`module_config.c
+
+sd_kali-module_config.obj: module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-module_config.obj -MD -MP -MF $(DEPDIR)/sd_kali-module_config.Tpo -c -o sd_kali-module_config.obj `if test -f 'module_config.c'; then $(CYGPATH_W) 'module_config.c'; else $(CYGPATH_W) '$(srcdir)/module_config.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-module_config.Tpo $(DEPDIR)/sd_kali-module_config.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_config.c' object='sd_kali-module_config.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-module_config.obj `if test -f 'module_config.c'; then $(CYGPATH_W) 'module_config.c'; else $(CYGPATH_W) '$(srcdir)/module_config.c'; fi`
+
 sd_kali-module_utils.o: module_utils.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_kali-module_utils.o -MD -MP -MF $(DEPDIR)/sd_kali-module_utils.Tpo -c -o sd_kali-module_utils.o `test -f 'module_utils.c' || echo '$(srcdir)/'`module_utils.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-module_utils.Tpo $(DEPDIR)/sd_kali-module_utils.Po
@@ -1052,54 +1315,327 @@ sd_kali-module_utils.obj: module_utils.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_kali-module_utils.obj `if test -f 'module_utils.c'; then $(CYGPATH_W) 'module_utils.c'; else $(CYGPATH_W) '$(srcdir)/module_utils.c'; fi`
 
-.cc.o:
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXXCOMPILE) -c -o $@ $<
+sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.o: skeleton0_espeak-ng-async.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Tpo -c -o sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.o `test -f 'skeleton0_espeak-ng-async.c' || echo '$(srcdir)/'`skeleton0_espeak-ng-async.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='skeleton0_espeak-ng-async.c' object='sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.o `test -f 'skeleton0_espeak-ng-async.c' || echo '$(srcdir)/'`skeleton0_espeak-ng-async.c
 
-.cc.obj:
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.obj: skeleton0_espeak-ng-async.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Tpo -c -o sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.obj `if test -f 'skeleton0_espeak-ng-async.c'; then $(CYGPATH_W) 'skeleton0_espeak-ng-async.c'; else $(CYGPATH_W) '$(srcdir)/skeleton0_espeak-ng-async.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='skeleton0_espeak-ng-async.c' object='sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.obj `if test -f 'skeleton0_espeak-ng-async.c'; then $(CYGPATH_W) 'skeleton0_espeak-ng-async.c'; else $(CYGPATH_W) '$(srcdir)/skeleton0_espeak-ng-async.c'; fi`
 
-.cc.lo:
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LTCXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LTCXXCOMPILE) -c -o $@ $<
+sd_skeleton0_espeak_ng_async-module_main.o: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async-module_main.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Tpo -c -o sd_skeleton0_espeak_ng_async-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_skeleton0_espeak_ng_async-module_main.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
 
-sd_ekho-ekho.o: ekho.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_ekho_CXXFLAGS) $(CXXFLAGS) -MT sd_ekho-ekho.o -MD -MP -MF $(DEPDIR)/sd_ekho-ekho.Tpo -c -o sd_ekho-ekho.o `test -f 'ekho.cc' || echo '$(srcdir)/'`ekho.cc
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_ekho-ekho.Tpo $(DEPDIR)/sd_ekho-ekho.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='ekho.cc' object='sd_ekho-ekho.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_ekho_CXXFLAGS) $(CXXFLAGS) -c -o sd_ekho-ekho.o `test -f 'ekho.cc' || echo '$(srcdir)/'`ekho.cc
+sd_skeleton0_espeak_ng_async-module_main.obj: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async-module_main.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Tpo -c -o sd_skeleton0_espeak_ng_async-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_skeleton0_espeak_ng_async-module_main.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
 
-sd_ekho-ekho.obj: ekho.cc
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_ekho_CXXFLAGS) $(CXXFLAGS) -MT sd_ekho-ekho.obj -MD -MP -MF $(DEPDIR)/sd_ekho-ekho.Tpo -c -o sd_ekho-ekho.obj `if test -f 'ekho.cc'; then $(CYGPATH_W) 'ekho.cc'; else $(CYGPATH_W) '$(srcdir)/ekho.cc'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_ekho-ekho.Tpo $(DEPDIR)/sd_ekho-ekho.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='ekho.cc' object='sd_ekho-ekho.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_ekho_CXXFLAGS) $(CXXFLAGS) -c -o sd_ekho-ekho.obj `if test -f 'ekho.cc'; then $(CYGPATH_W) 'ekho.cc'; else $(CYGPATH_W) '$(srcdir)/ekho.cc'; fi`
+sd_skeleton0_espeak_ng_async-module_readline.o: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async-module_readline.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Tpo -c -o sd_skeleton0_espeak_ng_async-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_skeleton0_espeak_ng_async-module_readline.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
 
-sd_kali-kali.o: kali.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT sd_kali-kali.o -MD -MP -MF $(DEPDIR)/sd_kali-kali.Tpo -c -o sd_kali-kali.o `test -f 'kali.cpp' || echo '$(srcdir)/'`kali.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-kali.Tpo $(DEPDIR)/sd_kali-kali.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='kali.cpp' object='sd_kali-kali.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o sd_kali-kali.o `test -f 'kali.cpp' || echo '$(srcdir)/'`kali.cpp
+sd_skeleton0_espeak_ng_async-module_readline.obj: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async-module_readline.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Tpo -c -o sd_skeleton0_espeak_ng_async-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_skeleton0_espeak_ng_async-module_readline.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
 
-sd_kali-kali.obj: kali.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT sd_kali-kali.obj -MD -MP -MF $(DEPDIR)/sd_kali-kali.Tpo -c -o sd_kali-kali.obj `if test -f 'kali.cpp'; then $(CYGPATH_W) 'kali.cpp'; else $(CYGPATH_W) '$(srcdir)/kali.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-kali.Tpo $(DEPDIR)/sd_kali-kali.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='kali.cpp' object='sd_kali-kali.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o sd_kali-kali.obj `if test -f 'kali.cpp'; then $(CYGPATH_W) 'kali.cpp'; else $(CYGPATH_W) '$(srcdir)/kali.cpp'; fi`
+sd_skeleton0_espeak_ng_async-module_process.o: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async-module_process.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Tpo -c -o sd_skeleton0_espeak_ng_async-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_skeleton0_espeak_ng_async-module_process.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+
+sd_skeleton0_espeak_ng_async-module_process.obj: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async-module_process.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Tpo -c -o sd_skeleton0_espeak_ng_async-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_skeleton0_espeak_ng_async-module_process.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+
+sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.o: skeleton0_espeak-ng-async-server.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Tpo -c -o sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.o `test -f 'skeleton0_espeak-ng-async-server.c' || echo '$(srcdir)/'`skeleton0_espeak-ng-async-server.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='skeleton0_espeak-ng-async-server.c' object='sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.o `test -f 'skeleton0_espeak-ng-async-server.c' || echo '$(srcdir)/'`skeleton0_espeak-ng-async-server.c
+
+sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.obj: skeleton0_espeak-ng-async-server.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Tpo -c -o sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.obj `if test -f 'skeleton0_espeak-ng-async-server.c'; then $(CYGPATH_W) 'skeleton0_espeak-ng-async-server.c'; else $(CYGPATH_W) '$(srcdir)/skeleton0_espeak-ng-async-server.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='skeleton0_espeak-ng-async-server.c' object='sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.obj `if test -f 'skeleton0_espeak-ng-async-server.c'; then $(CYGPATH_W) 'skeleton0_espeak-ng-async-server.c'; else $(CYGPATH_W) '$(srcdir)/skeleton0_espeak-ng-async-server.c'; fi`
+
+sd_skeleton0_espeak_ng_async_server-module_main.o: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async_server-module_main.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Tpo -c -o sd_skeleton0_espeak_ng_async_server-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_skeleton0_espeak_ng_async_server-module_main.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async_server-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+
+sd_skeleton0_espeak_ng_async_server-module_main.obj: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async_server-module_main.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Tpo -c -o sd_skeleton0_espeak_ng_async_server-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_skeleton0_espeak_ng_async_server-module_main.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async_server-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+
+sd_skeleton0_espeak_ng_async_server-module_readline.o: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async_server-module_readline.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Tpo -c -o sd_skeleton0_espeak_ng_async_server-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_skeleton0_espeak_ng_async_server-module_readline.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async_server-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+
+sd_skeleton0_espeak_ng_async_server-module_readline.obj: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async_server-module_readline.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Tpo -c -o sd_skeleton0_espeak_ng_async_server-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_skeleton0_espeak_ng_async_server-module_readline.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async_server-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+
+sd_skeleton0_espeak_ng_async_server-module_process.o: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async_server-module_process.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Tpo -c -o sd_skeleton0_espeak_ng_async_server-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_skeleton0_espeak_ng_async_server-module_process.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async_server-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+
+sd_skeleton0_espeak_ng_async_server-module_process.obj: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_async_server-module_process.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Tpo -c -o sd_skeleton0_espeak_ng_async_server-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_skeleton0_espeak_ng_async_server-module_process.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_async_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_async_server-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+
+sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.o: skeleton0_espeak-ng-sync.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Tpo -c -o sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.o `test -f 'skeleton0_espeak-ng-sync.c' || echo '$(srcdir)/'`skeleton0_espeak-ng-sync.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='skeleton0_espeak-ng-sync.c' object='sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.o `test -f 'skeleton0_espeak-ng-sync.c' || echo '$(srcdir)/'`skeleton0_espeak-ng-sync.c
+
+sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.obj: skeleton0_espeak-ng-sync.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Tpo -c -o sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.obj `if test -f 'skeleton0_espeak-ng-sync.c'; then $(CYGPATH_W) 'skeleton0_espeak-ng-sync.c'; else $(CYGPATH_W) '$(srcdir)/skeleton0_espeak-ng-sync.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='skeleton0_espeak-ng-sync.c' object='sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.obj `if test -f 'skeleton0_espeak-ng-sync.c'; then $(CYGPATH_W) 'skeleton0_espeak-ng-sync.c'; else $(CYGPATH_W) '$(srcdir)/skeleton0_espeak-ng-sync.c'; fi`
+
+sd_skeleton0_espeak_ng_sync-module_main.o: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync-module_main.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Tpo -c -o sd_skeleton0_espeak_ng_sync-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_skeleton0_espeak_ng_sync-module_main.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+
+sd_skeleton0_espeak_ng_sync-module_main.obj: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync-module_main.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Tpo -c -o sd_skeleton0_espeak_ng_sync-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_skeleton0_espeak_ng_sync-module_main.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+
+sd_skeleton0_espeak_ng_sync-module_readline.o: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync-module_readline.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Tpo -c -o sd_skeleton0_espeak_ng_sync-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_skeleton0_espeak_ng_sync-module_readline.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+
+sd_skeleton0_espeak_ng_sync-module_readline.obj: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync-module_readline.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Tpo -c -o sd_skeleton0_espeak_ng_sync-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_skeleton0_espeak_ng_sync-module_readline.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+
+sd_skeleton0_espeak_ng_sync-module_process.o: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync-module_process.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Tpo -c -o sd_skeleton0_espeak_ng_sync-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_skeleton0_espeak_ng_sync-module_process.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+
+sd_skeleton0_espeak_ng_sync-module_process.obj: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync-module_process.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Tpo -c -o sd_skeleton0_espeak_ng_sync-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_skeleton0_espeak_ng_sync-module_process.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+
+sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.o: skeleton0_espeak-ng-sync-server.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Tpo -c -o sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.o `test -f 'skeleton0_espeak-ng-sync-server.c' || echo '$(srcdir)/'`skeleton0_espeak-ng-sync-server.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='skeleton0_espeak-ng-sync-server.c' object='sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.o `test -f 'skeleton0_espeak-ng-sync-server.c' || echo '$(srcdir)/'`skeleton0_espeak-ng-sync-server.c
+
+sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.obj: skeleton0_espeak-ng-sync-server.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Tpo -c -o sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.obj `if test -f 'skeleton0_espeak-ng-sync-server.c'; then $(CYGPATH_W) 'skeleton0_espeak-ng-sync-server.c'; else $(CYGPATH_W) '$(srcdir)/skeleton0_espeak-ng-sync-server.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='skeleton0_espeak-ng-sync-server.c' object='sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.obj `if test -f 'skeleton0_espeak-ng-sync-server.c'; then $(CYGPATH_W) 'skeleton0_espeak-ng-sync-server.c'; else $(CYGPATH_W) '$(srcdir)/skeleton0_espeak-ng-sync-server.c'; fi`
+
+sd_skeleton0_espeak_ng_sync_server-module_main.o: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync_server-module_main.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Tpo -c -o sd_skeleton0_espeak_ng_sync_server-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_skeleton0_espeak_ng_sync_server-module_main.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync_server-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+
+sd_skeleton0_espeak_ng_sync_server-module_main.obj: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync_server-module_main.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Tpo -c -o sd_skeleton0_espeak_ng_sync_server-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_skeleton0_espeak_ng_sync_server-module_main.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync_server-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+
+sd_skeleton0_espeak_ng_sync_server-module_readline.o: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync_server-module_readline.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Tpo -c -o sd_skeleton0_espeak_ng_sync_server-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_skeleton0_espeak_ng_sync_server-module_readline.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync_server-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+
+sd_skeleton0_espeak_ng_sync_server-module_readline.obj: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync_server-module_readline.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Tpo -c -o sd_skeleton0_espeak_ng_sync_server-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_skeleton0_espeak_ng_sync_server-module_readline.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync_server-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+
+sd_skeleton0_espeak_ng_sync_server-module_process.o: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync_server-module_process.o -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Tpo -c -o sd_skeleton0_espeak_ng_sync_server-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_skeleton0_espeak_ng_sync_server-module_process.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync_server-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+
+sd_skeleton0_espeak_ng_sync_server-module_process.obj: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -MT sd_skeleton0_espeak_ng_sync_server-module_process.obj -MD -MP -MF $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Tpo -c -o sd_skeleton0_espeak_ng_sync_server-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Tpo $(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_skeleton0_espeak_ng_sync_server-module_process.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_skeleton0_espeak_ng_sync_server_CFLAGS) $(CFLAGS) -c -o sd_skeleton0_espeak_ng_sync_server-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+
+sd_voxin-ibmtts.o: ibmtts.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-ibmtts.o -MD -MP -MF $(DEPDIR)/sd_voxin-ibmtts.Tpo -c -o sd_voxin-ibmtts.o `test -f 'ibmtts.c' || echo '$(srcdir)/'`ibmtts.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-ibmtts.Tpo $(DEPDIR)/sd_voxin-ibmtts.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ibmtts.c' object='sd_voxin-ibmtts.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-ibmtts.o `test -f 'ibmtts.c' || echo '$(srcdir)/'`ibmtts.c
+
+sd_voxin-ibmtts.obj: ibmtts.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-ibmtts.obj -MD -MP -MF $(DEPDIR)/sd_voxin-ibmtts.Tpo -c -o sd_voxin-ibmtts.obj `if test -f 'ibmtts.c'; then $(CYGPATH_W) 'ibmtts.c'; else $(CYGPATH_W) '$(srcdir)/ibmtts.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-ibmtts.Tpo $(DEPDIR)/sd_voxin-ibmtts.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='ibmtts.c' object='sd_voxin-ibmtts.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-ibmtts.obj `if test -f 'ibmtts.c'; then $(CYGPATH_W) 'ibmtts.c'; else $(CYGPATH_W) '$(srcdir)/ibmtts.c'; fi`
+
+sd_voxin-module_main.o: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_main.o -MD -MP -MF $(DEPDIR)/sd_voxin-module_main.Tpo -c -o sd_voxin-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_main.Tpo $(DEPDIR)/sd_voxin-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_voxin-module_main.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_main.o `test -f 'module_main.c' || echo '$(srcdir)/'`module_main.c
+
+sd_voxin-module_main.obj: module_main.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_main.obj -MD -MP -MF $(DEPDIR)/sd_voxin-module_main.Tpo -c -o sd_voxin-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_main.Tpo $(DEPDIR)/sd_voxin-module_main.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_main.c' object='sd_voxin-module_main.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_main.obj `if test -f 'module_main.c'; then $(CYGPATH_W) 'module_main.c'; else $(CYGPATH_W) '$(srcdir)/module_main.c'; fi`
+
+sd_voxin-module_readline.o: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_readline.o -MD -MP -MF $(DEPDIR)/sd_voxin-module_readline.Tpo -c -o sd_voxin-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_readline.Tpo $(DEPDIR)/sd_voxin-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_voxin-module_readline.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_readline.o `test -f 'module_readline.c' || echo '$(srcdir)/'`module_readline.c
+
+sd_voxin-module_readline.obj: module_readline.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_readline.obj -MD -MP -MF $(DEPDIR)/sd_voxin-module_readline.Tpo -c -o sd_voxin-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_readline.Tpo $(DEPDIR)/sd_voxin-module_readline.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_readline.c' object='sd_voxin-module_readline.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_readline.obj `if test -f 'module_readline.c'; then $(CYGPATH_W) 'module_readline.c'; else $(CYGPATH_W) '$(srcdir)/module_readline.c'; fi`
+
+sd_voxin-module_process.o: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_process.o -MD -MP -MF $(DEPDIR)/sd_voxin-module_process.Tpo -c -o sd_voxin-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_process.Tpo $(DEPDIR)/sd_voxin-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_voxin-module_process.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_process.o `test -f 'module_process.c' || echo '$(srcdir)/'`module_process.c
+
+sd_voxin-module_process.obj: module_process.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_process.obj -MD -MP -MF $(DEPDIR)/sd_voxin-module_process.Tpo -c -o sd_voxin-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_process.Tpo $(DEPDIR)/sd_voxin-module_process.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_process.c' object='sd_voxin-module_process.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_process.obj `if test -f 'module_process.c'; then $(CYGPATH_W) 'module_process.c'; else $(CYGPATH_W) '$(srcdir)/module_process.c'; fi`
+
+sd_voxin-module_config.o: module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_config.o -MD -MP -MF $(DEPDIR)/sd_voxin-module_config.Tpo -c -o sd_voxin-module_config.o `test -f 'module_config.c' || echo '$(srcdir)/'`module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_config.Tpo $(DEPDIR)/sd_voxin-module_config.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_config.c' object='sd_voxin-module_config.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_config.o `test -f 'module_config.c' || echo '$(srcdir)/'`module_config.c
+
+sd_voxin-module_config.obj: module_config.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_config.obj -MD -MP -MF $(DEPDIR)/sd_voxin-module_config.Tpo -c -o sd_voxin-module_config.obj `if test -f 'module_config.c'; then $(CYGPATH_W) 'module_config.c'; else $(CYGPATH_W) '$(srcdir)/module_config.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_config.Tpo $(DEPDIR)/sd_voxin-module_config.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_config.c' object='sd_voxin-module_config.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_config.obj `if test -f 'module_config.c'; then $(CYGPATH_W) 'module_config.c'; else $(CYGPATH_W) '$(srcdir)/module_config.c'; fi`
+
+sd_voxin-module_utils.o: module_utils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_utils.o -MD -MP -MF $(DEPDIR)/sd_voxin-module_utils.Tpo -c -o sd_voxin-module_utils.o `test -f 'module_utils.c' || echo '$(srcdir)/'`module_utils.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_utils.Tpo $(DEPDIR)/sd_voxin-module_utils.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_utils.c' object='sd_voxin-module_utils.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_utils.o `test -f 'module_utils.c' || echo '$(srcdir)/'`module_utils.c
+
+sd_voxin-module_utils.obj: module_utils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_utils.obj -MD -MP -MF $(DEPDIR)/sd_voxin-module_utils.Tpo -c -o sd_voxin-module_utils.obj `if test -f 'module_utils.c'; then $(CYGPATH_W) 'module_utils.c'; else $(CYGPATH_W) '$(srcdir)/module_utils.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_utils.Tpo $(DEPDIR)/sd_voxin-module_utils.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_utils.c' object='sd_voxin-module_utils.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_utils.obj `if test -f 'module_utils.c'; then $(CYGPATH_W) 'module_utils.c'; else $(CYGPATH_W) '$(srcdir)/module_utils.c'; fi`
+
+sd_voxin-module_utils_addvoice.o: module_utils_addvoice.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_utils_addvoice.o -MD -MP -MF $(DEPDIR)/sd_voxin-module_utils_addvoice.Tpo -c -o sd_voxin-module_utils_addvoice.o `test -f 'module_utils_addvoice.c' || echo '$(srcdir)/'`module_utils_addvoice.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_utils_addvoice.Tpo $(DEPDIR)/sd_voxin-module_utils_addvoice.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_utils_addvoice.c' object='sd_voxin-module_utils_addvoice.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_utils_addvoice.o `test -f 'module_utils_addvoice.c' || echo '$(srcdir)/'`module_utils_addvoice.c
+
+sd_voxin-module_utils_addvoice.obj: module_utils_addvoice.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sd_voxin-module_utils_addvoice.obj -MD -MP -MF $(DEPDIR)/sd_voxin-module_utils_addvoice.Tpo -c -o sd_voxin-module_utils_addvoice.obj `if test -f 'module_utils_addvoice.c'; then $(CYGPATH_W) 'module_utils_addvoice.c'; else $(CYGPATH_W) '$(srcdir)/module_utils_addvoice.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_voxin-module_utils_addvoice.Tpo $(DEPDIR)/sd_voxin-module_utils_addvoice.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='module_utils_addvoice.c' object='sd_voxin-module_utils_addvoice.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_voxin_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sd_voxin-module_utils_addvoice.obj `if test -f 'module_utils_addvoice.c'; then $(CYGPATH_W) 'module_utils_addvoice.c'; else $(CYGPATH_W) '$(srcdir)/module_utils_addvoice.c'; fi`
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -1121,6 +1657,20 @@ sd_kali-kali.obj: kali.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LTCXXCOMPILE) -c -o $@ $<
+
+sd_kali-kali.o: kali.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT sd_kali-kali.o -MD -MP -MF $(DEPDIR)/sd_kali-kali.Tpo -c -o sd_kali-kali.o `test -f 'kali.cpp' || echo '$(srcdir)/'`kali.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-kali.Tpo $(DEPDIR)/sd_kali-kali.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='kali.cpp' object='sd_kali-kali.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o sd_kali-kali.o `test -f 'kali.cpp' || echo '$(srcdir)/'`kali.cpp
+
+sd_kali-kali.obj: kali.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT sd_kali-kali.obj -MD -MP -MF $(DEPDIR)/sd_kali-kali.Tpo -c -o sd_kali-kali.obj `if test -f 'kali.cpp'; then $(CYGPATH_W) 'kali.cpp'; else $(CYGPATH_W) '$(srcdir)/kali.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-kali.Tpo $(DEPDIR)/sd_kali-kali.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='kali.cpp' object='sd_kali-kali.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o sd_kali-kali.obj `if test -f 'kali.cpp'; then $(CYGPATH_W) 'kali.cpp'; else $(CYGPATH_W) '$(srcdir)/kali.cpp'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -1274,7 +1824,7 @@ maintainer-clean-generic:
 clean: clean-am
 
 clean-am: clean-generic clean-libtool clean-modulebinPROGRAMS \
-	mostlyclean-am
+	clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
 		-rm -f ./$(DEPDIR)/baratinoo.Po
@@ -1288,22 +1838,51 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/ibmtts.Po
 	-rm -f ./$(DEPDIR)/ivona.Po
 	-rm -f ./$(DEPDIR)/ivona_client.Po
+	-rm -f ./$(DEPDIR)/module_config.Po
 	-rm -f ./$(DEPDIR)/module_main.Po
+	-rm -f ./$(DEPDIR)/module_process.Po
+	-rm -f ./$(DEPDIR)/module_readline.Po
 	-rm -f ./$(DEPDIR)/module_utils.Po
 	-rm -f ./$(DEPDIR)/module_utils_addvoice.Po
-	-rm -f ./$(DEPDIR)/module_utils_speak_queue.Po
+	-rm -f ./$(DEPDIR)/module_utils_play.Po
 	-rm -f ./$(DEPDIR)/pico.Po
-	-rm -f ./$(DEPDIR)/sd_ekho-ekho.Po
-	-rm -f ./$(DEPDIR)/sd_espeak_ng-espeak-ng.Po
+	-rm -f ./$(DEPDIR)/sd_espeak_ng-espeak.Po
+	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_config.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_readline.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_utils.Po
-	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Po
-	-rm -f ./$(DEPDIR)/sd_espeak_ng-spd_audio.Po
 	-rm -f ./$(DEPDIR)/sd_kali-kali.Po
+	-rm -f ./$(DEPDIR)/sd_kali-module_config.Po
 	-rm -f ./$(DEPDIR)/sd_kali-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_kali-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_kali-module_readline.Po
 	-rm -f ./$(DEPDIR)/sd_kali-module_utils.Po
-	-rm -f ./$(DEPDIR)/sd_kali-spd_audio.Po
-	-rm -f ./$(DEPDIR)/spd_audio.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-ibmtts.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_config.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_utils.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_utils_addvoice.Po
+	-rm -f ./$(DEPDIR)/skeleton0.Po
+	-rm -f ./$(DEPDIR)/skeleton_config.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -1360,22 +1939,51 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/ibmtts.Po
 	-rm -f ./$(DEPDIR)/ivona.Po
 	-rm -f ./$(DEPDIR)/ivona_client.Po
+	-rm -f ./$(DEPDIR)/module_config.Po
 	-rm -f ./$(DEPDIR)/module_main.Po
+	-rm -f ./$(DEPDIR)/module_process.Po
+	-rm -f ./$(DEPDIR)/module_readline.Po
 	-rm -f ./$(DEPDIR)/module_utils.Po
 	-rm -f ./$(DEPDIR)/module_utils_addvoice.Po
-	-rm -f ./$(DEPDIR)/module_utils_speak_queue.Po
+	-rm -f ./$(DEPDIR)/module_utils_play.Po
 	-rm -f ./$(DEPDIR)/pico.Po
-	-rm -f ./$(DEPDIR)/sd_ekho-ekho.Po
-	-rm -f ./$(DEPDIR)/sd_espeak_ng-espeak-ng.Po
+	-rm -f ./$(DEPDIR)/sd_espeak_ng-espeak.Po
+	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_config.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_readline.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_utils.Po
-	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_utils_speak_queue.Po
-	-rm -f ./$(DEPDIR)/sd_espeak_ng-spd_audio.Po
 	-rm -f ./$(DEPDIR)/sd_kali-kali.Po
+	-rm -f ./$(DEPDIR)/sd_kali-module_config.Po
 	-rm -f ./$(DEPDIR)/sd_kali-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_kali-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_kali-module_readline.Po
 	-rm -f ./$(DEPDIR)/sd_kali-module_utils.Po
-	-rm -f ./$(DEPDIR)/sd_kali-spd_audio.Po
-	-rm -f ./$(DEPDIR)/spd_audio.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async-skeleton0_espeak-ng-async.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_async_server-skeleton0_espeak-ng-async-server.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync-skeleton0_espeak-ng-sync.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_skeleton0_espeak_ng_sync_server-skeleton0_espeak-ng-sync-server.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-ibmtts.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_config.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_main.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_process.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_readline.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_utils.Po
+	-rm -f ./$(DEPDIR)/sd_voxin-module_utils_addvoice.Po
+	-rm -f ./$(DEPDIR)/skeleton0.Po
+	-rm -f ./$(DEPDIR)/skeleton_config.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
@@ -1398,15 +2006,16 @@ uninstall-am: uninstall-dist_snddataDATA uninstall-modulebinPROGRAMS
 
 .PHONY: CTAGS GTAGS TAGS all all-am am--depfiles check check-am clean \
 	clean-generic clean-libtool clean-modulebinPROGRAMS \
-	cscopelist-am ctags ctags-am distclean distclean-compile \
-	distclean-generic distclean-libtool distclean-tags distdir dvi \
-	dvi-am html html-am info info-am install install-am \
-	install-data install-data-am install-dist_snddataDATA \
-	install-dvi install-dvi-am install-exec install-exec-am \
-	install-html install-html-am install-info install-info-am \
-	install-man install-modulebinPROGRAMS install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
+	clean-noinstPROGRAMS cscopelist-am ctags ctags-am distclean \
+	distclean-compile distclean-generic distclean-libtool \
+	distclean-tags distdir dvi dvi-am html html-am info info-am \
+	install install-am install-data install-data-am \
+	install-dist_snddataDATA install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-man \
+	install-modulebinPROGRAMS install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
 	tags tags-am uninstall uninstall-am uninstall-dist_snddataDATA \
@@ -1423,6 +2032,16 @@ uninstall-am: uninstall-dist_snddataDATA uninstall-modulebinPROGRAMS
 
 @kali_shim_TRUE@@kali_support_TRUE@lib%.so: $(srcdir)/kali_%_shim.cpp
 @kali_shim_TRUE@@kali_support_TRUE@	$(CXX) -fPIC -shared $< -o $@ -I$(srcdir)/kali_shim
+
+@voxin_shim_TRUE@@voxin_support_TRUE@libvoxin.so: $(srcdir)/voxin_shim.c
+@voxin_shim_TRUE@@voxin_support_TRUE@	$(CC) -fPIC -shared $< -o $@
+
+@flite_dummy_message_TRUE@dummy-message.wav: dummy-message.txt
+@flite_dummy_message_TRUE@	$(FLITE) -voice slt -w $@ -f $<
+@espeak_dummy_message_TRUE@@flite_dummy_message_FALSE@dummy-message.wav: dummy-message.txt
+@espeak_dummy_message_TRUE@@flite_dummy_message_FALSE@	$(ESPEAK) -v en -w $@ -f $<
+@espeak_dummy_message_FALSE@@flite_dummy_message_FALSE@dummy-message.wav: dummy-message-default.wav
+@espeak_dummy_message_FALSE@@flite_dummy_message_FALSE@	cp $< $@
 
 -include $(top_srcdir)/git.mk
 

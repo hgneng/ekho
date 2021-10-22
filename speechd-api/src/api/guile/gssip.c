@@ -244,6 +244,8 @@ SSIP_SET_DECL(punctuation_mode, "punctuation-mode")
 			mode = SPD_PUNCT_NONE;
 		else if (!strcmp(c_value, "some"))
 			mode = SPD_PUNCT_SOME;
+		else if (!strcmp(c_value, "most"))
+			mode = SPD_PUNCT_MOST;
 		else if (!strcmp(c_value, "all"))
 			mode = SPD_PUNCT_ALL;
 		else

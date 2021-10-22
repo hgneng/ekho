@@ -185,6 +185,7 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     GLOBAL_FDSET_OPTION_CB_STR(AudioALSADevice, audio_alsa_device)
     GLOBAL_FDSET_OPTION_CB_STR(AudioNASServer, audio_nas_server)
     GLOBAL_FDSET_OPTION_CB_STR(AudioPulseServer, audio_pulse_server)
+    GLOBAL_FDSET_OPTION_CB_STR(AudioPulseDevice, audio_pulse_device)
     GLOBAL_FDSET_OPTION_CB_INT(AudioPulseMinLength, audio_pulse_min_length, 1, "")
 
     GLOBAL_FDSET_OPTION_CB_INT(DefaultRate, msg_settings.rate, (val >= -100)
@@ -207,9 +208,8 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultPunctuationMode,
 			       msg_settings.punctuation_mode, SPDPunctuation,
 			       str2EPunctMode)
-    GLOBAL_FDSET_OPTION_CB_INT(DefaultSymbolsPreprocessing, symbols_preprocessing,
-			       val == FALSE || val == TRUE,
-			       "Whether to use server-side symbols pre-processing")
+    GLOBAL_FDSET_OPTION_CB_SPECIAL(SymbolsPreproc, symbols_preprocessing,
+			       SymLvl,str2SymLvl)
     GLOBAL_FDSET_OPTION_CB_SPECIAL(DefaultCapLetRecognition,
 			       msg_settings.cap_let_recogn, SPDCapitalLetters,
 			       str2ECapLetRecogn)
@@ -222,6 +222,8 @@ GLOBAL_FDSET_OPTION_CB_STR(DefaultModule, output_module)
     GLOBAL_SET_LOGLEVEL(LogLevel, log_level, (val >= 0)
 			&& (val <= 5), "Invalid log (verbosity) level!")
     SPEECHD_OPTION_CB_INT(MaxHistoryMessages, max_history_messages, val >= 0,
+		      "Invalid parameter!")
+    SPEECHD_OPTION_CB_INT(MaxQueueSize, max_queue_size, val >= 0,
 		      "Invalid parameter!")
     SPEECHD_OPTION_CB_INT_M(Timeout, server_timeout, val >= 0, "Invalid timeout value!")
 
@@ -302,11 +304,11 @@ DOTCONF_CB(cb_CustomLogFile)
 	return NULL;
 }
 
-DOTCONF_CB(cb_SymbolPreprocessingFile)
+DOTCONF_CB(cb_SymbolsPreprocFile)
 {
 	if (cmd->data.list[0] == NULL) {
 		MSG(3,
-		    "No symbol preprocessing name specified in configuration under SymbolsPreprocessingFile");
+		    "No symbol preprocessing name specified in configuration under SymbolsPreprocFile");
 		return NULL;
 	}
 
@@ -328,7 +330,9 @@ DOTCONF_CB(cb_AddModule)
 				g_strdup(cmd->data.list[2]),
 				g_strdup_printf("%s/%s.log",
 						SpeechdOptions.log_dir,
-						cmd->data.list[0]));
+						cmd->data.list[0]),
+				NULL,
+				NULL);
 
 	return NULL;
 }
@@ -440,9 +444,10 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(DefaultLanguage, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultPriority, ARG_STR);
 	ADD_CONFIG_OPTION(MaxHistoryMessages, ARG_INT);
+	ADD_CONFIG_OPTION(MaxQueueSize, ARG_INT);
 	ADD_CONFIG_OPTION(DefaultPunctuationMode, ARG_STR);
-	ADD_CONFIG_OPTION(DefaultSymbolsPreprocessing, ARG_INT);
-	ADD_CONFIG_OPTION(SymbolPreprocessingFile, ARG_STR);
+	ADD_CONFIG_OPTION(SymbolsPreproc, ARG_STR);
+	ADD_CONFIG_OPTION(SymbolsPreprocFile, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultClientName, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultVoiceType, ARG_STR);
 	ADD_CONFIG_OPTION(DefaultSpelling, ARG_TOGGLE);
@@ -456,6 +461,7 @@ configoption_t *load_config_options(int *num_options)
 	ADD_CONFIG_OPTION(AudioALSADevice, ARG_STR);
 	ADD_CONFIG_OPTION(AudioNASServer, ARG_STR);
 	ADD_CONFIG_OPTION(AudioPulseServer, ARG_STR);
+	ADD_CONFIG_OPTION(AudioPulseDevice, ARG_STR);
 	ADD_CONFIG_OPTION(AudioPulseMinLength, ARG_INT);
 
 	ADD_CONFIG_OPTION(BeginClient, ARG_STR);
@@ -470,7 +476,7 @@ void load_default_global_set_options()
 {
 	GlobalFDSet.priority = SPD_MESSAGE;
 	GlobalFDSet.msg_settings.punctuation_mode = SPD_PUNCT_NONE;
-	GlobalFDSet.symbols_preprocessing = TRUE;
+	GlobalFDSet.symbols_preprocessing = SYMLVL_NONE;
 	GlobalFDSet.msg_settings.spelling_mode = 0;
 	GlobalFDSet.msg_settings.rate = 0;
 	GlobalFDSet.msg_settings.pitch = 0;
@@ -491,9 +497,11 @@ void load_default_global_set_options()
 	GlobalFDSet.audio_alsa_device = g_strdup("default");
 	GlobalFDSet.audio_nas_server = g_strdup("tcp/localhost:5450");
 	GlobalFDSet.audio_pulse_server = g_strdup("default");
-	GlobalFDSet.audio_pulse_min_length = 100;
+	GlobalFDSet.audio_pulse_device = g_strdup("default");
+	GlobalFDSet.audio_pulse_min_length = 10;
 
 	SpeechdOptions.max_history_messages = 10000;
+	SpeechdOptions.max_queue_size = 10000;
 
 	/* Options which are accessible from command line must be handled
 	   specially to make sure we don't overwrite them */

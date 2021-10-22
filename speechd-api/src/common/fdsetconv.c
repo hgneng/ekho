@@ -63,7 +63,7 @@ char *EVoice2str(SPDVoiceType voice)
 	return str;
 }
 
-SPDVoiceType str2EVoice(char *str)
+SPDVoiceType str2EVoice(const char *str)
 {
 	SPDVoiceType voice;
 
@@ -103,6 +103,9 @@ char *EPunctMode2str(SPDPunctuation punct)
 	case SPD_PUNCT_SOME:
 		str = g_strdup("some");
 		break;
+	case SPD_PUNCT_MOST:
+		str = g_strdup("most");
+		break;
 	default:
 		str = NULL;
 	}
@@ -110,7 +113,7 @@ char *EPunctMode2str(SPDPunctuation punct)
 	return str;
 }
 
-SPDPunctuation str2EPunctMode(char *str)
+SPDPunctuation str2EPunctMode(const char *str)
 {
 	SPDPunctuation punct;
 
@@ -120,6 +123,8 @@ SPDPunctuation str2EPunctMode(char *str)
 		punct = SPD_PUNCT_ALL;
 	else if (!strcmp(str, "some"))
 		punct = SPD_PUNCT_SOME;
+	else if (!strcmp(str, "most"))
+		punct = SPD_PUNCT_MOST;
 	else
 		punct = -1;
 
@@ -144,7 +149,7 @@ char *ESpellMode2str(SPDSpelling spell)
 	return str;
 }
 
-SPDSpelling str2ESpellMode(char *str)
+SPDSpelling str2ESpellMode(const char *str)
 {
 	SPDSpelling spell;
 
@@ -179,7 +184,7 @@ char *ECapLetRecogn2str(SPDCapitalLetters recogn)
 	return str;
 }
 
-SPDCapitalLetters str2ECapLetRecogn(char *str)
+SPDCapitalLetters str2ECapLetRecogn(const char *str)
 {
 	SPDCapitalLetters recogn;
 
@@ -195,7 +200,7 @@ SPDCapitalLetters str2ECapLetRecogn(char *str)
 	return recogn;
 }
 
-SPDPriority str2intpriority(char *str)
+SPDPriority str2intpriority(const char *str)
 {
 	SPDPriority priority;
 

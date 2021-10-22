@@ -8,10 +8,109 @@ symbols:
 🏽	ton cnis meánach	none
 🏾	ton cnis meándorcha	none
 🏿	ton cnis dorcha	none
-⚧	siombail thrasinsnceach	none
+℗	cóipcheart taifid fuaime	none
+←	saighead chlé	none
+→	saighead dheas	none
+↑	saighead dhírithe suas	none
+↓	saighead dhírithe síos	none
+↜	saighead chorrach ar chlé	none
+↝	saighead chorrach ar dheis	none
+↢	saighead eiteach ar chlé	none
+↣	saighead eiteach ar dheis	none
+↤	saighead ar chlé as barra	none
+↥	saighead suas as barra	none
+↦	saighead ar dheis as barra	none
+↧	saighead síos as barra	none
+↫	saighead lúbach ar chlé	none
+↬	saighead lúbach ar dheis	none
+↯	saighead fhiarlánach síos	none
+↶	saighead thuathal uachtar leathchiorcail	none
+↷	saighead dheiseal uachtar leathchiorcail	none
+↸	saighead siar ó thuaidh barra fada	none
+↼	harpún ar chlé friofac thuas	none
+↽	harpún ar chlé friofac thíos	none
+↾	harpún suas friofac ar dheis	none
+↿	harpún suas friofac ar chlé	none
+⇀	harpún ar dheis friofac thuas	none
+⇁	harpún ar dheis friofac thíos	none
+⇂	harpún síos friofac ar dheis	none
+⇃	harpún síos friofac ar chlé	none
+⇄	saighead ar dheis os cionn saighde ar chlé	none
+⇅	saighead suas agus saighead síos	none
+⇆	saighead chlé os cionn saighead dheas	none
+⇇	péire saighead ar chlé	none
+⇈	péire saighead suas	none
+⇉	péire saighead ar dheis	none
+⇊	péire saighead síos	none
+⇋	harpún ar chlé os cionn harpúin ar dheis	none
+⇌	harpún ar dheis os cionn harpúin ar chlé	none
+⇐	saighead dhúbailte ar chlé	none
+⇑	saighead dhúbailte suas	none
+⇒	saighead dhúbailte ar dheis	none
+⇓	saighead dhúbailte síos	none
+⇖	saighead dhúbailte siar ó thuaidh	none
+⇗	saighead dhúbailte soir ó thuaidh	none
+⇘	saighead dhúbailte soir ó dheas	none
+⇙	saighead dhúbailte siar ó dheas	none
+∂	páirtdifreálach	none
+∃	is ann do	none
+∅	tacar folamh	none
+∆	incrimint	none
+∇	nabla	none
+∈	ball de	none
+∉	ní ball de	none
+≠	míchothrom	none
+−	comhartha lúide	none
+⁻	lúide forscríofa	none
+∓	lúide nó móide	none
+√	fréamh chearnach	none
+∞	comhartha éigríche	none
+∟	dronuillinn	none
+∠	uillinn	none
+∥	línte comhthreomhara	none
+∩	idirmhír	none
+∪	aontas	none
+∫	suimeálaí	none
+∬	suimeálaí dúbailte	none
+∮	cuarshuimeálaí	none
+∶	cóimheas	none
+∷	comhréir	none
+≈	beagnach cothrom le	none
+≡	comhionann le	none
+≤	níos lú ná nó cothrom le	none
+≥	níos mó ná nó cothrom le	none
+≬	idir	none
+⊂	fo-thacar de chuid	none
+⊃	forthacar	none
+⊹	maitrís chomhchuingeach Hermite	none
+⊿	triantán dronuilleach	none
+■	cearnóg líonta	none
+□	cearnóg tholl	none
+▬	dronuilleog líonta	none
+▭	dronuilleog tholl	none
+▮	dronuilleog ingearach líonta	none
+▰	comhthreomharán líonta	none
+▲	triantán líonta lena rinn suas	none
+▼	triantán líonta lena rinn síos	none
+◆	muileata líonta	none
+◇	muileata toll	none
+◈	muileata toll a bhfuil muileata líonta istigh ann	none
+◉	ciorcal toll a bhfuil ciorcal líonta istigh ann	none
+◊	muileata	none
+○	ciorcal toll	none
+◌	ciorcal poncanna	none
+◎	súil sprice	none
+●	ciorcal líonta	none
+◖	leathchiorcal clé líonta	none
+◗	leathchiorcal deis líonta	none
+◦	urchar toll	none
+◯	ciorcal mór toll	none
+♪	nóta ochtach	none
+♭	nóta maol	none
+♯	géar	none
 😀	straoiseog ghealgháireach	none
 😃	straoiseog ag gáire le súile móra	none
-😄	straoiseog ag gáire le súile le miongháire	none
+😄	straoiseog ag gáire le súile gealgháireacha uirthi	none
 😁	straoiseog gháire le súile & miongháire	none
 😆	straoiseog ag gáire le súile dúnta	none
 😅	straoiseog ag gáire le fuarallas	none
@@ -30,6 +129,7 @@ symbols:
 ☺	straoiseog ag miongháire	none
 😚	straoiseog ag pógadh le súile dúnta	none
 😙	straoiseog ag pógadh le súile le miongháire	none
+🥲	straoiseog shásta le deora	none
 😋	straoiseog ag baint taitneamh as bia blasta	none
 😛	straoiseog le teanga amach	none
 😜	straoiseog ag caochadh le teanga amach	none
@@ -38,17 +138,19 @@ symbols:
 🤑	straoiseog le hairgead ina béal	none
 🤗	straoiseog ag tabhairt barróige	none
 🤭	straoiseog lena lámh ar a béal	none
-🤫	straoiseog chiúin	none
+🤫	straoiseog do do chur i do thost	none
 🤔	straoiseog ag smaoineamh	none
 🤐	straoiseog le béal zipeáilte	none
 🤨	straoiseog le mala ardaithe	none
 😐	straoiseog neodrach	none
 😑	straoiseog le haghaidh fholamh	none
 😶	straoiseog gan bhéal	none
+😶‍🌫	aghaidh sna scamaill	none
 😏	straoiseog ag déanamh seitgháire	none
 😒	straoiseog mhíshásta	none
 🙄	straoiseog le súile ag casadh	none
 😬	straoiseog le cár uirthi	none
+😮‍💨	aghaidh ag análú	none
 🤥	straoiseog ag insint bréag	none
 😌	straoiseog a bhfuil faoiseamh uirthi	none
 😔	straoiseog mhachnamhach	none
@@ -65,9 +167,11 @@ symbols:
 🥶	straoiseog fhuar	none
 🥴	straoiseog trína chéile	none
 😵	straoiseog mheadhránach	none
+😵‍💫	aghaidh le súile bíse	none
 🤯	straoiseog lena ceann ag pléasadh	none
 🤠	straoiseog le hata buachaill bó	none
 🥳	straoiseog chóisireachta	none
+🥸	straiseog faoi bhréagriocht	none
 😎	straoiseog ag gáire le spéaclaí gréine	none
 🤓	straoiseog shaoithíneach	none
 🧐	straoiseog le leathspéacla	none
@@ -135,8 +239,10 @@ symbols:
 💟	maisiúchán croí	none
 ❣	comhartha uaillbhreasa croí	none
 💔	croíbhriste	none
+❤‍🔥	croí trí thine	none
+❤‍🩹	croí deisithe	none
 ❤	croí dearg	none
-🧡	croí oráiste	none
+🧡	croí flannbhuí	none
 💛	croí buí	none
 💚	croí glas	none
 💙	croí gorm	none
@@ -164,8 +270,9 @@ symbols:
 ✋	lámh ardaithe	none
 🖖	cuirtéis Bholcáin	none
 👌	lámh OK	none
+🤌	méara fáiscthe le chéile	none
 🤏	lámh ag pinseáil	none
-✌	lámh síochána	none
+✌	comhartha an bhua	none
 🤞	méarsa trasna	none
 🤟	comhartha grá	none
 🤘	siombail na n-adharc	none
@@ -190,7 +297,7 @@ symbols:
 🙏	lámha le chéile	none
 ✍	lámh scríbhneoireachta	none
 💅	vearnais ingne	none
-🤳	féinphic	none
+🤳	féinín	none
 💪	bícéips lúbtha	none
 🦾	lámh mheicniúil	none
 🦿	cos mheicniúil	none
@@ -200,6 +307,8 @@ symbols:
 🦻	cluas le háis éisteachta	none
 👃	srón	none
 🧠	inchinn	none
+🫀	croí anatamaíoch	none
+🫁	scámhóga	none
 🦷	fiacal	none
 🦴	cnámh	none
 👀	súile	none
@@ -213,9 +322,11 @@ symbols:
 🧑	aosach	none
 👱	duine gruaig fhionn	none
 👨	fear	none
-🧔	fear feasóg	none
+🧔	duine feasóg	none
+🧔‍♂	fear feasóg	none
 👱‍♂	fear gruaig fhionn	none
 👩	bean	none
+🧔‍♀	bean feasóg	none
 👱‍♀	bean gruaig fhionn	none
 🧓	seanduine	none
 👴	seanfhear	none
@@ -238,7 +349,7 @@ symbols:
 🙋	duine lena lámh suas	none
 🙋‍♂	fear lena lámh suas	none
 🙋‍♀	bean lena lámh suas	none
-🧏	duine dall	none
+🧏	duine bodhar	none
 🧏‍♂	fear bodhar	none
 🧏‍♀	bean bhodhar	none
 🙇	duine ag umhlú	none
@@ -247,7 +358,7 @@ symbols:
 🤦	duine lena aghaidh ina bhos	none
 🤦‍♂	fear lena aghaidh ina bhos	none
 🤦‍♀	bean lena haghaidh ina bos	none
-🤷	duine ag croitheadh	none
+🤷	duine ag croitheadh a ghuaillí	none
 🤷‍♂	fear ag croitheadh	none
 🤷‍♀	bean ag croitheadh	none
 🧑‍⚕	oibrí sláinte	none
@@ -307,6 +418,7 @@ symbols:
 💂	garda an rí	none
 💂‍♂	garda oifigeach	none
 💂‍♀	bangharda oifigeach	none
+🥷	ninja	none
 👷	tógálaí	none
 👷‍♂	tógálaí fireann	none
 👷‍♀	tógálaí baineann	none
@@ -317,17 +429,25 @@ symbols:
 👳‍♀	bean le turban uirthi	none
 👲	fear le gua pi mao air	none
 🧕	bean le caifirín	none
-🤵	fear le culaith air	none
-👰	brídeog le caille uirthi	none
+🤵	duine a bhfuil culaith dhinnéir air	none
+🤵‍♂	fear a bhfuil culaith dhinnéir air	none
+🤵‍♀	bean a bhfuil culaith dhinnéir uirthi	none
+👰	duine le caille air	none
+👰‍♂	fear a bhfuil caille air	none
+👰‍♀	bean a bhfuil caille uirthi	none
 🤰	bean ag iompar clainne	none
 🤱	cothú cíche	none
+👩‍🍼	bean ag beathú linbh	none
+👨‍🍼	fear ag beathú linbh	none
+🧑‍🍼	duine ag beathú linbh	none
 👼	aingeal óg	none
 🎅	Daidí na Nollag	none
 🤶	Bean Uí Claus	none
+🧑‍🎄	Saintí	none
 🦸	sárlaoch	none
 🦸‍♂	fear-sárlaoch	none
 🦸‍♀	ban-sárlaoch	none
-🦹	an-drochdhuine	none
+🦹	sárbhithiúnach	none
 🦹‍♂	fear-dhrochdhuine	none
 🦹‍♀	ban-drochdhuine	none
 🧙	duine draíochta	none
@@ -448,6 +568,7 @@ symbols:
 🗣	ceann ag caint	none
 👤	scáthchruth cinn	none
 👥	scáthchruth ceann	none
+🫂	daoine ag tabhairt barróige	none
 👣	loirg choise	none
 🦰	gruaig rua	none
 🦱	gruaig chatach	none
@@ -467,6 +588,7 @@ symbols:
 🦝	racún	none
 🐱	aghaidh cait	none
 🐈	cat	none
+🐈‍⬛	cat dubh	none
 🦁	aghaidh leoin	none
 🐯	aghaidh tíogair	none
 🐅	tíogar	none
@@ -476,6 +598,7 @@ symbols:
 🦄	aghaidh aonbheannaigh	none
 🦓	séabra	none
 🦌	fia	none
+🦬	bíosún	none
 🐮	aghaidh bó	none
 🐂	damh	none
 🐃	buabhall uisce	none
@@ -492,6 +615,7 @@ symbols:
 🦙	láma	none
 🦒	sioráf	none
 🐘	eilifint	none
+🦣	mamat	none
 🦏	srónbheannach	none
 🦛	dobhareach	none
 🐭	aghaidh luiche	none
@@ -501,9 +625,11 @@ symbols:
 🐰	aghaidh coinín	none
 🐇	coinín	none
 🐿	iora talún	none
+🦫	béabhar	none
 🦔	gráinneog	none
 🦇	ialtóg	none
 🐻	aghaidh béair	none
+🐻‍❄	béar bán	none
 🐨	cóála	none
 🐼	aghaidh panda	none
 🦥	spadán	none
@@ -525,6 +651,8 @@ symbols:
 🦆	lacha	none
 🦢	eala	none
 🦉	ulchabhán	none
+🦤	dódó	none
+🪶	cleite	none
 🦩	lasairéan	none
 🦚	péacóg	none
 🦜	pearóid	none
@@ -540,6 +668,7 @@ symbols:
 🐳	míol mór ag séideadh	none
 🐋	míol mór	none
 🐬	deilf	none
+🦭	rón	none
 🐟	iasc	none
 🐠	iasc teochreasa	none
 🐡	iasc torcánach	none
@@ -551,12 +680,16 @@ symbols:
 🐛	míol	none
 🐜	seangán	none
 🐝	beach mheala	none
+🪲	ciaróg	none
 🐞	bóín	none
 🦗	criogar	none
+🪳	blatóg choiteann	none
 🕷	damhán alla	none
 🕸	líon damháin alla	none
 🦂	scairp	none
 🦟	muiscít	none
+🪰	cuileog	none
+🪱	péist	none
 🦠	miocrób	none
 💐	crobhaing bláthanna	none
 🌸	bláth silíní	none
@@ -569,6 +702,7 @@ symbols:
 🌼	bláthú	none
 🌷	tiúilip	none
 🌱	síolphlanda	none
+🪴	planda pota	none
 🌲	crann síorghlas	none
 🌳	crann duillsilteach	none
 🌴	pailm	none
@@ -594,8 +728,10 @@ symbols:
 🍑	péitseog	none
 🍒	silíní	none
 🍓	sú talún	none
+🫐	fraochán	none
 🥝	cíobhaí	none
 🍅	tráta	none
+🫒	ológ	none
 🥥	cnó cócó	none
 🥑	abhacád	none
 🍆	ubhthoradh	none
@@ -603,8 +739,9 @@ symbols:
 🥕	meacan dearg	none
 🌽	dias arbhair	none
 🌶	píobar te	none
+🫑	piobar	none
 🥒	cúcamar	none
-🥬	glas duilleach	none
+🥬	glasra duilleach	none
 🥦	brocailí	none
 🧄	gairleog	none
 🧅	oiniún	none
@@ -614,6 +751,7 @@ symbols:
 🍞	arán	none
 🥐	croissant	none
 🥖	baguette	none
+🫓	arán leathan	none
 🥨	preatsal	none
 🥯	béigeal	none
 🥞	pancóga	none
@@ -630,12 +768,14 @@ symbols:
 🥪	ceapaire	none
 🌮	taco	none
 🌯	burrito	none
+🫔	tamale	none
 🥙	arán leathan stuáilte	none
 🧆	falafel	none
 🥚	ubh	none
 🍳	cócaireacht	none
 🥘	panna tanaí le bia	none
 🍲	pota le bia	none
+🫕	fondú	none
 🥣	babhla le spúnóg	none
 🥗	sailéad	none
 🍿	grán rósta	none
@@ -681,19 +821,21 @@ symbols:
 🍼	buidéal babaí	none
 🥛	gloine bainne	none
 ☕	deoch the	none
+🫖	taephota	none
 🍵	cupán gan chluas	none
-🍶	sake	none
+🍶	sáicí	none
 🍾	buidéal le corc ag popáil	none
 🍷	gloine fíona	none
 🍸	gloine mhanglaim	none
 🍹	deoch thrópaiceach	none
 🍺	pionta beorach	none
 🍻	gloiní beorach	none
-🥂	gloiní	none
+🥂	gloiní a ghligleáil	none
 🥃	gloine	none
 🥤	cupán le sop	none
+🧋	tae bolgán	none
 🧃	bosca dí	none
-🧉	comráidí	none
+🧉	maité	none
 🧊	ciúb oighir	none
 🥢	cipíní itheacháin	none
 🍽	forc agus scian le pláta	none
@@ -721,6 +863,9 @@ symbols:
 🏛	foirgneamh clasaiceach	none
 🏗	foirgníocht	none
 🧱	bríce	none
+🪨	carraig	none
+🪵	adhmad	none
+🛖	bothán	none
 🏘	tithe	none
 🏚	teach tréigthe	none
 🏠	teach	none
@@ -743,7 +888,7 @@ symbols:
 🗽	Dealbh na Saoirse	none
 ⛪	séipéal	none
 🕌	mosc	none
-🛕	teampall hindu	none
+🛕	teampall hiondúch	none
 🕍	sionagóg	none
 ⛩	scrín Sinteochais	none
 🕋	cába	none
@@ -788,6 +933,7 @@ symbols:
 🚗	gluaisteán	none
 🚘	gluaisteán atá ag teacht	none
 🚙	SUV	none
+🛻	trucail oscailte	none
 🚚	trucail seachadta	none
 🚛	leoraí	none
 🚜	tarracóir	none
@@ -800,6 +946,7 @@ symbols:
 🚲	rothar	none
 🛴	scútar gan inneall	none
 🛹	clár scátála	none
+🛼	scáta rothach	none
 🚏	stad bus	none
 🛣	mótarbhealach	none
 🛤	iarnród	none
@@ -881,7 +1028,7 @@ symbols:
 🌝	aghaidh na gealaí láine	none
 🌞	an ghrian le haghaidh	none
 🪐	pláinéad le fáinne	none
-⭐	meánréalta bhán	none
+⭐	réalta	none
 🌟	réalta ag lonrú	none
 🌠	réalta reatha	none
 🌌	Bealach na Bó Finne	none
@@ -911,7 +1058,7 @@ symbols:
 🔥	tine	none
 💧	braoinín	none
 🌊	tonn san uisce	none
-🎃	Oíche Shamhna	none
+🎃	Seán na gealaí	none
 🎄	crann Nollag	none
 🎆	tine ealaíne	none
 🎇	spréachaire	none
@@ -919,13 +1066,13 @@ symbols:
 ✨	drithlí	none
 🎈	balún	none
 🎉	pléiscín cóisire	none
-🎊	confetti	none
-🎋	stiallacha páipéir	none
-🎍	maisiúchán	none
+🎊	meall coinfití	none
+🎋	crann tanabata	none
+🎍	maisiúchán péine	none
 🎎	babóga Seapánacha	none
 🎏	sraoilleán éisc	none
 🎐	clingíní gaoithe	none
-🎑	gealach	none
+🎑	deasghnáth amhairc ar an ngealach	none
 🧧	clúdach litreach dearg	none
 🎀	ribín	none
 🎁	bronntanas	none
@@ -955,7 +1102,7 @@ symbols:
 🏓	ping pang	none
 🏸	badmantan	none
 🥊	lámhainn dornálaíochta	none
-🥋	karate	none
+🥋	culaith ealaíne troda	none
 🥅	cúl	none
 ⛳	brat i bpoll	none
 ⛸	scátáil oighir	none
@@ -965,11 +1112,12 @@ symbols:
 🎿	scíonna	none
 🛷	sleamhnán	none
 🥌	cloch churlála	none
-🎯	súil sprice	none
+🎯	buille díreach	none
 🪀	yó-yó	none
 🪁	eitleog	none
 🎱	liathróid 8 púil	none
 🔮	cruinneog chriostail	none
+🪄	slat draíochta	none
 🧿	briocht nazar	none
 🎮	cluiche ríomhaire	none
 🕹	luamhán stiúrtha	none
@@ -977,6 +1125,8 @@ symbols:
 🎲	dísle	none
 🧩	mír mearaí	none
 🧸	béirín	none
+🪅	piñata	none
+🪆	bábóga Rúiseacha	none
 ♠	dath spéireata	none
 ♥	dath hairt	none
 ♦	dath muileata	none
@@ -989,7 +1139,9 @@ symbols:
 🖼	pictiúr i bhfráma	none
 🎨	pailéad dathanna	none
 🧵	snáth	none
+🪡	snáthaid fuála	none
 🧶	abhras	none
+🪢	snaidhm	none
 👓	spéaclaí	none
 🕶	spéaclaí gréine	none
 🥽	spéaclaí cosanta	none
@@ -1004,7 +1156,7 @@ symbols:
 🧦	stocaí	none
 👗	gúna	none
 👘	cimeonó	none
-🥻	sari	none
+🥻	sáirí	none
 🩱	culaith shnámha aonphíosa	none
 🩲	culaith shnámha fir	none
 🩳	brístí gearra	none
@@ -1015,6 +1167,7 @@ symbols:
 👝	mála	none
 🛍	málaí siopadóireachta	none
 🎒	mála scoile	none
+🩴	cuarán	none
 👞	bróg fir	none
 👟	bróg reatha	none
 🥾	buatais siúlóireachta	none
@@ -1028,6 +1181,7 @@ symbols:
 🎩	hata ard	none
 🎓	caipín bronnta céime	none
 🧢	caipín speiceach	none
+🪖	clogad míleata	none
 ⛑	clogad tarrthálaí	none
 📿	paidrín urnaí	none
 💄	béaldath	none
@@ -1052,16 +1206,18 @@ symbols:
 🎧	cluasáin	none
 📻	raidió	none
 🎷	sacsafón	none
+🪗	bosca ceoil	none
 🎸	giotár	none
 🎹	pianó	none
 🎺	trumpa	none
 🎻	veidhlín	none
 🪕	bainseó	none
 🥁	druma	none
+🪘	druma fada	none
 📱	guthán	none
 📲	guthán le saighead	none
 ☎	teileafón	none
-📞	fón	none
+📞	glacadán fóin	none
 📟	glaoire	none
 📠	meaisín facsála	none
 🔋	ceallra	none
@@ -1098,7 +1254,7 @@ symbols:
 📖	leabhar oscailte	none
 📗	leabhar glas	none
 📘	leabhar gorm	none
-📙	leabhar oráiste	none
+📙	leabhar flannbhuí	none
 📚	leabhair	none
 📓	leabhar nótaí	none
 📒	mórleabhar	none
@@ -1111,6 +1267,7 @@ symbols:
 🔖	leabharmharc	none
 🏷	lipéad	none
 💰	mála airgead	none
+🪙	bonn	none
 💴	nóta bainc yen	none
 💵	nóta bainc dollair	none
 💶	nóta bainc euro	none
@@ -1119,8 +1276,6 @@ symbols:
 💳	cárta creidmheasa	none
 🧾	admháil	none
 💹	margadh ag méadú le yen	none
-💱	malartán airgeadra	none
-💲	comhartha dollair trom	none
 ✉	clúdach litreach	none
 📧	ríomhphost	none
 📨	post isteach	none
@@ -1178,18 +1333,23 @@ symbols:
 🗡	miodóg	none
 ⚔	claimhte crosáilte	none
 🔫	piostal	none
+🪃	búmarang	none
 🏹	saighead is bogha	none
 🛡	sciath	none
+🪚	sábh cearpantóireachta	none
 🔧	rinse	none
+🪛	scriúire	none
 🔩	cnó agus bolta	none
 ⚙	giar	none
 🗜	clampa	none
 ⚖	scála	none
-🦯	cána	none
+🦯	cána bán	none
 🔗	nasc	none
 ⛓	slabhraí	none
+🪝	crúca	none
 🧰	bosca uirlisí	none
 🧲	maighnéad	none
+🪜	dréimire	none
 ⚗	leamóg	none
 🧪	triaileadán	none
 🧫	mias Petri	none
@@ -1203,26 +1363,35 @@ symbols:
 🩹	bindealán greamaitheach	none
 🩺	steiteascóp	none
 🚪	doras	none
+🛗	ardaitheoir	none
+🪞	scáthán	none
+🪟	fuinneog	none
 🛏	leaba	none
 🛋	tolg agus lampa	none
 🪑	cathaoir	none
 🚽	leithreas	none
+🪠	suncaire	none
 🚿	cithfholcadán	none
 🛁	folcadán	none
+🪤	gaiste luchóg	none
 🪒	rásúr	none
 🧴	buidéal lóise	none
 🧷	biorán dúnta	none
 🧹	scruab	none
 🧺	ciseán	none
 🧻	rolla páipéir	none
+🪣	buicéad	none
 🧼	sópa	none
+🪥	scuab fiacla	none
 🧽	spúinse	none
 🧯	múchtóir tine	none
 🛒	tralaí	none
 🚬	toitín	none
 ⚰	cónra	none
+🪦	leac uaighe	none
 ⚱	próca	none
 🗿	dealbh Oileán na Cásca	none
+🪧	plaiceard	none
 🏧	comhartha ATM	none
 🚮	comhartha bosca bruscair	none
 🚰	uisce inólta	none
@@ -1321,8 +1490,19 @@ symbols:
 📴	fón casta as	none
 ♀	comhartha baineann	none
 ♂	comhartha fireann	none
-⚕	siombail leighis	none
+⚧	siombail thrasinsnce	none
+✖	comhartha iolrúcháin	none
+➕	móide	none
+➖	lúide	none
+➗	roinnte	none
 ♾	éigríoch	none
+❓	comhartha ceiste dearg	none
+❔	comhartha ceiste bán	none
+❕	comhartha uailbhresa bán	none
+❗	comhartha uaillbhreasa dearg	none
+💱	malartán airgeadra	none
+💲	comhartha dollair trom	none
+⚕	siombail leighis	none
 ♻	siombail athchúrsála	none
 ⚜	fleur-de-lis	none
 🔱	comhartha trírinne	none
@@ -1332,27 +1512,13 @@ symbols:
 ✅	cnaipe ticmhairc	none
 ☑	bosca ballóide le tic	none
 ✔	ticmharc	none
-✖	comhartha iolrúcháin	none
 ❌	crosmharc	none
 ❎	cnaipe crosmhairc	none
-➕	comhartha móide	none
-➖	comhartha lúide	none
-➗	comhartha roinnte	none
 ➰	lúb chatach	none
 ➿	lúb dhúbailte chatach	none
-〽	cuid de mharc ailtéarnaithe	none
 ✳	réiltín le hocht spóca	none
 ✴	réalta le hocht bpointe	none
 ❇	gealán	none
-‼	comhartha uaillbhreasa dúbailte	none
-⁉	comhartha ceiste agus uaillbhreasa	none
-❓	comhartha ceiste	none
-❔	comhartha ceiste bán	none
-❕	comhartha uailbhresa bán	none
-❗	comhartha uaillbhreasa	none
-〰	dais chorrach	none
-©	cóipcheart	none
-®	cláraithe	none
 ™	comhartha trádmhairc	none
 🔠	ceannlitreacha Laidineacha ionchuir	none
 🔡	mionlitreacha Laidineacha ionchuir	none
@@ -1363,7 +1529,7 @@ symbols:
 🆎	fuilghrúpa AB	none
 🅱	fuilghrúpa B	none
 🆑	CL	none
-🆒	cnaipe CÚLÁITE	none
+🆒	cnaipe CÚLÁILTE	none
 🆓	cnaipe SAOR IN AISCE	none
 ℹ	foinse eolais	none
 🆔	cnaipe aitheantais	none
@@ -1376,25 +1542,8 @@ symbols:
 🆘	SOS	none
 🆙	cnaipe THUAS!	none
 🆚	cnaipe VS	none
-🈁	cnaipe Seapáinise "anseo"	none
-🈂	cnaipe Seapáinise "táille seirbhíse"	none
-🈷	cnaipe Seapáinise "méid míosúil"	none
-🈶	cnaipe Seapáinise "nach bhfuil saor in aisce"	none
-🈯	cnaipe Seapáinise "coinnithe"	none
-🉐	cnaipe Seapáinise "sladmhargadh"	none
-🈹	cnaipe Seapáinise "lascaine"	none
-🈚	cnáipe Seapáinise "saor in aisce"	none
-🈲	cnaipe Seapáinise "cosc"	none
-🉑	cnaipe Seapáinise "inghlactha"	none
-🈸	cnaipe Seapáinise "iarratas"	none
-🈴	cnaipe Seapáinise "pasmharc"	none
-🈳	cnaipe Seapáinise "folúntas"	none
-㊗	cnaipe Seapáinise "comhghairdeas"	none
-㊙	cnaipe Seapáinise "rún"	none
-🈺	cnaipe Seapáinise "oscailte le haghaidh gnó"	none
-🈵	cnaipe Seapáinise "níl aon fholúntas"	none
 🔴	ciorcal dearg	none
-🟠	ciorcal oráiste	none
+🟠	ciorcal flannbhuí	none
 🟡	ciorcal buí	none
 🟢	ciorcal glas	none
 🔵	ciorcal gorm	none
@@ -1403,7 +1552,7 @@ symbols:
 ⚫	ciorcal dubh	none
 ⚪	ciorcal bán	none
 🟥	cearnóg dhearg	none
-🟧	cearnóg oráiste	none
+🟧	cearnóg fhlannbhuí	none
 🟨	cearnóg bhuí	none
 🟩	cearnóg ghlas	none
 🟦	cearnóg ghorm	none
@@ -1417,9 +1566,9 @@ symbols:
 ◽	meánchearnóg bheag bhán	none
 ▪	cearnóg dhubh bheag	none
 ▫	cearnóg bhán bheag	none
-🔶	muileata mór oráiste	none
+🔶	muileata mór flannbhuí	none
 🔷	muileata mór gorm	none
-🔸	muileata beag oráiste	none
+🔸	muileata beag flannbhuí	none
 🔹	muileata beag gorm	none
 🔺	triantán dearg suas	none
 🔻	triantán dearg síos	none
@@ -1432,63 +1581,23 @@ symbols:
 🎌	bratacha trasnaithe	none
 🏴	bratach dhubh	none
 🏳	bratach bhán	none
-🏳‍⚧	bratach ghorm, bhándearg agus bhán	none
 🏳‍🌈	bratach ildaite	none
+🏳‍⚧	bratach ghorm, bhándearg agus bhán	none
 🏴‍☠	bratach foghlaithe	none
-🛖	bothán	none
-🛗	ardaitheoir	none
-🛻	trucail oscailte	none
-🛼	scáta rothach	none
-🤌	meára tnáite	none
-🥲	straoiseog shásta le deora	none
-🥸	straiseog faoi bhréagriocht	none
-🦣	mamat	none
-🦤	dódó	none
-🦫	béabhar	none
-🦬	bíosún	none
-🦭	rón	none
-🧋	tae bolgán	none
-🩴	cuarán	none
-🪃	búmarang	none
-🪄	slat draíochta	none
-🪅	piñata	none
-🪆	bábóga Rúiseacha	none
-🪖	clogad míleata	none
-🪗	bosca ceoil	none
-🪘	druma fada	none
-🪙	bonn	none
-🪚	sábh cearpantóireachta	none
-🪛	scriúire	none
-🪜	dréimire	none
-🪝	crúca	none
-🪞	scáthán	none
-🪟	fuinneog	none
-🪠	suncaire	none
-🪡	snáthaid fuála	none
-🪢	snaidhm	none
-🪣	buicéad	none
-🪤	gaiste luchóg	none
-🪥	scuab fiacla	none
-🪦	leac uaighe	none
-🪧	plaiceard	none
-🪨	carraig	none
-🪰	cuileog	none
-🪱	péist	none
-🪲	ciaróg	none
-🪳	blatóg choiteann	none
-🪴	planda potaithe	none
-🪵	adhmad	none
-🪶	cleite	none
-🫀	croí	none
-🫁	scámhóga	none
-🫂	daoine ag tabhairt barróige	none
-🫐	fraochán	none
-🫑	piobar	none
-🫒	ológ	none
-🫓	arán cothrom	none
-🫔	tamale	none
-🫕	fondú	none
-🫖	taephota	none
+₢	cruzeiro	none
+₣	franc na Fraince	none
+₤	lira	none
+₥	mil	none
+₩	won	none
+€	euro	none
+₰	pingin na Gearmáine	none
+₱	peso	none
+₳	austral	none
+₷	spesmilo	none
+₹	rúipí na hIndia	none
+₽	rúbal	none
+₿	bonn giotáin	none
+₨	rúipí	none
 👋🏻	lámh ag croitheadh ton cnis geal	none
 👋🏼	lámh ag croitheadh ton cnis mheánach-gheal	none
 👋🏽	lámh ag croitheadh ton cnis meánach	none
@@ -1519,16 +1628,21 @@ symbols:
 👌🏽	lámh OK ton cnis meánach	none
 👌🏾	lámh OK ton cnis meándorcha	none
 👌🏿	lámh OK ton cnis dorcha	none
+🤌🏻	méara fáiscthe le chéile ton cnis geal	none
+🤌🏼	méara fáiscthe le chéile ton cnis mheánach-gheal	none
+🤌🏽	méara fáiscthe le chéile ton cnis meánach	none
+🤌🏾	méara fáiscthe le chéile ton cnis meándorcha	none
+🤌🏿	méara fáiscthe le chéile ton cnis dorcha	none
 🤏🏻	lámh ag pinseáil ton cnis geal	none
 🤏🏼	lámh ag pinseáil ton cnis mheánach-gheal	none
 🤏🏽	lámh ag pinseáil ton cnis meánach	none
 🤏🏾	lámh ag pinseáil ton cnis meándorcha	none
 🤏🏿	lámh ag pinseáil ton cnis dorcha	none
-✌🏻	lámh síochána ton cnis geal	none
-✌🏼	lámh síochána ton cnis mheánach-gheal	none
-✌🏽	lámh síochána ton cnis meánach	none
-✌🏾	lámh síochána ton cnis meándorcha	none
-✌🏿	lámh síochána ton cnis dorcha	none
+✌🏻	comhartha an bhua ton cnis geal	none
+✌🏼	comhartha an bhua ton cnis mheánach-gheal	none
+✌🏽	comhartha an bhua ton cnis meánach	none
+✌🏾	comhartha an bhua ton cnis meándorcha	none
+✌🏿	comhartha an bhua ton cnis dorcha	none
 🤞🏻	méarsa trasna ton cnis geal	none
 🤞🏼	méarsa trasna ton cnis mheánach-gheal	none
 🤞🏽	méarsa trasna ton cnis meánach	none
@@ -1644,11 +1758,11 @@ symbols:
 💅🏽	vearnais ingne ton cnis meánach	none
 💅🏾	vearnais ingne ton cnis meándorcha	none
 💅🏿	vearnais ingne ton cnis dorcha	none
-🤳🏻	féinphic ton cnis geal	none
-🤳🏼	féinphic ton cnis mheánach-gheal	none
-🤳🏽	féinphic ton cnis meánach	none
-🤳🏾	féinphic ton cnis meándorcha	none
-🤳🏿	féinphic ton cnis dorcha	none
+🤳🏻	féinín ton cnis geal	none
+🤳🏼	féinín ton cnis mheánach-gheal	none
+🤳🏽	féinín ton cnis meánach	none
+🤳🏾	féinín ton cnis meándorcha	none
+🤳🏿	féinín ton cnis dorcha	none
 💪🏻	bícéips lúbtha ton cnis geal	none
 💪🏼	bícéips lúbtha ton cnis mheánach-gheal	none
 💪🏽	bícéips lúbtha ton cnis meánach	none
@@ -1709,6 +1823,46 @@ symbols:
 👱🏽	duine ton cnis meánach, gruaig fhionn	none
 👱🏾	duine ton cnis meándorcha, gruaig fhionn	none
 👱🏿	duine ton cnis dorcha, gruaig fhionn	none
+🧑🏻‍❤‍💋‍🧑🏼	póg aosach, aosach, ton cnis geal, ton cnis mheánach-gheal	none
+🧑🏻‍❤‍💋‍🧑🏽	póg aosach, aosach, ton cnis geal, ton cnis meánach	none
+🧑🏻‍❤‍💋‍🧑🏾	póg aosach, aosach, ton cnis geal, ton cnis meándorcha	none
+🧑🏻‍❤‍💋‍🧑🏿	póg aosach, aosach, ton cnis geal, ton cnis dorcha	none
+🧑🏼‍❤‍💋‍🧑🏻	póg aosach, aosach, ton cnis mheánach-gheal, ton cnis geal	none
+🧑🏼‍❤‍💋‍🧑🏽	póg aosach, aosach, ton cnis mheánach-gheal, ton cnis meánach	none
+🧑🏼‍❤‍💋‍🧑🏾	póg aosach, aosach, ton cnis mheánach-gheal, ton cnis meándorcha	none
+🧑🏼‍❤‍💋‍🧑🏿	póg aosach, aosach, ton cnis mheánach-gheal, ton cnis dorcha	none
+🧑🏽‍❤‍💋‍🧑🏻	póg aosach, aosach, ton cnis meánach, ton cnis geal	none
+🧑🏽‍❤‍💋‍🧑🏼	póg aosach, aosach, ton cnis meánach, ton cnis mheánach-gheal	none
+🧑🏽‍❤‍💋‍🧑🏾	póg aosach, aosach, ton cnis meánach, ton cnis meándorcha	none
+🧑🏽‍❤‍💋‍🧑🏿	póg aosach, aosach, ton cnis meánach, ton cnis dorcha	none
+🧑🏾‍❤‍💋‍🧑🏻	póg aosach, aosach, ton cnis meándorcha, ton cnis geal	none
+🧑🏾‍❤‍💋‍🧑🏼	póg aosach, aosach, ton cnis meándorcha, ton cnis mheánach-gheal	none
+🧑🏾‍❤‍💋‍🧑🏽	póg aosach, aosach, ton cnis meándorcha, ton cnis meánach	none
+🧑🏾‍❤‍💋‍🧑🏿	póg aosach, aosach, ton cnis meándorcha, ton cnis dorcha	none
+🧑🏿‍❤‍💋‍🧑🏻	póg aosach, aosach, ton cnis dorcha, ton cnis geal	none
+🧑🏿‍❤‍💋‍🧑🏼	póg aosach, aosach, ton cnis dorcha, ton cnis mheánach-gheal	none
+🧑🏿‍❤‍💋‍🧑🏽	póg aosach, aosach, ton cnis dorcha, ton cnis meánach	none
+🧑🏿‍❤‍💋‍🧑🏾	póg aosach, aosach, ton cnis dorcha, ton cnis meándorcha	none
+🧑🏻‍❤‍🧑🏼	lanúin le croí aosach, aosach, ton cnis geal, ton cnis mheánach-gheal	none
+🧑🏻‍❤‍🧑🏽	lanúin le croí aosach, aosach, ton cnis geal, ton cnis meánach	none
+🧑🏻‍❤‍🧑🏾	lanúin le croí aosach, aosach, ton cnis geal, ton cnis meándorcha	none
+🧑🏻‍❤‍🧑🏿	lanúin le croí aosach, aosach, ton cnis geal, ton cnis dorcha	none
+🧑🏼‍❤‍🧑🏻	lanúin le croí aosach, aosach, ton cnis mheánach-gheal, ton cnis geal	none
+🧑🏼‍❤‍🧑🏽	lanúin le croí aosach, aosach, ton cnis mheánach-gheal, ton cnis meánach	none
+🧑🏼‍❤‍🧑🏾	lanúin le croí aosach, aosach, ton cnis mheánach-gheal, ton cnis meándorcha	none
+🧑🏼‍❤‍🧑🏿	lanúin le croí aosach, aosach, ton cnis mheánach-gheal, ton cnis dorcha	none
+🧑🏽‍❤‍🧑🏻	lanúin le croí aosach, aosach, ton cnis meánach, ton cnis geal	none
+🧑🏽‍❤‍🧑🏼	lanúin le croí aosach, aosach, ton cnis meánach, ton cnis mheánach-gheal	none
+🧑🏽‍❤‍🧑🏾	lanúin le croí aosach, aosach, ton cnis meánach, ton cnis meándorcha	none
+🧑🏽‍❤‍🧑🏿	lanúin le croí aosach, aosach, ton cnis meánach, ton cnis dorcha	none
+🧑🏾‍❤‍🧑🏻	lanúin le croí aosach, aosach, ton cnis meándorcha, ton cnis geal	none
+🧑🏾‍❤‍🧑🏼	lanúin le croí aosach, aosach, ton cnis meándorcha, ton cnis mheánach-gheal	none
+🧑🏾‍❤‍🧑🏽	lanúin le croí aosach, aosach, ton cnis meándorcha, ton cnis meánach	none
+🧑🏾‍❤‍🧑🏿	lanúin le croí aosach, aosach, ton cnis meándorcha, ton cnis dorcha	none
+🧑🏿‍❤‍🧑🏻	lanúin le croí aosach, aosach, ton cnis dorcha, ton cnis geal	none
+🧑🏿‍❤‍🧑🏼	lanúin le croí aosach, aosach, ton cnis dorcha, ton cnis mheánach-gheal	none
+🧑🏿‍❤‍🧑🏽	lanúin le croí aosach, aosach, ton cnis dorcha, ton cnis meánach	none
+🧑🏿‍❤‍🧑🏾	lanúin le croí aosach, aosach, ton cnis dorcha, ton cnis meándorcha	none
 🧑‍🦰	aosach gruaig rua	none
 🧑🏻‍🦰	aosach ton cnis geal, gruaig rua	none
 🧑🏼‍🦰	aosach ton cnis mheánach-gheal, gruaig rua	none
@@ -1738,16 +1892,71 @@ symbols:
 👨🏽	fear ton cnis meánach	none
 👨🏾	fear ton cnis meándorcha	none
 👨🏿	fear ton cnis dorcha	none
-🧔🏻	fear ton cnis geal, feasóg	none
-🧔🏼	fear ton cnis mheánach-gheal, feasóg	none
-🧔🏽	fear ton cnis meánach, feasóg	none
-🧔🏾	fear ton cnis meándorcha, feasóg	none
-🧔🏿	fear ton cnis dorcha, feasóg	none
+🧔🏻	duine ton cnis geal, feasóg	none
+🧔🏼	duine ton cnis mheánach-gheal, feasóg	none
+🧔🏽	duine ton cnis meánach, feasóg	none
+🧔🏾	duine ton cnis meándorcha, feasóg	none
+🧔🏿	duine ton cnis dorcha, feasóg	none
+🧔🏻‍♂	fear ton cnis geal, feasóg	none
+🧔🏼‍♂	fear ton cnis mheánach-gheal, feasóg	none
+🧔🏽‍♂	fear ton cnis meánach, feasóg	none
+🧔🏾‍♂	fear ton cnis meándorcha, feasóg	none
+🧔🏿‍♂	fear ton cnis dorcha, feasóg	none
 👱🏻‍♂	fear ton cnis geal, gruaig fhionn	none
 👱🏼‍♂	fear ton cnis mheánach-gheal, gruaig fhionn	none
 👱🏽‍♂	fear ton cnis meánach, gruaig fhionn	none
 👱🏾‍♂	fear ton cnis meándorcha, gruaig fhionn	none
 👱🏿‍♂	fear ton cnis dorcha, gruaig fhionn	none
+👨🏻‍❤‍💋‍👨🏻	póg fear, fear, ton cnis geal	none
+👨🏻‍❤‍💋‍👨🏼	póg fear, fear, ton cnis geal, ton cnis mheánach-gheal	none
+👨🏻‍❤‍💋‍👨🏽	póg fear, fear, ton cnis geal, ton cnis meánach	none
+👨🏻‍❤‍💋‍👨🏾	póg fear, fear, ton cnis geal, ton cnis meándorcha	none
+👨🏻‍❤‍💋‍👨🏿	póg fear, fear, ton cnis geal, ton cnis dorcha	none
+👨🏼‍❤‍💋‍👨🏻	póg fear, fear, ton cnis mheánach-gheal, ton cnis geal	none
+👨🏼‍❤‍💋‍👨🏼	póg fear, fear, ton cnis mheánach-gheal	none
+👨🏼‍❤‍💋‍👨🏽	póg fear, fear, ton cnis mheánach-gheal, ton cnis meánach	none
+👨🏼‍❤‍💋‍👨🏾	póg fear, fear, ton cnis mheánach-gheal, ton cnis meándorcha	none
+👨🏼‍❤‍💋‍👨🏿	póg fear, fear, ton cnis mheánach-gheal, ton cnis dorcha	none
+👨🏽‍❤‍💋‍👨🏻	póg fear, fear, ton cnis meánach, ton cnis geal	none
+👨🏽‍❤‍💋‍👨🏼	póg fear, fear, ton cnis meánach, ton cnis mheánach-gheal	none
+👨🏽‍❤‍💋‍👨🏽	póg fear, fear, ton cnis meánach	none
+👨🏽‍❤‍💋‍👨🏾	póg fear, fear, ton cnis meánach, ton cnis meándorcha	none
+👨🏽‍❤‍💋‍👨🏿	póg fear, fear, ton cnis meánach, ton cnis dorcha	none
+👨🏾‍❤‍💋‍👨🏻	póg fear, fear, ton cnis meándorcha, ton cnis geal	none
+👨🏾‍❤‍💋‍👨🏼	póg fear, fear, ton cnis meándorcha, ton cnis mheánach-gheal	none
+👨🏾‍❤‍💋‍👨🏽	póg fear, fear, ton cnis meándorcha, ton cnis meánach	none
+👨🏾‍❤‍💋‍👨🏾	póg fear, fear, ton cnis meándorcha	none
+👨🏾‍❤‍💋‍👨🏿	póg fear, fear, ton cnis meándorcha, ton cnis dorcha	none
+👨🏿‍❤‍💋‍👨🏻	póg fear, fear, ton cnis dorcha, ton cnis geal	none
+👨🏿‍❤‍💋‍👨🏼	póg fear, fear, ton cnis dorcha, ton cnis mheánach-gheal	none
+👨🏿‍❤‍💋‍👨🏽	póg fear, fear, ton cnis dorcha, ton cnis meánach	none
+👨🏿‍❤‍💋‍👨🏾	póg fear, fear, ton cnis dorcha, ton cnis meándorcha	none
+👨🏿‍❤‍💋‍👨🏿	póg fear, fear, ton cnis dorcha	none
+👨🏻‍❤‍👨🏻	lanúin le croí fear, fear, ton cnis geal	none
+👨🏻‍❤‍👨🏼	lanúin le croí fear, fear, ton cnis geal, ton cnis mheánach-gheal	none
+👨🏻‍❤‍👨🏽	lanúin le croí fear, fear, ton cnis geal, ton cnis meánach	none
+👨🏻‍❤‍👨🏾	lanúin le croí fear, fear, ton cnis geal, ton cnis meándorcha	none
+👨🏻‍❤‍👨🏿	lanúin le croí fear, fear, ton cnis geal, ton cnis dorcha	none
+👨🏼‍❤‍👨🏻	lanúin le croí fear, fear, ton cnis mheánach-gheal, ton cnis geal	none
+👨🏼‍❤‍👨🏼	lanúin le croí fear, fear, ton cnis mheánach-gheal	none
+👨🏼‍❤‍👨🏽	lanúin le croí fear, fear, ton cnis mheánach-gheal, ton cnis meánach	none
+👨🏼‍❤‍👨🏾	lanúin le croí fear, fear, ton cnis mheánach-gheal, ton cnis meándorcha	none
+👨🏼‍❤‍👨🏿	lanúin le croí fear, fear, ton cnis mheánach-gheal, ton cnis dorcha	none
+👨🏽‍❤‍👨🏻	lanúin le croí fear, fear, ton cnis meánach, ton cnis geal	none
+👨🏽‍❤‍👨🏼	lanúin le croí fear, fear, ton cnis meánach, ton cnis mheánach-gheal	none
+👨🏽‍❤‍👨🏽	lanúin le croí fear, fear, ton cnis meánach	none
+👨🏽‍❤‍👨🏾	lanúin le croí fear, fear, ton cnis meánach, ton cnis meándorcha	none
+👨🏽‍❤‍👨🏿	lanúin le croí fear, fear, ton cnis meánach, ton cnis dorcha	none
+👨🏾‍❤‍👨🏻	lanúin le croí fear, fear, ton cnis meándorcha, ton cnis geal	none
+👨🏾‍❤‍👨🏼	lanúin le croí fear, fear, ton cnis meándorcha, ton cnis mheánach-gheal	none
+👨🏾‍❤‍👨🏽	lanúin le croí fear, fear, ton cnis meándorcha, ton cnis meánach	none
+👨🏾‍❤‍👨🏾	lanúin le croí fear, fear, ton cnis meándorcha	none
+👨🏾‍❤‍👨🏿	lanúin le croí fear, fear, ton cnis meándorcha, ton cnis dorcha	none
+👨🏿‍❤‍👨🏻	lanúin le croí fear, fear, ton cnis dorcha, ton cnis geal	none
+👨🏿‍❤‍👨🏼	lanúin le croí fear, fear, ton cnis dorcha, ton cnis mheánach-gheal	none
+👨🏿‍❤‍👨🏽	lanúin le croí fear, fear, ton cnis dorcha, ton cnis meánach	none
+👨🏿‍❤‍👨🏾	lanúin le croí fear, fear, ton cnis dorcha, ton cnis meándorcha	none
+👨🏿‍❤‍👨🏿	lanúin le croí fear, fear, ton cnis dorcha	none
 👨‍🦰	fear gruaig rua	none
 👨🏻‍🦰	fear ton cnis geal, gruaig rua	none
 👨🏼‍🦰	fear ton cnis mheánach-gheal, gruaig rua	none
@@ -1777,11 +1986,116 @@ symbols:
 👩🏽	bean ton cnis meánach	none
 👩🏾	bean ton cnis meándorcha	none
 👩🏿	bean ton cnis dorcha	none
+🧔🏻‍♀	bean ton cnis geal, feasóg	none
+🧔🏼‍♀	bean ton cnis mheánach-gheal, feasóg	none
+🧔🏽‍♀	bean ton cnis meánach, feasóg	none
+🧔🏾‍♀	bean ton cnis meándorcha, feasóg	none
+🧔🏿‍♀	bean ton cnis dorcha, feasóg	none
 👱🏻‍♀	bean ton cnis geal, gruaig fhionn	none
 👱🏼‍♀	bean ton cnis mheánach-gheal, gruaig fhionn	none
 👱🏽‍♀	bean ton cnis meánach, gruaig fhionn	none
 👱🏾‍♀	bean ton cnis meándorcha, gruaig fhionn	none
 👱🏿‍♀	bean ton cnis dorcha, gruaig fhionn	none
+👩🏻‍❤‍💋‍👨🏻	póg bean, fear, ton cnis geal	none
+👩🏻‍❤‍💋‍👨🏼	póg bean, fear, ton cnis geal, ton cnis mheánach-gheal	none
+👩🏻‍❤‍💋‍👨🏽	póg bean, fear, ton cnis geal, ton cnis meánach	none
+👩🏻‍❤‍💋‍👨🏾	póg bean, fear, ton cnis geal, ton cnis meándorcha	none
+👩🏻‍❤‍💋‍👨🏿	póg bean, fear, ton cnis geal, ton cnis dorcha	none
+👩🏼‍❤‍💋‍👨🏻	póg bean, fear, ton cnis mheánach-gheal, ton cnis geal	none
+👩🏼‍❤‍💋‍👨🏼	póg bean, fear, ton cnis mheánach-gheal	none
+👩🏼‍❤‍💋‍👨🏽	póg bean, fear, ton cnis mheánach-gheal, ton cnis meánach	none
+👩🏼‍❤‍💋‍👨🏾	póg bean, fear, ton cnis mheánach-gheal, ton cnis meándorcha	none
+👩🏼‍❤‍💋‍👨🏿	póg bean, fear, ton cnis mheánach-gheal, ton cnis dorcha	none
+👩🏽‍❤‍💋‍👨🏻	póg bean, fear, ton cnis meánach, ton cnis geal	none
+👩🏽‍❤‍💋‍👨🏼	póg bean, fear, ton cnis meánach, ton cnis mheánach-gheal	none
+👩🏽‍❤‍💋‍👨🏽	póg bean, fear, ton cnis meánach	none
+👩🏽‍❤‍💋‍👨🏾	póg bean, fear, ton cnis meánach, ton cnis meándorcha	none
+👩🏽‍❤‍💋‍👨🏿	póg bean, fear, ton cnis meánach, ton cnis dorcha	none
+👩🏾‍❤‍💋‍👨🏻	póg bean, fear, ton cnis meándorcha, ton cnis geal	none
+👩🏾‍❤‍💋‍👨🏼	póg bean, fear, ton cnis meándorcha, ton cnis mheánach-gheal	none
+👩🏾‍❤‍💋‍👨🏽	póg bean, fear, ton cnis meándorcha, ton cnis meánach	none
+👩🏾‍❤‍💋‍👨🏾	póg bean, fear, ton cnis meándorcha	none
+👩🏾‍❤‍💋‍👨🏿	póg bean, fear, ton cnis meándorcha, ton cnis dorcha	none
+👩🏿‍❤‍💋‍👨🏻	póg bean, fear, ton cnis dorcha, ton cnis geal	none
+👩🏿‍❤‍💋‍👨🏼	póg bean, fear, ton cnis dorcha, ton cnis mheánach-gheal	none
+👩🏿‍❤‍💋‍👨🏽	póg bean, fear, ton cnis dorcha, ton cnis meánach	none
+👩🏿‍❤‍💋‍👨🏾	póg bean, fear, ton cnis dorcha, ton cnis meándorcha	none
+👩🏿‍❤‍💋‍👨🏿	póg bean, fear, ton cnis dorcha	none
+👩🏻‍❤‍💋‍👩🏻	póg bean, bean, ton cnis geal	none
+👩🏻‍❤‍💋‍👩🏼	póg bean, bean, ton cnis geal, ton cnis mheánach-gheal	none
+👩🏻‍❤‍💋‍👩🏽	póg bean, bean, ton cnis geal, ton cnis meánach	none
+👩🏻‍❤‍💋‍👩🏾	póg bean, bean, ton cnis geal, ton cnis meándorcha	none
+👩🏻‍❤‍💋‍👩🏿	póg bean, bean, ton cnis geal, ton cnis dorcha	none
+👩🏼‍❤‍💋‍👩🏻	póg bean, bean, ton cnis mheánach-gheal, ton cnis geal	none
+👩🏼‍❤‍💋‍👩🏼	póg bean, bean, ton cnis mheánach-gheal	none
+👩🏼‍❤‍💋‍👩🏽	póg bean, bean, ton cnis mheánach-gheal, ton cnis meánach	none
+👩🏼‍❤‍💋‍👩🏾	póg bean, bean, ton cnis mheánach-gheal, ton cnis meándorcha	none
+👩🏼‍❤‍💋‍👩🏿	póg bean, bean, ton cnis mheánach-gheal, ton cnis dorcha	none
+👩🏽‍❤‍💋‍👩🏻	póg bean, bean, ton cnis meánach, ton cnis geal	none
+👩🏽‍❤‍💋‍👩🏼	póg bean, bean, ton cnis meánach, ton cnis mheánach-gheal	none
+👩🏽‍❤‍💋‍👩🏽	póg bean, bean, ton cnis meánach	none
+👩🏽‍❤‍💋‍👩🏾	póg bean, bean, ton cnis meánach, ton cnis meándorcha	none
+👩🏽‍❤‍💋‍👩🏿	póg bean, bean, ton cnis meánach, ton cnis dorcha	none
+👩🏾‍❤‍💋‍👩🏻	póg bean, bean, ton cnis meándorcha, ton cnis geal	none
+👩🏾‍❤‍💋‍👩🏼	póg bean, bean, ton cnis meándorcha, ton cnis mheánach-gheal	none
+👩🏾‍❤‍💋‍👩🏽	póg bean, bean, ton cnis meándorcha, ton cnis meánach	none
+👩🏾‍❤‍💋‍👩🏾	póg bean, bean, ton cnis meándorcha	none
+👩🏾‍❤‍💋‍👩🏿	póg bean, bean, ton cnis meándorcha, ton cnis dorcha	none
+👩🏿‍❤‍💋‍👩🏻	póg bean, bean, ton cnis dorcha, ton cnis geal	none
+👩🏿‍❤‍💋‍👩🏼	póg bean, bean, ton cnis dorcha, ton cnis mheánach-gheal	none
+👩🏿‍❤‍💋‍👩🏽	póg bean, bean, ton cnis dorcha, ton cnis meánach	none
+👩🏿‍❤‍💋‍👩🏾	póg bean, bean, ton cnis dorcha, ton cnis meándorcha	none
+👩🏿‍❤‍💋‍👩🏿	póg bean, bean, ton cnis dorcha	none
+👩🏻‍❤‍👨🏻	lanúin le croí bean, fear, ton cnis geal	none
+👩🏻‍❤‍👨🏼	lanúin le croí bean, fear, ton cnis geal, ton cnis mheánach-gheal	none
+👩🏻‍❤‍👨🏽	lanúin le croí bean, fear, ton cnis geal, ton cnis meánach	none
+👩🏻‍❤‍👨🏾	lanúin le croí bean, fear, ton cnis geal, ton cnis meándorcha	none
+👩🏻‍❤‍👨🏿	lanúin le croí bean, fear, ton cnis geal, ton cnis dorcha	none
+👩🏼‍❤‍👨🏻	lanúin le croí bean, fear, ton cnis mheánach-gheal, ton cnis geal	none
+👩🏼‍❤‍👨🏼	lanúin le croí bean, fear, ton cnis mheánach-gheal	none
+👩🏼‍❤‍👨🏽	lanúin le croí bean, fear, ton cnis mheánach-gheal, ton cnis meánach	none
+👩🏼‍❤‍👨🏾	lanúin le croí bean, fear, ton cnis mheánach-gheal, ton cnis meándorcha	none
+👩🏼‍❤‍👨🏿	lanúin le croí bean, fear, ton cnis mheánach-gheal, ton cnis dorcha	none
+👩🏽‍❤‍👨🏻	lanúin le croí bean, fear, ton cnis meánach, ton cnis geal	none
+👩🏽‍❤‍👨🏼	lanúin le croí bean, fear, ton cnis meánach, ton cnis mheánach-gheal	none
+👩🏽‍❤‍👨🏽	lanúin le croí bean, fear, ton cnis meánach	none
+👩🏽‍❤‍👨🏾	lanúin le croí bean, fear, ton cnis meánach, ton cnis meándorcha	none
+👩🏽‍❤‍👨🏿	lanúin le croí bean, fear, ton cnis meánach, ton cnis dorcha	none
+👩🏾‍❤‍👨🏻	lanúin le croí bean, fear, ton cnis meándorcha, ton cnis geal	none
+👩🏾‍❤‍👨🏼	lanúin le croí bean, fear, ton cnis meándorcha, ton cnis mheánach-gheal	none
+👩🏾‍❤‍👨🏽	lanúin le croí bean, fear, ton cnis meándorcha, ton cnis meánach	none
+👩🏾‍❤‍👨🏾	lanúin le croí bean, fear, ton cnis meándorcha	none
+👩🏾‍❤‍👨🏿	lanúin le croí bean, fear, ton cnis meándorcha, ton cnis dorcha	none
+👩🏿‍❤‍👨🏻	lanúin le croí bean, fear, ton cnis dorcha, ton cnis geal	none
+👩🏿‍❤‍👨🏼	lanúin le croí bean, fear, ton cnis dorcha, ton cnis mheánach-gheal	none
+👩🏿‍❤‍👨🏽	lanúin le croí bean, fear, ton cnis dorcha, ton cnis meánach	none
+👩🏿‍❤‍👨🏾	lanúin le croí bean, fear, ton cnis dorcha, ton cnis meándorcha	none
+👩🏿‍❤‍👨🏿	lanúin le croí bean, fear, ton cnis dorcha	none
+👩🏻‍❤‍👩🏻	lanúin le croí bean, bean, ton cnis geal	none
+👩🏻‍❤‍👩🏼	lanúin le croí bean, bean, ton cnis geal, ton cnis mheánach-gheal	none
+👩🏻‍❤‍👩🏽	lanúin le croí bean, bean, ton cnis geal, ton cnis meánach	none
+👩🏻‍❤‍👩🏾	lanúin le croí bean, bean, ton cnis geal, ton cnis meándorcha	none
+👩🏻‍❤‍👩🏿	lanúin le croí bean, bean, ton cnis geal, ton cnis dorcha	none
+👩🏼‍❤‍👩🏻	lanúin le croí bean, bean, ton cnis mheánach-gheal, ton cnis geal	none
+👩🏼‍❤‍👩🏼	lanúin le croí bean, bean, ton cnis mheánach-gheal	none
+👩🏼‍❤‍👩🏽	lanúin le croí bean, bean, ton cnis mheánach-gheal, ton cnis meánach	none
+👩🏼‍❤‍👩🏾	lanúin le croí bean, bean, ton cnis mheánach-gheal, ton cnis meándorcha	none
+👩🏼‍❤‍👩🏿	lanúin le croí bean, bean, ton cnis mheánach-gheal, ton cnis dorcha	none
+👩🏽‍❤‍👩🏻	lanúin le croí bean, bean, ton cnis meánach, ton cnis geal	none
+👩🏽‍❤‍👩🏼	lanúin le croí bean, bean, ton cnis meánach, ton cnis mheánach-gheal	none
+👩🏽‍❤‍👩🏽	lanúin le croí bean, bean, ton cnis meánach	none
+👩🏽‍❤‍👩🏾	lanúin le croí bean, bean, ton cnis meánach, ton cnis meándorcha	none
+👩🏽‍❤‍👩🏿	lanúin le croí bean, bean, ton cnis meánach, ton cnis dorcha	none
+👩🏾‍❤‍👩🏻	lanúin le croí bean, bean, ton cnis meándorcha, ton cnis geal	none
+👩🏾‍❤‍👩🏼	lanúin le croí bean, bean, ton cnis meándorcha, ton cnis mheánach-gheal	none
+👩🏾‍❤‍👩🏽	lanúin le croí bean, bean, ton cnis meándorcha, ton cnis meánach	none
+👩🏾‍❤‍👩🏾	lanúin le croí bean, bean, ton cnis meándorcha	none
+👩🏾‍❤‍👩🏿	lanúin le croí bean, bean, ton cnis meándorcha, ton cnis dorcha	none
+👩🏿‍❤‍👩🏻	lanúin le croí bean, bean, ton cnis dorcha, ton cnis geal	none
+👩🏿‍❤‍👩🏼	lanúin le croí bean, bean, ton cnis dorcha, ton cnis mheánach-gheal	none
+👩🏿‍❤‍👩🏽	lanúin le croí bean, bean, ton cnis dorcha, ton cnis meánach	none
+👩🏿‍❤‍👩🏾	lanúin le croí bean, bean, ton cnis dorcha, ton cnis meándorcha	none
+👩🏿‍❤‍👩🏿	lanúin le croí bean, bean, ton cnis dorcha	none
 👩‍🦰	bean gruaig rua	none
 👩🏻‍🦰	bean ton cnis geal, gruaig rua	none
 👩🏼‍🦰	bean ton cnis mheánach-gheal, gruaig rua	none
@@ -1911,11 +2225,11 @@ symbols:
 🙋🏽‍♀	bean lena lámh suas ton cnis meánach	none
 🙋🏾‍♀	bean lena lámh suas ton cnis meándorcha	none
 🙋🏿‍♀	bean lena lámh suas ton cnis dorcha	none
-🧏🏻	duine dall ton cnis geal	none
-🧏🏼	duine dall ton cnis mheánach-gheal	none
-🧏🏽	duine dall ton cnis meánach	none
-🧏🏾	duine dall ton cnis meándorcha	none
-🧏🏿	duine dall ton cnis dorcha	none
+🧏🏻	duine bodhar ton cnis geal	none
+🧏🏼	duine bodhar ton cnis mheánach-gheal	none
+🧏🏽	duine bodhar ton cnis meánach	none
+🧏🏾	duine bodhar ton cnis meándorcha	none
+🧏🏿	duine bodhar ton cnis dorcha	none
 🧏🏻‍♂	fear bodhar ton cnis geal	none
 🧏🏼‍♂	fear bodhar ton cnis mheánach-gheal	none
 🧏🏽‍♂	fear bodhar ton cnis meánach	none
@@ -1956,11 +2270,11 @@ symbols:
 🤦🏽‍♀	bean lena haghaidh ina bos ton cnis meánach	none
 🤦🏾‍♀	bean lena haghaidh ina bos ton cnis meándorcha	none
 🤦🏿‍♀	bean lena haghaidh ina bos ton cnis dorcha	none
-🤷🏻	duine ag croitheadh ton cnis geal	none
-🤷🏼	duine ag croitheadh ton cnis mheánach-gheal	none
-🤷🏽	duine ag croitheadh ton cnis meánach	none
-🤷🏾	duine ag croitheadh ton cnis meándorcha	none
-🤷🏿	duine ag croitheadh ton cnis dorcha	none
+🤷🏻	duine ag croitheadh a ghuaillí ton cnis geal	none
+🤷🏼	duine ag croitheadh a ghuaillí ton cnis mheánach-gheal	none
+🤷🏽	duine ag croitheadh a ghuaillí ton cnis meánach	none
+🤷🏾	duine ag croitheadh a ghuaillí ton cnis meándorcha	none
+🤷🏿	duine ag croitheadh a ghuaillí ton cnis dorcha	none
 🤷🏻‍♂	fear ag croitheadh ton cnis geal	none
 🤷🏼‍♂	fear ag croitheadh ton cnis mheánach-gheal	none
 🤷🏽‍♂	fear ag croitheadh ton cnis meánach	none
@@ -2256,6 +2570,11 @@ symbols:
 💂🏽‍♀	bangharda oifigeach ton cnis meánach	none
 💂🏾‍♀	bangharda oifigeach ton cnis meándorcha	none
 💂🏿‍♀	bangharda oifigeach ton cnis dorcha	none
+🥷🏻	ninja ton cnis geal	none
+🥷🏼	ninja ton cnis mheánach-gheal	none
+🥷🏽	ninja ton cnis meánach	none
+🥷🏾	ninja ton cnis meándorcha	none
+🥷🏿	ninja ton cnis dorcha	none
 👷🏻	tógálaí ton cnis geal	none
 👷🏼	tógálaí ton cnis mheánach-gheal	none
 👷🏽	tógálaí ton cnis meánach	none
@@ -2306,16 +2625,36 @@ symbols:
 🧕🏽	bean le caifirín ton cnis meánach	none
 🧕🏾	bean le caifirín ton cnis meándorcha	none
 🧕🏿	bean le caifirín ton cnis dorcha	none
-🤵🏻	fear le culaith air ton cnis geal	none
-🤵🏼	fear le culaith air ton cnis mheánach-gheal	none
-🤵🏽	fear le culaith air ton cnis meánach	none
-🤵🏾	fear le culaith air ton cnis meándorcha	none
-🤵🏿	fear le culaith air ton cnis dorcha	none
-👰🏻	brídeog le caille uirthi ton cnis geal	none
-👰🏼	brídeog le caille uirthi ton cnis mheánach-gheal	none
-👰🏽	brídeog le caille uirthi ton cnis meánach	none
-👰🏾	brídeog le caille uirthi ton cnis meándorcha	none
-👰🏿	brídeog le caille uirthi ton cnis dorcha	none
+🤵🏻	duine a bhfuil culaith dhinnéir air ton cnis geal	none
+🤵🏼	duine a bhfuil culaith dhinnéir air ton cnis mheánach-gheal	none
+🤵🏽	duine a bhfuil culaith dhinnéir air ton cnis meánach	none
+🤵🏾	duine a bhfuil culaith dhinnéir air ton cnis meándorcha	none
+🤵🏿	duine a bhfuil culaith dhinnéir air ton cnis dorcha	none
+🤵🏻‍♂	fear a bhfuil culaith dhinnéir air ton cnis geal	none
+🤵🏼‍♂	fear a bhfuil culaith dhinnéir air ton cnis mheánach-gheal	none
+🤵🏽‍♂	fear a bhfuil culaith dhinnéir air ton cnis meánach	none
+🤵🏾‍♂	fear a bhfuil culaith dhinnéir air ton cnis meándorcha	none
+🤵🏿‍♂	fear a bhfuil culaith dhinnéir air ton cnis dorcha	none
+🤵🏻‍♀	bean a bhfuil culaith dhinnéir uirthi ton cnis geal	none
+🤵🏼‍♀	bean a bhfuil culaith dhinnéir uirthi ton cnis mheánach-gheal	none
+🤵🏽‍♀	bean a bhfuil culaith dhinnéir uirthi ton cnis meánach	none
+🤵🏾‍♀	bean a bhfuil culaith dhinnéir uirthi ton cnis meándorcha	none
+🤵🏿‍♀	bean a bhfuil culaith dhinnéir uirthi ton cnis dorcha	none
+👰🏻	duine le caille air ton cnis geal	none
+👰🏼	duine le caille air ton cnis mheánach-gheal	none
+👰🏽	duine le caille air ton cnis meánach	none
+👰🏾	duine le caille air ton cnis meándorcha	none
+👰🏿	duine le caille air ton cnis dorcha	none
+👰🏻‍♂	fear a bhfuil caille air ton cnis geal	none
+👰🏼‍♂	fear a bhfuil caille air ton cnis mheánach-gheal	none
+👰🏽‍♂	fear a bhfuil caille air ton cnis meánach	none
+👰🏾‍♂	fear a bhfuil caille air ton cnis meándorcha	none
+👰🏿‍♂	fear a bhfuil caille air ton cnis dorcha	none
+👰🏻‍♀	bean a bhfuil caille uirthi ton cnis geal	none
+👰🏼‍♀	bean a bhfuil caille uirthi ton cnis mheánach-gheal	none
+👰🏽‍♀	bean a bhfuil caille uirthi ton cnis meánach	none
+👰🏾‍♀	bean a bhfuil caille uirthi ton cnis meándorcha	none
+👰🏿‍♀	bean a bhfuil caille uirthi ton cnis dorcha	none
 🤰🏻	bean ag iompar clainne ton cnis geal	none
 🤰🏼	bean ag iompar clainne ton cnis mheánach-gheal	none
 🤰🏽	bean ag iompar clainne ton cnis meánach	none
@@ -2326,6 +2665,21 @@ symbols:
 🤱🏽	cothú cíche ton cnis meánach	none
 🤱🏾	cothú cíche ton cnis meándorcha	none
 🤱🏿	cothú cíche ton cnis dorcha	none
+👩🏻‍🍼	bean ag beathú linbh ton cnis geal	none
+👩🏼‍🍼	bean ag beathú linbh ton cnis mheánach-gheal	none
+👩🏽‍🍼	bean ag beathú linbh ton cnis meánach	none
+👩🏾‍🍼	bean ag beathú linbh ton cnis meándorcha	none
+👩🏿‍🍼	bean ag beathú linbh ton cnis dorcha	none
+👨🏻‍🍼	fear ag beathú linbh ton cnis geal	none
+👨🏼‍🍼	fear ag beathú linbh ton cnis mheánach-gheal	none
+👨🏽‍🍼	fear ag beathú linbh ton cnis meánach	none
+👨🏾‍🍼	fear ag beathú linbh ton cnis meándorcha	none
+👨🏿‍🍼	fear ag beathú linbh ton cnis dorcha	none
+🧑🏻‍🍼	duine ag beathú linbh ton cnis geal	none
+🧑🏼‍🍼	duine ag beathú linbh ton cnis mheánach-gheal	none
+🧑🏽‍🍼	duine ag beathú linbh ton cnis meánach	none
+🧑🏾‍🍼	duine ag beathú linbh ton cnis meándorcha	none
+🧑🏿‍🍼	duine ag beathú linbh ton cnis dorcha	none
 👼🏻	aingeal óg ton cnis geal	none
 👼🏼	aingeal óg ton cnis mheánach-gheal	none
 👼🏽	aingeal óg ton cnis meánach	none
@@ -2341,6 +2695,11 @@ symbols:
 🤶🏽	Bean Uí Claus ton cnis meánach	none
 🤶🏾	Bean Uí Claus ton cnis meándorcha	none
 🤶🏿	Bean Uí Claus ton cnis dorcha	none
+🧑🏻‍🎄	Saintí ton cnis geal	none
+🧑🏼‍🎄	Saintí ton cnis mheánach-gheal	none
+🧑🏽‍🎄	Saintí ton cnis meánach	none
+🧑🏾‍🎄	Saintí ton cnis meándorcha	none
+🧑🏿‍🎄	Saintí ton cnis dorcha	none
 🦸🏻	sárlaoch ton cnis geal	none
 🦸🏼	sárlaoch ton cnis mheánach-gheal	none
 🦸🏽	sárlaoch ton cnis meánach	none
@@ -2356,11 +2715,11 @@ symbols:
 🦸🏽‍♀	ban-sárlaoch ton cnis meánach	none
 🦸🏾‍♀	ban-sárlaoch ton cnis meándorcha	none
 🦸🏿‍♀	ban-sárlaoch ton cnis dorcha	none
-🦹🏻	an-drochdhuine ton cnis geal	none
-🦹🏼	an-drochdhuine ton cnis mheánach-gheal	none
-🦹🏽	an-drochdhuine ton cnis meánach	none
-🦹🏾	an-drochdhuine ton cnis meándorcha	none
-🦹🏿	an-drochdhuine ton cnis dorcha	none
+🦹🏻	sárbhithiúnach ton cnis geal	none
+🦹🏼	sárbhithiúnach ton cnis mheánach-gheal	none
+🦹🏽	sárbhithiúnach ton cnis meánach	none
+🦹🏾	sárbhithiúnach ton cnis meándorcha	none
+🦹🏿	sárbhithiúnach ton cnis dorcha	none
 🦹🏻‍♂	fear-dhrochdhuine ton cnis geal	none
 🦹🏼‍♂	fear-dhrochdhuine ton cnis mheánach-gheal	none
 🦹🏽‍♂	fear-dhrochdhuine ton cnis meánach	none
@@ -2842,30 +3201,50 @@ symbols:
 🛌🏾	duine sa leaba ton cnis meándorcha	none
 🛌🏿	duine sa leaba ton cnis dorcha	none
 🧑🏻‍🤝‍🧑🏻	daone a bhfuil greim láimhe acu ar a chéile ton cnis geal	none
+🧑🏻‍🤝‍🧑🏼	daone a bhfuil greim láimhe acu ar a chéile ton cnis geal, ton cnis mheánach-gheal	none
+🧑🏻‍🤝‍🧑🏽	daone a bhfuil greim láimhe acu ar a chéile ton cnis geal, ton cnis meánach	none
+🧑🏻‍🤝‍🧑🏾	daone a bhfuil greim láimhe acu ar a chéile ton cnis geal, ton cnis meándorcha	none
+🧑🏻‍🤝‍🧑🏿	daone a bhfuil greim láimhe acu ar a chéile ton cnis geal, ton cnis dorcha	none
 🧑🏼‍🤝‍🧑🏻	daone a bhfuil greim láimhe acu ar a chéile ton cnis mheánach-gheal, ton cnis geal	none
 🧑🏼‍🤝‍🧑🏼	daone a bhfuil greim láimhe acu ar a chéile ton cnis mheánach-gheal	none
+🧑🏼‍🤝‍🧑🏽	daone a bhfuil greim láimhe acu ar a chéile ton cnis mheánach-gheal, ton cnis meánach	none
+🧑🏼‍🤝‍🧑🏾	daone a bhfuil greim láimhe acu ar a chéile ton cnis mheánach-gheal, ton cnis meándorcha	none
+🧑🏼‍🤝‍🧑🏿	daone a bhfuil greim láimhe acu ar a chéile ton cnis mheánach-gheal, ton cnis dorcha	none
 🧑🏽‍🤝‍🧑🏻	daone a bhfuil greim láimhe acu ar a chéile ton cnis meánach, ton cnis geal	none
 🧑🏽‍🤝‍🧑🏼	daone a bhfuil greim láimhe acu ar a chéile ton cnis meánach, ton cnis mheánach-gheal	none
 🧑🏽‍🤝‍🧑🏽	daone a bhfuil greim láimhe acu ar a chéile ton cnis meánach	none
+🧑🏽‍🤝‍🧑🏾	daone a bhfuil greim láimhe acu ar a chéile ton cnis meánach, ton cnis meándorcha	none
+🧑🏽‍🤝‍🧑🏿	daone a bhfuil greim láimhe acu ar a chéile ton cnis meánach, ton cnis dorcha	none
 🧑🏾‍🤝‍🧑🏻	daone a bhfuil greim láimhe acu ar a chéile ton cnis meándorcha, ton cnis geal	none
 🧑🏾‍🤝‍🧑🏼	daone a bhfuil greim láimhe acu ar a chéile ton cnis meándorcha, ton cnis mheánach-gheal	none
 🧑🏾‍🤝‍🧑🏽	daone a bhfuil greim láimhe acu ar a chéile ton cnis meándorcha, ton cnis meánach	none
 🧑🏾‍🤝‍🧑🏾	daone a bhfuil greim láimhe acu ar a chéile ton cnis meándorcha	none
+🧑🏾‍🤝‍🧑🏿	daone a bhfuil greim láimhe acu ar a chéile ton cnis meándorcha, ton cnis dorcha	none
 🧑🏿‍🤝‍🧑🏻	daone a bhfuil greim láimhe acu ar a chéile ton cnis dorcha, ton cnis geal	none
 🧑🏿‍🤝‍🧑🏼	daone a bhfuil greim láimhe acu ar a chéile ton cnis dorcha, ton cnis mheánach-gheal	none
 🧑🏿‍🤝‍🧑🏽	daone a bhfuil greim láimhe acu ar a chéile ton cnis dorcha, ton cnis meánach	none
 🧑🏿‍🤝‍🧑🏾	daone a bhfuil greim láimhe acu ar a chéile ton cnis dorcha, ton cnis meándorcha	none
 🧑🏿‍🤝‍🧑🏿	daone a bhfuil greim láimhe acu ar a chéile ton cnis dorcha	none
 👭🏻	beirt bhan le chéile ton cnis geal	none
+👩🏻‍🤝‍👩🏼	beirt bhan le chéile ton cnis geal, ton cnis mheánach-gheal	none
+👩🏻‍🤝‍👩🏽	beirt bhan le chéile ton cnis geal, ton cnis meánach	none
+👩🏻‍🤝‍👩🏾	beirt bhan le chéile ton cnis geal, ton cnis meándorcha	none
+👩🏻‍🤝‍👩🏿	beirt bhan le chéile ton cnis geal, ton cnis dorcha	none
 👩🏼‍🤝‍👩🏻	beirt bhan le chéile ton cnis mheánach-gheal, ton cnis geal	none
 👭🏼	beirt bhan le chéile ton cnis mheánach-gheal	none
+👩🏼‍🤝‍👩🏽	beirt bhan le chéile ton cnis mheánach-gheal, ton cnis meánach	none
+👩🏼‍🤝‍👩🏾	beirt bhan le chéile ton cnis mheánach-gheal, ton cnis meándorcha	none
+👩🏼‍🤝‍👩🏿	beirt bhan le chéile ton cnis mheánach-gheal, ton cnis dorcha	none
 👩🏽‍🤝‍👩🏻	beirt bhan le chéile ton cnis meánach, ton cnis geal	none
 👩🏽‍🤝‍👩🏼	beirt bhan le chéile ton cnis meánach, ton cnis mheánach-gheal	none
 👭🏽	beirt bhan le chéile ton cnis meánach	none
+👩🏽‍🤝‍👩🏾	beirt bhan le chéile ton cnis meánach, ton cnis meándorcha	none
+👩🏽‍🤝‍👩🏿	beirt bhan le chéile ton cnis meánach, ton cnis dorcha	none
 👩🏾‍🤝‍👩🏻	beirt bhan le chéile ton cnis meándorcha, ton cnis geal	none
 👩🏾‍🤝‍👩🏼	beirt bhan le chéile ton cnis meándorcha, ton cnis mheánach-gheal	none
 👩🏾‍🤝‍👩🏽	beirt bhan le chéile ton cnis meándorcha, ton cnis meánach	none
 👭🏾	beirt bhan le chéile ton cnis meándorcha	none
+👩🏾‍🤝‍👩🏿	beirt bhan le chéile ton cnis meándorcha, ton cnis dorcha	none
 👩🏿‍🤝‍👩🏻	beirt bhan le chéile ton cnis dorcha, ton cnis geal	none
 👩🏿‍🤝‍👩🏼	beirt bhan le chéile ton cnis dorcha, ton cnis mheánach-gheal	none
 👩🏿‍🤝‍👩🏽	beirt bhan le chéile ton cnis dorcha, ton cnis meánach	none
@@ -2897,23 +3276,43 @@ symbols:
 👩🏿‍🤝‍👨🏾	fear agus bean le chéile ton cnis dorcha, ton cnis meándorcha	none
 👫🏿	fear agus bean le chéile ton cnis dorcha	none
 👬🏻	beirt fhear le chéile ton cnis geal	none
+👨🏻‍🤝‍👨🏼	beirt fhear le chéile ton cnis geal, ton cnis mheánach-gheal	none
+👨🏻‍🤝‍👨🏽	beirt fhear le chéile ton cnis geal, ton cnis meánach	none
+👨🏻‍🤝‍👨🏾	beirt fhear le chéile ton cnis geal, ton cnis meándorcha	none
+👨🏻‍🤝‍👨🏿	beirt fhear le chéile ton cnis geal, ton cnis dorcha	none
 👨🏼‍🤝‍👨🏻	beirt fhear le chéile ton cnis mheánach-gheal, ton cnis geal	none
 👬🏼	beirt fhear le chéile ton cnis mheánach-gheal	none
+👨🏼‍🤝‍👨🏽	beirt fhear le chéile ton cnis mheánach-gheal, ton cnis meánach	none
+👨🏼‍🤝‍👨🏾	beirt fhear le chéile ton cnis mheánach-gheal, ton cnis meándorcha	none
+👨🏼‍🤝‍👨🏿	beirt fhear le chéile ton cnis mheánach-gheal, ton cnis dorcha	none
 👨🏽‍🤝‍👨🏻	beirt fhear le chéile ton cnis meánach, ton cnis geal	none
 👨🏽‍🤝‍👨🏼	beirt fhear le chéile ton cnis meánach, ton cnis mheánach-gheal	none
 👬🏽	beirt fhear le chéile ton cnis meánach	none
+👨🏽‍🤝‍👨🏾	beirt fhear le chéile ton cnis meánach, ton cnis meándorcha	none
+👨🏽‍🤝‍👨🏿	beirt fhear le chéile ton cnis meánach, ton cnis dorcha	none
 👨🏾‍🤝‍👨🏻	beirt fhear le chéile ton cnis meándorcha, ton cnis geal	none
 👨🏾‍🤝‍👨🏼	beirt fhear le chéile ton cnis meándorcha, ton cnis mheánach-gheal	none
 👨🏾‍🤝‍👨🏽	beirt fhear le chéile ton cnis meándorcha, ton cnis meánach	none
 👬🏾	beirt fhear le chéile ton cnis meándorcha	none
+👨🏾‍🤝‍👨🏿	beirt fhear le chéile ton cnis meándorcha, ton cnis dorcha	none
 👨🏿‍🤝‍👨🏻	beirt fhear le chéile ton cnis dorcha, ton cnis geal	none
 👨🏿‍🤝‍👨🏼	beirt fhear le chéile ton cnis dorcha, ton cnis mheánach-gheal	none
 👨🏿‍🤝‍👨🏽	beirt fhear le chéile ton cnis dorcha, ton cnis meánach	none
 👨🏿‍🤝‍👨🏾	beirt fhear le chéile ton cnis dorcha, ton cnis meándorcha	none
 👬🏿	beirt fhear le chéile ton cnis dorcha	none
+💏🏻	póg ton cnis geal	none
+💏🏼	póg ton cnis mheánach-gheal	none
+💏🏽	póg ton cnis meánach	none
+💏🏾	póg ton cnis meándorcha	none
+💏🏿	póg ton cnis dorcha	none
 👩‍❤‍💋‍👨	póg bean, fear	none
 👨‍❤‍💋‍👨	póg fear, fear	none
 👩‍❤‍💋‍👩	póg bean, bean	none
+💑🏻	lanúin le croí ton cnis geal	none
+💑🏼	lanúin le croí ton cnis mheánach-gheal	none
+💑🏽	lanúin le croí ton cnis meánach	none
+💑🏾	lanúin le croí ton cnis meándorcha	none
+💑🏿	lanúin le croí ton cnis dorcha	none
 👩‍❤‍👨	lanúin le croí bean, fear	none
 👨‍❤‍👨	lanúin le croí fear, fear	none
 👩‍❤‍👩	lanúin le croí bean, bean	none
@@ -2942,8 +3341,6 @@ symbols:
 👩‍👧	teaghlach bean, cailín	none
 👩‍👧‍👦	teaghlach bean, cailín, buachaill	none
 👩‍👧‍👧	teaghlach bean, cailín, cailín	none
-#⃣	caipín eochrach #	none
-*⃣	caipín eochrach *	none
 🔟	caipín eochrach 10	none
 🇦🇨	bratach Oileán na Deascabhála	none
 🇦🇩	bratach Andóra	none
@@ -3206,13 +3603,17 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bratach Sasana	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bratach Albain	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bratach an Bhreatain Bheag	none
-0⃣	caipín eochrach 0	none
-1⃣	caipín eochrach 1	none
-2⃣	caipín eochrach 2	none
-3⃣	caipín eochrach 3	none
-4⃣	caipín eochrach 4	none
-5⃣	caipín eochrach 5	none
-6⃣	caipín eochrach 6	none
-7⃣	caipín eochrach 7	none
-8⃣	caipín eochrach 8	none
-9⃣	caipín eochrach 9	none
+₡	Colón Chósta Ríce	none
+₦	Naira na Nigéire	none
+₧	Peseta na Spáinne	none
+₪	Seiceal Nua Iosrael	none
+₫	Dong Vítneam	none
+₭	Kip Laos	none
+₮	Tugrik na Mongóile	none
+₲	Guaraní Pharagua	none
+₴	Hryvnia na hÚcráine	none
+₵	Cedi Ghána	none
+₸	Tenge na Casacstáine	none
+₺	Lira na Tuirce	none
+₼	Manat na hAsarbaiseáine	none
+₾	Lari na Seoirsia	none

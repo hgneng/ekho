@@ -43,7 +43,7 @@ static pthread_t generic_speak_thread;
 static pid_t generic_pid;
 static sem_t generic_semaphore;
 
-static char **generic_message;
+static char *generic_message;
 static SPDMessageType generic_message_type;
 
 static int generic_position = 0;
@@ -71,11 +71,14 @@ void generic_set_punct(SPDPunctuation punct);
 
 MOD_OPTION_1_STR(GenericExecuteSynth)
     MOD_OPTION_1_STR(GenericCmdDependency)
+    MOD_OPTION_1_INT(GenericPortDependency)
+    MOD_OPTION_1_STR(GenericSoundIconFolder)
 
     MOD_OPTION_1_INT(GenericMaxChunkLength)
     MOD_OPTION_1_STR(GenericDelimiters)
     MOD_OPTION_1_STR(GenericPunctNone)
     MOD_OPTION_1_STR(GenericPunctSome)
+    MOD_OPTION_1_STR(GenericPunctMost)
     MOD_OPTION_1_STR(GenericPunctAll)
     MOD_OPTION_1_STR(GenericStripPunctChars)
     MOD_OPTION_1_STR(GenericRecodeFallback)
@@ -110,6 +113,8 @@ int module_load(void)
 
 	MOD_OPTION_1_STR_REG(GenericExecuteSynth, "");
 	MOD_OPTION_1_STR_REG(GenericCmdDependency, "");
+	MOD_OPTION_1_INT_REG(GenericPortDependency, 0);
+	MOD_OPTION_1_STR_REG(GenericSoundIconFolder, "/usr/share/sounds/sound-icons/");
 
 	REGISTER_DEBUG();
 
@@ -138,6 +143,7 @@ int module_load(void)
 
 	MOD_OPTION_1_STR_REG(GenericPunctNone, "");
 	MOD_OPTION_1_STR_REG(GenericPunctSome, "");
+	MOD_OPTION_1_STR_REG(GenericPunctMost, "");
 	MOD_OPTION_1_STR_REG(GenericPunctAll, "");
 
 	module_register_available_voices();
@@ -156,6 +162,7 @@ int module_init(char **status_info)
 	DBG("GenericDelimiters = %s\n", GenericDelimiters);
 	DBG("GenericExecuteSynth = %s\n", GenericExecuteSynth);
 	DBG("GenericCmdDependency = %s\n", GenericCmdDependency);
+	DBG("GenericPortDependency = %u\n", GenericPortDependency);
 
 	generic_msg_language =
 	    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
@@ -163,13 +170,13 @@ int module_init(char **status_info)
 	generic_msg_language->charset = g_strdup("iso-8859-1");
 	generic_msg_language->name = g_strdup("english");
 
-	generic_message = g_malloc(sizeof(char *));
+	generic_message = NULL;
 
 	sem_init(&generic_semaphore, 0, 0);
 
 	DBG("Generic: creating new thread for generic_speak\n");
 	generic_speaking = 0;
-	ret = pthread_create(&generic_speak_thread, NULL, _generic_speak, NULL);
+	ret = spd_pthread_create(&generic_speak_thread, NULL, _generic_speak, NULL);
 	if (ret != 0) {
 		DBG("Generic: thread failed\n");
 		*status_info = g_strdup("The module couldn't initialize threads"
@@ -188,7 +195,7 @@ SPDVoice **module_list_voices(void)
 	return module_list_registered_voices();
 }
 
-int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
+int module_speak(const gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	char *tmp;
 
@@ -198,9 +205,9 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		DBG("Speaking when requested to write");
 		return 0;
 	}
-	UPDATE_STRING_PARAMETER(voice.name, generic_set_synthesis_voice);
 	UPDATE_STRING_PARAMETER(voice.language, generic_set_language);
 	UPDATE_PARAMETER(voice_type, generic_set_voice);
+	UPDATE_STRING_PARAMETER(voice.name, generic_set_synthesis_voice);
 	UPDATE_PARAMETER(punctuation_mode, generic_set_punct);
 	UPDATE_PARAMETER(pitch, generic_set_pitch);
 	UPDATE_PARAMETER(pitch_range, generic_set_pitch_range);
@@ -221,7 +228,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	} else {
 		DBG("Warning: Preferred charset not specified, recoding to iso-8859-1");
 		tmp =
-		    (char *)g_convert_with_fallback(data, bytes, "iso-8859-2",
+		    (char *)g_convert_with_fallback(data, bytes, "iso-8859-1",
 						    "UTF-8",
 						    GenericRecodeFallback, NULL,
 						    NULL, NULL);
@@ -230,17 +237,18 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	if (tmp == NULL)
 		return -1;
 
+	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	if (msgtype == SPD_MSGTYPE_TEXT)
-		*generic_message = module_strip_ssml(tmp);
+		generic_message = module_strip_ssml(tmp);
 	else
-		*generic_message = g_strdup(tmp);
+		generic_message = g_strdup(tmp);
 	g_free(tmp);
 
-	module_strip_punctuation_some(*generic_message, GenericStripPunctChars);
+	module_strip_punctuation_some(generic_message, GenericStripPunctChars);
 
-	generic_message_type = SPD_MSGTYPE_TEXT;
+	generic_message_type = msgtype;
 
-	DBG("Requested data: |%s|\n", data);
+	DBG("Requested data (%d): |%s|\n", msgtype, data);
 
 	/* Send semaphore signal to the speaking thread */
 	generic_speaking = 1;
@@ -348,11 +356,38 @@ void *_generic_speak(void *nothing)
 
 	DBG("generic: speaking thread starting.......\n");
 
+	/* Make interruptible */
 	set_speaking_thread_parameters();
 
 	while (1) {
 		sem_wait(&generic_semaphore);
 		DBG("Semaphore on\n");
+
+		const char *play_command = NULL;
+		play_command = spd_audio_get_playcmd(module_audio_id);
+
+		if (play_command == NULL) {
+			DBG("This audio backend has no default play command; using \"play\"\n");
+			play_command = "play";
+		}
+
+		if (generic_message_type == SPD_MSGTYPE_SOUND_ICON) {
+			if (strchr(generic_message, '\\') ||
+			    strchr(generic_message, '\'') ||
+			    strchr(generic_message, '/')) {
+				DBG("Warning: bad icon name %s\n", generic_message);
+			}
+			char *cmd = g_strdup_printf("%s '%s/%s'", play_command, GenericSoundIconFolder, generic_message);
+			module_report_event_begin();
+			DBG("icon command = |%s|\n", cmd);
+			ret = system(cmd);
+			if (ret)
+				DBG("failed to run icon command: (error=%d) %s\n", errno, strerror(errno));
+			module_report_event_end();
+			free(cmd);
+			generic_speaking = 0;
+			continue;
+		}
 
 		ret = pipe(module_pipe.pc);
 		if (ret != 0) {
@@ -390,7 +425,6 @@ void *_generic_speak(void *nothing)
 				char *p;
 				char *tmpdir, *homedir;
 				const char *helper;
-				const char *play_command = NULL;
 
 				helper = getenv("TMPDIR");
 				if (helper)
@@ -404,13 +438,6 @@ void *_generic_speak(void *nothing)
 				else
 					homedir =
 					    g_strdup("UNKNOWN_HOME_DIRECTORY");
-
-				play_command =
-				    spd_audio_get_playcmd(module_audio_id);
-				if (play_command == NULL) {
-					DBG("This audio backend has no default play command; using \"play\"\n");
-					play_command = "play";
-				}
 
 				/* Set this process as a process group leader (so that SIGKILL
 				   is also delivered to the child processes created by system()) */
@@ -451,10 +478,14 @@ void *_generic_speak(void *nothing)
 					e_string =
 					    string_replace(e_string, "$VOICE",
 							   generic_msg_voice_str);
-				else
+				else {
+					char *default_voice = module_getdefaultvoice();
+					if (!default_voice)
+						default_voice = "no_voice";
 					e_string =
 					    string_replace(e_string, "$VOICE",
-							   "no_voice");
+							    default_voice);
+				}
 
 				/* Cut it into two strings */
 				p = strstr(e_string, "$DATA");
@@ -478,7 +509,7 @@ void *_generic_speak(void *nothing)
 			/* This is the parent. Send data to the child. */
 
 			generic_position =
-			    module_parent_wfork(module_pipe, *generic_message,
+			    module_parent_wfork(module_pipe, generic_message,
 						generic_message_type,
 						GenericMaxChunkLength,
 						GenericDelimiters,
@@ -676,6 +707,7 @@ void generic_set_language(char *lang)
 
 void generic_set_voice(SPDVoiceType voice)
 {
+	DBG("Setting voice type %d", voice);
 	assert(generic_msg_language);
 	generic_msg_voice_str =
 	    module_getvoice(generic_msg_language->code, voice);
@@ -686,6 +718,7 @@ void generic_set_voice(SPDVoiceType voice)
 
 void generic_set_synthesis_voice(char *name)
 {
+	DBG("Setting voice name %s (%s)", name, msg_settings.voice.name);
 	assert(msg_settings.voice.name);
 	if (module_existsvoice(msg_settings.voice.name))
 		generic_msg_voice_str = msg_settings.voice.name;
@@ -698,6 +731,13 @@ void generic_set_punct(SPDPunctuation punct)
 		return;
 	} else if (punct == SPD_PUNCT_SOME) {
 		generic_msg_punct_str = g_strdup((char *)GenericPunctSome);
+		return;
+	} else if (punct == SPD_PUNCT_MOST) {
+		if (GenericPunctMost[0] == '\0' && GenericPunctSome[0] != '\0')
+			/* Compatibility with old configuration files */
+			generic_msg_punct_str = g_strdup((char *)GenericPunctSome);
+		else
+			generic_msg_punct_str = g_strdup((char *)GenericPunctMost);
 		return;
 	} else if (punct == SPD_PUNCT_ALL) {
 		generic_msg_punct_str = g_strdup((char *)GenericPunctAll);

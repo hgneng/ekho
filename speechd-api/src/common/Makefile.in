@@ -125,8 +125,9 @@ CONFIG_CLEAN_VPATH_FILES =
 LTLIBRARIES = $(noinst_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 libcommon_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
-am_libcommon_la_OBJECTS = libcommon_la-fdsetconv.lo \
-	libcommon_la-spd_getline.lo libcommon_la-i18n.lo
+am_libcommon_la_OBJECTS = libcommon_la-common.lo \
+	libcommon_la-fdsetconv.lo libcommon_la-i18n.lo \
+	libcommon_la-spd_audio.lo
 libcommon_la_OBJECTS = $(am_libcommon_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -150,9 +151,10 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/libcommon_la-fdsetconv.Plo \
+am__depfiles_remade = ./$(DEPDIR)/libcommon_la-common.Plo \
+	./$(DEPDIR)/libcommon_la-fdsetconv.Plo \
 	./$(DEPDIR)/libcommon_la-i18n.Plo \
-	./$(DEPDIR)/libcommon_la-spd_getline.Plo
+	./$(DEPDIR)/libcommon_la-spd_audio.Plo
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -211,7 +213,6 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
-CFLAG_PULSEAUDIO = @CFLAG_PULSEAUDIO@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CSCOPE = @CSCOPE@
@@ -233,6 +234,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 ERROR_CFLAGS = @ERROR_CFLAGS@
+ESPEAK = @ESPEAK@
 ESPEAK_NG_CFLAGS = @ESPEAK_NG_CFLAGS@
 ESPEAK_NG_LIBS = @ESPEAK_NG_LIBS@
 ETAGS = @ETAGS@
@@ -240,6 +242,7 @@ EXEEXT = @EXEEXT@
 EXTRA_ESPEAK_LIBS = @EXTRA_ESPEAK_LIBS@
 EXTRA_SOCKET_LIBS = @EXTRA_SOCKET_LIBS@
 FGREP = @FGREP@
+FLITE = @FLITE@
 GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_CFLAGS = @GLIB_CFLAGS@
@@ -268,7 +271,6 @@ LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
-LIB_PULSEAUDIO = @LIB_PULSEAUDIO@
 LIB_SPD_AGE = @LIB_SPD_AGE@
 LIB_SPD_CURRENT = @LIB_SPD_CURRENT@
 LIB_SPD_REVISION = @LIB_SPD_REVISION@
@@ -339,6 +341,7 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+audio_dlopen = @audio_dlopen@
 audio_dlopen_modules = @audio_dlopen_modules@
 audiodir = @audiodir@
 bindir = @bindir@
@@ -379,6 +382,7 @@ modulebindir = @modulebindir@
 moduleconfdir = @moduleconfdir@
 moduleconforigdir = @moduleconforigdir@
 oldincludedir = @oldincludedir@
+oldmodulebindir = @oldmodulebindir@
 pdfdir = @pdfdir@
 pkgpyexecdir = @pkgpyexecdir@
 pkgpythondir = @pkgpythondir@
@@ -407,9 +411,11 @@ noinst_LTLIBRARIES = libcommon.la
 libcommon_la_CFLAGS = $(ERROR_CFLAGS) $(GLIB_CFLAGS) \
 -DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" -DLOCALEDIR=\"$(localedir)\"
 
-libcommon_la_CPPFLAGS = "-I$(top_srcdir)/include/" $(GLIB_CFLAGS)
+libcommon_la_CPPFLAGS = "-I$(top_srcdir)/include/" $(GLIB_CFLAGS) \
+	-DPLUGIN_DIR="\"$(audiodir)\""
+
 libcommon_la_LIBADD = $(GLIB_LIBS)
-libcommon_la_SOURCES = fdsetconv.c spd_getline.c i18n.c
+libcommon_la_SOURCES = common.c common.h fdsetconv.c i18n.c spd_audio.c spd_audio.h
 all: all-am
 
 .SUFFIXES:
@@ -464,9 +470,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcommon_la-common.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcommon_la-fdsetconv.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcommon_la-i18n.Plo@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcommon_la-spd_getline.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcommon_la-spd_audio.Plo@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -495,6 +502,13 @@ am--depfiles: $(am__depfiles_remade)
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
+libcommon_la-common.lo: common.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -MT libcommon_la-common.lo -MD -MP -MF $(DEPDIR)/libcommon_la-common.Tpo -c -o libcommon_la-common.lo `test -f 'common.c' || echo '$(srcdir)/'`common.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcommon_la-common.Tpo $(DEPDIR)/libcommon_la-common.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='common.c' object='libcommon_la-common.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -c -o libcommon_la-common.lo `test -f 'common.c' || echo '$(srcdir)/'`common.c
+
 libcommon_la-fdsetconv.lo: fdsetconv.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -MT libcommon_la-fdsetconv.lo -MD -MP -MF $(DEPDIR)/libcommon_la-fdsetconv.Tpo -c -o libcommon_la-fdsetconv.lo `test -f 'fdsetconv.c' || echo '$(srcdir)/'`fdsetconv.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcommon_la-fdsetconv.Tpo $(DEPDIR)/libcommon_la-fdsetconv.Plo
@@ -502,19 +516,19 @@ libcommon_la-fdsetconv.lo: fdsetconv.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -c -o libcommon_la-fdsetconv.lo `test -f 'fdsetconv.c' || echo '$(srcdir)/'`fdsetconv.c
 
-libcommon_la-spd_getline.lo: spd_getline.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -MT libcommon_la-spd_getline.lo -MD -MP -MF $(DEPDIR)/libcommon_la-spd_getline.Tpo -c -o libcommon_la-spd_getline.lo `test -f 'spd_getline.c' || echo '$(srcdir)/'`spd_getline.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcommon_la-spd_getline.Tpo $(DEPDIR)/libcommon_la-spd_getline.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spd_getline.c' object='libcommon_la-spd_getline.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -c -o libcommon_la-spd_getline.lo `test -f 'spd_getline.c' || echo '$(srcdir)/'`spd_getline.c
-
 libcommon_la-i18n.lo: i18n.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -MT libcommon_la-i18n.lo -MD -MP -MF $(DEPDIR)/libcommon_la-i18n.Tpo -c -o libcommon_la-i18n.lo `test -f 'i18n.c' || echo '$(srcdir)/'`i18n.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcommon_la-i18n.Tpo $(DEPDIR)/libcommon_la-i18n.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='i18n.c' object='libcommon_la-i18n.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -c -o libcommon_la-i18n.lo `test -f 'i18n.c' || echo '$(srcdir)/'`i18n.c
+
+libcommon_la-spd_audio.lo: spd_audio.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -MT libcommon_la-spd_audio.lo -MD -MP -MF $(DEPDIR)/libcommon_la-spd_audio.Tpo -c -o libcommon_la-spd_audio.lo `test -f 'spd_audio.c' || echo '$(srcdir)/'`spd_audio.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libcommon_la-spd_audio.Tpo $(DEPDIR)/libcommon_la-spd_audio.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spd_audio.c' object='libcommon_la-spd_audio.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcommon_la_CPPFLAGS) $(CPPFLAGS) $(libcommon_la_CFLAGS) $(CFLAGS) -c -o libcommon_la-spd_audio.lo `test -f 'spd_audio.c' || echo '$(srcdir)/'`spd_audio.c
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -646,9 +660,10 @@ clean-am: clean-generic clean-libtool clean-noinstLTLIBRARIES \
 	mostlyclean-am
 
 distclean: distclean-am
-		-rm -f ./$(DEPDIR)/libcommon_la-fdsetconv.Plo
+		-rm -f ./$(DEPDIR)/libcommon_la-common.Plo
+	-rm -f ./$(DEPDIR)/libcommon_la-fdsetconv.Plo
 	-rm -f ./$(DEPDIR)/libcommon_la-i18n.Plo
-	-rm -f ./$(DEPDIR)/libcommon_la-spd_getline.Plo
+	-rm -f ./$(DEPDIR)/libcommon_la-spd_audio.Plo
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -694,9 +709,10 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-		-rm -f ./$(DEPDIR)/libcommon_la-fdsetconv.Plo
+		-rm -f ./$(DEPDIR)/libcommon_la-common.Plo
+	-rm -f ./$(DEPDIR)/libcommon_la-fdsetconv.Plo
 	-rm -f ./$(DEPDIR)/libcommon_la-i18n.Plo
-	-rm -f ./$(DEPDIR)/libcommon_la-spd_getline.Plo
+	-rm -f ./$(DEPDIR)/libcommon_la-spd_audio.Plo
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

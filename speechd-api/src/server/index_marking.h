@@ -39,6 +39,6 @@ char *find_index_mark(TSpeechDMessage * msg, int mark);
 
 /* Delete all index marks from _buf_ and return a newly
    allocated string. */
-char *strip_index_marks(char *buf, SPDDataMode ssml_mode);
+char *strip_index_marks(const char *buf, SPDDataMode ssml_mode);
 
 #endif /* INDEX_MARKING_H */

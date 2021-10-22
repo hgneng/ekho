@@ -442,7 +442,7 @@ int festival_accept_any_response(FT_Info * info)
 }
 
 /* --- HELPER FUNCTIONS --- */
-int festival_check_info(FT_Info * info, char *fnname)
+int festival_check_info(FT_Info * info, const char *fnname)
 {
 	assert(fnname != NULL);
 	if ((info == NULL) || (info->server_fd == -1)) {
@@ -695,7 +695,7 @@ int festivalClose(FT_Info * info)
 
 /* --- INFORMATION RETRIEVAL COMMANDS --- */
 
-char **lisp_list_get_vect(char *expr)
+char **lisp_list_get_vect(const char *expr)
 {
 	size_t len;
 	char *helper;

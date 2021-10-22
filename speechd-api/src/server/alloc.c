@@ -39,6 +39,7 @@ TFDSetElement spd_fdset_copy(TFDSetElement *old)
 	new.audio_alsa_device = g_strdup(old->audio_alsa_device);
 	new.audio_nas_server = g_strdup(old->audio_nas_server);
 	new.audio_pulse_server = g_strdup(old->audio_pulse_server);
+	new.audio_pulse_device = g_strdup(old->audio_pulse_device);
 
 	return new;
 
@@ -76,6 +77,7 @@ void mem_free_fdset(TFDSetElement * fdset)
 	g_free(fdset->audio_alsa_device);
 	g_free(fdset->audio_nas_server);
 	g_free(fdset->audio_pulse_server);
+	g_free(fdset->audio_pulse_device);
 }
 
 void mem_free_message(TSpeechDMessage * msg)
