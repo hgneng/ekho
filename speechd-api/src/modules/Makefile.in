@@ -110,10 +110,10 @@ host_triplet = @host@
 noinst_PROGRAMS = sd_skeleton0$(EXEEXT) sd_skeleton_config$(EXEEXT) \
 	$(am__EXEEXT_10)
 modulebin_PROGRAMS = sd_dummy$(EXEEXT) sd_generic$(EXEEXT) \
-	sd_festival$(EXEEXT) sd_cicero$(EXEEXT) $(am__EXEEXT_1) \
-	$(am__EXEEXT_2) $(am__EXEEXT_3) $(am__EXEEXT_4) \
-	$(am__EXEEXT_5) $(am__EXEEXT_6) $(am__EXEEXT_7) \
-	$(am__EXEEXT_8) $(am__EXEEXT_9)
+	sd_festival$(EXEEXT) sd_cicero$(EXEEXT) sd_ekho$(EXEEXT) \
+	$(am__EXEEXT_1) $(am__EXEEXT_2) $(am__EXEEXT_3) \
+	$(am__EXEEXT_4) $(am__EXEEXT_5) $(am__EXEEXT_6) \
+	$(am__EXEEXT_7) $(am__EXEEXT_8) $(am__EXEEXT_9)
 @flite_support_TRUE@am__append_1 = sd_flite
 @ibmtts_support_TRUE@am__append_2 = sd_ibmtts
 @ibmtts_shim_TRUE@@ibmtts_support_TRUE@am__append_3 = -L.
@@ -203,6 +203,15 @@ am_sd_dummy_OBJECTS = dummy.$(OBJEXT) $(am__objects_1) \
 sd_dummy_OBJECTS = $(am_sd_dummy_OBJECTS)
 sd_dummy_DEPENDENCIES = $(top_builddir)/src/common/libcommon.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2)
+am_sd_ekho_OBJECTS = sd_ekho-ekho.$(OBJEXT) $(am__objects_1)
+sd_ekho_OBJECTS = $(am_sd_ekho_OBJECTS)
+sd_ekho_DEPENDENCIES = $(EKHO_ROOT)/libekho.a \
+	$(top_builddir)/src/common/libcommon.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_2)
+sd_ekho_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(sd_ekho_CXXFLAGS) \
+	$(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am__sd_espeak_SOURCES_DIST = espeak.c module_main.c module_readline.c \
 	module_process.c module_config.c module_utils.c module_utils.h
 @espeak_support_TRUE@am_sd_espeak_OBJECTS = espeak.$(OBJEXT) \
@@ -414,7 +423,7 @@ am__depfiles_remade = ./$(DEPDIR)/baratinoo.Po ./$(DEPDIR)/cicero.Po \
 	./$(DEPDIR)/module_readline.Po ./$(DEPDIR)/module_utils.Po \
 	./$(DEPDIR)/module_utils_addvoice.Po \
 	./$(DEPDIR)/module_utils_play.Po ./$(DEPDIR)/pico.Po \
-	./$(DEPDIR)/sd_espeak_ng-espeak.Po \
+	./$(DEPDIR)/sd_ekho-ekho.Po ./$(DEPDIR)/sd_espeak_ng-espeak.Po \
 	./$(DEPDIR)/sd_espeak_ng-module_config.Po \
 	./$(DEPDIR)/sd_espeak_ng-module_main.Po \
 	./$(DEPDIR)/sd_espeak_ng-module_process.Po \
@@ -488,7 +497,7 @@ am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
 SOURCES = $(sd_baratinoo_SOURCES) $(sd_cicero_SOURCES) \
-	$(sd_dummy_SOURCES) $(sd_espeak_SOURCES) \
+	$(sd_dummy_SOURCES) $(sd_ekho_SOURCES) $(sd_espeak_SOURCES) \
 	$(sd_espeak_ng_SOURCES) $(sd_festival_SOURCES) \
 	$(sd_flite_SOURCES) $(sd_generic_SOURCES) $(sd_ibmtts_SOURCES) \
 	$(sd_ivona_SOURCES) $(sd_kali_SOURCES) $(sd_pico_SOURCES) \
@@ -499,12 +508,12 @@ SOURCES = $(sd_baratinoo_SOURCES) $(sd_cicero_SOURCES) \
 	$(sd_skeleton0_espeak_ng_sync_server_SOURCES) \
 	$(sd_skeleton_config_SOURCES) $(sd_voxin_SOURCES)
 DIST_SOURCES = $(am__sd_baratinoo_SOURCES_DIST) $(sd_cicero_SOURCES) \
-	$(sd_dummy_SOURCES) $(am__sd_espeak_SOURCES_DIST) \
-	$(am__sd_espeak_ng_SOURCES_DIST) $(sd_festival_SOURCES) \
-	$(am__sd_flite_SOURCES_DIST) $(sd_generic_SOURCES) \
-	$(am__sd_ibmtts_SOURCES_DIST) $(am__sd_ivona_SOURCES_DIST) \
-	$(am__sd_kali_SOURCES_DIST) $(am__sd_pico_SOURCES_DIST) \
-	$(sd_skeleton0_SOURCES) \
+	$(sd_dummy_SOURCES) $(sd_ekho_SOURCES) \
+	$(am__sd_espeak_SOURCES_DIST) $(am__sd_espeak_ng_SOURCES_DIST) \
+	$(sd_festival_SOURCES) $(am__sd_flite_SOURCES_DIST) \
+	$(sd_generic_SOURCES) $(am__sd_ibmtts_SOURCES_DIST) \
+	$(am__sd_ivona_SOURCES_DIST) $(am__sd_kali_SOURCES_DIST) \
+	$(am__sd_pico_SOURCES_DIST) $(sd_skeleton0_SOURCES) \
 	$(am__sd_skeleton0_espeak_ng_async_SOURCES_DIST) \
 	$(am__sd_skeleton0_espeak_ng_async_server_SOURCES_DIST) \
 	$(am__sd_skeleton0_espeak_ng_sync_SOURCES_DIST) \
@@ -577,6 +586,7 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
+CFLAG_PULSEAUDIO = @CFLAG_PULSEAUDIO@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CSCOPE = @CSCOPE@
@@ -635,6 +645,7 @@ LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
+LIB_PULSEAUDIO = @LIB_PULSEAUDIO@
 LIB_SPD_AGE = @LIB_SPD_AGE@
 LIB_SPD_CURRENT = @LIB_SPD_CURRENT@
 LIB_SPD_REVISION = @LIB_SPD_REVISION@
@@ -795,6 +806,16 @@ sd_skeleton_config_SOURCES = skeleton_config.c $(common_SOURCES)
 sd_skeleton_config_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
+
+EKHO_ROOT = ../../..
+sd_ekho_SOURCES = ekho.cpp $(audio_SOURCES) $(common_SOURCES)
+sd_ekho_CXXFLAGS = -g -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS) -I$(EKHO_ROOT)/src -I$(EKHO_ROOT)/utfcpp/source -I$(EKHO_ROOT)/sonic
+sd_ekho_LDADD = $(EKHO_ROOT)/libekho.a -lm -lsndfile \
+        @LIB_PULSEAUDIO@  $(MP3LAME_LIBS) \
+        $(top_builddir)/src/common/libcommon.la \
+        $(audio_dlopen_modules) \
+        $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
+        $(common_LDADD)
 
 sd_dummy_SOURCES = dummy.c $(common_SOURCES) \
 	module_utils_addvoice.c
@@ -1007,6 +1028,10 @@ sd_dummy$(EXEEXT): $(sd_dummy_OBJECTS) $(sd_dummy_DEPENDENCIES) $(EXTRA_sd_dummy
 	@rm -f sd_dummy$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(sd_dummy_OBJECTS) $(sd_dummy_LDADD) $(LIBS)
 
+sd_ekho$(EXEEXT): $(sd_ekho_OBJECTS) $(sd_ekho_DEPENDENCIES) $(EXTRA_sd_ekho_DEPENDENCIES) 
+	@rm -f sd_ekho$(EXEEXT)
+	$(AM_V_CXXLD)$(sd_ekho_LINK) $(sd_ekho_OBJECTS) $(sd_ekho_LDADD) $(LIBS)
+
 sd_espeak$(EXEEXT): $(sd_espeak_OBJECTS) $(sd_espeak_DEPENDENCIES) $(EXTRA_sd_espeak_DEPENDENCIES) 
 	@rm -f sd_espeak$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(sd_espeak_OBJECTS) $(sd_espeak_LDADD) $(LIBS)
@@ -1096,6 +1121,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_utils_addvoice.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/module_utils_play.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pico.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_ekho-ekho.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-espeak.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-module_config.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sd_espeak_ng-module_main.Po@am__quote@ # am--include-marker
@@ -1658,6 +1684,20 @@ sd_voxin-module_utils_addvoice.obj: module_utils_addvoice.c
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LTCXXCOMPILE) -c -o $@ $<
 
+sd_ekho-ekho.o: ekho.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_ekho_CXXFLAGS) $(CXXFLAGS) -MT sd_ekho-ekho.o -MD -MP -MF $(DEPDIR)/sd_ekho-ekho.Tpo -c -o sd_ekho-ekho.o `test -f 'ekho.cpp' || echo '$(srcdir)/'`ekho.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_ekho-ekho.Tpo $(DEPDIR)/sd_ekho-ekho.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='ekho.cpp' object='sd_ekho-ekho.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_ekho_CXXFLAGS) $(CXXFLAGS) -c -o sd_ekho-ekho.o `test -f 'ekho.cpp' || echo '$(srcdir)/'`ekho.cpp
+
+sd_ekho-ekho.obj: ekho.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_ekho_CXXFLAGS) $(CXXFLAGS) -MT sd_ekho-ekho.obj -MD -MP -MF $(DEPDIR)/sd_ekho-ekho.Tpo -c -o sd_ekho-ekho.obj `if test -f 'ekho.cpp'; then $(CYGPATH_W) 'ekho.cpp'; else $(CYGPATH_W) '$(srcdir)/ekho.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_ekho-ekho.Tpo $(DEPDIR)/sd_ekho-ekho.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='ekho.cpp' object='sd_ekho-ekho.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sd_ekho_CXXFLAGS) $(CXXFLAGS) -c -o sd_ekho-ekho.obj `if test -f 'ekho.cpp'; then $(CYGPATH_W) 'ekho.cpp'; else $(CYGPATH_W) '$(srcdir)/ekho.cpp'; fi`
+
 sd_kali-kali.o: kali.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(sd_kali_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT sd_kali-kali.o -MD -MP -MF $(DEPDIR)/sd_kali-kali.Tpo -c -o sd_kali-kali.o `test -f 'kali.cpp' || echo '$(srcdir)/'`kali.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/sd_kali-kali.Tpo $(DEPDIR)/sd_kali-kali.Po
@@ -1846,6 +1886,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/module_utils_addvoice.Po
 	-rm -f ./$(DEPDIR)/module_utils_play.Po
 	-rm -f ./$(DEPDIR)/pico.Po
+	-rm -f ./$(DEPDIR)/sd_ekho-ekho.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-espeak.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_config.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_main.Po
@@ -1947,6 +1988,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/module_utils_addvoice.Po
 	-rm -f ./$(DEPDIR)/module_utils_play.Po
 	-rm -f ./$(DEPDIR)/pico.Po
+	-rm -f ./$(DEPDIR)/sd_ekho-ekho.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-espeak.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_config.Po
 	-rm -f ./$(DEPDIR)/sd_espeak_ng-module_main.Po

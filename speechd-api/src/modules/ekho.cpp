@@ -1,5 +1,5 @@
 /*
- * ekho.cc - Speech Dispatcher backend for Ekho
+ * ekho.cpp - Speech Dispatcher backend for Ekho
  *
  * Copyright (C) 2012-2013 Cameron Wong (hgneng at gmail.com)
  *
@@ -24,7 +24,6 @@
 #include "spd_audio.h"
 #include <speechd_types.h>
 #include "module_utils.h"
-#include "module_utils_speak_queue.h"
 
 #define HAVE_PULSEAUDIO 1
 #include <ekho.h>
@@ -32,7 +31,7 @@
 using namespace ekho;
 
 #define MODULE_NAME     "ekho"
-#define MODULE_VERSION  "8.2"
+#define MODULE_VERSION  "8.8"
 
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
@@ -40,7 +39,9 @@ DECLARE_DEBUG();
 static SPDMessageType ekho_message_type;
 
 static int ekho_position = 0;
-static int ekho_pause_requested = 0;
+static int pause_requested = 0;
+static int stop_requested = 0;
+static int began = 0;
 
 signed int ekho_volume = 0;
 
@@ -68,8 +69,9 @@ int module_load(void) {
 int module_init(char **status_info) {
     int ret;
 
-    DBG("module_init");
-    INIT_INDEX_MARKING();
+    DBG(MODULE_NAME " Module init().");
+
+    module_audio_set_server();
 
     *status_info = NULL;
 
@@ -82,13 +84,6 @@ int module_init(char **status_info) {
     gpEkho = new Ekho();
     gpEkho->setSpeakIsolatedPunctuation();
     module_list_voices();
-
-    // @TODO: confirm the proper size
-    ret = module_speak_queue_init(4410000, status_info);
-    if (ret != 0) {
-      DBG("module_speak_queue_init fail: %d", ret);
-      return ret;
-    }
 
     *status_info = g_strdup("ekho initialized successfully.");
 
@@ -156,11 +151,20 @@ SPDVoice** module_list_voices(void) {
 int ekho_callback(short *wav, int samples, int bits, int channels, int samplerate, int event) {
   DBG("ekho_callback: samples=%d, event=%d", samples, event);
 
-  if (module_speak_queue_stop_requested()) {
+  /* Process server events in case we were told to stop in between */
+  module_process(STDIN_FILENO, 0);
+
+  if (stop_requested)
     return 1;
+
+  if (pause_requested)
+    return 1;
+
+  if (!began) {
+    began = 1;
+    module_report_event_begin();
   }
 
-  module_speak_queue_before_play();
   if (samples > 0) {
     AudioTrack track = {
       .bits = bits,
@@ -170,10 +174,10 @@ int ekho_callback(short *wav, int samples, int bits, int channels, int samplerat
       .samples = wav,
     };
 
-    module_speak_queue_add_audio(&track, SPD_AUDIO_LE);
+    module_tts_output_server(&track, SPD_AUDIO_LE);
   } else if (event == 1) {
     // Indicate this speech finish. Without this next speech will not begin.
-    module_speak_queue_add_end();
+    //module_speak_queue_add_end();
   }
 
   return 0;
@@ -190,11 +194,8 @@ int ekho_callback(short *wav, int samples, int bits, int channels, int samplerat
  * }
  */
 
-int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
-  DBG("module_speak(%s, %ld, %d)\n", data, bytes, msgtype);
-  if (!module_speak_queue_before_synth()) {
-    return 0;
-  }
+int module_speak_sync(gchar *data, size_t bytes, SPDMessageType msgtype) {
+  DBG("module_speak_sync(%s, %ld, %d)\n", data, bytes, msgtype);
 
   /* Setting voice */
 	UPDATE_STRING_PARAMETER(voice.language, ekho_set_language);
@@ -206,6 +207,12 @@ int module_speak(gchar *data, size_t bytes, SPDMessageType msgtype) {
 	UPDATE_PARAMETER(punctuation_mode, ekho_set_punctuation_mode);
   UPDATE_PARAMETER(cap_let_recogn, ekho_set_cap_let_recogn);
 
+  began = 0;
+  stop_requested = 0;
+  pause_requested = 0;
+
+  module_speak_ok();
+  
   string s;
   if (msgtype == SPD_MSGTYPE_KEY) {
     // fix issues of always speak some symbols in English
@@ -236,24 +243,22 @@ void module_speak_queue_cancel(void) {
 
 int module_stop(void) {
   DBG("module_stop");
-  module_speak_queue_stop();
+  stop_requested = 1;
   //gpEkho->stop();
   return 0;
 }
 
 size_t module_pause(void) {
   DBG("module_pause");
-  module_speak_queue_pause();
+  pause_requested = 1;
   //gpEkho->pause();
   return 0;
 }
 
 int module_close(void) {
   DBG("module_close");
-  module_speak_queue_terminate();
   delete gpEkho;
   gpEkho = 0;
-  module_speak_queue_free();
 
   if (gpVoices != NULL) {
     int i;

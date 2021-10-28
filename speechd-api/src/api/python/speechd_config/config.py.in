@@ -621,7 +621,7 @@ Do you want to keep it?"""), False)
         self.default_output_module = question_with_suggested_answers(
             "Default output module",
             "espeak-ng",
-            ["espeak-ng", "espeak", "festival", "flite", "ivona", "pico",
+            ["espeak-ng", "espeak", "ekho", "festival", "flite", "ivona", "pico",
              "espeak-ng-mbrola-generic", "espeak-mbrola-generic", "swift-generic",
              "epos-generic", "dtk-generic", "ibmtts", "cicero", "kali",
              "mary-generic", "baratinoo"])

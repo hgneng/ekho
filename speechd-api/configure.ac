@@ -516,6 +516,19 @@ if test "x$with_systemdsystemunitdir" != xno; then
 fi
 AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemdsystemunitdir" -a "x$with_systemdsystemunitdir" != xno ])
 
+LIB_PULSEAUDIO=""
+CFLAG_PULSEAUDIO=""
+AS_IF([test "x$with_pulseaudio" != xno],
+        [AC_CHECK_LIB([pulse], [main],
+            [AC_SUBST([LIB_PULSEAUDIO], ["`pkg-config --libs libpulse-simple`"])
+            AC_SUBST([CFLAG_PULSEAUDIO], ["`pkg-config --cflags libpulse-simple`"])
+            AC_DEFINE([HAVE_PULSEAUDIO], [1],
+                [Define if you have libpulse])
+            ],
+            [AC_MSG_FAILURE(
+                [pulseaudio test failed (--without-pulseaudio to disable)])],
+            [])])
+
 AC_CONFIG_FILES([Makefile
 		 run-speechd
                  speech-dispatcher.pc

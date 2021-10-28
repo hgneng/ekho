@@ -13,7 +13,7 @@
 # Copyright (C) 2017 Colomban Wendling <cwendling@hypra.fr>
 # Copyright (C) 2017 Jan Tojnar <jtojnar@gmail.com>
 # Copyright (C) 2018 Raphaël POITEVIN <rpoitevin@hypra.fr>
-# Copyright (C) 2018-2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2018-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
 # Copyright (C) 2018 Alan Coopersmith <alan.coopersmith@oracle.com>
 #
 # This program is free software; you can redistribute it and/or modify it under
@@ -181,6 +181,9 @@ AC_SUBST([ESPEAK_NG_CFLAGS])
 AC_SUBST([ESPEAK_NG_LIBS])
 AS_IF([test $with_espeak_ng = "yes"], [output_modules="${output_modules} espeak-ng"])
 
+AC_CHECK_PROGS([ESPEAK], [espeak-ng espeak])
+AM_CONDITIONAL([espeak_dummy_message], [test x$ESPEAK != x])
+
 # check for flite support
 AC_ARG_WITH([flite],
 	[AS_HELP_STRING([--with-flite], [include Festival Lite (Flite) support])],
@@ -223,12 +226,23 @@ AC_SUBST([flite_basic])
 AC_SUBST([flite_kal])
 AS_IF([test $with_flite = "yes"], [output_modules="${output_modules} flite"])
 
+AC_CHECK_PROGS([FLITE], [flite])
+AM_CONDITIONAL([flite_dummy_message], [test x$FLITE != x])
+
 # check for IBMTTS support
+case "$host" in
+	[i[3-6]86-*-linux*])
+		default_ibmtts=check
+		;;
+	*)
+		default_ibmtts=no
+		;;
+esac
 AC_ARG_WITH([ibmtts],
 	[AS_HELP_STRING([--with-ibmtts[[=yes|no|shim]]], [include IBM TTS support])],
 	[],
-	[with_ibmtts=check])
-AS_IF([test $with_ibmtts != "no"],
+	[with_ibmtts=$default_ibmtts])
+AS_IF([test $with_ibmtts = yes -o $with_ibmtts = check],
 	[AC_CHECK_LIB([ibmeci], [eciStop],
 		[with_ibmtts=yes;
 		ibmtts_include="-I/opt/IBM/ibmtts/inc/"],
@@ -242,6 +256,24 @@ AM_CONDITIONAL([ibmtts_support], [test $with_ibmtts != no])
 AM_CONDITIONAL([ibmtts_shim], [test $with_ibmtts = shim])
 AC_SUBST([ibmtts_include])
 AS_IF([test $with_ibmtts != no], [output_modules="${output_modules} ibmtts"])
+
+# check for Voxin support
+AC_ARG_WITH([voxin],
+	[AS_HELP_STRING([--with-voxin[[=yes|no|shim]]], [include Voxin support])],
+	[],
+	[with_voxin=check])
+AS_IF([test $with_voxin = yes -o $with_voxin = check],
+	[AC_CHECK_LIB([voxin], [voxToString],
+		[with_voxin=yes],
+		[AS_IF([test "$with_voxin" = yes],
+			[AC_MSG_FAILURE([Voxin is not available])])
+		 with_voxin=shim])])
+if test "$with_voxin" = shim -a $enable_shared = no; then
+  with_voxin=no
+fi
+AM_CONDITIONAL([voxin_support], [test "$with_voxin" != no])
+AM_CONDITIONAL([voxin_shim], [test "$with_voxin" = shim])
+AS_IF([test "$with_voxin" != no], [output_modules="${output_modules} voxin"])
 
 # check for ivona support
 AC_ARG_WITH([ivona],
@@ -274,7 +306,7 @@ AC_ARG_WITH([baratinoo],
 	[AS_HELP_STRING([--with-baratinoo[[=yes|no|shim]]], [include Voxygen Baratinoo support])],
 	[],
 	[with_baratinoo=check])
-AS_IF([! test "$with_baratinoo" = no],
+AS_IF([test "$with_baratinoo" = yes -o "$with_baratinoo" = check],
 	[AC_CHECK_LIB([baratinoo], [BCinitlib],
 		[with_baratinoo=yes],
 		[AS_IF([test "$with_baratinoo" = yes],
@@ -292,7 +324,7 @@ AC_ARG_WITH([kali],
 	[AS_HELP_STRING([--with-kali[[=yes|no|shim]]], [include Kali support])],
 	[],
 	[with_kali=check])
-AS_IF([test $with_kali != "no"],
+AS_IF([test $with_kali = yes -o $with_kali = check],
 	[AC_CHECK_LIB([Kali], [initKali],
 		[with_kali=yes],
 		[AS_IF([test $with_kali = "yes"],
@@ -306,7 +338,8 @@ AM_CONDITIONAL([kali_support], [test $with_kali != no])
 AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
 AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
 
-audio_dlopen_modules='-dlopen force'
+audio_dlopen='-dlopen force'
+audio_dlopen_modules=
 
 # clear default audio method
 default_audio_method=""
@@ -410,6 +443,7 @@ AC_ARG_WITH([default-audio-method],
 AC_SUBST([default_audio_method])
 
 # We'll build these modules:
+AC_SUBST([audio_dlopen])
 AC_SUBST([audio_dlopen_modules])
 
 # current, age and revision values for libspeechd.
@@ -453,9 +487,11 @@ AC_SUBST([localedatadir])
 # Path for module binaries:
 AC_ARG_WITH([module-bindir],
 	AS_HELP_STRING([--with-module-bindir],[Directory where to install speech-dispatcher modules (defaults to ${libdir}/speech-dispatcher-modules)]),
-	[modulebindir=$withval], [modulebindir='${libdir}/speech-dispatcher-modules'])
-
+	[modulebindir=$withval], [modulebindir='${libexecdir}/speech-dispatcher-modules'])
 AC_SUBST([modulebindir])
+
+oldmodulebindir='${libdir}/speech-dispatcher-modules'
+AC_SUBST([oldmodulebindir])
 
 # Path for speech-dispatcher libraries:
 spdlibdir='${libdir}/speech-dispatcher'
@@ -494,6 +530,7 @@ AS_IF([test "x$with_pulseaudio" != xno],
             [])])
 
 AC_CONFIG_FILES([Makefile
+		 run-speechd
                  speech-dispatcher.pc
                  config/Makefile
                  config/clients/Makefile
@@ -516,7 +553,8 @@ AC_CONFIG_FILES([Makefile
                  src/common/Makefile
                  src/modules/Makefile
                  src/server/Makefile
-                 src/tests/Makefile])
+                 src/tests/Makefile],
+	 	[chmod +x run-speechd])
 AC_OUTPUT
 AC_MSG_NOTICE([output modules to be built are $output_modules])
 AC_MSG_NOTICE([audio methods to be built are $audio_methods])

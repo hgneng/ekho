@@ -1,4 +1,4 @@
-@set UPDATED 28 February 2021
-@set UPDATED-MONTH February 2021
-@set EDITION 0.11.0-rc4
-@set VERSION 0.11.0-rc4
+@set UPDATED 22 October 2021
+@set UPDATED-MONTH October 2021
+@set EDITION 
+@set VERSION 

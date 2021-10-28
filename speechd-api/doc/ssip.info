@@ -1,4 +1,4 @@
-This is ssip.info, produced by makeinfo version 6.8 from ssip.texi.
+This is ssip.info, produced by makeinfo version 6.7 from ssip.texi.
 
 INFO-DIR-SECTION Sound
 INFO-DIR-SECTION Development
@@ -607,7 +607,6 @@ File: ssip.info,  Node: Priority Diagram,  Next: Priority Setting Commands,  Pre
      doesn't interrupt          interrupts itself
        itself
                     " ]
-
 
 
 File: ssip.info,  Node: Priority Setting Commands,  Next: Examples of Using Priorities,  Prev: Priority Diagram,  Up: Message Priority Commands
@@ -2620,29 +2619,29 @@ Node: Speech Output Control Commands17148
 Node: Message Priority Commands19356
 Node: Priority Categories20536
 Node: Priority Diagram24314
-Node: Priority Setting Commands25252
-Node: Examples of Using Priorities25869
-Node: Blocks of Messages Commands26674
-Node: Parameter Setting Commands29214
-Node: Information Retrieval Commands39661
-Ref: list-output-modules40111
-Node: Message Events Notification and Index Marking41939
-Node: Why Events Notification42336
-Node: Types of Events43403
-Node: Events Notifications in SSIP46306
-Node: Switching Notifications On and Off47932
-Node: History Handling Commands49992
-Node: Purpose of Message History50254
-Node: Message History in SSIP51494
-Node: Other Commands61377
-Node: Return Codes61626
-Node: Sample SSIP Dialog63111
-Node: Appendices64369
-Node: Key Names64687
-Node: Standard Sound Icons65553
-Node: Standard Voices65738
-Node: GNU Free Documentation License66329
-Node: GNU General Public Licence88769
+Node: Priority Setting Commands25251
+Node: Examples of Using Priorities25868
+Node: Blocks of Messages Commands26673
+Node: Parameter Setting Commands29213
+Node: Information Retrieval Commands39660
+Ref: list-output-modules40110
+Node: Message Events Notification and Index Marking41938
+Node: Why Events Notification42335
+Node: Types of Events43402
+Node: Events Notifications in SSIP46305
+Node: Switching Notifications On and Off47931
+Node: History Handling Commands49991
+Node: Purpose of Message History50253
+Node: Message History in SSIP51493
+Node: Other Commands61376
+Node: Return Codes61625
+Node: Sample SSIP Dialog63110
+Node: Appendices64368
+Node: Key Names64686
+Node: Standard Sound Icons65552
+Node: Standard Voices65737
+Node: GNU Free Documentation License66328
+Node: GNU General Public Licence88768
 
 End Tag Table
 
