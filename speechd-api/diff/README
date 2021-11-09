@@ -3,8 +3,11 @@ replace file from diff/
 * speechd/config/modules/ekho.conf
 * speechd/src/modules/ekho.cpp
 * speechd/src/modules/Makefile.am
-???* src/api/python/speechd_config/config.py.in (will install to /usr/lib/python3.8/site-packages/speechd_config/config.py)
 * speechd/configure.ac
+
+add "ekho" dynamically in config files in ekho/install.pl
+* speechd/config/speechd.conf (will install to /etc/speech-dispatcher/speechd.conf)
+* src/api/python/speechd_config/config.py.in (will install to /usr/lib/python3/site-packages/speechd_config/config.py)
 
 add following libs definition to speechd/configure.ac:
 

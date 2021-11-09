@@ -1,7 +1,7 @@
 /*
  * ekho.cpp - Speech Dispatcher backend for Ekho
  *
- * Copyright (C) 2012-2013 Cameron Wong (hgneng at gmail.com)
+ * Copyright (C) 2012-2021 Cameron Wong (hgneng at gmail.com)
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -61,15 +61,17 @@ static void ekho_set_cap_let_recogn(SPDCapitalLetters punct_mode);
 /* Public functions */
 
 int module_load(void) {
-   INIT_SETTINGS_TABLES();
-   REGISTER_DEBUG();
-   return 0;
+  DBG(MODULE_NAME " module_load");
+
+  INIT_SETTINGS_TABLES();
+  REGISTER_DEBUG();
+  return 0;
 }
 
 int module_init(char **status_info) {
     int ret;
 
-    DBG(MODULE_NAME " Module init().");
+    DBG(MODULE_NAME " module_init");
 
     module_audio_set_server();
 
@@ -91,6 +93,8 @@ int module_init(char **status_info) {
 }
 
 SPDVoice** module_list_voices(void) {
+  DBG(MODULE_NAME " module_list_voices");
+
   if (!gpVoices) {
     gpVoices = g_new0(SPDVoice*, 9);
 
@@ -178,6 +182,11 @@ int ekho_callback(short *wav, int samples, int bits, int channels, int samplerat
   } else if (event == 1) {
     // Indicate this speech finish. Without this next speech will not begin.
     //module_speak_queue_add_end();
+    module_report_event_end();
+  }
+
+  if (stop_requested) {
+    return 1;
   }
 
   return 0;
@@ -194,7 +203,7 @@ int ekho_callback(short *wav, int samples, int bits, int channels, int samplerat
  * }
  */
 
-int module_speak_sync(gchar *data, size_t bytes, SPDMessageType msgtype) {
+void module_speak_sync(const gchar *data, size_t bytes, SPDMessageType msgtype) {
   DBG("module_speak_sync(%s, %ld, %d)\n", data, bytes, msgtype);
 
   /* Setting voice */
@@ -232,8 +241,6 @@ int module_speak_sync(gchar *data, size_t bytes, SPDMessageType msgtype) {
   } else {
     gpEkho->synth(data, ekho_callback);
   }
-
-  return bytes;
 }
 
 void module_speak_queue_cancel(void) {
@@ -276,6 +283,7 @@ int module_close(void) {
 }
 
 static void ekho_set_rate(signed int rate) {
+  DBG("ekho_set_rate");
   if (rate < 0) {
     gpEkho->setSpeed(rate / 2);
   } else {
@@ -284,6 +292,7 @@ static void ekho_set_rate(signed int rate) {
 }
 
 static void ekho_set_volume(signed int volume) {
+  DBG("ekho_set_volume");
   gpEkho->setVolume(volume);
 }
 
@@ -294,7 +303,7 @@ static void ekho_set_pitch(signed int pitch) {
 }
 
 static void ekho_set_voice(SPDVoiceType voice) {
-  DBG("Voice: %d", voice);
+  DBG("ekho_set_voice: %d", voice);
 }
 
 static void ekho_set_language(char *lang) {
@@ -308,12 +317,12 @@ static void ekho_set_language(char *lang) {
 
 static void ekho_set_synthesis_voice(char *synthesis_voice) {
   if (synthesis_voice) {
-    DBG("Voice: %s\n", synthesis_voice);
+    DBG("ekho_set_synthesis_voice: %s\n", synthesis_voice);
   }
 }
 
 static void ekho_set_punctuation_mode(SPDPunctuation punct_mode) {
-  DBG("Punctuation mode: %d\n", punct_mode);
+  DBG("ekho_set_punctuation_mode: %d\n", punct_mode);
 	EkhoPuncType mode = EKHO_PUNC_SOME;
 	switch (punct_mode)  {
 	case SPD_PUNCT_ALL:
