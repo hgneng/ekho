@@ -211,7 +211,10 @@ static int espeakSynthCallback(short *wav, int numsamples,
 }
 #endif
 
+#ifdef ENABLE_FESTIVAL
 static bool gsIsFestivalInited = false;
+#endif
+
 int EkhoImpl::initEnglish(void) {
 #ifdef ENABLE_FESTIVAL
   if (!gsIsFestivalInited) {
@@ -505,16 +508,24 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
   EkhoImpl *pEkho = (EkhoImpl *)arg;
 
   pthread_mutex_lock(&(pEkho->mSpeechQueueMutex));
-  if (!pEkho->isStopped) {
+  if (!pEkho->isStopped) {        
     int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
     if (flush_frames) {
       do {
+        if (pEkho->isStopped) {
+          break;
+        }
+
+        while (pEkho->isPaused) {
+          sleep(1);
+        }
+
         frames = pEkho->audio->readShortFrames(buffer, BUFFER_SIZE);
 
         if (frames > 0) {
           if (tofile) {
-            int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames / pEkho->audio->channels);
+            /*int writtenFrames = */sf_writef_short(pEkho->mSndFile, buffer, frames / pEkho->audio->channels);
             /*
             if (frames / pEkho->audio->channels != writtenFrames) {
               cerr << "Fail to write WAV file " << writtenFrames << " out of "
@@ -530,7 +541,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
                   pEkho->audio->channels, pEkho->audio->sampleRate, 0);
             } else {
   #ifdef HAVE_PULSEAUDIO
-              int ret = pEkho->audio->pulseAudioWrite((const void*)buffer, frames * 2);
+              pEkho->audio->pulseAudioWrite((const void*)buffer, frames * 2);
   #endif
             }
           }
@@ -761,28 +772,30 @@ void *EkhoImpl::speechDaemon(void *args) {
     }
     pEkho->synth2(order.text, speakPcm);
 
-    // FIXME: following statement seems not flush rest PCM
-    pEkho->speakPcm(0, 0, pEkho, OVERLAP_QUIET_PART);
-    if (EkhoImpl::speechdSynthCallback) {
-      EkhoImpl::speechdSynthCallback(0, 0, 0, 0, 0, 1);
-    }
-
-    if (EkhoImpl::mDebug) {
-      cerr << "EkhoImpl::speechDaemon synth2 end" << endl;
-    }
-
-#ifdef HAVE_PULSEAUDIO
-    if (!EkhoImpl::speechdSynthCallback) {
-      if (pEkho->isStopped) {
-        pEkho->audio->pulseAudioFlush();
-      } else {
-        pEkho->audio->pulseAudioDrain();
-      }
-    }
-#endif
-
-    pthread_mutex_lock(&pEkho->mSpeechQueueMutex);
     if (!pEkho->isStopped) {
+      // FIXME: following statement seems not flush rest PCM
+      pEkho->speakPcm(0, 0, pEkho, OVERLAP_QUIET_PART);
+      if (EkhoImpl::speechdSynthCallback) {
+        EkhoImpl::speechdSynthCallback(0, 0, 0, 0, 0, 1);
+      }
+
+      if (EkhoImpl::mDebug) {
+        cerr << "EkhoImpl::speechDaemon synth2 end" << endl;
+      }
+
+  #ifdef HAVE_PULSEAUDIO
+      if (!EkhoImpl::speechdSynthCallback) {
+        if (pEkho->isStopped) {
+          pEkho->audio->pulseAudioFlush();
+        } else {
+          pEkho->audio->pulseAudioDrain();
+        }
+      }
+  #endif
+    }
+
+    if (!pEkho->isStopped) {
+      pthread_mutex_lock(&pEkho->mSpeechQueueMutex);
       if (order.pCallback) {
         order.pCallback(order.pCallbackArgs);
       }
@@ -790,8 +803,22 @@ void *EkhoImpl::speechDaemon(void *args) {
       if (!pEkho->mSpeechQueue.empty()) {
         pEkho->mSpeechQueue.pop();
       }
+      pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
     }
-    pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
+
+    if (pEkho->isStopped) {
+      while (not pEkho->mSpeechQueue.empty()) {
+        pEkho->mSpeechQueue.pop();
+      }
+
+      #ifdef ENABLE_FESTIVAL
+        festival_eval_command("(audio_mode 'shutup)");
+      #endif
+
+      #ifdef ENABLE_ESPEAK
+        espeak_Cancel();
+      #endif
+    }
   }
 
   if (EkhoImpl::mDebug) {
@@ -1013,6 +1040,10 @@ int EkhoImpl::blockSpeak(string text) {
 }
 
 int EkhoImpl::pause(void) {
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::pause" << endl;
+  }
+
   if (!this->isPaused) {
     this->isPaused = true;
     return 0;
@@ -1022,6 +1053,10 @@ int EkhoImpl::pause(void) {
 }
 
 int EkhoImpl::resume(void) {
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::resume" << endl;
+  }
+
   if (this->isPaused) {
     this->isPaused = false;
     return 0;
@@ -1032,16 +1067,17 @@ int EkhoImpl::resume(void) {
 
 int EkhoImpl::stop(void) {
   if (EkhoImpl::mDebug) {
-    cerr << "EkhoImpl::stop " << " begin" << endl;
+    cerr << "EkhoImpl::stop" << endl;
   }
+  this->isPaused = false;
+  this->isStopped = true;
 
+/*
   pthread_mutex_lock(&mSpeechQueueMutex);
   while (not mSpeechQueue.empty()) {
     mSpeechQueue.pop();
   }
 
-  this->isPaused = false;
-  this->isStopped = true;
   this->mPendingFrames = 0;
 #ifdef ENABLE_FESTIVAL
   festival_eval_command("(audio_mode 'shutup)");
@@ -1052,10 +1088,7 @@ int EkhoImpl::stop(void) {
 #endif
 
   pthread_mutex_unlock(&mSpeechQueueMutex);
-
-  if (EkhoImpl::mDebug) {
-    cerr << "EkhoImpl::stop " << " end" << endl;
-  }
+*/
 
   return 0;
 }
@@ -1529,6 +1562,10 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   list<PhoneticSymbol *>::iterator phon_symbol;
   for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
        word++) {
+    if (this->isStopped) {
+      break;
+    }
+
     if (EkhoImpl::mDebug) {
       cerr << "word(" << word->type << "): " << word->text << endl;
     }

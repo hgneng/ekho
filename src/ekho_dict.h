@@ -81,12 +81,12 @@ struct Word {
   unsigned short bytes;
 
   Word(string txt, TextType t)
-      : type(t), text(txt), symbols(0), offset(0), bytes(0), overlapTypes(0){};
+      : type(t), text(txt), symbols(0), overlapTypes(0), offset(0), bytes(0){};
   Word(string txt, TextType t, list<PhoneticSymbol *> sym)
       : type(t),
         text(txt),
-        overlapTypes(0),
         symbols(sym),
+        overlapTypes(0),
         offset(0),
         bytes(0){};
   Word(string txt, TextType t, list<PhoneticSymbol *> sym,
@@ -94,17 +94,17 @@ struct Word {
       : type(t),
         text(txt),
         symbols(sym),
+        overlapTypes(types),
         offset(0),
-        bytes(0),
-        overlapTypes(types){};
+        bytes(0){};
   Word(string txt, TextType t, list<PhoneticSymbol *> sym, unsigned int off,
        unsigned short b)
       : type(t),
         text(txt),
         symbols(sym),
+        overlapTypes(0),
         offset(off),
-        bytes(b),
-        overlapTypes(0){};
+        bytes(b){};
 };
 
 struct DictItem {

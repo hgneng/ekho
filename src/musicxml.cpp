@@ -158,7 +158,7 @@ void Ekho::singSilence(int duration) {
   } else {
 #ifdef HAVE_PULSEAUDIO
     int error;
-    int ret = pa_simple_write(this->m_pImpl->stream, pcm, size, &error);
+    pa_simple_write(this->m_pImpl->stream, pcm, size, &error);
 #endif
   }
 }
@@ -205,7 +205,7 @@ void Ekho::singCharacter(const Character &c, int duration, string pitch) {
   } else {
 #ifdef HAVE_PULSEAUDIO
     int error;
-    int ret = pa_simple_write(this->m_pImpl->stream, pcm2, size2, &error);
+    /*int ret =*/ pa_simple_write(this->m_pImpl->stream, pcm2, size2, &error);
     //cerr << "size: " << size << ", error:" << error << endl;
 #endif
   }

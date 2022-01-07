@@ -42,11 +42,11 @@ namespace ekho {
 
   class PhoneticSymbol {
     public:
-      PhoneticSymbol(void): symbol(0), mPcm(0), mSize(0), offset(0), bytes(0) {};
+      PhoneticSymbol(void): symbol(0), offset(0), bytes(0), mPcm(0), mSize(0) {};
       PhoneticSymbol(const char *sym):
-        symbol(sym), mPcm(0), mSize(0), offset(0), bytes(0) {};
+        symbol(sym), offset(0), bytes(0), mPcm(0), mSize(0) {};
       PhoneticSymbol(const char *sym, unsigned int off, unsigned short b):
-        symbol(sym), mPcm(0), mSize(0), offset(off), bytes(b) {};
+        symbol(sym), offset(off), bytes(b), mPcm(0), mSize(0) {};
       /*
       PhoneticSymbol(const PhoneticSymbol &ps) {
         symbol = ps.symbol; // copy the content, or there will be double free
