@@ -22,12 +22,12 @@ endif
 bin_PROGRAMS = test_ekho ekho
 
 ekho_SOURCES = src/ekho.cpp
-ekho_LDADD = libekho.a $(srcdir)/libmusicxml/libmusicxml2.a $(LIBEKHO_LIB) @LIB_GTK2@
+ekho_LDADD = libekho.a $(LIBEKHO_LIB) @LIB_GTK2@ #$(srcdir)/libmusicxml/libmusicxml2.a 
 ekho_CXXFLAGS = @CFLAG_GTK2@ -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic -pthread @CFLAG_FRISO@
 	
 test_ekho_SOURCES = src/test_ekho.cpp
 test_ekho_CXXFLAGS = -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_FRISO@
-test_ekho_LDADD = libekho.a $(srcdir)/libmusicxml/libmusicxml2.a $(LIBEKHO_LIB)
+test_ekho_LDADD = libekho.a $(LIBEKHO_LIB) #$(srcdir)/libmusicxml/libmusicxml2.a 
 
 DATA_DIR = $(srcdir)/ekho-data
 DATA_FILES = $(DATA_DIR)/zhy_list $(DATA_DIR)/zh_list $(DATA_DIR)/zh_listx $(DATA_DIR)/zh_patch $(DATA_DIR)/zhy.dict $(DATA_DIR)/zh.dict $(DATA_DIR)/ka_list $(DATA_DIR)/bo_list $(DATA_DIR)/ko_list $(DATA_DIR)/ngangien_list $(DATA_DIR)/pinyin.index $(DATA_DIR)/pinyin.voice $(DATA_DIR)/jyutping.index $(DATA_DIR)/jyutping.voice $(DATA_DIR)/toisanese_list
@@ -71,7 +71,9 @@ endif
 	find $(distdir) -name ".git" | xargs rm -rf
 
 clean-hook:
+if ENABLE_MUSICXML
 	cd $(srcdir)/libmusicxml/linux && make clean
+endif
 if ENABLE_SPEECHD
 	cd $(srcdir)/speechd-api && make clean
 endif

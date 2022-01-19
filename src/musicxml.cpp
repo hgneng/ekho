@@ -31,6 +31,7 @@ namespace ekho {
 // -I../libmusicxml/src/parser ../libmusicxml/libmusicxml2.a -lstdc++ && ./a.out
 // demo.xml
 void Ekho::singMusicXml(const string xmlFile, const string outputFile) {
+#ifdef ENABLE_MUSICXML
   xmlreader r;
   SXMLFile file = r.read(xmlFile.c_str());
 
@@ -125,6 +126,7 @@ void Ekho::singMusicXml(const string xmlFile, const string outputFile) {
   if (!outputFile.empty()) {
     sf_close(sndFile);
   }
+#endif
 }
 
 /* 降b大调，2个降号，<fifths>-2</fifths>
