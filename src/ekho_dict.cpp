@@ -362,7 +362,7 @@ void Dict::addSpecialSymbols(void) {
     mSpecialSymbols.push_back(ps);
     mSpecialChars.push_back(cs);
     int size = 0;
-    const char *pcm = ps->getPcm(voicePath.c_str(), "wav", size);
+    ps->getPcm(voicePath.c_str(), "wav", size);
     addDictItem(c, ps);
     addDictItem(c - ('a' - 'A'), ps);
   }
@@ -1197,15 +1197,12 @@ int Dict::loadEspeakDict(const char *path) {
   string line;
   map<int, DictItem>::iterator it;
   map<string, PhoneticSymbol>::iterator symbol_it;
-  bool debug = false;
 
   ifstream fs(path);
   if (!fs.is_open()) {
     cerr << "Fail to open file " << path << " at " << __LINE__ << endl;
     return -1;
   }
-
-  int maxWordLen = 0;
 
   getline(fs, line);
   int linecount = 1;
@@ -1822,7 +1819,6 @@ void Dict::saveEkhoVoiceFile() {
   }
 
   string symbol;
-  SymbolCode *symbol_code = 0;
 
   // prepare output file
   FILE *file = fopen(voice_file.c_str(), "wb");
@@ -1883,7 +1879,7 @@ void Dict::saveEkhoVoiceFile() {
         cerr << "found word:" << symbol << endl;
         list<string> symbols;
         string symbol0 = symbol;
-        int pos = 0;
+        long unsigned pos = 0;
         do {
           pos = symbol.find("-");
           symbols.push_back(symbol.substr(0, pos));

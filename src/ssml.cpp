@@ -41,7 +41,7 @@ string Ssml::stripTags(const string& text) {
       string tag = text.substr(first_lt + 1, first_gt - first_lt - 1);
       string endtag("</");
       endtag += tag + ">";
-      int last_endtag = text.rfind(endtag);
+      long unsigned last_endtag = text.rfind(endtag);
       if (last_endtag == text.length() - endtag.length())
         // recursively process
         return Ssml::stripTags(text.substr(first_gt + 1,
@@ -62,7 +62,6 @@ string Ssml::stripTags(const string& text) {
 
 // sample: <audio src=\"%s%s\">%s</audio>
 bool Ssml::isAudio(const string& text) {
-  int p = text.find("<audio src=");
 	return text.find("<audio src=") == 0;
 }
 

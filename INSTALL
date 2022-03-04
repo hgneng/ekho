@@ -58,3 +58,10 @@ $ ./configure
 $ make CXXFLAGS=-O0
 $ brew services start pulseaudio
 $ ./ekho 123
+
+===== Notes for git clone =====
+If you need to enable speech-dispatcher plugin, you need to do following:
+
+git clone https://github.com/hgneng/ekho.git
+git clone https://github.com/hgneng/speechd.git
+mv speechd ekho/speechd-api

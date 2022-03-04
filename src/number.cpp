@@ -12,7 +12,6 @@ bool Dict::hasNumbers(list<Character> &charList) {
     return false; // only convert numbers for Chinese
   }
 
-  int count = 0;
   list<Character>::iterator i = charList.begin();
   for (; i != charList.end(); i++) {
     if (i->code >= 48 && i->code < 58) {
@@ -52,7 +51,7 @@ static int numbersAfter(list<Character> &charlist,
 }
 
 static int lfind(list<Character> &charlist,
-    list<Character>::iterator itor, int code, int max_count) {
+    list<Character>::iterator itor, unsigned code, int max_count) {
   int count = 0;
   while (itor != charlist.begin() && count <= max_count) {
     itor--;
@@ -69,7 +68,7 @@ static int lfind(list<Character> &charlist,
 }
 
 static int rfind(list<Character> &charlist,
-    list<Character>::iterator itor, int code, int max_count) {
+    list<Character>::iterator itor, unsigned code, int max_count) {
   int count = 0;
   itor++;
   while (itor != charlist.end() && count <= max_count) {
@@ -90,7 +89,7 @@ static void readNumberOneByOne(list<Character> &charList,
     list<Character> &convertedCharList,
     list<Character>::iterator &i) {
   while (i != charList.end() && i->code >= '0' && i->code <= '9') {
-    int code = 0;
+    unsigned code = 0;
     switch (i->code) {
       case '0': code = 38646; break;
       case '1': code = 19968; break;
@@ -181,10 +180,7 @@ void Dict::replaceNumbers(list<Character> &charList,
     return;
   }
 
-  list<Character>::iterator begin = charList.begin();
-  list<Character>::iterator end = charList.end();
   list<Character>::iterator i = charList.begin();
-  list<Character>::iterator i0 = i;
   list<Character>::iterator i2 = i;
 
   // insert_pos only work for 2 digit
