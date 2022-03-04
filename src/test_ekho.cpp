@@ -41,6 +41,18 @@ void callback(void *arg) {
 }
 
 int main(int argc, char**argv) {
+  // test pause
+  Ekho *cameron = new Ekho("Cantonese");
+  cameron->debug();
+  cameron->speak("123456789");
+  sleep(1);
+  cameron->pause();
+  sleep(2);
+  cameron->resume();
+  sleep(1);
+  cameron->stop();
+  delete(cameron);
+
   // test synth3
   Ekho *ekho = new Ekho();
   ekho->setSampleRate(8000);
@@ -111,16 +123,6 @@ int main(int argc, char**argv) {
   cout << ps->symbol << endl;
   wong2->speak("123", callback, (void*)"Mandarin 123");
   delete(wong2);
-
-  Ekho *cameron = new Ekho("Cantonese");
-  cameron->speak("123456789");
-  sleep(1);
-  cameron->pause();
-  sleep(1);
-  cameron->resume();
-  sleep(1);
-  cameron->stop();
-  delete(cameron);
 
   Ekho *recorder = new Ekho("jyutping"); // same to Cantonese
   recorder->saveWav("123456789", "output.wav");

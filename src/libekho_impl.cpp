@@ -211,7 +211,10 @@ static int espeakSynthCallback(short *wav, int numsamples,
 }
 #endif
 
+#ifdef ENABLE_FESTIVAL
 static bool gsIsFestivalInited = false;
+#endif
+
 int EkhoImpl::initEnglish(void) {
 #ifdef ENABLE_FESTIVAL
   if (!gsIsFestivalInited) {
@@ -505,16 +508,24 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
   EkhoImpl *pEkho = (EkhoImpl *)arg;
 
   pthread_mutex_lock(&(pEkho->mSpeechQueueMutex));
-  if (!pEkho->isStopped) {
+  if (!pEkho->isStopped) {        
     int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
     if (flush_frames) {
       do {
+        if (pEkho->isStopped) {
+          break;
+        }
+
+        while (pEkho->isPaused) {
+          sleep(1);
+        }
+
         frames = pEkho->audio->readShortFrames(buffer, BUFFER_SIZE);
 
         if (frames > 0) {
           if (tofile) {
-            int writtenFrames = sf_writef_short(pEkho->mSndFile, buffer, frames / pEkho->audio->channels);
+            /*int writtenFrames = */sf_writef_short(pEkho->mSndFile, buffer, frames / pEkho->audio->channels);
             /*
             if (frames / pEkho->audio->channels != writtenFrames) {
               cerr << "Fail to write WAV file " << writtenFrames << " out of "
@@ -530,7 +541,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
                   pEkho->audio->channels, pEkho->audio->sampleRate, 0);
             } else {
   #ifdef HAVE_PULSEAUDIO
-              int ret = pEkho->audio->pulseAudioWrite((const void*)buffer, frames * 2);
+              pEkho->audio->pulseAudioWrite((const void*)buffer, frames * 2);
   #endif
             }
           }
@@ -761,28 +772,30 @@ void *EkhoImpl::speechDaemon(void *args) {
     }
     pEkho->synth2(order.text, speakPcm);
 
-    // FIXME: following statement seems not flush rest PCM
-    pEkho->speakPcm(0, 0, pEkho, OVERLAP_QUIET_PART);
-    if (EkhoImpl::speechdSynthCallback) {
-      EkhoImpl::speechdSynthCallback(0, 0, 0, 0, 0, 1);
-    }
-
-    if (EkhoImpl::mDebug) {
-      cerr << "EkhoImpl::speechDaemon synth2 end" << endl;
-    }
-
-#ifdef HAVE_PULSEAUDIO
-    if (!EkhoImpl::speechdSynthCallback) {
-      if (pEkho->isStopped) {
-        pEkho->audio->pulseAudioFlush();
-      } else {
-        pEkho->audio->pulseAudioDrain();
-      }
-    }
-#endif
-
-    pthread_mutex_lock(&pEkho->mSpeechQueueMutex);
     if (!pEkho->isStopped) {
+      // FIXME: following statement seems not flush rest PCM
+      pEkho->speakPcm(0, 0, pEkho, OVERLAP_QUIET_PART);
+      if (EkhoImpl::speechdSynthCallback) {
+        EkhoImpl::speechdSynthCallback(0, 0, 0, 0, 0, 1);
+      }
+
+      if (EkhoImpl::mDebug) {
+        cerr << "EkhoImpl::speechDaemon synth2 end" << endl;
+      }
+
+  #ifdef HAVE_PULSEAUDIO
+      if (!EkhoImpl::speechdSynthCallback) {
+        if (pEkho->isStopped) {
+          pEkho->audio->pulseAudioFlush();
+        } else {
+          pEkho->audio->pulseAudioDrain();
+        }
+      }
+  #endif
+    }
+
+    if (!pEkho->isStopped) {
+      pthread_mutex_lock(&pEkho->mSpeechQueueMutex);
       if (order.pCallback) {
         order.pCallback(order.pCallbackArgs);
       }
@@ -790,8 +803,22 @@ void *EkhoImpl::speechDaemon(void *args) {
       if (!pEkho->mSpeechQueue.empty()) {
         pEkho->mSpeechQueue.pop();
       }
+      pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
     }
-    pthread_mutex_unlock(&pEkho->mSpeechQueueMutex);
+
+    if (pEkho->isStopped) {
+      while (not pEkho->mSpeechQueue.empty()) {
+        pEkho->mSpeechQueue.pop();
+      }
+
+      #ifdef ENABLE_FESTIVAL
+        festival_eval_command("(audio_mode 'shutup)");
+      #endif
+
+      #ifdef ENABLE_ESPEAK
+        espeak_Cancel();
+      #endif
+    }
   }
 
   if (EkhoImpl::mDebug) {
@@ -800,262 +827,6 @@ void *EkhoImpl::speechDaemon(void *args) {
 
   return 0;
 }  // end of speechDaemon
-
-// @TODO: remove this deprecared method
-/*
-int EkhoImpl::synth(string text, SynthCallback *callback, void *userdata) {
-#ifdef DEBUG_ANDROID
-  LOGD("Ekho::synth(%s, %p, %p) voiceFileType=%s lang=%d", text.c_str(),
-       callback, userdata, mDict.mVoiceFileType, mDict.getLanguage());
-#endif
-
-  // init
-  string unknown_str = "";
-  bool has_unknown_char = false;
-  bool has_festival_char = false;
-  float pause = 0;
-  const char *pPcm = NULL;
-  int size = 0;
-  this->isStopped = false;
-  this->isPaused = false;
-
-  if (mDict.getLanguage() == ENGLISH) {
-#ifdef ENABLE_ENGLISH
-    if (EkhoImpl::mDebug) {
-      cerr << "speaking '" << text << "' with Festival" << endl;
-    }
-    pPcm = this->getPcmFromFestival(text, size);
-    // output pcm data
-    if (pPcm) {
-      if (userdata)
-        callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
-      else
-        callback((short *)pPcm, size / 2, this, OVERLAP_QUIET_PART);
-    }
-#endif
-    return 0;
-  }
-
-  // check whehter voice file available
-  if (!mDict.mVoiceFileType && mDict.getLanguage() != ENGLISH) {
-    cerr << "Voice file not found." << endl;
-    return -1;
-  }
-
-  // filter SSML
-  if (mStripSsml) text = stripSsml(text);
-
-  // check punctuation
-  if (mSpeakIsolatedPunctuation && text.length() <= 3) {
-    const char *c = text.c_str();
-    int code = utf8::next(c, c + text.length());
-    if (!*c && mDict.isPunctuationChar(code))
-      text = mDict.getPunctuationName(code);
-  }
-
-  // translate punctuations
-  if (mPuncMode == EKHO_PUNC_ALL) translatePunctuations(text);
-
-  // filter spaces
-  filterSpaces(text);
-
-  list<PhoneticSymbol *> phons = mDict.lookup(text);
-
-  // get word context array
-  int phons_len = phons.size();
-  char *in_word_context = (char *)malloc(phons_len);
-  mDict.getWordContext(text.c_str(), in_word_context, phons_len);
-  int wi = 0;
-
-  for (list<PhoneticSymbol *>::iterator li = phons.begin();
-       li != phons.end() || has_unknown_char; li++) {
-#ifdef DEBUG_ANDROID
-    LOGD("speak symbol: %s", (*li)->symbol);
-#endif
-
-    // stop/pause control
-    if (this->isStopped) {
-#ifdef DEBUG_ANDROID
-      LOGD("isStopped");
-#endif
-      return 1;
-    }
-
-    while (this->isPaused) {
-#ifdef DEBUG_ANDROID
-      LOGD("isPaused");
-#endif
-      sleep(1);
-    }
-
-    bool speaknow = false;
-// check whether it's unknown character (English)
-#ifdef ENABLE_ENGLISH
-    if (li != phons.end() &&
-        ((!*li) || ((*li)->symbol && (((*li)->symbol[0] == '\\') ||
-                                      (has_unknown_char &&
-                                       strstr((*li)->symbol, "pause") > 0))))) {
-      has_unknown_char = true;
-
-      if (*li && strstr((*li)->symbol, "pause") > 0) {
-        unknown_str += " ";
-        // break ,. etc. for Festival
-        if (strstr((*li)->symbol, "fullpause") > 0 ||
-            strstr((*li)->symbol, "halfpause") > 0) {
-          speaknow = true;
-        }
-      } else {
-        if (*li && strlen((*li)->symbol) == 2 && (*li)->symbol[1] >= 65 &&
-            (*li)->symbol[1] <= 122) {
-          unknown_str += (*li)->symbol + 1;
-          has_festival_char = true;
-        } else if (*li && strlen((*li)->symbol) == 3) {
-          int code = utf8::peek_next((*li)->symbol + 1, (*li)->symbol + 3);
-          if (code <= 0xff) {
-            unknown_str += (unsigned char)code;
-            has_festival_char = true;
-          } else {
-            unknown_str += " ";
-          }
-        } else {
-          // illegal characters for Festival
-          unknown_str += " ";
-        }
-      }
-    } else
-#endif
-        if (li != phons.end() && (*li) && (*li)->symbol &&
-            strstr((*li)->symbol, "fullpause") > 0) {
-      pause += 1;
-    } else if (li != phons.end() && (*li) && (*li)->symbol &&
-               strstr((*li)->symbol, "halfpause") > 0) {
-      pause += 0.5;
-    } else if (li != phons.end() && (*li) && (*li)->symbol &&
-               strstr((*li)->symbol, "quaterpause") > 0) {
-      pause += 0.25;
-    } else {
-      speaknow = true;
-    }
-
-    if (speaknow) {
-      // begin legal char precessing
-      bool shouldFreePcm = false;
-      pPcm = 0;
-      if (has_unknown_char) {
-        if (has_festival_char) {
-#ifdef DEBUG_ANDROID
-          LOGD("has_unknown_char");
-#endif
-          pPcm = 0;
-#ifdef ENABLE_ENGLISH
-          // output wave of unknown string with Festival
-          if (EkhoImpl::mDebug) {
-            cerr << "speaking '" << unknown_str << "' with Festival" << endl;
-          }
-          char c;
-          if ((unknown_str.length() == 1) && (c = tolower(unknown_str[0])) &&
-              c >= 'a' && c <= 'z') {
-            if (!mAlphabetPcmCache[c - 'a'])
-              mAlphabetPcmCache[c - 'a'] =
-                  getPcmFromFestival(unknown_str, mAlphabetPcmSize[c - 'a']);
-
-            pPcm = mAlphabetPcmCache[c - 'a'];
-            size = mAlphabetPcmSize[c - 'a'];
-            has_festival_char = false;
-          } else {
-            pPcm = this->getPcmFromFestival(unknown_str, size);
-          }
-#endif
-          if (!pPcm) {
-            has_unknown_char = false;
-            pPcm = this->mDict.getFullPause()->getPcm(size);
-          }
-          pause = 0;
-          unknown_str.clear();
-          li--;  // Play PCM from Festival, play current char next round
-          wi--;
-        } else if (unknown_str.size() > 1) {
-          pause += 0.25;
-          unknown_str.clear();
-          li--;
-          wi--;
-        } else {
-          unknown_str.clear();
-          li--;  // drop unknown_str, restart from current char next round
-          wi--;
-        }
-      }
-
-      if (pause > 0) {
-#ifdef DEBUG_ANDROID
-        LOGD("pause");
-#endif
-        if (pause >= 1)
-          pPcm = this->mDict.getFullPause()->getPcm(size);
-        else if (pause >= 0.5)
-          pPcm = this->mDict.getHalfPause()->getPcm(size);
-        else
-          pPcm = this->mDict.getQuaterPause()->getPcm(size);
-        pause = 0;
-        if (!has_unknown_char) {
-          li--;
-          wi--;
-        }
-      } else if (!pPcm && li != phons.end() && (*li)) {
-        string path(mDict.mDataPath);
-        path += "/";
-        path += mDict.getVoice();
-        pPcm = (*li)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
-
-        // speak Mandarin for Chinese
-        if (!pPcm && mDict.getLanguage() == TIBETAN) {
-          path = mDict.mDataPath + "/pinyin";
-          pPcm = (*li)->getPcm(path.c_str(), mDict.mVoiceFileType, size);
-        }
-
-        if (!mPcmCache) shouldFreePcm = true;
-#ifdef DEBUG_ANDROID
-        LOGD("voice path: %s, type: %s, size: %d, pPcm: %p", path.c_str(),
-             mDict.mVoiceFileType, size, pPcm);
-#endif
-      }
-
-      // output pcm data
-      if (pPcm) {
-        bool forbid_overlap = false;
-
-        if (userdata)
-          callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
-        else
-          callback((short *)pPcm, size / 2, this, OVERLAP_QUIET_PART);
-      }
-
-      if (has_unknown_char) {
-        if (has_festival_char) {
-          has_festival_char = false;
-          if (pPcm) delete[] pPcm;
-        }
-        has_unknown_char = false;
-      } else if (shouldFreePcm) {
-        (*li)->setPcm(0, 0);
-      }
-    }  // end of legal char processing
-
-    if (phons.end() == li) break;
-
-    wi++;
-  }  // end of for
-
-  // send a signal to abort for Android
-  if (userdata)
-    callback(0, 0, userdata, OVERLAP_QUIET_PART);
-  else
-    callback(0, 0, this, OVERLAP_QUIET_PART);
-
-  free(in_word_context);
-
-  return 0;
-}*/
 
 int EkhoImpl::play(string file) {
   system((this->player + " " + file + " 2>/dev/null").c_str());
@@ -1269,6 +1040,10 @@ int EkhoImpl::blockSpeak(string text) {
 }
 
 int EkhoImpl::pause(void) {
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::pause" << endl;
+  }
+
   if (!this->isPaused) {
     this->isPaused = true;
     return 0;
@@ -1278,6 +1053,10 @@ int EkhoImpl::pause(void) {
 }
 
 int EkhoImpl::resume(void) {
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::resume" << endl;
+  }
+
   if (this->isPaused) {
     this->isPaused = false;
     return 0;
@@ -1288,16 +1067,17 @@ int EkhoImpl::resume(void) {
 
 int EkhoImpl::stop(void) {
   if (EkhoImpl::mDebug) {
-    cerr << "EkhoImpl::stop " << " begin" << endl;
+    cerr << "EkhoImpl::stop" << endl;
   }
+  this->isPaused = false;
+  this->isStopped = true;
 
+/*
   pthread_mutex_lock(&mSpeechQueueMutex);
   while (not mSpeechQueue.empty()) {
     mSpeechQueue.pop();
   }
 
-  this->isPaused = false;
-  this->isStopped = true;
   this->mPendingFrames = 0;
 #ifdef ENABLE_FESTIVAL
   festival_eval_command("(audio_mode 'shutup)");
@@ -1308,10 +1088,7 @@ int EkhoImpl::stop(void) {
 #endif
 
   pthread_mutex_unlock(&mSpeechQueueMutex);
-
-  if (EkhoImpl::mDebug) {
-    cerr << "EkhoImpl::stop " << " end" << endl;
-  }
+*/
 
   return 0;
 }
@@ -1785,6 +1562,10 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   list<PhoneticSymbol *>::iterator phon_symbol;
   for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
        word++) {
+    if (this->isStopped) {
+      break;
+    }
+
     if (EkhoImpl::mDebug) {
       cerr << "word(" << word->type << "): " << word->text << endl;
     }

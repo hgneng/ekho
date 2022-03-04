@@ -36,13 +36,14 @@ sub build_common() {
   system('sudo apt-get -y install libltdl-dev');
 #  system('./configure --enable-festival --enable-speechd');
   system('./configure --enable-speechd');
-  system('make clean && make');
+  system('make clean && make CXXFLAGS=-O0');
 }
 
 sub setup_common() {
   my $t = time();
   system('sudo cp /etc/speech-dispatcher/speechd.conf /etc/speech-dispatcher/speechd.conf.' . $t);
-  `grep -v 'sd_ekho' /etc/speech-dispatcher/speechd.conf.$t | sed -e 's/^DefaultModule.*/DefaultModule ekho/' | sed -e 's/^AddModule "espeak"/AddModule "ekho" "sd_ekho" "ekho.conf"\\nAddModule "espeak"/' >/tmp/speechd.conf.ekho`;
+  `grep -v 'sd_ekho' /etc/speech-dispatcher/speechd.conf.$t | grep -v ekho.conf | sed -e 's/^DefaultModule.*/DefaultModule ekho/'>/tmp/speechd.conf.ekho`;
+  `echo 'AddModule "ekho" "sd_ekho" "ekho.conf"' >>/tmp/speechd.conf.ekho`;
   `sudo mv /tmp/speechd.conf.ekho /etc/speech-dispatcher/speechd.conf`;
 
   my $config = '/usr/lib/python3/dist-packages/speechd_config/config.py';

@@ -1,4 +1,0 @@
-SPD_CONF_ORIG_PATH="@spdconforigdir@"
-SPD_CONF_PATH="@spdconfdir@"
-SPD_SOUND_DATA_PATH="@snddatadir@"
-SPD_DESKTOP_CONF_PATH="@spddesktopconforigdir@"

@@ -89,8 +89,6 @@ void Ekho::init() {
 
 Ekho::~Ekho(void) { delete this->m_pImpl; }
 
-static bool gsIsFestivalInited = false;
-
 int Ekho::saveWav(string text, string filename) {
   return this->m_pImpl->saveWav(text, filename);
 }
@@ -279,7 +277,6 @@ void Ekho::setCapLetterRecognMode(EkhoCapLetterRecognType mode) {
     break;
   }
 
-  espeak_ERROR ret =
-      espeak_SetParameter(espeakCAPITALS, espeak_cap_mode, 1);
+  espeak_SetParameter(espeakCAPITALS, espeak_cap_mode, 1);
 #endif
 }

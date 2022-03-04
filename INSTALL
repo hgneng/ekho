@@ -9,8 +9,11 @@ $ tar zxvf pinyin-yali-44100-v9.tar.bz2
 $ ln -s pinyin-yali pinyin
 $ cd ../
 $ ./configure
-$ make
+$ make CXXFLAGS=-O0
 $ ./ekho 123
+
+If you have installed version Ekho and you want to use voice data in working directory, you should set EKHO_DATA_PATH like this:
+$ env EKHO_DATA_PATH=ekho-data ./ekho 123
 
 ===== INSTALL (for Linux) =====
 You need to have following libraries first:
@@ -31,7 +34,7 @@ On Fedora Linux, we can use `yum search <pkg_keyword>` to find a package's full 
 On SuSE Linux, we can use `zypper search <pkg_keyword>` and `zypper install <pkg_name>`.
 
 $ ./configure
-$ make
+$ make CXXFLAGS=-O0
 $ sudo make install
 
 Some configure options:
@@ -52,6 +55,6 @@ $ brew install libsndfile
 $ brew install pulseaudio
 $ install espeak-ng from source (glibtoolize -c && ./autogen && ./configure && make && sudo make install)
 $ ./configure
-$ make
+$ make CXXFLAGS=-O0
 $ brew services start pulseaudio
 $ ./ekho 123

@@ -291,11 +291,15 @@ int Dict::setLanguage(Language lang) {
   } else if (lang == TIBETAN) {
     string boList(mDataPath);
     boList += "/bo_list";
+
     if (loadEspeakDict(boList) != 0) {
       cerr << "Fail to load espeak dictionary: " << boList << endl;
       return -1;
     }
-    if (loadMandarin()) return -1;
+
+    if (loadMandarin()) {
+      return -1;
+    }
   } else if (lang == NGANGIEN) {
     string yayanList(mDataPath);
     yayanList += "/ngangien_list";
@@ -521,10 +525,12 @@ int Dict::setVoice(string voice) {
 
   if (mLanguage == CANTONESE || mLanguage == MANDARIN || mLanguage == TIBETAN) {
     string index_file = path;
-    if (mLanguage == TIBETAN)
+    if (mLanguage == TIBETAN) {
       index_file = mDataPath + "/pinyin.index";
-    else
+    } else {
       index_file += ".index";
+    }
+
     if (access(index_file.c_str(), F_OK) != -1) {
       if (mLanguage == TIBETAN) {
         loadEkhoVoiceFile(mDataPath + "/pinyin");
@@ -776,7 +782,7 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
   }
 
   // tone 3 rules: 333->223, 33->23, 3333->2323
-  if (mLanguage == MANDARIN || mLanguage == TIBETAN /* Tibetan also use this rule?? */) {
+  if (mLanguage == MANDARIN || mLanguage == TIBETAN /* Tibetan will read Chinese in Mandarin */) {
     list<PhoneticSymbol *>::reverse_iterator psIt = phonList.rbegin();
     while (psIt != phonList.rend()) {
       while (psIt != phonList.rend() &&
@@ -1295,9 +1301,8 @@ int Dict::loadEspeakDict(const char *path) {
                          << linecount << endl;
                     has_syntax_error = true;
                   }
-                } else if (mLanguage == HAKKA || mLanguage == KOREAN ||
-                           mLanguage == TOISANESE || mLanguage == TIBETAN ||
-                           mLanguage == NGANGIEN) {
+                } else if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == TOISANESE ||
+                    mLanguage == TIBETAN || mLanguage == NGANGIEN) {
                   int code = getSymbolCode(mKaSymbolLetter, symbol.c_str());
                   if (code) {
                     ch->phonSymbol = mKaSymbolArray[code];
@@ -1401,9 +1406,8 @@ int Dict::loadEspeakDict(const char *path) {
             }
             //          cout << c3.getUtf8() << "(" << c3.code << "): " <<
             //              c3.phonSymbol->symbol << endl; // debug code
-          } else if (mLanguage == HAKKA || mLanguage == KOREAN ||
-                     mLanguage == TOISANESE || mLanguage == TIBETAN ||
-                     mLanguage == NGANGIEN) {
+          } else if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == TOISANESE ||
+              mLanguage == TIBETAN || mLanguage == NGANGIEN) {
             int code = getSymbolCode(mKaSymbolLetter, symbol.c_str());
             if (code) {
               c3.phonSymbol = mKaSymbolArray[code];
@@ -1779,8 +1783,7 @@ unsigned short Dict::getCodeOfSymbol(string &symbol) {
 
 void Dict::saveEkhoVoiceFile() {
   // only support Cantonese and Mandarin
-  if (mLanguage == HAKKA || mLanguage == KOREAN || mLanguage == TIBETAN ||
-      mLanguage == NGANGIEN || mLanguage == TOISANESE) {
+  if (mLanguage != CANTONESE && mLanguage != MANDARIN) {
     return;
   }
 
