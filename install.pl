@@ -79,6 +79,9 @@ sub setup_lang() {
     `sudo chown -R $ENV{USER} $ENV{HOME}/.config/speech-dispatcher`;
     `cp /etc/speech-dispatcher/speechd.conf $ENV{HOME}/.config/speech-dispatcher/`;
   }
+
+  `perl -0777 -pi.original -e 's/"speechServerInfo": \[[^\]]+\]/"speechServerInfo": \["ekho","ekho"\]/igs' $ENV{HOME}/.local/share/orca/user-settings.conf`;
+  `perl -0777 -pi.original -e 's/"family": {\\s*"name": "[^"]+"/"family": { "name": "ekho"/igs' $ENV{HOME}/.local/share/orca/user-settings.conf`;
 }
 
 ##### main #####
