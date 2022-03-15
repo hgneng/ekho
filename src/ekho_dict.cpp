@@ -1,4 +1,4 @@
-﻿/***************************************************************************
+/***************************************************************************
  * Copyright (C) 2008-2019 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
@@ -1087,7 +1087,7 @@ list<Word> Dict::lookupWord(const char *text) {
 	      //cout << "found chinese character: " << itor->getUtf8() << ", " << mDictItemArray[itor->code].character.getUtf8() << endl;
         last_chinese_word += itor->getUtf8();
         if (!lastword.empty()) {
-	      unsigned char c = lastword[0];
+	        unsigned char c = lastword[0];
           if (lastword.length() == 1 &&
               ((c >= 'A' && c <= 'Z') ||
                (c >= 'a' && c <= 'z') ||
