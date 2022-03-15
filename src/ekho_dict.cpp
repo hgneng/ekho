@@ -518,6 +518,8 @@ int Dict::setVoice(string voice) {
   path += "/";
   path += voice;
 
+  Word::loadWordVoiceFiles(path);
+
 #ifndef _WIN32_WINNT
   // sndfile fail to read temporary gsm file on Windows
   // and there seems no a big problem to have small files on Windows

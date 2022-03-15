@@ -29,6 +29,7 @@
 #include "character.h"
 #include "zh_symbol_map.h"
 #include "zhy_symbol_map.h"
+#include "ekho_word.h"
 
 #include "config.h"
 #ifdef ENABLE_FRISO
@@ -56,56 +57,6 @@ typedef enum {
   NGANGIEN = 7,
   TOISANESE = 8,
 } Language;
-
-typedef enum {
-  ENGLISH_TEXT = 1,
-  NON_ENGLISH = 2,
-  FULL_PAUSE = 3,
-  HALF_PAUSE = 4,
-  QUATER_PAUSE = 5,
-  PHONETIC = 6,
-} TextType;
-
-typedef enum {
-  OVERLAP_NONE = 1,
-  OVERLAP_QUIET_PART = 2,  // should be default
-  OVERLAP_HALF_PART = 3,
-} OverlapType;
-
-struct Word {
-  TextType type;
-  string text;
-  list<PhoneticSymbol *> symbols;  // void for English
-  list<OverlapType> overlapTypes;
-  unsigned int offset;
-  unsigned short bytes;
-
-  Word(string txt, TextType t)
-      : type(t), text(txt), symbols(0), overlapTypes(0), offset(0), bytes(0){};
-  Word(string txt, TextType t, list<PhoneticSymbol *> sym)
-      : type(t),
-        text(txt),
-        symbols(sym),
-        overlapTypes(0),
-        offset(0),
-        bytes(0){};
-  Word(string txt, TextType t, list<PhoneticSymbol *> sym,
-       list<OverlapType> types)
-      : type(t),
-        text(txt),
-        symbols(sym),
-        overlapTypes(types),
-        offset(0),
-        bytes(0){};
-  Word(string txt, TextType t, list<PhoneticSymbol *> sym, unsigned int off,
-       unsigned short b)
-      : type(t),
-        text(txt),
-        symbols(sym),
-        overlapTypes(0),
-        offset(off),
-        bytes(b){};
-};
 
 struct DictItem {
   DictItem() { wordList = 0; }

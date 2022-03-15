@@ -22,6 +22,21 @@ enum EkhoCapLetterRecognType {
 	EKHO_CAP_ICON = 2
 };
 
+typedef enum {
+  ENGLISH_TEXT = 1,
+  NON_ENGLISH = 2,
+  FULL_PAUSE = 3,
+  HALF_PAUSE = 4,
+  QUATER_PAUSE = 5,
+  PHONETIC = 6,
+} TextType;
+
+typedef enum {
+  OVERLAP_NONE = 1,
+  OVERLAP_QUIET_PART = 2,  // should be default
+  OVERLAP_HALF_PART = 3,
+} OverlapType;
+
 /**
  * event meaning:
  * 0: play
