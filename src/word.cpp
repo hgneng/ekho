@@ -20,8 +20,14 @@
  * MA  02110-1301, USA.                                                    *
  **************************************************************************/
 
+#include <map>
+#include <list>
 #include <dirent.h>
-#include "ekho_word.h"
+#include "word.h"
+
+using namespace std;
+
+map<string, list<WordPinyin> > Word::voiceFilesMap;
 
 void Word::loadWordVoiceFiles(string dir) {
   // scan files in voice dir
@@ -32,11 +38,55 @@ void Word::loadWordVoiceFiles(string dir) {
     return;
   }
 
+  list<WordPinyin> emptyList;
+  int wordCount = 0;
+
   do {
     if ((dp = readdir(dirp)) != NULL) {
-      cerr << dp->d_name << endl;
+      cerr << "processing " << dp->d_name << endl;
+      char *c = dp->d_name;
+      string charPinyin;
+      WordPinyin wordPinyin;
+      while (*c > 0) {
+        charPinyin += *c;
+        if (*c >= '0' && *c <= '7') {
+          wordPinyin.push_back(charPinyin);
+          charPinyin.clear();
+        } else if (*c == '.') {
+          break;
+        }
+        c++;
+      }
+
+      if (charPinyin != ".") {
+        // 非法的拼音，跳过
+        cerr << "bad pinyin: " << dp->d_name << endl;
+        continue;
+      }
+
+      charPinyin = wordPinyin.front();
+
+      if (Word::voiceFilesMap.find(charPinyin) == Word::voiceFilesMap.end()) {
+        Word::voiceFilesMap[charPinyin] = emptyList;
+      }
+
+      list<WordPinyin>::iterator it = Word::voiceFilesMap[charPinyin].begin();
+      while (it != Word::voiceFilesMap[charPinyin].end()) {
+        if (it->size() <= wordPinyin.size()) {
+          Word::voiceFilesMap[charPinyin].insert(it, wordPinyin);
+          break;
+        }
+      }
+
+      if (it == Word::voiceFilesMap[charPinyin].end()) {
+        Word::voiceFilesMap[charPinyin].push_back(wordPinyin);
+      }
+      
+      wordCount++;
     }
   } while (dp != NULL);
 
   closedir(dirp);
+  cerr << "map size: " << Word::voiceFilesMap.size() << endl;
+  cerr << "word count: " << wordCount << endl;
 }

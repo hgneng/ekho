@@ -1484,7 +1484,7 @@ int Dict::saveEkhoDict(const char *path) {
       }
 
       // write character symbol
-      SymbolCode *pSymCode;
+      SymbolCode *pSymCode = NULL;
       const char *symbol = di->character.phonSymbol->symbol;
       if (mLanguage == CANTONESE) {
         pSymCode = ZHY_PHash::in_word_set(symbol, strlen(symbol));
@@ -1492,7 +1492,9 @@ int Dict::saveEkhoDict(const char *path) {
         pSymCode = ZH_PHash::in_word_set(symbol, strlen(symbol));
       } else {
         cerr << "not implemented" << endl;
+        break;
       }
+
       unsigned short symbolCode = pSymCode->code;
       os.put((unsigned char)(symbolCode & 0xFF));
       os.put((unsigned char)((symbolCode >> 8) & 0xFF));

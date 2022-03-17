@@ -22,6 +22,8 @@
 #ifndef EKHO_WORD
 #define EKHO_WORD
 
+#include <map>
+#include <list>
 #include "ekho_typedef.h"
 #include "character.h"
 #include "zh_symbol_map.h"
@@ -29,6 +31,8 @@
 
 using namespace std;
 using namespace ekho;
+
+typedef list<string> WordPinyin;
 
 class Word {
 public:
@@ -65,6 +69,7 @@ public:
         offset(off),
         bytes(b){};
 
+  static map<string, list<WordPinyin> > voiceFilesMap;
   static void loadWordVoiceFiles(string dir);
 };
 

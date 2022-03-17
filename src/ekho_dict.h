@@ -29,7 +29,7 @@
 #include "character.h"
 #include "zh_symbol_map.h"
 #include "zhy_symbol_map.h"
-#include "ekho_word.h"
+#include "word.h"
 
 #include "config.h"
 #ifdef ENABLE_FRISO
