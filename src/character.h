@@ -78,7 +78,7 @@ namespace ekho {
         return s;
       }
 
-      static list<Character> split(string &text, int charLimit = 0) {
+      static list<Character> split(string text, int charLimit = 0) {
         list<Character> char_list;
         int c;
         bool is_finish = false;

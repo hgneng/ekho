@@ -1,8 +1,8 @@
 /***************************************************************************
- * Copyright (C) 2008-2013 by Cameron Wong                                 *
+ * Copyright (C) 2008-2022 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
- * website: http://www.eguidedog.net                                       *
+ * website: https://eguidedog.net                                          *
  *                                                                         *
  * This program is free software; you can redistribute it and/or           *
  * modify it under the terms of the GNU General Public License             *
@@ -83,28 +83,27 @@ class Dict {
   Dict(Language lang);
   ~Dict(void);
 
-  static Dict *me;
+  static Dict* me;
   const static int SYMBOL_ARRAY_SIZE = 8000;
   static bool mDebug;
   string mDataPath;
   // SNDFILE *mVoiceFile;
-  FILE *mVoiceFile;
-  const char *mVoiceFileType;  // "wav" or "gsm"
+  FILE* mVoiceFile;
+  const char* mVoiceFileType;  // "wav" or "gsm"
   map<string, PhoneticSymbol> mWordSymbolMap;
   SF_INFO mSfinfo;
+  DictItem mDictItemArray[65536];
 
-  /**
-   * Map code to PhoneticSymbol
-   */
+  // map code to PhoneticSymbol
   // for Mandarin and Cantonese
   static PhoneticSymbol mSymbolArray[SYMBOL_ARRAY_SIZE];
 
   // for Hakka
-  PhoneticSymbol *mKaSymbolArray[SYMBOL_ARRAY_SIZE];
+  PhoneticSymbol* mKaSymbolArray[SYMBOL_ARRAY_SIZE];
   int mKaSymbolIndex;  // for aditional dictionary
 
   SymbolLetter mKaSymbolLetter[SymbolLetter::SIZE];
-  int getSymbolCode(SymbolLetter *root, const char *symbol);
+  int getSymbolCode(SymbolLetter* root, const char* symbol);
 
   int setLanguage(Language lang);
   inline Language getLanguage(void) { return mLanguage; };
@@ -112,62 +111,54 @@ class Dict {
   inline string getVoice(void) { return mVoice; };
   int loadMandarin(void);
 
-  PhoneticSymbol *lookup(const Character &c);
-  inline PhoneticSymbol *lookup(unsigned int code) {
+  bool isNumber(int code);
+
+  PhoneticSymbol* lookup(const Character& c);
+  PhoneticSymbol* lookup(unsigned int code) {
     Character c(code);
     return lookup(c);
   }
-
-  bool isNumber(int code);
-
-  inline list<PhoneticSymbol *> lookup(string &text) {
+  list<PhoneticSymbol*> lookup(string& text) {
     list<Character> charList = Character::split(text);
     return lookup(charList);
   }
-
-  inline list<OverlapType> lookupOverlap(string &text) {
-    list<Character> charList = Character::split(text);
-    return lookupOverlap(charList);
-  }
-
-  list<PhoneticSymbol *> lookup(list<Character> &charList,
-                                bool firstWord = false);
-  inline list<PhoneticSymbol *> lookup(const char *text) {
+  list<PhoneticSymbol*> lookup(list<Character>& charList,
+      bool firstWord = false);
+  list<PhoneticSymbol*> lookup(const char* text) {
     string str(text);
     return lookup(str);
   }
 
-  list<OverlapType> lookupOverlap(list<Character> &charList);
-
-  list<Word> lookupWord(const char *text);
-  inline list<Word> lookupWord(string &text) {
-    return lookupWord(text.c_str());
+  list<OverlapType> lookupOverlap(list<Character>& charList);
+  list<OverlapType> lookupOverlap(string& text) {
+    list<Character> charList = Character::split(text);
+    return lookupOverlap(charList);
   }
 
-  list<PhoneticSymbol *> lookupFirstWord(const char *text) {
+  list<PhoneticSymbol*> lookupFirstWord(const char* text) {
     string str = text;
     list<Character> char_list = Character::split(str, 10);
     return lookup(char_list, true);
   }
 
-  void getWordPcm(list<PhoneticSymbol *> &word_phon, unsigned int &offset,
-                  unsigned short &bytes);
+  void getWordPcm(list<PhoneticSymbol*>& word_phon, unsigned int& offset,
+      unsigned short& bytes);
 
-  int loadEspeakDict(const char *path);
-  inline int loadEspeakDict(const string &path) {
+  int loadEspeakDict(const char* path);
+  inline int loadEspeakDict(const string& path) {
     return loadEspeakDict(path.c_str());
   };
-  int saveEkhoDict(const char *path);
-  inline int saveEkhoDict(const string &path) {
+  int saveEkhoDict(const char* path);
+  inline int saveEkhoDict(const string& path) {
     return saveEkhoDict(path.c_str());
   };
-  int loadEkhoDict(const char *path);
-  inline int loadEkhoDict(const string &path) {
+  int loadEkhoDict(const char* path);
+  inline int loadEkhoDict(const string& path) {
     return loadEkhoDict(path.c_str());
   };
-  inline PhoneticSymbol *getFullPause(void) { return mFullPause; };
-  inline PhoneticSymbol *getHalfPause(void) { return mHalfPause; };
-  inline PhoneticSymbol *getQuaterPause(void) { return mQuaterPause; };
+  inline PhoneticSymbol* getFullPause(void) { return mFullPause; };
+  inline PhoneticSymbol* getHalfPause(void) { return mHalfPause; };
+  inline PhoneticSymbol* getQuaterPause(void) { return mQuaterPause; };
 
   bool isPunctuationChar(int code, EkhoPuncType mode); 
   inline string getPunctuationName(int code) {
@@ -184,32 +175,31 @@ class Dict {
    * All characters will be marked 0 if len not match phons_len
    * it's caller's responsibility to free in_word_context
    */
-  void getWordContext(const char *text, char *in_word_context, int phons_len);
+  void getWordContext(const char* text, char* in_word_context, int phons_len);
 
   // for style of [[pin1 yin1]]
-  PhoneticSymbol *getPhoneticSymbol(string &symbol);
-  static PhoneticSymbol* getPhoneticSymbol(const char *symbol);
-  unsigned short getCodeOfSymbol(string &symbol);
+  PhoneticSymbol* getPhoneticSymbol(string symbol);
+
+  list<Character> replaceNumbers(list<Character> charList);
 
  private:
   /**
    * Map character code to DictItem
    */
-  DictItem mDictItemArray[65536];
   map<int, DictItem> mExtraDictItemMap;
-  map<int, const char *> mPunctuationNameMap;
-  list<PhoneticSymbol *> mSpecialSymbols; // for delete when destroy
+  map<int, const char*> mPunctuationNameMap;
+  list<PhoneticSymbol*> mSpecialSymbols; // for delete when destroy
   list<char *> mSpecialChars; // for delete when destroy
 
   string mVoice;
   int mFullPausePcmSize;
-  char *mFullPausePcm;
-  char *mHalfPausePcm;
-  char *mQuaterPausePcm;
+  char* mFullPausePcm;
+  char* mHalfPausePcm;
+  char* mQuaterPausePcm;
   Language mLanguage;
-  PhoneticSymbol *mFullPause;
-  PhoneticSymbol *mHalfPause;
-  PhoneticSymbol *mQuaterPause;
+  PhoneticSymbol* mFullPause;
+  PhoneticSymbol* mHalfPause;
+  PhoneticSymbol* mQuaterPause;
 
 #ifdef ENABLE_FRISO
   friso_t mFriso;
@@ -221,22 +211,22 @@ class Dict {
   string getDefaultDataPath(void);
   void addSpecialSymbols(void);
 
-  inline PhoneticSymbol *getZhyPhon(const char *sym) {
+  inline PhoneticSymbol* getZhyPhon(const char* sym) {
     return &mSymbolArray[ZHY_PHash::in_word_set(sym, strlen(sym))->code];
   }
 
-  inline PhoneticSymbol *getZhPhon(const char *sym) {
+  inline PhoneticSymbol* getZhPhon(const char* sym) {
     return &mSymbolArray[ZH_PHash::in_word_set(sym, strlen(sym))->code];
   }
 
-  inline void addDictItem(unsigned short code, PhoneticSymbol *phonSymbol) {
+  inline void addDictItem(unsigned short code, PhoneticSymbol* phonSymbol) {
     mDictItemArray[code].character.code = code;
     mDictItemArray[code].character.phonSymbol = phonSymbol;
   }
 
-  bool hasNumbers(list<Character> &charList);
-  void replaceNumbers(list<Character> &charList,
-                      list<Character> &convertedCharList);
+  bool hasNumbers(list<Character>& charList);
+
+  unsigned short getCodeOfSymbol(string &symbol);
 
   void saveEkhoVoiceFile();
   void loadEkhoVoiceFile(string path);

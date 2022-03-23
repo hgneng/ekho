@@ -6,6 +6,32 @@
 using namespace std;
 
 namespace ekho {
+  bool Dict::isNumber(int code) {
+  switch (code) {
+    case 19968: // 一
+    case 20108:
+    case 19977:
+    case 22235:
+    case 20116:
+    case 20846:
+    case 19971:
+    case 20843:
+    case 20061:
+    case 21313: // 十
+    case 30334:
+    case 21315:
+    case 19975:
+    case 20159: // 亿
+      return true;
+  }
+
+  if (code >= '0' && code <= '9') {
+    return true;
+  }
+
+  return false;
+}
+
 // detect whether there are number
 bool Dict::hasNumbers(list<Character> &charList) {
   if (mLanguage != MANDARIN && mLanguage != CANTONESE) {
@@ -173,13 +199,12 @@ static void readIntegerNumber(list<Character> &charList,
 // code of Chinese point: 28857
 // zip code
 // telephone
-void Dict::replaceNumbers(list<Character> &charList,
-    list<Character> &convertedCharList) {
+list<Character> Dict::replaceNumbers(list<Character> charList) {
   if (mLanguage != MANDARIN && mLanguage != CANTONESE) {
-    convertedCharList = charList;
-    return;
+    return charList;
   }
 
+  list<Character> convertedCharList;
   list<Character>::iterator i = charList.begin();
   list<Character>::iterator i2 = i;
 
@@ -451,7 +476,9 @@ void Dict::replaceNumbers(list<Character> &charList,
     if (i == charList.end())
       break;
     i++;
-  }  
+  }
+
+  return convertedCharList;
 }
 
 } // end of namespace ekho

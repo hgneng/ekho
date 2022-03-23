@@ -1006,7 +1006,7 @@ int main(int argc, char *argv[]) {
     }
     Dict dict(lang);
 
-    list<Word> wordlist = dict.lookupWord(text);
+    list<Word> wordlist = Word::split(text);
     for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
          word++) {
       list<PhoneticSymbol *> phonList = word->symbols;
@@ -1021,7 +1021,7 @@ int main(int argc, char *argv[]) {
   } else if (mode != REQUEST_MODE && is_listing_word) {
     Ekho::debug(isDebugging);
     Dict dict(MANDARIN);
-    list<Word> word_list = dict.lookupWord(text);
+    list<Word> word_list = Word::split(text);
     list<Word>::iterator word = word_list.begin();
     for (; word != word_list.end(); word++) {
       cout << word->text;

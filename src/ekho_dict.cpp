@@ -606,19 +606,6 @@ int Dict::setVoice(string voice) {
   }
 }
 
-PhoneticSymbol *Dict::lookup(const Character &c) {
-  if (c.code < 65536) {
-    return mDictItemArray[c.code].character.phonSymbol;
-  } else {
-    DictItem *di = &mExtraDictItemMap[c.code];
-    if (di) {
-      return di->character.phonSymbol;
-    } else {
-      return 0;
-    }
-  }
-}
-
 list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
   list<OverlapType> ret;
   list<Character>::iterator cItor = charList.begin();
@@ -649,30 +636,17 @@ list<OverlapType> Dict::lookupOverlap(list<Character> &charList) {
   return ret;
 }
 
-bool Dict::isNumber(int code) {
-  switch (code) {
-    case 19968: // 一
-    case 20108:
-    case 19977:
-    case 22235:
-    case 20116:
-    case 20846:
-    case 19971:
-    case 20843:
-    case 20061:
-    case 21313: // 十
-    case 30334:
-    case 21315:
-    case 19975:
-    case 20159: // 亿
-      return true;
+PhoneticSymbol *Dict::lookup(const Character &c) {
+  if (c.code < 65536) {
+    return mDictItemArray[c.code].character.phonSymbol;
+  } else {
+    DictItem *di = &mExtraDictItemMap[c.code];
+    if (di) {
+      return di->character.phonSymbol;
+    } else {
+      return 0;
+    }
   }
-
-  if (code >= '0' && code <= '9') {
-    return true;
-  }
-
-  return false;
 }
 
 list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
@@ -687,7 +661,7 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
   // handle rules of numbers
   if (mLanguage == MANDARIN || mLanguage == CANTONESE) {
     if (hasNumbers(charList)) {
-      replaceNumbers(charList, convertedCharList);
+      convertedCharList = Dict::me->replaceNumbers(charList);
       cItor = convertedCharList.begin();
       cItor2 = cItor;
       begin = convertedCharList.begin();
@@ -818,22 +792,29 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
   return phonList;
 }
 
-PhoneticSymbol *Dict::getPhoneticSymbol(string &symbol) {
-  SymbolCode *sym_code = 0;
-  if (mLanguage == MANDARIN) {
-    sym_code = ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
-  } else if (mLanguage == CANTONESE) {
-    sym_code = ZHY_PHash::in_word_set(symbol.c_str(), symbol.size());
+PhoneticSymbol* Dict::getPhoneticSymbol(string symbol) {
+  if (Dict::me) {
+    SymbolCode *sym_code = 0;
+    if (mLanguage == MANDARIN) {
+      sym_code = ZH_PHash::in_word_set(symbol.c_str(), symbol.size());
+    } else if (mLanguage == CANTONESE) {
+      sym_code = ZHY_PHash::in_word_set(symbol.c_str(), symbol.size());
+    }
+
+    //cerr << "getPhoneticSymbol:" << sym_code << endl;
+
+    if (sym_code) {
+      return &mSymbolArray[sym_code->code];
+    }
+  } else {
+    cerr << "Dict::me not init" << endl;
   }
 
-  //cerr << "getPhoneticSymbol:" << sym_code << endl;
-
-  if (sym_code)
-    return &mSymbolArray[sym_code->code];
-  else
-    return 0;
+  cerr << symbol << " not found." << endl;
+  return 0;
 }
 
+/*
 list<Word> Dict::lookupWord(const char *text) {
   list<Word> wordlist;
   TextType type;
@@ -1071,6 +1052,7 @@ list<Word> Dict::lookupWord(const char *text) {
           // it's alphabet
           lastword += itor->getUtf8();
           if (!last_chinese_word.empty()) {
+            // 把中文文本拆分成“词”（有独立音频的拼音组合独立成词）
             wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
                                     lookup(last_chinese_word),
                                     lookupOverlap(last_chinese_word)));
@@ -1093,7 +1075,7 @@ list<Word> Dict::lookupWord(const char *text) {
           if (lastword.length() == 1 &&
               ((c >= 'A' && c <= 'Z') ||
                (c >= 'a' && c <= 'z') ||
-               (c >= 128 /* && c < 256 */))) {
+               (c >= 128))) {
 	          wordlist.push_back(Word(lastword, ENGLISH_TEXT, lookup(lastword), lookupOverlap(lastword)));
           } else {
             wordlist.push_back(Word(lastword, ENGLISH_TEXT));
@@ -1117,7 +1099,7 @@ list<Word> Dict::lookupWord(const char *text) {
 #endif
 
   return wordlist;
-}
+}*/
 
 void Dict::getWordPcm(list<PhoneticSymbol *> &word_phon, unsigned int &offset,
                       unsigned short &bytes) {
@@ -1154,7 +1136,7 @@ void Dict::getWordPcm(list<PhoneticSymbol *> &word_phon, unsigned int &offset,
  */
 int Dict::getSymbolCode(SymbolLetter *root, const char *symbol) {
   const char *c = symbol;
-  char code = 0;
+  unsigned char code = 0;
   SymbolLetter *sym = root;
   while (c && *c) {
     code = *c;
@@ -2060,16 +2042,6 @@ void Dict::loadEkhoVoiceFile(string path) {
   if (mDebug) {
     cerr << "sampleRate=" << samplerate << ", fileType=" << mVoiceFileType << endl;
   }
-}
-
-PhoneticSymbol* Dict::getPhoneticSymbol(const char *symbol) {
-  if (Dict::me) {
-    string s(symbol);
-    unsigned short code = Dict::me->getCodeOfSymbol(s);
-    return &Dict::me->mSymbolArray[code];
-  }
-
-  return 0;
 }
 
 }

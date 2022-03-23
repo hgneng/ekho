@@ -1558,7 +1558,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   LOGD("Ekho::synth2 filtered text=%s", text.c_str());
 #endif
 
-  list<Word> wordlist = mDict.lookupWord(text);
+  list<Word> wordlist = Word::split(text);
   list<PhoneticSymbol *>::iterator phon_symbol;
   for (list<Word>::iterator word = wordlist.begin(); word != wordlist.end();
        word++) {
@@ -1681,6 +1681,10 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
             }
           }
         }
+        break;
+
+      case RECORDING:
+        cerr << "RECORDING not implemented" << endl;
         break;
     }
   }  // end of for
