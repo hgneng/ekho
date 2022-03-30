@@ -1,8 +1,8 @@
 /***************************************************************************
- * Copyright (C) 2008-2019 by Cameron Wong                                 *
+ * Copyright (C) 2008-2022 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
- * website: http://www.eguidedog.net                                       *
+ * website: https://eguidedog.net                                          *
  *                                                                         *
  * This program is free software; you can redistribute it and/or           *
  * modify it under the terms of the GNU General Public License             *
@@ -36,7 +36,7 @@ using namespace std;
 
 namespace ekho {
   typedef struct SymbolCode {
-    const char *name;
+    const char* name;
     unsigned short code;
   } SymbolCode;
 
@@ -67,11 +67,11 @@ namespace ekho {
         }
       };
 
-      const char *symbol;
+      const char* symbol;
       unsigned int offset; // bytes' offset
       unsigned int bytes;
 
-      void setPcm(char *pcm, const int size) {
+      void setPcm(char* pcm, const int size) {
         if (mPcm) {
           delete mPcm;
         }
@@ -79,27 +79,28 @@ namespace ekho {
         mSize = size;
       };
 
-      inline const char* getPcm(int &size) {
+      inline const char* getPcm(int& size) {
         return getPcm("", "wav", size);
       };
 
-      inline const char* getPcm(const char *wavDir, const char *postfix, int &size) {
+      inline const char* getPcm(const char* wavDir,
+          const char* postfix, int& size) {
         SF_INFO sfinfo;
         return getPcm(wavDir, postfix, size, sfinfo);
       };
 
-      const char* getPcm(FILE *file, int &size);
-      const char* getPcm(const char *wavDir, const char *postfix, int &size, SF_INFO &sfinfo);
+      const char* getPcm(FILE* file, int &size);
+      const char* getPcm(const char* wavDir, const char* postfix, int& size, SF_INFO &sfinfo);
 
       void readSndfile(SNDFILE *sndfile, SF_INFO sfinfo);
  
       static PhoneticSymbol* getUnknownPhoneticSymbol() {
-        static PhoneticSymbol *ps = new PhoneticSymbol(" ");
+        static PhoneticSymbol* ps = new PhoneticSymbol(" ");
         return ps;
       };
 
     private:
-      char *mPcm;
+      char* mPcm;
       int mSize;
   };
 }

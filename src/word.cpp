@@ -39,13 +39,17 @@ void Word::loadWordVoiceFiles(string dir) {
     return;
   }
 
-  list<WordPinyin> wordPinyinList;
   int wordCount = 0;
 
   do {
     if ((dp = readdir(dirp)) != NULL) {
-      cerr << "processing " << dp->d_name << endl;
+      // cerr << "processing " << dp->d_name << endl;
       char *c = dp->d_name;
+
+      if (*c == '.') {
+        continue;
+      }
+
       string charPinyin;
       WordPinyin wordPinyin;
       while (*c > 0) {
@@ -63,37 +67,37 @@ void Word::loadWordVoiceFiles(string dir) {
 
       if (wordPinyin.back() != ".wav" && wordPinyin.back() != ".mp3") {
         // 非法文件类型，跳过
-        cerr << "bad file format: " << charPinyin << endl;
+        cerr << "bad file format: " << dp->d_name << endl;
         continue;
       }
 
       charPinyin = wordPinyin.front();
+      wordPinyin.pop_front(); // 不重复存储第一个字
 
-      wordPinyinList = Word::voiceFilesMap[charPinyin];
-
-      list<WordPinyin>::iterator it = wordPinyinList.begin();
-      while (it != wordPinyinList.end()) {
+      list<WordPinyin>::iterator it = Word::voiceFilesMap[charPinyin].begin();
+      while (it != Word::voiceFilesMap[charPinyin].end()) {
         if (it->size() <= wordPinyin.size()) {
-          wordPinyin.pop_front(); // 不重复存储第一个字
-          wordPinyinList.insert(it, wordPinyin);
+          Word::voiceFilesMap[charPinyin].insert(it, wordPinyin);
           break;
         }
+
+        it++;
       }
 
-      if (it == wordPinyinList.end()) {
-        wordPinyinList.push_back(wordPinyin);
+      if (it == Word::voiceFilesMap[charPinyin].end()) {
+        Word::voiceFilesMap[charPinyin].push_back(wordPinyin);
       }
-      
+
       wordCount++;
     }
   } while (dp != NULL);
 
   closedir(dirp);
-  cerr << "map size: " << Word::voiceFilesMap.size() << endl;
-  cerr << "word count: " << wordCount << endl;
+  // cerr << "map size: " << Word::voiceFilesMap.size() << endl;
+  // cerr << "word count: " << wordCount << endl;
 }
 
-string Word::getNextPinyin(list<Character>& charList, list<Character>::iterator& itor) {
+string Word::getNextPinyin(const list<Character>& charList, list<Character>::iterator& itor) {
   string pinyin;
   int length = 0;
   while (itor != charList.end() && itor->code != ' ' &&
@@ -111,8 +115,45 @@ string Word::getNextPinyin(list<Character>& charList, list<Character>::iterator&
   }
 }
 
-string Word::findVoiceFile(list<WordPinyin>& wordPinyinList, list<Character>& charList, list<Character>::iterator& itor) {
-  cerr << "findVoiceFile not implemented" << endl;
+string Word::getMatchedPinyin(WordPinyin& wordPinyin,
+    const list<Character>& charList, list<Character>::iterator& itor) {
+  string suffix;
+  list<Character>::iterator itor2 = itor;
+  int count = wordPinyin.size() - 1; // 最后一个是.mp3，不匹配
+  int i = 0;
+
+  for (WordPinyin::iterator pinyinItor = wordPinyin.begin();
+      i < count; pinyinItor++) {
+    string pinyin = Word::getNextPinyin(charList, itor2);
+    // cerr << "compareing " << *pinyinItor << " and " << pinyin << endl;
+    if (pinyin.empty() || pinyinItor->compare(pinyin) != 0) {
+      return "";
+    }
+
+    i++;
+    itor2++;
+    suffix += pinyin;
+  }
+
+  // cerr << "getMatchedPinyin " << suffix << endl;
+  itor = itor2;
+  return suffix;
+}
+
+string Word::findPinyinVoiceFile(list<WordPinyin>& wordPinyinList,
+    const list<Character>& charList, list<Character>::iterator& itor) {
+  list<Character>::iterator itor2 = itor;
+
+  list<WordPinyin>::iterator wordItor = wordPinyinList.begin();
+  for (; wordItor != wordPinyinList.end(); wordItor++) {
+    string suffix = Word::getMatchedPinyin(*wordItor, charList, itor2);
+    if (!suffix.empty()) {
+      itor2--;
+      itor = itor2;
+      return suffix + wordItor->back();
+    }
+  }
+
   return "";
 }
 
@@ -161,7 +202,8 @@ list<Word> Word::split(string text) {
             list<Character>::iterator itor3;
             if (Word::voiceFilesMap.find(symbol) != Word::voiceFilesMap.end()) {
               itor3 = itor2;
-              filename = Word::findVoiceFile(Word::voiceFilesMap[symbol], char_list, itor3);
+              itor3++;
+              filename = Word::findPinyinVoiceFile(Word::voiceFilesMap[symbol], char_list, itor3);
             }
 
             if (filename.empty()) {
@@ -185,7 +227,10 @@ list<Word> Word::split(string text) {
 
             if (!filename.empty()) {
               // 找到多个拼音的预录音文件
-              wordlist.push_back(Word(filename, RECORDING));
+              if (Dict::me->mDebug) {
+                cerr << "found voice file: " << symbol + filename << endl;
+              }
+              wordlist.push_back(Word(symbol + filename, RECORDING));
               itor2 = itor3;
             } else if (phon_symbol) {
               // 单个拼音

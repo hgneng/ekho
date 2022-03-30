@@ -1,8 +1,8 @@
 /***************************************************************************
- * Copyright (C) 2008-2020 by Cameron Wong                                 *
+ * Copyright (C) 2008-2022 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
- * website: http://www.eguidedog.net                                       *
+ * website: https://eguidedog.net                                          *
  *                                                                         *
  * This program is free software; you can redistribute it and/or           *
  * modify it under the terms of the GNU General Public License             *
@@ -23,6 +23,7 @@
 #ifndef EKHO_AUDIO_H
 #define EKHO_AUDIO_H
 #include <string>
+#include <mpg123.h>
 #include "ekho_typedef.h"
 #include "config.h"
 #include "sonic.h"
@@ -52,12 +53,12 @@ class Audio {
     SpeechdSynthCallback *speechdSynthCallback = 0;
 
 #ifdef HAVE_PULSEAUDIO
-    pa_simple *pulseAudio = 0;
+    pa_simple* pulseAudio = 0;
     void initPulseAudio();
     void destroyPulseAudio();
     void pulseAudioDrain();
     void pulseAudioFlush();
-    int pulseAudioWrite(const void *buffer, size_t bytes);
+    int pulseAudioWrite(const void* buffer, size_t bytes);
 #endif
 
     // processor
@@ -84,8 +85,14 @@ class Audio {
     // tools
     static string genTempFilename();
 
+    // It's caller's responsibility to delete return short space
+    void initMp3Processor();
+    short* readPcmFromAudioFile(string filepath, int& size);
+    short* readPcmFromMp3File(string filepath, int& size);
+
   private:
     bool hasProcessorInited = false;
+    mpg123_handle* mpg123Handle = NULL;
 };
 }
 #endif

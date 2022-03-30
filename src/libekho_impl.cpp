@@ -335,7 +335,6 @@ int EkhoImpl::saveOgg(string text, string filename) {
 
 #ifdef HAVE_MP3LAME
 int EkhoImpl::saveMp3(string text, string filename) {
-  int pcmswapbytes;
   FILE *musicin;
   lame_global_flags *gf;
   FILE *outf;
@@ -344,7 +343,7 @@ int EkhoImpl::saveMp3(string text, string filename) {
   this->saveWav(text, tmp_wav);
 
   /* open the input file */
-  pcmswapbytes = 0;  // don't swap bytes
+  // int pcmswapbytes = 0;  // don't swap bytes
 
   /* Try to open the sound file */
   SF_INFO gs_wfInfo;
@@ -392,14 +391,12 @@ int EkhoImpl::saveMp3(string text, string filename) {
   int samples_read;
   int imp3;
   int owrite;
-  size_t totalread = 0;  // for debug
   do {
     /* read in 'iread' samples */
     int num_channels = lame_get_num_channels(gf);
     int insamp[2 * BUFFER_SIZE];
     int framesize;
     int samples_to_read;
-    unsigned int tmp_num_samples;
     int i;
     int *p;
 
@@ -410,32 +407,29 @@ int EkhoImpl::saveMp3(string text, string filename) {
     }
 
     /* get num_samples */
-    tmp_num_samples = lame_get_num_samples(gf);
+    //unsigned int tmp_num_samples = lame_get_num_samples(gf);
 
     samples_read =
         sf_read_int((SNDFILE *)musicin, insamp, num_channels * samples_to_read);
-    totalread += samples_read;
 
     if (samples_read < 0) {
       return samples_read;
     }
     p = insamp + samples_read;
     samples_read /= num_channels;
-    if (Buffer != NULL) { /* output to int buffer */
-      if (num_channels == 2) {
-        for (i = samples_read; --i >= 0;) {
-          Buffer[1][i] = *--p;
-          Buffer[0][i] = *--p;
-        }
-      } else if (num_channels == 1) {
-        memset(Buffer[1], 0, samples_read * sizeof(int));
-        for (i = samples_read; --i >= 0;) {
-          Buffer[0][i] = *--p;
-        }
-      } else {
-        cerr << "Bad channel number: " << num_channels << endl;
-        return -1;
+    if (num_channels == 2) {
+      for (i = samples_read; --i >= 0;) {
+        Buffer[1][i] = *--p;
+        Buffer[0][i] = *--p;
       }
+    } else if (num_channels == 1) {
+      memset(Buffer[1], 0, samples_read * sizeof(int));
+      for (i = samples_read; --i >= 0;) {
+        Buffer[0][i] = *--p;
+      }
+    } else {
+      cerr << "Bad channel number: " << num_channels << endl;
+      return -1;
     }
 
     if (samples_read >= 0) {
@@ -1684,7 +1678,13 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
         break;
 
       case RECORDING:
-        cerr << "RECORDING not implemented" << endl;
+        short* pcm = this->audio->readPcmFromAudioFile(mDict.mDataPath + "/" +
+           mDict.getVoice() + "/" + word->text, size);
+        if (pcm) {
+          callback(pcm, size, userdata, OVERLAP_QUIET_PART);
+          free(pcm);
+          pcm = NULL;
+        }
         break;
     }
   }  // end of for

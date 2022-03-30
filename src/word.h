@@ -72,8 +72,12 @@ public:
   static map<string, list<WordPinyin> > voiceFilesMap;
   static void loadWordVoiceFiles(string dir);
   static list<Word> split(string text);
-  static string getNextPinyin(list<Character>& charList, list<Character>::iterator& itor);
-  static string findVoiceFile(list<WordPinyin>& wordPinyinList, list<Character>& charList, list<Character>::iterator& itor);
+  static string getNextPinyin(const list<Character>& charList,
+    list<Character>::iterator& itor);
+  static string findPinyinVoiceFile(list<WordPinyin>& wordPinyinList,
+    const list<Character>& charList, list<Character>::iterator& itor);
+  static string getMatchedPinyin(WordPinyin& wordPinyin,
+    const list<Character>& charList, list<Character>::iterator& itor);
 };
 
 #endif

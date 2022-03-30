@@ -29,7 +29,7 @@ sub build_common() {
   system('sudo apt-get -y install autoconf automake libtool');
   system('sudo apt-get -y install libdotconf-dev');
   system('sudo apt-get -y install libmp3lame-dev');
-#  system('sudo apt-get -y install festival-dev');
+  system('sudo apt-get -y install mpg123');
   system('sudo apt-get -y install libestools2.1-dev');
   system('sudo apt-get -y install gettext');
   system('sudo apt-get -y install texinfo');
@@ -96,8 +96,10 @@ if ($lang ne 'Tibetan' and $lang ne 'Mandarin' and $lang ne 'Cantonese') {
 
 my $version = `grep DISTRIB_RELEASE /etc/lsb-release`;
 my $codename = `grep DISTRIB_CODENAME /etc/lsb-release`;
-if ($version =~ /(\d+\.\d+)/ && $1 >= 20.04 ||
-    $codename =~ /focal/) {
+my $osVersion = `grep VERSION_ID /etc/os-release`; # Debian
+if (($version =~ /(\d+\.\d+)/ && $1 >= 20.04) ||
+    $codename =~ /focal/ ||
+    ($osVersion =~ /(\d+)/ && $1 >= 11)) {
   build_common() if (not $skip_build);
   #`sudo ln -s /usr/lib/i386-linux-gnu/speech-dispatcher-modules /usr/lib/` if (not `grep "14.04" /etc/lsb-release`);
   #if (! -e '/usr/lib/libsdaudio.so.2') {

@@ -11,7 +11,7 @@ include_HEADERS = src/ekho.h src/word.h src/ekho_dict.h src/ssml.h src/audio.h s
 
 libekho_a_SOURCES = src/libekho.cpp src/libekho_impl.cpp src/ssml.cpp src/audio.cpp src/phonetic_symbol.cpp src/word.cpp src/ekho_dict.cpp src/number.cpp src/musicxml.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp sonic/sonic.c
 libekho_a_CXXFLAGS = $(AM_CXXFLAGS) @CFLAG_MUSICXML@ -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -pthread @CFLAG_FRISO@ -std=c++11 -I$(srcdir)/libmusicxml/src/elements -I$(srcdir)/libmusicxml/src/lib -I$(srcdir)/libmusicxml/src/visitors -I$(srcdir)/libmusicxml/src/files -I$(srcdir)/libmusicxml/src/parser
-LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ -lsndfile -lespeak-ng @LIB_FRISO@ @LIB_MUSICXML@ @LIB_SOXR@
+LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ -lmpg123 -lsndfile -lespeak-ng @LIB_FRISO@ @LIB_MUSICXML@ @LIB_SOXR@
 
 if ENABLE_FRISO
 noinst_LIBRARIES += libfriso.a

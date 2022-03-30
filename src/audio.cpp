@@ -1,8 +1,8 @@
 /***************************************************************************
- * Copyright (C) 2008-2021 by Cameron Wong                                 *
+ * Copyright (C) 2008-2022 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
- * website: https://eguidedog.net                                       *
+ * website: https://eguidedog.net                                          *
  *                                                                         *
  * This program is free software; you can redistribute it and/or           *
  * modify it under the terms of the GNU General Public License             *
@@ -25,6 +25,9 @@
 #include <stdlib.h>
 #include <sndfile.h>
 #include <pthread.h>
+#include <fstream>
+#include <mpg123.h>
+#include <out123.h>
 #include "audio.h"
 
 using namespace std;
@@ -39,6 +42,12 @@ Audio::~Audio(void) {
     this->processorStream = 0;
   }
 #endif
+
+  if (this->mpg123Handle) {
+    mpg123_delete(this->mpg123Handle);
+    mpg123_exit();
+    this->mpg123Handle = NULL;
+  }
 }
 
 
@@ -400,4 +409,76 @@ string Audio::genTempFilename() {
   tmpFilePath.append(to_string(count));
 
   return tmpFilePath;
+}
+
+// It's caller's responsibility to delete return short space
+short* Audio::readPcmFromAudioFile(string filepath, int& size) {
+  if (filepath.back() == '3') {
+    // SNDFILE默认配置下不支持MP3: http://www.mega-nerd.com/libsndfile/FAQ.html#Q020
+    return this->readPcmFromMp3File(filepath, size);
+  }
+
+  SF_INFO sfinfo;
+  SNDFILE *sndfile = sf_open(filepath.c_str(), SFM_READ, &sfinfo);
+  if (!sndfile) {
+    cerr << "Fail to open " << filepath << endl;
+    return NULL;
+  }
+
+  if (sfinfo.frames <= 0) {
+    cerr << filepath << " is empty." << endl;
+    sf_close(sndfile);
+    return NULL;
+  }
+
+  short *pcm = new short[sfinfo.frames];
+  sf_readf_short(sndfile, pcm, sfinfo.frames);
+  sf_close(sndfile);
+  size = sfinfo.frames;
+
+  return pcm;
+}
+
+void Audio::initMp3Processor() {
+  if (!mpg123Handle) {
+    mpg123_init();
+    int err;
+    this->mpg123Handle = mpg123_new(NULL, &err);
+  }
+}
+
+// It's caller's responsibility to delete return short space
+short* Audio::readPcmFromMp3File(string filepath, int& size) {
+  this->initMp3Processor();
+
+  size_t blockSize = mpg123_outblock(this->mpg123Handle);
+  size_t bufferSize = blockSize;
+  unsigned char* buffer = (unsigned char*)malloc(bufferSize * sizeof(unsigned char));
+  unsigned char* bufferPtr = buffer;
+  int channels, encoding;
+  long rate;
+
+  mpg123_open(this->mpg123Handle, filepath.c_str());
+  mpg123_getformat(this->mpg123Handle, &rate, &channels, &encoding);
+  size_t readBytes = 0;
+  size_t totalBytes = 0;
+  int ret = 0;
+
+  while ((ret = mpg123_read(this->mpg123Handle, bufferPtr, blockSize, &readBytes)) != MPG123_DONE) {
+    if (readBytes != blockSize) {
+      cerr << "something wrong with mpg123_read: readBytes=" <<
+       readBytes << ", blockSize=" << blockSize << ", ret=" << ret <<
+       ", MPG123_DONE=" << MPG123_DONE << endl;
+    }
+    bufferSize += blockSize;
+    buffer = (unsigned char*)realloc(buffer, bufferSize * sizeof(unsigned char*));
+    bufferPtr = buffer + blockSize;
+    totalBytes += readBytes;
+  }
+  mpg123_close(this->mpg123Handle);
+  totalBytes += readBytes;
+  size = totalBytes / 2;
+  cerr << "size: " << size << endl;
+
+  return (short*)buffer;
 }

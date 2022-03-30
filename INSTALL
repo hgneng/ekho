@@ -28,6 +28,7 @@ You need to have following libraries first:
 * libdotconf-dev (required by --enable-speechd)
 * texinfo
 * libltdl-dev
+* mpg123
 
 On Ubuntu Linux, we can use `apt-cache search <pkg_keywork>` to find a package's full name and install it with `sudo apt-get install <pkg_name>`.
 On Fedora Linux, we can use `yum search <pkg_keyword>` to find a package's full name and install it with `sudo yum install <pkg_name>`.
