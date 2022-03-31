@@ -29,10 +29,15 @@
 #include <mpg123.h>
 #include <out123.h>
 #include "audio.h"
+#include "ekho_impl.h"
+
+#ifdef HAVE_MP3LAME
+#include <lame/lame.h>
+#endif
 
 using namespace std;
-using namespace ekho;
 
+namespace ekho {
 bool Audio::debug = false;
 
 Audio::~Audio(void) {
@@ -481,4 +486,239 @@ short* Audio::readPcmFromMp3File(string filepath, int& size) {
   cerr << "size: " << size << endl;
 
   return (short*)buffer;
+}
+
+int EkhoImpl::saveWav(string text, string filename) {
+  initEnglish();
+  if (EkhoImpl::mDebug) {
+    cerr << "Writting WAV file " << filename << " ..." << endl;
+  }
+
+  // open record file
+  SF_INFO sfinfo;
+  memcpy(&sfinfo, &mDict.mSfinfo, sizeof(SF_INFO));
+  sfinfo.format = SF_FORMAT_WAV | SF_FORMAT_PCM_16;
+  sfinfo.samplerate = this->audio->outputSampleRate;
+  sfinfo.channels = this->audio->channels;
+
+  if (EkhoImpl::mDebug) {
+    cerr << "sfinfo format: samplerate=" << sfinfo.samplerate
+         << ", channel=" << sfinfo.channels;
+    cerr.setf(ios::hex);
+    cerr << ", format=" << sfinfo.format << endl;
+    cerr.unsetf(ios::hex);
+  }
+  mSndFile = sf_open(filename.c_str(), SFM_WRITE, &sfinfo);
+  if (!mSndFile) {
+    cerr << "Fail to open file " << filename << " at " << __LINE__ << endl;
+  }
+
+  synth2(text, writePcm);
+  finishWritePcm();
+
+  // close record file
+  sf_close(mSndFile);
+
+  if (EkhoImpl::mDebug) cerr << "Finish writting WAV file " << filename << endl;
+
+  return 0;
+}
+
+int EkhoImpl::saveOgg(string text, string filename) {
+  initEnglish();
+  if (EkhoImpl::mDebug) {
+    cerr << "Writting OGG file " << filename << " ..." << endl;
+  }
+
+  // open record file
+  SF_INFO sfinfo;
+  memcpy(&sfinfo, &mDict.mSfinfo, sizeof(SF_INFO));
+  sfinfo.format = SF_FORMAT_OGG | SF_FORMAT_VORBIS;
+  if (EkhoImpl::mDebug) {
+    cerr << "sfinfo format: samplerate=" << sfinfo.samplerate
+         << ", channel=" << sfinfo.channels;
+    cerr.setf(ios::hex);
+    cerr << ", format=" << sfinfo.format << endl;
+    cerr.unsetf(ios::hex);
+  }
+  mSndFile = sf_open(filename.c_str(), SFM_WRITE, &sfinfo);
+  if (!mSndFile) {
+    cerr << "Fail to open file " << filename << " at " << __LINE__ << endl;
+    cerr << "error code: " << sf_error(0) << endl;
+    cerr << "error: " << sf_strerror(0) << endl;
+  }
+
+  synth2(text, writePcm);
+  finishWritePcm();
+
+  // close record file
+  sf_close(mSndFile);
+
+  if (EkhoImpl::mDebug) {
+    cerr << "Finish writting WAV file " << filename << " ..." << endl;
+  }
+  return 0;
+}
+
+#ifdef HAVE_MP3LAME
+int EkhoImpl::saveMp3(string text, string filename) {
+  FILE *musicin;
+  lame_global_flags *gf;
+  FILE *outf;
+
+  string tmp_wav = Audio::genTempFilename() + ".wav";
+  this->saveWav(text, tmp_wav);
+
+  /* open the input file */
+  // int pcmswapbytes = 0;  // don't swap bytes
+
+  /* Try to open the sound file */
+  SF_INFO gs_wfInfo;
+  memset(&gs_wfInfo, 0, sizeof(gs_wfInfo));
+  SNDFILE *gs_pSndFileIn = sf_open(tmp_wav.c_str(), SFM_READ, &gs_wfInfo);
+  if (gs_pSndFileIn == NULL) {
+    sf_perror(gs_pSndFileIn);
+    cerr << "Could not open sound file " << tmp_wav << endl;
+    return -1;
+  }
+  musicin = (FILE *)gs_pSndFileIn;
+
+  /* initialize libmp3lame */
+  if (NULL == (gf = lame_init())) {
+    cerr << "fatal error during initialization" << endl;
+    return -1;
+  }
+
+  (void)lame_set_num_samples(gf, gs_wfInfo.frames);
+  if (-1 == lame_set_num_channels(gf, gs_wfInfo.channels)) {
+    cerr << "Unsupported number of channels: " << gs_wfInfo.channels << endl;
+    return -1;
+  }
+
+  (void)lame_set_in_samplerate(gf, gs_wfInfo.samplerate);
+  if (lame_init_params(gf) < 0) {
+    cerr << "fatal error during initialization" << endl;
+    lame_close(gf);
+    return -1;
+  }
+
+  /* open output file */
+  if ((outf = fopen(filename.c_str(), "w+b")) == NULL) {
+    lame_close(gf);
+    return -1;
+  }
+
+  if (EkhoImpl::mDebug) {
+    cerr << "Writting MP3 file " << filename << endl;
+  }
+
+  /* encode until we hit eof */
+  unsigned char mp3buffer[LAME_MAXMP3BUFFER];
+  int Buffer[2][BUFFER_SIZE];
+  int samples_read;
+  int imp3;
+  int owrite;
+  do {
+    /* read in 'iread' samples */
+    int num_channels = lame_get_num_channels(gf);
+    int insamp[2 * BUFFER_SIZE];
+    int framesize;
+    int samples_to_read;
+    int i;
+    int *p;
+
+    samples_to_read = framesize = lame_get_framesize(gf);
+    if (framesize > BUFFER_SIZE) {
+      cerr << "framesize: " << framesize << endl;
+      return -1;
+    }
+
+    /* get num_samples */
+    //unsigned int tmp_num_samples = lame_get_num_samples(gf);
+
+    samples_read =
+        sf_read_int((SNDFILE *)musicin, insamp, num_channels * samples_to_read);
+
+    if (samples_read < 0) {
+      return samples_read;
+    }
+    p = insamp + samples_read;
+    samples_read /= num_channels;
+    if (num_channels == 2) {
+      for (i = samples_read; --i >= 0;) {
+        Buffer[1][i] = *--p;
+        Buffer[0][i] = *--p;
+      }
+    } else if (num_channels == 1) {
+      memset(Buffer[1], 0, samples_read * sizeof(int));
+      for (i = samples_read; --i >= 0;) {
+        Buffer[0][i] = *--p;
+      }
+    } else {
+      cerr << "Bad channel number: " << num_channels << endl;
+      return -1;
+    }
+
+    if (samples_read >= 0) {
+      /* encode */
+      imp3 = lame_encode_buffer_int(gf, Buffer[0], Buffer[1], samples_read,
+                                    mp3buffer, sizeof(mp3buffer));
+      if (imp3 < 0) {
+        if (imp3 == -1) {
+          cerr << "mp3 buffer is not big enough... " << endl;
+        } else {
+          cerr << "mp3 internal error:  error code=" << imp3 << endl;
+        }
+        return -1;
+      }
+      owrite = (int)fwrite(mp3buffer, 1, imp3, outf);
+      if (owrite != imp3) {
+        cerr << "Error writing mp3 output" << endl;
+        return -1;
+      }
+    }
+  } while (samples_read > 0);
+
+  /* Add some blank to the end of mp3 file.
+   * This can avoid some wave missing
+   */
+  memset(Buffer, 0, sizeof(Buffer));
+  /* 500 is a experience number, try a better one */
+  imp3 = lame_encode_buffer_int(gf, Buffer[0], Buffer[1], BUFFER_SIZE,
+                                mp3buffer, sizeof(mp3buffer));
+  fwrite(mp3buffer, 1, imp3, outf);
+
+  imp3 = lame_encode_flush(
+      gf, mp3buffer, sizeof(mp3buffer)); /* may return one more mp3 frame */
+
+  if (imp3 < 0) {
+    if (imp3 == -1) {
+      cerr << "mp3 buffer is not big enough... " << endl;
+    } else {
+      cerr << "mp3 internal error:  error code=" << imp3 << endl;
+    }
+    return -1;
+  }
+
+  owrite = (int)fwrite(mp3buffer, 1, imp3, outf);
+  if (owrite != imp3) {
+    cerr << "Error writing mp3 output" << endl;
+    return -1;
+  }
+
+  fclose(outf); /* close the output file */
+  if (sf_close((SNDFILE *)musicin) != 0) {
+    cerr << "Could not close sound file" << endl;
+  }
+  lame_close(gf);
+
+  // remove(tmp_wav.c_str());
+
+  if (EkhoImpl::mDebug) {
+    cerr << "Finish writing MP3 file " << filename << endl;
+  }
+
+  return 0;
+}
+#endif
 }
