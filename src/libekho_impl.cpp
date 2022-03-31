@@ -550,6 +550,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 }
 
 int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
+  // 如果未播放的帧太多了，先播放掉（为什么是全部播放掉而不是一部分？？）
   while (frames > PENDING_PCM_FRAMES - mPendingFrames) {
     memcpy(mPendingPcm + mPendingFrames, pcm, (PENDING_PCM_FRAMES - mPendingFrames) * 2);
     this->audio->writeShortFrames(mPendingPcm, PENDING_PCM_FRAMES);
@@ -561,16 +562,16 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   const int quiet_level = mOverlap; // 音量低于(quiet_level / 65536)的部分重叠
 
   int flushframes = 0;  // mPendingFrames里应该输出的frames
-  int cpframe =
-      0;  // 下一段音频里，0到cpframe - 1是已经被合并到mPendingFrames里的，
+  int cpframe = 0;  // 下一段音频里，0到cpframe - 1是已经被合并到mPendingFrames里的，
           // 剩下的直接复制到mPendingFrames尾部
-  int startframe = 0;
-  int endframe = mPendingFrames - 1;
+  int startframe = 0; // 下一段音频的开始重叠位置
+  int endframe = mPendingFrames - 1; // 上一段音频的结束重叠位置
   int i = 0;
   int q_level = 0;
   // promise length not less than de5 * 0.8.
   int minFrames = mDict.mSfinfo.frames * 0.8;
-  //cerr << "frames:" << frames << ",minFrames:" << minFrames << ",type:" << type << endl;
+  int maxLeftFrames; // mPendingFrames - endframe - 1 + startframe;
+  cerr << "frames:" << frames << ",minFrames:" << minFrames << ",type:" << type << endl;
 
   switch (type) {
     case OVERLAP_NONE:
@@ -583,7 +584,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
     case OVERLAP_QUIET_PART:
       // don't overlap more than 0.3(endframe)+0.3(startframe) of the syllable frames
 
-      // find quiet frames
+      // 找出上一段音频尾部音量小的帧
       while (endframe > 0 &&
         mPendingFrames - endframe < frames * 0.3 &&
         mPendingFrames - endframe < (frames - minFrames) * 0.5 &&
@@ -591,67 +592,70 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
         endframe--;
       }
 
+      // 找出下一段音频头部音量小的帧
       while (startframe < frames * 0.3 &&
           startframe < (frames - minFrames) * 0.5 &&
           abs(pcm[startframe]) < quiet_level) {
         startframe++;
       }
 
-      // prevent valume over max
-      // search for a proper startframe position
+      // 在上一段音频里再往前找一些帧，
+      // 确保下一段音频头重叠起来不能超过最大音量
       i = endframe;
+      q_level = 32767 - quiet_level;
       while (i > 0 && endframe - i < startframe &&
-          abs(mPendingPcm[i]) < 32767 - quiet_level) {
+          abs(mPendingPcm[i]) < q_level) {
         i--;
       }
 
-      if (endframe - i < startframe) {
-        // remember a large frame and search back for small quite frame to overlarp
-        q_level = 32767 - abs(mPendingPcm[i]);
-        while (i > 0 && endframe - i < startframe &&
-            abs(pcm[endframe - i]) < q_level) {
-          i--;
-        }
-
-        if (endframe - i < startframe) {
-          //cerr << "startframe: " << startframe << " to " << endframe - i << endl;
-          startframe = endframe - i;
-        }
+      // 下一段音频的帧并非都达到32767 - quiet_level水平，可以再尽可能多重叠一些
+      // remember a large frame and search back for small quite frame to overlarp
+      q_level = 32767 - abs(mPendingPcm[i]);
+      while (i > 0 && endframe - i < startframe &&
+          abs(pcm[endframe - i]) < q_level) {
+        i--;
       }
 
-      // search for a proper endframe position
+      // 有超过最大音量的部分，减少重叠的帧数
+      if (startframe > endframe - i) {
+        startframe = endframe - i;
+      }
+
+      // 上一段（左边）音频剩下的帧数
+      maxLeftFrames = mPendingFrames - endframe - 1 + startframe;
+
+      // 下一段音频的开始位置再往后找一些帧，
+      // 确保不能和上一段音频重叠起来不能超过最大音量
       i = startframe;
-      while (i < frames && i - startframe < mPendingFrames - endframe - 1 &&
-          abs(pcm[i]) < 32767 - quiet_level) {
+      q_level = 32767 - quiet_level;
+      while (i < frames && i < maxLeftFrames &&
+          abs(pcm[i]) < q_level) {
         i++;
       }
 
-      if (i - startframe < mPendingFrames - endframe - 1) {
+      // 上一段音频的帧并非都达到32767 - quiet_level水平，可以再尽可能多重叠一些
+      if (i < frames) {
         q_level = 32767 - abs(pcm[i]);
-        while (i < frames && i - startframe < mPendingFrames - endframe - 1 &&
+        while (i < frames && i < maxLeftFrames &&
             abs(mPendingPcm[mPendingFrames + startframe - i - 1]) < q_level) {
           i++;
         }
-
-        if (i - startframe < mPendingFrames - endframe - 1) {
-          //cerr << "endframe: " << endframe << " to " << mPendingFrames + startframe - i - 1<< endl;
-          endframe = mPendingFrames + startframe - i - 1;
-        }
       }
 
-/* old algarithm
-      for (i = max(0, min(endframe, mPendingFrames - startframe));
-          i < mPendingFrames && cpframe < frames; i++) {
-        mPendingPcm[i] += pcm[cpframe];
-        cpframe++;
-      }*/
+      // 有超过最大音量的部分，减少重叠的帧数
+      if (i < maxLeftFrames && i < frames) {
+        //cerr << "endframe: " << endframe << " to " << mPendingFrames + startframe - i - 1<< endl;
+        endframe = mPendingFrames + startframe - i - 1;
+      }
 
+      // 拼接上下两段音频里音量小的帧
       for (i = max(0, endframe - startframe);
           i < mPendingFrames && cpframe < frames; i++) {
         mPendingPcm[i] += pcm[cpframe];
-        if (mPendingPcm[i] > 32000) {
-          //cerr << "overflow: " << mPendingPcm[i] << endl;
-        }
+        /*
+        if (mPendingPcm[i] > 32767) {
+          cerr << "overflow: " << mPendingPcm[i] << endl;
+        }*/
         cpframe++;
       }
 
@@ -665,7 +669,7 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
         // guaranteer pending frames no more than haft frames
         flushframes = mPendingFrames - frames * 0.5;
       }
-/*
+
       if (endframe < mPendingFrames - 1) {
         cerr << "clip endframe: " << mPendingFrames - endframe + 1 << endl;
       }
@@ -676,7 +680,6 @@ int EkhoImpl::writeToSonicStream(short *pcm, int frames, OverlapType type) {
 
       cerr << "cpframes: " << cpframe << ", flushframes: " << flushframes 
         << ", mPendingFrames: " << mPendingFrames << ", frames: " << frames << endl;
-*/
       break;
 
     case OVERLAP_HALF_PART:
@@ -1578,7 +1581,7 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
         phon_symbol = word->symbols.begin();
         pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
         if (pPcm && size > 0)
-          callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+          callback((short *)pPcm, size / 2, userdata, OVERLAP_QUIET_PART);
         break;
 
       case ENGLISH_TEXT:

@@ -167,6 +167,18 @@ list<Word> Word::split(string text) {
   list<Character>::iterator itor2 = itor;
   string symbol;
 
+/*
+#ifdef ENABLE_FRISO
+    filtered_text = Character::join(charlist2);
+    friso_set_text(mFrisoTask, (char *)filtered_text.c_str());
+    const char *friso_text = filtered_text.c_str();
+    while (friso_next(mFriso, mFrisoConfig, mFrisoTask)) {
+      string word(mFrisoTask->hits->word);
+          first_word_phons =
+              lookupFirstWord(friso_text + mFrisoTask->hits->offset);
+#endif
+}*/
+  
   for (; itor != char_list.end(); itor++) {
     int code = itor->code;
 
