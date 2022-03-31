@@ -338,7 +338,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
   // promise length not less than de5 * 0.8.
   int minFrames = mDict.mSfinfo.frames * 0.8;
   int maxLeftFrames; // mPendingFrames - endframe - 1 + startframe;
-  cerr << "frames:" << frames << ",minFrames:" << minFrames << ",type:" << type << endl;
+  // cerr << "frames:" << frames << ",minFrames:" << minFrames << ",type:" << type << endl;
 
   switch (type) {
     case OVERLAP_NONE:
@@ -436,7 +436,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
         // guaranteer pending frames no more than haft frames
         flushframes = mPendingFrames - frames * 0.5;
       }
-
+/*
       if (endframe < mPendingFrames - 1) {
         cerr << "clip endframe: " << mPendingFrames - endframe + 1 << endl;
       }
@@ -447,6 +447,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
 
       cerr << "cpframes: " << cpframe << ", flushframes: " << flushframes 
         << ", mPendingFrames: " << mPendingFrames << ", frames: " << frames << endl;
+        */
       break;
 
     case OVERLAP_HALF_PART:
