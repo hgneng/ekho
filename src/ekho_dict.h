@@ -118,7 +118,7 @@ class Dict {
     Character c(code);
     return lookup(c);
   }
-  list<PhoneticSymbol*> lookup(string& text) {
+  list<PhoneticSymbol*> lookup(const string& text) {
     list<Character> charList = Character::split(text);
     return lookup(charList);
   }

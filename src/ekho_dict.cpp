@@ -644,7 +644,7 @@ PhoneticSymbol *Dict::lookup(const Character &c) {
     if (di) {
       return di->character.phonSymbol;
     } else {
-      return 0;
+      return NULL;
     }
   }
 }
@@ -656,7 +656,7 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
   list<Character> convertedCharList;
   list<Character>::iterator begin = charList.begin();
   list<Character>::iterator end = charList.end();
-  DictItem *di = 0;
+  DictItem *di = NULL;
 
   // handle rules of numbers
   if (mLanguage == MANDARIN || mLanguage == CANTONESE) {

@@ -85,8 +85,8 @@ class Audio {
     // tools
     static string genTempFilename();
 
-    // It's caller's responsibility to delete return short space
     void initMp3Processor();
+    // It's caller's responsibility to delete return short space
     short* readPcmFromAudioFile(string filepath, int& size);
     short* readPcmFromMp3File(string filepath, int& size);
 

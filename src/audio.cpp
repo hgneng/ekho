@@ -483,7 +483,7 @@ short* Audio::readPcmFromMp3File(string filepath, int& size) {
   mpg123_close(this->mpg123Handle);
   totalBytes += readBytes;
   size = totalBytes / 2;
-  cerr << "size: " << size << endl;
+  // cerr << "size: " << size << endl;
 
   return (short*)buffer;
 }

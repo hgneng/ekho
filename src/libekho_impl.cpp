@@ -319,7 +319,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
 
   // 如果未播放的帧太多了，先播放掉（为什么是全部播放掉而不是一部分？？）
   while (frames > PENDING_PCM_FRAMES - mPendingFrames) {
-    cerr << "flush frames: " << PENDING_PCM_FRAMES - mPendingFrames << endl;
+    // cerr << "flush frames: " << PENDING_PCM_FRAMES - mPendingFrames << endl;
     memcpy(mPendingPcm + mPendingFrames, pcm, (PENDING_PCM_FRAMES - mPendingFrames) * 2);
     this->audio->writeShortFrames(mPendingPcm, PENDING_PCM_FRAMES);
     pcm += PENDING_PCM_FRAMES - mPendingFrames;

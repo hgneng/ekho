@@ -115,7 +115,7 @@ string Word::getNextPinyin(const list<Character>& charList, list<Character>::ite
   }
 }
 
-string Word::getMatchedPinyin(WordPinyin& wordPinyin,
+string Word::findMatchedPinyin(WordPinyin& wordPinyin,
     const list<Character>& charList, list<Character>::iterator& itor) {
   string suffix;
   list<Character>::iterator itor2 = itor;
@@ -135,7 +135,7 @@ string Word::getMatchedPinyin(WordPinyin& wordPinyin,
     suffix += pinyin;
   }
 
-  // cerr << "getMatchedPinyin " << suffix << endl;
+  // cerr << "findMatchedPinyin " << suffix << endl;
   itor = itor2;
   return suffix;
 }
@@ -146,10 +146,56 @@ string Word::findPinyinVoiceFile(list<WordPinyin>& wordPinyinList,
 
   list<WordPinyin>::iterator wordItor = wordPinyinList.begin();
   for (; wordItor != wordPinyinList.end(); wordItor++) {
-    string suffix = Word::getMatchedPinyin(*wordItor, charList, itor2);
+    string suffix = Word::findMatchedPinyin(*wordItor, charList, itor2);
     if (!suffix.empty()) {
       itor2--;
       itor = itor2;
+      return suffix + wordItor->back();
+    }
+  }
+
+  return "";
+}
+
+string Word::findMatchedPinyin(WordPinyin& wordPinyin,
+    const list<PhoneticSymbol*>& phonList,
+    list<PhoneticSymbol*>::iterator& itor) {
+  // cerr << "findMatchedPinyin " << (*itor)->symbol << endl;
+  string suffix;
+  list<PhoneticSymbol*>::iterator itor2 = itor;
+  int count = wordPinyin.size() - 1; // 最后一个是.mp3，不匹配
+  int i = 0;
+
+  for (WordPinyin::iterator pinyinItor = wordPinyin.begin();
+      i < count; pinyinItor++) {
+    // cerr << "comparing " << *pinyinItor << " and " << (*itor2)->symbol << endl;
+    if (itor2 == phonList.end() || *itor2 == NULL ||
+        pinyinItor->compare((*itor2)->symbol) != 0) {
+      return "";
+    }
+
+    suffix += (*itor2)->symbol;
+    i++;
+    itor2++;
+  }
+
+  // cerr << "findMatchedPinyin found " << suffix << endl;
+  itor = itor2;
+  return suffix;
+}
+
+string Word::findPinyinVoiceFile(list<WordPinyin>& wordPinyinList,
+    const list<PhoneticSymbol*>& phonList,
+    list<PhoneticSymbol*>::iterator& itor) {
+
+  list<WordPinyin>::iterator wordItor = wordPinyinList.begin();
+  for (; wordItor != wordPinyinList.end(); wordItor++) {
+    list<PhoneticSymbol*>::iterator itor2 = itor;
+    string suffix = Word::findMatchedPinyin(*wordItor, phonList, itor2);
+    if (!suffix.empty()) {
+      itor2--;
+      itor = itor2;
+      // cerr << "found " << suffix + wordItor->back() << endl;
       return suffix + wordItor->back();
     }
   }
@@ -231,8 +277,7 @@ list<Word> Word::split(string text) {
               }
 
               if (!last_chinese_word.empty()) {
-                wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
-                    Dict::me->lookup(last_chinese_word)));
+                Word::addChinese(wordlist, last_chinese_word);
                 last_chinese_word.clear();
               }
             }
@@ -281,8 +326,7 @@ list<Word> Word::split(string text) {
 
         // submit pending Chinese word
         if (!last_chinese_word.empty()) {
-          wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
-              Dict::me->lookup(last_chinese_word)));
+          Word::addChinese(wordlist, last_chinese_word);
           last_chinese_word.clear();
         }
 
@@ -301,8 +345,7 @@ list<Word> Word::split(string text) {
         lastword += itor->getUtf8();
         if (!last_chinese_word.empty()) {
           // 把中文文本拆分成“词”（有独立音频的拼音组合独立成词）
-          wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
-              Dict::me->lookup(last_chinese_word)));
+          Word::addChinese(wordlist, last_chinese_word);
           last_chinese_word.clear();
         }
       } else {
@@ -315,8 +358,9 @@ list<Word> Word::split(string text) {
       lastword += " ";
     } else {
       // it's a Chinese character
-      //cout << "found chinese character: " << itor->getUtf8() << ", " << mDictItemArray[itor->code].character.getUtf8() << endl;
+      // cerr << "found chinese character: " << itor->getUtf8() << ", " << mDictItemArray[itor->code].character.getUtf8() << endl;
       last_chinese_word += itor->getUtf8();
+
       if (!lastword.empty()) {
         unsigned char c = lastword[0];
         if (lastword.length() == 1 &&
@@ -339,9 +383,44 @@ list<Word> Word::split(string text) {
   }
 
   if (!last_chinese_word.empty()) {
-    wordlist.push_back(Word(last_chinese_word, NON_ENGLISH,
-        Dict::me->lookup(last_chinese_word)));
+    Word::addChinese(wordlist, last_chinese_word);
   }
 
   return wordlist;
+}
+
+void Word::addChinese(list<Word>& wordList, const string& text) {
+  list<PhoneticSymbol*> phonList = Dict::me->lookup(text);
+  list<PhoneticSymbol*> phonList2;
+
+  list<PhoneticSymbol*>::iterator itor = phonList.begin();
+  list<PhoneticSymbol*>::iterator itor2 = itor;
+  for (; itor != phonList.end(); itor++) {
+    string filename;
+    if (Word::voiceFilesMap.find((*itor)->symbol) != Word::voiceFilesMap.end()) {
+      // cerr << "findWordVoiceFile " << (*itor)->symbol << endl;
+      itor2 = itor;
+      itor2++;
+      filename = Word::findPinyinVoiceFile(
+          Word::voiceFilesMap[(*itor)->symbol],
+          phonList, itor2);
+    }
+
+    if (!filename.empty()) {
+      if (!phonList2.empty()) {
+        wordList.push_back(Word(phonList2));
+        phonList2.clear();
+      }
+
+      // cerr << "push " << (*itor)->symbol + filename << endl;
+      wordList.push_back(Word((*itor)->symbol + filename, RECORDING));
+      itor = itor2;
+    } else {
+      phonList2.push_back(*itor);
+    }
+  }
+
+  if (!phonList2.empty()) {
+    wordList.push_back(Word(phonList2));
+  }
 }
