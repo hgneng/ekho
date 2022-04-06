@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 #AC_PREREQ([2.71])
-AC_INIT([ekho],[8.8],[hgneng at gmail.com])
+AC_INIT([ekho],[8.9],[hgneng at gmail.com])
 AC_CONFIG_AUX_DIR([.])
 AM_PROG_AR
 AC_PROG_RANLIB
