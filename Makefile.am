@@ -40,6 +40,7 @@ $(srcdir)/libmusicxml/libmusicxml2.a:
 	cd $(srcdir)/libmusicxml/linux && make
 
 install-data-hook:
+	rm -rf $(DESTDIR)$(datadir)/ekho-data
 	mkdir -p $(DESTDIR)$(datadir)/ekho-data
 if DIST_VOICE_DATA
 	cp -RLf $(DATA_SUB_DIRS) $(DESTDIR)$(datadir)/ekho-data/
@@ -53,7 +54,7 @@ uninstall-hook:
 dist-hook: clean-hook
 	mkdir -p $(distdir)/ekho-data
 if DIST_VOICE_DATA
-	cp -RL $(DATA_SUB_DIRS) $(distdir)/ekho-data/
+	cp -RLf $(DATA_SUB_DIRS) $(distdir)/ekho-data/
 endif
 	cp $(srcdir)/collect_ekho_logs.sh $(distdir)/
 	cp $(DATA_FILES) $(distdir)/ekho-data/
