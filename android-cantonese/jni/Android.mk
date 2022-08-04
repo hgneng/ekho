@@ -1,79 +1,87 @@
 LOCAL_PATH:= $(call my-dir)
+
+###########################################################################
+# Setup Flite related paths
+
+# We require that FLITEDIR be defined
+ifndef FLITEDIR
+  $(error "FLITEDIR variable should be set to path where flite is compiled")
+endif
+
+FLITE_BUILD_SUBDIR:=$(TARGET_ARCH_ABI)
+
+ifeq "$(TARGET_ARCH_ABI)" "armeabi-v7a"
+  FLITE_BUILD_SUBDIR:="armeabiv7a"
+endif
+
+FLITE_LIB_DIR:= $(FLITEDIR)/build/$(FLITE_BUILD_SUBDIR)-android/lib
+###########################################################################
+
 include $(CLEAR_VARS)
 
-#LOCAL_CFLAGS = -std=c11 # speechplayer is c++ code
+# sndfile
+SNDFILE_SRC_PATH := ../../../android_engine2/external/ekho/libsndfile/src
 
-# ucd-tools wide-character compatibility support:
+SNDFILE_SRC_FILES := \
+  $(subst $(LOCAL_PATH)/$(SNDFILE_SRC_PATH),$(SNDFILE_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(SNDFILE_SRC_PATH)/*.c*))
 
-UCDTOOLS_SRC_PATH  := ../../src/ucd-tools/src
-UCDTOOLS_SRC_FILES := \
-  $(subst $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH),$(UCDTOOLS_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH)/*.c*))
+SNDFILE_SRC_FILES += \
+  $(subst $(LOCAL_PATH)/$(SNDFILE_SRC_PATH)/GSM610,$(SNDFILE_SRC_PATH)/GSM610,$(wildcard $(LOCAL_PATH)/$(SNDFILE_SRC_PATH)/GSM610/*.c*))
 
-LOCAL_SRC_FILES += $(UCDTOOLS_SRC_FILES)
+SNDFILE_SRC_FILES += \
+  $(subst $(LOCAL_PATH)/$(SNDFILE_SRC_PATH)/G72x,$(SNDFILE_SRC_PATH)/G72x,$(wildcard $(LOCAL_PATH)/$(SNDFILE_SRC_PATH)/G72x/*.c*))
+  
+LOCAL_SRC_FILES += $(SNDFILE_SRC_FILES)
 
-SPEECHPLAYER_SRC_FILES := \
-  ../../src/speechPlayer/src/frame.cpp \
-  ../../src/speechPlayer/src/speechPlayer.cpp \
-  ../../src/speechPlayer/src/speechWaveGenerator.cpp
+LOCAL_C_INCLUDES += \
+  $(LOCAL_PATH)/$(SNDFILE_SRC_PATH) \
 
-LOCAL_SRC_FILES += $(SPEECHPLAYER_SRC_FILES)
+LOCAL_MODULE    := libsndfile
+include $(BUILD_STATIC_LIBRARY)
 
-ESPEAK_SOURCES := \
-  src/libespeak-ng/compiledata.c \
-  src/libespeak-ng/compiledict.c \
-  src/libespeak-ng/compilembrola.c \
-  src/libespeak-ng/dictionary.c \
-  src/libespeak-ng/encoding.c \
-  src/libespeak-ng/error.c \
-  src/libespeak-ng/espeak_api.c \
-  src/libespeak-ng/ieee80.c \
-  src/libespeak-ng/intonation.c \
-  src/libespeak-ng/klatt.c \
-  src/libespeak-ng/mnemonics.c \
-  src/libespeak-ng/numbers.c \
-  src/libespeak-ng/phoneme.c \
-  src/libespeak-ng/phonemelist.c \
-  src/libespeak-ng/readclause.c \
-  src/libespeak-ng/setlengths.c \
-  src/libespeak-ng/soundicon.c \
-  src/libespeak-ng/spect.c \
-  src/libespeak-ng/speech.c \
-  src/libespeak-ng/sPlayer.c \
-  src/libespeak-ng/ssml.c \
-  src/libespeak-ng/synthdata.c \
-  src/libespeak-ng/synthesize.c \
-  src/libespeak-ng/synth_mbrola.c \
-  src/libespeak-ng/translate.c \
-  src/libespeak-ng/tr_languages.c \
-  src/libespeak-ng/voices.c \
-  src/libespeak-ng/wavegen.c
+# Ekho
+include $(CLEAR_VARS)
 
-ESPEAK_SRC_PATH  := ../../src
-ESPEAK_SRC_FILES := \
-  $(subst src/,$(ESPEAK_SRC_PATH)/,$(ESPEAK_SOURCES))
+BLACKLIST_SRC_FILES := \
+  %/ekho.cpp \
+  %/test_ekho.cpp
 
-LOCAL_CFLAGS    += -DINCLUDE_KLATT -DINCLUDE_SPEECHPLAYER -DINCLUDE_SONIC
+EKHO_SRC_PATH := ../../../src
+
+EKHO_SRC_FILES := \
+  $(subst $(LOCAL_PATH)/$(EKHO_SRC_PATH),$(EKHO_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(EKHO_SRC_PATH)/*.c*))
+
+EKHO_SRC_FILES += ../../../sr-convert/dsp.cpp ../../../sonic/sonic.c
+  
 LOCAL_SRC_FILES += \
-  $(filter-out $(BLACKLIST_SRC_FILES),$(ESPEAK_SRC_FILES))
+  $(filter-out $(BLACKLIST_SRC_FILES),$(EKHO_SRC_FILES))
+
+LOCAL_CFLAGS := -DOUTPUT16BIT -DNO_SSE -O0 -DANDROID #-DDEBUG_ANDROID
 
 # JNI
 
 LOCAL_SRC_FILES += \
-  $(subst $(LOCAL_PATH)/jni,jni,$(wildcard $(LOCAL_PATH)/jni/*.c))
-
-# Common
+  $(subst $(LOCAL_PATH)/jni,jni,$(wildcard $(LOCAL_PATH)/jni/*.c*))
 
 LOCAL_C_INCLUDES += \
   $(LOCAL_PATH)/include \
-  $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH)/include \
-  $(LOCAL_PATH)/../../src/speechPlayer/include \
-  $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)/include
+  $(LOCAL_PATH)/$(SNDFILE_SRC_PATH) \
+  $(LOCAL_PATH)/$(EKHO_SRC_PATH) \
+  $(LOCAL_PATH)/$(EKHO_SRC_PATH)/../utfcpp/source \
+  $(LOCAL_PATH)/$(EKHO_SRC_PATH)/../sr-convert \
+  $(LOCAL_PATH)/$(EKHO_SRC_PATH)/../sonic \
+  $(FLITEDIR)/include
 
-LOCAL_LDLIBS := \
-  -llog
+LOCAL_LDLIBS := -llog \
+  $(FLITE_LIB_DIR)/libflite_cmulex.a \
+  $(FLITE_LIB_DIR)/libflite_usenglish.a \
+  $(FLITE_LIB_DIR)/libflite.a \
+  
+# Common
 
-LOCAL_MODULE := libttsespeak
+LOCAL_MODULE := libttsekho
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRELINK_MODULE := false
+LOCAL_STATIC_LIBRARIES := libsndfile
 
 include $(BUILD_SHARED_LIBRARY)

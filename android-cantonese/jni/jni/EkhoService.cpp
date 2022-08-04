@@ -1,4 +1,9 @@
 /*
+ * Copyright (C) 2022 Cameron Wong
+ *   name in passport: HUANG GUANNENG
+ *   email: hgneng at gmail.com
+ *   website: https://eguidedog.net
+ *
  * Copyright (C) 2012-2017 Reece H. Dunn
  * Copyright (C) 2011 Google Inc.
  *
@@ -28,7 +33,7 @@
 #include <stdbool.h>
 #include <jni.h>
 
-#include <espeak/speak_lib.h>
+#include <ekho.h>
 #include <Log.h>
 
 #define BUFFER_SIZE_IN_MILLISECONDS 1000
@@ -86,7 +91,7 @@ static wchar_t *unicode_string(JNIEnv *env, jstring str)
 
 //@}
 
-#define LOG_TAG "eSpeakService"
+#define LOG_TAG "EkhoService"
 #define DEBUG true
 
 enum synthesis_result {
@@ -138,7 +143,7 @@ JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
+JNICALL Java_net_eguidedog_ekho_SpeechSynthesis_nativeClassInit(
     JNIEnv* env, jclass clazz) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   METHOD_nativeSynthCallback = (*env)->GetMethodID(env, clazz, "nativeSynthCallback", "([B)V");
@@ -147,7 +152,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
 }
 
 JNIEXPORT jint
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
+JNICALL Java_net_eguidedog_ekho_SpeechSynthesis_nativeCreate(
     JNIEnv *env, jobject object, jstring path) {
   if (DEBUG) LOGV("%s [env=%p, object=%p]", __FUNCTION__, env, object);
 
