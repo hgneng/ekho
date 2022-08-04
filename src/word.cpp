@@ -35,7 +35,7 @@ void Word::loadWordVoiceFiles(string dir) {
   DIR *dirp;
   struct dirent *dp;
   if ((dirp = opendir(dir.c_str())) == NULL) {
-    cerr << "Fail to open dir " << dir << endl;
+    // cerr << "Fail to open dir " << dir << endl;
     return;
   }
 
