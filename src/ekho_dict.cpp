@@ -1,8 +1,8 @@
 /***************************************************************************
- * Copyright (C) 2008-2019 by Cameron Wong                                 *
+ * Copyright (C) 2008-2022 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
- * website: http://www.eguidedog.net                                       *
+ * website: https://eguidedog.net                                          *
  *                                                                         *
  * This program is free software; you can redistribute it and/or           *
  * modify it under the terms of the GNU General Public License             *
