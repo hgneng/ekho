@@ -33,7 +33,7 @@ DATA_DIR = $(srcdir)/ekho-data
 DATA_FILES = $(DATA_DIR)/zhy_list $(DATA_DIR)/zh_list $(DATA_DIR)/zh_listx $(DATA_DIR)/zh_patch $(DATA_DIR)/zhy.dict $(DATA_DIR)/zh.dict $(DATA_DIR)/ka_list $(DATA_DIR)/bo_list $(DATA_DIR)/ko_list $(DATA_DIR)/ngangien_list $(DATA_DIR)/pinyin.index $(DATA_DIR)/pinyin.voice $(DATA_DIR)/jyutping.index $(DATA_DIR)/jyutping.voice $(DATA_DIR)/toisanese_list
 DATA_SUB_DIRS = $(DATA_DIR)/alphabet $(DATA_DIR)/hakka $(DATA_DIR)/tibetan $(DATA_DIR)/ngangien $(DATA_DIR)/hangul $(DATA_DIR)/toisanese $(DATA_DIR)/pinyin
 
-COPYRIGHT_FILES = $(DATA_DIR)/COPYING-jyutping-wong $(DATA_DIR)/COPYING-pinyin-yali
+COPYRIGHT_FILES = $(DATA_DIR)/COPYING-cantonese-wong $(DATA_DIR)/COPYING-mandarin-yali
 EXTRA_DIST = $(COPTRIGHT_FILES) # this line seems no longer work. don't know why
 
 $(srcdir)/libmusicxml/libmusicxml2.a:
