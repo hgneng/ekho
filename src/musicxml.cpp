@@ -13,17 +13,17 @@
 #include "ekho_impl.h"
 #include "audio.h"
 #include "ekho.h"
+
+#ifdef ENABLE_MUSICXML
 #include "elements.h"
 #include "xml.h"
 #include "xmlfile.h"
 #include "xmlreader.h"
-
-#ifdef ENABLE_MUSICXML
 #include <pitch_detection.h>
+using namespace MusicXML2;
 #endif
 
 using namespace std;
-using namespace MusicXML2;
 
 namespace ekho {
 // gcc musicxml.cpp -g -I../libmusicxml/src/elements -I../libmusicxml/src/lib

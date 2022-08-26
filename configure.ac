@@ -142,19 +142,19 @@ AC_ARG_ENABLE(festival,
          CFLAG_FESTIVAL=""]
         )
 
-CFLAG_MUSICXML=""
-LIB_MUSICXML=""
-AC_SUBST([CFLAG_MUSICXML])
-AC_SUBST([LIB_MUSICXML])
-AC_ARG_ENABLE(musicxml,
-        [AS_HELP_STRING([--enable-musicxml],[Enable musicxml])],
-        [AC_DEFINE(ENABLE_MUSICXML,,[Enable musicxml])
-         CFLAG_MUSICXML="-fopenmp"
-         LIB_MUSICXML="-lpitch_detection -lffts -lopus -lmlpack -larmadillo"
-         AM_CONDITIONAL(ENABLE_MUSICXML, true)
-        ],
-        [AM_CONDITIONAL(ENABLE_MUSICXML, false)]
-        )
+#CFLAG_MUSICXML=""
+#LIB_MUSICXML=""
+#AC_SUBST([CFLAG_MUSICXML])
+#AC_SUBST([LIB_MUSICXML])
+#AC_ARG_ENABLE(musicxml,
+#        [AS_HELP_STRING([--enable-musicxml],[Enable musicxml])],
+#        [AC_DEFINE(ENABLE_MUSICXML,,[Enable musicxml])
+#         CFLAG_MUSICXML="-fopenmp"
+#         LIB_MUSICXML="-lpitch_detection -lffts -lopus -lmlpack -larmadillo"
+#         AM_CONDITIONAL(ENABLE_MUSICXML, true)
+#        ],
+#        [AM_CONDITIONAL(ENABLE_MUSICXML, false)]
+#        )
 
 CFLAG_FRISO=""
 LIB_FRISO=""
