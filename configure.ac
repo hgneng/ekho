@@ -156,19 +156,19 @@ AC_ARG_ENABLE(festival,
 #        [AM_CONDITIONAL(ENABLE_MUSICXML, false)]
 #        )
 
-CFLAG_FRISO=""
-LIB_FRISO=""
-AC_SUBST([CFLAG_FRISO])
-AC_SUBST([LIB_FRISO])
-AC_ARG_ENABLE(friso,
-        [  --enable-friso],
-        [AC_DEFINE(ENABLE_FRISO,,[Enable Friso])
-         CFLAG_FRISO="-I${srcdir}/friso-src"
-         LIB_FRISO="libfriso.a"
-         AM_CONDITIONAL(ENABLE_FRISO, true)
-        ],
-        [AM_CONDITIONAL(ENABLE_FRISO, false)]
-        )
+#CFLAG_FRISO=""
+#LIB_FRISO=""
+#AC_SUBST([CFLAG_FRISO])
+#AC_SUBST([LIB_FRISO])
+#AC_ARG_ENABLE(friso,
+#        [  --enable-friso],
+#        [AC_DEFINE(ENABLE_FRISO,,[Enable Friso])
+#         CFLAG_FRISO="-I${srcdir}/friso-src"
+#         LIB_FRISO="libfriso.a"
+#         AM_CONDITIONAL(ENABLE_FRISO, true)
+#        ],
+#        [AM_CONDITIONAL(ENABLE_FRISO, false)]
+#        )
 
 AC_ARG_ENABLE(win32,
         [  --enable-win32],
