@@ -1,7 +1,0 @@
-yum groupinstall "Development Tools"
-yum install rpmdevtools
-rpmdev-setuptree
-cp ~/e-guidedog/eGuideDog_TTS/rpmbuild/SPECS/ekho.spec ~/rpmbuild/SPECS/
-cp ~/e-guidedog/eGuideDog_TTS/ekho-3.0.tar.bz2 ~/rpmbuild/SOURCES/
-cd ~/rpmbuild/SPECS
-rpmbuild -ba ekho.spec
