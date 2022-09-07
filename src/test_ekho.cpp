@@ -21,7 +21,7 @@
  **************************************************************************/
 
 // build command: g++ ../src/test_ekho.cpp  -I. -I../include/soundtouch libekho.a -lsndfile ../lib/libSoundTouch.a -lportaudio ../lib/libFestival.a ../lib/libestools.a -lcurses ../lib/libeststring.a ../lib/libestbase.a -lvorbisenc -lvorbis -lm -logg  
-//g++ -I../utfcpp/source -DEKHO_DATA_PATH="" test.cpp ekho_dict.cpp -lsndfile
+//g++ -DEKHO_DATA_PATH="" test.cpp ekho_dict.cpp -lsndfile
 
 #include <iostream>
 #include <stdlib.h>

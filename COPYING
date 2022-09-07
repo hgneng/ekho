@@ -1,5 +1,5 @@
 The source code of Ekho is copyrighted by Cameron Wong (name in 
-passport: HUANG GUANNENG) 2008-2021.
+passport: HUANG GUANNENG) 2008-2022.
 Email: hgneng at gmail.com
 Website: https://eguidedog.net
 
@@ -16,10 +16,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-
-However, "Festival", "utfcpp", "sonic", "friso" are third party
-softwares. Please refer to COPYING-Festival, utfcpp/source/utf8.h,
-sonic/COPYING and friso-src/LICENSE.txt
 
 For copyright information of voice data of Ekho,
 please refer their copyright description files that begin with "COPYING-".

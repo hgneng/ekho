@@ -2,12 +2,7 @@
 $ sudo apt install autoconf libtool 
 $ cd ekho
 $ ./autogen.sh
-$ sudo apt install libsndfile1-dev libespeak-dev libpulse-dev
-$ cd ekho-data
-$ wget https://sourceforge.net/projects/e-guidedog/files/Ekho-Voice-Data/0.2/pinyin-yali-44100-v9.tar.bz2
-$ tar zxvf pinyin-yali-44100-v9.tar.bz2
-$ ln -s pinyin-yali pinyin
-$ cd ../
+$ sudo apt install libsndfile1-dev libespeak-ng-dev libpulse-dev texinfo libltdl-dev libmpg123-dev libsonic-dev libutfcpp-dev
 $ ./configure
 $ make CXXFLAGS=-O0
 $ ./ekho 123
@@ -15,8 +10,13 @@ $ ./ekho 123
 If you have installed version Ekho and you want to use voice data in working directory, you should set EKHO_DATA_PATH like this:
 $ env EKHO_DATA_PATH=ekho-data ./ekho 123
 
-===== INSTALL (for Linux) =====
+===== INSTALL for Linux =====
 You need to have following libraries first:
+* texinfo
+* libltdl-dev
+* libmpg123-dev
+* libsonic-dev
+* libutfcpp-dev
 * libespeak-ng-dev
 * libsndfile1-dev (http://www.mega-nerd.com/libsndfile/)
 * libpulse-dev
@@ -26,9 +26,6 @@ You need to have following libraries first:
 * libvorbis-dev (optional)
 * libmp3lame-dev (optional)
 * libdotconf-dev (required by --enable-speechd)
-* texinfo
-* libltdl-dev
-* libmpg123-dev
 
 On Ubuntu Linux, we can use `apt-cache search <pkg_keywork>` to find a package's full name and install it with `sudo apt-get install <pkg_name>`.
 On Fedora Linux, we can use `yum search <pkg_keyword>` to find a package's full name and install it with `sudo yum install <pkg_name>`.
@@ -51,10 +48,12 @@ $ ./install.pl Tibetan
 ===== INSTALL (for Debian 64bit) =====
 $ make CXXFLAGS="-D_x86_64"
 
-===== INSTALL (for Mac) =====
+===== INSTALL for Mac =====
 $ brew install libsndfile
 $ brew install pulseaudio
 $ install espeak-ng from source (glibtoolize -c && ./autogen && ./configure && make && sudo make install)
+$ install sonic from source: https://github.com/waywardgeek/sonic
+$ install utfcpp from: https://sourceforge.net/projects/utfcpp/
 $ ./configure
 $ make CXXFLAGS=-O0
 $ brew services start pulseaudio

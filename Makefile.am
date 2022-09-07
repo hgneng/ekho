@@ -7,11 +7,11 @@ host_cpu=`uname -p`
 
 noinst_LIBRARIES = libekho.a
 noinst_HEADERS = src/stdafx.h 
-include_HEADERS = src/ekho.h src/word.h src/ekho_dict.h src/ssml.h src/audio.h src/character.h src/phonetic_symbol.h src/zhy_symbol_map.h src/zh_symbol_map.h src/ekho_typedef.h src/ekho_impl.h utfcpp/source/utf8.h
+include_HEADERS = src/ekho.h src/word.h src/ekho_dict.h src/ssml.h src/audio.h src/character.h src/phonetic_symbol.h src/zhy_symbol_map.h src/zh_symbol_map.h src/ekho_typedef.h src/ekho_impl.h 
 
-libekho_a_SOURCES = src/libekho.cpp src/libekho_impl.cpp src/ssml.cpp src/audio.cpp src/phonetic_symbol.cpp src/word.cpp src/ekho_dict.cpp src/number.cpp src/server.cpp src/musicxml.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp sonic/sonic.c
-libekho_a_CXXFLAGS = $(AM_CXXFLAGS) -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -pthread -std=c++11 #-I$(srcdir)/libmusicxml/src/elements -I$(srcdir)/libmusicxml/src/lib -I$(srcdir)/libmusicxml/src/visitors -I$(srcdir)/libmusicxml/src/files -I$(srcdir)/libmusicxml/src/parser #@CFLAG_MUSICXML@
-LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ -lmpg123 -lsndfile -lespeak-ng @LIB_SOXR@ #@LIB_MUSICXML@ @CFLAG_FRISO@ @LIB_FRISO@ 
+libekho_a_SOURCES = src/libekho.cpp src/libekho_impl.cpp src/ssml.cpp src/audio.cpp src/phonetic_symbol.cpp src/word.cpp src/ekho_dict.cpp src/number.cpp src/server.cpp src/musicxml.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp 
+libekho_a_CXXFLAGS = $(AM_CXXFLAGS) @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -pthread -std=c++11 #-I$(srcdir)/libmusicxml/src/elements -I$(srcdir)/libmusicxml/src/lib -I$(srcdir)/libmusicxml/src/visitors -I$(srcdir)/libmusicxml/src/files -I$(srcdir)/libmusicxml/src/parser #@CFLAG_MUSICXML@
+LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ -lsonic -lmpg123 -lsndfile -lespeak-ng @LIB_SOXR@ #@LIB_MUSICXML@ @CFLAG_FRISO@ @LIB_FRISO@ 
 
 #if ENABLE_FRISO
 #noinst_LIBRARIES += libfriso.a
@@ -23,10 +23,9 @@ bin_PROGRAMS = test_ekho ekho
 
 ekho_SOURCES = src/ekho.cpp
 ekho_LDADD = libekho.a $(LIBEKHO_LIB) @LIB_GTK2@ #$(srcdir)/libmusicxml/libmusicxml2.a 
-ekho_CXXFLAGS = @CFLAG_GTK2@ -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic -pthread # @CFLAG_FRISO@
+ekho_CXXFLAGS = @CFLAG_GTK2@ -pthread # @CFLAG_FRISO@
 	
 test_ekho_SOURCES = src/test_ekho.cpp
-test_ekho_CXXFLAGS = -I$(srcdir)/utfcpp/source -I$(srcdir)/sonic # @CFLAG_FRISO@
 test_ekho_LDADD = libekho.a $(LIBEKHO_LIB) #$(srcdir)/libmusicxml/libmusicxml2.a 
 
 DATA_DIR = $(srcdir)/ekho-data
@@ -58,8 +57,6 @@ endif
 #	if [ -e $(srcdir)/ekho-data/festival/lib/voices/spanish ]; then mv $(srcdir)/ekho-data/festival/lib/voices/spanish $(srcdir)/ekho-data/; fi
 #	cp -R $(srcdir)/ekho-data/festival $(distdir)/ekho-data/
 #	if [ -e $(srcdir)/ekho-data/spanish ]; then mv $(srcdir)/ekho-data/spanish $(srcdir)/ekho-data/festival/lib/voices/; fi
-	cp -R $(srcdir)/utfcpp $(distdir)/
-	cp -R $(srcdir)/sonic $(distdir)/
 	cp -R $(srcdir)/speechd-api $(distdir)/
 #cp -R $(srcdir)/libmusicxml $(distdir)/
 	cp $(srcdir)/install.pl $(distdir)/
