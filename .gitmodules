@@ -1,0 +1,3 @@
+[submodule "speechd-api"]
+	path = speechd-api
+	url = https://github.com/hgneng/speechd
