@@ -20,8 +20,7 @@
  * MA  02110-1301, USA.                                                    *
  **************************************************************************/
 
-// build command: g++ ../src/test_ekho.cpp  -I. -I../include/soundtouch libekho.a -lsndfile ../lib/libSoundTouch.a -lportaudio ../lib/libFestival.a ../lib/libestools.a -lcurses ../lib/libeststring.a ../lib/libestbase.a -lvorbisenc -lvorbis -lm -logg  
-//g++ -DEKHO_DATA_PATH="" test.cpp ekho_dict.cpp -lsndfile
+// build command: (run in ekho source root) g++ src/test_ekho.cpp libekho.a  -I. -lsndfile -lmpg123 -lpulse -lpulse-simple -lsonic -lespeak-ng
 
 #include <iostream>
 #include <stdlib.h>
