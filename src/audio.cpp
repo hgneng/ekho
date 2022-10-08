@@ -26,10 +26,13 @@
 #include <sndfile.h>
 #include <pthread.h>
 #include <fstream>
-#include <mpg123.h>
 #include <out123.h>
 #include "audio.h"
 #include "ekho_impl.h"
+
+#ifdef HAVE_MPG123
+#include <mpg123.h>
+#endif
 
 #ifdef HAVE_MP3LAME
 #include <lame/lame.h>
@@ -48,11 +51,13 @@ Audio::~Audio(void) {
   }
 #endif
 
+#ifdef HAVE_MPG123
   if (this->mpg123Handle) {
     mpg123_delete(this->mpg123Handle);
     mpg123_exit();
     this->mpg123Handle = NULL;
   }
+#endif
 }
 
 
@@ -445,15 +450,18 @@ short* Audio::readPcmFromAudioFile(string filepath, int& size) {
 }
 
 void Audio::initMp3Processor() {
+#ifdef HAVE_MPG123
   if (!mpg123Handle) {
     mpg123_init();
     int err;
     this->mpg123Handle = mpg123_new(NULL, &err);
   }
+#endif
 }
 
 // It's caller's responsibility to delete return short space
 short* Audio::readPcmFromMp3File(string filepath, int& size) {
+#ifdef HAVE_MPG123
   this->initMp3Processor();
 
   size_t blockSize = mpg123_outblock(this->mpg123Handle);
@@ -486,6 +494,9 @@ short* Audio::readPcmFromMp3File(string filepath, int& size) {
   // cerr << "size: " << size << endl;
 
   return (short*)buffer;
+#else
+  return 0;
+#endif
 }
 
 int EkhoImpl::saveWav(string text, string filename) {

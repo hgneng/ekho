@@ -23,7 +23,6 @@
 #ifndef EKHO_AUDIO_H
 #define EKHO_AUDIO_H
 #include <string>
-#include <mpg123.h>
 #include "ekho_typedef.h"
 #include "config.h"
 #include "sonic.h"
@@ -31,6 +30,10 @@
 #ifdef HAVE_PULSEAUDIO
 #include <pulse/error.h>
 #include <pulse/simple.h>
+#endif
+
+#ifdef HAVE_MPG123
+#include <mpg123.h>
 #endif
 
 using namespace std;
@@ -92,7 +95,9 @@ class Audio {
 
   private:
     bool hasProcessorInited = false;
+#ifdef HAVE_MPG123
     mpg123_handle* mpg123Handle = NULL;
+#endif
 };
 }
 #endif

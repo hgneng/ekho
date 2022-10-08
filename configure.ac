@@ -195,6 +195,15 @@ AC_ARG_ENABLE(win32,
 #            fi
 #            ], [])])
 
+LIB_MPG123=""
+AC_CHECK_LIB([mpg123], [main],
+            [AC_SUBST([LIB_MPG123], ["-lmpg123"])
+            AC_DEFINE([HAVE_MPG123], [1],
+                [Define if you have mpg123])
+            ],
+            [],
+            [])
+
 AC_ARG_WITH([mp3lame],
         [AS_HELP_STRING([--with-mp3lame],
             [support MP3 audio output file format. @<:@default=no@:>@])],
