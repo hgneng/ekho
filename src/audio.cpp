@@ -26,12 +26,12 @@
 #include <sndfile.h>
 #include <pthread.h>
 #include <fstream>
-#include <out123.h>
 #include "audio.h"
 #include "ekho_impl.h"
 
 #ifdef HAVE_MPG123
 #include <mpg123.h>
+#include <out123.h>
 #endif
 
 #ifdef HAVE_MP3LAME

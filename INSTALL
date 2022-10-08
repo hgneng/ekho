@@ -51,11 +51,12 @@ $ make CXXFLAGS="-D_x86_64"
 ===== INSTALL for Mac =====
 $ brew install libsndfile
 $ brew install pulseaudio
+$ brew install utf8cpp
 $ install espeak-ng from source (glibtoolize -c && ./autogen && ./configure && make && sudo make install)
 $ install sonic from source: https://github.com/waywardgeek/sonic
-$ install utfcpp from: https://sourceforge.net/projects/utfcpp/
 $ ./configure
-$ make CXXFLAGS=-O0
+$ brew list utf8cpp # to find utf8.h path
+$ make CXXFLAGS="-O0 -I/usr/local/Cellar/utf8cpp/3.2.1/include/utf8cpp"
 $ brew services start pulseaudio
 $ ./ekho 123
 

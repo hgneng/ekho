@@ -59,7 +59,7 @@ int main(int argc, char**argv) {
   ekho->setChannels(2);
   ekho->setVoice("Mandarin");
   int pcmSize;
-  short *pcm = ekho->synth3("123", pcmSize);
+  ekho->synth3("123", pcmSize);
   cout << "pcm size: " << pcmSize << endl;
 
   // test dictionary

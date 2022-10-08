@@ -72,6 +72,8 @@ AC_CHECK_LIB([sndfile], [main], [],
 
 AC_CHECK_LIB([espeak-ng], [main], [], [AC_MSG_FAILURE([espeak-ng test failed])],[])
 
+AC_CHECK_LIB([sonic], [main], [], [AC_MSG_FAILURE([sonic test failed])],[])
+
 AC_ARG_WITH([soxr],
         [AS_HELP_STRING([--with-soxr],
             [support sample rate change. @<:@default=no@:>@])],
