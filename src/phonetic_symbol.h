@@ -62,7 +62,7 @@ namespace ekho {
         }*/
 
         if (mPcm) {
-          delete[] mPcm;
+          delete mPcm;
           mPcm = 0;
         }
       };

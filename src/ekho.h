@@ -36,6 +36,7 @@
 
 #include "ekho_dict.h"
 #include "ekho_typedef.h"
+#include "ekho_impl.h"
 #include "sonic.h"
 
 #ifdef HAVE_PULSEAUDIO
@@ -57,8 +58,6 @@ using namespace std;
 namespace ekho {
 
 typedef int (t_ekho_sync_callback)(short*, int);
-
-class EkhoImpl;
 
 class Ekho {
  private:
@@ -93,6 +92,8 @@ class Ekho {
   int setVoice(string voice);
   /* Get current voice */
   string getVoice(void);
+
+  Dict& getDict(void);
 
   /* Speak text
    * text should be in UTF-8 format

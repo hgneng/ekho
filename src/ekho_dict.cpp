@@ -80,20 +80,20 @@ void Dict::init(void) {
   mFullPausePcmSize = 25000;
   memset(mDictItemArray, 0, sizeof(mDictItemArray));
 
-  mFullPausePcm = new char[mFullPausePcmSize];
-  memset(mFullPausePcm, 0, mFullPausePcmSize);
+  char *fullPausePcm = new char[mFullPausePcmSize];
+  memset(fullPausePcm, 0, mFullPausePcmSize);
   mFullPause = new PhoneticSymbol("fullpause");
-  mFullPause->setPcm(mFullPausePcm, mFullPausePcmSize);
+  mFullPause->setPcm(fullPausePcm, mFullPausePcmSize);
 
-  mHalfPausePcm = new char[mFullPausePcmSize / 2];
-  memset(mHalfPausePcm, 0, mFullPausePcmSize / 2);
+  char *halfPausePcm = new char[mFullPausePcmSize / 2];
+  memset(halfPausePcm, 0, mFullPausePcmSize / 2);
   mHalfPause = new PhoneticSymbol("halfpause");
-  mHalfPause->setPcm(mHalfPausePcm, mFullPausePcmSize / 2);
+  mHalfPause->setPcm(halfPausePcm, mFullPausePcmSize / 2);
 
-  mQuaterPausePcm = new char[mFullPausePcmSize / 4];
-  memset(mQuaterPausePcm, 0, mFullPausePcmSize / 4);
+  char *quaterPausePcm = new char[mFullPausePcmSize / 4];
+  memset(quaterPausePcm, 0, mFullPausePcmSize / 4);
   mQuaterPause = new PhoneticSymbol("quaterpause");
-  mQuaterPause->setPcm(mQuaterPausePcm, mFullPausePcmSize / 4);
+  mQuaterPause->setPcm(quaterPausePcm, mFullPausePcmSize / 4);
 
   memset(mKaSymbolLetter, 0, sizeof(mKaSymbolLetter));
   mKaSymbolIndex = 0;

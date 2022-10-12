@@ -193,9 +193,6 @@ class Dict {
 
   string mVoice;
   int mFullPausePcmSize;
-  char* mFullPausePcm;
-  char* mHalfPausePcm;
-  char* mQuaterPausePcm;
   Language mLanguage;
   PhoneticSymbol* mFullPause;
   PhoneticSymbol* mHalfPause;

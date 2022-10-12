@@ -89,6 +89,10 @@ void Ekho::init() {
 
 Ekho::~Ekho(void) { delete this->m_pImpl; }
 
+Dict& Ekho::getDict() {
+  return this->m_pImpl->mDict;
+}
+
 int Ekho::saveWav(string text, string filename) {
   return this->m_pImpl->saveWav(text, filename);
 }
