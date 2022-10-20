@@ -26,6 +26,7 @@
 #include <sndfile.h>
 #include <pthread.h>
 #include <fstream>
+#include <sys/stat.h>
 #include "audio.h"
 #include "ekho_impl.h"
 
@@ -41,6 +42,7 @@
 using namespace std;
 
 namespace ekho {
+string Audio::tempDirectory = "";
 bool Audio::debug = false;
 
 Audio::~Audio(void) {
@@ -405,20 +407,43 @@ void Audio::play(const string& path) {
 // generate temp filename
 // to be improve...
 string Audio::genTempFilename() {
+  string tempFilePath;
+  if (Audio::tempDirectory.empty()) {
 #ifdef ENABLE_WIN32
-  string tmpFilePath("\\TEMP\\ekho");
+    tempFilePath = "\\TEMP\\ekho";
 #else
-#ifdef ANDROID
-  string tmpFilePath("/sdcard/ekho/tmp");
-#else
-  string tmpFilePath("/tmp/ekho");
+    tempFilePath = "/tmp/ekho";
 #endif
-#endif
+  } else {
+    tempFilePath = Audio::tempDirectory;
+  }
+
   static int count = 0;
   count++;
-  tmpFilePath.append(to_string(count));
+  tempFilePath.append(to_string(count));
 
-  return tmpFilePath;
+  return tempFilePath;
+}
+
+void Audio::setTempDirectory(string dir) {
+  Audio::tempDirectory = dir;
+  struct stat st;
+  if (stat(dir.c_str(), &st) == 0) {
+    if (st.st_mode & S_IFDIR != 0) {
+#ifdef DEBUG_ANDROID
+      LOGI("%s exitsts", dir.c_str());
+#endif
+    }
+  } else {
+    const int dir_err = mkdir(dir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+#ifdef DEBUG_ANDROID
+    if (-1 == dir_err) {
+      LOGI("Error creating directory: %s", dir.c_str());
+    } else {
+      LOGI("%s created", dir.c_str());
+    }
+#endif
+  }
 }
 
 // It's caller's responsibility to delete return short space

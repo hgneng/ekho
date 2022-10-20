@@ -64,7 +64,7 @@ namespace ekho {
 
       if (!gsmfile) {
 #ifdef DEBUG_ANDROID
-        LOGV("Fail to open %s", tmpFilePath);
+        LOGV("Fail to open %s", tmpFilePath.c_str());
 #endif
         cerr << "Fail to create temparary file." << endl;
         size = 0;
@@ -96,15 +96,24 @@ namespace ekho {
       SNDFILE *sndfile = sf_open_fd(fd, SFM_READ, &sfinfo, 1);
       readSndfile(sndfile, sfinfo);
       remove(tmpFilePath.c_str());
+
+#ifdef DEBUG_ANDROID
+      LOGV("removed temp file %s", tmpFilePath.c_str());
+#endif
     }
 
     size = mSize;
+
+#ifdef DEBUG_ANDROID
+      LOGV("PhoneticSymbol::etPcm size=%d", size);
+#endif
+
     return mPcm;
   }
 
   void PhoneticSymbol::readSndfile(SNDFILE *sndfile, SF_INFO sfinfo) {
 #ifdef DEBUG_ANDROID
-            LOGV("readSndfile(%p, %p)", sndfile, &sfinfo);
+      LOGV("readSndfile(%p, %p)", sndfile, &sfinfo);
 #endif
       if (!sndfile) {
 //            cerr << "Fail to open file " << wav_file << " at " << __LINE__ <<
@@ -148,8 +157,6 @@ namespace ekho {
           cerr << "Fail to read : " << samples <<
             " frames out of " << sfinfo.frames << " have been read." << endl;
         }
-
-        sf_close(sndfile);
       }
   };
 
@@ -177,8 +184,8 @@ namespace ekho {
       }
 
       SNDFILE *sndfile = sf_open(wav_file.c_str(), SFM_READ, &sfinfo);
-
       readSndfile(sndfile, sfinfo);
+      sf_close(sndfile);
     }
 
     size = mSize;

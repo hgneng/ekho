@@ -44,6 +44,7 @@ class Audio {
     ~Audio(void);
   
     static bool debug;
+    static string tempDirectory;
     sonicStream processorStream = 0;
     int pitchDelta = 0;
     int volumeDelta = 0;
@@ -86,6 +87,7 @@ class Audio {
     void play(const string& path);
 
     // tools
+    static void setTempDirectory(string dir);
     static string genTempFilename();
 
     void initMp3Processor();

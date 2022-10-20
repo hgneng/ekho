@@ -986,7 +986,10 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
     cerr << "speaking lang(" << mDict.getLanguage() << "): '" << text << "'" << endl;
   }
 
-  if (!userdata) userdata = this;
+  if (!userdata) {
+    userdata = this;
+  }
+
   //this->isStopped = false;
   this->isPaused = false;
   float pause = 0;
@@ -1188,10 +1191,11 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
   }  // end of for
 
   // send a signal to abort for Android
-  if (userdata)
+  if (userdata) {
     callback(0, 0, userdata, OVERLAP_NONE);
-  else
+  } else {
     callback(0, 0, this, OVERLAP_NONE);
+  }
 
   return 0;
 }
