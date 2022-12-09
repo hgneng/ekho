@@ -36,18 +36,6 @@
 #include <pulse/simple.h>
 #endif
 
-#ifdef ANDROID
-//#include "flite.h"
-//#define ENABLE_ENGLISH
-#else
-#define ENABLE_ENGLISH
-#define ENABLE_ESPEAK
-#endif
-
-#ifdef ENABLE_ESPEAK
-#include "espeak-ng/speak_lib.h"
-#endif
-
 #ifdef DEBUG_ANDROID
 #define LOG_TAG "Ekho Engine"
 #include "Log.h"
@@ -59,11 +47,11 @@ namespace ekho {
 
 typedef struct {
   string text;
-  void (*pCallback)(void *);
-  void *pCallbackArgs;
+  void (*pCallback)(void*);
+  void* pCallbackArgs;
 } SpeechOrder;
 
-typedef int(SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
+typedef int(SynthCallback)(short* pcm, int frames, void* arg, OverlapType type);
 
 class EkhoImpl {
  public:
@@ -76,14 +64,14 @@ class EkhoImpl {
   bool mSpeakIsolatedPunctuation;
   bool mIsMale;
   int mOverlap;
-  Audio *audio;
+  Audio* audio;
 
-  static SpeechdSynthCallback *speechdSynthCallback;
-  void setSpeechdSynthCallback(SpeechdSynthCallback *callback);
+  static SpeechdSynthCallback* speechdSynthCallback;
+  void setSpeechdSynthCallback(SpeechdSynthCallback* callback);
 
   static bool mDebug;
 #ifdef ANDROID
-//  cst_voice *mFliteVoice;
+  cst_voice *mFliteVoice;
 #endif
 
   static void debug(bool flag = true) {
@@ -115,8 +103,8 @@ class EkhoImpl {
    * text should be in UTF-8 format
    * it will launch a new thread and return immediately
    */
-  int speak(string text, void (*pCallback)(void *) = NULL,
-            void *pCallbackArgs = NULL);
+  int speak(string text, void (*pCallback)(void*) = NULL,
+            void* pCallbackArgs = NULL);
 
   void sing(string filepath);
 
@@ -124,16 +112,15 @@ class EkhoImpl {
    * text should be in UTF-8 format
    * it will launch a new thread and return immediately
    */
-  int stopAndSpeak(string text, void (*pCallback)(void *) = NULL,
-                   void *pCallbackArgs = NULL);
+  int stopAndSpeak(string text, void (*pCallback)(void*) = NULL,
+                   void* pCallbackArgs = NULL);
 
   /* Synth speech
    * callback will be called time from time when buffer is ready
    */
-  //int synth(string text, SynthCallback *callback, void *userdata = 0);
-  int synth2(string text, SynthCallback *callback, void *userdata = 0);
+  int synth2(string text, SynthCallback* callback, void* userdata = 0);
 
-  short *synth3(string text, int& pcmSize);
+  short* synth3(string text, int& pcmSize);
 
   /* no pause is allowed
    * it will return after all sound is played
@@ -216,8 +203,8 @@ class EkhoImpl {
    *            voice_cmu_us_slt_arctic_hts (female voice) or
    *            other Festival voice name if installed
    */
-  void setEnglishVoice(const char *voice) { mEnglishVoice = voice; }
-  const char *getEnglishVoice(void);
+  void setEnglishVoice(const char* voice) { mEnglishVoice = voice; }
+  const char* getEnglishVoice(void);
 
   void setPcmCache(bool b) { mPcmCache = b; }
 
@@ -226,41 +213,35 @@ class EkhoImpl {
    */
   inline bool isSpeaking(void) { return !mSpeechQueue.empty(); }
 
-  static void *speechDaemon(void *args);
-  static int writePcm(short *pcm, int frames, void *arg, OverlapType type,
+  static void* speechDaemon(void* args);
+  static int writePcm(short* pcm, int frames, void* arg, OverlapType type,
                       bool tofile);
-  static int writePcm(short *pcm, int frames, void *arg, OverlapType type) {
+  static int writePcm(short* pcm, int frames, void* arg, OverlapType type) {
     return writePcm(pcm, frames, arg, type, true);
   }
-  static int speakPcm(short *pcm, int frames, void *arg, OverlapType type) {
+  static int speakPcm(short* pcm, int frames, void* arg, OverlapType type) {
     return writePcm(pcm, frames, arg, type, false);
   }
   void finishWritePcm(void);
-  int writeToSonicStream(short *pcm, int frames, OverlapType type);
+  int writeToSonicStream(short* pcm, int frames, OverlapType type);
   /*
-     static int changeSamplerate(const short *source_data,
+     static int changeSamplerate(const short* source_data,
      long source_len, // len in 8 bits
      int source_rate,
-     short *target_data,
+     short* target_data,
      int target_rate);
      */
 
   /* get PCM, internal use only */
-  const char *getPcmFromFestival(string text, int &size);
+  const char* getPcmFromFestival(string text, int& size);
+  const char* getPcmFromFlite(string text, int& size);
   void synthWithEspeak(string text);
-  inline const char *getEnglishPcm(string text, int &size) {
-#ifdef ENABLE_FESTIVAL
-    return getPcmFromFestival(text, size);
-#else
-    synthWithEspeak(text);
-    return 0;
-#endif
-  }
+  const char* getEnglishPcm(string text, int& size);
 
   void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
 
 #ifdef HAVE_PULSEAUDIO
-  pa_simple *stream;
+  pa_simple* stream;
 #endif
   bool isStopped;
   pthread_mutex_t mSpeechQueueMutex;
@@ -269,7 +250,7 @@ class EkhoImpl {
   int init(void);
   int initPcm(void);
   int initStream(void);
-  int initEnglish(void);
+  void initEnglish(void);
   void closeStream(void);
   int outputSpeech(string text);
 
@@ -279,7 +260,7 @@ class EkhoImpl {
   int pitchDelta;             // -100 .. 100 (%)
   int volumeDelta;            // -100 .. 100 (%)
   int rateDelta;              // -50 .. 100 (%)
-  const char *mEnglishVoice;  // voice_kal_diphone (default) or
+  const char* mEnglishVoice;  // voice_kal_diphone (default) or
                               // voice_cmu_us_slt_arctic_hts
 
   bool isRecording;
@@ -287,7 +268,7 @@ class EkhoImpl {
   bool isEnded;
   bool isSoundInited;
   string player;  // "ogg123", "mplayer" or "play"
-  SNDFILE *mSndFile;
+  SNDFILE* mSndFile;
   queue<SpeechOrder> mSpeechQueue;
   pthread_cond_t mSpeechQueueCond;
 
@@ -298,7 +279,7 @@ class EkhoImpl {
   pthread_t speechThread;
   pthread_attr_t speechThreadAttr;
 
-  const char *mAlphabetPcmCache[26];
+  const char* mAlphabetPcmCache[26];
   int mAlphabetPcmSize[26];
 
   EkhoPuncType mPuncMode;

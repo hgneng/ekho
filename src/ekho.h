@@ -48,9 +48,11 @@
 #include <soxr.h>
 #endif
 
+#define ENABLE_ENGLISH
 #ifdef ANDROID
-//#include "flite.h"
-//#define ENABLE_ENGLISH
+#include "flite.h"
+#else
+#define ENABLE_ESPEAK
 #endif
 
 using namespace std;
@@ -58,6 +60,9 @@ using namespace std;
 namespace ekho {
 
 typedef int (t_ekho_sync_callback)(short*, int);
+//  typedef int(SynthCallback)(short *pcm, int frames, void *arg = NULL,
+//                             OverlapType type = OVERLAP_QUIET_PART);
+typedef int(SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
 
 class Ekho {
  private:
@@ -101,10 +106,6 @@ class Ekho {
    */
   int speak(string text, void (*pCallback)(void *) = NULL,
             void *pCallbackArgs = NULL);
-
-//  typedef int(SynthCallback)(short *pcm, int frames, void *arg = NULL,
-//                             OverlapType type = OVERLAP_QUIET_PART);
-  typedef int(SynthCallback)(short *pcm, int frames, void *arg, OverlapType type);
 
   int synth(const char *text, SpeechdSynthCallback *callback);
 

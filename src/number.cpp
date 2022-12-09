@@ -6,7 +6,7 @@
 using namespace std;
 
 namespace ekho {
-  bool Dict::isNumber(int code) {
+bool Dict::isNumber(int code) {
   switch (code) {
     case 19968: // 一
     case 20108:

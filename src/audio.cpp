@@ -45,6 +45,27 @@ namespace ekho {
 string Audio::tempDirectory = "";
 bool Audio::debug = false;
 
+Audio::Audio(void) {
+  this->processorStream = NULL;
+  this->pitchDelta = 0;
+  this->volumeDelta = 0;
+  this->rateDelta = 0;
+  this->tempoDelta = 0;
+  this->sampleRate = 0; // Ekho voice source sample rate
+  this->currentSampleRate = 0; // sonic processing sample (change for espeak)
+  this->outputSampleRate = 0; // for readShortFrames
+  this->channels = 1;
+  this->speechdSynthCallback = NULL;
+  this->hasProcessorInited = false;
+#ifdef HAVE_MPG123
+  this->mpg123Handle = NULL;
+#endif
+
+#ifdef HAVE_PULSEAUDIO
+  this->pulseAudio = NULL;
+#endif
+}
+
 Audio::~Audio(void) {
 #ifndef ENABLE_SOUNDTOUCH
   if (this->processorStream) {
@@ -429,7 +450,7 @@ void Audio::setTempDirectory(string dir) {
   Audio::tempDirectory = dir;
   struct stat st;
   if (stat(dir.c_str(), &st) == 0) {
-    if (st.st_mode & S_IFDIR != 0) {
+    if ((st.st_mode & S_IFDIR) != 0) {
 #ifdef DEBUG_ANDROID
       LOGI("%s exitsts", dir.c_str());
 #endif
@@ -441,6 +462,10 @@ void Audio::setTempDirectory(string dir) {
       LOGI("Error creating directory: %s", dir.c_str());
     } else {
       LOGI("%s created", dir.c_str());
+    }
+#else
+    if (-1 == dir_err) {
+      cerr << "Error creating directory: %s" << dir.c_str() << endl;
     }
 #endif
   }

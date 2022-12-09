@@ -41,23 +41,24 @@ using namespace std;
 namespace ekho {
 class Audio {
   public:
+    Audio(void);
     ~Audio(void);
   
     static bool debug;
     static string tempDirectory;
-    sonicStream processorStream = 0;
-    int pitchDelta = 0;
-    int volumeDelta = 0;
-    int rateDelta = 0;
-    int tempoDelta = 0;
-    int sampleRate = 0; // Ekho voice source sample rate
-    int currentSampleRate = 0; // sonic processing sample (change for espeak)
-    int outputSampleRate = 0; // for readShortFrames
-    int channels = 1;
-    SpeechdSynthCallback *speechdSynthCallback = 0;
+    sonicStream processorStream;
+    int pitchDelta;
+    int volumeDelta;
+    int rateDelta;
+    int tempoDelta;
+    int sampleRate; // Ekho voice source sample rate
+    int currentSampleRate; // sonic processing sample (change for espeak)
+    int outputSampleRate; // for readShortFrames
+    int channels; // default channels should be 1
+    SpeechdSynthCallback* speechdSynthCallback;
 
 #ifdef HAVE_PULSEAUDIO
-    pa_simple* pulseAudio = 0;
+    pa_simple* pulseAudio;
     void initPulseAudio();
     void destroyPulseAudio();
     void pulseAudioDrain();
@@ -96,9 +97,9 @@ class Audio {
     short* readPcmFromMp3File(string filepath, int& size);
 
   private:
-    bool hasProcessorInited = false;
+    bool hasProcessorInited;
 #ifdef HAVE_MPG123
-    mpg123_handle* mpg123Handle = NULL;
+    mpg123_handle* mpg123Handle;
 #endif
 };
 }
