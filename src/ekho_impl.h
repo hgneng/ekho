@@ -65,6 +65,7 @@ class EkhoImpl {
   bool mIsMale;
   int mOverlap;
   Audio* audio;
+  static EkhoImpl* gEkho;
 
   static SpeechdSynthCallback* speechdSynthCallback;
   void setSpeechdSynthCallback(SpeechdSynthCallback* callback);

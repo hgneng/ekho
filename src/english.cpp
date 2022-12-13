@@ -34,21 +34,20 @@
 #include "Log.h"
 #endif
 
-namespace ekho {
-
-static EkhoImpl *gEkho = NULL;
-SynthCallback* gSynthCallback = NULL;
-
 #ifdef ENABLE_ESPEAK
 static int espeakSynthCallback(short* wav, int numsamples,
                                espeak_EVENT* events) {
-  return gSynthCallback(wav, numsamples, gEkho, OVERLAP_NONE);
+  return Ekho::synthCallback(wav, numsamples, EkhoImpl::gEkho, OVERLAP_NONE);
 }
 #endif
+
+namespace ekho {
 
 #ifdef ENABLE_FESTIVAL
 static bool gsIsFestivalInited = false;
 #endif
+
+SynthCallback* Ekho::synthCallback = NULL;
 
 void EkhoImpl::initEnglish(void) {
 #ifdef ENABLE_FESTIVAL
@@ -151,7 +150,7 @@ void EkhoImpl::synthWithEspeak(string text) {
   }
 
   if (!isStopped) {
-    gSynthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
+    Ekho::synthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
     this->audio->setSampleRate(22050);
     espeak_Synth(text.c_str(), text.length() + 1, 0, POS_CHARACTER, 0,
                  espeakCHARS_UTF8, 0, 0);

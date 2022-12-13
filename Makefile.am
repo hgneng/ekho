@@ -9,7 +9,7 @@ noinst_LIBRARIES = libekho.a
 noinst_HEADERS = src/stdafx.h 
 include_HEADERS = src/ekho.h src/word.h src/ekho_dict.h src/ssml.h src/audio.h src/character.h src/phonetic_symbol.h src/zhy_symbol_map.h src/zh_symbol_map.h src/ekho_typedef.h src/ekho_impl.h 
 
-libekho_a_SOURCES = src/libekho.cpp src/libekho_impl.cpp src/english.cpp src/ssml.cpp src/audio.cpp src/phonetic_symbol.cpp src/word.cpp src/ekho_dict.cpp src/number.cpp src/server.cpp src/musicxml.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp
+libekho_a_SOURCES = src/english.cpp src/libekho.cpp src/libekho_impl.cpp src/ssml.cpp src/audio.cpp src/phonetic_symbol.cpp src/word.cpp src/ekho_dict.cpp src/number.cpp src/server.cpp src/musicxml.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp
 libekho_a_CXXFLAGS = $(AM_CXXFLAGS) @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -pthread -std=c++11 #-I$(srcdir)/libmusicxml/src/elements -I$(srcdir)/libmusicxml/src/lib -I$(srcdir)/libmusicxml/src/visitors -I$(srcdir)/libmusicxml/src/files -I$(srcdir)/libmusicxml/src/parser #@CFLAG_MUSICXML@
 LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ @LIB_MPG123@ -lsonic -lsndfile -lespeak-ng @LIB_SOXR@ #@LIB_MUSICXML@ @CFLAG_FRISO@ @LIB_FRISO@ 
 

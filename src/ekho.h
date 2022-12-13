@@ -79,6 +79,7 @@ class Ekho {
 
   static bool mDebug;
   static void debug(bool flag = true);
+  static SynthCallback* synthCallback;
 
   Ekho();
   Ekho(string voice);

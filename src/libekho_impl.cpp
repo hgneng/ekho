@@ -52,6 +52,7 @@ using namespace std;
 
 bool EkhoImpl::mDebug = false;
 SpeechdSynthCallback* EkhoImpl::speechdSynthCallback = 0;
+EkhoImpl* EkhoImpl::gEkho = NULL;
 
 EkhoImpl::EkhoImpl() { this->init(); }
 
@@ -801,6 +802,7 @@ void EkhoImpl::translatePunctuations(string &text, EkhoPuncType mode) {
 }
 
 int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
+  Ekho::synthCallback = callback;
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::synth2(%s, %p, %p) voiceFileType=%s lang=%d", text.c_str(),
        callback, userdata, mDict.mVoiceFileType, mDict.getLanguage());
