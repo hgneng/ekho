@@ -36,6 +36,10 @@
 #include <pulse/simple.h>
 #endif
 
+#ifdef ANDROID
+#include "flite.h"
+#endif
+
 #ifdef DEBUG_ANDROID
 #define LOG_TAG "Ekho Engine"
 #include "Log.h"

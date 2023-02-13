@@ -29,6 +29,11 @@
 #include "espeak-ng/speak_lib.h"
 #endif
 
+#ifdef ANDROID
+#include "flite.h"
+extern "C" cst_voice *register_cmu_us_kal(const char *voxdir);
+#endif
+
 #ifdef DEBUG_ANDROID
 #define LOG_TAG "Ekho Engine"
 #include "Log.h"
@@ -50,6 +55,10 @@ static bool gsIsFestivalInited = false;
 SynthCallback* Ekho::synthCallback = NULL;
 
 void EkhoImpl::initEnglish(void) {
+#ifdef DEBUG_ANDROID
+  LOGD("EkhoImpl::initEnglish");
+#endif
+
 #ifdef ENABLE_FESTIVAL
   if (!gsIsFestivalInited) {
     int heap_size = 2100000;  // scheme heap size
@@ -96,6 +105,7 @@ void EkhoImpl::initEnglish(void) {
 #ifdef ANDROID
   flite_init();
   mFliteVoice = register_cmu_us_kal(NULL);
+  LOGD("EkhoImpl::initEnglish flite inited");
 #endif
 }
 
@@ -164,28 +174,32 @@ const char* EkhoImpl::getPcmFromFlite(string text, int& size) {
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::getPcmFromFlite(%s, %d)", text.c_str(), size);
 #endif
+
+  if (!mFliteVoice) {
+    initEnglish();
+  }
+
+  if (mFliteVoice) {
+    cst_wave* flite_wave = flite_text_to_wave(text.c_str(), mFliteVoice);
+    short* pcm = flite_wave->samples;
+    size = flite_wave->num_samples * 2;
+    // free(flite_wave); why free here?
+#ifdef DEBUG_ANDROID
+    LOGD("flite_text_to_wave got %d samples", size);
+#endif
+    return (const char*)pcm;
+  } else {
+#ifdef DEBUG_ANDROID
+    LOGD("mFliteVoice not inited");
+#endif
+    return 0;
+  }
+
   return NULL;
 }
 
 // It's caller's responsibility to delete the returned pointer
 const char* EkhoImpl::getPcmFromFestival(string text, int& size) {
-#ifdef ANDROID
-#ifdef ENABLE_ENGLISH
-  if (mFliteVoice) {
-    cst_wave* flite_wave = flite_text_to_wave(text.c_str(), mFliteVoice);
-    short* pcm = flite_wave->samples;
-    size = flite_wave->num_samples * 2;
-    free(flite_wave);
-#ifdef DEBUG_ANDROID
-    LOGD("Ekho::getPcmFromFestival(%s, %d)", text.c_str(), size);
-#endif
-    return (const char*)pcm;
-  } else {
-    return 0;
-  }
-#endif
-#endif
-
 #ifdef ENABLE_FESTIVAL
   // set voice
   static const char* current_voice = "voice_kal_diphone";
