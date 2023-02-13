@@ -29,7 +29,7 @@
 #include "espeak-ng/speak_lib.h"
 #endif
 
-#ifdef ANDROID
+#ifdef ENABLE_FLITE
 #include "flite.h"
 extern "C" cst_voice *register_cmu_us_kal(const char *voxdir);
 #endif
@@ -102,10 +102,9 @@ void EkhoImpl::initEnglish(void) {
   }*/
 #endif
 
-#ifdef ANDROID
+#ifdef ENABLE_FLITE
   flite_init();
   mFliteVoice = register_cmu_us_kal(NULL);
-  LOGD("EkhoImpl::initEnglish flite inited");
 #endif
 }
 
@@ -141,15 +140,17 @@ void EkhoImpl::setEnglishSpeed(int delta) {
 }
 
 const char* EkhoImpl::getEnglishPcm(string text, int &size) {
+#ifdef ENABLE_FLITE
+  return getPcmFromFlite(text, size);
+#endif
+
 #ifdef ENABLE_FESTIVAL
-    return getPcmFromFestival(text, size);
-#else
-  #ifdef ENABLE_ESPEAK
-    synthWithEspeak(text);
-    return NULL;
-  #else
-    return getPcmFromFlite(text, size);
-  #endif
+  return getPcmFromFestival(text, size);
+#endif
+
+#ifdef ENABLE_ESPEAK
+  synthWithEspeak(text);
+  return NULL;
 #endif
 }
 
@@ -180,6 +181,7 @@ const char* EkhoImpl::getPcmFromFlite(string text, int& size) {
   }
 
   if (mFliteVoice) {
+    this->audio->setSampleRate(8000);
     cst_wave* flite_wave = flite_text_to_wave(text.c_str(), mFliteVoice);
     short* pcm = flite_wave->samples;
     size = flite_wave->num_samples * 2;

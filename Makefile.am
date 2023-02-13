@@ -10,8 +10,8 @@ noinst_HEADERS = src/stdafx.h
 include_HEADERS = src/ekho.h src/word.h src/ekho_dict.h src/ssml.h src/audio.h src/character.h src/phonetic_symbol.h src/zhy_symbol_map.h src/zh_symbol_map.h src/ekho_typedef.h src/ekho_impl.h 
 
 libekho_a_SOURCES = src/english.cpp src/libekho.cpp src/libekho_impl.cpp src/ssml.cpp src/audio.cpp src/phonetic_symbol.cpp src/word.cpp src/ekho_dict.cpp src/number.cpp src/server.cpp src/musicxml.cpp src/zhy_symbol_map.cpp src/zh_symbol_map.cpp src/symbol_array.cpp
-libekho_a_CXXFLAGS = $(AM_CXXFLAGS) @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ -pthread -std=c++11 #-I$(srcdir)/libmusicxml/src/elements -I$(srcdir)/libmusicxml/src/lib -I$(srcdir)/libmusicxml/src/visitors -I$(srcdir)/libmusicxml/src/files -I$(srcdir)/libmusicxml/src/parser #@CFLAG_MUSICXML@
-LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_MP3LAME@ @LIB_MPG123@ -lsonic -lsndfile -lespeak-ng @LIB_SOXR@ #@LIB_MUSICXML@ @CFLAG_FRISO@ @LIB_FRISO@ 
+libekho_a_CXXFLAGS = $(AM_CXXFLAGS) @CFLAG_PULSEAUDIO@ @CFLAG_FESTIVAL@ @CFLAG_FLITE@ -pthread -std=c++11 #-I$(srcdir)/libmusicxml/src/elements -I$(srcdir)/libmusicxml/src/lib -I$(srcdir)/libmusicxml/src/visitors -I$(srcdir)/libmusicxml/src/files -I$(srcdir)/libmusicxml/src/parser #@CFLAG_MUSICXML@
+LIBEKHO_LIB = @LIB_PULSEAUDIO@ @LIB_FESTIVAL@ @LIB_FLITE@ @LIB_MP3LAME@ @LIB_MPG123@ -lsonic -lsndfile -lespeak-ng @LIB_SOXR@ #@LIB_MUSICXML@ @CFLAG_FRISO@ @LIB_FRISO@
 
 #if ENABLE_FRISO
 #noinst_LIBRARIES += libfriso.a
@@ -23,10 +23,11 @@ bin_PROGRAMS = test_ekho ekho
 
 ekho_SOURCES = src/ekho.cpp
 ekho_LDADD = libekho.a $(LIBEKHO_LIB) @LIB_GTK2@ #$(srcdir)/libmusicxml/libmusicxml2.a 
-ekho_CXXFLAGS = @CFLAG_GTK2@ -pthread # @CFLAG_FRISO@
+ekho_CXXFLAGS = @CFLAG_GTK2@ -pthread @CFLAG_FLITE@ # @CFLAG_FRISO@
 	
 test_ekho_SOURCES = src/test_ekho.cpp
 test_ekho_LDADD = libekho.a $(LIBEKHO_LIB) #$(srcdir)/libmusicxml/libmusicxml2.a 
+test_ekho_CXXFLAGS = $(AM_CXXFLAGS) @CFLAG_FLITE@
 
 DATA_DIR = $(srcdir)/ekho-data
 DATA_FILES = $(DATA_DIR)/zhy_list $(DATA_DIR)/zh_list $(DATA_DIR)/zh_listx $(DATA_DIR)/zh_patch $(DATA_DIR)/zhy.dict $(DATA_DIR)/zh.dict $(DATA_DIR)/ka_list $(DATA_DIR)/bo_list $(DATA_DIR)/ko_list $(DATA_DIR)/ngangien_list $(DATA_DIR)/pinyin.index $(DATA_DIR)/pinyin.voice $(DATA_DIR)/jyutping.index $(DATA_DIR)/jyutping.voice $(DATA_DIR)/toisanese_list

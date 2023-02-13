@@ -34,6 +34,18 @@
 #include "Log.h"
 #endif
 
+#define ENABLE_ENGLISH
+
+#ifdef ANDROID
+#define ENABLE_FLITE
+#else
+#define ENABLE_ESPEAK
+#endif
+
+#ifdef ENABLE_FLITE
+#include "flite.h"
+#endif
+
 #include "ekho_dict.h"
 #include "ekho_typedef.h"
 #include "ekho_impl.h"
@@ -46,13 +58,6 @@
 
 #ifdef HAVE_LIBSOXR
 #include <soxr.h>
-#endif
-
-#define ENABLE_ENGLISH
-#ifdef ANDROID
-#include "flite.h"
-#else
-#define ENABLE_ESPEAK
 #endif
 
 using namespace std;

@@ -86,10 +86,6 @@ int EkhoImpl::init(void) {
 
   mPcmCache = true;
 
-#ifdef ANDROID
-//  mFliteVoice = 0;
-#endif
-
   memset(mAlphabetPcmCache, 0, 26 * sizeof(const char*));
   memset(mAlphabetPcmSize, 0, 26 * sizeof(int));
 
@@ -830,6 +826,11 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
     // output pcm data
     if (pPcm && size > 0) {
       callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
+      this->audio->setSampleRate(this->audio->sampleRate);
+      if (pPcm) {
+        delete[] pPcm;
+        pPcm = NULL;
+      }
     }
 #endif
     return 0;
@@ -939,7 +940,10 @@ int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
             pPcm = this->getEnglishPcm(word->text, size);
             if (pPcm && size > 0) {
               callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
-              if (pPcm) delete[] pPcm;
+              if (pPcm) {
+                delete[] pPcm;
+                this->audio->setSampleRate(this->audio->sampleRate);
+              }
             }
             pPcm = 0;
           }

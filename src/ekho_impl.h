@@ -36,7 +36,7 @@
 #include <pulse/simple.h>
 #endif
 
-#ifdef ANDROID
+#ifdef ENABLE_FLITE
 #include "flite.h"
 #endif
 
@@ -75,7 +75,7 @@ class EkhoImpl {
   void setSpeechdSynthCallback(SpeechdSynthCallback* callback);
 
   static bool mDebug;
-#ifdef ANDROID
+#ifdef ENABLE_FLITE
   cst_voice *mFliteVoice;
 #endif
 

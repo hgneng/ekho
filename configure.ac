@@ -108,6 +108,19 @@ AC_ARG_ENABLE(speechd,
         [AM_CONDITIONAL(ENABLE_SPEECHD, true)],
         [AM_CONDITIONAL(ENABLE_SPEECHD, false)]
         )
+
+AC_SUBST([LIB_FLITE])
+AC_SUBST([CFLAG_FLITE])
+AC_ARG_ENABLE(flite,
+    [AS_HELP_STRING([--enable-flite],[synthesize English through Flite])],
+    [
+        AC_DEFINE(ENABLE_FLITE,,[Enable Flite])
+        LIB_FLITE="${srcdir}/flite/build/x86_64-darwin21.6.0/lib/*.a"
+        CFLAG_FLITE="-I${srcdir}/flite/include"
+    ], [
+        LIB_FLITE=""
+        CFLAG_FLITE=""
+    ])
         
 AC_SUBST([LIB_FESTIVAL])
 AC_SUBST([CFLAG_FESTIVAL])
