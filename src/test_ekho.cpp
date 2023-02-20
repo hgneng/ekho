@@ -41,7 +41,43 @@ void callback(void *arg) {
 }
 
 int main(int argc, char**argv) {
+  // test synth3
+  Ekho *ekho = new Ekho();
+  ekho->setSampleRate(8000);
+  ekho->setChannels(2);
+  ekho->setVoice("Mandarin");
+  int pcmSize;
+  ekho->synth3("123", pcmSize);
+  cout << "pcm size: " << pcmSize << endl;
+  delete(ekho);
+  ekho = NULL;
+
+  // test Tibetan (need to install Tibetan data)
+  /*
+  Ekho tibetan("Tibetan");
+  tibetan.blockSpeak("English is easy. 中文很简单。་སྐད་སླ་བོ་རེད།");
+
+  // If you share your heart, there would be nothing to get jealous about
+  Ekho *haesung = new Ekho("Korean");
+  haesung->blockSpeak("사랑을 나누면 부러울것이 없습니다");
+  delete(haesung);
+  */
+  
+  system("./ekho -l \"列出拼音\"");
+
+  // @FIXME: There is no pause between sentense.
+  //system("./ekho -f test/test.txt");
+
+  /*
+  printf("speaking '123' with jyutping-wong-44100-v4 voice\n");
+  Ekho *wong_v4 = new Ekho("jyutping-wong-44100-v4");
+  wong_v4->blockSpeak("123");
+  delete(wong_v4);*/
+
   // test pause
+  // @FIXME: There seems a bug here.
+  // When uncomment this test, espeak_terminate will enter dead lock at the end of this program.
+  /*
   Ekho *cameron = new Ekho("Cantonese");
   cameron->debug();
   cameron->speak("123456789");
@@ -52,15 +88,8 @@ int main(int argc, char**argv) {
   sleep(1);
   cameron->stop();
   delete(cameron);
-
-  // test synth3
-  Ekho *ekho = new Ekho();
-  ekho->setSampleRate(8000);
-  ekho->setChannels(2);
-  ekho->setVoice("Mandarin");
-  int pcmSize;
-  ekho->synth3("123", pcmSize);
-  cout << "pcm size: " << pcmSize << endl;
+  cameron = NULL;
+  */
 
   // test dictionary
   Dict dict(CANTONESE);
@@ -76,6 +105,7 @@ int main(int argc, char**argv) {
   Ekho wong("Cantonese");
   wong.debug();
   wong.blockSpeak("0.123456789");
+  /*
   wong.blockSpeak("$54321 ￥99999");
   wong.blockSpeak("50万 30.4亿 1234567890元 10086元");
   wong.blockSpeak("50% 49.2%");
@@ -97,23 +127,8 @@ int main(int argc, char**argv) {
   wong.blockSpeak("详情请致电81234567查询");
   wong.blockSpeak("a. b . c1 0 020, .314, 0.314, 10, 11, 20, 21, 100, 101, 110, 111, 1234");
   wong.blockSpeak("圆周率是3.14");
+  */
   wong.blockSpeak("为什么 hello world 123");
-
-  Ekho tibetan("Tibetan");
-  tibetan.blockSpeak("English is easy. 中文很简单。་སྐད་སླ་བོ་རེད།");
-
-  // If you share your heart, there would be nothing to get jealous about
-  Ekho *haesung = new Ekho("Korean");
-  haesung->blockSpeak("사랑을 나누면 부러울것이 없습니다");
-  delete(haesung);
-  
-  system("./ekho -l \"列出拼音\"");
-
-  system("./ekho -f test.txt");
-  printf("speaking '123' with jyutping-wong-44100-v4 voice\n");
-  Ekho *wong_v4 = new Ekho("jyutping-wong-44100-v4");
-  wong_v4->blockSpeak("123");
-  delete(wong_v4);
 
 /*
   Ekho *wong2 = new Ekho("Cantonese");

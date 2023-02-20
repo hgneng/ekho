@@ -45,9 +45,6 @@ $ ./install.pl Mandarin
 $ ./install.pl Cantonese
 $ ./install.pl Tibetan
 
-===== INSTALL (for Debian 64bit) =====
-$ make CXXFLAGS="-D_x86_64"
-
 ===== INSTALL for Mac =====
 $ brew install libsndfile
 $ brew install pulseaudio

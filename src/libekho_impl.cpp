@@ -120,7 +120,10 @@ EkhoImpl::~EkhoImpl(void) {
 #endif
 
 #ifdef ENABLE_ESPEAK
-  espeak_Terminate();
+  if (isEspeakInited) {
+    espeak_Terminate();
+    isEspeakInited = false;
+  }
 #endif
 
   // TODO: free mAlphabetPcmCache

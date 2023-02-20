@@ -84,6 +84,7 @@ void EkhoImpl::initEnglish(void) {
 #ifdef ENABLE_ESPEAK
   // espeak
   int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
+  isEspeakInited = true;
   this->setEnglishSpeed(this->getEnglishSpeed());
   if (mDebug) {
     cerr << "espeak init samplerate: " << samplerate << endl;
@@ -171,6 +172,7 @@ void EkhoImpl::synthWithEspeak(string text) {
 
 // It's caller's responsibility to delete the returned pointer
 const char* EkhoImpl::getPcmFromFlite(string text, int& size) {
+#ifdef ENABLE_FLITE
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::getPcmFromFlite(%s, %d)", text.c_str(), size);
 #endif
@@ -195,7 +197,8 @@ const char* EkhoImpl::getPcmFromFlite(string text, int& size) {
 #endif
     return 0;
   }
-
+#endif
+  
   return NULL;
 }
 

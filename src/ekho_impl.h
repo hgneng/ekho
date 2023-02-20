@@ -70,6 +70,7 @@ class EkhoImpl {
   int mOverlap;
   Audio* audio;
   static EkhoImpl* gEkho;
+  bool isEspeakInited = false;
 
   static SpeechdSynthCallback* speechdSynthCallback;
   void setSpeechdSynthCallback(SpeechdSynthCallback* callback);
