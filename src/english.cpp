@@ -55,10 +55,6 @@ static bool gsIsFestivalInited = false;
 SynthCallback* Ekho::synthCallback = NULL;
 
 void EkhoImpl::initEnglish(void) {
-#ifdef DEBUG_ANDROID
-  LOGD("EkhoImpl::initEnglish");
-#endif
-
 #ifdef ENABLE_FESTIVAL
   if (!gsIsFestivalInited) {
     int heap_size = 2100000;  // scheme heap size
@@ -105,6 +101,9 @@ void EkhoImpl::initEnglish(void) {
 #ifdef ENABLE_FLITE
   flite_init();
   mFliteVoice = register_cmu_us_kal(NULL);
+#ifdef DEBUG_ANDROID
+  LOGD("EkhoImpl::initEnglish end");
+#endif
 #endif
 }
 
