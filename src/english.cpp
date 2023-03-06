@@ -31,7 +31,7 @@
 
 #ifdef ENABLE_FLITE
 #include "flite.h"
-extern "C" cst_voice *register_cmu_us_kal(const char *voxdir);
+extern "C" cst_voice *register_cmu_us_kal16(const char *voxdir);
 #endif
 
 #ifdef DEBUG_ANDROID
@@ -55,6 +55,8 @@ static bool gsIsFestivalInited = false;
 SynthCallback* Ekho::synthCallback = NULL;
 
 void EkhoImpl::initEnglish(void) {
+  gEkho = this;
+
 #ifdef ENABLE_FESTIVAL
   if (!gsIsFestivalInited) {
     int heap_size = 2100000;  // scheme heap size
@@ -89,7 +91,6 @@ void EkhoImpl::initEnglish(void) {
   if (mDebug) {
     cerr << "espeak init samplerate: " << samplerate << endl;
   }
-  gEkho = this;
   espeak_SetSynthCallback(espeakSynthCallback);
   /* 女声好像并不好听，还是用原声吧
   if (!mIsMale) {
@@ -101,7 +102,7 @@ void EkhoImpl::initEnglish(void) {
 
 #ifdef ENABLE_FLITE
   flite_init();
-  mFliteVoice = register_cmu_us_kal(NULL);
+  mFliteVoice = register_cmu_us_kal16(NULL);
 #ifdef DEBUG_ANDROID
   LOGD("EkhoImpl::initEnglish end");
 #endif
@@ -182,8 +183,11 @@ const char* EkhoImpl::getPcmFromFlite(string text, int& size) {
   }
 
   if (mFliteVoice) {
-    this->audio->setSampleRate(8000);
+    //Ekho::synthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
+    //this->audio->setSampleRate(8000);
     cst_wave* flite_wave = flite_text_to_wave(text.c_str(), mFliteVoice);
+    // 需要在callback里数据处理完后再把sampleRate设回来
+    // this->audio->setSampleRate(this->audio->sampleRate);
     short* pcm = flite_wave->samples;
     size = flite_wave->num_samples * 2;
     // free(flite_wave); why free here?

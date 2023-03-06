@@ -249,6 +249,9 @@ int Audio::setSampleRate(int rate) {
         ", sampleRate: " << this->sampleRate <<
         ", target rate: " << r << endl;
   }
+#ifdef DEBUG_ANDROID
+  LOGD("Audio::setSampleRate(%d) main samplerate=", rate, this->sampleRate);
+#endif
 
   flushFrames();
   //sonicSetRate(this->processorStream, r);
