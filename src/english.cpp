@@ -174,6 +174,7 @@ void EkhoImpl::synthWithEspeak(string text) {
 // It's caller's responsibility to delete the returned pointer
 const char* EkhoImpl::getPcmFromFlite(string text, int& size) {
 #ifdef ENABLE_FLITE
+  cerr << "EkhoImpl::getPcmFromFlite: " << text << endl;
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::getPcmFromFlite(%s, %d)", text.c_str(), size);
 #endif

@@ -351,6 +351,7 @@ bool Dict::isPunctuationChar(int code, EkhoPuncType mode) {
 
 void Dict::addSpecialSymbols(void) {
   // add alphabets
+  // @fixme: disable alphabet because the samplerate may not correct
   string voicePath = mDataPath + "/alphabet";
 
   for (char c = 'a'; c <= 'z'; c++) {

@@ -61,6 +61,7 @@ int EkhoImpl::init(void) {
     cerr << "EkhoImpl::init" << endl;
   }
 
+  isEspeakInited = false;
   mIsMale = false;
   mPendingFrames = 0;
   supportSsml = true;
@@ -468,10 +469,13 @@ void *EkhoImpl::speechDaemon(void *args) {
 
     // It seems that Sonic doesn't work on threads. Set arguments again. It's
     // fixed before. But it doesn't work again...
+    /* @fixme: reset tempoDelta will cause double speed from 139 to 278
+    // too quick for pinyin-huang will break with 天才是怎样练成的 赣F54562
     pEkho->setSpeed(pEkho->tempoDelta);
     pEkho->setPitch(pEkho->pitchDelta);
     pEkho->setVolume(pEkho->volumeDelta);
     pEkho->setRate(pEkho->rateDelta);
+    */
 
     if (EkhoImpl::mDebug) {
       cerr << "EkhoImpl::speechDaemon synth2 " << order.text << endl;
