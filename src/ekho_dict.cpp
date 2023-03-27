@@ -1735,6 +1735,7 @@ void Dict::loadEkhoVoiceFile(string path) {
 
   memset(&mSfinfo, 0, sizeof(mSfinfo));
   mSfinfo.samplerate = samplerate;
+  // @todo: support multi-channels
   mSfinfo.channels = 1;
   if (strcmp(mVoiceFileType, "gsm")) {
     mSfinfo.format = SF_FORMAT_WAV | SF_FORMAT_GSM610;

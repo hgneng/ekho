@@ -162,6 +162,7 @@ int EkhoImpl::initStream(void) {
   }
 
   this->audio->setInputSampleRate(mDict.mSfinfo.samplerate);
+  this->audio->setChannels(mDict.mSfinfo.channels);
   this->audio->initProcessor();
 
 #ifdef HAVE_PULSEAUDIO
