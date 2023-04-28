@@ -124,6 +124,7 @@ class EkhoImpl {
   /* Synth speech
    * callback will be called time from time when buffer is ready
    */
+  // 这里返回给callback的pcm未经speed和pitch的调整
   int synth2(string text, SynthCallback* callback, void* userdata = 0);
 
   short* synth3(string text, int& pcmSize);

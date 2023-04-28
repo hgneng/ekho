@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2022 by Cameron Wong                                 *
+ * Copyright (C) 2008-2023 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -131,12 +131,6 @@ int Ekho::writePcm(short *pcm, int frames, void *arg, OverlapType type) {
 
 void *Ekho::speechDaemon(void *args) { return EkhoImpl::speechDaemon(args); }
 
-// @TODO: remove this deprecared method
-/*
-int Ekho::synth(string text, SynthCallback *callback, void *userdata) {
-  return this->m_pImpl->synth(text, callback, userdata);
-}*/
-
 int Ekho::play(string file) { return this->m_pImpl->play(file); }
 
 int Ekho::setVoice(string voice) { return this->m_pImpl->setVoice(voice); }
@@ -214,10 +208,6 @@ int Ekho::request(string ip, int port, Command cmd, string text,
   return this->m_pImpl->request(ip, port, cmd, text, outfile);
 }
 
-int Ekho::synth2(string text, SynthCallback *callback, void *userdata) {
-  return this->m_pImpl->synth2(text, callback, userdata);
-}
-
 short* Ekho::synth3(string text, int& samples) {
   string filepath = Audio::genTempFilename();
   this->m_pImpl->saveWav(text, filepath);
@@ -244,14 +234,42 @@ short* Ekho::synth3(string text, int& samples) {
   return pcm;
 }
 
-void Ekho::setPunctuationMode(EkhoPuncType mode) {
-  this->m_pImpl->setPunctuationMode(mode);
+// for Android
+SynthCallback* Ekho::synth4Callback = NULL;
+EkhoImpl* Ekho::impl = NULL;
+int Ekho::postProcess(short* pcm, int frames, void* arg, OverlapType type) {
+  EkhoImpl* pEkho = Ekho::impl;
+
+  if (!pEkho->isStopped) {
+    int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
+
+    if (flush_frames) {
+      short* buffer = new short[65536];
+
+      do {
+        frames = pEkho->audio->readShortFrames(buffer, 65536);
+        if (frames > 0) {
+          Ekho::synth4Callback(buffer, frames, arg, type);
+        }
+      } while (frames > 0);
+
+      delete[] buffer;
+      buffer = NULL;
+    }
+  }
+
+  return 0;
 }
 
-int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
-  this->m_pImpl->setSpeechdSynthCallback(callback);
-  this->m_pImpl->speak(text);
-  return 0;
+// 这里返回给callback的pcm经过speed和pitch的调整
+int Ekho::synth4(string text, SynthCallback* callback, void* userdata) {
+  Ekho::impl = this->m_pImpl;
+  Ekho::synth4Callback = callback;
+  return this->m_pImpl->synth2(text, Ekho::postProcess, userdata);
+}
+
+void Ekho::setPunctuationMode(EkhoPuncType mode) {
+  this->m_pImpl->setPunctuationMode(mode);
 }
 
 void Ekho::setSampleRate(int sampleRate) {

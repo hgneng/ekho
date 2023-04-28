@@ -105,7 +105,7 @@ namespace ekho {
     size = mSize;
 
 #ifdef DEBUG_ANDROID
-      LOGV("PhoneticSymbol::etPcm size=%d", size);
+      LOGV("PhoneticSymbol::getPcm size=%d", size);
 #endif
 
     return mPcm;

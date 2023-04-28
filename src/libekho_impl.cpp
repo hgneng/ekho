@@ -234,6 +234,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
   pthread_mutex_unlock(&(pEkho->mSpeechQueueMutex));
 
   delete[] buffer;
+  buffer = NULL;
   return 0;
 }
 
@@ -436,7 +437,7 @@ void EkhoImpl::finishWritePcm(void) {
   writePcm(0, 0, this, OVERLAP_QUIET_PART);
 }
 
-void *EkhoImpl::speechDaemon(void *args) {
+void* EkhoImpl::speechDaemon(void *args) {
   if (EkhoImpl::mDebug) {
     cerr << "EkhoImpl::speechDaemon begin" << endl;
   }
@@ -805,7 +806,8 @@ void EkhoImpl::translatePunctuations(string &text, EkhoPuncType mode) {
   }
 }
 
-int EkhoImpl::synth2(string text, SynthCallback *callback, void *userdata) {
+// 这里返回给callback的pcm未经speed和pitch的调整
+int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
   Ekho::synthCallback = callback;
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::synth2(%s, %p, %p) voiceFileType=%s lang=%d", text.c_str(),

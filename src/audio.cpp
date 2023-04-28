@@ -219,6 +219,10 @@ void Audio::setTempoFloat(float factor) {
       ", finalFactor=" << finalFactor << endl;
   }
 
+#ifdef DEBUG_ANDROID
+  LOGD("Audio::setTempoFloat(%f) finalFactor=%f", factor, finalFactor);
+#endif
+
   sonicSetSpeed(this->processorStream, finalFactor);
 }
 
@@ -296,16 +300,22 @@ int Audio::setPitch(int delta) {
     cerr << "Audio::setPitch: " << delta << endl;
   }
 
-#ifdef ENABLE_SOUNDTOUCH
-  if (delta >= -100 && delta <= 100) {
-    this->pitchDelta = delta;
-  } else {
-    this->pitchDelta = 0;
+  if (delta < -100) {
+    delta = -100;
   }
+  if (delta > 100) {
+    delta = 100;
+  }
+  this->pitchDelta = delta;
+
+#ifdef ENABLE_SOUNDTOUCH
   this->pSoundtouch.setPitchOctaves((float)this->pitchDelta / 100);
 #else
-  this->setPitchFloat((float)(100 + delta) / 100);
-  this->pitchDelta = delta;
+  if (delta < 0) {
+    this->setPitchFloat(((float)delta / 2 + 100) / 100);
+  } else {
+    this->setPitchFloat((float)(100 + delta) / 100);
+  }
 #endif
 
   return this->pitchDelta;
