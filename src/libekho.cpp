@@ -240,7 +240,18 @@ EkhoImpl* Ekho::impl = NULL;
 int Ekho::postProcess(short* pcm, int frames, void* arg, OverlapType type) {
   EkhoImpl* pEkho = Ekho::impl;
 
-  if (!pEkho->isStopped) {
+  if (pEkho->isStopped) {
+    // 清空缓存
+    pEkho->audio->flushFrames();
+    short* buffer = new short[65536];
+
+    do {
+      frames = pEkho->audio->readShortFrames(buffer, 65536);
+    } while (frames > 0);
+
+    delete[] buffer;
+    buffer = NULL;
+  } else {
     int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
     if (flush_frames) {
@@ -265,6 +276,7 @@ int Ekho::postProcess(short* pcm, int frames, void* arg, OverlapType type) {
 int Ekho::synth4(string text, SynthCallback* callback, void* userdata) {
   Ekho::impl = this->m_pImpl;
   Ekho::synth4Callback = callback;
+  this->m_pImpl->isStopped = false;
   return this->m_pImpl->synth2(text, Ekho::postProcess, userdata);
 }
 
