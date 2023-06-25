@@ -16,7 +16,7 @@ You need to have following libraries first:
 * libltdl-dev
 * libmpg123-dev
 * libsonic-dev
-* libutfcpp-dev
+* libutfcpp-dev (https://utfcpp.sourceforge.net/)
 * libespeak-ng-dev
 * libsndfile1-dev (http://www.mega-nerd.com/libsndfile/)
 * libpulse-dev
