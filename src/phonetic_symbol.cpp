@@ -32,31 +32,34 @@
 
 using namespace std;
 namespace ekho {
+  bool PhoneticSymbol::debug = false;
 
   const char* PhoneticSymbol::getPcm(FILE *file, int &size) {
-    //cerr << "PhoneticSymbol::getPcm:" << "offset=" << offset <<
-    //  ", bytes=" << bytes << endl;
+    if (PhoneticSymbol::debug) {
+      cerr << "PhoneticSymbol::getPcm:" << "symbol=" <<
+        this->symbol << ", offset=" << offset <<
+        ", bytes=" << bytes << endl;
+    }
 
 #ifdef DEBUG_ANDROID
     LOGV("getPcm(%p, %d) offset=%d bytes=%d", file, size, offset, bytes);
 #endif
 
-    // 如果该拼音没有找到音频，尝试读其它声调的音频代替
-    /*
-    if (!(strlen(symbol) == 1 && symbol[0] == ' ')) {
-      for (char c = '1'; !mPcm && bytes == 0 && c <= '7'; c++) {
-        char s[16] = {0};
-        strncat(s, symbol, 16);
-        int pos = strlen(symbol);
-        s[pos - 1] = c;
-        cerr << symbol << "(first letter value: " << (int)(symbol[0]) << ") not found. try " << s << endl;
-        PhoneticSymbol *phon = Dict::getPhoneticSymbol(s);
-        if (phon->bytes > 0) {
-          offset = phon->offset;
-          bytes = phon->bytes;
-        }
+    // 如果该拼音没有找到5声调音频，尝试用1升调代替
+    int symbolLen = strlen(symbol);
+    if (bytes == 0 && symbolLen > 0 && symbol[symbolLen - 1] == '5') {
+      char s[16] = {0};
+      strncat(s, symbol, 16);
+      s[symbolLen - 1] = '1';
+      if (PhoneticSymbol::debug) {
+        cerr << symbol << " not found. try " << s << endl;
       }
-    }*/
+      PhoneticSymbol *phon = Dict::me->getPhoneticSymbol(s);
+      if (phon->bytes > 0) {
+        offset = phon->offset;
+        bytes = phon->bytes;
+      }
+    }
 
     if (!mPcm && file && fseek(file, offset, SEEK_SET) == 0) {
       string tmpFilePath = Audio::genTempFilename();
@@ -161,6 +164,12 @@ namespace ekho {
   };
 
   const char* PhoneticSymbol::getPcm(const char *wavDir, const char *postfix, int &size, SF_INFO &sfinfo) {
+    if (PhoneticSymbol::debug) {
+      cerr << "PhoneticSymbol::getPcm:"  << "symbol=" <<
+        this->symbol << ", wavDir=" << wavDir <<
+        ", postfix=" << postfix << endl;
+    }
+
     if (!mPcm) {
       memset(&sfinfo, 0, sizeof(SF_INFO));
 

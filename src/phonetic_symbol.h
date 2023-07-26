@@ -42,6 +42,7 @@ namespace ekho {
 
   class PhoneticSymbol {
     public:
+      static bool debug;
       PhoneticSymbol(void): symbol(0), offset(0), bytes(0), mPcm(0), mSize(0) {};
       PhoneticSymbol(const char *sym):
         symbol(sym), offset(0), bytes(0), mPcm(0), mSize(0) {};

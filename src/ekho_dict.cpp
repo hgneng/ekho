@@ -745,7 +745,7 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
       cItor2 = cItor;
       cItor2--;
       if (isNumber(cItor2->code)) {
-        phonList.push_back(Dict::getPhoneticSymbol("hang2"));
+        phonList.push_back(getPhoneticSymbol("hang2"));
       } else {
         phonList.push_back(di->character.phonSymbol);
       }

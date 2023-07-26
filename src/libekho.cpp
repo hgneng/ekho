@@ -70,6 +70,7 @@ bool Ekho::mDebug = false;
 void Ekho::debug(bool flag) {
   Ekho::mDebug = flag;
   EkhoImpl::debug(flag);
+  PhoneticSymbol::debug = flag;
 }
 
 Ekho::Ekho() {
