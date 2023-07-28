@@ -106,6 +106,7 @@ int main(int argc, char**argv) {
   wong.debug();
   wong.blockSpeak("0.123456789");
   /*
+  wong.blockSpeak("192.168.0.1");
   wong.blockSpeak("$54321 ￥99999");
   wong.blockSpeak("50万 30.4亿 1234567890元 10086元");
   wong.blockSpeak("50% 49.2%");

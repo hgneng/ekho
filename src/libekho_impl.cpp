@@ -184,12 +184,18 @@ void EkhoImpl::closeStream(void) {
 }
 
 int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
-                       bool tofile) {
-  short *buffer = new short[BUFFER_SIZE];
-
+     bool tofile) {
   EkhoImpl *pEkho = (EkhoImpl *)arg;
+/*
+  if (frames == 0) {
+    // send finish event to speech-dispatcher
+    EkhoImpl::speechdSynthCallback(NULL, 0, 16,
+      pEkho->audio->channels, pEkho->audio->sampleRate, 1);
+  }*/
 
+  short *buffer = new short[BUFFER_SIZE];
   pthread_mutex_lock(&(pEkho->mSpeechQueueMutex));
+
   if (!pEkho->isStopped) {        
     int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
@@ -239,25 +245,27 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 }
 
 int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
-  // 把前后音量为0的部分去掉
   int i = 0;
-  int minLevel = 512;
-  while (i < frames && abs(*pcm) < minLevel) {
-    i++;
-    pcm++;
-  }
-  if (i > 0) {
-    // cerr << "trim left: " << i << endl;
-    frames -= i;
-  }
+  if (type != OVERLAP_NONE) {
+    // 把前后音量为0的部分去掉
+    int minLevel = 512;
+    while (i < frames && abs(*pcm) < minLevel) {
+      i++;
+      pcm++;
+    }
+    if (i > 0) {
+      // cerr << "trim left: " << i << endl;
+      frames -= i;
+    }
 
-  i = 0;
-  while (frames > 0 && abs(*(pcm + frames - 1)) < minLevel) {
-    i++;
-    frames--;
-  }
-  if (i > 0) {
-    // cerr << "trim right: " << i << endl;
+    i = 0;
+    while (frames > 0 && abs(*(pcm + frames - 1)) < minLevel) {
+      i++;
+      frames--;
+    }
+    if (i > 0) {
+      // cerr << "trim right: " << i << endl;
+    }
   }
 
   // 如果未播放的帧太多了，先播放掉（为什么是全部播放掉而不是一部分？？）
@@ -484,9 +492,18 @@ void* EkhoImpl::speechDaemon(void *args) {
     pEkho->synth2(order.text, speakPcm);
 
     if (!pEkho->isStopped) {
-      // FIXME: following statement seems not flush rest PCM
-      pEkho->speakPcm(0, 0, pEkho, OVERLAP_QUIET_PART);
+      // try to add pause to flush short pcm char
+      int size = 0;
+      const char* pcm = pEkho->mDict.getQuaterPause()->getPcm(size);
+      if (EkhoImpl::mDebug) {
+        cerr << "add quaterpause " << size << endl;
+      }
+      pEkho->speakPcm((short *)pcm, size / 2, pEkho, OVERLAP_NONE);
+      // pEkho->speakPcm(0, 0, pEkho, OVERLAP_NONE);
       if (EkhoImpl::speechdSynthCallback) {
+        // @fixme: following two statements seems not flush rest PCM
+        // It seems that it has not use at all.
+        // should work without it.
         EkhoImpl::speechdSynthCallback(0, 0, 0, 0, 0, 1);
       }
 
@@ -540,9 +557,9 @@ void* EkhoImpl::speechDaemon(void *args) {
 }  // end of speechDaemon
 
 int EkhoImpl::play(string file) {
-  system((this->player + " " + file + " 2>/dev/null").c_str());
+  int ret = system((this->player + " " + file + " 2>/dev/null").c_str());
 
-  return 0;
+  return ret;
 }
 
 int EkhoImpl::setVoice(string voice) {
@@ -1032,9 +1049,11 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
   // send a signal to abort for Android
   if (userdata) {
     callback(0, 0, userdata, OVERLAP_NONE);
-  } else {
-    callback(0, 0, this, OVERLAP_NONE);
   }
+  /* there is flush logic outside synth2, no need here
+  else {
+    callback(0, 0, this, OVERLAP_NONE);
+  }*/
 
   return 0;
 }

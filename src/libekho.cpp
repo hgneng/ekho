@@ -281,6 +281,13 @@ int Ekho::synth4(string text, SynthCallback* callback, void* userdata) {
   return this->m_pImpl->synth2(text, Ekho::postProcess, userdata);
 }
 
+// for speech-dispatcher
+int Ekho::synth(const char *text, SpeechdSynthCallback *callback) {
+  this->m_pImpl->setSpeechdSynthCallback(callback);
+  this->m_pImpl->speak(text);
+  return 0;
+}
+
 void Ekho::setPunctuationMode(EkhoPuncType mode) {
   this->m_pImpl->setPunctuationMode(mode);
 }
