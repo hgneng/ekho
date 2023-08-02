@@ -69,7 +69,6 @@ int EkhoImpl::init(void) {
   mSpeechQueueMutex = PTHREAD_MUTEX_INITIALIZER;
   mSpeechQueueCond = PTHREAD_COND_INITIALIZER;
   mEnglishVoice = "voice_kal_diphone";
-  mOverlap = 4096;
 
   this->audio = new Audio();
 
@@ -246,6 +245,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 
 int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
   int i = 0;
+  /*
   if (type != OVERLAP_NONE) {
     // 把前后音量为0的部分去掉
     int minLevel = 512;
@@ -266,7 +266,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
     if (i > 0) {
       // cerr << "trim right: " << i << endl;
     }
-  }
+  }*/
 
   // 如果未播放的帧太多了，先播放掉（为什么是全部播放掉而不是一部分？？）
   while (frames > PENDING_PCM_FRAMES - mPendingFrames) {
@@ -377,8 +377,10 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
         cpframe++;
       }
 
-      //cerr << "frames:" << frames << ", startframe: " << startframe <<
-      //  ", endframe:" << endframe << ", overlap: " << i - max(0, endframe - startframe) - 1 << endl;
+      if (mDebug) {
+        cerr << "frames:" << frames << ", startframe: " << startframe <<
+          ", endframe:" << endframe << ", overlap: " << i - max(0, endframe - startframe) - 1 << endl;
+      }
 
       if (frames == 0) {
         // frames=0 means flush all pending frames
@@ -387,18 +389,20 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
         // guaranteer pending frames no more than haft frames
         flushframes = mPendingFrames - frames * 0.5;
       }
-/*
-      if (endframe < mPendingFrames - 1) {
-        cerr << "clip endframe: " << mPendingFrames - endframe + 1 << endl;
+
+      if (mDebug) {
+        if (endframe < mPendingFrames - 1) {
+          cerr << "clip endframe: " << mPendingFrames - endframe + 1 << endl;
+        }
+
+        if (startframe > 0) {
+          cerr << "clip startframe: " << startframe << endl;
+        }
+
+        cerr << "cpframes: " << cpframe << ", flushframes: " << flushframes
+          << ", mPendingFrames: " << mPendingFrames << endl;
       }
 
-      if (startframe > 0) {
-        cerr << "clip startframe: " << startframe << endl;
-      }
-
-      cerr << "cpframes: " << cpframe << ", flushframes: " << flushframes 
-        << ", mPendingFrames: " << mPendingFrames << ", frames: " << frames << endl;
-        */
       break;
 
     case OVERLAP_HALF_PART:
