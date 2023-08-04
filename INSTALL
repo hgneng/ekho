@@ -57,6 +57,10 @@ $ make CXXFLAGS="-O0 -I/usr/local/Cellar/utf8cpp/3.2.1/include/utf8cpp"
 $ brew services start pulseaudio
 $ ./ekho 123
 
+===== server mode =====
+Make sure configure with following option for server mode
+$./configure --with-mp3lame
+
 ===== Notes for git clone =====
 If you need to enable speech-dispatcher plugin, you need to do following:
 

@@ -208,9 +208,10 @@ int Audio::setTempo(int delta) {
 
 // 1 means no change. 2 means double speed
 void Audio::setTempoFloat(float factor) {
+  /*
   if (!this->processorStream) {
     cerr << "Audio::processorStream not init" << endl;
-  }
+  }*/
 
   float finalFactor = factor * this->sampleRate / this->outputSampleRate;
 
@@ -237,7 +238,10 @@ void Audio::setPitchFloat(float factor) {
 
   if (Audio::debug) {
     cerr << "Audio::setPitchFloat: " << factor <<
-        ", finalFactor=" << finalFactor << endl;
+        ", finalFactor=" << finalFactor <<
+        ", sampleRate=" << this->sampleRate <<
+        ", outputSampleRate=" << this->outputSampleRate <<
+        endl;
   }
 
   sonicSetPitch(this->processorStream, finalFactor);
