@@ -855,7 +855,7 @@ int main(int argc, char *argv[]) {
   int english_speed_delta = 0;
   int sample_rate = 0;
   int channels = 1;
-  int overlap = 32;
+  int overlap = 4096;
   extern char *optarg;
   extern int optind, optopt;
   bool is_listing_symbols = false;

@@ -33,6 +33,7 @@ typedef enum {
 } TextType;
 
 typedef enum {
+  OVERLAP_DEFAULT = 0,
   OVERLAP_NONE = 1,
   OVERLAP_QUIET_PART = 2,  // should be default
   OVERLAP_HALF_PART = 3,

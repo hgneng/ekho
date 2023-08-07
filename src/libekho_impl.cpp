@@ -305,6 +305,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
       cpframe = frames;
       break;
 
+    case OVERLAP_DEFAULT:
     case OVERLAP_QUIET_PART:
       // don't overlap more than 0.3(endframe)+0.3(startframe) of the syllable frames
 
@@ -1007,8 +1008,8 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
             // speak the word one by one
             list<OverlapType>::iterator type = word->overlapTypes.begin();
             for (list<PhoneticSymbol *>::iterator symbol =
-                     word->symbols.begin();
-                 symbol != word->symbols.end(); symbol++) {
+                word->symbols.begin();
+                symbol != word->symbols.end(); symbol++) {
 #ifdef DEBUG_ANDROID
               LOGD("Ekho::synth2 speak %s", (*symbol)->symbol);
 #endif
