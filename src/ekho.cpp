@@ -1030,6 +1030,7 @@ int main(int argc, char *argv[]) {
   } else if (mode == SERVER_MODE) {
     Ekho::debug(isDebugging);
     ekho_g = new Ekho(language);
+    ekho_g->setOverlap(overlap);
     ekho_g->startServer(server_port);
   } else if (mode == REQUEST_MODE) {
     Ekho::debug(isDebugging);

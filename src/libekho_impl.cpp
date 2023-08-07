@@ -246,7 +246,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
   if (mDebug) {
     cerr << "EkhoImpl::writeToSonicStream(frames=" << frames <<
-      ", type=" << type << endl;
+      ", type=" << type << ")" << endl;
   }
   int i = 0;
   /*
@@ -299,6 +299,9 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
 
   switch (type) {
     case OVERLAP_NONE:
+      if (mDebug) {
+        cerr << "OVERLAP_NONE, mPendingFrames=" << mPendingFrames << endl;
+      }
       memcpy(mPendingPcm + mPendingFrames, pcm, frames * 2);
       mPendingFrames += frames;
       flushframes = mPendingFrames;
@@ -413,6 +416,10 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
       break;
 
     case OVERLAP_HALF_PART:
+      if (mDebug) {
+        cerr << "OVERLAP_HALF_PART" << endl;
+      }
+
       // find quiet frames of first char
       while (endframe > 0 && abs(mPendingPcm[endframe]) < 32767) {
         endframe--;
