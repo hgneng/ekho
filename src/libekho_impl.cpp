@@ -77,6 +77,7 @@ int EkhoImpl::init(void) {
   this->tempoDelta = 0;
   this->pitchDelta = 0;
   this->rateDelta = 0;
+  this->mOverlap = 2048;
 
   this->isStopped = false;
   this->isPaused = false;

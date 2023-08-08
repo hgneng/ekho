@@ -103,9 +103,9 @@ int main(int argc, char**argv) {
 
   // test numbers
   Ekho wong("Cantonese");
-  wong.debug();
+  wong.setOverlap(2048);
+  //wong.debug();
   wong.blockSpeak("0.123456789");
-  /*
   wong.blockSpeak("192.168.0.1");
   wong.blockSpeak("$54321 ￥99999");
   wong.blockSpeak("50万 30.4亿 1234567890元 10086元");
@@ -128,7 +128,6 @@ int main(int argc, char**argv) {
   wong.blockSpeak("详情请致电81234567查询");
   wong.blockSpeak("a. b . c1 0 020, .314, 0.314, 10, 11, 20, 21, 100, 101, 110, 111, 1234");
   wong.blockSpeak("圆周率是3.14");
-  */
   wong.blockSpeak("为什么 hello world 123");
 
 /*
