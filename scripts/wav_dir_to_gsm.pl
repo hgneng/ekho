@@ -8,7 +8,7 @@ while (my $file = readdir(SRC_DIR)) {
     print "processing $file\n";
     # convert to lower case for Korean
     $symbol = lc($symbol);
-    system("sox $src_dir/$file -e gsm-full-rate -t wav -r 16000 $tgt_dir/$symbol.gsm");
+    system("sox $src_dir/$file -e gsm-full-rate -t wav $tgt_dir/$symbol.gsm");
   }
 }
 closedir(SRC_DIR);
