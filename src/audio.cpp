@@ -790,7 +790,7 @@ int EkhoImpl::saveMp3(string text, string filename) {
   }
   lame_close(gf);
 
-  // remove(tmp_wav.c_str());
+  remove(tmp_wav.c_str());
 
   if (EkhoImpl::mDebug) {
     cerr << "Finish writing MP3 file " << filename << endl;

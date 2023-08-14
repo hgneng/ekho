@@ -186,7 +186,7 @@ int EkhoImpl::startServer(int port) {
            << endl;
     }
 
-    // remove(tmpfile.c_str());
+    remove(tmpfile.c_str());
   }
 
   close(sockfd);  // This will never be executed
