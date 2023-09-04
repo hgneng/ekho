@@ -1,6 +1,6 @@
 # ekho
 
-Read INSTALL file if you have trouble in building.
+Read <a href='https://github.com/hgneng/ekho/blob/master/INSTALL'>INSTALL</a> file if you have trouble in building.
 
 Chinese text-to-speech engine. It's part of <a href='http://www.eguidedog.net'>eGuideDog project</a>. Here is <a href='http://www.eguidedog.net/ekho.php'>Ekho TTS's home page</a>.
 
