@@ -46,7 +46,6 @@ string Audio::tempDirectory = "";
 bool Audio::debug = false;
 
 Audio::Audio(void) {
-  this->processorStream = NULL;
   this->pitchDelta = 0;
   this->volumeDelta = 0;
   this->rateDelta = 0;
@@ -57,6 +56,14 @@ Audio::Audio(void) {
   this->channels = 1;
   this->speechdSynthCallback = NULL;
   this->hasProcessorInited = false;
+  this->pcmFrameBuffer = NULL;
+  this->pcmFrameMaxSize = 0;
+  this->pcmFrameCurrentSize = 0;
+
+#ifdef HAVE_SONIC
+  this->processorStream = NULL;
+#endif
+
 #ifdef HAVE_MPG123
   this->mpg123Handle = NULL;
 #endif
@@ -67,7 +74,7 @@ Audio::Audio(void) {
 }
 
 Audio::~Audio(void) {
-#ifndef ENABLE_SOUNDTOUCH
+#ifdef HAVE_SONIC
   if (this->processorStream) {
     sonicDestroyStream(this->processorStream);
     this->processorStream = 0;
@@ -82,7 +89,6 @@ Audio::~Audio(void) {
   }
 #endif
 }
-
 
 void Audio::initProcessor() {
   if (this->outputSampleRate == 0) {
@@ -101,13 +107,12 @@ void Audio::initProcessor(int samplerate, int channels) {
   this->outputSampleRate = samplerate;
   this->channels = channels;
 
-#ifdef ENABLE_SOUNDTOUCH
-  this->pSoundtouch.setSampleRate(mDict.mSfinfo.samplerate);
-  this->pSoundtouch.setChannels(1);
-  this->pSoundtouch.setSetting(SETTING_USE_QUICKSEEK, 1);
-#else
+#ifdef HAVE_SONIC
   this->processorStream = sonicCreateStream(samplerate, 1);
   sonicSetQuality(this->processorStream, 1); // high quality but slower
+#else
+  this->pcmFrameBuffer = (short*)malloc(20480 * sizeof(short));
+  this->pcmFrameMaxSize = 20480;
 #endif
 
   if (this->outputSampleRate != this->sampleRate) {
@@ -119,10 +124,17 @@ void Audio::initProcessor(int samplerate, int channels) {
 }
 
 void Audio::destroyProcessor() {
+#ifdef HAVE_SONIC
   if (this->processorStream) {
     sonicDestroyStream(this->processorStream);
     this->processorStream = 0;
   }
+#else
+  this->pcmFrameMaxSize = 0;
+  this->pcmFrameCurrentSize = 0;
+  free(this->pcmFrameBuffer);
+  this->pcmFrameBuffer = NULL;
+#endif
 }
 
 #ifdef HAVE_PULSEAUDIO
@@ -224,11 +236,14 @@ void Audio::setTempoFloat(float factor) {
   LOGD("Audio::setTempoFloat(%f) finalFactor=%f", factor, finalFactor);
 #endif
 
+#ifdef HAVE_SONIC
   sonicSetSpeed(this->processorStream, finalFactor);
+#endif
 }
 
 // 1 means no change. 2 means double high pitch
 void Audio::setPitchFloat(float factor) {
+#ifdef HAVE_SONIC
   if (!this->processorStream) {
     cerr << "Audio::processorStream not init" << endl;
     return;
@@ -245,6 +260,7 @@ void Audio::setPitchFloat(float factor) {
   }
 
   sonicSetPitch(this->processorStream, finalFactor);
+#endif
 }
 
 // 设置（英语）输入源的sample rate，sonic需要调整当前PCM流的语速，
@@ -263,8 +279,10 @@ int Audio::setSampleRate(int rate) {
 
   flushFrames();
   //sonicSetRate(this->processorStream, r);
+#ifdef HAVE_SONIC
   sonicSetRate(this->processorStream, (float)rate / this->sampleRate);
   this->currentSampleRate = rate;
+#endif
   return rate;
 }
 
@@ -333,11 +351,13 @@ int Audio::setVolume(int delta) {
   }*/
 
   if (delta >= -100 && delta <= 100) {
+#ifdef HAVE_SONIC
     this->volumeDelta = delta;
     // @TODO: Using sonic's setVolume doesn't work. Don't know why...
     if (this->processorStream) {
       sonicSetVolume(this->processorStream, (float)(100 + delta) / 100);
     }
+#endif
   }
 
   return this->volumeDelta;
@@ -348,14 +368,7 @@ int Audio::setRate(int delta) {
     cerr << "Audio::setRate: " << delta << endl;
   }
 
-#ifdef ENABLE_SOUNDTOUCH
-  if (delta >= -50 && delta <= 100) {
-    this->rateDelta = delta;
-  } else {
-    this->rateDelta = 0;
-  }
-  this->pSoundtouch.setRateChange(this->rateDelta);
-#else
+#ifdef HAVE_SONIC
   if (this->processorStream) {
     sonicSetRate(this->processorStream, (float)(100 + delta) / 100);
   }
@@ -366,6 +379,7 @@ int Audio::setRate(int delta) {
 }
 
 int Audio::readShortFrames(short buffer[], int size) {
+#ifdef HAVE_SONIC
   if (!this->processorStream) {
     cerr << "processorStream not initialized" << endl;
     return 0;
@@ -383,22 +397,53 @@ int Audio::readShortFrames(short buffer[], int size) {
     // mono
     return sonicReadShortFromStream(this->processorStream, buffer, size);
   }
+#else
+  if (size > this->pcmFrameCurrentSize) {
+    size = this->pcmFrameCurrentSize;
+  }
+  cerr << "readShortFrames: " << size << endl;
+  memcpy(buffer, this->pcmFrameBuffer, size * sizeof(short));
+  this->pcmFrameCurrentSize -= size;
+  if (this->pcmFrameCurrentSize > 0) {
+    memmove(this->pcmFrameBuffer, this->pcmFrameBuffer + size,
+      this->pcmFrameCurrentSize * sizeof(short));
+  }
+  return size;
+#endif
+
+  return 0;
 }
 
 int Audio::writeShortFrames(short buffer[], int size) {
+#ifdef HAVE_SONIC
   if (!this->processorStream) {
     cerr << "processorStream not initialized" << endl;
     return 0;
   }
+
   return sonicWriteShortToStream(this->processorStream, buffer, size);
+#else
+  while (this->pcmFrameCurrentSize + size > this->pcmFrameMaxSize) {
+    this->pcmFrameMaxSize *= 2;
+    this->pcmFrameBuffer = (short*)realloc(this->pcmFrameBuffer,
+      this->pcmFrameMaxSize * sizeof(short));
+  }
+
+  memcpy(this->pcmFrameBuffer + this->pcmFrameCurrentSize, buffer,
+    size * sizeof(short));
+  this->pcmFrameCurrentSize += size;
+  return size;
+#endif
 }
 
 void Audio::flushFrames() {
+#ifdef HAVE_SONIC
   if (!this->processorStream) {
     cerr << "processorStream not initialized" << endl;
     return;
   }
   sonicFlushStream(this->processorStream);
+#endif
 }
 
 void Audio::play(const string& path) {
@@ -596,6 +641,7 @@ int EkhoImpl::saveWav(string text, string filename) {
 
   // close record file
   sf_close(mSndFile);
+  mSndFile = NULL;
 
   if (EkhoImpl::mDebug) cerr << "Finish writting WAV file " << filename << endl;
 
@@ -631,6 +677,7 @@ int EkhoImpl::saveOgg(string text, string filename) {
 
   // close record file
   sf_close(mSndFile);
+  mSndFile = NULL;
 
   if (EkhoImpl::mDebug) {
     cerr << "Finish writting WAV file " << filename << " ..." << endl;

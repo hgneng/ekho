@@ -1506,9 +1506,9 @@ void Dict::saveEkhoVoiceFile() {
     type = 2;
   os.put(type);
 
-  // reserve for symbo count
-  os.put(0);
-  os.put(0);
+  // reserve for symbol count
+  os.put((unsigned char)0);
+  os.put((unsigned char)0);
 
   // scan files in voice_dir
   DIR *dirp;
@@ -1536,8 +1536,11 @@ void Dict::saveEkhoVoiceFile() {
       if (symbol.find("-") == string::npos) {
         //cerr << "index " << symbol << endl;
         // single phonetic symbol
-        os.put(1);
+        os.put((unsigned char)1);
         unsigned short code = getCodeOfSymbol(symbol);
+        cerr << "code:" << code << "," <<
+          (code & 0xFF) << "," <<
+          ((code >> 8) & 0xFF) << endl;
         os.put(code & 0xFF);
         os.put((code >> 8) & 0xFF);
 
@@ -1562,12 +1565,15 @@ void Dict::saveEkhoVoiceFile() {
 
         fclose(gsmfile);
 
+        // frameOffset
         os.put(total_bytes & 0xFF);
         os.put((total_bytes >> 8) & 0xFF);
         os.put((total_bytes >> 16) & 0xFF);
         os.put((total_bytes >> 24) & 0xFF);
         total_bytes += bytes;
 
+        // frames
+        // @fixme: 对于>65535的音频会不完整
         os.put(bytes & 0xFF);
         os.put((bytes >> 8) & 0xFF);
         os.put((bytes >> 16) & 0xFF);
@@ -1616,6 +1622,7 @@ void Dict::saveEkhoVoiceFile() {
         os.put((total_bytes >> 24) & 0xFF);
         total_bytes += bytes;
 
+        // frames
         os.put(bytes & 0xFF);
         os.put((bytes >> 8) & 0xFF);
         os.put((bytes >> 16) & 0xFF);

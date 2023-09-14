@@ -40,14 +40,17 @@ sizeof(int) == 4 bytes
 endian = little
 
 ===== Voice Data Index File Format =====
+// 5个字节
 unsigned short samplerate;
 unsigned byte; // 1 for 16bit wav, 2 for 16bit gsm
 unsigned short symbolCount;
+
+// 对于单字来说，1个拼音占9个字节
 unsigned byte codeCount; // number of symbol. >1 means the wave file is a word
 unsigned short symbolCode;
 ... // repeat codeCount times
 unsigned int frameOffset; // wave file offset
-unsigned short frames; // samples
+frames; // 占3个字节
 ... // repeat symbolCount times
 
 ===== memory check =====

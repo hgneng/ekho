@@ -49,7 +49,10 @@
 #include "ekho_dict.h"
 #include "ekho_typedef.h"
 #include "ekho_impl.h"
+
+#ifdef HAVE_SONIC
 #include "sonic.h"
+#endif
 
 #ifdef HAVE_PULSEAUDIO
 #include <pulse/error.h>
@@ -247,7 +250,9 @@ class Ekho {
      */
     bool isSpeaking();
 
+#ifdef HAVE_SONIC
     sonicStream mSonicStream;
+#endif
 
     static void* speechDaemon(void* args);
     static int speakPcm(short* pcm, int frames, void* arg, OverlapType type);

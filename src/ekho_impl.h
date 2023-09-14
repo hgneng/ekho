@@ -279,7 +279,7 @@ class EkhoImpl {
   queue<SpeechOrder> mSpeechQueue;
   pthread_cond_t mSpeechQueueCond;
 
-  short mPendingPcm[PENDING_PCM_FRAMES * 2];
+  short mPendingPcm[PENDING_PCM_FRAMES];
   int mPendingFrames;
 
   bool isSpeechThreadInited;

@@ -72,7 +72,7 @@ int EkhoImpl::init(void) {
 
   this->audio = new Audio();
 
-  this->mSndFile = 0;
+  this->mSndFile = NULL;
   this->isRecording = false;
   this->tempoDelta = 0;
   this->pitchDelta = 0;
@@ -273,29 +273,37 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
     }
   }*/
 
-  // 如果未播放的帧太多了，先播放掉（为什么是全部播放掉而不是一部分？？）
-  while (frames > PENDING_PCM_FRAMES - mPendingFrames) {
+  // 如果将要播放的帧太多了，先播放掉缓冲区，并把多余缓冲区的部分不经交叠处理播放
+  int remainBufferFrames = PENDING_PCM_FRAMES - mPendingFrames;
+  while (frames > remainBufferFrames) {
     if (mDebug) {
-      cerr << "flush frames: " << PENDING_PCM_FRAMES - mPendingFrames << endl;
+      cerr << "flush frames: " << remainBufferFrames << endl;
     }
-    memcpy(mPendingPcm + mPendingFrames, pcm, (PENDING_PCM_FRAMES - mPendingFrames) * 2);
+    memcpy(mPendingPcm + mPendingFrames, pcm, remainBufferFrames * 2);
     this->audio->writeShortFrames(mPendingPcm, PENDING_PCM_FRAMES);
-    pcm += PENDING_PCM_FRAMES - mPendingFrames;
-    frames -= PENDING_PCM_FRAMES - mPendingFrames;
+    pcm += remainBufferFrames;
+    frames -= remainBufferFrames;
     mPendingFrames = 0;
+    remainBufferFrames = PENDING_PCM_FRAMES;
   }
 
-  const int quiet_level = mOverlap; // 音量低于(quiet_level / 65536)的部分重叠
-
+  const int quiet_level = mOverlap; // 音量低于(quiet_level / 32767)的部分重叠
   int flushframes = 0;  // mPendingFrames里应该输出的frames
-  int cpframe = 0;  // 下一段音频里，0到cpframe - 1是已经被合并到mPendingFrames里的，
-          // 剩下的直接复制到mPendingFrames尾部
+
+  // 下一段音频里，0到cpframe - 1是已经被合并到mPendingFrames里的，
+  // 剩下的直接复制到mPendingFrames尾部
+  int cpframe = 0;
+
   int startframe = 0; // 下一段音频的开始重叠位置
-  int endframe = mPendingFrames - 1; // 上一段音频的结束重叠位置
+  int endframe = mPendingFrames; // 上一段音频的结束重叠位置
   int q_level = 0;
-  // promise length not less than de5 * 0.8.
+
+  // 保证每个拼音的单独长度，不被交叠太多（>=de5 * 0.8)
   int minFrames = mDict.mSfinfo.frames * 0.8;
-  int maxLeftFrames; // mPendingFrames - endframe - 1 + startframe;
+
+  // 上一段（左边）音频剩下的帧数
+  // mPendingFrames - endframe - 1 + startframe;
+  int maxLeftFrames;
   // cerr << "frames:" << frames << ",minFrames:" << minFrames << ",type:" << type << endl;
 
   switch (type) {
@@ -338,7 +346,6 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
       }
 
       // 下一段音频的帧并非都达到32767 - quiet_level水平，可以再尽可能多重叠一些
-      // remember a large frame and search back for small quite frame to overlarp
       q_level = 32767 - abs(mPendingPcm[i]);
       while (i > 0 && endframe - i < startframe &&
           abs(pcm[endframe - i]) < q_level) {
@@ -354,7 +361,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
       maxLeftFrames = mPendingFrames - endframe - 1 + startframe;
 
       // 下一段音频的开始位置再往后找一些帧，
-      // 确保不能和上一段音频重叠起来不能超过最大音量
+      // 确保和上一段音频重叠起来不能超过最大音量
       i = startframe;
       q_level = 32767 - quiet_level;
       while (i < frames && i < maxLeftFrames &&
@@ -390,12 +397,13 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
 
       if (mDebug) {
         cerr << "frames:" << frames << ", startframe: " << startframe <<
-          ", endframe:" << endframe << ", overlap: " << i - max(0, endframe - startframe) - 1 << endl;
+          ", endframe:" << endframe << ", overlap: " <<
+          i - max(0, endframe - startframe) << endl;
       }
 
       if (frames == 0) {
         // frames=0 means flush all pending frames
-        flushframes = i;
+        flushframes = mPendingFrames;
       } else if (mPendingFrames + mPendingFrames > frames) {
         // guaranteer pending frames no more than haft frames
         flushframes = mPendingFrames - frames * 0.5;
@@ -450,12 +458,15 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
 
   this->audio->writeShortFrames(mPendingPcm, flushframes);
   mPendingFrames -= flushframes;
-  if (mPendingFrames > 0) {
-    memcpy(mPendingPcm, mPendingPcm + flushframes, mPendingFrames * 2);
+  if (mPendingFrames > 0 && flushframes > 0) {
+    memmove(mPendingPcm, mPendingPcm + flushframes, mPendingFrames * 2);
   }
-  memcpy(mPendingPcm + mPendingFrames, pcm + cpframe, (frames - cpframe) * 2);
-  mPendingFrames += frames - cpframe;
 
+  if (frames > cpframe) {
+    memcpy(mPendingPcm + mPendingFrames, pcm + cpframe,
+     (frames - cpframe) * 2);
+    mPendingFrames += frames - cpframe;
+  }
 
   return flushframes;
 }

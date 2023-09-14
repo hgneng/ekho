@@ -15,7 +15,7 @@ You need to have following libraries first:
 * texinfo
 * libltdl-dev
 * libmpg123-dev
-* libsonic-dev
+* libsonic-dev (optionally required by change speed)
 * libutfcpp-dev (https://utfcpp.sourceforge.net/)
 * libespeak-ng-dev
 * libsndfile1-dev (http://www.mega-nerd.com/libsndfile/)

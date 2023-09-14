@@ -25,7 +25,10 @@
 #include <string>
 #include "ekho_typedef.h"
 #include "config.h"
+
+#ifdef HAVE_SONIC
 #include "sonic.h"
+#endif
 
 #ifdef HAVE_PULSEAUDIO
 #include <pulse/error.h>
@@ -46,7 +49,12 @@ class Audio {
   
     static bool debug;
     static string tempDirectory;
+#ifdef HAVE_SONIC
     sonicStream processorStream;
+#endif
+    short* pcmFrameBuffer;
+    int pcmFrameMaxSize;
+    int pcmFrameCurrentSize;
     int pitchDelta;
     int volumeDelta;
     int rateDelta;

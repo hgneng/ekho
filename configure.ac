@@ -72,7 +72,14 @@ AC_CHECK_LIB([sndfile], [main], [],
 
 AC_CHECK_LIB([espeak-ng], [main], [], [AC_MSG_FAILURE([espeak-ng test failed])],[])
 
-AC_CHECK_LIB([sonic], [main], [], [AC_MSG_FAILURE([sonic test failed])],[])
+LIB_SONIC=""
+AC_CHECK_LIB([sonic], [main],
+            [AC_SUBST([LIB_SONIC], ["-lsonic"])
+            AC_DEFINE([HAVE_SONIC], [1],
+                [Define if you have sonic])
+            ],
+            [],
+            [])
 
 AC_ARG_WITH([soxr],
         [AS_HELP_STRING([--with-soxr],
