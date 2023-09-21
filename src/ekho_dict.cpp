@@ -1538,9 +1538,6 @@ void Dict::saveEkhoVoiceFile() {
         // single phonetic symbol
         os.put((unsigned char)1);
         unsigned short code = getCodeOfSymbol(symbol);
-        cerr << "code:" << code << "," <<
-          (code & 0xFF) << "," <<
-          ((code >> 8) & 0xFF) << endl;
         os.put(code & 0xFF);
         os.put((code >> 8) & 0xFF);
 

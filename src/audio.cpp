@@ -401,7 +401,7 @@ int Audio::readShortFrames(short buffer[], int size) {
   if (size > this->pcmFrameCurrentSize) {
     size = this->pcmFrameCurrentSize;
   }
-  cerr << "readShortFrames: " << size << endl;
+  //cerr << "readShortFrames: " << size << endl;
   memcpy(buffer, this->pcmFrameBuffer, size * sizeof(short));
   this->pcmFrameCurrentSize -= size;
   if (this->pcmFrameCurrentSize > 0) {
