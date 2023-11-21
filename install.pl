@@ -94,25 +94,16 @@ if ($lang ne 'Tibetan' and $lang ne 'Mandarin' and $lang ne 'Cantonese') {
   $lang = 'Mandarin';
 }
 
-my $version = `grep DISTRIB_RELEASE /etc/lsb-release`;
-my $codename = `grep DISTRIB_CODENAME /etc/lsb-release`;
-my $osVersion = `grep VERSION_ID /etc/os-release`; # Debian
-if (($version =~ /(\d+\.\d+)/ && $1 >= 20.04) ||
-    $codename =~ /focal/ ||
-    ($osVersion =~ /(\d+)/ && $1 >= 11)) {
+my $os = `lsb_release -i`;
+if ($os !~ /Ubuntu/ && $os !~ /Debian/) {
+  print "Sorry. Your OS is not supported. Please refer to INSTALL. You can also send email to Cameron <hgneng at gmail.com> for help.\n";  
+} else {
   build_common() if (not $skip_build);
-  #`sudo ln -s /usr/lib/i386-linux-gnu/speech-dispatcher-modules /usr/lib/` if (not `grep "14.04" /etc/lsb-release`);
-  #if (! -e '/usr/lib/libsdaudio.so.2') {
-  #  `sudo cp speechd-api/src/audio/.libs/libsdaudio.so* /usr/lib/`;
-  #}
   setup_common();
   kill_speechd();
   system('sudo rm -rf /usr/local/share/ekho-data');
   system('sudo make install');
   setup_lang();
-  #`sudo rm -f /usr/lib/speech-dispatcher-modules/sd_cicero`;
-} else {
-  print "Sorry. Your OS is not supported. Please refer to INSTALL. You can also send email to Cameron <hgneng at gmail.com> for help.\n";
 }
 
 # start/restart Orca
