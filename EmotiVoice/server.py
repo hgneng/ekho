@@ -1,16 +1,26 @@
-# Copyright 2023, YOUDAO
-# 
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-# 
-#     http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+"""
+/***************************************************************************
+ * Copyright (C) 2008-2024 by Cameron Wong                                 *
+ * name in passport: HUANG GUANNENG                                        *
+ * email: hgneng at gmail.com                                              *
+ * website: https://eguidedog.net                                          *
+ *                                                                         *
+ * This program is free software; you can redistribute it and/or           *
+ * modify it under the terms of the GNU General Public License             *
+ * as published by the Free Software Foundation; either version 2          *
+ * of the License, or any later version.                                   *
+ *                                                                         *
+ * This program is distributed in the hope that it will be useful,         *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           *
+ * GNU General Public License for more details.                            *
+ *                                                                         *
+ * You should have received a copy of the GNU General Public License       *
+ * along with this program; if not, write to the Free Software             *
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,              *
+ * MA  02110-1301, USA.                                                    *
+ **************************************************************************/
+"""
 
 from models.prompt_tts_modified.jets import JETSGenerator
 from models.prompt_tts_modified.simbert import StyleEncoder
@@ -147,9 +157,9 @@ if __name__ == '__main__':
     #args.test_file = 'data/text.tts.txt'
 
     ##################################################
-    sys.path.append(os.path.dirname(os.path.abspath("__file__")) + "/" + args.config_folder)
+    #sys.path.append(os.path.dirname(os.path.abspath("__file__")) + "/" + args.config_folder)
 
-    from config import Config
+    from config.joint.config import Config
     config = Config()
     ##################################################
     init(args, config)
