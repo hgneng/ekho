@@ -71,6 +71,7 @@ class EkhoImpl {
   Audio* audio;
   static EkhoImpl* gEkho;
   bool isEspeakInited;
+  bool enableEmotiVoice;
 
   static SpeechdSynthCallback* speechdSynthCallback;
   void setSpeechdSynthCallback(SpeechdSynthCallback* callback);

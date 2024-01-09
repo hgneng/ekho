@@ -177,8 +177,6 @@ if __name__ == '__main__':
     # 监听端口，最大连接数为1
     sock.listen(1)
 
-    print(getPhonemes('123'))
-
     while True:
         print('等待连接...')
         connection, client_address = sock.accept()

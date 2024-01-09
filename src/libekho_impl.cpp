@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2022 by Cameron Wong                                 *
+ * Copyright (C) 2008-2024 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -84,6 +84,7 @@ int EkhoImpl::init(void) {
   this->isEnded = false;
   this->isSoundInited = false;
   this->isSpeechThreadInited = false;
+  this->enableEmotiVoice = false;
 
   mPcmCache = true;
 

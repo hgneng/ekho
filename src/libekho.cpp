@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2023 by Cameron Wong                                 *
+ * Copyright (C) 2008-2024 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -161,6 +161,10 @@ void Ekho::enableSsml() {
 
 void Ekho::disableSsml() {
   this->m_pImpl->supportSsml = false;
+}
+
+void Ekho::enableEmotiVoice() {
+  this->m_pImpl->enableEmotiVoice = true;
 }
 
 void Ekho::setSpeakIsolatedPunctuation(bool b) {

@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2023 by Cameron Wong                                 *
+ * Copyright (C) 2008-2024 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                       *
@@ -181,6 +181,8 @@ class Ekho {
      */
     void enableSsml(); // default
     void disableSsml();
+
+    void enableEmotiVoice(); // use EmotiVoice to synthesize Mandarin
 
     void setSpeakIsolatedPunctuation(bool b = true);
     bool getSpeakIsolatedPunctuation();
