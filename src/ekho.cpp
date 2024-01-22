@@ -184,7 +184,7 @@ int main(int argc, char *argv[]) {
                           {"samplerate", 1, NULL, 'j'},
                           {"channels", 1, NULL, 'k'},
                           {"port", 1, NULL, '1'},
-                          {"EmotiVoice", 1, NULL, 'm'},
+                          {"EmotiVoice", 0, NULL, 'm'},
                           {"overlap", 1, NULL, 'c'},
                           {"server", 0, NULL, 'e'},
                           {"request", 1, NULL, 'q'},
@@ -228,7 +228,7 @@ int main(int argc, char *argv[]) {
   int server_port = 2046;
   bool useEmotiVoice = false;
 
-  while ((opt = getopt_long(argc, argv, ":i:b:hgv:n:f:o:t:p:r:a:s:eq:lwd1:",
+  while ((opt = getopt_long(argc, argv, ":i:b:hgmv:n:f:o:t:p:r:a:s:eq:lwd1:",
                             opts, &optidx)) != -1) {
     switch (opt) {
       case 'c':
@@ -251,6 +251,7 @@ int main(int argc, char *argv[]) {
         break;
       case 'b':
         mode = SING_MODE;
+        break;
       case 'f':
         text_filename = optarg;
         if (!text_filename) {

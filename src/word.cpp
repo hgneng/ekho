@@ -28,6 +28,7 @@
 
 using namespace std;
 
+bool Word::emotiVoiceEnabled = false;
 map<string, list<WordPinyin> > Word::voiceFilesMap;
 
 void Word::loadWordVoiceFiles(string dir) {
@@ -390,6 +391,11 @@ list<Word> Word::split(string text) {
 }
 
 void Word::addChinese(list<Word>& wordList, const string& text) {
+  if (Word::emotiVoiceEnabled) {
+    wordList.push_back(Word(text, EMOTIVOICE));
+    return;
+  }
+
   list<PhoneticSymbol*> phonList = Dict::me->lookup(text);
   list<PhoneticSymbol*> phonList2;
 

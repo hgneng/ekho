@@ -124,6 +124,7 @@ def inference(content, phonemes, filepath):
     style_embedding = torch.from_numpy(style_embedding).to(device).unsqueeze(0)
     content_embedding = torch.from_numpy(content_embedding).to(device).unsqueeze(0)
     speaker = torch.from_numpy(np.array([speaker])).to(device)
+    #print("samplerate: ", config.sampling_rate)
 
     with torch.no_grad():
         infer_output = generator(

@@ -90,6 +90,7 @@ class Ekho {
     static SynthCallback* synthCallback; // callback for synth2
     static SynthCallback* synth4Callback;
     static EkhoImpl* impl;
+    static bool emotiVoiceEnabled;
 
     Ekho();
     Ekho(string voice);

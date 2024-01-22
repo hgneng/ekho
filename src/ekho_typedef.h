@@ -29,7 +29,8 @@ typedef enum {
   HALF_PAUSE = 4,
   QUATER_PAUSE = 5,
   PHONETIC = 6,
-  RECORDING = 7
+  RECORDING = 7,
+  EMOTIVOICE = 8
 } TextType;
 
 typedef enum {

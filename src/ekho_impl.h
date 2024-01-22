@@ -71,7 +71,6 @@ class EkhoImpl {
   Audio* audio;
   static EkhoImpl* gEkho;
   bool isEspeakInited;
-  bool enableEmotiVoice;
 
   static SpeechdSynthCallback* speechdSynthCallback;
   void setSpeechdSynthCallback(SpeechdSynthCallback* callback);
@@ -245,6 +244,8 @@ class EkhoImpl {
   const char* getPcmFromFlite(string text, int& size);
   void synthWithEspeak(string text);
   const char* getEnglishPcm(string text, int& size);
+
+  short* getPcmFromEmotiVoice(string text, int& size);
 
   void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
 

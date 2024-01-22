@@ -66,6 +66,7 @@ using namespace std;
 #endif
 
 bool Ekho::mDebug = false;
+bool Ekho::emotiVoiceEnabled = false;
 
 void Ekho::debug(bool flag) {
   Ekho::mDebug = flag;
@@ -164,7 +165,8 @@ void Ekho::disableSsml() {
 }
 
 void Ekho::enableEmotiVoice() {
-  this->m_pImpl->enableEmotiVoice = true;
+  Ekho::emotiVoiceEnabled = true;
+  Word::emotiVoiceEnabled = true;
 }
 
 void Ekho::setSpeakIsolatedPunctuation(bool b) {

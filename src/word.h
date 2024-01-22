@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2022 by Cameron Wong                                 *
+ * Copyright (C) 2008-2024 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -34,6 +34,10 @@ using namespace ekho;
 
 typedef list<string> WordPinyin;
 
+// 注意：这里不一定是一个词，它是一个合成单位。
+// 例如所有连续的英文字符串会被划分为一个Word，交给eSpeak-ng去合成
+// 如果启用了EmotiVoice，会把连续的中文字符串划分为一个Word，交给EmotiVoice去合成
+// 只有在某些词被录制了对应的语音，才会被独立划分为一个名副其实的Word，用对应的录音去合成词的音频
 class Word {
 public:
   TextType type;
@@ -42,6 +46,7 @@ public:
   list<OverlapType> overlapTypes;
   unsigned int offset;
   unsigned short bytes;
+  static bool emotiVoiceEnabled;
 
   Word(string txt, TextType t)
       : type(t), text(txt), symbols(0), overlapTypes(0), offset(0), bytes(0){};
