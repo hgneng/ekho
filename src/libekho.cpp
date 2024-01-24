@@ -165,8 +165,15 @@ void Ekho::disableSsml() {
 }
 
 void Ekho::enableEmotiVoice() {
-  Ekho::emotiVoiceEnabled = true;
-  Word::emotiVoiceEnabled = true;
+  int size = 0;
+  // 先检查EmotiVoice服务进程是否存在，再确认启用。
+  short *pcm = this->m_pImpl->getPcmFromEmotiVoice("的", size);
+  if (pcm) {
+    Ekho::emotiVoiceEnabled = true;
+    Word::emotiVoiceEnabled = true;
+    delete[] pcm;
+    pcm = NULL;
+  }
 }
 
 void Ekho::setSpeakIsolatedPunctuation(bool b) {

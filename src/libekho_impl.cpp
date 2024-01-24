@@ -783,17 +783,19 @@ int EkhoImpl::stop(void) {
 }
 
 void EkhoImpl::setSpeed(int tempo_delta) {
-  // nomralize voice's tempo
   int baseDelta = 0;
-  if (mDict.getLanguage() == MANDARIN && mDict.mSfinfo.frames > 0) {
-    baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
-    if (EkhoImpl::mDebug) {
-      cerr << "mDict.mSfinfo.frames=" << mDict.mSfinfo.frames << ", samplerate=" << mDict.mSfinfo.samplerate << endl;
-    }
+  if (!Ekho::emotiVoiceEnabled) { // EmotiVoice是正常速度，不需要调整
+    // nomralize voice's tempo
+    if (mDict.getLanguage() == MANDARIN && mDict.mSfinfo.frames > 0) {
+      baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
+      if (EkhoImpl::mDebug) {
+        cerr << "mDict.mSfinfo.frames=" << mDict.mSfinfo.frames << ", samplerate=" << mDict.mSfinfo.samplerate << endl;
+      }
 
-    // Changing tempo will add noise, we'd better don't do it.
-    if (baseDelta < 10 && baseDelta > -10) {
-      baseDelta = 0;
+      // Changing tempo will add noise, we'd better don't do it.
+      if (baseDelta < 10 && baseDelta > -10) {
+        baseDelta = 0;
+      }
     }
   }
 
