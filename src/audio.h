@@ -103,6 +103,7 @@ class Audio {
     // It's caller's responsibility to delete return short space
     short* readPcmFromAudioFile(string filepath, int& size);
     short* readPcmFromMp3File(string filepath, int& size);
+    short* amplifyPcm(short* pcm, int size, float rate);
 
   private:
     bool hasProcessorInited;

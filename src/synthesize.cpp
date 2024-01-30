@@ -345,8 +345,14 @@ short* EkhoImpl::getPcmFromEmotiVoice(string text, int& size) {
   close(sock);
 
   if (strlen(buffer) > 0) {
-    // convert samplerate from 16000 to ...
-    return this->audio->readPcmFromAudioFile(buffer, size);
+    // @TODO: convert samplerate from 16000 to ...
+    short* pcm = this->audio->readPcmFromAudioFile(buffer, size);
+
+    // amplify
+    short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, 2.5);
+    delete[] pcm;
+    pcm = NULL;
+    return amplifiedPcm;
   }
 
   return NULL;

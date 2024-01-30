@@ -553,10 +553,10 @@ short* Audio::readPcmFromAudioFile(string filepath, int& size) {
     return NULL;
   }
 
-  short *pcm = new short[sfinfo.frames];
-  sf_readf_short(sndfile, pcm, sfinfo.frames);
-  sf_close(sndfile);
   size = sfinfo.frames;
+  short *pcm = new short[size];
+  sf_readf_short(sndfile, pcm, size);
+  sf_close(sndfile);
 
   return pcm;
 }
@@ -569,6 +569,28 @@ void Audio::initMp3Processor() {
     this->mpg123Handle = mpg123_new(NULL, &err);
   }
 #endif
+}
+
+// It's caller's responsibility to delete return short space
+short* Audio::amplifyPcm(short* pcm, int size, float rate) {
+  short* amplifiedPcm = new short[size];
+  for (int i = 0; i < size; i++) {
+    int sample = (int)pcm[i] * rate;
+
+    if (sample > 32767) {
+      sample = 32767;
+      cerr << "[Warning] Audio::amplifyPcm overflow, try to lower the amplify rate." << endl;
+    }
+
+    if (sample < -32768) {
+      sample = -32768;
+      cerr << "[Warning] Audio::amplifyPcm overflow, try to lower the amplify rate." << endl;
+    }
+
+    amplifiedPcm[i] = (short)sample;
+  }
+
+  return amplifiedPcm;
 }
 
 // It's caller's responsibility to delete return short space

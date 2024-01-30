@@ -391,16 +391,12 @@ list<Word> Word::split(string text) {
 }
 
 void Word::addChinese(list<Word>& wordList, const string& text) {
-  if (Word::emotiVoiceEnabled) {
-    wordList.push_back(Word(text, EMOTIVOICE));
-    return;
-  }
-
   list<PhoneticSymbol*> phonList = Dict::me->lookup(text);
   list<PhoneticSymbol*> phonList2;
 
   list<PhoneticSymbol*>::iterator itor = phonList.begin();
   list<PhoneticSymbol*>::iterator itor2 = itor;
+  list<PhoneticSymbol*>::iterator itor3 = itor;
   for (; itor != phonList.end(); itor++) {
     string filename;
     if (Word::voiceFilesMap.find((*itor)->symbol) != Word::voiceFilesMap.end()) {
@@ -413,6 +409,14 @@ void Word::addChinese(list<Word>& wordList, const string& text) {
     }
 
     if (!filename.empty()) {
+      itor3 = itor2;
+      itor3++;
+      if (Word::emotiVoiceEnabled && itor3 != phonList.end()) {
+        // 没有缓存匹配，调用EmotiVoice合成
+        wordList.push_back(Word(text, EMOTIVOICE));
+        return;
+      }
+
       if (!phonList2.empty()) {
         wordList.push_back(Word(phonList2));
         phonList2.clear();
@@ -422,6 +426,14 @@ void Word::addChinese(list<Word>& wordList, const string& text) {
       wordList.push_back(Word((*itor)->symbol + filename, RECORDING));
       itor = itor2;
     } else {
+      itor3 = itor;
+      itor3++;
+      if (Word::emotiVoiceEnabled && itor3 != phonList.end()) {
+        // 没有缓存匹配，并且有多个字，调用EmotiVoice合成
+        wordList.push_back(Word(text, EMOTIVOICE));
+        return;
+      }
+
       phonList2.push_back(*itor);
     }
   }
