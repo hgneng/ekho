@@ -75,10 +75,24 @@ string Ssml::getAudioPath(const string& text) {
 	return "";
 }
 
+// 过滤文本前后空白字符，及中文字间空白字符
 void Ssml::filterSpaces(string &text) {
   bool changed = false;
-
   string text2;
+
+  size_t first = text.find_first_not_of(' ');
+  if (first == std::string::npos) {
+    // If the string is all spaces
+    text = "";
+    return;
+  }
+
+  // 去掉前后空格
+  size_t last = text.find_last_not_of(' ');
+  if (text.length() != last - first + 1) {
+    text = text.substr(first, last - first + 1);
+  }
+
   bool in_chinese_context = true;
 
   int c;
@@ -104,6 +118,7 @@ void Ssml::filterSpaces(string &text) {
 #endif
 
     if (in_chinese_context && (c == 32 || c == 12288)) {
+      // 去掉中文字间空白字符
       changed = true;
     } else {
       while (it2 != it) {
