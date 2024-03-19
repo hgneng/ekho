@@ -67,6 +67,7 @@ using namespace std;
 
 bool Ekho::mDebug = false;
 bool Ekho::emotiVoiceEnabled = false;
+bool Ekho::coquiEnabled = false;
 
 void Ekho::debug(bool flag) {
   Ekho::mDebug = flag;
@@ -167,11 +168,18 @@ void Ekho::disableSsml() {
 void Ekho::enableEmotiVoice() {
   int size = 0;
   // 先检查EmotiVoice服务进程是否存在，再确认启用。
-  short *pcm = this->m_pImpl->getPcmFromEmotiVoice("的", size);
+  short* pcm = this->m_pImpl->getPcmFromServer(Ekho::EMOTIVOICE_PORT, "的", size, Ekho::EMOTIVOICE_AMPLIFY_RATE);
   if (pcm) {
     Ekho::emotiVoiceEnabled = true;
     Word::emotiVoiceEnabled = true;
     delete[] pcm;
+    pcm = NULL;
+  }
+
+  // 检查Coqui英文服务进程是否存在，再确认启用。
+  pcm = this->m_pImpl->getPcmFromServer(Ekho::COQUI_PORT, "a", size, Ekho::COQUI_AMPLIFY_RATE);
+  if (pcm) {
+    Ekho::coquiEnabled = true;
     pcm = NULL;
   }
 }

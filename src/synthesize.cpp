@@ -195,12 +195,10 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
             pPcm = this->getEnglishPcm(word->text, size);
             if (pPcm && size > 0) {
               callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
-              if (pPcm) {
-                delete[] pPcm;
-                this->audio->setSampleRate(this->audio->sampleRate);
-              }
+              delete[] pPcm;
+              pPcm = NULL;
+              this->audio->setSampleRate(this->audio->sampleRate);
             }
-            pPcm = 0;
           }
         }
         break;
@@ -274,7 +272,7 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
 
       case EMOTIVOICE:
         // 通过EmotiVoice合成中文
-        shortPcm = this->getPcmFromEmotiVoice(word->text, size);
+        shortPcm = this->getPcmFromServer(Ekho::EMOTIVOICE_PORT, word->text, size, Ekho::EMOTIVOICE_AMPLIFY_RATE);
         if (shortPcm) {
           callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
           free(shortPcm);
@@ -296,13 +294,17 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
   return 0;
 }
  
-// It's caller's responsibility to delete the returned pointer
 #include <iostream>  
 #include <cstring>  
 #include <sys/socket.h>  
 #include <arpa/inet.h>  
-#include <unistd.h> 
-short* EkhoImpl::getPcmFromEmotiVoice(string text, int& size) {
+#include <unistd.h>
+// It's caller's responsibility to delete the returned pointer
+short* EkhoImpl::getPcmFromServer(int port, string text, int& size, float amplifyRate) {
+  if (mDebug) {
+    cerr << "getPcmFromServer(" << port << ", " << text << ")" << endl;
+  }
+
   // 创建socket  
   int sock = socket(AF_INET, SOCK_STREAM, 0);  
   if (sock == -1) {  
@@ -313,13 +315,13 @@ short* EkhoImpl::getPcmFromEmotiVoice(string text, int& size) {
   // 设置服务器地址结构体  
   struct sockaddr_in server_addr;  
   server_addr.sin_family = AF_INET;  
-  server_addr.sin_port = htons(20491); // 服务器端口号  
+  server_addr.sin_port = htons(port); // 服务器端口号  
   server_addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // 服务器IP地址  
   bzero(&(server_addr.sin_zero), 8);  
 
   // 连接服务器  
   if (connect(sock, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1) {  
-    std::cerr << "Failed to connect to server" << std::endl;  
+    std::cerr << "Failed to connect to server at port " << port << std::endl;  
     close(sock);  
     return NULL;
   }  
@@ -349,10 +351,14 @@ short* EkhoImpl::getPcmFromEmotiVoice(string text, int& size) {
     short* pcm = this->audio->readPcmFromAudioFile(buffer, size);
 
     // amplify
-    short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, 2.5);
-    delete[] pcm;
-    pcm = NULL;
-    return amplifiedPcm;
+    if (amplifyRate != 1) {
+      short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, amplifyRate);
+      delete[] pcm;
+      pcm = NULL;
+      return amplifiedPcm;
+    } else {
+      return pcm;
+    }
   }
 
   return NULL;

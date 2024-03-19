@@ -245,7 +245,7 @@ class EkhoImpl {
   void synthWithEspeak(string text);
   const char* getEnglishPcm(string text, int& size);
 
-  short* getPcmFromEmotiVoice(string text, int& size);
+  short* getPcmFromServer(int port, string text, int& size, float amplifyRate);
 
   void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
 

@@ -84,6 +84,11 @@ class Ekho {
     const static int BUFFER_SIZE = 40960;
     const static int PENDING_PCM_FRAMES = 20480;
     const static int MAX_CLIENTS = 100;
+    const static int EMOTIVOICE_PORT = 20491;
+    const static constexpr float EMOTIVOICE_AMPLIFY_RATE = 2.5;
+    const static int COQUI_PORT = 20492;
+    const static constexpr float COQUI_AMPLIFY_RATE = 1;
+    const static int COQUI_SAMPLE_RATE = 22050;
 
     static bool mDebug;
     static void debug(bool flag = true);
@@ -91,6 +96,7 @@ class Ekho {
     static SynthCallback* synth4Callback;
     static EkhoImpl* impl;
     static bool emotiVoiceEnabled;
+    static bool coquiEnabled;
 
     Ekho();
     Ekho(string voice);

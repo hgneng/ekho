@@ -334,12 +334,14 @@ int main(int argc, char *argv[]) {
   }
 
   if (text_filename) {
+    // input from file
     if (strcmp(text_filename, "-") == 0) {
       read_stdin(&text);
     } else {
       read_textfile(text_filename, &text);
     }
   } else {
+    // get text to synthesize
     bool is_first_text = true;
     for (; optind < argc; optind++) {
       if (access(argv[optind], R_OK)) {
@@ -359,6 +361,7 @@ int main(int argc, char *argv[]) {
   }
 
   if (mode != REQUEST_MODE && is_listing_symbols) {
+    // output phonetic symbols
     Language lang = ENGLISH;
     if (language.compare("Cantonese") == 0) {
       lang = CANTONESE;
@@ -390,6 +393,7 @@ int main(int argc, char *argv[]) {
 
     cout << endl;
   } else if (mode != REQUEST_MODE && is_listing_word) {
+    // output word list for debug
     Ekho::debug(isDebugging);
     Dict dict(MANDARIN);
     list<Word> word_list = Word::split(text);
@@ -399,6 +403,7 @@ int main(int argc, char *argv[]) {
       cout << "/";
     }
   } else if (mode == SERVER_MODE) {
+    // start as server
     Ekho::debug(isDebugging);
     ekho_g = new Ekho(language);
     ekho_g->setOverlap(overlap);
@@ -407,6 +412,7 @@ int main(int argc, char *argv[]) {
     }
     ekho_g->startServer(server_port);
   } else if (mode == REQUEST_MODE) {
+    // request to a server
     Ekho::debug(isDebugging);
     ekho_g = new Ekho();
     ekho_g->setSpeed(tempo_delta);
@@ -436,6 +442,7 @@ int main(int argc, char *argv[]) {
 
     ekho_g->request("127.0.0.1", server_port, cmd, text, save_filename);
   } else if (mode == SING_MODE) {
+    // sing song (experimental)
     Ekho::debug(isDebugging);
     ekho_g = new Ekho(language);
     string saveFilename = "";
@@ -446,6 +453,7 @@ int main(int argc, char *argv[]) {
     delete ekho_g;
     ekho_g = 0;
   } else {
+    // main synthesize
     Ekho::debug(isDebugging);
     ekho_g = new Ekho();
     ekho_g->setSampleRate(sample_rate);
@@ -462,6 +470,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (save_filename) {
+      // output to file
       if (save_type && strcmp(save_type, "ogg") == 0) {
         ekho_g->saveOgg(text, save_filename);
       } else if (save_type && strcmp(save_type, "mp3") == 0) {
@@ -474,6 +483,7 @@ int main(int argc, char *argv[]) {
         ekho_g->saveWav(text, save_filename);
       }
     } else if (strlen(text) > 0) {
+      // synthesize through speaker
       ekho_g->blockSpeak(text);
     } else {
       show_help();

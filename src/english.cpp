@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2022 by Cameron Wong                                 *
+ * Copyright (C) 2008-2024 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -144,6 +144,10 @@ void EkhoImpl::setEnglishSpeed(int delta) {
 }
 
 const char* EkhoImpl::getEnglishPcm(string text, int &size) {
+  if (Ekho::coquiEnabled) { 
+    this->audio->setSampleRate(Ekho::COQUI_SAMPLE_RATE);
+    return (const char*)this->getPcmFromServer(Ekho::COQUI_PORT, text, size, Ekho::COQUI_AMPLIFY_RATE);
+  } else {
 #ifdef ENABLE_FLITE
   return getPcmFromFlite(text, size);
 #endif
@@ -153,9 +157,10 @@ const char* EkhoImpl::getEnglishPcm(string text, int &size) {
 #endif
 
 #ifdef ENABLE_ESPEAK
-  synthWithEspeak(text);
+  this->synthWithEspeak(text);
   return NULL;
 #endif
+  }
 }
 
 void EkhoImpl::synthWithEspeak(string text) {

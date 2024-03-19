@@ -578,13 +578,13 @@ short* Audio::amplifyPcm(short* pcm, int size, float rate) {
     int sample = (int)pcm[i] * rate;
 
     if (sample > 32767) {
+      cerr << "[Warning] Audio::amplifyPcm(" << pcm[i] << "," << rate << ") overflow, try to lower the amplify rate: " << sample << endl;
       sample = 32767;
-      cerr << "[Warning] Audio::amplifyPcm overflow, try to lower the amplify rate." << endl;
     }
 
     if (sample < -32768) {
+      cerr << "[Warning] Audio::amplifyPcm(" << pcm[i] << "," << rate << ") overflow, try to lower the amplify rate: " << sample << endl;
       sample = -32768;
-      cerr << "[Warning] Audio::amplifyPcm overflow, try to lower the amplify rate." << endl;
     }
 
     amplifiedPcm[i] = (short)sample;
