@@ -277,7 +277,7 @@ int Audio::setSampleRate(int rate) {
   LOGD("Audio::setSampleRate(%d) main samplerate=", rate, this->sampleRate);
 #endif
 
-  flushFrames();
+  //flushFrames();
   //sonicSetRate(this->processorStream, r);
 #ifdef HAVE_SONIC
   sonicSetRate(this->processorStream, (float)rate / this->sampleRate);

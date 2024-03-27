@@ -85,7 +85,7 @@ class Ekho {
     const static int PENDING_PCM_FRAMES = 20480;
     const static int MAX_CLIENTS = 100;
     const static int EMOTIVOICE_PORT = 20491;
-    const static constexpr float EMOTIVOICE_AMPLIFY_RATE = 2.5;
+    const static constexpr float EMOTIVOICE_AMPLIFY_RATE = 2;
     const static int COQUI_PORT = 20492;
     const static constexpr float COQUI_AMPLIFY_RATE = 1;
     const static int COQUI_SAMPLE_RATE = 22050;
@@ -264,7 +264,6 @@ class Ekho {
 #endif
 
     static void* speechDaemon(void* args);
-    static int speakPcm(short* pcm, int frames, void* arg, OverlapType type);
     static int writePcm(short* pcm, int frames, void* arg, OverlapType type);
     void finishWritePcm();
     int writeToSonicStream(short* pcm, int frames, OverlapType type);

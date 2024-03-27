@@ -183,8 +183,10 @@ void EkhoImpl::closeStream(void) {
 #endif
 }
 
-int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
-     bool tofile) {
+int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type) {
+  if (EkhoImpl::mDebug) {
+    cerr << "EkhoImpl::writePcm(frames=" << frames << ", type=" << type << ")" << endl;
+  }
   EkhoImpl *pEkho = (EkhoImpl *)arg;
 /*
   if (frames == 0) {
@@ -198,6 +200,9 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
 
   if (!pEkho->isStopped) {        
     int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
+    if (EkhoImpl::mDebug) {
+      cerr << "EkhoImpl::writePcm: flush_frames=" << flush_frames << endl;
+    }
 
     if (flush_frames) {
       do {
@@ -210,9 +215,12 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
         }
 
         frames = pEkho->audio->readShortFrames(buffer, BUFFER_SIZE);
+        if (EkhoImpl::mDebug) {
+          cerr << "EkhoImpl::writePcm: read frames=" << frames << endl;
+        }
 
         if (frames > 0) {
-          if (tofile) {
+          if (pEkho->mSndFile) {
             /*int writtenFrames = */sf_writef_short(pEkho->mSndFile, buffer, frames / pEkho->audio->channels);
             /*
             if (frames / pEkho->audio->channels != writtenFrames) {
@@ -229,6 +237,9 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type,
                   pEkho->audio->channels, pEkho->audio->sampleRate, 0);
             } else {
   #ifdef HAVE_PULSEAUDIO
+              if (EkhoImpl::mDebug) {
+                cerr << "pulseAudioWrite: " << frames << " frames" << endl;
+              }
               pEkho->audio->pulseAudioWrite((const void*)buffer, frames * 2);
   #endif
             }
@@ -309,7 +320,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
   switch (type) {
     case OVERLAP_NONE:
       if (mDebug) {
-        cerr << "OVERLAP_NONE, mPendingFrames=" << mPendingFrames << endl;
+        cerr << "writeToSonicStream: OVERLAP_NONE, mPendingFrames=" << mPendingFrames << endl;
       }
       memcpy(mPendingPcm + mPendingFrames, pcm, frames * 2);
       mPendingFrames += frames;
@@ -472,7 +483,7 @@ int EkhoImpl::writeToSonicStream(short* pcm, int frames, OverlapType type) {
 }
 
 void EkhoImpl::finishWritePcm(void) {
-  writePcm(0, 0, this, OVERLAP_QUIET_PART);
+  writePcm(0, 0, this, OVERLAP_NONE);
 }
 
 void* EkhoImpl::speechDaemon(void *args) {
@@ -519,7 +530,7 @@ void* EkhoImpl::speechDaemon(void *args) {
     if (EkhoImpl::mDebug) {
       cerr << "EkhoImpl::speechDaemon synth2 " << order.text << endl;
     }
-    pEkho->synth2(order.text, speakPcm);
+    pEkho->synth2(order.text, writePcm);
 
     if (!pEkho->isStopped) {
       // try to add pause to flush short pcm char
@@ -528,7 +539,7 @@ void* EkhoImpl::speechDaemon(void *args) {
       if (EkhoImpl::mDebug) {
         cerr << "add quaterpause " << size << endl;
       }
-      pEkho->speakPcm((short *)pcm, size / 2, pEkho, OVERLAP_NONE);
+      pEkho->writePcm((short *)pcm, size / 2, pEkho, OVERLAP_NONE);
       // pEkho->speakPcm(0, 0, pEkho, OVERLAP_NONE);
       if (EkhoImpl::speechdSynthCallback) {
         // @fixme: following two statements seems not flush rest PCM

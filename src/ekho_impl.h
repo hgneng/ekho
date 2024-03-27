@@ -221,14 +221,7 @@ class EkhoImpl {
   inline bool isSpeaking(void) { return !mSpeechQueue.empty(); }
 
   static void* speechDaemon(void* args);
-  static int writePcm(short* pcm, int frames, void* arg, OverlapType type,
-                      bool tofile);
-  static int writePcm(short* pcm, int frames, void* arg, OverlapType type) {
-    return writePcm(pcm, frames, arg, type, true);
-  }
-  static int speakPcm(short* pcm, int frames, void* arg, OverlapType type) {
-    return writePcm(pcm, frames, arg, type, false);
-  }
+  static int writePcm(short* pcm, int frames, void* arg, OverlapType type);
   void finishWritePcm(void);
   int writeToSonicStream(short* pcm, int frames, OverlapType type);
   /*

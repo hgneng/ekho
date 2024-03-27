@@ -192,6 +192,7 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
       	    pPcm = (*phon_symbol)->getPcm(mDict.mVoiceFile, size);
             callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
           } else {
+            finishWritePcm(); // flush Chinese pcm in case of different sample rate
             pPcm = this->getEnglishPcm(word->text, size);
             if (pPcm && size > 0) {
               callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);

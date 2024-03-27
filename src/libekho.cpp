@@ -118,10 +118,6 @@ int Ekho::saveMp3(string text, string filename) {
 }
 #endif
 
-int Ekho::speakPcm(short *pcm, int frames, void *arg, OverlapType type) {
-  return EkhoImpl::speakPcm(pcm, frames, arg, type);
-}
-
 int Ekho::writeToSonicStream(short *pcm, int frames, OverlapType type) {
   return this->m_pImpl->writeToSonicStream(pcm, frames, type);
 }
