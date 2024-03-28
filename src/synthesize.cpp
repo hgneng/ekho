@@ -351,6 +351,10 @@ short* EkhoImpl::getPcmFromServer(int port, string text, int& size, float amplif
     // @TODO: convert samplerate from 16000 to ...
     short* pcm = this->audio->readPcmFromAudioFile(buffer, size);
 
+    if (mDebug) {
+      cerr << "getPcmFromServer: size=" << size << endl;
+    }
+
     // amplify
     if (amplifyRate != 1) {
       short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, amplifyRate);

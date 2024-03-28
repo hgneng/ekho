@@ -173,11 +173,12 @@ void Ekho::enableEmotiVoice() {
   }
 
   // 检查Coqui英文服务进程是否存在，再确认启用。
+  /*
   pcm = this->m_pImpl->getPcmFromServer(Ekho::COQUI_PORT, "a", size, Ekho::COQUI_AMPLIFY_RATE);
   if (pcm) {
     Ekho::coquiEnabled = true;
     pcm = NULL;
-  }
+  }*/
 }
 
 void Ekho::setSpeakIsolatedPunctuation(bool b) {

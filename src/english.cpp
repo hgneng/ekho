@@ -144,9 +144,11 @@ void EkhoImpl::setEnglishSpeed(int delta) {
 }
 
 const char* EkhoImpl::getEnglishPcm(string text, int &size) {
-  if (Ekho::coquiEnabled) { 
-    this->audio->setSampleRate(Ekho::COQUI_SAMPLE_RATE);
-    return (const char*)this->getPcmFromServer(Ekho::COQUI_PORT, text, size, Ekho::COQUI_AMPLIFY_RATE);
+  if (Ekho::emotiVoiceEnabled) { 
+    //this->audio->setSampleRate(Ekho::COQUI_SAMPLE_RATE);
+    const char* pcm = (const char*)this->getPcmFromServer(Ekho::EMOTIVOICE_PORT, text, size, Ekho::EMOTIVOICE_AMPLIFY_RATE);
+    size *= 2; // convert frames to chars
+    return pcm;
   } else {
 #ifdef ENABLE_FLITE
   return getPcmFromFlite(text, size);
