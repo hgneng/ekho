@@ -80,6 +80,9 @@ class Ekho {
     map<string, double> pitchMap;
     map<string, double> pianoPitchMap;
 
+    long getAvailableMemory();
+    bool checkEmotiVoiceServerStarted();
+
   public:
     const static int BUFFER_SIZE = 40960;
     const static int PENDING_PCM_FRAMES = 20480;
@@ -189,7 +192,7 @@ class Ekho {
     void enableSsml(); // default
     void disableSsml();
 
-    void enableEmotiVoice(); // use EmotiVoice to synthesize Mandarin
+    bool enableEmotiVoice(); // use EmotiVoice to synthesize Mandarin
 
     void setSpeakIsolatedPunctuation(bool b = true);
     bool getSpeakIsolatedPunctuation();

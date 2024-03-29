@@ -56,7 +56,7 @@ Syntax: ekho [option] [text]\n\
 -v, --voice=VOICE\n\
         Specified language or voice. ('Cantonese', 'Mandarin', 'Toisanese', 'Hakka', 'Tibetan', 'Ngangien' and 'Hangul' are available now. Mandarin is the default language.)\n\
 --EmotiVoice\n\
-        Use EmotiVoice to sythesize Mandarin.\n\        
+        Use EmotiVoice to sythesize Mandarin.\n\
 -l, --symbol\n\
         List phonetic symbol of text. Characters' symbols are splited by space.\n\
 -f, --file=FILE\n\

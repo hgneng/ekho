@@ -31,6 +31,9 @@
 #include <unistd.h>
 #include <fstream>
 #include <iostream>
+#include <thread>
+#include <cstdint>
+#include <cstdlib>
 #include "config.h"
 #include "ekho.h"
 #include "ekho_dict.h"
@@ -161,9 +164,22 @@ void Ekho::disableSsml() {
   this->m_pImpl->supportSsml = false;
 }
 
-void Ekho::enableEmotiVoice() {
+long Ekho::getAvailableMemory() {
+  std::uint64_t availableMemory = 0;
+#if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+  long pages = sysconf(_SC_AVPHYS_PAGES);
+  long page_size = sysconf(_SC_PAGESIZE);
+  availableMemory = pages * page_size;
+  if (mDebug) {
+    cerr << "getAvailableMemory:" << availableMemory << endl;
+  }
+#endif
+
+  return availableMemory;
+}
+
+bool Ekho::checkEmotiVoiceServerStarted() {
   int size = 0;
-  // 先检查EmotiVoice服务进程是否存在，再确认启用。
   short* pcm = this->m_pImpl->getPcmFromServer(Ekho::EMOTIVOICE_PORT, "的", size, Ekho::EMOTIVOICE_AMPLIFY_RATE);
   if (pcm) {
     Ekho::emotiVoiceEnabled = true;
@@ -171,6 +187,35 @@ void Ekho::enableEmotiVoice() {
     delete[] pcm;
     pcm = NULL;
   }
+  return Ekho::emotiVoiceEnabled;
+}
+
+bool Ekho::enableEmotiVoice() {
+  // 先检查EmotiVoice服务进程是否存在，再确认启用。
+  if (this->checkEmotiVoiceServerStarted()) {
+    return true;
+  } else {
+    // server not running, try to start EmotiVoice server
+
+    // make sure there are more than 1 CPU core, or it will be too slow for the system
+    unsigned int cores = std::thread::hardware_concurrency();
+    if (mDebug) {
+      cerr << "Number of CPU cores: " << cores << endl;
+    }
+
+    if (cores > 1) {
+      // make sure there are more than 2G memory available.
+      if (this->getAvailableMemory() > 2000000000 &&
+          system(("which " + std::string("EmotiVoiceServer.py") + " > /dev/null 2>&1").c_str()) == 0) {
+        // cout << "starting EmotiVoice server..." << endl;
+        system("EmotiVoiceServer.py &");
+        std::this_thread::sleep_for(std::chrono::seconds(10));
+        return this->checkEmotiVoiceServerStarted();
+      }
+    }
+  }
+
+  return false;
 
   // 检查Coqui英文服务进程是否存在，再确认启用。
   /*
