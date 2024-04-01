@@ -52,6 +52,10 @@ using namespace std;
 
 // 这里返回给callback的pcm未经speed和pitch的调整
 int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
+  if (text.empty()) {
+    return 0;
+  }
+
   Ekho::synthCallback = callback;
 #ifdef DEBUG_ANDROID
   LOGD("Ekho::synth2(%s, %p, %p) voiceFileType=%s lang=%d", text.c_str(),
