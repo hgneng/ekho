@@ -114,7 +114,11 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
       this->audio->play(Ssml::getAudioPath(text));
       return 0;
     }
+    
     text = Ssml::stripTags(text);
+    if (text.empty()) {
+      return 0;
+    }
   }
 
   // check punctuation

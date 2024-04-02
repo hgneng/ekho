@@ -192,7 +192,7 @@ class Ekho {
     void enableSsml(); // default
     void disableSsml();
 
-    bool enableEmotiVoice(); // use EmotiVoice to synthesize Mandarin
+    bool enableEmotiVoice(bool autoStart = true); // use EmotiVoice to synthesize Mandarin
 
     void setSpeakIsolatedPunctuation(bool b = true);
     bool getSpeakIsolatedPunctuation();

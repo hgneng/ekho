@@ -186,15 +186,16 @@ bool Ekho::checkEmotiVoiceServerStarted() {
     Word::emotiVoiceEnabled = true;
     delete[] pcm;
     pcm = NULL;
+    return true;
   }
-  return Ekho::emotiVoiceEnabled;
+  return false;
 }
 
-bool Ekho::enableEmotiVoice() {
+bool Ekho::enableEmotiVoice(bool autoStart) {
   // 先检查EmotiVoice服务进程是否存在，再确认启用。
   if (this->checkEmotiVoiceServerStarted()) {
     return true;
-  } else {
+  } else if (autoStart) {
     // server not running, try to start EmotiVoice server
 
     // make sure there are more than 1 CPU core, or it will be too slow for the system
@@ -203,11 +204,15 @@ bool Ekho::enableEmotiVoice() {
       cerr << "Number of CPU cores: " << cores << endl;
     }
 
+    // return false;
+    // @fixme: doesn't work within speechd
     if (cores > 1) {
       // make sure there are more than 2G memory available.
       if (this->getAvailableMemory() > 2000000000 &&
           system(("which " + std::string("EmotiVoiceServer.py") + " > /dev/null 2>&1").c_str()) == 0) {
-        // cout << "starting EmotiVoice server..." << endl;
+        if (mDebug) {
+          cerr << "starting EmotiVoice server..." << endl;
+        }
         system("EmotiVoiceServer.py &");
         std::this_thread::sleep_for(std::chrono::seconds(10));
         return this->checkEmotiVoiceServerStarted();
