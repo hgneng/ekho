@@ -46,7 +46,7 @@ using namespace ekho;
 static Ekho *ekho_g = NULL;
 static bool isDebugging = false;
 
-#include "gtk2.cpp"
+//#include "gtk2.cpp"
 
 static void show_help(void) {
   printf("\
@@ -322,7 +322,7 @@ int main(int argc, char *argv[]) {
       case 'g':
         /* xmain seems not thread safe. don't specify other option is -x is
          * specified because argv seems be free */
-        xmain(&argc, &argv);
+        //xmain(&argc, &argv);
         return 0;
       case 'n':
         printf("%s\n", PACKAGE_VERSION);
