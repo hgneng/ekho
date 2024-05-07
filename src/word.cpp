@@ -66,7 +66,7 @@ void Word::loadWordVoiceFiles(string dir) {
         wordPinyin.push_back(charPinyin); // 最后一个其实不是拼音，而是文件后缀
       }
 
-      if (wordPinyin.back() != ".wav" && wordPinyin.back() != ".mp3") {
+      if (wordPinyin.empty() || (wordPinyin.back() != ".wav" && wordPinyin.back() != ".mp3")) {
         // 非法文件类型，跳过
         // cerr << "bad file format: " << dp->d_name << endl;
         continue;

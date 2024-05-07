@@ -576,7 +576,8 @@ int Dict::setVoice(string voice) {
         if (pPcm) {
           mVoiceFileType = "ogg";
         } else {
-          cerr << "No voice data file is found in " << path << endl;
+          cerr << "No voice data file is found in " << path <<
+            ". Please make sure 'de5' file exists if you are using pinyin." << endl;
           return -1;
         }
       }

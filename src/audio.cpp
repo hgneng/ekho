@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2022 by Cameron Wong                                 *
+ * Copyright (C) 2008-2024 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -207,12 +207,18 @@ int Audio::setTempo(int delta) {
   }
   this->pSoundtouch.setTempoChange(this->tempoDelta);
 #else
-  if (delta >= -50 && delta <= 300) {
-    this->setTempoFloat((float)(100 + delta) / 100);
-    this->tempoDelta = delta;
-  } else {
+  if (delta < -50) {
     cerr << "Audio::setTempo out of range: " << delta << endl;
+    delta = -50;
   }
+
+  if (delta > 300) {
+    cerr << "Audio::setTempo out of range: " << delta << endl;
+    delta = 300;
+  }
+
+  this->setTempoFloat((float)(100 + delta) / 100);
+  this->tempoDelta = delta;
 #endif
 
   return this->tempoDelta;

@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2023 by Cameron Wong                                 *
+ * Copyright (C) 2008-2024 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                       *
@@ -74,17 +74,18 @@ namespace ekho {
         return 0;
       }
       
-      char buffer[128000];
+      const int bufferSize = 128000;
+      char buffer[bufferSize];
       int b = bytes;
       while (b > 0) {
-        if (b <= 128000) {
+        if (b <= bufferSize) {
           fread(buffer, 1, b, file);
           fwrite(buffer, 1, b, gsmfile);
           b = 0;
         } else {
-          b -= 128000;
-          fread(buffer, 128000, b, file);
-          fwrite(buffer, 128000, b, gsmfile);
+          b -= bufferSize;
+          fread(buffer, 1, bufferSize, file);
+          fwrite(buffer, 1, bufferSize, gsmfile);
         }
       }
 

@@ -458,7 +458,9 @@ int main(int argc, char *argv[]) {
     ekho_g = new Ekho();
     ekho_g->setSampleRate(sample_rate);
     ekho_g->setChannels(channels);
-    ekho_g->setVoice(language);
+    if (ekho_g->setVoice(language) != 0) {
+      return -1;
+    }
     ekho_g->setEnglishSpeed(english_speed_delta);
     ekho_g->setPitch(pitch_delta);
     ekho_g->setSpeed(tempo_delta);
@@ -490,7 +492,7 @@ int main(int argc, char *argv[]) {
     }
 
     delete (ekho_g);
-    ekho_g = 0;
+    ekho_g = NULL;
   }
 
   if (text) free(text);
