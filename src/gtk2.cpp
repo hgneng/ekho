@@ -630,7 +630,7 @@ int xmain(int *argc, char ***argv) {
 }
 #else
 int xmain(int *argc, char ***argv) {
-  fprintf(stderr, "GTK is not supported!\n");
+  //fprintf(stderr, "GTK is not supported!\n");
   return 0;
 }
 #endif
