@@ -71,8 +71,10 @@ Syntax: ekho [option] [text]\n\
         Set delta volume. Value range from -100 to 100 (percent)\n\
 -s, --speed=SPEED\n\
         Set delta speed. Value range from -50 to 300 (percent)\n\
+--english-voice=VOICE_NAME\n\
+        Set eSpeak voice name. For example, set 'en-us+f3' if you want a female voice.\n\
 --english-speed=SPEED\n\
-        Set English delta speed. Value range from -50 to 150 (percent)\n\
+        Set English delta speed. Value range from -50 to 150 (percent).\n\
 --samplerate=SAMPLE_RATE\n\
         Usually SAMPLE_RATE should be at least 8000. 44100 is CD quality.\n\
 --channels=CHANNELS\n\
