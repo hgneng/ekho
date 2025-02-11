@@ -68,7 +68,12 @@ int EkhoImpl::init(void) {
   mSpeakIsolatedPunctuation = true;
   mSpeechQueueMutex = PTHREAD_MUTEX_INITIALIZER;
   mSpeechQueueCond = PTHREAD_COND_INITIALIZER;
+#ifdef ENABLE_FESTIVAL
   mEnglishVoice = "voice_kal_diphone";
+#endif
+#ifdef ENABLE_ESPEAK
+  mEnglishVoice = "en";
+#endif
 
   this->audio = new Audio();
 

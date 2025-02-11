@@ -181,6 +181,7 @@ int main(int argc, char *argv[]) {
                           {"rate", 1, NULL, 'r'},
                           {"speed", 1, NULL, 's'},
                           {"english-speed", 1, NULL, 'i'},
+                          {"english-voice", 1, NULL, 'u'},
                           {"samplerate", 1, NULL, 'j'},
                           {"channels", 1, NULL, 'k'},
                           {"port", 1, NULL, '1'},
@@ -208,20 +209,21 @@ int main(int argc, char *argv[]) {
 
   int mode = NORMAL_MODE;
   int text_buffer_size = 256;
-  char *text = (char *)malloc(text_buffer_size);
+  char* text = (char *)malloc(text_buffer_size);
   text[0] = 0;
-  const char *text_filename = NULL;
-  const char *save_filename = NULL;
-  char *save_type = NULL;
+  const char* text_filename = NULL;
+  const char* save_filename = NULL;
+  char* save_type = NULL;
   int pitch_delta = 0;
   int volume_delta = 0;
   int rate_delta = 0;
   int tempo_delta = 0;
   int english_speed_delta = 0;
+  const char* english_voice = NULL;
   int sample_rate = 0;
   int channels = 1;
   int overlap = 2048;
-  extern char *optarg;
+  extern char* optarg;
   extern int optind, optopt;
   bool is_listing_symbols = false;
   bool is_listing_word = false;
@@ -296,6 +298,9 @@ int main(int argc, char *argv[]) {
       case 'i':
         english_speed_delta = atoi(optarg);
         break;
+      case 'u':
+        english_voice = optarg;
+        break;
       case 'm':
         useEmotiVoice = true;
         break;
@@ -360,6 +365,8 @@ int main(int argc, char *argv[]) {
     }
   }
 
+  Ekho::debug(isDebugging);
+
   if (mode != REQUEST_MODE && is_listing_symbols) {
     // output phonetic symbols
     Language lang = ENGLISH;
@@ -394,7 +401,6 @@ int main(int argc, char *argv[]) {
     cout << endl;
   } else if (mode != REQUEST_MODE && is_listing_word) {
     // output word list for debug
-    Ekho::debug(isDebugging);
     Dict dict(MANDARIN);
     list<Word> word_list = Word::split(text);
     list<Word>::iterator word = word_list.begin();
@@ -404,16 +410,18 @@ int main(int argc, char *argv[]) {
     }
   } else if (mode == SERVER_MODE) {
     // start as server
-    Ekho::debug(isDebugging);
     ekho_g = new Ekho(language);
     ekho_g->setOverlap(overlap);
+    ekho_g->setEnglishSpeed(english_speed_delta);
+    if (english_voice) {
+      ekho_g->setEnglishVoice(english_voice);
+    }
     if (useEmotiVoice) {
       ekho_g->enableEmotiVoice();
     }
     ekho_g->startServer(server_port);
   } else if (mode == REQUEST_MODE) {
     // request to a server
-    Ekho::debug(isDebugging);
     ekho_g = new Ekho();
     ekho_g->setSpeed(tempo_delta);
     //ekho_g->setEnglishSpeed(english_speed_delta);
@@ -443,7 +451,6 @@ int main(int argc, char *argv[]) {
     ekho_g->request("127.0.0.1", server_port, cmd, text, save_filename);
   } else if (mode == SING_MODE) {
     // sing song (experimental)
-    Ekho::debug(isDebugging);
     ekho_g = new Ekho(language);
     string saveFilename = "";
     if (save_filename) {
@@ -454,7 +461,6 @@ int main(int argc, char *argv[]) {
     ekho_g = 0;
   } else {
     // main synthesize
-    Ekho::debug(isDebugging);
     ekho_g = new Ekho();
     ekho_g->setSampleRate(sample_rate);
     ekho_g->setChannels(channels);
@@ -462,6 +468,9 @@ int main(int argc, char *argv[]) {
       return -1;
     }
     ekho_g->setEnglishSpeed(english_speed_delta);
+    if (english_voice) {
+      ekho_g->setEnglishVoice(english_voice);
+    }
     ekho_g->setPitch(pitch_delta);
     ekho_g->setSpeed(tempo_delta);
     ekho_g->setOverlap(overlap);

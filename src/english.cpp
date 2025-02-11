@@ -171,6 +171,14 @@ void EkhoImpl::synthWithEspeak(string text) {
     cerr << "EkhoImpl::synthWithEspeak: " << text << endl;
   }
 
+  static const char* current_voice = "en";
+  if (strcmp(current_voice, mEnglishVoice) != 0) {
+    int ret = espeak_SetVoiceByName(mEnglishVoice);  
+    if (ret != EE_OK) {
+      std::cerr << "Error setting eSpeak voice: " << mEnglishVoice << ". return " << ret << std::endl;
+    }
+  }
+
   if (!isStopped) {
     Ekho::synthCallback(0, 0, gEkho, OVERLAP_NONE);  // flush pending pcm
     this->audio->setSampleRate(22050);
@@ -245,8 +253,7 @@ const char* EkhoImpl::getPcmFromFestival(string text, int& size) {
   }
 
   if (EkhoImpl::mDebug) {
-    cerr << "Festival speak: '" << text << "' in voice of " << mEnglishVoice
-         << endl;
+    cerr << "Festival set voice: '" << mEnglishVoice << endl;
   }
 
   EST_Wave wave;
