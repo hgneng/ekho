@@ -1,0 +1,13 @@
+Ekho语音合成软件的原理很简单，为每一个拼音录制一个音频文件，然后拼接起来合成句子。
+
+Ekho默认的安装包里包含的音频文件是gsm后缀的（新版本普通话不再提供gsm文件，而是压缩在pinyin.voice里），尺寸较小，质量较低。大家可以到Ekho语音数据页面下载质量更高的语音包替换。步骤如下：
+
+1. 访问Ekho Voice Data页面：https://sourceforge.net/projects/e-guidedog/files/Ekho-Voice-Data/0.2/
+2. 找到需要下载的语言即版本，文件名中44100这样的数字表示音频文件的采样率，44100Hz是CD的音质。以藏语为例，应该下载tibetan-trinley-44100-wav-v1.tar.xz。文件放在国外的服务器，下载起来可能会比较慢（这里有一个藏语语音数据包国内镜像）。
+3. 下载以后解压文件，替换Ekho/ekho-data文件夹里对应的语音数据文件夹。继续以藏语为例，tibetan-trinley-44100-wav-v1.tar.xz解压后是tibetan-trinley-44100-wav，改名为tibetan，替换C:\Program Files\Ekho\ekho-data\tibetan。tibetan目录下应该有许多wav文件（而不应再嵌套一个tibetan目录）。
+4. 如果是Linux版本的普通话，需要把ekho-data下的pinyin.voice和pinyin.index文件删除，然后创建目录名称是pinyin，把新音频文件放到pinyin目录里。在第一次运行之后会自动生成pinyin.voice和pinyin.index，它们是缓存文件。如果之后pinyin目录内容有改动，需要删除pinyin.voice和pinyin.index文件。
+5. 如果是Linux版本的粤语，对应目录是jyutping，缓存文件是jyutping.voice和jyutping.index。
+6. Linux版本下，在运行sudo make install之后，会引用/usr/local/share/ekho-data的语音数据。如果要修改语音，应该先运行sudo make uninstall删除/usr/local/share/ekho-data。再把代码目录的ekho-data/pinyin.index, pinyin.voice删除。然后运行./ekho 123重新生成代码目录的ekho-data/pinyin.index和pinyin.voice，再运行sudo make install安装到/usr/local/share/ekho-data。
+7. 重新运行Ekho即可。
+
+参考：https://cto.eguidedog.net/node/809
