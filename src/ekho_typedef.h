@@ -30,7 +30,8 @@ typedef enum {
   QUATER_PAUSE = 5,
   PHONETIC = 6,
   RECORDING = 7,
-  EMOTIVOICE = 8
+  EMOTIVOICE = 8,
+  ZHTTS = 9,
 } TextType;
 
 typedef enum {

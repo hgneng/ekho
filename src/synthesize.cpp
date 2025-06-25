@@ -288,6 +288,22 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
           shortPcm = NULL;
         }
         break;
+
+      case ZHTTS:
+        shortPcm = this->getPcmFromServer(Ekho::ZHTTS_PORT, word->text, size, Ekho::ZHTTS_AMPLIFY_RATE);
+        if (shortPcm) {/*
+          if (mDebug) {
+    std::cerr << "Array values: ";
+    for (size_t i = 0; i < size; ++i) {
+        std::cerr << shortPcm[i] << ' ';
+    }
+    std::cerr << '\n';
+          }*/
+          callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
+          free(shortPcm);
+          shortPcm = NULL;
+        }
+        break;
     }
   }  // end of for
 
@@ -360,7 +376,13 @@ short* EkhoImpl::getPcmFromServer(int port, string text, int& size, float amplif
     short* pcm = this->audio->readPcmFromAudioFile(buffer, size);
 
     if (mDebug) {
-      cerr << "getPcmFromServer: size=" << size << endl;
+      cerr << "getPcmFromServer: path=" << buffer << ", size=" << size << endl;
+      /*
+      std::cerr << "Array values: ";
+      for (size_t i = 0; i < size; ++i) {
+          std::cerr << pcm[i] << ' ';
+      }
+      std::cerr << '\n';*/
     }
 
     // amplify

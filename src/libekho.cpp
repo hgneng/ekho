@@ -70,6 +70,7 @@ using namespace std;
 
 bool Ekho::mDebug = false;
 bool Ekho::emotiVoiceEnabled = false;
+bool Ekho::zhttsEnabled = false;
 bool Ekho::coquiEnabled = false;
 
 void Ekho::debug(bool flag) {
@@ -229,6 +230,36 @@ bool Ekho::enableEmotiVoice(bool autoStart) {
     Ekho::coquiEnabled = true;
     pcm = NULL;
   }*/
+}
+
+bool Ekho::checkZhttsServerStarted() {
+  int size = 0;
+  short* pcm = this->m_pImpl->getPcmFromServer(Ekho::ZHTTS_PORT, "的", size, Ekho::ZHTTS_AMPLIFY_RATE);
+  if (pcm) {
+    Ekho::zhttsEnabled = true;
+    Word::zhttsEnabled = true;
+    delete[] pcm;
+    pcm = NULL;
+    return true;
+  }
+  return false;
+}
+
+bool Ekho::enableZhtts(bool autoStart) {
+  // 先检查zhtts服务进程是否存在，再确认启用。
+  if (this->checkZhttsServerStarted()) {
+    return true;
+  } else if (autoStart &&
+    system(("which " + std::string("zhttsServer.py") + " > /dev/null 2>&1").c_str()) == 0) {
+    //if (mDebug) {
+    cerr << "starting zhtts server..." << endl;
+    //}
+    system("zhttsServer.py &");
+    std::this_thread::sleep_for(std::chrono::seconds(10));
+    return this->checkZhttsServerStarted();
+  }
+
+  return false;
 }
 
 void Ekho::setSpeakIsolatedPunctuation(bool b) {

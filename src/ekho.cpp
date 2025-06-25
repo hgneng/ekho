@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2024 by Cameron Wong                                 *
+ * Copyright (C) 2008-2025 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                       *
@@ -57,6 +57,8 @@ Syntax: ekho [option] [text]\n\
         Specified language or voice. ('Cantonese', 'Mandarin', 'Toisanese', 'Hakka', 'Tibetan', 'Ngangien' and 'Hangul' are available now. Mandarin is the default language.)\n\
 --EmotiVoice\n\
         Use EmotiVoice to sythesize Mandarin.\n\
+--zhtts\n\
+        Use zhtts to sythesize Mandarin.\n\
 -l, --symbol\n\
         List phonetic symbol of text. Characters' symbols are splited by space.\n\
 -f, --file=FILE\n\
@@ -188,6 +190,7 @@ int main(int argc, char *argv[]) {
                           {"channels", 1, NULL, 'k'},
                           {"port", 1, NULL, '1'},
                           {"EmotiVoice", 0, NULL, 'm'},
+                          {"zhtts", 0, NULL, 'x'},
                           {"overlap", 1, NULL, 'c'},
                           {"server", 0, NULL, 'e'},
                           {"request", 1, NULL, 'q'},
@@ -231,6 +234,7 @@ int main(int argc, char *argv[]) {
   bool is_listing_word = false;
   int server_port = 2046;
   bool useEmotiVoice = false;
+  bool useZhtts = false;
 
   while ((opt = getopt_long(argc, argv, ":i:b:hgmv:n:f:o:t:p:r:a:s:eq:lwd1:",
                             opts, &optidx)) != -1) {
@@ -305,6 +309,9 @@ int main(int argc, char *argv[]) {
         break;
       case 'm':
         useEmotiVoice = true;
+        break;
+      case 'x':
+        useZhtts = true;
         break;
       case 'a':
         volume_delta = atoi(optarg);
@@ -420,6 +427,8 @@ int main(int argc, char *argv[]) {
     }
     if (useEmotiVoice) {
       ekho_g->enableEmotiVoice();
+    } else if (useZhtts) {
+      ekho_g->enableZhtts();
     }
     ekho_g->startServer(server_port);
   } else if (mode == REQUEST_MODE) {
@@ -480,6 +489,8 @@ int main(int argc, char *argv[]) {
     ekho_g->setRate(rate_delta);
     if (useEmotiVoice) {
       ekho_g->enableEmotiVoice();
+    } else if (useZhtts) {
+      ekho_g->enableZhtts();
     }
 
     if (save_filename) {

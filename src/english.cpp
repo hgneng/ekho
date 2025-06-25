@@ -117,7 +117,7 @@ void EkhoImpl::setEnglishSpeed(int delta) {
   }
 
   int baseDelta = 0;
-  if (!Ekho::emotiVoiceEnabled) { // EmotiVoice是正常速度，不需要调整
+  if (!Ekho::emotiVoiceEnabled && !Ekho::zhttsEnabled) { // EmotiVoice是正常速度，不需要调整
     baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
 
     // Changing tempo will add noise, we'd better don't do it.
@@ -130,6 +130,7 @@ void EkhoImpl::setEnglishSpeed(int delta) {
     cerr << "setEnglishSpeed espeakRATE default: " << espeak_GetParameter(espeakRATE, 0) << endl;
     cerr << "setEnglishSpeed espeakRATE current: " << espeak_GetParameter(espeakRATE, 1) << endl;
     cerr << "setEnglishSpeed baseDelta: " << baseDelta << endl;
+    cerr << "zhttsEnabled: " << Ekho::zhttsEnabled << endl;
   }
 
   if (delta >= -50 && delta <= 150) {

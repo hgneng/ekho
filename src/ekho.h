@@ -82,6 +82,7 @@ class Ekho {
 
     long getAvailableMemory();
     bool checkEmotiVoiceServerStarted();
+    bool checkZhttsServerStarted();
 
   public:
     const static int BUFFER_SIZE = 40960;
@@ -89,6 +90,8 @@ class Ekho {
     const static int MAX_CLIENTS = 100;
     const static int EMOTIVOICE_PORT = 20491;
     const static constexpr float EMOTIVOICE_AMPLIFY_RATE = 2;
+    const static int ZHTTS_PORT = 20501;
+    const static constexpr float ZHTTS_AMPLIFY_RATE = 1;
     const static int COQUI_PORT = 20492;
     const static constexpr float COQUI_AMPLIFY_RATE = 1;
     const static int COQUI_SAMPLE_RATE = 22050;
@@ -99,6 +102,7 @@ class Ekho {
     static SynthCallback* synth4Callback;
     static EkhoImpl* impl;
     static bool emotiVoiceEnabled;
+    static bool zhttsEnabled;
     static bool coquiEnabled;
 
     Ekho();
@@ -193,6 +197,7 @@ class Ekho {
     void disableSsml();
 
     bool enableEmotiVoice(bool autoStart = true); // use EmotiVoice to synthesize Mandarin
+    bool enableZhtts(bool autoStart = true); // use zhtts to synthesize Mandarin
 
     void setSpeakIsolatedPunctuation(bool b = true);
     bool getSpeakIsolatedPunctuation();

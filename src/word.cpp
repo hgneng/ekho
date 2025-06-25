@@ -29,6 +29,7 @@
 using namespace std;
 
 bool Word::emotiVoiceEnabled = false;
+bool Word::zhttsEnabled = false;
 map<string, list<WordPinyin> > Word::voiceFilesMap;
 
 void Word::loadWordVoiceFiles(string dir) {
@@ -411,10 +412,15 @@ void Word::addChinese(list<Word>& wordList, const string& text) {
     if (!filename.empty()) {
       itor3 = itor2;
       itor3++;
-      if (Word::emotiVoiceEnabled && itor3 != phonList.end()) {
-        // 没有缓存匹配，调用EmotiVoice合成
-        wordList.push_back(Word(text, EMOTIVOICE));
-        return;
+      if (itor3 != phonList.end()) {
+        if (Word::emotiVoiceEnabled) {
+          // 没有缓存匹配，调用EmotiVoice合成
+          wordList.push_back(Word(text, EMOTIVOICE));
+          return;
+        } else if (Word::zhttsEnabled) {
+          wordList.push_back(Word(text, ZHTTS));
+          return;
+        }
       }
 
       if (!phonList2.empty()) {
@@ -428,10 +434,15 @@ void Word::addChinese(list<Word>& wordList, const string& text) {
     } else {
       itor3 = itor;
       itor3++;
-      if (Word::emotiVoiceEnabled && itor3 != phonList.end()) {
-        // 没有缓存匹配，并且有多个字，调用EmotiVoice合成
-        wordList.push_back(Word(text, EMOTIVOICE));
-        return;
+      if (itor3 != phonList.end()) {
+        if (Word::emotiVoiceEnabled) {
+          // 没有缓存匹配，并且有多个字，调用EmotiVoice合成
+          wordList.push_back(Word(text, EMOTIVOICE));
+          return;
+        } else if(Word::zhttsEnabled) {
+          wordList.push_back(Word(text, ZHTTS));
+          return;
+        }
       }
 
       phonList2.push_back(*itor);
