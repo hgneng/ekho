@@ -83,6 +83,8 @@ class Ekho {
     long getAvailableMemory();
     bool checkEmotiVoiceServerStarted();
     bool checkZhttsServerStarted();
+    bool checkPiperServerStarted();
+    string buildPiperRequest(const string& text);
 
   public:
     const static int BUFFER_SIZE = 40960;
@@ -103,6 +105,7 @@ class Ekho {
     static EkhoImpl* impl;
     static bool emotiVoiceEnabled;
     static bool zhttsEnabled;
+    static bool piperEnabled;
     static bool coquiEnabled;
 
     Ekho();
@@ -198,6 +201,7 @@ class Ekho {
 
     bool enableEmotiVoice(bool autoStart = true); // use EmotiVoice to synthesize Mandarin
     bool enableZhtts(bool autoStart = true); // use zhtts to synthesize Mandarin
+    bool enablePiper(bool autoStart = true); // use piper to synthesize Mandarin
 
     void setSpeakIsolatedPunctuation(bool b = true);
     bool getSpeakIsolatedPunctuation();

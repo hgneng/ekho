@@ -22,6 +22,15 @@ AC_PROG_INSTALL
 # FIXME: Replace `main' with a function in `-lpthread':
 AC_CHECK_LIB([pthread], [main])
 
+# 检查 libcurl 是否安装
+PKG_CHECK_MODULES([CURL], [libcurl], [], [
+  AC_MSG_ERROR([libcurl is required but not found. Please install libcurl4-openssl-dev or libcurl-devel])
+])
+
+# 把 CURL_CFLAGS 和 CURL_LIBS 导出到 Makefile
+AC_SUBST([CURL_CFLAGS])
+AC_SUBST([CURL_LIBS])
+
 # Checks for header files.
 AC_HEADER_DIRENT
 AC_CHECK_HEADERS([locale.h stdlib.h string.h unistd.h])

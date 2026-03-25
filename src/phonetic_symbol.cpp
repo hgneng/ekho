@@ -49,7 +49,7 @@ namespace ekho {
     int symbolLen = strlen(symbol);
     if (bytes == 0 && symbolLen > 0 && symbol[symbolLen - 1] == '5') {
       char s[16] = {0};
-      strncat(s, symbol, 16);
+      strncat(s, symbol, 15);
       s[symbolLen - 1] = '1';
       if (PhoneticSymbol::debug) {
         cerr << symbol << " not found. try " << s << endl;

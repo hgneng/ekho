@@ -32,6 +32,7 @@ typedef enum {
   RECORDING = 7,
   EMOTIVOICE = 8,
   ZHTTS = 9,
+  PIPER = 10,
 } TextType;
 
 typedef enum {

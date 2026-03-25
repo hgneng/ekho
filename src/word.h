@@ -48,6 +48,7 @@ public:
   unsigned short bytes;
   static bool emotiVoiceEnabled;
   static bool zhttsEnabled;
+  static bool piperEnabled;
 
   Word(string txt, TextType t)
       : type(t), text(txt), symbols(0), overlapTypes(0), offset(0), bytes(0){};

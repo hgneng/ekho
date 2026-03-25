@@ -30,6 +30,7 @@ using namespace std;
 
 bool Word::emotiVoiceEnabled = false;
 bool Word::zhttsEnabled = false;
+bool Word::piperEnabled = false;
 map<string, list<WordPinyin> > Word::voiceFilesMap;
 
 void Word::loadWordVoiceFiles(string dir) {
@@ -420,6 +421,9 @@ void Word::addChinese(list<Word>& wordList, const string& text) {
         } else if (Word::zhttsEnabled) {
           wordList.push_back(Word(text, ZHTTS));
           return;
+        } else if (Word::piperEnabled) {
+          wordList.push_back(Word(text, PIPER));
+          return;
         }
       }
 
@@ -439,8 +443,11 @@ void Word::addChinese(list<Word>& wordList, const string& text) {
           // 没有缓存匹配，并且有多个字，调用EmotiVoice合成
           wordList.push_back(Word(text, EMOTIVOICE));
           return;
-        } else if(Word::zhttsEnabled) {
+        } else if (Word::zhttsEnabled) {
           wordList.push_back(Word(text, ZHTTS));
+          return;
+        } else if (Word::piperEnabled) {
+          wordList.push_back(Word(text, PIPER));
           return;
         }
       }

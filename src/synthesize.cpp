@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2024 by Cameron Wong                                 *
+ * Copyright (C) 2008-2026 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -32,6 +32,7 @@
 #include <unistd.h>
 #include <fstream>
 #include <iostream>
+#include <curl/curl.h>
 #include "config.h"
 #include "ekho.h"
 #include "ekho_dict.h"
@@ -304,6 +305,15 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
           shortPcm = NULL;
         }
         break;
+
+      case PIPER:
+        shortPcm = this->getPcmFromPiperServer(word->text, size);
+        if (shortPcm) {
+          callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
+          free(shortPcm);
+          shortPcm = NULL;
+        }
+        break;
     }
   }  // end of for
 
@@ -325,7 +335,7 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
 #include <arpa/inet.h>  
 #include <unistd.h>
 // It's caller's responsibility to delete the returned pointer
-short* EkhoImpl::getPcmFromServer(int port, string text, int& size, float amplifyRate) {
+short* EkhoImpl::getPcmFromServer(int port, const string& text, int& size, float amplifyRate) {
   if (mDebug) {
     cerr << "getPcmFromServer(" << port << ", " << text << ")" << endl;
   }
@@ -358,31 +368,27 @@ short* EkhoImpl::getPcmFromServer(int port, string text, int& size, float amplif
       return NULL;
   }  
 
-  // 接收数据  
-  char buffer[1024];  
-  memset(buffer, 0, sizeof(buffer));  
-  if (recv(sock, buffer, sizeof(buffer), 0) == -1) {  
-      std::cerr << "Failed to receive message" << std::endl;  
-      close(sock);  
-      return NULL;
-  }  
+  // 接收数据
+  char buffer[1024]; 
+  memset(buffer, 0, sizeof(buffer)); 
+
+  if (recv(sock, buffer, sizeof(buffer), 0) == -1) {
+    std::cerr << "Failed to receive message" << std::endl;  
+    close(sock);
+    return NULL;
+  }
   //std::cout << "Received message: " << buffer << std::endl;  
 
   // 关闭socket连接  
   close(sock);
 
   if (strlen(buffer) > 0) {
+    // 返回的是本地文件路径
     // @TODO: convert samplerate from 16000 to ...
     short* pcm = this->audio->readPcmFromAudioFile(buffer, size);
 
     if (mDebug) {
       cerr << "getPcmFromServer: path=" << buffer << ", size=" << size << endl;
-      /*
-      std::cerr << "Array values: ";
-      for (size_t i = 0; i < size; ++i) {
-          std::cerr << pcm[i] << ' ';
-      }
-      std::cerr << '\n';*/
     }
 
     // amplify
@@ -394,6 +400,93 @@ short* EkhoImpl::getPcmFromServer(int port, string text, int& size, float amplif
     } else {
       return pcm;
     }
+  }
+
+  return NULL;
+}
+
+// 通用 curl 接收 string 回调（全局写一次）
+size_t curlWriteToString(void* contents, size_t size, size_t nmemb, std::string* s) {
+  size_t newLength = size * nmemb;
+  s->append((char*)contents, newLength);
+  return newLength;
+}
+
+// It's caller's responsibility to delete the returned pointer
+short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size) {
+  CURL* curl = curl_easy_init();
+  if (!curl) {
+      std::cerr << "Failed to initialize curl" << std::endl;
+      return NULL;
+  }
+
+  // 2. Set POST data (JSON format)
+  string escapedText;
+  escapedText.reserve(text.size() * 2); // Pre-allocate space for efficiency
+
+  for (char c : text) {
+      switch (c) {
+          case '"':  escapedText += "\\\""; break;  // Escape double quote
+          case '\\': escapedText += "\\\\"; break;  // Escape backslash
+          case '\n': escapedText += "\\n";  break;  // Escape newline
+          case '\r': escapedText += "\\r";  break;  // Escape carriage return
+          case '\t': escapedText += "\\t";  break;  // Escape tab
+          default:   escapedText += c;      break;  // Normal character, add as-is
+      }
+  }
+  string postData = ("{\"text\":\"" + escapedText + "\"}");
+
+  // 3. Configure curl options
+  struct curl_slist* headers = nullptr;
+  headers = curl_slist_append(headers, "Content-Type: application/json");  // JSON header
+
+  curl_easy_setopt(curl, CURLOPT_URL, "http://127.0.0.1:5000");
+  curl_easy_setopt(curl, CURLOPT_POST, 1L);          // Enable POST
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, postData.c_str());  // POST data
+  curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, postData.length());
+
+  // 4. Set response callback
+  std::string response;
+  curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlWriteToString);
+  curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+
+  // 5. Send request
+  CURLcode res = curl_easy_perform(curl);
+  if (res != CURLE_OK) {
+      std::cerr << "Request failed: " << curl_easy_strerror(res) << std::endl;
+  } else {
+      //std::cout << "Response:\n" << response.substr(0, 100) << std::endl;
+  }
+
+  // 6. Cleanup
+  curl_slist_free_all(headers);
+  curl_easy_cleanup(curl);
+
+  if (response.length() > 0) {
+    string tmpFilePath = Audio::genTempFilename() + ".wav";
+    std::ofstream wavfile(tmpFilePath, std::ios::binary); // 必须加 binary
+    wavfile.write(response.data(), response.size());
+    wavfile.close();
+
+    if (mDebug) {
+      cerr << "getPcmFromPiperServer: path=" << tmpFilePath << endl;
+    }
+    
+    short* pcm = this->audio->readPcmFromAudioFile(tmpFilePath, size);
+
+    if (mDebug) {
+      cerr << "getPcmFromPiperServer: readPcmFromAudioFile size=" << size << endl;
+    }
+    remove(tmpFilePath.c_str());
+
+    // amplify
+    short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, 0.8);
+    delete[] pcm;
+    pcm = NULL;
+    return amplifiedPcm;
+  } else {
+    cerr << "getPcmFromPiperServer: 0 response" << endl;
   }
 
   return NULL;

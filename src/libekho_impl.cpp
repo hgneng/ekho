@@ -800,7 +800,7 @@ int EkhoImpl::stop(void) {
 
 void EkhoImpl::setSpeed(int tempo_delta) {
   int baseDelta = 0;
-  if (!Ekho::emotiVoiceEnabled || !Ekho::zhttsEnabled) { // EmotiVoice是正常速度，不需要调整
+  //if (!Ekho::emotiVoiceEnabled || !Ekho::zhttsEnabled) { // EmotiVoice是正常速度，不需要调整
     // nomralize voice's tempo
     if (mDict.getLanguage() == MANDARIN && mDict.mSfinfo.frames > 0) {
       baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
@@ -813,7 +813,7 @@ void EkhoImpl::setSpeed(int tempo_delta) {
         baseDelta = 0;
       }
     }
-  }
+  //}
 
   if (baseDelta + tempo_delta != 0 || tempo_delta != this->tempoDelta) {
     if (this->mDebug) {

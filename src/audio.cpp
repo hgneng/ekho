@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2024 by Cameron Wong                                 *
+ * Copyright (C) 2008-2026 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *

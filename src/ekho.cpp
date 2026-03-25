@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2025 by Cameron Wong                                 *
+ * Copyright (C) 2008-2026 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                       *
@@ -32,6 +32,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <fstream>
+#include <curl/curl.h>
 #include "config.h"
 
 #ifdef ENABLE_WINDOWS
@@ -59,6 +60,8 @@ Syntax: ekho [option] [text]\n\
         Use EmotiVoice to sythesize Mandarin.\n\
 --zhtts\n\
         Use zhtts to sythesize Mandarin.\n\
+--piper\n\
+        Use piper to sythesize Mandarin.\n\
 -l, --symbol\n\
         List phonetic symbol of text. Characters' symbols are splited by space.\n\
 -f, --file=FILE\n\
@@ -191,6 +194,7 @@ int main(int argc, char *argv[]) {
                           {"port", 1, NULL, '1'},
                           {"EmotiVoice", 0, NULL, 'm'},
                           {"zhtts", 0, NULL, 'x'},
+                          {"piper", 0, NULL, 'y'},
                           {"overlap", 1, NULL, 'c'},
                           {"server", 0, NULL, 'e'},
                           {"request", 1, NULL, 'q'},
@@ -235,8 +239,9 @@ int main(int argc, char *argv[]) {
   int server_port = 2046;
   bool useEmotiVoice = false;
   bool useZhtts = false;
+  bool usePiper = false;
 
-  while ((opt = getopt_long(argc, argv, ":i:b:hgmv:n:f:o:t:p:r:a:s:eq:lwd1:",
+  while ((opt = getopt_long(argc, argv, ":i:b:hgmv:n:f:o:t:p:r:a:s:eq:lwd1:xy",
                             opts, &optidx)) != -1) {
     switch (opt) {
       case 'c':
@@ -312,6 +317,9 @@ int main(int argc, char *argv[]) {
         break;
       case 'x':
         useZhtts = true;
+        break;
+      case 'y':
+        usePiper = true;
         break;
       case 'a':
         volume_delta = atoi(optarg);
@@ -429,6 +437,8 @@ int main(int argc, char *argv[]) {
       ekho_g->enableEmotiVoice();
     } else if (useZhtts) {
       ekho_g->enableZhtts();
+    } else if (usePiper) {
+      ekho_g->enablePiper();
     }
     ekho_g->startServer(server_port);
   } else if (mode == REQUEST_MODE) {
@@ -491,6 +501,8 @@ int main(int argc, char *argv[]) {
       ekho_g->enableEmotiVoice();
     } else if (useZhtts) {
       ekho_g->enableZhtts();
+    } else if (usePiper) {
+      ekho_g->enablePiper();
     }
 
     if (save_filename) {
@@ -515,6 +527,10 @@ int main(int argc, char *argv[]) {
 
     delete (ekho_g);
     ekho_g = NULL;
+  }
+
+  if (Ekho::piperEnabled) {
+    curl_global_cleanup();
   }
 
   if (text) free(text);

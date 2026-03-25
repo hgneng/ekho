@@ -238,7 +238,8 @@ class EkhoImpl {
   void synthWithEspeak(string text);
   const char* getEnglishPcm(string text, int& size);
 
-  short* getPcmFromServer(int port, string text, int& size, float amplifyRate);
+  short* getPcmFromServer(int port, const string& text, int& size, float amplifyRate);
+  short* getPcmFromPiperServer(const string& text, int& size);
 
   void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
 

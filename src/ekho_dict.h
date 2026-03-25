@@ -92,7 +92,7 @@ class Dict {
   const char* mVoiceFileType;  // "wav" or "gsm"
   map<string, PhoneticSymbol> mWordSymbolMap;
   SF_INFO mSfinfo;
-  DictItem mDictItemArray[65536];
+  DictItem mDictItemArray[65536] = {};
 
   // map code to PhoneticSymbol
   // for Mandarin and Cantonese

@@ -31,9 +31,11 @@
 #include <unistd.h>
 #include <fstream>
 #include <iostream>
+#include <filesystem>
 #include <thread>
 #include <cstdint>
 #include <cstdlib>
+#include <curl/curl.h>
 #include "config.h"
 #include "ekho.h"
 #include "ekho_dict.h"
@@ -71,6 +73,7 @@ using namespace std;
 bool Ekho::mDebug = false;
 bool Ekho::emotiVoiceEnabled = false;
 bool Ekho::zhttsEnabled = false;
+bool Ekho::piperEnabled = false;
 bool Ekho::coquiEnabled = false;
 
 void Ekho::debug(bool flag) {
@@ -245,6 +248,20 @@ bool Ekho::checkZhttsServerStarted() {
   return false;
 }
 
+bool Ekho::checkPiperServerStarted() {
+  int size = 0;
+
+  short* pcm = this->m_pImpl->getPcmFromPiperServer("的", size);
+  if (pcm) {
+    Ekho::piperEnabled = true;
+    Word::piperEnabled = true;
+    delete[] pcm;
+    pcm = NULL;
+    return true;
+  }
+  return false;
+}
+
 bool Ekho::enableZhtts(bool autoStart) {
   // 先检查zhtts服务进程是否存在，再确认启用。
   if (this->checkZhttsServerStarted()) {
@@ -257,6 +274,30 @@ bool Ekho::enableZhtts(bool autoStart) {
     system("zhttsServer.py &");
     std::this_thread::sleep_for(std::chrono::seconds(10));
     return this->checkZhttsServerStarted();
+  }
+
+  return false;
+}
+
+bool Ekho::enablePiper(bool autoStart) {
+  // 先检查piper服务进程是否存在，再确认启用。
+  if (this->checkPiperServerStarted()) {
+    curl_global_init(CURL_GLOBAL_ALL);  // Initialize curl globally
+    return true;
+  } else if (autoStart) {
+    string piperDataPath = this->getDict().mDataPath + "/piper";
+    // check whether piperDataPath exists
+    if (filesystem::is_directory(filesystem::status(piperDataPath))) {
+      cerr << "starting piper server..." << endl;
+      string cmd = "cd " + piperDataPath + " && python3 -m piper.http_server -m zh_CN-xiao_ya-medium --host 127.0.0.1 &";
+      //cerr << cmd << endl;
+      system(cmd.c_str());
+      std::this_thread::sleep_for(std::chrono::seconds(10));
+      if (this->checkPiperServerStarted()) {
+        curl_global_init(CURL_GLOBAL_ALL);  // Initialize curl globally
+        return true;
+      }
+    }
   }
 
   return false;

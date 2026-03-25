@@ -78,7 +78,8 @@ void Dict::init(void) {
   mVoiceFile = 0;
 
   mFullPausePcmSize = 25000;
-  memset(mDictItemArray, 0, sizeof(mDictItemArray));
+  //memset(mDictItemArray, 0, sizeof(mDictItemArray));
+  //mDictItemArray = {};
 
   char *fullPausePcm = new char[mFullPausePcmSize];
   memset(fullPausePcm, 0, mFullPausePcmSize);
