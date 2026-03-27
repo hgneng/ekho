@@ -21,19 +21,20 @@ sub kill_speechd() {
 }
 
 sub build_common() {
-  system('sudo apt-get -y install libsndfile1-dev');
-  system('sudo apt-get -y install libespeak-ng-dev');
-  system('sudo apt-get -y install libpulse-dev');
-  system('sudo apt-get -y install libncurses5-dev');
-  system('sudo apt-get -y install build-essential');
-  system('sudo apt-get -y install autoconf automake libtool');
-  system('sudo apt-get -y install libdotconf-dev');
-  system('sudo apt-get -y install libmp3lame-dev');
-  system('sudo apt-get -y install libmpg123-dev libsonic-dev libutfcpp-dev');
-  system('sudo apt-get -y install libestools2.1-dev');
-  system('sudo apt-get -y install gettext');
-  system('sudo apt-get -y install texinfo');
-  system('sudo apt-get -y install libltdl-dev');
+  system('sudo apt -y install libsndfile1-dev');
+  system('sudo apt -y install libespeak-ng-dev');
+  system('sudo apt -y install libpulse-dev');
+  system('sudo apt -y install libncurses5-dev');
+  system('sudo apt -y install build-essential');
+  system('sudo apt -y install autoconf automake libtool');
+  system('sudo apt -y install libdotconf-dev');
+  system('sudo apt -y install libmp3lame-dev');
+  system('sudo apt -y install libmpg123-dev libsonic-dev libutfcpp-dev');
+  system('sudo apt -y install libestools2.1-dev');
+  system('sudo apt -y install gettext');
+  system('sudo apt -y install texinfo');
+  system('sudo apt -y install libltdl-dev');
+  system('sudo apt -y install libcurl4-openssl-dev');
 #  system('./configure --enable-festival --enable-speechd');
   system('./configure --enable-speechd');
   system('make clean && make CXXFLAGS=-O0');

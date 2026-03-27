@@ -452,12 +452,14 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size) {
   curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 
   // 5. Send request
-  CURLcode res = curl_easy_perform(curl);
+  //CURLcode res = 
+  curl_easy_perform(curl);
+  /*
   if (res != CURLE_OK) {
       std::cerr << "Request failed: " << curl_easy_strerror(res) << std::endl;
   } else {
       //std::cout << "Response:\n" << response.substr(0, 100) << std::endl;
-  }
+  }*/
 
   // 6. Cleanup
   curl_slist_free_all(headers);
@@ -486,7 +488,7 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size) {
     pcm = NULL;
     return amplifiedPcm;
   } else {
-    cerr << "getPcmFromPiperServer: 0 response" << endl;
+    // cerr << "getPcmFromPiperServer: 0 response" << endl;
   }
 
   return NULL;

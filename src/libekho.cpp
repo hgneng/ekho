@@ -289,7 +289,7 @@ bool Ekho::enablePiper(bool autoStart) {
     // check whether piperDataPath exists
     if (filesystem::is_directory(filesystem::status(piperDataPath))) {
       cerr << "starting piper server..." << endl;
-      string cmd = "cd " + piperDataPath + " && python3 -m piper.http_server -m zh_CN-xiao_ya-medium --host 127.0.0.1 &";
+      string cmd = "cd " + piperDataPath + " && python3 -m piper.http_server -m zh_CN-xiao_ya-medium --host 127.0.0.1 2>/dev/null &";
       //cerr << cmd << endl;
       system(cmd.c_str());
       std::this_thread::sleep_for(std::chrono::seconds(10));

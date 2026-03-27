@@ -43,6 +43,7 @@ if DIST_VOICE_DATA
 	cp -RLf $(DATA_SUB_DIRS) $(DESTDIR)$(datadir)/ekho-data/
 endif
 	install $(DATA_FILES) $(DESTDIR)$(datadir)/ekho-data/
+	cp -Rf $(DATA_DIR)/piper $(DESTDIR)$(datadir)/ekho-data/
 #	cp -Rf $(DATA_DIR)/festival $(DESTDIR)$(datadir)/ekho-data/
 
 uninstall-hook:
@@ -60,7 +61,9 @@ endif
 #	if [ -e $(srcdir)/ekho-data/spanish ]; then mv $(srcdir)/ekho-data/spanish $(srcdir)/ekho-data/festival/lib/voices/; fi
 	cp -R $(srcdir)/speechd-api $(distdir)/
 #cp -R $(srcdir)/libmusicxml $(distdir)/
+	cp -R $(srcdir)/ekho-data/piper $(distdir)/ekho-data/
 	cp $(srcdir)/install.pl $(distdir)/
+	cp $(srcdir)/deploy_piper.sh $(distdir)/
 	cp $(srcdir)/deploy.sh $(distdir)/
 	find $(distdir) -name ".svn" | xargs rm -rf
 	find $(distdir) -name ".git" | xargs rm -rf

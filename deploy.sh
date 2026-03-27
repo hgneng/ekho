@@ -40,9 +40,10 @@ sudo chmod -R a+rw ~/ekho-logs
 tar cJvf ~/ekho-logs.tar.xz ~/ekho-logs
 sudo apt-get install -y curl
 echo 'finish collecting logs. uploading logs'
-curl -F"operation=upload" -F"file=@$HOME/ekho-logs.tar.xz" http://www.eguidedog.net/ekho/upload.php
+curl -F"operation=upload" -F"file=@$HOME/ekho-logs.tar.xz" https://eguidedog.net/ekho/upload.php
 echo 'finish uploading'
 else
-  ./install.pl  
+  ./install.pl
 fi
 
+./deploy_piper.sh
