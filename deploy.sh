@@ -15,6 +15,10 @@ esac
 done
 
 sudo date
+sudo apt update
+export HF_ENDPOINT="https://hf-mirror.com"
+./deploy_piper.sh
+
 if [ $DEBUG -eq 1 ]
 then
 sudo rm -rf ~/ekho-logs
@@ -45,5 +49,3 @@ echo 'finish uploading'
 else
   ./install.pl
 fi
-
-./deploy_piper.sh

@@ -251,7 +251,7 @@ bool Ekho::checkZhttsServerStarted() {
 bool Ekho::checkPiperServerStarted() {
   int size = 0;
 
-  short* pcm = this->m_pImpl->getPcmFromPiperServer("的", size);
+  short* pcm = this->m_pImpl->getPcmFromPiperServer("的", size, Ekho::PIPER_MANDARIN_PORT);
   if (pcm) {
     Ekho::piperEnabled = true;
     Word::piperEnabled = true;
@@ -288,11 +288,18 @@ bool Ekho::enablePiper(bool autoStart) {
     string piperDataPath = this->getDict().mDataPath + "/piper";
     // check whether piperDataPath exists
     if (filesystem::is_directory(filesystem::status(piperDataPath))) {
-      cerr << "starting piper server..." << endl;
-      string cmd = "cd " + piperDataPath + " && python3 -m piper.http_server -m zh_CN-xiao_ya-medium --host 127.0.0.1 2>/dev/null &";
+      cerr << "starting piper Mandarin server..." << endl;
+      string cmd = "export TRANSFORMERS_OFFLINE=1 && export HF_ENDPOINT='https://hf-mirror.com' && cd " +
+        piperDataPath + " && python3 -m piper.http_server -m zh_CN-xiao_ya-medium --host 127.0.0.1 --port 5000 2>/dev/null &";
+      system(cmd.c_str());
+
+      cerr << "starting piper English server..." << endl;
+      cmd = "export TRANSFORMERS_OFFLINE=1 && export HF_ENDPOINT='https://hf-mirror.com' && cd " +
+        piperDataPath + " && python3 -m piper.http_server -m en_US-amy-medium --host 127.0.0.1 --port 5001 2>/dev/null &";
       //cerr << cmd << endl;
       system(cmd.c_str());
-      std::this_thread::sleep_for(std::chrono::seconds(10));
+
+      std::this_thread::sleep_for(std::chrono::seconds(5));
       if (this->checkPiperServerStarted()) {
         curl_global_init(CURL_GLOBAL_ALL);  // Initialize curl globally
         return true;

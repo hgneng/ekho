@@ -239,7 +239,7 @@ class EkhoImpl {
   const char* getEnglishPcm(string text, int& size);
 
   short* getPcmFromServer(int port, const string& text, int& size, float amplifyRate);
-  short* getPcmFromPiperServer(const string& text, int& size);
+  short* getPcmFromPiperServer(const string& text, int& size, int port);
 
   void setPunctuationMode(EkhoPuncType mode) { mPuncMode = mode; }
 

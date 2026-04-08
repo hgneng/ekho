@@ -97,6 +97,8 @@ class Ekho {
     const static int COQUI_PORT = 20492;
     const static constexpr float COQUI_AMPLIFY_RATE = 1;
     const static int COQUI_SAMPLE_RATE = 22050;
+    const static int PIPER_ENGLISH_PORT = 5001;
+    const static int PIPER_MANDARIN_PORT = 5000;
 
     static bool mDebug;
     static void debug(bool flag = true);
@@ -201,7 +203,7 @@ class Ekho {
 
     bool enableEmotiVoice(bool autoStart = true); // use EmotiVoice to synthesize Mandarin
     bool enableZhtts(bool autoStart = true); // use zhtts to synthesize Mandarin
-    bool enablePiper(bool autoStart = true); // use piper to synthesize Mandarin
+    bool enablePiper(bool autoStart = true); // use piper to synthesize Mandarin and English
 
     void setSpeakIsolatedPunctuation(bool b = true);
     bool getSpeakIsolatedPunctuation();

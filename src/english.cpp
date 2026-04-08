@@ -150,6 +150,10 @@ const char* EkhoImpl::getEnglishPcm(string text, int &size) {
     const char* pcm = (const char*)this->getPcmFromServer(Ekho::EMOTIVOICE_PORT, text, size, Ekho::EMOTIVOICE_AMPLIFY_RATE);
     size *= 2; // convert frames to chars
     return pcm;
+  } else if (Ekho::piperEnabled) {
+    const char* pcm = (const char*)this->getPcmFromPiperServer(text, size, Ekho::PIPER_ENGLISH_PORT);
+    size *= 2; // convert frames to chars
+    return pcm;
   } else {
 #ifdef ENABLE_FLITE
   return getPcmFromFlite(text, size);

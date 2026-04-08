@@ -26,7 +26,7 @@ sub build_common() {
   system('sudo apt -y install libpulse-dev');
   system('sudo apt -y install libncurses5-dev');
   system('sudo apt -y install build-essential');
-  system('sudo apt -y install autoconf automake libtool');
+  system('sudo apt -y install autoconf automake libtool autopoint');
   system('sudo apt -y install libdotconf-dev');
   system('sudo apt -y install libmp3lame-dev');
   system('sudo apt -y install libmpg123-dev libsonic-dev libutfcpp-dev');

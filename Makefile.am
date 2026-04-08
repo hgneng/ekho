@@ -80,7 +80,7 @@ all: all-am speechd
 
 speechd:
 if ENABLE_SPEECHD
-	cd $(srcdir)/speechd-api && ./build.sh && ./configure --prefix=/usr && make
+	cd $(srcdir)/speechd-api && ./build.sh && ./configure  --disable-doc --prefix=/usr && make
 endif
 
 if ENABLE_SPEECHD

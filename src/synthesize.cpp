@@ -307,7 +307,7 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
         break;
 
       case PIPER:
-        shortPcm = this->getPcmFromPiperServer(word->text, size);
+        shortPcm = this->getPcmFromPiperServer(word->text, size, Ekho::PIPER_MANDARIN_PORT);
         if (shortPcm) {
           callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
           free(shortPcm);
@@ -413,7 +413,7 @@ size_t curlWriteToString(void* contents, size_t size, size_t nmemb, std::string*
 }
 
 // It's caller's responsibility to delete the returned pointer
-short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size) {
+short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size, int port) {
   CURL* curl = curl_easy_init();
   if (!curl) {
       std::cerr << "Failed to initialize curl" << std::endl;
@@ -439,8 +439,9 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size) {
   // 3. Configure curl options
   struct curl_slist* headers = nullptr;
   headers = curl_slist_append(headers, "Content-Type: application/json");  // JSON header
+  std::string url = "http://127.0.0.1:" + std::to_string(port);
 
-  curl_easy_setopt(curl, CURLOPT_URL, "http://127.0.0.1:5000");
+  curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
   curl_easy_setopt(curl, CURLOPT_POST, 1L);          // Enable POST
   curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
   curl_easy_setopt(curl, CURLOPT_POSTFIELDS, postData.c_str());  // POST data
