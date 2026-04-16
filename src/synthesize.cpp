@@ -482,7 +482,7 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size, int port) 
     if (mDebug) {
       cerr << "getPcmFromPiperServer: readPcmFromAudioFile size=" << size << endl;
     }
-    //remove(tmpFilePath.c_str());
+    remove(tmpFilePath.c_str());
     return pcm;
 
     // amplify

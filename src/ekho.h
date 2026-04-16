@@ -68,7 +68,7 @@ using namespace std;
 namespace ekho {
 
 typedef int (t_ekho_sync_callback)(short*, int);
-//  typedef int(SynthCallback)(short *pcm, int frames, void *arg = NULL,
+//  typedef int(SynthCallback)(short *pcm, int frames, void *arg = nullptr,
 //                             OverlapType type = OVERLAP_QUIET_PART);
 typedef int(SynthCallback)(short* pcm, int frames, void* arg, OverlapType type);
 
@@ -83,12 +83,12 @@ class Ekho {
     long getAvailableMemory();
     bool checkEmotiVoiceServerStarted();
     bool checkZhttsServerStarted();
-    bool checkPiperServerStarted();
+    bool checkPiperMandarinServerStarted();
+    bool checkPiperEnglishServerStarted();
     string buildPiperRequest(const string& text);
 
   public:
     const static int BUFFER_SIZE = 40960;
-    const static int PENDING_PCM_FRAMES = 20480;
     const static int MAX_CLIENTS = 100;
     const static int EMOTIVOICE_PORT = 20491;
     const static constexpr float EMOTIVOICE_AMPLIFY_RATE = 2;
@@ -108,6 +108,7 @@ class Ekho {
     static bool emotiVoiceEnabled;
     static bool zhttsEnabled;
     static bool piperEnabled;
+    static bool piperEnglishEnabled;
     static bool coquiEnabled;
 
     Ekho();
@@ -134,8 +135,8 @@ class Ekho {
      * text should be in UTF-8 format
      * it will launch a new thread and return immediately
      */
-    int speak(string text, void (*pCallback)(void*) = NULL,
-              void* pCallbackArgs = NULL);
+    int speak(string text, void (*pCallback)(void*) = nullptr,
+              void* pCallbackArgs = nullptr);
 
     int synth(const char* text, SpeechdSynthCallback* callback);
 
@@ -152,8 +153,8 @@ class Ekho {
      * text should be in UTF-8 format
      * it will launch a new thread and return immediately
      */
-    int stopAndSpeak(string text, void (*pCallback)(void*) = NULL,
-                     void* pCallbackArgs = NULL);
+    int stopAndSpeak(string text, void (*pCallback)(void*) = nullptr,
+                     void* pCallbackArgs = nullptr);
 
     short* synth3(string text, int& pcmSize);
 
@@ -204,6 +205,9 @@ class Ekho {
     bool enableEmotiVoice(bool autoStart = true); // use EmotiVoice to synthesize Mandarin
     bool enableZhtts(bool autoStart = true); // use zhtts to synthesize Mandarin
     bool enablePiper(bool autoStart = true); // use piper to synthesize Mandarin and English
+    bool enablePiperMandarin();
+    bool enablePiperEnglish();
+    bool enablePiperModel(string model, int port);
 
     void setSpeakIsolatedPunctuation(bool b = true);
     bool getSpeakIsolatedPunctuation();

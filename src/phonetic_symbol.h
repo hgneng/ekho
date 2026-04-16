@@ -63,8 +63,8 @@ namespace ekho {
         }*/
 
         if (mPcm) {
-          delete mPcm;
-          mPcm = 0;
+          delete[] mPcm;
+          mPcm = nullptr;
         }
       };
 
@@ -74,7 +74,7 @@ namespace ekho {
 
       void setPcm(char* pcm, const int size) {
         if (mPcm) {
-          delete mPcm;
+          delete[] mPcm;
         }
         mPcm = pcm;
         mSize = size;

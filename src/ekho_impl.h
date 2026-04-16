@@ -109,8 +109,8 @@ class EkhoImpl {
    * text should be in UTF-8 format
    * it will launch a new thread and return immediately
    */
-  int speak(string text, void (*pCallback)(void*) = NULL,
-            void* pCallbackArgs = NULL);
+  int speak(string text, void (*pCallback)(void*) = nullptr,
+            void* pCallbackArgs = nullptr);
 
   void sing(string filepath);
 
@@ -118,8 +118,8 @@ class EkhoImpl {
    * text should be in UTF-8 format
    * it will launch a new thread and return immediately
    */
-  int stopAndSpeak(string text, void (*pCallback)(void*) = NULL,
-                   void* pCallbackArgs = NULL);
+  int stopAndSpeak(string text, void (*pCallback)(void*) = nullptr,
+                   void* pCallbackArgs = nullptr);
 
   /* Synth speech
    * callback will be called time from time when buffer is ready
@@ -275,7 +275,7 @@ class EkhoImpl {
   queue<SpeechOrder> mSpeechQueue;
   pthread_cond_t mSpeechQueueCond;
 
-  short mPendingPcm[PENDING_PCM_FRAMES];
+  short mPendingPcm[PENDING_PCM_FRAMES] = {0};
   int mPendingFrames;
 
   bool isSpeechThreadInited;

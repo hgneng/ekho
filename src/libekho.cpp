@@ -270,9 +270,10 @@ bool Ekho::checkPiperEnglishServerStarted() {
   if (pcm) {
     Ekho::piperEnglishEnabled = true;
     delete[] pcm;
-    cerr << "delete " << pcm << " " << size << endl;
+    //cerr << "delete " << pcm << " " << size << endl;
     pcm = nullptr;
     return true;
+    // @fixme: crash after return. don't know why.
   }
   return false;
 }
