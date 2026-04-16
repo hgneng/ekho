@@ -212,7 +212,7 @@ void Ekho::singCharacter(const Character &c, int duration, string pitch) {
 #endif
   }
   delete[] pcm2;
-  pcm2 = NULL;
+  pcm2 = nullptr;
 }
 
 // caller should delete return pcm array.
@@ -230,7 +230,7 @@ char* Ekho::convertDurationAndPitch(const char *pcm, int size,
   cerr << "tempo=" << tempo << ", pitch="
     << pitch << ", convertedSize=" << convertedSize << endl;
   delete audio;
-  audio = NULL;
+  audio = nullptr;
 
   return (char*)targetPcm;
 }

@@ -74,6 +74,7 @@ bool Ekho::mDebug = false;
 bool Ekho::emotiVoiceEnabled = false;
 bool Ekho::zhttsEnabled = false;
 bool Ekho::piperEnabled = false;
+bool Ekho::piperEnglishEnabled = false;
 bool Ekho::coquiEnabled = false;
 
 void Ekho::debug(bool flag) {
@@ -94,7 +95,7 @@ Ekho::Ekho(string voice) {
 
 void Ekho::init() {
   this->musicxmlMinuteRate = 58; // default is 120. 58 is for demo.xml
-  this->sndFile = NULL;
+  this->sndFile = nullptr;
 }
 
 Ekho::~Ekho(void) { delete this->m_pImpl; }
@@ -189,7 +190,7 @@ bool Ekho::checkEmotiVoiceServerStarted() {
     Ekho::emotiVoiceEnabled = true;
     Word::emotiVoiceEnabled = true;
     delete[] pcm;
-    pcm = NULL;
+    pcm = nullptr;
     return true;
   }
   return false;
@@ -231,7 +232,7 @@ bool Ekho::enableEmotiVoice(bool autoStart) {
   pcm = this->m_pImpl->getPcmFromServer(Ekho::COQUI_PORT, "a", size, Ekho::COQUI_AMPLIFY_RATE);
   if (pcm) {
     Ekho::coquiEnabled = true;
-    pcm = NULL;
+    pcm = nullptr;
   }*/
 }
 
@@ -242,13 +243,13 @@ bool Ekho::checkZhttsServerStarted() {
     Ekho::zhttsEnabled = true;
     Word::zhttsEnabled = true;
     delete[] pcm;
-    pcm = NULL;
+    pcm = nullptr;
     return true;
   }
   return false;
 }
 
-bool Ekho::checkPiperServerStarted() {
+bool Ekho::checkPiperMandarinServerStarted() {
   int size = 0;
 
   short* pcm = this->m_pImpl->getPcmFromPiperServer("的", size, Ekho::PIPER_MANDARIN_PORT);
@@ -256,7 +257,21 @@ bool Ekho::checkPiperServerStarted() {
     Ekho::piperEnabled = true;
     Word::piperEnabled = true;
     delete[] pcm;
-    pcm = NULL;
+    pcm = nullptr;
+    return true;
+  }
+  return false;
+}
+
+bool Ekho::checkPiperEnglishServerStarted() {
+  int size = 0;
+
+  short* pcm = this->m_pImpl->getPcmFromPiperServer("hello", size, Ekho::PIPER_ENGLISH_PORT);
+  if (pcm) {
+    Ekho::piperEnglishEnabled = true;
+    delete[] pcm;
+    cerr << "delete " << pcm << " " << size << endl;
+    pcm = nullptr;
     return true;
   }
   return false;
@@ -271,7 +286,13 @@ bool Ekho::enableZhtts(bool autoStart) {
     //if (mDebug) {
     cerr << "starting zhtts server..." << endl;
     //}
-    system("zhttsServer.py &");
+    string cmd = R"(bash -c "
+      source /opt/miniconda3/etc/profile.d/conda.sh &&
+      conda activate py38 &&
+      python /usr/bin/zhttsServer.py
+      ")";
+    system(cmd.c_str());
+
     std::this_thread::sleep_for(std::chrono::seconds(10));
     return this->checkZhttsServerStarted();
   }
@@ -280,34 +301,61 @@ bool Ekho::enableZhtts(bool autoStart) {
 }
 
 bool Ekho::enablePiper(bool autoStart) {
+  curl_global_init(CURL_GLOBAL_ALL);  // Initialize curl globally
+  //this->enablePiperMandarin();
+  this->enablePiperEnglish();
+}
+
+bool Ekho::enablePiperMandarin() {
   // 先检查piper服务进程是否存在，再确认启用。
-  if (this->checkPiperServerStarted()) {
-    curl_global_init(CURL_GLOBAL_ALL);  // Initialize curl globally
+  if (this->checkPiperMandarinServerStarted()) {
     return true;
-  } else if (autoStart) {
-    string piperDataPath = this->getDict().mDataPath + "/piper";
-    // check whether piperDataPath exists
-    if (filesystem::is_directory(filesystem::status(piperDataPath))) {
-      cerr << "starting piper Mandarin server..." << endl;
-      string cmd = "export TRANSFORMERS_OFFLINE=1 && export HF_ENDPOINT='https://hf-mirror.com' && cd " +
-        piperDataPath + " && python3 -m piper.http_server -m zh_CN-xiao_ya-medium --host 127.0.0.1 --port 5000 2>/dev/null &";
-      system(cmd.c_str());
+  }
 
-      cerr << "starting piper English server..." << endl;
-      cmd = "export TRANSFORMERS_OFFLINE=1 && export HF_ENDPOINT='https://hf-mirror.com' && cd " +
-        piperDataPath + " && python3 -m piper.http_server -m en_US-amy-medium --host 127.0.0.1 --port 5001 2>/dev/null &";
-      //cerr << cmd << endl;
-      system(cmd.c_str());
-
-      std::this_thread::sleep_for(std::chrono::seconds(5));
-      if (this->checkPiperServerStarted()) {
-        curl_global_init(CURL_GLOBAL_ALL);  // Initialize curl globally
-        return true;
-      }
+  if (this->enablePiperModel("zh_CN-xiao_ya-medium", 5000)) {
+    if (this->checkPiperMandarinServerStarted()) {
+      return true;
     }
   }
 
   return false;
+}
+
+bool Ekho::enablePiperEnglish() {
+  // 先检查piper服务进程是否存在，再确认启用。
+  if (this->checkPiperEnglishServerStarted()) {
+    return true;
+  }
+
+  if (this->enablePiperModel("en_US-amy-low", 5001)) {
+    if (this->checkPiperEnglishServerStarted()) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+bool Ekho::enablePiperModel(string model, int port) {
+  string piperDataPath = this->getDict().mDataPath + "/piper";
+  // check whether piperDataPath exists
+  if (filesystem::is_directory(piperDataPath)) {
+    cerr << "starting piper server at port " << port << endl;
+    setenv("TRANSFORMERS_OFFLINE", "1", 1);
+    setenv("HF_ENDPOINT", "https://hf-mirror.com", 1);
+    string portStr = std::to_string(port);
+    string cmd = "bash -c \"source /opt/miniconda3/etc/profile.d/conda.sh && conda activate base && cd " +
+      piperDataPath +
+      " && python3 -m piper.http_server -m " + model + " --host 127.0.0.1 --port " + portStr +
+      " 2>/dev/null &\"";
+    //cerr << cmd << endl;
+    system(cmd.c_str());
+    std::this_thread::sleep_for(std::chrono::seconds(5));
+    return true;
+  } else {
+    cerr << "piper folder not found at " << piperDataPath << endl;
+    return false;
+  }
 }
 
 void Ekho::setSpeakIsolatedPunctuation(bool b) {
@@ -364,7 +412,7 @@ short* Ekho::synth3(string text, int& samples) {
 #endif
 
   FILE *f = fopen(filepath.c_str(), "rb+");
-  short *pcm = NULL;
+  short *pcm = nullptr;
   if (f) {
     fseek(f, 0L, SEEK_END);
     long filesize = ftell(f); // get file size
@@ -383,8 +431,8 @@ short* Ekho::synth3(string text, int& samples) {
 }
 
 // for Android
-SynthCallback* Ekho::synth4Callback = NULL;
-EkhoImpl* Ekho::impl = NULL;
+SynthCallback* Ekho::synth4Callback = nullptr;
+EkhoImpl* Ekho::impl = nullptr;
 int Ekho::postProcess(short* pcm, int frames, void* arg, OverlapType type) {
   EkhoImpl* pEkho = Ekho::impl;
 
@@ -398,7 +446,7 @@ int Ekho::postProcess(short* pcm, int frames, void* arg, OverlapType type) {
     } while (frames > 0);
 
     delete[] buffer;
-    buffer = NULL;
+    buffer = nullptr;
   } else {
     int flush_frames = pEkho->writeToSonicStream(pcm, frames, type);
 
@@ -413,7 +461,7 @@ int Ekho::postProcess(short* pcm, int frames, void* arg, OverlapType type) {
       } while (frames > 0);
 
       delete[] buffer;
-      buffer = NULL;
+      buffer = nullptr;
     }
   }
 

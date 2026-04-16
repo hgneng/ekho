@@ -54,22 +54,22 @@ Audio::Audio(void) {
   this->currentSampleRate = 0; // sonic processing sample (change for espeak)
   this->outputSampleRate = 0; // for readShortFrames
   this->channels = 1;
-  this->speechdSynthCallback = NULL;
+  this->speechdSynthCallback = nullptr;
   this->hasProcessorInited = false;
-  this->pcmFrameBuffer = NULL;
+  this->pcmFrameBuffer = nullptr;
   this->pcmFrameMaxSize = 0;
   this->pcmFrameCurrentSize = 0;
 
 #ifdef HAVE_SONIC
-  this->processorStream = NULL;
+  this->processorStream = nullptr;
 #endif
 
 #ifdef HAVE_MPG123
-  this->mpg123Handle = NULL;
+  this->mpg123Handle = nullptr;
 #endif
 
 #ifdef HAVE_PULSEAUDIO
-  this->pulseAudio = NULL;
+  this->pulseAudio = nullptr;
 #endif
 }
 
@@ -85,7 +85,7 @@ Audio::~Audio(void) {
   if (this->mpg123Handle) {
     mpg123_delete(this->mpg123Handle);
     mpg123_exit();
-    this->mpg123Handle = NULL;
+    this->mpg123Handle = nullptr;
   }
 #endif
 }
@@ -133,7 +133,7 @@ void Audio::destroyProcessor() {
   this->pcmFrameMaxSize = 0;
   this->pcmFrameCurrentSize = 0;
   free(this->pcmFrameBuffer);
-  this->pcmFrameBuffer = NULL;
+  this->pcmFrameBuffer = nullptr;
 #endif
 }
 
@@ -154,8 +154,8 @@ void Audio::initPulseAudio() {
          << ",channels=" << (int)ss.channels << ")" << endl;
   }
 
-  this->pulseAudio = pa_simple_new(NULL, "Ekho", PA_STREAM_PLAYBACK, NULL,
-      "playback", &ss, NULL, NULL, &error);
+  this->pulseAudio = pa_simple_new(nullptr, "Ekho", PA_STREAM_PLAYBACK, nullptr,
+      "playback", &ss, nullptr, nullptr, &error);
 
   if (!this->pulseAudio) {
     cerr << "pa_simple_new() failed: " << pa_strerror(error) << endl;
@@ -490,6 +490,7 @@ void Audio::play(const string& path) {
   }
 
   delete[] pcm;
+  pcm = nullptr;
   sf_close(sndfile);
 }
 
@@ -546,21 +547,22 @@ short* Audio::readPcmFromAudioFile(string filepath, int& size) {
     return this->readPcmFromMp3File(filepath, size);
   }
 
-  SF_INFO sfinfo;
+  SF_INFO sfinfo = {0};
   SNDFILE *sndfile = sf_open(filepath.c_str(), SFM_READ, &sfinfo);
   if (!sndfile) {
     cerr << "Fail to open " << filepath << endl;
-    return NULL;
+    return nullptr;
   }
 
   if (sfinfo.frames <= 0) {
     cerr << filepath << " is empty." << endl;
     sf_close(sndfile);
-    return NULL;
+    return nullptr;
   }
 
   size = sfinfo.frames;
   short *pcm = new short[size];
+
   sf_readf_short(sndfile, pcm, size);
   sf_close(sndfile);
 
@@ -572,7 +574,7 @@ void Audio::initMp3Processor() {
   if (!mpg123Handle) {
     mpg123_init();
     int err;
-    this->mpg123Handle = mpg123_new(NULL, &err);
+    this->mpg123Handle = mpg123_new(nullptr, &err);
   }
 #endif
 }
@@ -669,7 +671,7 @@ int EkhoImpl::saveWav(string text, string filename) {
 
   // close record file
   sf_close(mSndFile);
-  mSndFile = NULL;
+  mSndFile = nullptr;
 
   if (EkhoImpl::mDebug) cerr << "Finish writting WAV file " << filename << endl;
 
@@ -705,7 +707,7 @@ int EkhoImpl::saveOgg(string text, string filename) {
 
   // close record file
   sf_close(mSndFile);
-  mSndFile = NULL;
+  mSndFile = nullptr;
 
   if (EkhoImpl::mDebug) {
     cerr << "Finish writting WAV file " << filename << " ..." << endl;
@@ -729,7 +731,7 @@ int EkhoImpl::saveMp3(string text, string filename) {
   SF_INFO gs_wfInfo;
   memset(&gs_wfInfo, 0, sizeof(gs_wfInfo));
   SNDFILE *gs_pSndFileIn = sf_open(tmp_wav.c_str(), SFM_READ, &gs_wfInfo);
-  if (gs_pSndFileIn == NULL) {
+  if (gs_pSndFileIn == nullptr) {
     sf_perror(gs_pSndFileIn);
     cerr << "Could not open sound file " << tmp_wav << endl;
     return -1;
@@ -737,7 +739,7 @@ int EkhoImpl::saveMp3(string text, string filename) {
   musicin = (FILE *)gs_pSndFileIn;
 
   /* initialize libmp3lame */
-  if (NULL == (gf = lame_init())) {
+  if (nullptr == (gf = lame_init())) {
     cerr << "fatal error during initialization" << endl;
     return -1;
   }
@@ -756,7 +758,7 @@ int EkhoImpl::saveMp3(string text, string filename) {
   }
 
   /* open output file */
-  if ((outf = fopen(filename.c_str(), "w+b")) == NULL) {
+  if ((outf = fopen(filename.c_str(), "w+b")) == nullptr) {
     lame_close(gf);
     return -1;
   }

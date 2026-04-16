@@ -32,6 +32,7 @@
 #include <unistd.h>
 #include <fstream>
 #include <iostream>
+#include <curl/curl.h>
 #include "config.h"
 #include "ekho.h"
 #include "ekho_dict.h"
@@ -52,7 +53,7 @@ using namespace std;
 
 bool EkhoImpl::mDebug = false;
 SpeechdSynthCallback* EkhoImpl::speechdSynthCallback = 0;
-EkhoImpl* EkhoImpl::gEkho = NULL;
+EkhoImpl* EkhoImpl::gEkho = nullptr;
 
 EkhoImpl::EkhoImpl() { this->init(); }
 
@@ -77,7 +78,7 @@ int EkhoImpl::init(void) {
 
   this->audio = new Audio();
 
-  this->mSndFile = NULL;
+  this->mSndFile = nullptr;
   this->isRecording = false;
   this->tempoDelta = 0;
   this->pitchDelta = 0;
@@ -120,6 +121,7 @@ EkhoImpl::~EkhoImpl(void) {
   closeStream();
 
   delete this->audio;
+  this->audio = nullptr;
 
 #ifdef ENABLE_FESTIVAL
   festival_eval_command("(audio_mode 'close)");
@@ -132,6 +134,9 @@ EkhoImpl::~EkhoImpl(void) {
   }
 #endif
 
+  if (Ekho::piperEnabled || Ekho::piperEnglishEnabled) {
+    curl_global_cleanup();
+  }
   // TODO: free mAlphabetPcmCache
 }
 
@@ -140,7 +145,7 @@ int EkhoImpl::initSound(void) {
     // launch speechDaemon
     pthread_attr_init(&this->speechThreadAttr);
     pthread_attr_setdetachstate(&this->speechThreadAttr, PTHREAD_CREATE_JOINABLE);
-    pthread_create(&this->speechThread, NULL, speechDaemon, (void *)this);
+    pthread_create(&this->speechThread, nullptr, speechDaemon, (void *)this);
     this->isSpeechThreadInited = true;
     this->isSoundInited = true;
 
@@ -196,7 +201,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type) {
 /*
   if (frames == 0) {
     // send finish event to speech-dispatcher
-    EkhoImpl::speechdSynthCallback(NULL, 0, 16,
+    EkhoImpl::speechdSynthCallback(nullptr, 0, 16,
       pEkho->audio->channels, pEkho->audio->sampleRate, 1);
   }*/
 
@@ -256,7 +261,7 @@ int EkhoImpl::writePcm(short *pcm, int frames, void *arg, OverlapType type) {
   pthread_mutex_unlock(&(pEkho->mSpeechQueueMutex));
 
   delete[] buffer;
-  buffer = NULL;
+  buffer = nullptr;
   return 0;
 }
 
@@ -724,8 +729,8 @@ int EkhoImpl::blockSpeak(string text) {
   this->isStopped = false;
   SpeechOrder order;
   order.text = text;
-  order.pCallback = NULL;
-  order.pCallbackArgs = NULL;
+  order.pCallback = nullptr;
+  order.pCallbackArgs = nullptr;
   mSpeechQueue.push(order);
   pthread_mutex_unlock(&mSpeechQueueMutex);
   pthread_cond_signal(&mSpeechQueueCond);

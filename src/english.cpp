@@ -52,7 +52,7 @@ namespace ekho {
 static bool gsIsFestivalInited = false;
 #endif
 
-SynthCallback* Ekho::synthCallback = NULL;
+SynthCallback* Ekho::synthCallback = nullptr;
 
 void EkhoImpl::initEnglish(void) {
   gEkho = this;
@@ -85,7 +85,7 @@ void EkhoImpl::initEnglish(void) {
 
 #ifdef ENABLE_ESPEAK
   // espeak
-  int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 1);
+  int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, nullptr, 1);
   isEspeakInited = true;
   this->setEnglishSpeed(this->getEnglishSpeed());
   if (mDebug) {
@@ -102,7 +102,7 @@ void EkhoImpl::initEnglish(void) {
 
 #ifdef ENABLE_FLITE
   flite_init();
-  mFliteVoice = register_cmu_us_kal16(NULL);
+  mFliteVoice = register_cmu_us_kal16(nullptr);
 #ifdef DEBUG_ANDROID
   LOGD("EkhoImpl::initEnglish end");
 #endif
@@ -117,7 +117,7 @@ void EkhoImpl::setEnglishSpeed(int delta) {
   }
 
   int baseDelta = 0;
-  if (!Ekho::emotiVoiceEnabled && !Ekho::zhttsEnabled && !Ekho::piperEnabled) { // EmotiVoice是正常速度，不需要调整
+  if (!Ekho::emotiVoiceEnabled && !Ekho::zhttsEnabled && !Ekho::piperEnglishEnabled) { // EmotiVoice是正常速度，不需要调整
     baseDelta = (int)round(mDict.mSfinfo.frames * 2 * 44100 * 100 / mDict.mSfinfo.samplerate / 20362) - 100;
 
     // Changing tempo will add noise, we'd better don't do it.
@@ -150,7 +150,7 @@ const char* EkhoImpl::getEnglishPcm(string text, int &size) {
     const char* pcm = (const char*)this->getPcmFromServer(Ekho::EMOTIVOICE_PORT, text, size, Ekho::EMOTIVOICE_AMPLIFY_RATE);
     size *= 2; // convert frames to chars
     return pcm;
-  } else if (Ekho::piperEnabled) {
+  } else if (Ekho::piperEnglishEnabled) {
     const char* pcm = (const char*)this->getPcmFromPiperServer(text, size, Ekho::PIPER_ENGLISH_PORT);
     size *= 2; // convert frames to chars
     return pcm;
@@ -165,7 +165,7 @@ const char* EkhoImpl::getEnglishPcm(string text, int &size) {
 
 #ifdef ENABLE_ESPEAK
   this->synthWithEspeak(text);
-  return NULL;
+  return nullptr;
 #endif
   }
 }
@@ -227,7 +227,7 @@ const char* EkhoImpl::getPcmFromFlite(string text, int& size) {
   }
 #endif
   
-  return NULL;
+  return nullptr;
 }
 
 // It's caller's responsibility to delete the returned pointer

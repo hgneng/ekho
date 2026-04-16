@@ -32,7 +32,6 @@
 #include <unistd.h>
 #include <iostream>
 #include <fstream>
-#include <curl/curl.h>
 #include "config.h"
 
 #ifdef ENABLE_WINDOWS
@@ -44,7 +43,7 @@
 
 using namespace ekho;
 
-static Ekho *ekho_g = NULL;
+static Ekho *ekho_g = nullptr;
 static bool isDebugging = false;
 
 //#include "gtk2.cpp"
@@ -177,32 +176,32 @@ static bool read_stdin(char **text) {
 }
 
 int main(int argc, char *argv[]) {
-  struct option opts[] = {{"help", 0, NULL, 'h'},
-                          {"gui", 0, NULL, 'g'},
-                          {"voice", 1, NULL, 'v'},
-                          {"file", 1, NULL, 'f'},
-                          {"output", 1, NULL, 'o'},
-                          {"type", 1, NULL, 't'},
-                          {"pitch", 1, NULL, 'p'},
-                          {"volume", 1, NULL, 'a'},
-                          {"rate", 1, NULL, 'r'},
-                          {"speed", 1, NULL, 's'},
-                          {"english-speed", 1, NULL, 'i'},
-                          {"english-voice", 1, NULL, 'u'},
-                          {"samplerate", 1, NULL, 'j'},
-                          {"channels", 1, NULL, 'k'},
-                          {"port", 1, NULL, '1'},
-                          {"EmotiVoice", 0, NULL, 'm'},
-                          {"zhtts", 0, NULL, 'x'},
-                          {"piper", 0, NULL, 'y'},
-                          {"overlap", 1, NULL, 'c'},
-                          {"server", 0, NULL, 'e'},
-                          {"request", 1, NULL, 'q'},
-                          {"symbol", 0, NULL, 'l'},
-                          {"debug", 0, NULL, 'd'},
-                          {"sing", 1, NULL, 'b'},
-                          {"version", 0, NULL, 'n'},
-                          {NULL, 0, NULL, 0}};
+  struct option opts[] = {{"help", 0, nullptr, 'h'},
+                          {"gui", 0, nullptr, 'g'},
+                          {"voice", 1, nullptr, 'v'},
+                          {"file", 1, nullptr, 'f'},
+                          {"output", 1, nullptr, 'o'},
+                          {"type", 1, nullptr, 't'},
+                          {"pitch", 1, nullptr, 'p'},
+                          {"volume", 1, nullptr, 'a'},
+                          {"rate", 1, nullptr, 'r'},
+                          {"speed", 1, nullptr, 's'},
+                          {"english-speed", 1, nullptr, 'i'},
+                          {"english-voice", 1, nullptr, 'u'},
+                          {"samplerate", 1, nullptr, 'j'},
+                          {"channels", 1, nullptr, 'k'},
+                          {"port", 1, nullptr, '1'},
+                          {"EmotiVoice", 0, nullptr, 'm'},
+                          {"zhtts", 0, nullptr, 'x'},
+                          {"piper", 0, nullptr, 'y'},
+                          {"overlap", 1, nullptr, 'c'},
+                          {"server", 0, nullptr, 'e'},
+                          {"request", 1, nullptr, 'q'},
+                          {"symbol", 0, nullptr, 'l'},
+                          {"debug", 0, nullptr, 'd'},
+                          {"sing", 1, nullptr, 'b'},
+                          {"version", 0, nullptr, 'n'},
+                          {nullptr, 0, nullptr, 0}};
   /* set locale to zh_CN.UTF-8 */
   //  setlocale(LC_ALL, "zh_CN.UTF-8");
 
@@ -220,15 +219,15 @@ int main(int argc, char *argv[]) {
   int text_buffer_size = 256;
   char* text = (char *)malloc(text_buffer_size);
   text[0] = 0;
-  const char* text_filename = NULL;
-  const char* save_filename = NULL;
-  char* save_type = NULL;
+  const char* text_filename = nullptr;
+  const char* save_filename = nullptr;
+  char* save_type = nullptr;
   int pitch_delta = 0;
   int volume_delta = 0;
   int rate_delta = 0;
   int tempo_delta = 0;
   int english_speed_delta = 0;
-  const char* english_voice = NULL;
+  const char* english_voice = nullptr;
   int sample_rate = 0;
   int channels = 1;
   int overlap = 2048;
@@ -479,7 +478,7 @@ int main(int argc, char *argv[]) {
     }
     ekho_g->singMusicXml(text_filename, saveFilename);
     delete ekho_g;
-    ekho_g = 0;
+    ekho_g = nullptr;
   } else {
     // main synthesize
     ekho_g = new Ekho();
@@ -526,11 +525,7 @@ int main(int argc, char *argv[]) {
     }
 
     delete (ekho_g);
-    ekho_g = NULL;
-  }
-
-  if (Ekho::piperEnabled) {
-    curl_global_cleanup();
+    ekho_g = nullptr;
   }
 
   if (text) free(text);

@@ -37,7 +37,7 @@ void Word::loadWordVoiceFiles(string dir) {
   // scan files in voice dir
   DIR *dirp;
   struct dirent *dp;
-  if ((dirp = opendir(dir.c_str())) == NULL) {
+  if ((dirp = opendir(dir.c_str())) == nullptr) {
     // cerr << "Fail to open dir " << dir << endl;
     return;
   }
@@ -45,7 +45,7 @@ void Word::loadWordVoiceFiles(string dir) {
   int wordCount = 0;
 
   do {
-    if ((dp = readdir(dirp)) != NULL) {
+    if ((dp = readdir(dirp)) != nullptr) {
       // cerr << "processing " << dp->d_name << endl;
       char *c = dp->d_name;
 
@@ -93,7 +93,7 @@ void Word::loadWordVoiceFiles(string dir) {
 
       wordCount++;
     }
-  } while (dp != NULL);
+  } while (dp != nullptr);
 
   closedir(dirp);
   // cerr << "map size: " << Word::voiceFilesMap.size() << endl;
@@ -172,7 +172,7 @@ string Word::findMatchedPinyin(WordPinyin& wordPinyin,
   for (WordPinyin::iterator pinyinItor = wordPinyin.begin();
       i < count; pinyinItor++) {
     // cerr << "comparing " << *pinyinItor << " and " << (*itor2)->symbol << endl;
-    if (itor2 == phonList.end() || *itor2 == NULL ||
+    if (itor2 == phonList.end() || *itor2 == nullptr ||
         pinyinItor->compare((*itor2)->symbol) != 0) {
       return "";
     }
@@ -237,7 +237,7 @@ list<Word> Word::split(string text) {
       itor2++;
       if (itor2 != char_list.end() && itor2->code == '[') {
         do {
-          PhoneticSymbol *phon_symbol = NULL;
+          PhoneticSymbol *phon_symbol = nullptr;
 
           if (itor2 != char_list.end() && itor2->code == ']') {
             itor2++;
@@ -311,7 +311,7 @@ list<Word> Word::split(string text) {
     } // end of [[pin1 yin1]] style
 
     if (code < 65536 && Dict::me->mDictItemArray[code].character.phonSymbol &&
-        strstr(Dict::me->mDictItemArray[code].character.phonSymbol->symbol, "pause") != NULL) {
+        strstr(Dict::me->mDictItemArray[code].character.phonSymbol->symbol, "pause") != nullptr) {
       if (lastword.empty()) {
         // it's a symbol, not including space
         if (strcmp(Dict::me->mDictItemArray[code].character.phonSymbol->symbol,

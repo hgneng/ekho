@@ -123,8 +123,11 @@ void Dict::init(void) {
 
 Dict::~Dict(void) {
   delete mFullPause;
+  mFullPause = nullptr;
   delete mHalfPause;
+  mHalfPause = nullptr;
   delete mQuaterPause;
+  mQuaterPause = nullptr;
   if (mVoiceFile) fclose(mVoiceFile);
   mVoiceFile = 0;
   Dict::me = 0;
@@ -133,12 +136,14 @@ Dict::~Dict(void) {
   for (list<PhoneticSymbol *>::iterator li = mSpecialSymbols.begin();
        li != mSpecialSymbols.end(); li++) {
     delete *li;
+    *li = nullptr;
   }
   mSpecialSymbols.clear();
 
   for (list<char *>::iterator li = mSpecialChars.begin();
        li != mSpecialChars.end(); li++) {
     delete[] *li;
+    *li = nullptr;
   }
   mSpecialChars.clear();
 }
@@ -248,7 +253,7 @@ int Dict::setLanguage(Language lang) {
     mDictItemArray[i].character.phonSymbol = 0;
     if (mDictItemArray[i].wordList) {
       delete mDictItemArray[i].wordList;
-      mDictItemArray[i].wordList = 0;
+      mDictItemArray[i].wordList = nullptr;
     }
   }
   mExtraDictItemMap.clear();
@@ -647,7 +652,7 @@ PhoneticSymbol *Dict::lookup(const Character &c) {
     if (di) {
       return di->character.phonSymbol;
     } else {
-      return NULL;
+      return nullptr;
     }
   }
 }
@@ -659,7 +664,7 @@ list<PhoneticSymbol *> Dict::lookup(list<Character> &charList, bool firstWord) {
   list<Character> convertedCharList;
   list<Character>::iterator begin = charList.begin();
   list<Character>::iterator end = charList.end();
-  DictItem *di = NULL;
+  DictItem *di = nullptr;
 
   // handle rules of numbers
   if (mLanguage == MANDARIN || mLanguage == CANTONESE) {
@@ -1182,7 +1187,7 @@ int Dict::saveEkhoDict(const char *path) {
       }
 
       // write character symbol
-      SymbolCode *pSymCode = NULL;
+      SymbolCode *pSymCode = nullptr;
       const char *symbol = di->character.phonSymbol->symbol;
       if (mLanguage == CANTONESE) {
         pSymCode = ZHY_PHash::in_word_set(symbol, strlen(symbol));
@@ -1515,7 +1520,7 @@ void Dict::saveEkhoVoiceFile() {
   // scan files in voice_dir
   DIR *dirp;
   struct dirent *dp;
-  if ((dirp = opendir(voice_dir.c_str())) == NULL) {
+  if ((dirp = opendir(voice_dir.c_str())) == nullptr) {
     cerr << "Fail to open " << voice_dir << endl;
     return;
   }
@@ -1528,7 +1533,7 @@ void Dict::saveEkhoVoiceFile() {
   unsigned int total_bytes = 0;
 
   do {
-    if ((dp = readdir(dirp)) != NULL) {
+    if ((dp = readdir(dirp)) != nullptr) {
       char *suffix = strstr(dp->d_name, mVoiceFileType);
       if (!suffix || suffix - dp->d_name < 2) continue;
 
@@ -1627,7 +1632,7 @@ void Dict::saveEkhoVoiceFile() {
         os.put((bytes >> 16) & 0xFF);
       }
     }
-  } while (dp != NULL);
+  } while (dp != nullptr);
 
   closedir(dirp);
   fclose(file);

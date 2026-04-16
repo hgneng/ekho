@@ -212,7 +212,7 @@ int EkhoImpl::request(string ip, int port, Command cmd, string text,
   struct hostent *he;
   struct sockaddr_in their_addr;  // connector's address information
 
-  if ((he = gethostbyname(ip.c_str())) == NULL) {  // get the host info
+  if ((he = gethostbyname(ip.c_str())) == nullptr) {  // get the host info
     fprintf(stderr, "gethostbyname error\n");
     exit(1);
   }
@@ -297,6 +297,7 @@ int EkhoImpl::request(string ip, int port, Command cmd, string text,
   }
 
   delete[] data;
+  data = nullptr;
 
   return 0;
 }

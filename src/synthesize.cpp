@@ -74,8 +74,8 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
   this->isPaused = false;
   float pause = 0;
   int size = 0;
-  const char* pPcm = NULL;
-  short* shortPcm = NULL;
+  const char* pPcm = nullptr;
+  short* shortPcm = nullptr;
 
   if (mDict.getLanguage() == ENGLISH) {
 #ifdef ENABLE_ENGLISH
@@ -89,7 +89,7 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
       this->audio->setSampleRate(this->audio->sampleRate);
       if (pPcm) {
         delete[] pPcm;
-        pPcm = NULL;
+        pPcm = nullptr;
       }
     }
 #endif
@@ -206,7 +206,7 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
             if (pPcm && size > 0) {
               callback((short *)pPcm, size / 2, userdata, OVERLAP_NONE);
               delete[] pPcm;
-              pPcm = NULL;
+              pPcm = nullptr;
               this->audio->setSampleRate(this->audio->sampleRate);
             }
           }
@@ -275,8 +275,8 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
            mDict.getVoice() + "/" + word->text, size);
         if (shortPcm) {
           callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
-          free(shortPcm);
-          shortPcm = NULL;
+          delete[] shortPcm;
+          shortPcm = nullptr;
         }
         break;
 
@@ -285,8 +285,8 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
         shortPcm = this->getPcmFromServer(Ekho::EMOTIVOICE_PORT, word->text, size, Ekho::EMOTIVOICE_AMPLIFY_RATE);
         if (shortPcm) {
           callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
-          free(shortPcm);
-          shortPcm = NULL;
+          delete[] shortPcm;
+          shortPcm = nullptr;
         }
         break;
 
@@ -301,8 +301,8 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
     std::cerr << '\n';
           }*/
           callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
-          free(shortPcm);
-          shortPcm = NULL;
+          delete[] shortPcm;
+          shortPcm = nullptr;
         }
         break;
 
@@ -310,8 +310,8 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
         shortPcm = this->getPcmFromPiperServer(word->text, size, Ekho::PIPER_MANDARIN_PORT);
         if (shortPcm) {
           callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
-          free(shortPcm);
-          shortPcm = NULL;
+          delete[] shortPcm;
+          shortPcm = nullptr;
         }
         break;
     }
@@ -344,7 +344,7 @@ short* EkhoImpl::getPcmFromServer(int port, const string& text, int& size, float
   int sock = socket(AF_INET, SOCK_STREAM, 0);  
   if (sock == -1) {  
     std::cerr << "Failed to create socket" << std::endl;  
-    return NULL;
+    return nullptr;
   }  
 
   // 设置服务器地址结构体  
@@ -358,14 +358,14 @@ short* EkhoImpl::getPcmFromServer(int port, const string& text, int& size, float
   if (connect(sock, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1) {  
     std::cerr << "Failed to connect to server at port " << port << std::endl;  
     close(sock);  
-    return NULL;
+    return nullptr;
   }  
 
   // 发送数据  
   if (send(sock, text.c_str(), strlen(text.c_str()), 0) == -1) {  
       std::cerr << "Failed to send message" << std::endl;  
       close(sock);  
-      return NULL;
+      return nullptr;
   }  
 
   // 接收数据
@@ -375,7 +375,7 @@ short* EkhoImpl::getPcmFromServer(int port, const string& text, int& size, float
   if (recv(sock, buffer, sizeof(buffer), 0) == -1) {
     std::cerr << "Failed to receive message" << std::endl;  
     close(sock);
-    return NULL;
+    return nullptr;
   }
   //std::cout << "Received message: " << buffer << std::endl;  
 
@@ -395,14 +395,14 @@ short* EkhoImpl::getPcmFromServer(int port, const string& text, int& size, float
     if (amplifyRate != 1) {
       short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, amplifyRate);
       delete[] pcm;
-      pcm = NULL;
+      pcm = nullptr;
       return amplifiedPcm;
     } else {
       return pcm;
     }
   }
 
-  return NULL;
+  return nullptr;
 }
 
 // 通用 curl 接收 string 回调（全局写一次）
@@ -417,7 +417,7 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size, int port) 
   CURL* curl = curl_easy_init();
   if (!curl) {
       std::cerr << "Failed to initialize curl" << std::endl;
-      return NULL;
+      return nullptr;
   }
 
   // 2. Set POST data (JSON format)
@@ -438,8 +438,9 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size, int port) 
 
   // 3. Configure curl options
   struct curl_slist* headers = nullptr;
+  string portStr = std::to_string(port);
   headers = curl_slist_append(headers, "Content-Type: application/json");  // JSON header
-  std::string url = "http://127.0.0.1:" + std::to_string(port);
+  std::string url = "http://127.0.0.1:" + portStr;
 
   curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
   curl_easy_setopt(curl, CURLOPT_POST, 1L);          // Enable POST
@@ -481,16 +482,18 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size, int port) 
     if (mDebug) {
       cerr << "getPcmFromPiperServer: readPcmFromAudioFile size=" << size << endl;
     }
-    remove(tmpFilePath.c_str());
+    //remove(tmpFilePath.c_str());
+    return pcm;
 
     // amplify
+    /*
     short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, 0.8);
     delete[] pcm;
-    pcm = NULL;
-    return amplifiedPcm;
+    pcm = nullptr;
+    return amplifiedPcm;*/
   } else {
     // cerr << "getPcmFromPiperServer: 0 response" << endl;
   }
 
-  return NULL;
+  return nullptr;
 }

@@ -50,7 +50,7 @@ int main(int argc, char**argv) {
   ekho->synth3("123", pcmSize);
   cout << "pcm size: " << pcmSize << endl;
   delete(ekho);
-  ekho = NULL;
+  ekho = nullptr;
 
   // test Tibetan (need to install Tibetan data)
   /*
@@ -88,7 +88,7 @@ int main(int argc, char**argv) {
   sleep(1);
   cameron->stop();
   delete(cameron);
-  cameron = NULL;
+  cameron = nullptr;
   */
 
   // test dictionary

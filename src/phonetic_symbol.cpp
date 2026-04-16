@@ -143,7 +143,7 @@ namespace ekho {
             mSize = (int)sfinfo.frames * 2 * sfinfo.channels;
             if (mPcm) {
               delete[] mPcm;
-              mPcm = 0;
+              mPcm = nullptr;
             }
             mPcm = new char[mSize];
             samples = (int)sf_readf_short(sndfile, (short int*)mPcm, sfinfo.frames);

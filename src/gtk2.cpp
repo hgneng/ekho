@@ -1,9 +1,9 @@
 #ifdef HAVE_GTK2
 #include <gtk/gtk.h>
-static GtkTextBuffer *buffer_g = NULL;
-static GtkClipboard *clipboard_g = NULL;
+static GtkTextBuffer *buffer_g = nullptr;
+static GtkClipboard *clipboard_g = nullptr;
 static bool is_pause_g = false;
-static GtkWidget *window_g = NULL;
+static GtkWidget *window_g = nullptr;
 static GtkTextIter text_offset_g;
 
 static void continue_speak(void *para);
@@ -17,7 +17,7 @@ static void export_wav(GtkWidget *w, gpointer data) {
   dialog = gtk_file_chooser_dialog_new(
       "Save File", (GtkWindow *)window_g, GTK_FILE_CHOOSER_ACTION_SAVE,
       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_SAVE,
-      GTK_RESPONSE_ACCEPT, NULL);
+      GTK_RESPONSE_ACCEPT, nullptr);
   gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(dialog),
                                                  TRUE);
 
@@ -48,7 +48,7 @@ static void export_ogg(GtkWidget *w, gpointer data) {
   dialog = gtk_file_chooser_dialog_new(
       "Save File", (GtkWindow *)window_g, GTK_FILE_CHOOSER_ACTION_SAVE,
       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_SAVE,
-      GTK_RESPONSE_ACCEPT, NULL);
+      GTK_RESPONSE_ACCEPT, nullptr);
   gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(dialog),
                                                  TRUE);
 
@@ -80,7 +80,7 @@ static void export_mp3(GtkWidget *w, gpointer data) {
   dialog = gtk_file_chooser_dialog_new(
       "Save File", (GtkWindow *)window_g, GTK_FILE_CHOOSER_ACTION_SAVE,
       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_SAVE,
-      GTK_RESPONSE_ACCEPT, NULL);
+      GTK_RESPONSE_ACCEPT, nullptr);
   gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(dialog),
                                                  TRUE);
 
@@ -116,7 +116,7 @@ static void mycopy(GtkWidget *w, gpointer data) {
 }
 
 static void paste(GtkWidget *w, gpointer data) {
-  gtk_text_buffer_paste_clipboard(buffer_g, clipboard_g, NULL, true);
+  gtk_text_buffer_paste_clipboard(buffer_g, clipboard_g, nullptr, true);
 }
 
 static void select_all(GtkWidget *w, gpointer data) {
@@ -161,7 +161,7 @@ static void continue_speak(void *arg) {
           &text_offset_g, "\n",
           (GtkTextSearchFlags)(GTK_TEXT_SEARCH_TEXT_ONLY |
                                GTK_TEXT_SEARCH_VISIBLE_ONLY),
-          &start_match, &end_match, NULL)) {
+          &start_match, &end_match, nullptr)) {
     gtk_text_buffer_get_end_iter(buffer_g, &end_match);
   }
   gtk_text_buffer_remove_tag_by_name(buffer_g, "yellow_bg", &text_offset_g,
@@ -175,7 +175,7 @@ static void continue_speak(void *arg) {
             &text_offset_g, "\n",
             (GtkTextSearchFlags)(GTK_TEXT_SEARCH_TEXT_ONLY |
                                  GTK_TEXT_SEARCH_VISIBLE_ONLY),
-            &start_match, &end_match, NULL)) {
+            &start_match, &end_match, nullptr)) {
       gtk_text_buffer_get_end_iter(buffer_g, &end_match);
       //      gtk_text_buffer_get_iter_at_offset(buffer_g, &text_offset_g,
       //      offset - 1);
@@ -199,7 +199,7 @@ static void continue_speak(void *arg) {
       }
       if (strcmp(text, "") != 0) {
         gtk_widget_queue_draw(GTK_WIDGET(window_g));  // ??? refresh screen
-        ekho_g->speak(text, continue_speak, NULL);
+        ekho_g->speak(text, continue_speak, nullptr);
       }
     }
   }
@@ -207,7 +207,7 @@ static void continue_speak(void *arg) {
 
 static void speak_with_highlight(GtkWidget *w, gpointer data) {
   if (is_pause_g) {
-    resume(NULL, NULL);
+    resume(nullptr, nullptr);
   } else {
     GtkTextIter start, end, start_match, end_match;
     gchar *text;
@@ -222,7 +222,7 @@ static void speak_with_highlight(GtkWidget *w, gpointer data) {
       if (not gtk_text_iter_forward_search(
               &start, "\n", (GtkTextSearchFlags)(GTK_TEXT_SEARCH_TEXT_ONLY |
                                                  GTK_TEXT_SEARCH_VISIBLE_ONLY),
-              &start_match, &end_match, NULL)) {
+              &start_match, &end_match, nullptr)) {
         gtk_text_buffer_get_end_iter(buffer_g, &end_match);
         text = gtk_text_buffer_get_text(buffer_g, &start, &end_match, FALSE);
         if (isDebugging) {
@@ -238,7 +238,7 @@ static void speak_with_highlight(GtkWidget *w, gpointer data) {
         }
         gtk_text_buffer_apply_tag_by_name(buffer_g, "yellow_bg", &text_offset_g,
                                           &start_match);
-        ekho_g->speak(text, continue_speak, NULL);
+        ekho_g->speak(text, continue_speak, nullptr);
       }
     }
   }
@@ -246,7 +246,7 @@ static void speak_with_highlight(GtkWidget *w, gpointer data) {
 
 static void speak(GtkWidget *w, gpointer data) {
   if (is_pause_g) {
-    resume(NULL, NULL);
+    resume(nullptr, nullptr);
   } else {
     GtkTextIter start;
     GtkTextIter end;
@@ -269,7 +269,7 @@ static void my_pause(GtkWidget *w, gpointer data) {
 }
 
 static void stop(GtkWidget *w, gpointer data) {
-  resume(NULL, NULL);
+  resume(nullptr, nullptr);
   ekho_g->stop();
 }
 
@@ -277,7 +277,7 @@ static void stop(GtkWidget *w, gpointer data) {
 static void set_tempo(GtkWidget *w, gpointer data) {
   GtkWidget *dialog = gtk_dialog_new_with_buttons(
       "Set Speed", GTK_WINDOW(window_g), GTK_DIALOG_MODAL, GTK_STOCK_CANCEL,
-      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, NULL);
+      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, nullptr);
   GtkWidget *label =
       gtk_label_new("Please input speed delta in percent (-50 .. 100):");
   GtkWidget *entry = gtk_entry_new_with_max_length(3);
@@ -298,7 +298,7 @@ static void set_tempo(GtkWidget *w, gpointer data) {
 static void set_volume(GtkWidget *w, gpointer data) {
   GtkWidget *dialog = gtk_dialog_new_with_buttons(
       "Set Volume", GTK_WINDOW(window_g), GTK_DIALOG_MODAL, GTK_STOCK_CANCEL,
-      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, NULL);
+      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, nullptr);
   GtkWidget *label = gtk_label_new("Please input volume delta (-100 .. 100):");
   GtkWidget *entry = gtk_entry_new_with_max_length(5);
   int volume_delta = ekho_g->getVolume();
@@ -318,7 +318,7 @@ static void set_volume(GtkWidget *w, gpointer data) {
 static void set_pitch(GtkWidget *w, gpointer data) {
   GtkWidget *dialog = gtk_dialog_new_with_buttons(
       "Set Pitch", GTK_WINDOW(window_g), GTK_DIALOG_MODAL, GTK_STOCK_CANCEL,
-      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, NULL);
+      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, nullptr);
   GtkWidget *label = gtk_label_new("Please input pitch delta (-100 .. 100):");
   GtkWidget *entry = gtk_entry_new_with_max_length(5);
   int pitch_delta = ekho_g->getPitch();
@@ -338,7 +338,7 @@ static void set_pitch(GtkWidget *w, gpointer data) {
 static void set_rate(GtkWidget *w, gpointer data) {
   GtkWidget *dialog = gtk_dialog_new_with_buttons(
       "Set Rate", GTK_WINDOW(window_g), GTK_DIALOG_MODAL, GTK_STOCK_CANCEL,
-      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, NULL);
+      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, nullptr);
   GtkWidget *label =
       gtk_label_new("Please input rate delta in percent (-50 .. 100):");
   GtkWidget *entry = gtk_entry_new_with_max_length(3);
@@ -366,7 +366,7 @@ static void about(GtkWidget *w, gpointer data) {
       "http://creativecommons.org/licenses/GPL/2.0/\n\nTo get Commons Deed "
       "Lawyer-Readable description of this licese, please refer "
       "http://www.gnu.org/licenses/gpl-2.0.html",
-      "version", VERSION, "website", "http://www.eguidedog.net/ekho.php", NULL);
+      "version", VERSION, "website", "http://www.eguidedog.net/ekho.php", nullptr);
 }
 
 /* Returns a menubar widget made from the above menu */
@@ -374,18 +374,18 @@ static GtkWidget *get_menubar_menu(GtkWidget *window) {
   /* build file menu */
   GtkWidget *menu_item_wav = gtk_menu_item_new_with_mnemonic("Export to _WAV");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_wav), "activate",
-                            GTK_SIGNAL_FUNC(export_wav), NULL);
+                            GTK_SIGNAL_FUNC(export_wav), nullptr);
   GtkWidget *menu_item_ogg = gtk_menu_item_new_with_mnemonic("Export to _OGG");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_ogg), "activate",
-                            GTK_SIGNAL_FUNC(export_ogg), NULL);
+                            GTK_SIGNAL_FUNC(export_ogg), nullptr);
 #ifdef HAVE_MP3LAME
   GtkWidget *menu_item_mp3 = gtk_menu_item_new_with_mnemonic("Export to _MP3");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_mp3), "activate",
-                            GTK_SIGNAL_FUNC(export_mp3), NULL);
+                            GTK_SIGNAL_FUNC(export_mp3), nullptr);
 #endif
   GtkWidget *menu_item_quit = gtk_menu_item_new_with_mnemonic("_Quit");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_quit), "activate",
-                            GTK_SIGNAL_FUNC(on_window_destroy), NULL);
+                            GTK_SIGNAL_FUNC(on_window_destroy), nullptr);
 
   GtkWidget *menu_file = gtk_menu_new();
   GtkWidget *menu_item_file = gtk_menu_item_new_with_mnemonic("_File");
@@ -400,17 +400,17 @@ static GtkWidget *get_menubar_menu(GtkWidget *window) {
   /* build edit menu */
   GtkWidget *menu_item_cut = gtk_menu_item_new_with_mnemonic("Cu_t");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_cut), "activate",
-                            GTK_SIGNAL_FUNC(cut), NULL);
+                            GTK_SIGNAL_FUNC(cut), nullptr);
   GtkWidget *menu_item_copy = gtk_menu_item_new_with_mnemonic("_Copy");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_copy), "activate",
-                            GTK_SIGNAL_FUNC(mycopy), NULL);
+                            GTK_SIGNAL_FUNC(mycopy), nullptr);
   GtkWidget *menu_item_paste = gtk_menu_item_new_with_mnemonic("_Paste");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_paste), "activate",
-                            GTK_SIGNAL_FUNC(paste), NULL);
+                            GTK_SIGNAL_FUNC(paste), nullptr);
   GtkWidget *menu_item_select_all =
       gtk_menu_item_new_with_mnemonic("Sellect _All");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_select_all), "activate",
-                            GTK_SIGNAL_FUNC(select_all), NULL);
+                            GTK_SIGNAL_FUNC(select_all), nullptr);
 
   GtkWidget *menu_edit = gtk_menu_new();
   GtkWidget *menu_item_edit = gtk_menu_item_new_with_mnemonic("_Edit");
@@ -440,9 +440,9 @@ static GtkWidget *get_menubar_menu(GtkWidget *window) {
             ekho_g->mDict.mDataPath.c_str());
     exit(1);
   }
-  struct dirent *entry = NULL;
+  struct dirent *entry = nullptr;
   char lang_name[255] = {0};
-  while ((entry = readdir(dirp)) != NULL) {
+  while ((entry = readdir(dirp)) != nullptr) {
     if (strcmp(entry->d_name, "jyutping") == 0 ||
         strstr(entry->d_name, "jyutping-") == entry->d_name) {
       lang_name[0] = 0;
@@ -486,13 +486,13 @@ static GtkWidget *get_menubar_menu(GtkWidget *window) {
   /* build speech menu */
   GtkWidget *menu_item_speak = gtk_menu_item_new_with_mnemonic("_Speak");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_speak), "activate",
-                            GTK_SIGNAL_FUNC(speak), NULL);
+                            GTK_SIGNAL_FUNC(speak), nullptr);
   GtkWidget *menu_item_pause = gtk_menu_item_new_with_mnemonic("_Pause");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_pause), "activate",
-                            GTK_SIGNAL_FUNC(my_pause), NULL);
+                            GTK_SIGNAL_FUNC(my_pause), nullptr);
   GtkWidget *menu_item_stop = gtk_menu_item_new_with_mnemonic("S_top");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_paste), "activate",
-                            GTK_SIGNAL_FUNC(stop), NULL);
+                            GTK_SIGNAL_FUNC(stop), nullptr);
 
   GtkWidget *menu_speech = gtk_menu_new();
   GtkWidget *menu_item_speech = gtk_menu_item_new_with_mnemonic("_Speech");
@@ -504,16 +504,16 @@ static GtkWidget *get_menubar_menu(GtkWidget *window) {
   /* build option menu */
   GtkWidget *menu_item_speed = gtk_menu_item_new_with_mnemonic("_Speed");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_speed), "activate",
-                            GTK_SIGNAL_FUNC(set_tempo), NULL);
+                            GTK_SIGNAL_FUNC(set_tempo), nullptr);
   GtkWidget *menu_item_pitch = gtk_menu_item_new_with_mnemonic("_Pitch");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_pitch), "activate",
-                            GTK_SIGNAL_FUNC(set_pitch), NULL);
+                            GTK_SIGNAL_FUNC(set_pitch), nullptr);
   GtkWidget *menu_item_volume = gtk_menu_item_new_with_mnemonic("_Volume");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_volume), "activate",
-                            GTK_SIGNAL_FUNC(set_volume), NULL);
+                            GTK_SIGNAL_FUNC(set_volume), nullptr);
   GtkWidget *menu_item_rate = gtk_menu_item_new_with_mnemonic("_Rate");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_rate), "activate",
-                            GTK_SIGNAL_FUNC(set_rate), NULL);
+                            GTK_SIGNAL_FUNC(set_rate), nullptr);
 
   GtkWidget *menu_option = gtk_menu_new();
   GtkWidget *menu_item_option = gtk_menu_item_new_with_mnemonic("_Options");
@@ -526,7 +526,7 @@ static GtkWidget *get_menubar_menu(GtkWidget *window) {
   /* build help menu */
   GtkWidget *menu_item_about = gtk_menu_item_new_with_mnemonic("_About");
   gtk_signal_connect_object(GTK_OBJECT(menu_item_about), "activate",
-                            GTK_SIGNAL_FUNC(about), NULL);
+                            GTK_SIGNAL_FUNC(about), nullptr);
 
   GtkWidget *menu_help = gtk_menu_new();
   GtkWidget *menu_item_help = gtk_menu_item_new_with_mnemonic("_Help");
@@ -568,7 +568,7 @@ int xmain(int *argc, char ***argv) {
   /* Set a decent default size for the window. */
   gtk_window_set_default_size(GTK_WINDOW(window_g), 400, 300);
   g_signal_connect(G_OBJECT(window_g), "destroy", G_CALLBACK(on_window_destroy),
-                   NULL);
+                   nullptr);
 
   GtkWidget *vbox = gtk_vbox_new(FALSE, 2);
   gtk_container_add(GTK_CONTAINER(window_g), vbox);
@@ -581,7 +581,7 @@ int xmain(int *argc, char ***argv) {
   /* Popup Menu for editing */
 
   /* Create a scroll window */
-  GtkWidget *pScrollWin = gtk_scrolled_window_new(NULL, NULL);
+  GtkWidget *pScrollWin = gtk_scrolled_window_new(nullptr, nullptr);
   gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(pScrollWin),
                                  GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
   gtk_box_pack_start(GTK_BOX(vbox), pScrollWin, 1, 1, 0);
@@ -595,7 +595,7 @@ int xmain(int *argc, char ***argv) {
   buffer_g = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view));
 
   gtk_text_buffer_create_tag(buffer_g, "yellow_bg", "background", "yellow",
-                             NULL);
+                             nullptr);
 
   /* Set the default buffer text. */
   //    gtk_text_buffer_set_text (buffer_g, "我挥一挥衣袖，不带走一片云彩", -1);
