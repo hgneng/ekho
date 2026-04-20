@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2022 by Cameron Wong                                 *
+ * Copyright (C) 2008-2026 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -33,6 +33,9 @@ bool Word::zhttsEnabled = false;
 bool Word::piperEnabled = false;
 map<string, list<WordPinyin> > Word::voiceFilesMap;
 
+/**
+ * Load pre-recording word wave into voiceFilesMap
+ */
 void Word::loadWordVoiceFiles(string dir) {
   // scan files in voice dir
   DIR *dirp;
@@ -100,6 +103,9 @@ void Word::loadWordVoiceFiles(string dir) {
   // cerr << "word count: " << wordCount << endl;
 }
 
+/**
+ * Get next possible (English letters and numbers chars) pinyin string from text
+ */
 string Word::getNextPinyin(const list<Character>& charList, list<Character>::iterator& itor) {
   string pinyin;
   int length = 0;
@@ -206,6 +212,9 @@ string Word::findPinyinVoiceFile(list<WordPinyin>& wordPinyinList,
   return "";
 }
 
+/**
+ * Split text into words
+ */
 list<Word> Word::split(string text) {
   list<Word> wordlist;
   TextType type;
@@ -438,7 +447,7 @@ void Word::addChinese(list<Word>& wordList, const string& text) {
     } else {
       itor3 = itor;
       itor3++;
-      if (itor3 != phonList.end()) {
+      //if (itor3 != phonList.end()) { // use third party TTS only when it's more than one char.
         if (Word::emotiVoiceEnabled) {
           // 没有缓存匹配，并且有多个字，调用EmotiVoice合成
           wordList.push_back(Word(text, EMOTIVOICE));
@@ -450,7 +459,7 @@ void Word::addChinese(list<Word>& wordList, const string& text) {
           wordList.push_back(Word(text, PIPER));
           return;
         }
-      }
+      //}
 
       phonList2.push_back(*itor);
     }
