@@ -542,13 +542,19 @@ void Audio::setTempDirectory(string dir) {
 
 // It's caller's responsibility to delete return short space
 short* Audio::readPcmFromAudioFile(string filepath, int& size) {
+  if (filepath.empty()) {
+    cerr << "Audio::readPcmFromAudioFile: empty filepath" << endl;
+    size = 0;
+    return nullptr;
+  }
+
   if (filepath.back() == '3') {
     // SNDFILE默认配置下不支持MP3: http://www.mega-nerd.com/libsndfile/FAQ.html#Q020
     return this->readPcmFromMp3File(filepath, size);
   }
 
   SF_INFO sfinfo = {0};
-  SNDFILE *sndfile = sf_open(filepath.c_str(), SFM_READ, &sfinfo);
+  SNDFILE* sndfile = sf_open(filepath.c_str(), SFM_READ, &sfinfo);
   if (!sndfile) {
     cerr << "Fail to open " << filepath << endl;
     return nullptr;
@@ -561,9 +567,12 @@ short* Audio::readPcmFromAudioFile(string filepath, int& size) {
   }
 
   size = sfinfo.frames;
-  short *pcm = new short[size];
+  short* pcm = new short[size];
 
-  sf_readf_short(sndfile, pcm, size);
+  int readCount = sf_readf_short(sndfile, pcm, size);
+  if (Audio::debug) {
+    cerr << "Audio::readPcmFromAudioFile sf_readf_short(" << size << ") => " << readCount << endl;
+  }
   sf_close(sndfile);
 
   return pcm;

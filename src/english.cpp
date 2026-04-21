@@ -151,6 +151,7 @@ const char* EkhoImpl::getEnglishPcm(string text, int &size) {
     size *= 2; // convert frames to chars
     return pcm;
   } else if (Ekho::piperEnglishEnabled) {
+    // @fixme: not sure whether this will crash when delete[]
     const char* pcm = (const char*)this->getPcmFromPiperServer(text, size, Ekho::PIPER_ENGLISH_PORT);
     size *= 2; // convert frames to chars
     return pcm;

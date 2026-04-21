@@ -303,8 +303,8 @@ bool Ekho::enableZhtts(bool autoStart) {
 
 bool Ekho::enablePiper(bool autoStart) {
   curl_global_init(CURL_GLOBAL_ALL);  // Initialize curl globally
-  //this->enablePiperMandarin();
-  this->enablePiperEnglish();
+  this->enablePiperMandarin();
+  //this->enablePiperEnglish();
 }
 
 bool Ekho::enablePiperMandarin() {

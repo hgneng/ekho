@@ -389,6 +389,8 @@ short* EkhoImpl::getPcmFromServer(int port, const string& text, int& size, float
 
     if (mDebug) {
       cerr << "getPcmFromServer: path=" << buffer << ", size=" << size << endl;
+    } else {
+      remove(buffer);
     }
 
     // amplify
@@ -405,11 +407,11 @@ short* EkhoImpl::getPcmFromServer(int port, const string& text, int& size, float
   return nullptr;
 }
 
-// 通用 curl 接收 string 回调（全局写一次）
-size_t curlWriteToString(void* contents, size_t size, size_t nmemb, std::string* s) {
-  size_t newLength = size * nmemb;
-  s->append((char*)contents, newLength);
-  return newLength;
+// 回调：直接把 CURL 数据写入文件（不存字符串！不占内存！）
+size_t curlWriteToFile(void* contents, size_t size, size_t nmemb, std::ofstream* file) {
+  size_t n = size * nmemb;
+  file->write((char*)contents, n);
+  return n;
 }
 
 // It's caller's responsibility to delete the returned pointer
@@ -449,9 +451,10 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size, int port) 
   curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, postData.length());
 
   // 4. Set response callback
-  std::string response;
-  curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlWriteToString);
-  curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+  string tmpFilePath = Audio::genTempFilename() + ".wav";
+  std::ofstream wavfile(tmpFilePath, std::ios::binary); // 必须加 binary
+  curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlWriteToFile);
+  curl_easy_setopt(curl, CURLOPT_WRITEDATA, &wavfile);
 
   // 5. Send request
   //CURLcode res = 
@@ -467,33 +470,23 @@ short* EkhoImpl::getPcmFromPiperServer(const string& text, int& size, int port) 
   curl_slist_free_all(headers);
   curl_easy_cleanup(curl);
 
-  if (response.length() > 0) {
-    string tmpFilePath = Audio::genTempFilename() + ".wav";
-    std::ofstream wavfile(tmpFilePath, std::ios::binary); // 必须加 binary
-    wavfile.write(response.data(), response.size());
-    wavfile.close();
+  wavfile.close();
 
-    if (mDebug) {
-      cerr << "getPcmFromPiperServer: path=" << tmpFilePath << endl;
-    }
-    
-    short* pcm = this->audio->readPcmFromAudioFile(tmpFilePath, size);
+  short* pcm = this->audio->readPcmFromAudioFile(tmpFilePath, size);
 
-    if (mDebug) {
-      cerr << "getPcmFromPiperServer: readPcmFromAudioFile size=" << size << endl;
-    }
-    remove(tmpFilePath.c_str());
-    return pcm;
-
-    // amplify
-    /*
-    short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, 0.8);
-    delete[] pcm;
-    pcm = nullptr;
-    return amplifiedPcm;*/
+  if (mDebug) {
+    cerr << "getPcmFromPiperServer: path=" << tmpFilePath << ", readPcmFromAudioFile size=" << size << endl;
   } else {
-    // cerr << "getPcmFromPiperServer: 0 response" << endl;
+    remove(tmpFilePath.c_str());
   }
+  return pcm;
+
+  // amplify
+  /*
+  short* amplifiedPcm = this->audio->amplifyPcm(pcm, size, 0.8);
+  delete[] pcm;
+  pcm = nullptr;
+  return amplifiedPcm;*/
 
   return nullptr;
 }

@@ -85,7 +85,6 @@ class Ekho {
     bool checkZhttsServerStarted();
     bool checkPiperMandarinServerStarted();
     bool checkPiperEnglishServerStarted();
-    string buildPiperRequest(const string& text);
 
   public:
     const static int BUFFER_SIZE = 40960;
