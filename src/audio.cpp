@@ -570,9 +570,6 @@ short* Audio::readPcmFromAudioFile(string filepath, int& size) {
   short* pcm = new short[size];
 
   int readCount = sf_readf_short(sndfile, pcm, size);
-  if (Audio::debug) {
-    cerr << "Audio::readPcmFromAudioFile sf_readf_short(" << size << ") => " << readCount << endl;
-  }
   sf_close(sndfile);
 
   return pcm;

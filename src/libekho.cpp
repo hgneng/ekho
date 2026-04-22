@@ -287,11 +287,7 @@ bool Ekho::enableZhtts(bool autoStart) {
     //if (mDebug) {
     cerr << "starting zhtts server..." << endl;
     //}
-    string cmd = R"(bash -c "
-      source /opt/miniconda3/etc/profile.d/conda.sh &&
-      conda activate py38 &&
-      python /usr/bin/zhttsServer.py
-      ")";
+    string cmd = "/opt/miniconda3/envs/py38/bin/python /usr/bin/zhttsServer.py &";
     system(cmd.c_str());
 
     std::this_thread::sleep_for(std::chrono::seconds(10));
@@ -303,8 +299,8 @@ bool Ekho::enableZhtts(bool autoStart) {
 
 bool Ekho::enablePiper(bool autoStart) {
   curl_global_init(CURL_GLOBAL_ALL);  // Initialize curl globally
-  this->enablePiperMandarin();
-  //this->enablePiperEnglish();
+  //this->enablePiperMandarin();
+  return this->enablePiperEnglish();
 }
 
 bool Ekho::enablePiperMandarin() {

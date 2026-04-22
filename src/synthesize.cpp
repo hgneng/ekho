@@ -208,6 +208,7 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
               delete[] pPcm;
               pPcm = nullptr;
               this->audio->setSampleRate(this->audio->sampleRate);
+              finishWritePcm(); // flush English pcm in case of different sample rate
             }
           }
         }
@@ -291,27 +292,26 @@ int EkhoImpl::synth2(string text, SynthCallback* callback, void* userdata) {
         break;
 
       case ZHTTS:
+        finishWritePcm(); // flush pcm in case of different sample rate
         shortPcm = this->getPcmFromServer(Ekho::ZHTTS_PORT, word->text, size, Ekho::ZHTTS_AMPLIFY_RATE);
-        if (shortPcm) {/*
-          if (mDebug) {
-    std::cerr << "Array values: ";
-    for (size_t i = 0; i < size; ++i) {
-        std::cerr << shortPcm[i] << ' ';
-    }
-    std::cerr << '\n';
-          }*/
+        if (shortPcm) {
           callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
           delete[] shortPcm;
           shortPcm = nullptr;
+          this->audio->setSampleRate(this->audio->sampleRate);
+          finishWritePcm(); // flush pcm in case of different sample rate
         }
         break;
 
       case PIPER:
+        finishWritePcm(); // flush pcm in case of different sample rate
         shortPcm = this->getPcmFromPiperServer(word->text, size, Ekho::PIPER_MANDARIN_PORT);
         if (shortPcm) {
           callback(shortPcm, size, userdata, OVERLAP_QUIET_PART);
           delete[] shortPcm;
           shortPcm = nullptr;
+          this->audio->setSampleRate(this->audio->sampleRate);
+          finishWritePcm(); // flush pcm in case of different sample rate
         }
         break;
     }
