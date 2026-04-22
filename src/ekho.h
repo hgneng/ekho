@@ -204,8 +204,8 @@ class Ekho {
     bool enableEmotiVoice(bool autoStart = true); // use EmotiVoice to synthesize Mandarin
     bool enableZhtts(bool autoStart = true); // use zhtts to synthesize Mandarin
     bool enablePiper(bool autoStart = true); // use piper to synthesize Mandarin and English
-    bool enablePiperMandarin();
-    bool enablePiperEnglish();
+    bool enablePiperMandarin(bool autoStart = true);
+    bool enablePiperEnglish(bool autoStart = true);
     bool enablePiperModel(string model, int port);
 
     void setSpeakIsolatedPunctuation(bool b = true);

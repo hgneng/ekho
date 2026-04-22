@@ -59,8 +59,6 @@ Syntax: ekho [option] [text]\n\
         Use EmotiVoice to sythesize Mandarin.\n\
 --zhtts\n\
         Use zhtts to sythesize Mandarin.\n\
---piper\n\
-        Use piper to sythesize Mandarin and English.\n\
 -l, --symbol\n\
         List phonetic symbol of text. Characters' symbols are splited by space.\n\
 -f, --file=FILE\n\
@@ -498,9 +496,13 @@ int main(int argc, char *argv[]) {
     ekho_g->setRate(rate_delta);
     if (useEmotiVoice) {
       ekho_g->enableEmotiVoice();
-    } else if (useZhtts) {
+    }
+    
+    if (useZhtts) {
       ekho_g->enableZhtts();
-    } else if (usePiper) {
+    }
+    
+    if (usePiper) {
       ekho_g->enablePiper();
     }
 

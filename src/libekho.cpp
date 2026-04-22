@@ -303,30 +303,34 @@ bool Ekho::enablePiper(bool autoStart) {
   return this->enablePiperEnglish();
 }
 
-bool Ekho::enablePiperMandarin() {
+bool Ekho::enablePiperMandarin(bool autoStart) {
   // 先检查piper服务进程是否存在，再确认启用。
   if (this->checkPiperMandarinServerStarted()) {
     return true;
   }
 
-  if (this->enablePiperModel("zh_CN-xiao_ya-medium", 5000)) {
-    if (this->checkPiperMandarinServerStarted()) {
-      return true;
+  if (autoStart) {
+    if (this->enablePiperModel("zh_CN-xiao_ya-medium", 5000)) {
+      if (this->checkPiperMandarinServerStarted()) {
+        return true;
+      }
     }
   }
 
   return false;
 }
 
-bool Ekho::enablePiperEnglish() {
+bool Ekho::enablePiperEnglish(bool autoStart) {
   // 先检查piper服务进程是否存在，再确认启用。
   if (this->checkPiperEnglishServerStarted()) {
     return true;
   }
 
-  if (this->enablePiperModel("en_US-amy-low", 5001)) {
-    if (this->checkPiperEnglishServerStarted()) {
-      return true;
+  if (autoStart) {
+    if (this->enablePiperModel("en_US-amy-low", 5001)) {
+      if (this->checkPiperEnglishServerStarted()) {
+        return true;
+      }
     }
   }
 

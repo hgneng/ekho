@@ -64,6 +64,8 @@ endif
 	cp -R $(srcdir)/ekho-data/piper $(distdir)/ekho-data/
 	cp $(srcdir)/install.pl $(distdir)/
 	cp $(srcdir)/deploy.sh $(distdir)/
+	cp $(srcdir)/deploy_tts.sh $(distdir)/
+	cp -R $(srcdir)/zhtts.tar.gz $(distdir)/
 	find $(distdir) -name ".svn" | xargs rm -rf
 	find $(distdir) -name ".git" | xargs rm -rf
 
