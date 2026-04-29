@@ -16,13 +16,12 @@ done
 
 sudo date
 sudo apt update
-export HF_ENDPOINT="https://hf-mirror.com"
-./deploy_piper.sh
 
 if [ $DEBUG -eq 1 ]
 then
 sudo rm -rf ~/ekho-logs
 mkdir ~/ekho-logs
+./deploy_tts.sh 2>&1 | tee ~/ekho-logs/install.log
 ./install.pl 2>&1 | tee ~/ekho-logs/install.log
 orca --replace&
 echo 'finish install. collecting logs'
@@ -47,5 +46,6 @@ echo 'finish collecting logs. uploading logs'
 curl -F"operation=upload" -F"file=@$HOME/ekho-logs.tar.xz" https://eguidedog.net/ekho/upload.php
 echo 'finish uploading'
 else
+  ./deploy_tts.sh
   ./install.pl
 fi

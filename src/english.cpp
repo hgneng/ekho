@@ -151,9 +151,10 @@ const char* EkhoImpl::getEnglishPcm(string text, int &size) {
     size *= 2; // convert frames to chars
     return pcm;
   } else if (Ekho::piperEnglishEnabled) {
-    // @fixme: not sure whether this will crash when delete[]
-    this->audio->setSampleRate(22050);
+    // 这个地方不知道为什么这样设置反而不对，明明是要把22050输入源转换成16000输出采样率的
+    //this->audio->setSampleRate(22050);
     const char* pcm = (const char*)this->getPcmFromPiperServer(text, size, Ekho::PIPER_ENGLISH_PORT);
+    // @fixme: not sure whether this will crash when delete[]
     size *= 2; // convert frames to chars
     return pcm;
   } else {
