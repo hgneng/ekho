@@ -157,7 +157,7 @@ static bool read_stdin(char **text) {
     strcat(buffer, line.c_str());
   }
   buffer[size] = 0;
-
+/*
   if (isDebugging) {
     ofstream myfile;
     myfile.open("/tmp/ekho.debug");
@@ -165,7 +165,7 @@ static bool read_stdin(char **text) {
     myfile << buffer << endl;
     myfile.close();
     cerr << "finish reading" << endl;
-  }
+  }*/
 
   if (*text) free(*text);
   *text = buffer;

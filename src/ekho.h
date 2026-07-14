@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2024 by Cameron Wong                                 *
+ * Copyright (C) 2008-2026 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                       *
@@ -90,11 +90,11 @@ class Ekho {
     const static int BUFFER_SIZE = 40960;
     const static int MAX_CLIENTS = 100;
     const static int EMOTIVOICE_PORT = 20491;
-    const static constexpr float EMOTIVOICE_AMPLIFY_RATE = 2;
+    const static constexpr float EMOTIVOICE_AMPLIFY_RATE = 2.0f;
     const static int ZHTTS_PORT = 20501;
-    const static constexpr float ZHTTS_AMPLIFY_RATE = 1;
+    const static constexpr float ZHTTS_AMPLIFY_RATE = 1.0f;
     const static int COQUI_PORT = 20492;
-    const static constexpr float COQUI_AMPLIFY_RATE = 1;
+    const static constexpr float COQUI_AMPLIFY_RATE = 1.0f;
     const static int COQUI_SAMPLE_RATE = 22050;
     const static int PIPER_ENGLISH_PORT = 5001;
     const static int PIPER_MANDARIN_PORT = 5000;

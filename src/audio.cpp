@@ -494,6 +494,34 @@ void Audio::play(const string& path) {
   sf_close(sndfile);
 }
 
+std::string Audio::getTempDir()
+{
+    // 读取环境变量 TMPDIR
+    const char* env_tmpdir = std::getenv("TMPDIR");
+    std::string temp_path;
+
+    if (env_tmpdir != nullptr && std::strlen(env_tmpdir) > 0)
+    {
+        temp_path = env_tmpdir;
+        // 可选：自动补末尾斜杠，方便拼接文件
+        if (temp_path.back() != '/')
+            temp_path += '/';
+
+        // 校验目录是否存在，不存在则退回/tmp
+        struct stat stat_buf{};
+        if (stat(temp_path.c_str(), &stat_buf) != 0 || !S_ISDIR(stat_buf.st_mode))
+        {
+            temp_path = "/tmp/";
+        }
+    }
+    else
+    {
+        // TMPDIR未设置，使用默认 /tmp
+        temp_path = "/tmp/";
+    }
+    return temp_path;
+}
+
 // generate temp filename
 // to be improve...
 string Audio::genTempFilename() {
@@ -502,7 +530,7 @@ string Audio::genTempFilename() {
 #ifdef ENABLE_WIN32
     tempFilePath = "\\TEMP\\ekho";
 #else
-    tempFilePath = "/tmp/ekho";
+    tempFilePath = Audio::getTempDir() + "ekho";
 #endif
   } else {
     tempFilePath = Audio::tempDirectory;
@@ -569,7 +597,7 @@ short* Audio::readPcmFromAudioFile(string filepath, int& size) {
   size = sfinfo.frames;
   short* pcm = new short[size];
 
-  int readCount = sf_readf_short(sndfile, pcm, size);
+  sf_readf_short(sndfile, pcm, size);
   sf_close(sndfile);
 
   return pcm;
