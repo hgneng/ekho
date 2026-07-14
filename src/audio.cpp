@@ -500,7 +500,7 @@ std::string Audio::getTempDir()
     const char* env_tmpdir = std::getenv("TMPDIR");
     std::string temp_path;
 
-    if (env_tmpdir != nullptr && std::strlen(env_tmpdir) > 0)
+    if (env_tmpdir != nullptr && strlen(env_tmpdir) > 0)
     {
         temp_path = env_tmpdir;
         // 可选：自动补末尾斜杠，方便拼接文件
