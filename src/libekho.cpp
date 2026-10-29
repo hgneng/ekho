@@ -171,14 +171,20 @@ void Ekho::disableSsml() {
 
 long Ekho::getAvailableMemory() {
   std::uint64_t availableMemory = 0;
-#if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+  
+#if defined(__APPLE__) && defined(__MACH__)
+  long pages = sysconf(_SC_PHYS_PAGES);
+  long page_size = sysconf(_SC_PAGESIZE);
+  availableMemory = pages * page_size;
+#elif defined(__linux__) || defined(__unix__)
   long pages = sysconf(_SC_AVPHYS_PAGES);
   long page_size = sysconf(_SC_PAGESIZE);
   availableMemory = pages * page_size;
+#endif
+
   if (mDebug) {
     cerr << "getAvailableMemory:" << availableMemory << endl;
   }
-#endif
 
   return availableMemory;
 }

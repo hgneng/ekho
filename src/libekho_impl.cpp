@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright (C) 2008-2024 by Cameron Wong                                 *
+ * Copyright (C) 2008-2026 by Cameron Wong                                 *
  * name in passport: HUANG GUANNENG                                        *
  * email: hgneng at gmail.com                                              *
  * website: https://eguidedog.net                                          *
@@ -95,6 +95,7 @@ int EkhoImpl::init(void) {
 
   memset(mAlphabetPcmCache, 0, 26 * sizeof(const char*));
   memset(mAlphabetPcmSize, 0, 26 * sizeof(int));
+  //memset(mPendingPcm, 0, PENDING_PCM_FRAMES * sizeof(short));
 
   mPuncMode = EKHO_PUNC_SOME;
 

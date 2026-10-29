@@ -97,6 +97,7 @@ class Audio {
 
     // tools
     static void setTempDirectory(string dir);
+    static string getTempDir();
     static string genTempFilename();
 
     void initMp3Processor();
