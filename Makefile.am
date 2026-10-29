@@ -81,7 +81,8 @@ all: all-am speechd
 
 speechd:
 if ENABLE_SPEECHD
-	cd $(srcdir)/speechd-api && ./build.sh && ./configure  --disable-doc --prefix=/usr && make
+	test -f config.rpath || cp /usr/share/gettext/config.rpath config.rpath
+	cd $(srcdir)/speechd-api && ./build.sh && ./configure  --disable-doc --prefix=/usr && make MP3LAME_LIBS="$(LIBEKHO_LIB)"
 endif
 
 if ENABLE_SPEECHD
