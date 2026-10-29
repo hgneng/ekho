@@ -40,7 +40,7 @@ $ sudo make install
 Some configure options:
 --enable-festival      Speak English through Festival.
 --enable-speechd       Enable speech-dispatcher API and work with screen reader like Orca. (You also need to do some extra setup. If you don't know how to setup, just run ./install.pl)
---with-mp3lame=yes     Enable MP3 export function. This option is conflict to --enable-speechd.
+--with-mp3lame=yes     Enable MP3 export function.
 
 To install and setup the speech-dispatcher, please run one of following commands (only one, it will overwrite previous setting):
 $ ./install.pl Mandarin
