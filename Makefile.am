@@ -79,7 +79,7 @@ endif
 
 all: all-am speechd
 
-speechd:
+speechd: libekho.a
 if ENABLE_SPEECHD
 	test -f config.rpath || cp /usr/share/gettext/config.rpath config.rpath
 	cd $(srcdir)/speechd-api && ./build.sh && ./configure  --disable-doc --prefix=/usr && make MP3LAME_LIBS="$(LIBEKHO_LIB)"
